@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
+    /// If you are using the versioning feature, note this API will always update the $LATEST
+    /// version of your Lambda function. For information about the versioning feature, see
+    /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+    /// Lambda Function Versioning and Aliases</a>. 
+    /// </para><para>
     /// This operation requires permission for the <code>lambda:UpdateFunctionConfiguration</code>
     /// action.
     /// </para>
@@ -62,11 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
-        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
-        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
-        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// <para>The name of the Lambda function.</para><para> You can specify a function name (for example, <code>Thumbnail</code>) or you can
+        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
+        /// AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>).
+        /// Note that the length constraint applies only to the ARN. If you specify only the function
+        /// name, it is limited to 64 character in length. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -77,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The function that Lambda calls to begin executing your function. For Node.js, it is
-        /// the <i>module-name.export</i> value in your function. </para>
+        /// the <code>module-name.export</code> value in your function. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,6 +112,28 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more security groups IDs in your VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more subnet IDs in your VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_SubnetIds")]
+        public System.String[] VpcConfig_SubnetId { get; set; }
         #endregion
         
         #region Parameter Timeout
@@ -155,6 +182,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.Role = this.Role;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupIds = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_SubnetId != null)
+            {
+                context.VpcConfig_SubnetIds = new List<System.String>(this.VpcConfig_SubnetId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -191,6 +226,35 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout.Value;
+            }
+            
+             // populate VpcConfig
+            bool requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.Lambda.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupIds != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupIds;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
+            if (cmdletContext.VpcConfig_SubnetIds != null)
+            {
+                requestVpcConfig_vpcConfig_SubnetId = cmdletContext.VpcConfig_SubnetIds;
+            }
+            if (requestVpcConfig_vpcConfig_SubnetId != null)
+            {
+                request.VpcConfig.SubnetIds = requestVpcConfig_vpcConfig_SubnetId;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
             }
             
             CmdletOutput output;
@@ -233,6 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? MemorySize { get; set; }
             public System.String Role { get; set; }
             public System.Int32? Timeout { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
+            public List<System.String> VpcConfig_SubnetIds { get; set; }
         }
         
     }

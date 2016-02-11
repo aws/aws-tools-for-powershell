@@ -28,9 +28,12 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Using this API you can update function version to which the alias points to and alias
-    /// description. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html">Introduction
-    /// to AWS Lambda Aliases</a><para>
+    /// Using this API you can update the function version to which the alias points and the
+    /// alias description. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
+    /// to AWS Lambda Aliases</a>.
+    /// 
+    ///  
+    /// <para>
     /// This requires permission for the lambda:UpdateAlias action.
     /// </para>
     /// </summary>
@@ -46,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>You can optionally change the description of the alias using this parameter.</para>
+        /// <para>You can change the description of the alias using this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>Using this parameter you can optionally change the Lambda function version to which
-        /// the alias to points to.</para>
+        /// <para>Using this parameter you can change the Lambda function version to which the alias
+        /// points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

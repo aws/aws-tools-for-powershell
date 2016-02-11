@@ -28,9 +28,12 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates an alias to the specified Lambda function version. For more information, see
-    /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html">Introduction
-    /// to AWS Lambda Aliases</a><para>
+    /// Creates an alias that points to the specified Lambda function version. For more information,
+    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
+    /// to AWS Lambda Aliases</a>.
+    /// 
+    ///  Alias names are unique for a given function. 
+    /// <para>
     /// This requires permission for the lambda:CreateAlias action.
     /// </para>
     /// </summary>
@@ -76,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name for the alias your creating.</para>
+        /// <para>Name for the alias you are creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

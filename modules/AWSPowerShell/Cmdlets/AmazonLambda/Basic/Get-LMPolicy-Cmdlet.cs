@@ -28,12 +28,17 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the resource policy, containing a list of permissions that apply to a specific
-    /// to an ARN that you specify via the <code>Qualifier</code> paramter. 
+    /// Returns the resource policy associated with the specified Lambda function.
     /// 
     ///  
     /// <para>
-    /// For informration about adding permissions, see <a>AddPermission</a>.
+    ///  If you are using the versioning feature, you can get the resource policy associated
+    /// with the specific Lambda function version or alias by specifying the version or alias
+    /// name using the <code>Qualifier</code> parameter. For more information about versioning,
+    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+    /// Lambda Function Versioning and Aliases</a>. 
+    /// </para><para>
+    /// For information about adding permissions, see <a>AddPermission</a>.
     /// </para><para>
     /// You need permission for the <code>lambda:GetPolicy action.</code></para>
     /// </summary>
@@ -50,11 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Function name whose resource policy you want to retrieve. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
-        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
-        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
-        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// <para>Function name whose resource policy you want to retrieve. </para><para> You can specify the function name (for example, <code>Thumbnail</code>) or you can
+        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
+        /// If you are using versioning, you can also provide a qualified function ARN (ARN that
+        /// is qualified with function version or alias name as suffix). AWS Lambda also allows
+        /// you to specify only the function name with the account ID qualifier (for example,
+        /// <code>account-id:Thumbnail</code>). Note that the length constraint applies only to
+        /// the ARN. If you specify only the function name, it is limited to 64 character in length.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>You can specify this optional query parameter to specify function version or alias
-        /// name in which case this API will return all permissions associated with the specific
-        /// ARN. If you don't provide this parameter, the API will return permissions that apply
-        /// to the unqualified function ARN. </para>
+        /// <para>You can specify this optional query parameter to specify a function version or an
+        /// alias name in which case this API will return all permissions associated with the
+        /// specific qualified ARN. If you don't provide this parameter, the API will return permissions
+        /// that apply to the unqualified function ARN. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

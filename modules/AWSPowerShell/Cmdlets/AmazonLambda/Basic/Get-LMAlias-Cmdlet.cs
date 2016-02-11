@@ -29,9 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Returns the specified alias information such as the alias ARN, description, and function
-    /// version it is pointing to. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html">Introduction
-    /// to AWS Lambda Aliases</a><para>
-    /// This requires permission for the lambda:GetAlias action.
+    /// version it is pointing to. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
+    /// to AWS Lambda Aliases</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This requires permission for the <code>lambda:GetAlias</code> action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMAlias")]
@@ -47,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Function name for which the alias is created. An alias is a subresource that exists
-        /// only in the context of an existing Lambda function. So you must specify the function
+        /// only in the context of an existing Lambda function so you must specify the function
         /// name.</para>
         /// </para>
         /// </summary>

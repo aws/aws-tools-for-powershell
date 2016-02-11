@@ -29,13 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Returns a list of event source mappings you created using the <code>CreateEventSourceMapping</code>
-    /// (see <a>CreateEventSourceMapping</a>), where you identify a stream as an event source.
-    /// This list does not include Amazon S3 event sources. 
+    /// (see <a>CreateEventSourceMapping</a>). 
     /// 
     ///  
     /// <para>
     /// For each mapping, the API returns configuration information. You can optionally specify
     /// filters to retrieve specific event source mappings.
+    /// </para><para>
+    /// If you are using the versioning feature, you can get list of event source mappings
+    /// for a specific Lambda function version or an alias as described in the <code>FunctionName</code>
+    /// parameter. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
+    /// Lambda Function Versioning and Aliases</a>. 
     /// </para><para>
     /// This operation requires permission for the <code>lambda:ListEventSourceMappings</code>
     /// action.
@@ -65,11 +69,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The name of the Lambda function.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
-        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
-        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
-        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// <para>The name of the Lambda function.</para><para> You can specify the function name (for example, <code>Thumbnail</code>) or you can
+        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
+        /// If you are using versioning, you can also provide a qualified function ARN (ARN that
+        /// is qualified with function version or alias name as suffix). AWS Lambda also allows
+        /// you to specify only the function name with the account ID qualifier (for example,
+        /// <code>account-id:Thumbnail</code>). Note that the length constraint applies only to
+        /// the ARN. If you specify only the function name, it is limited to 64 character in length.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -30,8 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <summary>
     /// Returns list of aliases created for a Lambda function. For each alias, the response
     /// includes information such as the alias ARN, description, alias name, and the function
-    /// version to which it points. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html">Introduction
-    /// to AWS Lambda Aliases</a><para>
+    /// version to which it points. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
+    /// to AWS Lambda Aliases</a>.
+    /// 
+    ///  
+    /// <para>
     /// This requires permission for the lambda:ListAliases action.
     /// </para>
     /// </summary>
@@ -59,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>If you specify this optional parameter, the API returns only the aliases pointing
-        /// to the specific Lambda function version, otherwise returns all aliases created for
-        /// the Lambda function.</para>
+        /// <para>If you specify this optional parameter, the API returns only the aliases that are
+        /// pointing to the specific Lambda function version, otherwise the API returns all of
+        /// the aliases created for the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Optional string. An opaque pagination token returned from a previous ListAliases operation.
-        /// If present, indicates where to continue the listing.</para>
+        /// <para>Optional string. An opaque pagination token returned from a previous <code>ListAliases</code>
+        /// operation. If present, indicates where to continue the listing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
