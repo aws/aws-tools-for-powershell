@@ -20,6 +20,7 @@
     <Property>DomainName</Property>
     <Property>StageName</Property>
     <Property>ParentId</Property>
+    <Property>AuthorizerId</Property>
   </PipelineByValueProperties>
 
   <PipelineParameter>RestApiId</PipelineParameter>
@@ -119,6 +120,14 @@
     <ServiceOperation MethodName="GetStages"
                       Noun="StageList"
                       />
+
+    <ServiceOperation MethodName="UpdateAuthorizer" Output="Response" />
+    <ServiceOperation MethodName="GetAuthorizers" Noun="AuthorizerList" />
+    <ServiceOperation MethodName="GetExport" PipelineParameter="Parameters" Output="Response" />
+    <ServiceOperation MethodName="CreateAuthorizer" Output="Response" />
+    <ServiceOperation MethodName="DeleteAuthorizer" ShouldProcessTarget="AuthorizerId" Output="Void" />
+    <ServiceOperation MethodName="GetAuthorizer" Output="Response" />
+
   </ServiceOperations>
 
 </ConfigModel>

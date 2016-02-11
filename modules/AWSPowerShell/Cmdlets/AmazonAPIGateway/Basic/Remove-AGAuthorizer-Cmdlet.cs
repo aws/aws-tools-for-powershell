@@ -28,45 +28,45 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a new <a>RestApi</a> resource.
+    /// Deletes an existing <a>Authorizer</a> resource.
     /// </summary>
-    [Cmdlet("New", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.CreateRestApiResponse")]
-    [AWSCmdlet("Invokes the CreateRestApi operation against Amazon API Gateway.", Operation = new[] {"CreateRestApi"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.CreateRestApiResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.CreateRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteAuthorizer operation against Amazon API Gateway.", Operation = new[] {"DeleteAuthorizer"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RestApiId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.APIGateway.Model.DeleteAuthorizerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public class RemoveAGAuthorizerCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter CloneFrom
+        #region Parameter AuthorizerId
         /// <summary>
         /// <para>
-        /// <para>The Id of the <a>RestApi</a> that you want to clone from.</para>
+        /// <para>The identifier of the <a>Authorizer</a> resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CloneFrom { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerId { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>RestApi</a>.</para>
+        /// <para>The <a>RestApi</a> identifier for the <a>Authorizer</a> resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String RestApiId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>The name of the <a>RestApi</a>.</para>
-        /// </para>
+        /// Returns the value passed to the RestApiId parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGRestApi (CreateRestApi)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AuthorizerId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AGAuthorizer (DeleteAuthorizer)"))
             {
                 return;
             }
@@ -95,9 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
-            context.CloneFrom = this.CloneFrom;
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.AuthorizerId = this.AuthorizerId;
+            context.RestApiId = this.RestApiId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -109,19 +108,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.CreateRestApiRequest();
+            var request = new Amazon.APIGateway.Model.DeleteAuthorizerRequest();
             
-            if (cmdletContext.CloneFrom != null)
+            if (cmdletContext.AuthorizerId != null)
             {
-                request.CloneFrom = cmdletContext.CloneFrom;
+                request.AuthorizerId = cmdletContext.AuthorizerId;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.RestApiId != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.RestApiId = cmdletContext.RestApiId;
             }
             
             CmdletOutput output;
@@ -130,9 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateRestApi(request);
+                var response = client.DeleteAuthorizer(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.RestApiId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -158,9 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CloneFrom { get; set; }
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
+            public System.String AuthorizerId { get; set; }
+            public System.String RestApiId { get; set; }
         }
         
     }

@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String AuthorizationType { get; set; }
         #endregion
         
+        #region Parameter AuthorizerId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the identifier of an <a>Authorizer</a> to use on this Method, if the type
+        /// is CUSTOM.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerId { get; set; }
+        #endregion
+        
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
@@ -148,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (ParameterWasBound("ApiKeyRequired"))
                 context.ApiKeyRequired = this.ApiKeyRequired;
             context.AuthorizationType = this.AuthorizationType;
+            context.AuthorizerId = this.AuthorizerId;
             context.HttpMethod = this.HttpMethod;
             if (this.RequestModel != null)
             {
@@ -187,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.AuthorizationType != null)
             {
                 request.AuthorizationType = cmdletContext.AuthorizationType;
+            }
+            if (cmdletContext.AuthorizerId != null)
+            {
+                request.AuthorizerId = cmdletContext.AuthorizerId;
             }
             if (cmdletContext.HttpMethod != null)
             {
@@ -245,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.Boolean? ApiKeyRequired { get; set; }
             public System.String AuthorizationType { get; set; }
+            public System.String AuthorizerId { get; set; }
             public System.String HttpMethod { get; set; }
             public Dictionary<System.String, System.String> RequestModels { get; set; }
             public Dictionary<System.String, System.Boolean> RequestParameters { get; set; }

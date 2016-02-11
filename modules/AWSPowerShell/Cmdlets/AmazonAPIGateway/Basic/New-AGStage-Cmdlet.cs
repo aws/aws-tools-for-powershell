@@ -28,7 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a <a>Stage</a> resource.
+    /// Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a>
+    /// for the API.
     /// </summary>
     [Cmdlet("New", "AGStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateStageResponse")]
@@ -104,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A map that defines the stage variables for the new <a>Stage</a> resource. Variable
-        /// names can have alphabetic characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+</para>
+        /// names can have alphanumeric characters, and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A map that defines the stage variables for the <a>Stage</a> resource that is associated
-        /// with the new deployment. Variable names can have alphabetic characters, and the values
-        /// must match [A-Za-z0-9-._~:/?#&amp;=,]+</para>
+        /// with the new deployment. Variable names can have alphanumeric characters, and the
+        /// values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

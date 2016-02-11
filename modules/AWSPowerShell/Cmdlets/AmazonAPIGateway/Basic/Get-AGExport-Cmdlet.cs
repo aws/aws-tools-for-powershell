@@ -28,88 +28,72 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.
+    
     /// </summary>
-    [Cmdlet("New", "AGModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.CreateModelResponse")]
-    [AWSCmdlet("Invokes the CreateModel operation against Amazon API Gateway.", Operation = new[] {"CreateModel"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.CreateModelResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.CreateModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AGExport")]
+    [OutputType("Amazon.APIGateway.Model.GetExportResponse")]
+    [AWSCmdlet("Invokes the GetExport operation against Amazon API Gateway.", Operation = new[] {"GetExport"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.GetExportResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.GetExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public class GetAGExportCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter ContentType
+        #region Parameter Accept
         /// <summary>
         /// <para>
-        /// <para>The content-type for the model.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ContentType { get; set; }
+        [Alias("Accepts")]
+        public System.String Accept { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter ExportType
         /// <summary>
         /// <para>
-        /// <para>The description of the model.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
+        public System.String ExportType { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The name of the model.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("Parameters")]
+        public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The <a>RestApi</a> identifier under which the <a>Model</a> will be created.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RestApiId { get; set; }
         #endregion
         
-        #region Parameter Schema
+        #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The schema for the model. For <code>application/json</code> models, this should be
-        /// <a href="http://json-schema.org/documentation.html" target="_blank">JSON-schema draft
-        /// v4</a> model.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Schema { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StageName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGModel (CreateModel)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -117,11 +101,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
-            context.ContentType = this.ContentType;
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.Accepts = this.Accept;
+            context.ExportType = this.ExportType;
+            if (this.Parameter != null)
+            {
+                context.Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Parameter.Keys)
+                {
+                    context.Parameters.Add((String)hashKey, (String)(this.Parameter[hashKey]));
+                }
+            }
             context.RestApiId = this.RestApiId;
-            context.Schema = this.Schema;
+            context.StageName = this.StageName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -133,27 +124,27 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.CreateModelRequest();
+            var request = new Amazon.APIGateway.Model.GetExportRequest();
             
-            if (cmdletContext.ContentType != null)
+            if (cmdletContext.Accepts != null)
             {
-                request.ContentType = cmdletContext.ContentType;
+                request.Accepts = cmdletContext.Accepts;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ExportType != null)
             {
-                request.Description = cmdletContext.Description;
+                request.ExportType = cmdletContext.ExportType;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Parameters != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Parameters = cmdletContext.Parameters;
             }
             if (cmdletContext.RestApiId != null)
             {
                 request.RestApiId = cmdletContext.RestApiId;
             }
-            if (cmdletContext.Schema != null)
+            if (cmdletContext.StageName != null)
             {
-                request.Schema = cmdletContext.Schema;
+                request.StageName = cmdletContext.StageName;
             }
             
             CmdletOutput output;
@@ -162,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateModel(request);
+                var response = client.GetExport(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -190,11 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ContentType { get; set; }
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
+            public System.String Accepts { get; set; }
+            public System.String ExportType { get; set; }
+            public Dictionary<System.String, System.String> Parameters { get; set; }
             public System.String RestApiId { get; set; }
-            public System.String Schema { get; set; }
+            public System.String StageName { get; set; }
         }
         
     }

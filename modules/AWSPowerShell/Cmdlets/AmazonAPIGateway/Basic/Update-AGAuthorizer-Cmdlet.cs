@@ -28,45 +28,47 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a new <a>RestApi</a> resource.
+    /// Updates an existing <a>Authorizer</a> resource.
     /// </summary>
-    [Cmdlet("New", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.CreateRestApiResponse")]
-    [AWSCmdlet("Invokes the CreateRestApi operation against Amazon API Gateway.", Operation = new[] {"CreateRestApi"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.CreateRestApiResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.CreateRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.UpdateAuthorizerResponse")]
+    [AWSCmdlet("Invokes the UpdateAuthorizer operation against Amazon API Gateway.", Operation = new[] {"UpdateAuthorizer"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateAuthorizerResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.UpdateAuthorizerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public class UpdateAGAuthorizerCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter CloneFrom
+        #region Parameter AuthorizerId
         /// <summary>
         /// <para>
-        /// <para>The Id of the <a>RestApi</a> that you want to clone from.</para>
+        /// <para>The identifier of the <a>Authorizer</a> resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CloneFrom { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerId { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>RestApi</a>.</para>
+        /// <para>A list of operations describing the updates to apply to the specified resource. The
+        /// patches are applied in the order specified in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
+        [Alias("PatchOperations")]
+        public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>RestApi</a>.</para>
+        /// <para>The <a>RestApi</a> identifier for the <a>Authorizer</a> resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String RestApiId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -83,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGRestApi (CreateRestApi)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGAuthorizer (UpdateAuthorizer)"))
             {
                 return;
             }
@@ -95,9 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
-            context.CloneFrom = this.CloneFrom;
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.AuthorizerId = this.AuthorizerId;
+            if (this.PatchOperation != null)
+            {
+                context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
+            }
+            context.RestApiId = this.RestApiId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -109,19 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.CreateRestApiRequest();
+            var request = new Amazon.APIGateway.Model.UpdateAuthorizerRequest();
             
-            if (cmdletContext.CloneFrom != null)
+            if (cmdletContext.AuthorizerId != null)
             {
-                request.CloneFrom = cmdletContext.CloneFrom;
+                request.AuthorizerId = cmdletContext.AuthorizerId;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.PatchOperations != null)
             {
-                request.Description = cmdletContext.Description;
+                request.PatchOperations = cmdletContext.PatchOperations;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.RestApiId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.RestApiId = cmdletContext.RestApiId;
             }
             
             CmdletOutput output;
@@ -130,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateRestApi(request);
+                var response = client.UpdateAuthorizer(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -158,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CloneFrom { get; set; }
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
+            public System.String AuthorizerId { get; set; }
+            public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }
+            public System.String RestApiId { get; set; }
         }
         
     }
