@@ -505,12 +505,16 @@ Set-Alias -Name CC-ListRepositories -Value Get-CCRepositoryList
 Set-Alias -Name CC-UpdateDefaultBranch -Value Update-CCDefaultBranch
 Set-Alias -Name CC-UpdateRepositoryDescription -Value Update-CCRepositoryDescription
 Set-Alias -Name CC-UpdateRepositoryName -Value Update-CCRepositoryName
+Set-Alias -Name CD-RegisterApplicationRevision -Value Register-CDApplicationRevision
+Set-Alias -Name CD-RegisterOnPremisesInstance -Value Register-CDOnPremiseInstance
 Set-Alias -Name CD-RemoveTagsFromOnPremisesInstances -Value Remove-CDOnPremiseInstanceTag
 Set-Alias -Name CD-StopDeployment -Value Stop-CDDeployment
 Set-Alias -Name CD-UpdateApplication -Value Update-CDApplication
 Set-Alias -Name CD-UpdateDeploymentGroup -Value Update-CDDeploymentGroup
 Set-Alias -Name CD-AddTagsToOnPremisesInstances -Value Add-CDOnPremiseInstanceTag
+Set-Alias -Name CD-BatchGetApplicationRevisions -Value Get-CDApplicationRevisionBatch
 Set-Alias -Name CD-BatchGetApplications -Value Get-CDApplications
+Set-Alias -Name CD-BatchGetDeploymentInstances -Value Get-CDDeploymentInstanceBatch
 Set-Alias -Name CD-BatchGetDeployments -Value Get-CDDeployments
 Set-Alias -Name CD-BatchGetOnPremisesInstances -Value Get-CDOnPremiseInstanceBatch
 Set-Alias -Name Create-CDApplication -Value New-CDApplication
@@ -543,8 +547,6 @@ Set-Alias -Name CD-ListDeploymentGroups -Value Get-CDDeploymentGroupList
 Set-Alias -Name CD-ListDeploymentInstances -Value Get-CDDeploymentInstanceList
 Set-Alias -Name CD-ListDeployments -Value Get-CDDeploymentList
 Set-Alias -Name CD-ListOnPremisesInstances -Value Get-CDOnPremiseInstanceList
-Set-Alias -Name CD-RegisterApplicationRevision -Value Register-CDApplicationRevision
-Set-Alias -Name CD-RegisterOnPremisesInstance -Value Register-CDOnPremiseInstance
 Set-Alias -Name CP-AcknowledgeJob -Value Confirm-CPJob
 Set-Alias -Name CP-AcknowledgeThirdPartyJob -Value Confirm-CPThirdPartyJob
 Set-Alias -Name Create-CPCustomActionType -Value New-CPCustomActionType

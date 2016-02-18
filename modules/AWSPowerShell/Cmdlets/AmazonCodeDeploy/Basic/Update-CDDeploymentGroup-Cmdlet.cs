@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The replacement list of Auto Scaling groups to be included in the deployment group,
-        /// if you want to change them.</para>
+        /// if you want to change them. To keep the existing Auto Scaling groups, enter their
+        /// names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagFilter
         /// <summary>
         /// <para>
-        /// <para>The replacement set of Amazon EC2 tags to filter on, if you want to change them.</para>
+        /// <para>The replacement set of Amazon EC2 tags to filter on, if you want to change them. To
+        /// keep the existing tags, enter their names. To remove tags, do not enter any tag names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The replacement set of on-premises instance tags for filter on, if you want to change
-        /// them.</para>
+        /// them. To keep the existing tags, enter their names. To remove tags, do not enter any
+        /// tag names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,6 +126,17 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter TriggerConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Information about triggers to change when the deployment group is updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TriggerConfigurations")]
+        public Amazon.CodeDeploy.Model.TriggerConfig[] TriggerConfiguration { get; set; }
         #endregion
         
         #region Parameter Force
@@ -168,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 context.OnPremisesInstanceTagFilters = new List<Amazon.CodeDeploy.Model.TagFilter>(this.OnPremisesInstanceTagFilter);
             }
             context.ServiceRoleArn = this.ServiceRoleArn;
+            if (this.TriggerConfiguration != null)
+            {
+                context.TriggerConfigurations = new List<Amazon.CodeDeploy.Model.TriggerConfig>(this.TriggerConfiguration);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -213,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.ServiceRoleArn = cmdletContext.ServiceRoleArn;
             }
+            if (cmdletContext.TriggerConfigurations != null)
+            {
+                request.TriggerConfigurations = cmdletContext.TriggerConfigurations;
+            }
             
             CmdletOutput output;
             
@@ -256,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String NewDeploymentGroupName { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
             public System.String ServiceRoleArn { get; set; }
+            public List<Amazon.CodeDeploy.Model.TriggerConfig> TriggerConfigurations { get; set; }
         }
         
     }

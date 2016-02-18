@@ -14,7 +14,9 @@
   </VerbMappings>
   
   <ServiceOperations>
+    <ServiceOperation MethodName="BatchGetApplicationRevisions" Output="Response" Verb="Get" Noun="ApplicationRevisionBatch"/>
     <ServiceOperation MethodName="BatchGetApplications" Verb="Get" Noun="Applications"/>
+    <ServiceOperation MethodName="BatchGetDeploymentInstances" Output="Response" Verb="Get" Noun="DeploymentInstanceBatch" PipelineParameter="DeploymentId"/>
     <ServiceOperation MethodName="BatchGetDeployments"  Verb="Get" Noun="Deployments"/>
     <ServiceOperation MethodName="CreateApplication" />
     <ServiceOperation MethodName="CreateDeployment"/>

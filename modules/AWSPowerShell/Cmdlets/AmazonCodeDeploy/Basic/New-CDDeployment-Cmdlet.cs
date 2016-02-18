@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter GitHubLocation_CommitId
         /// <summary>
         /// <para>
-        /// <para>The SHA1 commit ID of the GitHub commit that references the that represents the bundled
-        /// artifacts for the application revision.</para>
+        /// <para>The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for
+        /// the application revision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The GitHub account and repository pair that stores a reference to the commit that
-        /// represents the bundled artifacts for the application revision.</para><para>Specified as account/repository.</para>
+        /// represents the bundled artifacts for the application revision. </para><para>Specified as account/repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
