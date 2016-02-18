@@ -30,8 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// Temporarily sets the state of an alarm. When the updated <code>StateValue</code>
     /// differs from the previous value, the action configured for the appropriate state is
-    /// invoked. This is not a permanent change. The next periodic alarm check (in about a
-    /// minute) will set the alarm to its actual state.
+    /// invoked. For example, if your alarm is configured to send an Amazon SNS message when
+    /// an alarm is triggered, temporarily changing the alarm's state to <b>ALARM</b> will
+    /// send an Amazon SNS message. This is not a permanent change. The next periodic alarm
+    /// check (in about a minute) will set the alarm to its actual state. Because the alarm
+    /// state change happens very quickly, it is typically only visibile in the alarm's <b>History</b>
+    /// tab in the Amazon CloudWatch console or through <code>DescribeAlarmHistory</code>.
     /// </summary>
     [Cmdlet("Set", "CWAlarmState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

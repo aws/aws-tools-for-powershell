@@ -32,12 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// 
     ///  
     /// <para>
-    ///  The maximum number of data points returned from a single <code>GetMetricStatistics</code>
-    /// request is 1,440, wereas the maximum number of data points that can be queried is
-    /// 50,850. If you make a request that generates more than 1,440 data points, Amazon CloudWatch
-    /// returns an error. In such a case, you can alter the request by narrowing the specified
-    /// time range or increasing the specified period. Alternatively, you can make multiple
-    /// requests across adjacent time ranges. 
+    ///  The maximum number of data points that can be queried is 50,850, whereas the maximum
+    /// number of data points returned from a single <code>GetMetricStatistics</code> request
+    /// is 1,440. If you make a request that generates more than 1,440 data points, Amazon
+    /// CloudWatch returns an error. In such a case, you can alter the request by narrowing
+    /// the specified time range or increasing the specified period. Alternatively, you can
+    /// make multiple requests across adjacent time ranges. <code>GetMetricStatistics</code>
+    /// does not return the data in chronological order. 
     /// </para><para>
     ///  Amazon CloudWatch aggregates data points based on the length of the <code>period</code>
     /// that you specify. For example, if you request statistics with a one-minute granularity,
@@ -52,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// for up to 35 instances over a span of 24 hours</li><li>Statistics for up to 2 instances
     /// over a span of 2 weeks</li></ul><para>
     ///  For information about the namespace, metric names, and dimensions that other Amazon
-    /// Web Services products use to send metrics to Cloudwatch, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon
+    /// Web Services products use to send metrics to CloudWatch, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon
     /// CloudWatch Metrics, Namespaces, and Dimensions Reference</a> in the <i>Amazon CloudWatch
     /// Developer Guide</i>. 
     /// </para>
@@ -81,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para> The time stamp to use for determining the last datapoint to return. The value specified
-        /// is exclusive; results will include datapoints up to the time stamp specified. </para>
+        /// is exclusive; results will include datapoints up to the time stamp specified. The
+        /// time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,7 +125,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para> The time stamp to use for determining the first datapoint to return. The value specified
-        /// is inclusive; results include datapoints with the time stamp specified. </para>
+        /// is inclusive; results include datapoints with the time stamp specified. The time stamp
+        /// must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </para><note> The specified start time is rounded down to the nearest value. Datapoints
+        /// are returned for start times up to two weeks in the past. Specified start times that
+        /// are more than two weeks in the past will not return datapoints for metrics that are
+        /// older than two weeks. 
+        /// <para>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours
+        /// to become available from submission time using <code>GetMetricStatistics</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -134,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para> The metric statistics to return. For information about specific statistics returned
-        /// by GetMetricStatistics, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/index.html?CHAP_TerminologyandKeyConcepts.html#Statistic">Statistics</a>
-        /// in the <i>Amazon CloudWatch Developer Guide</i>. </para><para> Valid Values: <code>Average | Sum | SampleCount | Maximum | Minimum</code></para>
+        /// by GetMetricStatistics, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Statistic">Statistics</a>
+        /// in the <i>Amazon CloudWatch Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

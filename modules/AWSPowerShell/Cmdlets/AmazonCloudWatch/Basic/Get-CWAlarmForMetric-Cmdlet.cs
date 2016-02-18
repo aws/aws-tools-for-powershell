@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para> The list of dimensions associated with the metric. </para>
+        /// <para> The list of dimensions associated with the metric. If the metric has any associated
+        /// dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
