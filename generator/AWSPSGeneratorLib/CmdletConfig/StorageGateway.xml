@@ -51,6 +51,7 @@
     <ServiceOperation MethodName="CreateStorediSCSIVolume" Output="Response" 
                       PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken"
                       ShouldProcessTarget="GatewayARN"/>
+    <ServiceOperation MethodName="CreateTapeWithBarcode" PositionalParameters="TapeBarcode"/>
     <ServiceOperation MethodName="DeleteBandwidthRateLimit" ShouldProcessTarget="BandwidthType" PositionalParameters="BandwidthType"/>
     <ServiceOperation MethodName="DeleteChapCredentials" Output="Response" ShouldProcessTarget="InitiatorName" PipelineParameter="TargetARN" PositionalParameters="InitiatorName"/>
     <ServiceOperation MethodName="DeleteGateway"/>

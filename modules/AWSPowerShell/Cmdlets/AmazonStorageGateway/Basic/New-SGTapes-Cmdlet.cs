@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The unique Amazon Resource Name(ARN) that represents the gateway to associate the
+        /// <para>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
         /// virtual tapes with. Use the <a>ListGateways</a> operation to return a list of gateways
         /// for your account and region.</para>
         /// </para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NumTapesToCreate
         /// <summary>
         /// <para>
-        /// <para>The number of virtual tapes you want to create.</para>
+        /// <para>The number of virtual tapes that you want to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,9 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter TapeBarcodePrefix
         /// <summary>
         /// <para>
-        /// <para>A prefix you append to the barcode of the virtual tape you are creating. This makes
-        /// a barcode unique.</para><note>The prefix must be 1 to 4 characters in length and must be upper-case letters
-        /// A-Z.</note>
+        /// <para>A prefix that you append to the barcode of the virtual tape you are creating. This
+        /// prefix makes the barcode unique.</para><note>The prefix must be 1 to 4 characters in length and must be one of the uppercase
+        /// letters from A to Z.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter TapeSizeInBytes
         /// <summary>
         /// <para>
-        /// <para>The size, in bytes, of the virtual tapes you want to create.</para><note>The size must be gigabyte (1024*1024*1024 byte) aligned.</note>
+        /// <para>The size, in bytes, of the virtual tapes that you want to create.</para><note>The size must be aligned by gigabyte (1024*1024*1024 byte).</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

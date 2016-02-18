@@ -28,51 +28,53 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates a gateway's metadata, which includes the gateway's name and
-    /// time zone. To specify which gateway to update, use the Amazon Resource Name (ARN)
-    /// of the gateway in your request.
+    /// Creates a virtual tape by using your own barcode. You write data to the virtual tape
+    /// and then archive the tape.
     /// 
-    ///  <note>For Gateways activated after September 02, 2015, the gateway's ARN contains
-    /// the gateway id rather than the gateway name. However changing the name of the gateway
-    /// has no effect on the gateway's ARN.</note>
+    ///  <note>Cache storage must be allocated to the gateway before you can create a virtual
+    /// tape. Use the <a>AddCache</a> operation to add cache storage to a gateway.</note>
     /// </summary>
-    [Cmdlet("Update", "SGGatewayInformation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse")]
-    [AWSCmdlet("Invokes the UpdateGatewayInformation operation against AWS Storage Gateway.", Operation = new[] {"UpdateGatewayInformation"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse",
-        "This cmdlet returns a Amazon.StorageGateway.Model.UpdateGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "SGTapeWithBarcode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the CreateTapeWithBarcode operation against AWS Storage Gateway.", Operation = new[] {"CreateTapeWithBarcode"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSGGatewayInformationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public class NewSGTapeWithBarcodeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The unique Amazon Resource Name (ARN) that represents the gateway to associate the
+        /// virtual tape with. Use the <a>ListGateways</a> operation to return a list of gateways
+        /// for your account and region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
         #endregion
         
-        #region Parameter GatewayName
+        #region Parameter TapeBarcode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The barcode that you want to assign to the tape.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public System.String GatewayName { get; set; }
+        public System.String TapeBarcode { get; set; }
         #endregion
         
-        #region Parameter GatewayTimezone
+        #region Parameter TapeSizeInByte
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The size, in bytes, of the virtual tape that you want to create.</para><note>The size must be aligned by gigabyte (1024*1024*1024 byte).</note>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public System.String GatewayTimezone { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("TapeSizeInBytes")]
+        public System.Int64 TapeSizeInByte { get; set; }
         #endregion
         
         #region Parameter Force
@@ -89,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GatewayName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SGGatewayInformation (UpdateGatewayInformation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GatewayARN", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SGTapeWithBarcode (CreateTapeWithBarcode)"))
             {
                 return;
             }
@@ -102,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             };
             
             context.GatewayARN = this.GatewayARN;
-            context.GatewayName = this.GatewayName;
-            context.GatewayTimezone = this.GatewayTimezone;
+            context.TapeBarcode = this.TapeBarcode;
+            if (ParameterWasBound("TapeSizeInByte"))
+                context.TapeSizeInBytes = this.TapeSizeInByte;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,19 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.UpdateGatewayInformationRequest();
+            var request = new Amazon.StorageGateway.Model.CreateTapeWithBarcodeRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
             }
-            if (cmdletContext.GatewayName != null)
+            if (cmdletContext.TapeBarcode != null)
             {
-                request.GatewayName = cmdletContext.GatewayName;
+                request.TapeBarcode = cmdletContext.TapeBarcode;
             }
-            if (cmdletContext.GatewayTimezone != null)
+            if (cmdletContext.TapeSizeInBytes != null)
             {
-                request.GatewayTimezone = cmdletContext.GatewayTimezone;
+                request.TapeSizeInBytes = cmdletContext.TapeSizeInBytes.Value;
             }
             
             CmdletOutput output;
@@ -136,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateGatewayInformation(request);
+                var response = client.CreateTapeWithBarcode(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.TapeARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -165,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal class CmdletContext : ExecutorContext
         {
             public System.String GatewayARN { get; set; }
-            public System.String GatewayName { get; set; }
-            public System.String GatewayTimezone { get; set; }
+            public System.String TapeBarcode { get; set; }
+            public System.Int64? TapeSizeInBytes { get; set; }
         }
         
     }

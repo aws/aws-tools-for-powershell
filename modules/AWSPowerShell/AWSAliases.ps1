@@ -2585,6 +2585,8 @@ Set-Alias -Name SSM-ListCommands -Value Get-SSMCommand
 Set-Alias -Name SSM-ListDocuments -Value Get-SSMDocumentList
 Set-Alias -Name SSM-SendCommand -Value Send-SSMCommand
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
+Set-Alias -Name Describe-SGTapeArchives -Value Get-SGTapeArchives
+Set-Alias -Name SG-DescribeTapeArchives -Value Get-SGTapeArchives
 Set-Alias -Name Describe-SGTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
 Set-Alias -Name SG-DescribeTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
 Set-Alias -Name Describe-SGTapes -Value Get-SGTapes
@@ -2644,6 +2646,8 @@ Set-Alias -Name Create-SGStorediSCSIVolume -Value New-SGStorediSCSIVolume
 Set-Alias -Name SG-CreateStorediSCSIVolume -Value New-SGStorediSCSIVolume
 Set-Alias -Name Create-SGTapes -Value New-SGTapes
 Set-Alias -Name SG-CreateTapes -Value New-SGTapes
+Set-Alias -Name Create-SGTapeWithBarcode -Value New-SGTapeWithBarcode
+Set-Alias -Name SG-CreateTapeWithBarcode -Value New-SGTapeWithBarcode
 Set-Alias -Name Delete-SGBandwidthRateLimit -Value Remove-SGBandwidthRateLimit
 Set-Alias -Name SG-DeleteBandwidthRateLimit -Value Remove-SGBandwidthRateLimit
 Set-Alias -Name Delete-SGChapCredentials -Value Remove-SGChapCredentials
@@ -2674,8 +2678,6 @@ Set-Alias -Name Describe-SGSnapshotSchedule -Value Get-SGSnapshotSchedule
 Set-Alias -Name SG-DescribeSnapshotSchedule -Value Get-SGSnapshotSchedule
 Set-Alias -Name Describe-SGStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
 Set-Alias -Name SG-DescribeStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
-Set-Alias -Name Describe-SGTapeArchives -Value Get-SGTapeArchives
-Set-Alias -Name SG-DescribeTapeArchives -Value Get-SGTapeArchives
 Set-Alias -Name STS-AssumeRole -Value Use-STSRole
 Set-Alias -Name Assume-STSRole -Value Use-STSRole
 Set-Alias -Name STS-AssumeRoleWithSAML -Value Use-STSRoleWithSAML
