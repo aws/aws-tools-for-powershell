@@ -17,7 +17,7 @@
     <Map From="List" To="Get" />
   </VerbMappings>
 
-  <!-- this works for most paging calls, but ListMetrics has no MaxRecords 
+  <!-- this works for most paging calls, but ListMetrics has no MaxRecords
        member, so that one is done manually
   -->
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" />
@@ -34,10 +34,8 @@
     <ServiceOperation MethodName="EnableAlarmActions" Output="Void"/>
     <ServiceOperation MethodName="GetMetricStatistics" Output="Response" PipelineParameter="Namespace" PositionalParameters="MetricName;Dimensions;StartDate;EndDate"/>
     <ServiceOperation MethodName="ListMetrics" Exclude="true"/>
-    <ServiceOperation MethodName="ListHostInfo" Output="Response" />
     <ServiceOperation MethodName="PutMetricAlarm" Output="Void" PipelineParameter="AlarmName" PositionalParameters="AlarmDescription"/>
     <ServiceOperation MethodName="PutMetricData" Output="Void" PipelineParameter="Namespace" PositionalParameters="MetricData"/>
-    <ServiceOperation MethodName="PutMetricDataBatch" Output="Void"  NoPipelineParameter="true" />
     <ServiceOperation MethodName="SetAlarmState" Output="Void" PipelineParameter="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData"/>
   </ServiceOperations>
 

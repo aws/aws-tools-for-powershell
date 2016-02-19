@@ -1,3 +1,9 @@
+### 3.1.45.0 (2016-02-18)
+  * AWS Storage Gateway
+    - Added a new cmdlet, New-SGTapeWithBarcode, to support the CreateTapeWithBarcode API.
+  * AWS CodeDeploy
+    - Added two new cmdlets, Get-CDApplicationRevisionBatch and Get-CDDeploymentInstanceBatch to support the BatchGetApplicationRevisions and BatchGetDeploymentInstances APIs.
+
 ### 3.1.44.0 (2016-02-17)
   * Amazon RDS
     - Updated the Copy-RDSDBSnapshot cmdlet with a new parameter, KmsKeyId, to support cross-account encrypted snapshot sharing and updated the documentation for several other cmdlets.
