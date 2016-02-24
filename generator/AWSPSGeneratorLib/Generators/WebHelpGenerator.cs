@@ -218,8 +218,9 @@ namespace AWSPowerShellGenerator.Generators
                 sb.Append("</div>");
             }
 
-            if (sb.Length == 0)
-                sb.Append("This cmdlet has no parameters.");
+            sb.Append("<div class=\"relatedLink\">");
+            sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", "Common Credential and Region Parameters", "./pstoolsref-commonparams.html");
+            sb.Append("</div>");
 
             writer.AddPageElement(CmdletPageWriter.ParametersElementKey, sb.ToString());
         }
