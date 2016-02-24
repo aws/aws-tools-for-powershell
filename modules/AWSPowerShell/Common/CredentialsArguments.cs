@@ -499,7 +499,7 @@ namespace Amazon.PowerShell.Common
         /// specify the name of a profile stored in the .ini-format credential file used with 
         /// the AWS CLI and other AWS SDKs.
         /// </summary>
-        [Parameter]
+        [Parameter(Position = 200)]
         [Alias("StoredCredentials", "AWSProfileName")]
         public string ProfileName { get; set; }
 
@@ -521,7 +521,7 @@ namespace Amazon.PowerShell.Common
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
-        [Parameter]
+        [Parameter(Position = 201)]
         [Alias("AWSProfilesLocation", "ProfileLocation")]
         public string ProfilesLocation { get; set; }
 
@@ -556,7 +556,10 @@ namespace Amazon.PowerShell.Common
         /// the sendpoint that will be used when calling service operations. Note that 
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
-        [Parameter(Mandatory = false, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
+        [Parameter(Mandatory = false, 
+                   ValueFromPipeline=true, 
+                   ValueFromPipelineByPropertyName=true, 
+                   Position = 210)]
         public object Region { get; set; }
 
         public AWSRegionArguments(SessionState sessionState)
