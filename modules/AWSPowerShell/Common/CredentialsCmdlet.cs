@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Common
                                                             ErrorCategory.InvalidArgument,
                                                             this));
             }
-                        
+
             if (currentCredentials != null)
                 WriteObject(currentCredentials.Credentials);
         }
@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Common
     /// Saves AWS credentials to persistent store (-StoreAs) or temporarily for the shell using shell variable $StoredAWSCredentials.
     /// </summary>
     [Cmdlet("Set", "AWSCredentials")]
-    [AWSCmdlet("Saves AWS credentials to persistent store (-StoreAs) or temporarily for the shell using shell variable $StoredAWSCredentials.")]
+    [AWSCmdlet("Saves AWS credentials to persistent store (-StoreAs) or temporarily for the shell using shell variable $StoredAWSCredentials."
+                + "Note that temporary session-based credentials cannot be saved to the persistent store.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class SetCredentialsCmdlet : PSCmdlet, IDynamicParameters
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Common
         /// on cmdlets to load the stored credentials.
         /// </para>
         /// <para>
-        /// Temporary session credentials, identified by use of the -SessionToken parameter, cannot be stored. 
+        /// Temporary session credentials, identified by use of the -SessionToken parameter, cannot be stored.
         /// Specifying this parameter in addition to -SessionToken will result in an error message.
         /// </para>
         /// </summary>
@@ -137,13 +138,13 @@ namespace Amazon.PowerShell.Common
                 var samlCredentials = currentCredentials.Credentials as StoredProfileSAMLCredentials;
                 if (samlCredentials != null && samlCredentials.RequestUserCredentialCallback != null)
                 {
-                    // update the custom state we have applied (if the callback is ours) to hold the host 
-                    // and any network credential the user has supplied to us as a shell default to fall 
+                    // update the custom state we have applied (if the callback is ours) to hold the host
+                    // and any network credential the user has supplied to us as a shell default to fall
                     // back on if we get called to show the password dialog
                     var callbackState = samlCredentials.CustomCallbackState as SAMLCredentialCallbackState;
                     if (callbackState != null) // is our callback that's attached
                     {
-                        callbackState.ShellNetworkCredentialParameter 
+                        callbackState.ShellNetworkCredentialParameter
                             = commonArguments != null ? commonArguments.NetworkCredential : null;
                     }
                 }
@@ -226,7 +227,7 @@ namespace Amazon.PowerShell.Common
         public SwitchParameter ListProfiles { get; set; }
 
         protected override void ProcessRecord()
-        {                
+        {
             if (ListProfiles.IsPresent)
             {
                 var names = SettingsStore.GetDisplayNames();
@@ -290,7 +291,7 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            ProfileManager.RegisterSAMLEndpoint(StoreAs, 
+            ProfileManager.RegisterSAMLEndpoint(StoreAs,
                                                 Endpoint,
                                                 ParameterWasBound("AuthenticationType") ? AuthenticationType : null);
             WriteObject(StoreAs);
@@ -301,14 +302,14 @@ namespace Amazon.PowerShell.Common
     /// <para>
     /// Creates or updates role profiles for use with a SAML federated identity provider to obtain temporary
     /// AWS credentials for roles the user is authorized to assume. The endpoint for authentication should have
-    /// been configured previously using Set-AWSSamlEndpoint. Once created the role profiles can be used to obtain 
-    /// time-limited temporary AWS credentials by specifying the name of the role profile to the -ProfileName 
-    /// parameter of the Set-AWSCredentials cmdlet or any cmdlet that makes calls to AWS service operations. 
+    /// been configured previously using Set-AWSSamlEndpoint. Once created the role profiles can be used to obtain
+    /// time-limited temporary AWS credentials by specifying the name of the role profile to the -ProfileName
+    /// parameter of the Set-AWSCredentials cmdlet or any cmdlet that makes calls to AWS service operations.
     /// </para>
     /// <para><br/><br/></para>
     /// <para>
     /// User authentication is not performed until AWS credentials are required, i.e. just prior to a service
-    /// operation call. Additionally if the credentials expire then the tools will automatically attempt to 
+    /// operation call. Additionally if the credentials expire then the tools will automatically attempt to
     /// re-authenticate the user to obtain fresh credentials. When a role profile is configured to use the
     /// default logged-in user identity then this process happens silently. If a role profile is configured
     /// to use an alternate identity (by specifying the -NetworkCredential parameter) the user is prompted to
@@ -327,7 +328,7 @@ namespace Amazon.PowerShell.Common
         private const string StoreOneRoleParameterSet = "StoreOneRoleSet";
 
         /// <summary>
-        /// The name assigned to the endpoint definition that was previously registered using Set-AWSSamlEndpoint. 
+        /// The name assigned to the endpoint definition that was previously registered using Set-AWSSamlEndpoint.
         /// The endpoint definition contains the URL of the endpoint to be used to authenticate users prior to
         /// vending temporary AWS credentials.
         /// </summary>
@@ -336,14 +337,14 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the principal holding the role to be assumed when credentials are 
-        /// requested following successful authentication. If specified the RoleARN parameter must also 
+        /// The Amazon Resource Name (ARN) of the principal holding the role to be assumed when credentials are
+        /// requested following successful authentication. If specified the RoleARN parameter must also
         /// be specified.
         /// </para>
         /// <para><br/><br/></para>
         /// <para>
         /// If neither of the PrincipalARN and RoleARN parameters are supplied and the user is authorized
-        /// to assume multiple roles the cmdlet will prompt to select the role that should be referenced 
+        /// to assume multiple roles the cmdlet will prompt to select the role that should be referenced
         /// by the profile. The user is also prompted if ARNs are specified but cannot be found in the data
         /// returned on successful authentication.
         /// </para>
@@ -353,13 +354,13 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the role to be assumed when credentials are requested following 
+        /// The Amazon Resource Name (ARN) of the role to be assumed when credentials are requested following
         /// successful authentication. If specified the PrincipalARN parameter must also be specified.
         /// </para>
         /// <para><br/><br/></para>
         /// <para>
         /// If neither of the PrincipalARN and RoleARN parameters are supplied and the user is authorized
-        /// to assume multiple roles the cmdlet will prompt to select the role that should be referenced 
+        /// to assume multiple roles the cmdlet will prompt to select the role that should be referenced
         /// by the profile. The user is also prompted if ARNs are specified but cannot be found in the data
         /// returned on successful authentication.
         /// </para>
@@ -385,8 +386,8 @@ namespace Amazon.PowerShell.Common
         public PSCredential NetworkCredential { get; set; }
 
         /// <summary>
-        /// The name to associate with the role data. This name will be used with the -ProfileName parameter 
-        /// to Set-AWSCredentials cmdlet and AWS service cmdlets to load the profile and obtain temporary 
+        /// The name to associate with the role data. This name will be used with the -ProfileName parameter
+        /// to Set-AWSCredentials cmdlet and AWS service cmdlets to load the profile and obtain temporary
         /// AWS credentials based on the role and other data held in the profile.
         /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = StoreOneRoleParameterSet)]
@@ -459,9 +460,9 @@ namespace Amazon.PowerShell.Common
 
         private PSCredential RequestPasswordFromUser(string domainUser)
         {
-            return Host.UI.PromptForCredential("Password Required", 
-                                               "Please enter the password for " + domainUser, 
-                                               domainUser, 
+            return Host.UI.PromptForCredential("Password Required",
+                                               "Please enter the password for " + domainUser,
+                                               domainUser,
                                                "");
         }
 

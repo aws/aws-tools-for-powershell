@@ -19,11 +19,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
-using System.Runtime.InteropServices;
-using System.Security;
 using System.Net;
 using System.Security.Authentication;
-using System.IO;
 using System.Text;
 using System.Management.Automation.Host;
 
@@ -502,7 +499,7 @@ namespace Amazon.PowerShell.Common
         /// specify the name of a profile stored in the .ini-format credential file used with 
         /// the AWS CLI and other AWS SDKs.
         /// </summary>
-        [Parameter(Position = 200)]
+        [Parameter]
         [Alias("StoredCredentials", "AWSProfileName")]
         public string ProfileName { get; set; }
 
@@ -512,6 +509,7 @@ namespace Amazon.PowerShell.Common
         /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
         /// folder location.
         /// </para>
+        /// <para>
         /// When the ini-format credential file uses the default filename ('credentials') and is 
         /// placed in the default search location ('.aws' folder in the current user's profile folder, 
         /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
@@ -523,7 +521,7 @@ namespace Amazon.PowerShell.Common
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
-        [Parameter(Position = 201)]
+        [Parameter]
         [Alias("AWSProfilesLocation", "ProfileLocation")]
         public string ProfilesLocation { get; set; }
 
@@ -538,7 +536,7 @@ namespace Amazon.PowerShell.Common
         /// Used with SAML-based authentication when ProfileName references a SAML role profile. 
         /// Contains the network credentials to be supplied during authentication with the 
         /// configured identity provider's endpoint. This parameter is not required if the
-        /// user's default network identity can or should be used during authentication .
+        /// user's default network identity can or should be used during authentication.
         /// </summary>
         [Parameter]
         public PSCredential NetworkCredential { get; set; }
@@ -558,10 +556,7 @@ namespace Amazon.PowerShell.Common
         /// the sendpoint that will be used when calling service operations. Note that 
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
-        [Parameter(Mandatory = false, 
-                    Position = 210, 
-                    ValueFromPipeline=true,
-                    ValueFromPipelineByPropertyName=true)]
+        [Parameter(Mandatory = false, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
         public object Region { get; set; }
 
         public AWSRegionArguments(SessionState sessionState)
@@ -583,22 +578,29 @@ namespace Amazon.PowerShell.Common
         public SessionState SessionState { get; private set; }
 
         /// <summary>
-        /// The AWS access key for the user account.
+        /// The AWS access key for the user account. This can be a temporary access key
+        /// if the corresponding session token is supplied to the -SessionToken parameter.
+        /// Temporary session credentials can be set for the current shell instance only
+        /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("AK")]
         [Parameter]
         public string AccessKey { get; set; }
 
         /// <summary>
-        /// The AWS secret key for the user account.
+        /// The AWS secret key for the user account. This can be a temporary secret key
+        /// if the corresponding session token is supplied to the -SessionToken parameter.
+        /// Temporary session credentials can be set for the current shell instance only
+        /// and cannot be saved to the credential store file.
         /// </summary>
-        [Alias("SK")]
+        [Alias("SK", "SecretAccessKey")]
         [Parameter]
         public string SecretKey { get; set; }
 
         /// <summary>
         /// The session token if the access and secret keys are temporary session-based
-        /// credentials.
+        /// credentials. Temporary session credentials can be set for the current shell 
+        /// instance only and cannot be saved to the credential store file.
         /// </summary>
         [Alias("ST")]
         [Parameter]
@@ -621,6 +623,7 @@ namespace Amazon.PowerShell.Common
         /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
         /// folder location.
         /// </para>
+        /// <para>
         /// When the ini-format credential file uses the default filename ('credentials') and is 
         /// placed in the default search location ('.aws' folder in the current user's profile folder, 
         /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
@@ -647,7 +650,7 @@ namespace Amazon.PowerShell.Common
         /// Used with SAML-based authentication when ProfileName references a SAML role profile. 
         /// Contains the network credentials to be supplied during authentication with the 
         /// configured identity provider's endpoint. This parameter is not required if the
-        /// user's default network identity can or should be used during authentication .
+        /// user's default network identity can or should be used during authentication.
         /// </summary>
         [Parameter]
         public PSCredential NetworkCredential { get; set; }

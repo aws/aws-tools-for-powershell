@@ -8,6 +8,7 @@ using System.Xml;
 
 using AWSPowerShellGenerator.Utils;
 using AWSPowerShellGenerator.Writers.Help;
+using System.Reflection;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -35,6 +36,18 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
+        /// <summary>
+        /// Html snippet that contains the documentation for the credential parameters
+        /// that can be found on supporting cmdlets
+        /// </summary>
+        public string CredentialParametersSnippet { get; private set; }
+
+        /// <summary>
+        /// Html snipper that contains the documentation for the region parameter
+        /// that can be found on supporting cmdlets
+        /// </summary>
+        public string RegionParametersSnippet { get; private set; }
+
         #endregion
 
         protected static Dictionary<string, string> _msdnDocLinks = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -46,6 +59,15 @@ namespace AWSPowerShellGenerator.Generators
                 "System.Collections.Hashtable", "http://msdn.microsoft.com/en-us/library/system.collections.hashtable.aspx"
             }
         };
+
+        private const string CommonParametersSnippetMarker = "{COMMON_PARAM_SNIPPET}";
+
+        /// <summary>
+        /// Holds the base class type we derive cmdlets from, which indicates the cmdlet
+        /// supports common credential and region parameters
+        /// </summary>
+        private Type ServiceCmdletBaseClass { get; set; }
+
 
         protected override void GenerateHelper()
         {
@@ -64,6 +86,9 @@ namespace AWSPowerShellGenerator.Generators
             if (!Directory.Exists(buildLogsPath))
                 Directory.CreateDirectory(buildLogsPath);
 
+            LoadCommonParameterSnippets();
+            ServiceCmdletBaseClass = CmdletAssembly.GetType("Amazon.PowerShell.Common.ServiceCmdlet");
+
             var logFile = Path.Combine(buildLogsPath, Name + ".dll-WebHelp.log");
             var oldWriter = Console.Out;
             
@@ -75,6 +100,7 @@ namespace AWSPowerShellGenerator.Generators
 
                     CleanWebHelpOutputFolder(OutputFolder);
                     CopyWebHelpStaticFiles(OutputFolder);
+                    CopyCommonParametersFile();
                     CreateVersionInfoFile(Path.Combine(OutputFolder, "items"));
 
                     var tocWriter = new TOCWriter(Options, OutputFolder);
@@ -119,6 +145,7 @@ namespace AWSPowerShellGenerator.Generators
                             WriteDetails(cmdletPageWriter, cmdletAttribute, typeDocumentation, cmdletName, synopsis);
                             WriteSyntax(cmdletPageWriter, cmdletName, allProperties);
                             WriteParameters(cmdletPageWriter, cmdletName, allProperties);
+                            WriteCommonParameters(cmdletPageWriter, cmdletType, cmdletName);
                             WriteInputs(cmdletPageWriter, allProperties);
                             WriteOutputs(cmdletPageWriter, AWSCmdletOutputAttributes);
                             WriteNotes(cmdletPageWriter);
@@ -218,11 +245,39 @@ namespace AWSPowerShellGenerator.Generators
                 sb.Append("</div>");
             }
 
-            sb.Append("<div class=\"relatedLink\">");
-            sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", "Common Credential and Region Parameters", "./pstoolsref-commonparams.html");
-            sb.Append("</div>");
+            if (sb.Length == 0)
+                sb.Append("This cmdlet has no parameters specific to its operation.");
 
             writer.AddPageElement(CmdletPageWriter.ParametersElementKey, sb.ToString());
+        }
+
+        /// <summary>
+        /// If the cmdlet is a service cmdlet, or is one of our common cmdlets that supports credential
+        /// and/or region parameters, add in the relevant common parameters section
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="addCredentials"></param>
+        /// <param name="addRegion"></param>
+        private void WriteCommonParameters(CmdletPageWriter writer, Type cmdletType, string cmdletName)
+        {
+            if (cmdletType.IsSubclassOf(ServiceCmdletBaseClass))
+            {
+                var sb = new StringBuilder();
+
+                sb.AppendLine("<div class=\"sectionbody\">");
+                sb.AppendLine("<div class=\"parameters\">");
+
+                sb.Append("<div class=\"commonparameters\">");
+                // right now all service cmdlets have credential and region parameters
+                sb.Append(CredentialParametersSnippet);
+                sb.Append(RegionParametersSnippet);
+                sb.Append("</div>");
+
+                sb.AppendLine("</div>");
+                sb.AppendLine("</div>");
+
+                writer.AddPageElement(CmdletPageWriter.CommonParametersElementKey, sb.ToString());
+            }
         }
 
         private void WriteInputs(CmdletPageWriter writer, IEnumerable<SimplePropertyInfo> allProperties)
@@ -368,10 +423,6 @@ namespace AWSPowerShellGenerator.Generators
 
             var sb = new StringBuilder();
 
-            sb.Append("<div class=\"relatedLink\">");
-            sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", "Common Credential and Region Parameters", "./pstoolsref-commonparams.html");
-            sb.Append("</div>");
-
             XmlDocument document;
             if (LinksCache.TryGetValue(serviceAbbreviation, out document))
             {
@@ -483,6 +534,46 @@ namespace AWSPowerShellGenerator.Generators
 
             var sourceLocation = Directory.GetParent(typeof(PsHelpGenerator).Assembly.Location).FullName;
             IOUtils.DirectoryCopy(Path.Combine(sourceLocation, @"..\..\..\AWSPSGeneratorLib\HelpMaterials\WebHelp\StaticContent"), webFilesRoot, true);
+        }
+
+        private void CopyCommonParametersFile()
+        {
+            var templateFilename = "pstoolsref-commonparams.html";
+
+            // copy the common parameters template, replacing the inner marker with the snippet content
+            // we loaded earlier
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates." + templateFilename))
+            using (var reader = new StreamReader(stream))
+            {
+                var templateBody = reader.ReadToEnd();
+
+                var commonParams = string.Concat(CredentialParametersSnippet, RegionParametersSnippet);
+                var finalBody = templateBody.Replace(CommonParametersSnippetMarker, commonParams);
+
+                var filename = Path.Combine(OutputFolder, "items", templateFilename);
+                using (var writer = new StreamWriter(filename))
+                {
+                    writer.Write(finalBody);
+                }
+            }
+        }
+
+        private void LoadCommonParameterSnippets()
+        {
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.CredentialParametersSnippet.html"))
+            using (var reader = new StreamReader(stream))
+            {
+                var templateBody = reader.ReadToEnd();
+                CredentialParametersSnippet = templateBody;
+            }
+
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.RegionParametersSnippet.html"))
+            using (var reader = new StreamReader(stream))
+            {
+                var templateBody = reader.ReadToEnd();
+                RegionParametersSnippet = templateBody;
+            }
+
         }
 
         private void CreateVersionInfoFile(string path)

@@ -114,7 +114,7 @@
     <Content Include="HelpMaterials\WebHelp\StaticContent\Index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="HelpMaterials\WebHelp\StaticContent\items\pstoolsref-commonparams.html" />
+    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\pstoolsref-commonparams.html" />
     <Content Include="HelpMaterials\WebHelp\StaticContent\items\pstoolsref-welcome.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -187,6 +187,8 @@
   <ItemGroup>
     <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\TOC.html" />
     <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\SiteCatalyst.snippet" />
+    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\CredentialParametersSnippet.html" />
+    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\RegionParametersSnippet.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HelpMaterials\Examples\" />

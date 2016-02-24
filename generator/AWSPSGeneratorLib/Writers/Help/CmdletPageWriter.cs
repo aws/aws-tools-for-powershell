@@ -17,6 +17,7 @@ namespace AWSPowerShellGenerator.Writers.Help
         public const string InputsElementKey = "Inputs";
         public const string OutputsElementKey = "Outputs";
         public const string ParametersElementKey = "Parameters";
+        public const string CommonParametersElementKey = "CommonParameters";
         public const string NotesElementKey = "Notes";
         public const string ExamplesElementKey = "Examples";
         public const string RelatedLinksElementKey = "RelatedLinks";
@@ -73,6 +74,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             AddSyntax(writer);
             AddDescription(writer);
             AddParameterList(writer);
+            AddCommonParameters(writer);
             AddInputs(writer);
             AddOutputs(writer);
             AddNotes(writer);
@@ -118,6 +120,16 @@ namespace AWSPowerShellGenerator.Writers.Help
 
             AddSectionHeader(writer, "Parameters");
             writer.WriteLine("<div class=\"parameters\">{0}</div>", _pageElements[ParametersElementKey]);
+            AddSectionClosing(writer);
+        }
+
+        void AddCommonParameters(TextWriter writer)
+        {
+            if (!_pageElements.ContainsKey(CommonParametersElementKey))
+                return;
+
+            AddSectionHeader(writer, "Common Credential and Region Parameters");
+            writer.WriteLine("<div class=\"parameters\">{0}</div>", _pageElements[CommonParametersElementKey]);
             AddSectionClosing(writer);
         }
 
