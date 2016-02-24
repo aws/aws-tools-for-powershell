@@ -94,8 +94,14 @@ namespace Amazon.PowerShell.Common
     public class SetCredentialsCmdlet : PSCmdlet, IDynamicParameters
     {
         /// <summary>
+        /// <para>
         /// The name to be used to identity the credentials in local storage. Use this with the -ProfileName parameter
         /// on cmdlets to load the stored credentials.
+        /// </para>
+        /// <para>
+        /// Temporary session credentials, identified by use of the -SessionToken parameter, cannot be stored. 
+        /// Specifying this parameter in addition to -SessionToken will result in an error message.
+        /// </para>
         /// </summary>
         [Parameter]
         public string StoreAs { get; set; }

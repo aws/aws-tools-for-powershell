@@ -467,22 +467,29 @@ namespace Amazon.PowerShell.Common
         public SessionState SessionState { get; private set; }
 
         /// <summary>
-        /// The AWS access key for the user account.
+        /// The AWS access key for the user account. This can be a temporary access key
+        /// if the corresponding session token is supplied to the -SessionToken parameter.
+        /// Temporary session credentials can be set for the current shell instance only
+        /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("AK")]
         [Parameter]
         public string AccessKey { get; set; }
 
         /// <summary>
-        /// The AWS secret key for the user account.
+        /// The AWS secret key for the user account. This can be a temporary secret key
+        /// if the corresponding session token is supplied to the -SessionToken parameter.
+        /// Temporary session credentials can be set for the current shell instance only
+        /// and cannot be saved to the credential store file.
         /// </summary>
-        [Alias("SK")]
+        [Alias("SK", "SecretAccessKey")]
         [Parameter]
         public string SecretKey { get; set; }
 
         /// <summary>
         /// The session token if the access and secret keys are temporary session-based
-        /// credentials.
+        /// credentials. Temporary session credentials can be set for the current shell 
+        /// instance only and cannot be saved to the credential store file.
         /// </summary>
         [Alias("ST")]
         [Parameter]
