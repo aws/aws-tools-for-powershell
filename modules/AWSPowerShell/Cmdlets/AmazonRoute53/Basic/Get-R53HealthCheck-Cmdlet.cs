@@ -28,8 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the health check, send a <code>GET</code> request to the <code>2013-04-01/healthcheck/<i>health
-    /// check ID</i></code> resource.
+    /// To retrieve the health check, send a <code>GET</code> request to the <code>/<i>Route
+    /// 53 API version</i>/healthcheck/<i>health check ID</i></code> resource.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheck")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]

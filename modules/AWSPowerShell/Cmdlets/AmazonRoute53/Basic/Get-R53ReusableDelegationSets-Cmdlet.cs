@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// To retrieve a list of your reusable delegation sets, send a <code>GET</code> request
-    /// to the <code>2013-04-01/delegationset</code> resource. The response to this request
-    /// includes a <code>DelegationSets</code> element with zero, one, or multiple <code>DelegationSet</code>
-    /// child elements. By default, the list of delegation sets is displayed on a single page.
-    /// You can control the length of the page that is displayed by using the <code>MaxItems</code>
-    /// parameter. You can use the <code>Marker</code> parameter to control the delegation
-    /// set that the list begins with. 
+    /// to the <code>/<i>Route 53 API version</i>/delegationset</code> resource. The response
+    /// to this request includes a <code>DelegationSets</code> element with zero, one, or
+    /// multiple <code>DelegationSet</code> child elements. By default, the list of delegation
+    /// sets is displayed on a single page. You can control the length of the page that is
+    /// displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code>
+    /// parameter to control the delegation set that the list begins with. 
     /// 
     ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
     /// greater than 100, Amazon Route 53 returns only the first 100.</note>

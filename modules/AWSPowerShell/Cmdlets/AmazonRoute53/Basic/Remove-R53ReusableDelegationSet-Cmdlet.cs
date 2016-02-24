@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// This action deletes a reusable delegation set. To delete a reusable delegation set,
-    /// send a <code>DELETE</code> request to the <code>2013-04-01/delegationset/<i>delegation
+    /// send a <code>DELETE</code> request to the <code>/<i>Route 53 API version</i>/delegationset/<i>delegation
     /// set ID</i></code> resource.
     /// 
     ///  <important> You can delete a reusable delegation set only if there are no associated

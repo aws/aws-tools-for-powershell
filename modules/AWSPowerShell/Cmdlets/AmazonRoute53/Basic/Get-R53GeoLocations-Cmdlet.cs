@@ -29,10 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// To retrieve a list of supported geo locations, send a <code>GET</code> request to
-    /// the <code>2013-04-01/geolocations</code> resource. The response to this request includes
-    /// a <code>GeoLocationDetailsList</code> element with zero, one, or multiple <code>GeoLocationDetails</code>
-    /// child elements. The list is sorted by country code, and then subdivision code, followed
-    /// by continents at the end of the list. 
+    /// the <code>/<i>Route 53 API version</i>/geolocations</code> resource. The response
+    /// to this request includes a <code>GeoLocationDetailsList</code> element with zero,
+    /// one, or multiple <code>GeoLocationDetails</code> child elements. The list is sorted
+    /// by country code, and then subdivision code, followed by continents at the end of the
+    /// list. 
     /// 
     ///  
     /// <para>

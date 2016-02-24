@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To create a new health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck</code>
-    /// resource. The request body must include an XML document with a <code>CreateHealthCheckRequest</code>
-    /// element. The response returns the <code>CreateHealthCheckResponse</code> element that
-    /// contains metadata about the health check.
+    /// To create a new health check, send a <code>POST</code> request to the <code>/<i>Route
+    /// 53 API version</i>/healthcheck</code> resource. The request body must include a document
+    /// with a <code>CreateHealthCheckRequest</code> element. The response returns the <code>CreateHealthCheckResponse</code>
+    /// element that contains metadata about the health check.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,6 +72,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("HealthCheckConfig_ChildHealthChecks")]
         public System.String[] HealthCheckConfig_ChildHealthCheck { get; set; }
+        #endregion
+        
+        #region Parameter HealthCheckConfig_EnableSNI
+        /// <summary>
+        /// <para>
+        /// <para>Specify whether you want Amazon Route 53 to send the value of <code>FullyQualifiedDomainName</code>
+        /// to the endpoint in the <code>client_hello</code> message during TLS negotiation. If
+        /// you don't specify a value for <code>EnableSNI</code>, Amazon Route 53 defaults to
+        /// <code>true</code> when <code>Type</code> is <code>HTTPS</code> or <code>HTTPS_STR_MATCH</code>
+        /// and defaults to <code>false</code> when <code>Type</code> is any other value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean HealthCheckConfig_EnableSNI { get; set; }
         #endregion
         
         #region Parameter HealthCheckConfig_FailureThreshold
@@ -184,7 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>A string to search for in the body of a health check response. Required for HTTP_STR_MATCH
-        /// and HTTPS_STR_MATCH health checks.</para>
+        /// and HTTPS_STR_MATCH health checks. Amazon Route 53 considers case when searching for
+        /// <code>SearchString</code> in the response body. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -251,6 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 context.HealthCheckConfig_ChildHealthChecks = new List<System.String>(this.HealthCheckConfig_ChildHealthCheck);
             }
+            if (ParameterWasBound("HealthCheckConfig_EnableSNI"))
+                context.HealthCheckConfig_EnableSNI = this.HealthCheckConfig_EnableSNI;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -392,6 +409,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.ChildHealthChecks = requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck;
                 requestHealthCheckConfigIsNull = false;
             }
+            System.Boolean? requestHealthCheckConfig_healthCheckConfig_EnableSNI = null;
+            if (cmdletContext.HealthCheckConfig_EnableSNI != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_EnableSNI = cmdletContext.HealthCheckConfig_EnableSNI.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_EnableSNI != null)
+            {
+                request.HealthCheckConfig.EnableSNI = requestHealthCheckConfig_healthCheckConfig_EnableSNI.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
              // determine if request.HealthCheckConfig should be set to null
             if (requestHealthCheckConfigIsNull)
             {
@@ -445,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.Boolean? HealthCheckConfig_Inverted { get; set; }
             public System.Int32? HealthCheckConfig_HealthThreshold { get; set; }
             public List<System.String> HealthCheckConfig_ChildHealthChecks { get; set; }
+            public System.Boolean? HealthCheckConfig_EnableSNI { get; set; }
         }
         
     }

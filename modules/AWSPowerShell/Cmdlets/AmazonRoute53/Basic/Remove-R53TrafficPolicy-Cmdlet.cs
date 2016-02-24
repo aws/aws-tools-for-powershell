@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Deletes a traffic policy. To delete a traffic policy, send a <code>DELETE</code> request
-    /// to the <code>2013-04-01/trafficpolicy</code> resource.
+    /// to the <code>/<i>Route 53 API version</i>/trafficpolicy</code> resource.
     /// </summary>
     [Cmdlet("Remove", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

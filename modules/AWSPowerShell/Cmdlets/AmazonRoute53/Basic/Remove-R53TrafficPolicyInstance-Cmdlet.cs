@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To delete a traffic policy instance, send a <code>DELETE</code> request to the <code>2013-04-01/trafficpolicy/<i>traffic
-    /// policy instance ID</i></code> resource.
+    /// To delete a traffic policy instance, send a <code>DELETE</code> request to the <code>/<i>Route
+    /// 53 API version</i>/trafficpolicy/<i>traffic policy instance ID</i></code> resource.
     /// </para><important>When you delete a traffic policy instance, Amazon Route 53 also deletes
     /// all of the resource record sets that were created when you created the traffic policy
     /// instance.</important>

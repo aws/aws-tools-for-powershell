@@ -28,9 +28,9 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a single geo location, send a <code>GET</code> request to the <code>2013-04-01/geolocation</code>
-    /// resource with one of these options: continentcode | countrycode | countrycode and
-    /// subdivisioncode.
+    /// To retrieve a single geo location, send a <code>GET</code> request to the <code>/<i>Route
+    /// 53 API version</i>/geolocation</code> resource with one of these options: continentcode
+    /// | countrycode | countrycode and subdivisioncode.
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
     [OutputType("Amazon.Route53.Model.GeoLocationDetails")]

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// This action deletes a hosted zone. To delete a hosted zone, send a <code>DELETE</code>
-    /// request to the <code>2013-04-01/hostedzone/<i>hosted zone ID</i></code> resource.
+    /// request to the <code>/<i>Route 53 API version</i>/hostedzone/<i>hosted zone ID</i></code>
+    /// resource.
     /// 
     ///  
     /// <para>

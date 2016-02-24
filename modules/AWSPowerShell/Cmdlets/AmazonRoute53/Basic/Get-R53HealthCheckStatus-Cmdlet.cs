@@ -28,9 +28,9 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the health check status, send a <code>GET</code> request to the <code>2013-04-01/healthcheck/<i>health
-    /// check ID</i>/status</code> resource. You can use this call to get a health check's
-    /// current status.
+    /// To retrieve the health check status, send a <code>GET</code> request to the <code>/<i>Route
+    /// 53 API version</i>/healthcheck/<i>health check ID</i>/status</code> resource. You
+    /// can use this call to get a health check's current status.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckStatus")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]

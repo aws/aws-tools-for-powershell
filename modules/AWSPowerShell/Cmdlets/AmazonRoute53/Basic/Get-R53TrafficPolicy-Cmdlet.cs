@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Gets information about a specific traffic policy version. To get the information,
-    /// send a <code>GET</code> request to the <code>2013-04-01/trafficpolicy</code> resource.
+    /// send a <code>GET</code> request to the <code>/<i>Route 53 API version</i>/trafficpolicy</code>
+    /// resource.
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicy")]
     [OutputType("Amazon.Route53.Model.TrafficPolicy")]

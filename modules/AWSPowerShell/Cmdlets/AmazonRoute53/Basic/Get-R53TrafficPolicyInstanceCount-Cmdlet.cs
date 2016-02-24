@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// To get the number of traffic policy instances, send a <code>GET</code> request to
-    /// the <code>2013-04-01/trafficpolicyinstancecount</code> resource.
+    /// the <code>/<i>Route 53 API version</i>/trafficpolicyinstancecount</code> resource.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstanceCount")]

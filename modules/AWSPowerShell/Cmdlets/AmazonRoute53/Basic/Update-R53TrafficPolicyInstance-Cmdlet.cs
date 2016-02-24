@@ -44,9 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// to respond to DNS queries for the root resource record set name (such as example.com)
     /// by using the new resource record sets.</li><li>Amazon Route 53 deletes the old group
     /// of resource record sets that are associated with the root resource record set name.</li></ol><para>
-    /// To update a traffic policy instance, send a <code>POST</code> request to the <code>/2013-04-01/trafficpolicyinstance/<i>traffic
-    /// policy ID</i></code> resource. The request body must include an XML document with
-    /// an <code>UpdateTrafficPolicyInstanceRequest</code> element.
+    /// To update a traffic policy instance, send a <code>POST</code> request to the <code>/<i>Route
+    /// 53 API version</i>/trafficpolicyinstance/<i>traffic policy ID</i></code> resource.
+    /// The request body must include a document with an <code>UpdateTrafficPolicyInstanceRequest</code>
+    /// element.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "R53TrafficPolicyInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

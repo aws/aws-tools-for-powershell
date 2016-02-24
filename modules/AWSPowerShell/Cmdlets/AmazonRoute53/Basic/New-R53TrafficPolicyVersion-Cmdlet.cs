@@ -37,10 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// You use traffic policies to create multiple DNS resource record sets for one domain
     /// name (such as example.com) or one subdomain name (such as www.example.com).
     /// </para><para>
-    /// To create a new version, send a <code>POST</code> request to the <code>2013-04-01/trafficpolicy/</code>
-    /// resource. The request body includes an XML document with a <code>CreateTrafficPolicyVersionRequest</code>
-    /// element. The response returns the <code>CreateTrafficPolicyVersionResponse</code>
-    /// element, which contains information about the new version of the traffic policy.
+    /// To create a new version, send a <code>POST</code> request to the <code>/<i>Route 53
+    /// API version</i>/trafficpolicy/</code> resource. The request body includes a document
+    /// with a <code>CreateTrafficPolicyVersionRequest</code> element. The response returns
+    /// the <code>CreateTrafficPolicyVersionResponse</code> element, which contains information
+    /// about the new version of the traffic policy.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53TrafficPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

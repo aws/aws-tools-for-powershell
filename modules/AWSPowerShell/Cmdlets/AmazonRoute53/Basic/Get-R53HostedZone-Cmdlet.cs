@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// To retrieve the delegation set for a hosted zone, send a <code>GET</code> request
-    /// to the <code>2013-04-01/hostedzone/<i>hosted zone ID</i></code> resource. The delegation
-    /// set is the four Amazon Route 53 name servers that were assigned to the hosted zone
-    /// when you created it.
+    /// to the <code>/<i>Route 53 API version</i>/hostedzone/<i>hosted zone ID</i></code>
+    /// resource. The delegation set is the four Amazon Route 53 name servers that were assigned
+    /// to the hosted zone when you created it.
     /// </summary>
     [Cmdlet("Get", "R53HostedZone")]
     [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]

@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
-    /// zone ID</i>/associatevpc</code> resource. The request body must include an XML document
-    /// with a <code>AssociateVPCWithHostedZoneRequest</code> element. The response returns
-    /// the <code>AssociateVPCWithHostedZoneResponse</code> element that contains <code>ChangeInfo</code>
-    /// for you to track the progress of the <code>AssociateVPCWithHostedZoneRequest</code>
-    /// you made. See <code>GetChange</code> operation for how to track the progress of your
-    /// change.
+    /// To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>/<i>Route
+    /// 53 API version</i>/hostedzone/<i>hosted zone ID</i>/associatevpc</code> resource.
+    /// The request body must include a document with a <code>AssociateVPCWithHostedZoneRequest</code>
+    /// element. The response returns the <code>AssociateVPCWithHostedZoneResponse</code>
+    /// element that contains <code>ChangeInfo</code> for you to track the progress of the
+    /// <code>AssociateVPCWithHostedZoneRequest</code> you made. See <code>GetChange</code>
+    /// operation for how to track the progress of your change.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "R53VPCWithHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

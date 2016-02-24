@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// This action deletes a health check. To delete a health check, send a <code>DELETE</code>
-    /// request to the <code>2013-04-01/healthcheck/<i>health check ID</i></code> resource.
+    /// request to the <code>/<i>Route 53 API version</i>/healthcheck/<i>health check ID</i></code>
+    /// resource.
     /// 
     ///  <important> You can delete a health check only if there are no resource record sets
     /// associated with this health check. If resource record sets are associated with this

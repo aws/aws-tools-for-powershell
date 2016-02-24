@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that are specified in the traffic policy definition. For more information, see the
     /// <a>State</a> response element.</note><para>
     /// To get information about the traffic policy instances that you created by using a
-    /// specify traffic policy version, send a <code>GET</code> request to the <code>2013-04-01/trafficpolicyinstance</code>
-    /// resource and include the ID and version of the traffic policy.
+    /// specify traffic policy version, send a <code>GET</code> request to the <code>/<i>Route
+    /// 53 API version</i>/trafficpolicyinstance</code> resource and include the ID and version
+    /// of the traffic policy.
     /// </para><para>
     /// Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot
     /// of traffic policy instances, you can use the <code>MaxItems</code> parameter to list

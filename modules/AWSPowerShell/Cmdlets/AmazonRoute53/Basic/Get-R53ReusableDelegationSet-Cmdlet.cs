@@ -28,8 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the reusable delegation set, send a <code>GET</code> request to the <code>2013-04-01/delegationset/<i>delegation
-    /// set ID</i></code> resource.
+    /// To retrieve the reusable delegation set, send a <code>GET</code> request to the <code>/<i>Route
+    /// 53 API version</i>/delegationset/<i>delegation set ID</i></code> resource.
     /// </summary>
     [Cmdlet("Get", "R53ReusableDelegationSet")]
     [OutputType("Amazon.Route53.Model.DelegationSet")]

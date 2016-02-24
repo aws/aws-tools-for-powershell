@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To create a new hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone</code>
-    /// resource. The request body must include an XML document with a <code>CreateHostedZoneRequest</code>
-    /// element. The response returns the <code>CreateHostedZoneResponse</code> element that
-    /// contains metadata about the hosted zone.
+    /// To create a new hosted zone, send a <code>POST</code> request to the <code>/<i>Route
+    /// 53 API version</i>/hostedzone</code> resource. The request body must include a document
+    /// with a <code>CreateHostedZoneRequest</code> element. The response returns the <code>CreateHostedZoneResponse</code>
+    /// element that contains metadata about the hosted zone.
     /// </para><para>
     /// Amazon Route 53 automatically creates a default SOA record and four NS records for
     /// the zone. The NS records in the hosted zone are the name servers you give your registrar

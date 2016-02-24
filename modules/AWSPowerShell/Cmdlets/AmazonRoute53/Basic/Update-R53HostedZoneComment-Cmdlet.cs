@@ -28,10 +28,10 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To update the hosted zone comment, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
-    /// zone ID</i></code> resource. The request body must include an XML document with a
-    /// <code>UpdateHostedZoneCommentRequest</code> element. The response to this request
-    /// includes the modified <code>HostedZone</code> element.
+    /// To update the hosted zone comment, send a <code>POST</code> request to the <code>/<i>Route
+    /// 53 API version</i>/hostedzone/<i>hosted zone ID</i></code> resource. The request body
+    /// must include a document with a <code>UpdateHostedZoneCommentRequest</code> element.
+    /// The response to this request includes the modified <code>HostedZone</code> element.
     /// 
     ///  <note> The comment can have a maximum length of 256 characters.</note>
     /// </summary>

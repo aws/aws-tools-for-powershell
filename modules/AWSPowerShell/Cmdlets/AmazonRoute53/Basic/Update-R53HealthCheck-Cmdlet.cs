@@ -32,10 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To update a health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck/<i>health
-    /// check ID</i></code> resource. The request body must include an XML document with an
-    /// <code>UpdateHealthCheckRequest</code> element. The response returns an <code>UpdateHealthCheckResponse</code>
-    /// element, which contains metadata about the health check.
+    /// To update a health check, send a <code>POST</code> request to the <code>/<i>Route
+    /// 53 API version</i>/healthcheck/<i>health check ID</i></code> resource. The request
+    /// body must include a document with an <code>UpdateHealthCheckRequest</code> element.
+    /// The response returns an <code>UpdateHealthCheckResponse</code> element, which contains
+    /// metadata about the health check.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,6 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("ChildHealthChecks")]
         public System.String[] ChildHealthCheck { get; set; }
+        #endregion
+        
+        #region Parameter EnableSNI
+        /// <summary>
+        /// <para>
+        /// <para>Specify whether you want Amazon Route 53 to send the value of <code>FullyQualifiedDomainName</code>
+        /// to the endpoint in the <code>client_hello</code> message during TLS negotiation. If
+        /// you don't specify a value for <code>EnableSNI</code>, Amazon Route 53 defaults to
+        /// <code>true</code> when <code>Type</code> is <code>HTTPS</code> or <code>HTTPS_STR_MATCH</code>
+        /// and defaults to <code>false</code> when <code>Type</code> is any other value.</para><para>Specify this value only if you want to change it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableSNI { get; set; }
         #endregion
         
         #region Parameter FailureThreshold
@@ -171,7 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>If the value of <code>Type</code> is <code>HTTP_STR_MATCH</code> or <code>HTTP_STR_MATCH</code>,
         /// the string that you want Amazon Route 53 to search for in the response body from the
         /// specified resource. If the string appears in the response body, Amazon Route 53 considers
-        /// the resource healthy. </para><para>Specify this value only if you want to change it.</para>
+        /// the resource healthy. Amazon Route 53 considers case when searching for <code>SearchString</code>
+        /// in the response body.</para><para>Specify this value only if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -223,6 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 context.ChildHealthChecks = new List<System.String>(this.ChildHealthCheck);
             }
+            if (ParameterWasBound("EnableSNI"))
+                context.EnableSNI = this.EnableSNI;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -280,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 request.ChildHealthChecks = cmdletContext.ChildHealthChecks;
             }
+            if (cmdletContext.EnableSNI != null)
+            {
+                request.EnableSNI = cmdletContext.EnableSNI.Value;
+            }
             
             CmdletOutput output;
             
@@ -326,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.Boolean? Inverted { get; set; }
             public System.Int32? HealthThreshold { get; set; }
             public List<System.String> ChildHealthChecks { get; set; }
+            public System.Boolean? EnableSNI { get; set; }
         }
         
     }

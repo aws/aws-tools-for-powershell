@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// To retrieve a count of all your hosted zones, send a <code>GET</code> request to the
-    /// <code>2013-04-01/hostedzonecount</code> resource.
+    /// <code>/<i>Route 53 API version</i>/hostedzonecount</code> resource.
     /// </summary>
     [Cmdlet("Get", "R53HostedZoneCount")]
     [OutputType("System.Int64")]
