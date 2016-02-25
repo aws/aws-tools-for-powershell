@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFCloudFrontOriginAccessIdentity -Id E3XXXXXXXXXXRT
+      
+      CloudFrontOriginAccessIdentityConfig    Id                                      S3CanonicalUserId
+      ------------------------------------    --                                      -----------------
+      Amazon.CloudFront.Model.CloudFrontOr... E3XXXXXXXXXXRT                          4b6e...</code>
+    <description>This example returns a specific Amazon CloudFront origin access identity, specified by the -Id parameter. Although the -Id parameter is not required, if you do not specify it, no results are returned.</description>
+  </example>
+</examples>
