@@ -32,12 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// A tag is defined by its resource ID, resource type, key, value, and propagate flag.
-    /// The value and the propagate flag are optional parameters. The only supported resource
-    /// type is <code>auto-scaling-group</code>, and the resource ID must be the name of the
-    /// group. The <code>PropagateAtLaunch</code> flag determines whether the tag is added
-    /// to instances launched in the group. Valid values are <code>true</code> or <code>false</code>.
-    /// </para><para>
     /// When you specify a tag with a key that already exists, the operation overwrites the
     /// previous tag definition, and you do not get an error message.
     /// </para><para>

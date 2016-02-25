@@ -28,23 +28,23 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Records a heartbeat for the lifecycle action associated with a specific token. This
-    /// extends the timeout by the length of time defined by the <code>HeartbeatTimeout</code>
-    /// parameter of <a>PutLifecycleHook</a>.
+    /// Records a heartbeat for the lifecycle action associated with the specified token or
+    /// instance. This extends the timeout by the length of time defined using <a>PutLifecycleHook</a>.
     /// 
     ///  
     /// <para>
-    /// This operation is a part of the basic sequence for adding a lifecycle hook to an Auto
-    /// Scaling group:
-    /// </para><ol><li>Create a notification target. A target can be either an Amazon SQS queue
-    /// or an Amazon SNS topic.</li><li>Create an IAM role. This role allows Auto Scaling
-    /// to publish lifecycle notifications to the designated SQS queue or SNS topic.</li><li>Create the lifecycle hook. You can create a hook that acts when instances launch
-    /// or when instances terminate.</li><li><b>If necessary, record the lifecycle action
-    /// heartbeat to keep the instance in a pending state.</b></li><li>Complete the lifecycle
+    /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
+    /// group:
+    /// </para><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events
+    /// to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either
+    /// an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish
+    /// lifecycle notifications to the target.</li><li>Create the lifecycle hook. Specify
+    /// whether the hook is used when the instances launch or terminate.</li><li><b>If you
+    /// need more time, record the lifecycle action heartbeat to keep the instance in a pending
+    /// state.</b></li><li>If you finish before the timeout period ends, complete the lifecycle
     /// action.</li></ol><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html">Auto
-    /// Scaling Pending State</a> and <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html">Auto
-    /// Scaling Terminating State</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto
+    /// Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASLifecycleActionHeartbeat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter LifecycleActionToken
@@ -125,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             };
             
             context.AutoScalingGroupName = this.AutoScalingGroupName;
+            context.InstanceId = this.InstanceId;
             context.LifecycleActionToken = this.LifecycleActionToken;
             context.LifecycleHookName = this.LifecycleHookName;
             
@@ -143,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             if (cmdletContext.LifecycleActionToken != null)
             {
@@ -190,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
+            public System.String InstanceId { get; set; }
             public System.String LifecycleActionToken { get; set; }
             public System.String LifecycleHookName { get; set; }
         }

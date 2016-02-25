@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the EC2 instance.</para>
+        /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,8 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
         /// specified for the group, by default, this call will respect the grace period. Set
         /// this to <code>False</code>, if you do not want the call to respect the grace period
-        /// associated with the group.</para><para>For more information, see the <code>HealthCheckGracePeriod</code> parameter description
-        /// for <a>CreateAutoScalingGroup</a>.</para>
+        /// associated with the group.</para><para>For more information, see the description of the health check grace period for <a>CreateAutoScalingGroup</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

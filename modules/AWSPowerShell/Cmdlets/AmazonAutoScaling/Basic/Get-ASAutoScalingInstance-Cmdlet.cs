@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more Auto Scaling instances to describe, up to 50 instances. If you omit this
-        /// parameter, all Auto Scaling instances are described. If you specify an ID that does
-        /// not exist, it is ignored with no error.</para>
+        /// <para>The instances to describe; up to 50 instance IDs. If you omit this parameter, all
+        /// Auto Scaling instances are described. If you specify an ID that does not exist, it
+        /// is ignored with no error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

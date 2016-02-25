@@ -28,11 +28,14 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Resumes the specified suspended Auto Scaling processes for the specified Auto Scaling
-    /// group. To resume specific processes, use the <code>ScalingProcesses</code> parameter.
-    /// To resume all processes, omit the <code>ScalingProcesses</code> parameter. For more
-    /// information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspend
-    /// and Resume Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Resumes the specified suspended Auto Scaling processes, or all suspended process,
+    /// for the specified Auto Scaling group.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspending
+    /// and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Resume", "ASProcess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

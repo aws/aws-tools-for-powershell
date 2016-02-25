@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Used for groups that launch instances into a virtual private cloud (VPC). Specifies
         /// whether to assign a public IP address to each instance. For more information, see
-        /// <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto
-        /// Scaling and Amazon Virtual Private Cloud</a> in the <i>Auto Scaling Developer Guide</i>.</para><para>If you specify a value for this parameter, be sure to specify at least one subnet
-        /// using the <i>VPCZoneIdentifier</i> parameter when you create your group. </para><para>Default: If the instance is launched into a default subnet, the default is <code>true</code>.
+        /// <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
+        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer Guide</i>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
+        /// your group.</para><para>Default: If the instance is launched into a default subnet, the default is <code>true</code>.
         /// If the instance is launched into a nondefault subnet, the default is <code>false</code>.
         /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.
-        /// This parameter is required if <code>ClassicLinkVPCId</code> is specified, and is not
-        /// supported otherwise. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+        /// <para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.
+        /// This parameter is required if you specify a ClassicLink-enabled VPC, and is not supported
+        /// otherwise. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the EC2 instance to use to create the launch configuration.</para><para>The new launch configuration derives attributes from the instance, with the exception
+        /// <para>The ID of the instance to use to create the launch configuration.</para><para>The new launch configuration derives attributes from the instance, with the exception
         /// of the block device mapping.</para><para>To create a launch configuration with a block device mapping or override any other
         /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html">Create
         /// a Launch Configuration Using an EC2 Instance</a> in the <i>Auto Scaling Developer
@@ -223,10 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code>
         /// runs on single-tenant hardware and can only be launched into a VPC.</para><para>You must set the value of this parameter to <code>dedicated</code> if want to launch
         /// Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy
-        /// attribute set to <code>default</code>).</para><para>If you specify a value for this parameter, be sure to specify at least one subnet
-        /// using the <i>VPCZoneIdentifier</i> parameter when you create your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html">Auto
-        /// Scaling and Amazon Virtual Private Cloud</a> in the <i>Auto Scaling Developer Guide</i>.
-        /// </para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
+        /// attribute set to <code>default</code>).</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
+        /// your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
+        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -264,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
         /// request. Spot Instances are launched when the price you specify exceeds the current
-        /// Spot market price. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html">Launch
+        /// Spot market price. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html">Launching
         /// Spot Instances in Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -277,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The user data to make available to the launched EC2 instances. For more information,
         /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
-        /// Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>At this time, launch configurations don't support compressed (zipped) user data files.</para>
+        /// Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

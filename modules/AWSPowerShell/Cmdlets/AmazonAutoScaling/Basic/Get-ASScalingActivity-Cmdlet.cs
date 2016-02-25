@@ -48,10 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The activity IDs of the desired scaling activities. If this list is omitted, all activities
-        /// are described. If the <code>AutoScalingGroupName</code> parameter is provided, the
-        /// results are limited to that group. The list of requested activities cannot contain
-        /// more than 50 items. If unknown activities are requested, they are ignored with no
-        /// error.</para>
+        /// are described. If you specify an Auto Scaling group, the results are limited to that
+        /// group. The list of requested activities cannot contain more than 50 items. If unknown
+        /// activities are requested, they are ignored with no error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes and before the
         /// next scaling activity can start. If this parameter is not specified, the default cooldown
-        /// period for the group applies.</para><para>This parameter is not supported unless the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
-        /// Auto Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// period for the group applies.</para><para>This parameter is not supported unless the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
+        /// Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

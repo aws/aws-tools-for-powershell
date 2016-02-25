@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// all scheduled actions. If you specify an unknown scheduled action it is ignored with
         /// no error.</para><para>You can describe up to a maximum of 50 instances with a single call. If there are
         /// more items to return, the call returns a token. To get the next set of items, repeat
-        /// the call with the returned token in the <code>NextToken</code> parameter.</para>
+        /// the call with the returned token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,9 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Each tag should be defined by its resource type, resource ID, key, value, and a propagate
-        /// flag. Valid values are: Resource type = <i>auto-scaling-group</i>, Resource ID = <i>AutoScalingGroupName</i>,
-        /// key=<i>value</i>, value=<i>value</i>, propagate=<i>true</i> or <i>false</i>.</para>
+        /// <para>One or more tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
