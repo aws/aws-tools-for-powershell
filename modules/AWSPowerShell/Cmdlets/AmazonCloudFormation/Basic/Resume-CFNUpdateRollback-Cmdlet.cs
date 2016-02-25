@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the
     /// cause of the failure, you can manually <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
     /// fix the error</a> and continue the rollback. By continuing the rollback, you can return
-    /// your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), return
-    /// the stack to its original settings, and then try to update the stack again.
+    /// your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and
+    /// then try to update the stack again.
     /// 
     ///  
     /// <para>

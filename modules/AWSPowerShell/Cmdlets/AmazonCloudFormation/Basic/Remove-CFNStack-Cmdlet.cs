@@ -42,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public class RemoveCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter RetainResource
+        /// <summary>
+        /// <para>
+        /// <para>For stacks in the <code>DELETE_FAILED</code> state, a list of resource logical IDs
+        /// that are associated with the resources you want to retain. During deletion, AWS CloudFormation
+        /// deletes the stack but does not delete the retained resources.</para><para>Retaining resources is useful when you cannot delete a resource, such as a non-empty
+        /// S3 bucket, but you want to delete the stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RetainResources")]
+        public System.String[] RetainResource { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -87,6 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.RetainResource != null)
+            {
+                context.RetainResources = new List<System.String>(this.RetainResource);
+            }
             context.StackName = this.StackName;
             
             var output = Execute(context) as CmdletOutput;
@@ -101,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.DeleteStackRequest();
             
+            if (cmdletContext.RetainResources != null)
+            {
+                request.RetainResources = cmdletContext.RetainResources;
+            }
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
@@ -142,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> RetainResources { get; set; }
             public System.String StackName { get; set; }
         }
         

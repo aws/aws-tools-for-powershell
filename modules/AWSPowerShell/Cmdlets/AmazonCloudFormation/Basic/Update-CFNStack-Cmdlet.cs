@@ -37,9 +37,6 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a>
     /// action.
     /// </para><para>
-    /// Tags that were associated with this stack during creation time will still be associated
-    /// with the stack after an <code>UpdateStack</code> operation.
-    /// </para><para>
     /// For more information about creating an update template, updating a stack, and monitoring
     /// the progress of the update, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">Updating
     /// a Stack</a>.
@@ -187,6 +184,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String StackPolicyURL { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs to associate with this stack. AWS CloudFormation also propagates these
+        /// tags to supported resources in the stack. You can specify a maximum number of 10 tags.</para><para>If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's
+        /// tags. If you specify an empty value, AWS CloudFormation removes all associated tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.CloudFormation.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
@@ -270,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.StackPolicyDuringUpdateBody = this.StackPolicyDuringUpdateBody;
             context.StackPolicyDuringUpdateURL = this.StackPolicyDuringUpdateURL;
             context.StackPolicyURL = this.StackPolicyURL;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.CloudFormation.Model.Tag>(this.Tag);
+            }
             context.TemplateBody = this.TemplateBody;
             context.TemplateURL = this.TemplateURL;
             if (ParameterWasBound("UsePreviousTemplate"))
@@ -322,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.StackPolicyURL != null)
             {
                 request.StackPolicyURL = cmdletContext.StackPolicyURL;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TemplateBody != null)
             {
@@ -379,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String StackPolicyDuringUpdateBody { get; set; }
             public System.String StackPolicyDuringUpdateURL { get; set; }
             public System.String StackPolicyURL { get; set; }
+            public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateURL { get; set; }
             public System.Boolean? UsePreviousTemplate { get; set; }
