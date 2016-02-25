@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to do Amazon
-        /// Kinesis PutRecord requests on the desitnation stream.</para>
+        /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to do Amazon Kinesis
+        /// PutRecord requests on the desitnation stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
