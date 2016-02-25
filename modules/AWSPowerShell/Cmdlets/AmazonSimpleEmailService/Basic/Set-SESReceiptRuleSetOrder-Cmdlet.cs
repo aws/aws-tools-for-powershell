@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// Reorders the receipt rules within a receipt rule set.
     /// 
     ///  <note>All of the rules in the rule set must be represented in this request. That
-    /// is, this API will return an error if the reorder request doesn’t explicitly position
+    /// is, this API will return an error if the reorder request doesn't explicitly position
     /// all of the rules.</note><para>
     /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
     /// SES Developer Guide</a>.
