@@ -13,7 +13,7 @@ PS C:\>New-CFDistribution `
       -Origins_Item $origin `
       -Origins_Quantity 1 `
       -Logging_Enabled $true `
-      -Logging_IncludeCookies $true `
+      -Logging_IncludeCookie $true `
       -Logging_Bucket ps-cmdlet-sample-logging.s3.amazonaws.com `
       -Logging_Prefix "help/" `
       -DistributionConfig_CallerReference Client1 `
