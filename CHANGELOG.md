@@ -1,3 +1,20 @@
+### 3.1.48.0 (2016-02-26)
+  * Auto Scaling
+    - Added new InstanceId parameter to the Write-ASLifecycleActionHeartbeat and Complete-ASLifecycleAction cmdlets. Updated parameter documentation in several cmdlets to match latest service documentation.
+  * AWS CloudFormation
+    -  Added new RetainResource parameter to Remove-CFNStack for to allow the specification the logical IDs of resources that you want to retain after stack deletion.
+    - Added Tag parameter to Update-CFNStack to enable updating of tags on stacks.
+  * Amazon CloudFront
+    - Minor help example and documentation updates.
+  * Amazon CloudWatch Logs
+    - Minor documentation update to several cmdlets.
+
+### 3.1.47.0 (2016-02-23)
+  * This version contained documentation updates for Amazon Route 53 and only released as part of the combined AWS SDK and Tools Windows Installer.
+
+### 3.1.46.0 (2016-02-19)
+  * This version contained minor documentation updates and only released as part of the combined AWS SDK and Tools Windows Installer.
+
 ### 3.1.45.0 (2016-02-18)
   * AWS Storage Gateway
     - Added a new cmdlet, New-SGTapeWithBarcode, to support the CreateTapeWithBarcode API.
