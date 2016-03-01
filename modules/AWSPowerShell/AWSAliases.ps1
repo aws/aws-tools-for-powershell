@@ -1,3 +1,6 @@
+Set-Alias -Name Put-AGMethodResponse -Value Write-AGMethodResponse
+Set-Alias -Name AG-PutMethodResponse -Value Write-AGMethodResponse
+Set-Alias -Name AG-TestInvokeAuthorizer -Value Test-AGInvokeAuthorizer
 Set-Alias -Name AG-TestInvokeMethod -Value Test-AGInvokeMethod
 Set-Alias -Name AG-UpdateAccount -Value Update-AGAccount
 Set-Alias -Name AG-UpdateApiKey -Value Update-AGApiKey
@@ -14,6 +17,7 @@ Set-Alias -Name AG-UpdateModel -Value Update-AGModel
 Set-Alias -Name AG-UpdateResource -Value Update-AGResource
 Set-Alias -Name AG-UpdateRestApi -Value Update-AGRestApi
 Set-Alias -Name AG-UpdateStage -Value Update-AGStage
+Set-Alias -Name AG-GetAuthorizer -Value Get-AGAuthorizer
 Set-Alias -Name AG-GetAuthorizers -Value Get-AGAuthorizerList
 Set-Alias -Name AG-GetBasePathMapping -Value Get-AGBasePathMapping
 Set-Alias -Name AG-GetBasePathMappings -Value Get-AGBasePathMappingList
@@ -44,8 +48,6 @@ Set-Alias -Name Put-AGIntegrationResponse -Value Write-AGIntegrationResponse
 Set-Alias -Name AG-PutIntegrationResponse -Value Write-AGIntegrationResponse
 Set-Alias -Name Put-AGMethod -Value Write-AGMethod
 Set-Alias -Name AG-PutMethod -Value Write-AGMethod
-Set-Alias -Name Put-AGMethodResponse -Value Write-AGMethodResponse
-Set-Alias -Name AG-PutMethodResponse -Value Write-AGMethodResponse
 Set-Alias -Name Create-AGApiKey -Value New-AGApiKey
 Set-Alias -Name AG-CreateApiKey -Value New-AGApiKey
 Set-Alias -Name Create-AGAuthorizer -Value New-AGAuthorizer
@@ -92,12 +94,12 @@ Set-Alias -Name Delete-AGRestApi -Value Remove-AGRestApi
 Set-Alias -Name AG-DeleteRestApi -Value Remove-AGRestApi
 Set-Alias -Name Delete-AGStage -Value Remove-AGStage
 Set-Alias -Name AG-DeleteStage -Value Remove-AGStage
+Set-Alias -Name AG-FlushStageAuthorizersCache -Value Clear-AGStageAuthorizersCache
 Set-Alias -Name AG-FlushStageCache -Value Clear-AGStageCache
 Set-Alias -Name AG-GenerateClientCertificate -Value New-AGClientCertificate
 Set-Alias -Name AG-GetAccount -Value Get-AGAccount
 Set-Alias -Name AG-GetApiKey -Value Get-AGApiKey
 Set-Alias -Name AG-GetApiKeys -Value Get-AGApiKeyList
-Set-Alias -Name AG-GetAuthorizer -Value Get-AGAuthorizer
 Set-Alias -Name Describe-ASScalingActivities -Value Get-ASScalingActivity
 Set-Alias -Name AS-DescribeScalingActivities -Value Get-ASScalingActivity
 Set-Alias -Name Describe-ASScalingProcessTypes -Value Get-ASScalingProcessType

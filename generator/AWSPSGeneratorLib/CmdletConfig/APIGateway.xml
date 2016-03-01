@@ -52,6 +52,7 @@
     <ServiceOperation MethodName="DeleteRestApi" Output="Void"/>
     <ServiceOperation MethodName="DeleteStage" Output="Void" ShouldProcessTarget="StageName"/>
     <ServiceOperation MethodName="FlushStageCache" Output="Void" ShouldProcessTarget="StageName" Verb="Clear"/>
+    <ServiceOperation MethodName="FlushStageAuthorizersCache" Output="Void" ShouldProcessTarget="StageName" Verb="Clear" />
     <ServiceOperation MethodName="GenerateClientCertificate" Output="Response" Verb="New" />
     <ServiceOperation MethodName="GetAccount" Output="Response" />
     <ServiceOperation MethodName="GetApiKey" Output="Response" />
@@ -78,6 +79,7 @@
     <ServiceOperation MethodName="PutMethod" Output="Response" ShouldProcessTarget="ResourceId"/>
     <ServiceOperation MethodName="PutMethodResponse" Output="Response" ShouldProcessTarget="ResourceId"/>
     <ServiceOperation MethodName="TestInvokeMethod" Output="Response"/>
+    <ServiceOperation MethodName="TestInvokeAuthorizer" Output="Response" />
     <ServiceOperation MethodName="UpdateAccount" Output="Response"/>
     <ServiceOperation MethodName="UpdateApiKey" Output="Response" ShouldProcessTarget="ApiKey"/>
     <ServiceOperation MethodName="UpdateBasePathMapping" Output="Response"/>

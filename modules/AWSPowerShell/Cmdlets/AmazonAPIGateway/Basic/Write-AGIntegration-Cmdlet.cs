@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter IntegrationHttpMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies a put integration HTTP method.</para>
+        /// <para>Specifies a put integration HTTP method. When the integration type is HTTP or AWS,
+        /// this field is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,7 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>Specifies a put integration input's Uniform Resource Identifier (URI).</para>
+        /// <para>Specifies a put integration input's Uniform Resource Identifier (URI). When the integration
+        /// type is HTTP or AWS, this field is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
