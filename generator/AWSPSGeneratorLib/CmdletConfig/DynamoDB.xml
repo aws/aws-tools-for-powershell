@@ -10,17 +10,18 @@
   <PositionalParameters>TableName</PositionalParameters>
   <PipelineParameter>TableName</PipelineParameter>
 
-  <AutoIterate Start="ExclusiveStartTableName" 
-               Next="LastEvaluatedTableName" 
-               EmitLimit="Limit" 
+  <AutoIterate Start="ExclusiveStartTableName"
+               Next="LastEvaluatedTableName"
+               EmitLimit="Limit"
 			         />
-  
+
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetItem" Exclude="true" Verb="Get" Noun="BatchItem" Output="Response"/>
     <ServiceOperation MethodName="BatchWriteItem" Exclude="true" Verb="Write" Noun="BatchItem" Output="Response"/>
     <ServiceOperation MethodName="CreateTable" Exclude="true" />
     <ServiceOperation MethodName="DeleteItem" Exclude="true" Output="Response" ShouldProcessTarget="Key"/>
     <ServiceOperation MethodName="DeleteTable" ShouldProcessTarget="TableName"/>
+    <ServiceOperation MethodName="DescribeLimits" Noun="ProvisionLimit" Output="Response" />
     <ServiceOperation MethodName="DescribeTable"/>
     <ServiceOperation MethodName="GetItem" Exclude="true" Output="Response"/>
     <ServiceOperation MethodName="ListTables" Verb="Get" Noun="Tables" />
@@ -40,7 +41,7 @@
     <Property>ExclusiveStartTableName</Property>
     <Property>LastEvaluatedTableName</Property>
 	</MetadataProperties>
-  
+
   <PipelineByValueProperties>
     <Property>TableName</Property>
   </PipelineByValueProperties>

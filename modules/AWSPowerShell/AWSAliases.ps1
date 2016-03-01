@@ -775,6 +775,8 @@ Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
+Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
+Set-Alias -Name DDB-DescribeLimits -Value Get-DDBProvisionLimit
 Set-Alias -Name Describe-DDBTable -Value Get-DDBTable
 Set-Alias -Name DDB-DescribeTable -Value Get-DDBTable
 Set-Alias -Name DDB-ListTables -Value Get-DDBTables
