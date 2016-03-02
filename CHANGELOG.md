@@ -1,3 +1,9 @@
+### 3.1.49.0 (2016-03-01)
+  * Amazon API Gateway
+    - Added new cmdlets, Clear-AGStageAuthorizerCache (FlushStageAuthorizersCache API) and Test-AGInvokeAuthorizer (TestInvokeAuthorizer API).
+  * Amazon DynamoDB
+    - Added new cmdlet, Get-DDBProvisionLimit (DescribeLimits API). This cmdlet enables you to query the current provisioning limits for your account.
+
 ### 3.1.48.0 (2016-02-26)
   * Auto Scaling
     - Added new InstanceId parameter to the Write-ASLifecycleActionHeartbeat and Complete-ASLifecycleAction cmdlets. Updated parameter documentation in several cmdlets to match latest service documentation.
