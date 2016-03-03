@@ -1,3 +1,7 @@
+### 3.1.50.0 (2016-03-03)
+  * AWS Directory Service
+    - Added support for SNS topic notifications with new cmdlets Register-DSEventTopic (RegisterEventTopic API), Get-DSEventTopic (DescribeEventTopics API) and Unregister-DSEventTopic (DeregisterEventTopic API).
+
 ### 3.1.49.0 (2016-03-01)
   * Amazon API Gateway
     - Added new cmdlets, Clear-AGStageAuthorizerCache (FlushStageAuthorizersCache API) and Test-AGInvokeAuthorizer (TestInvokeAuthorizer API).
