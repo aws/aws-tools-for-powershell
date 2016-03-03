@@ -761,8 +761,11 @@ Set-Alias -Name Delete-DSSnapshot -Value Remove-DSSnapshot
 Set-Alias -Name DS-DeleteSnapshot -Value Remove-DSSnapshot
 Set-Alias -Name Delete-DSTrust -Value Remove-DSTrust
 Set-Alias -Name DS-DeleteTrust -Value Remove-DSTrust
+Set-Alias -Name DS-DeregisterEventTopic -Value Unregister-DSEventTopic
 Set-Alias -Name Describe-DSDirectory -Value Get-DSDirectory
 Set-Alias -Name DS-DescribeDirectories -Value Get-DSDirectory
+Set-Alias -Name Describe-DSEventTopic -Value Get-DSEventTopic
+Set-Alias -Name DS-DescribeEventTopics -Value Get-DSEventTopic
 Set-Alias -Name Describe-DSSnapshot -Value Get-DSSnapshot
 Set-Alias -Name DS-DescribeSnapshots -Value Get-DSSnapshot
 Set-Alias -Name DS-DescribeTrusts -Value Get-DSTrust
@@ -772,6 +775,7 @@ Set-Alias -Name DS-EnableRadius -Value Enable-DSRadius
 Set-Alias -Name DS-EnableSso -Value Enable-DSSso
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
+Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust

@@ -11,86 +11,89 @@
 
   <ServiceOperations>
 
-	<ServiceOperation MethodName="ConnectDirectory" 
-		PositionalParameters="Name;Password" 
+	<ServiceOperation MethodName="ConnectDirectory"
+		PositionalParameters="Name;Password"
 		ShouldProcessTarget="Name"
 		PipelineParameter="Name"/>
-		
-	<ServiceOperation MethodName="CreateAlias" 
-		PipelineParameter="DirectoryId" 
+
+	<ServiceOperation MethodName="CreateAlias"
+		PipelineParameter="DirectoryId"
 		Output="Response"
 		ShouldProcessTarget="DirectoryId"/>
-		
-	<ServiceOperation MethodName="CreateComputer" 
+
+	<ServiceOperation MethodName="CreateComputer"
 		PipelineParameter="DirectoryId" />
-		
+
 	<ServiceOperation MethodName="CreateDirectory"
 		PositionalParameters="Name;Password"
-		PipelineParameter="Name" 
+		PipelineParameter="Name"
 		ShouldProcessTarget="Name" />
-		
+
 	<ServiceOperation MethodName="CreateSnapshot"
 		PipelineParameter="DirectoryId"/>
-		
+
 	<ServiceOperation MethodName="DeleteDirectory" />
-		
+
 	<ServiceOperation MethodName="DeleteSnapshot" />
-		
+
 	<ServiceOperation MethodName="DescribeDirectories"
 		Noun="Directory"
 		PipelineParameter="DirectoryIds"/>
-	
-	<ServiceOperation MethodName="DescribeSnapshots" 
+
+	<ServiceOperation MethodName="DescribeSnapshots"
 		Noun="Snapshot"
 		PipelineParameter="DirectoryId"/>
-		
-	<ServiceOperation MethodName="DisableRadius" 
+
+	<ServiceOperation MethodName="DisableRadius"
 		Output="Void" />
-			
-	<ServiceOperation MethodName="DisableSso" 
+
+	<ServiceOperation MethodName="DisableSso"
 		PipelineParameter="DirectoryId"
 		ShouldProcessTarget="DirectoryId"
 		Output="Void" />
-		
-	<ServiceOperation MethodName="EnableRadius" 
-		Output="Void" 
+
+	<ServiceOperation MethodName="EnableRadius"
+		Output="Void"
 		PipelineParameter="DirectoryId" />
-		
-	<ServiceOperation MethodName="EnableSso" 
-		Output="Void" 
+
+	<ServiceOperation MethodName="EnableSso"
+		Output="Void"
 		PipelineParameter="DirectoryId" />
-		
+
 	<ServiceOperation MethodName="GetDirectoryLimits"
 		Noun="DirectoryLimit" />
-	
+
 	<ServiceOperation MethodName="GetSnapshotLimits"
 		Noun="SnapshotLimit"/>
-		
-	<ServiceOperation MethodName="RestoreFromSnapshot" 
-		Output="Void" 
+
+	<ServiceOperation MethodName="RestoreFromSnapshot"
+		Output="Void"
 		PositionalParameters="SnapshotId"/>
-		
-	<ServiceOperation MethodName="UpdateRadius" 
-		Output="Void" 
+
+	<ServiceOperation MethodName="UpdateRadius"
+		Output="Void"
 		PipelineParameter="DirectoryId" />
-        
-    <!-- Managed Directory Operations -->    
-        
-    <ServiceOperation MethodName="CreateMicrosoftAD" 
+
+    <!-- Managed Directory Operations -->
+
+    <ServiceOperation MethodName="CreateMicrosoftAD"
         PipelineParameter="Name" />
-        
-    <ServiceOperation MethodName="CreateTrust" 
+
+    <ServiceOperation MethodName="CreateTrust"
         PipelineParameter="DirectoryId" />
-        
+
     <ServiceOperation MethodName="DeleteTrust" />
-        
-    <ServiceOperation MethodName="DescribeTrusts" 
+
+    <ServiceOperation MethodName="DescribeTrusts"
         PipelineParameter="DirectoryId"
         Noun="Trust" Verb="Get" />
-        
-    <ServiceOperation MethodName="VerifyTrust" 
+
+    <ServiceOperation MethodName="VerifyTrust"
         Verb="Approve" />
-    
+
+    <ServiceOperation MethodName="DeregisterEventTopic" Verb="Unregister" PipelineParameter="DirectoryId" Output="Void"/>
+    <ServiceOperation MethodName="DescribeEventTopics" Noun="EventTopic" PipelineParameter="TopicName" />
+    <ServiceOperation MethodName="RegisterEventTopic" PipelineParameter="TopicName" Output="Void" />
 
   </ServiceOperations>
 

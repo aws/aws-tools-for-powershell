@@ -28,40 +28,50 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
-    /// 
-    ///  <note><para>
-    /// You cannot take snapshots of AD Connector directories.
-    /// </para></note>
+    /// Associates a directory with an SNS topic. This establishes the directory as a publisher
+    /// to the specified SNS topic. You can then receive email or text (SMS) messages when
+    /// the status of your directory changes. You get notified if your directory goes from
+    /// an Active status to an Impaired or Inoperable status. You also receive a notification
+    /// when the directory returns to an Active status.
     /// </summary>
-    [Cmdlet("New", "DSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateSnapshot operation against AWS Directory Service.", Operation = new[] {"CreateSnapshot"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.DirectoryService.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "DSEventTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the RegisterEventTopic operation against AWS Directory Service.", Operation = new[] {"RegisterEventTopic"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DirectoryService.Model.RegisterEventTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class RegisterDSEventTopicCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory of which to take a snapshot.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryId { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The descriptive name to apply to the snapshot.</para>
+        /// <para>The Directory ID that will publish status messages to the SNS topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
+        
+        #region Parameter TopicName
+        /// <summary>
+        /// <para>
+        /// <para>The SNS topic name to which the directory will publish status messages. This SNS topic
+        /// must be in the same region as the specified Directory ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String TopicName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the TopicName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -78,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSSnapshot (CreateSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TopicName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-DSEventTopic (RegisterEventTopic)"))
             {
                 return;
             }
@@ -91,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             };
             
             context.DirectoryId = this.DirectoryId;
-            context.Name = this.Name;
+            context.TopicName = this.TopicName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -103,15 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.CreateSnapshotRequest();
+            var request = new Amazon.DirectoryService.Model.RegisterEventTopicRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.TopicName != null)
             {
-                request.Name = cmdletContext.Name;
+                request.TopicName = cmdletContext.TopicName;
             }
             
             CmdletOutput output;
@@ -120,9 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateSnapshot(request);
+                var response = client.RegisterEventTopic(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.SnapshotId;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.TopicName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal class CmdletContext : ExecutorContext
         {
             public System.String DirectoryId { get; set; }
-            public System.String Name { get; set; }
+            public System.String TopicName { get; set; }
         }
         
     }
