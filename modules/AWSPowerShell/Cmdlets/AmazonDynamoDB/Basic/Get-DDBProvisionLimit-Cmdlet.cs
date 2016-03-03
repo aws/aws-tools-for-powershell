@@ -29,30 +29,50 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Returns the current provisioned-capacity limits for your AWS account in a region,
-    /// both for the region as a whole and for any one DynamoDB table you create there.
+    /// both for the region as a whole and for any one DynamoDB table that you create there.
     /// 
     ///  
     /// <para>
-    /// When you establish an AWS account, the account has initial limits on the maximum Read-
-    /// and Write-Capacity Units (RCUs and WCUs) that you can provision across all your DynamoDB
-    /// tables in a given region, and also per-table limits that apply when you create a table
-    /// there. Although you can increase these limits by filing a Case at <a href="https://console.aws.amazon.com/support">AWS
+    /// When you establish an AWS account, the account has initial limits on the maximum read
+    /// capacity units and write capacity units that you can provision across all of your
+    /// DynamoDB tables in a given region. Also, there are per-table limits that apply when
+    /// you create a table there. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
+    /// page in the <i>Amazon DynamoDB Developer Guide</i>.
+    /// </para><para>
+    /// Although you can increase these limits by filing a case at <a href="https://console.aws.amazon.com/support/home#/">AWS
     /// Support Center</a>, obtaining the increase is not instantaneous. The <i>DescribeLimits</i>
     /// API lets you write code to compare the capacity you are currently using to those limits
-    /// imposed by your account so you have enough time to apply for an increase before you
-    /// hit a limit. For example, you could use one of the AWS SDKs to do the following:
-    /// </para><ol><li>Call <i>DescribeLimits</i> to obtain the current account limits on provisioned
-    /// capacity in a region.</li><li>Call <i>ListTables</i> to obtain a list of all your
-    /// DynamoDB tables there.</li><li>Loop over the tables, calling <i>DescribeTable</i>
-    /// on each. Sum the capacity provisioned for each table and all its global secondary
-    /// indexes across all the tables, while also keeping track of the table or global secondary
-    /// index with the largest provisioned read capacity, and the one with the largest provisioned
-    /// write capacity.</li><li>Report the account limits returned by <i>DescribeLimits</i>
-    /// as compared to the current provisioned capacity levels for the account as a whole,
-    /// and for the highest current per-table provisioning.</li></ol><para>
+    /// imposed by your account so that you have enough time to apply for an increase before
+    /// you hit a limit.
+    /// </para><para>
+    ///  For example, you could use one of the AWS SDKs to do the following:
+    /// </para><ol><li>Call <i>DescribeLimits</i> for a particular region to obtain your current
+    /// account limits on provisioned capacity there.</li><li>Create a variable to hold the
+    /// aggregate read capacity units provisioned for all your tables in that region, and
+    /// one to hold the aggregate write capacity units. Zero them both.</li><li>Call <i>ListTables</i>
+    /// to obtain a list of all your DynamoDB tables.</li><li><para>
+    /// For each table name listed by <i>ListTables</i>, do the following:
+    /// </para><ul><li>Call <i>DescribeTable</i> with the table name.</li><li>Use the data returned
+    /// by <i>DescribeTable</i> to add the read capacity units and write capacity units provisioned
+    /// for the table itself to your variables.</li><li>If the table has one or more global
+    /// secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity
+    /// values to your variables as well.</li></ul></li><li>Report the account limits for
+    /// that region returned by <i>DescribeLimits</i>, along with the total current provisioned
+    /// capacity levels you have calculated.</li></ol><para>
     /// This will let you see whether you are getting close to your account-level limits.
-    /// See <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#d0e53086">Limits
-    /// in DynamoDB</a> for a code example written in Python.
+    /// </para><para>
+    /// The per-table limits apply only when you are creating a new table. They restrict the
+    /// sum of the provisioned capacity of the new table itself and all its global secondary
+    /// indexes.
+    /// </para><para>
+    /// For existing tables and their GSIs, DynamoDB will not let you increase provisioned
+    /// capacity extremely rapidly, but the only upper limit that applies is that the aggregate
+    /// provisioned capacity over all your tables and GSIs cannot exceed either of the per-account
+    /// limits.
+    /// </para><note><para><i>DescribeLimits</i> should only be called periodically. You can expect throttling
+    /// errors if you call it more than once in a minute.
+    /// </para></note><para>
+    /// The <i>DescribeLimits</i> Request element has no content.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DDBProvisionLimit")]
