@@ -87,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
-        /// results, make another call with the returned <code>NextToken</code> value.</para>
+        /// <para>The maximum number of results to return in a single call. This value can be between
+        /// 5 and 300. The default value is 100. To retrieve the remaining results, make another
+        /// call with the returned <code>NextToken</code> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

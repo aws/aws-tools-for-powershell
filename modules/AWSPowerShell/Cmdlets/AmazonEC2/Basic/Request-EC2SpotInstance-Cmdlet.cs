@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zones. To specify multiple Availability Zones, separate them using
-        /// commas; for example, "us-west-2a, us-west-2b".</para>
+        /// <para>The Availability Zone.</para><para>[Spot fleet only] To specify multiple Availability Zones, separate them using commas;
+        /// for example, "us-west-2a, us-west-2b".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDurationMinute
         /// <summary>
         /// <para>
-        /// <para>The required duration for the Spot instances, in minutes. This value must be a multiple
-        /// of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot instance receives its instance ID.
+        /// <para>The required duration for the Spot instances (also known as Spot blocks), in minutes.
+        /// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot instance receives its instance ID.
         /// At the end of the duration period, Amazon EC2 marks the Spot instance for termination
         /// and provides a Spot instance termination notice, which gives the instance a two-minute
         /// warning before it terminates.</para><para>Note that you can't specify an Availability Zone group or a launch group if you specify

@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DiskContainer_S3Key
         /// <summary>
         /// <para>
-        /// <para>The key for the disk image.</para>
+        /// <para>The file name of the disk image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
