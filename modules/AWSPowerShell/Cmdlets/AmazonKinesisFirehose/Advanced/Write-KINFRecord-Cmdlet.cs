@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// If the destination is unreachable for more than 24 hours, the data is no longer available.
     /// </para>
     /// </summary>
-    [Cmdlet("Write", "KINFRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Write", "KINFRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = DataFromText)]
     [OutputType("System.String")]
     [AWSCmdlet("Invokes the PutRecord operation against Amazon Kinesis Firehose.", Operation = new[] {"PutRecord"})]
     [AWSCmdletOutput("System.String",
@@ -79,25 +79,65 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class WriteKINFRecordCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
-        #region Parameter Record_Data
+        const string DataFromBlob = "FromBlobParameterSet";
+        const string DataFromText = "FromTextParameterSet";
+        const string DataFromFile = "FromFileParameterSet";
+
+        #region Parameter Blob
         /// <summary>
         /// <para>
-        /// <para>The data blob, which is base64-encoded when the blob is serialized. The maximum size
-        /// of the data blob, before base64-encoding, is 1,000 KB.</para>
+        /// The data blob to put into the record, which is base64-encoded when serialized.
+        /// The maximum size of the data blob, before base64-encoding, is 1,000 KB.
+        /// </para>
+        /// <para>
+        /// Use this parameter, or -Text or -FilePath to define the data to be written into the record.
+        /// </para>
+        /// <para>
+        /// Note that this parameter was originally named '-Record_Data'. This is now an alias which can be
+        /// used to reference this parameter for backwards compatibility.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.IO.MemoryStream Record_Data { get; set; }
+        [System.Management.Automation.Parameter(Mandatory = true, ParameterSetName = DataFromBlob)]
+        [Alias("Record_Data")]
+        public System.IO.MemoryStream Blob { get; set; }
         #endregion
 
-        #region Parameter Record_Text 
+        #region Parameter Text 
         /// <summary>
-        /// Text string containing the data to send. Use this parameter, or
-        /// Record_Data, to define the data to be written.
+        /// <para>
+        /// Text string containing the data to send, which is base64-encoded when serialized.
+        /// The maximum size of the data blob, before base64-encoding, is 1,000 KB.
+        /// </para>
+        /// <para>
+        /// Use this parameter, or -Blob or -FilePath to define the data to be written into the record.
+        /// </para>
+        /// <para>
+        /// Note that this parameter was originally named '-Record_Text'. This is now an alias which can be
+        /// used to reference this parameter for backwards compatibility.
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Mandatory = true, ParameterSetName = DataFromText)]
+        [Alias("Record_Text")]
+        public System.String Text { get; set; }
+        #endregion
 
-        public System.String Record_Text { get; set; }
+        #region Parameter FilePath
+        /// <summary>
+        /// <para>
+        /// The fully qualified name to a file containing the data to send, which is base64-encoded 
+        /// when serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB.
+        /// </para>
+        /// <para>
+        /// Use this parameter, or -Blob or -Text to define the data to be written into the record.
+        /// </para>
+        /// <para>
+        /// Note that this parameter was originally named '-Record_FilePath'. This is now an alias which can be
+        /// used to reference this parameter for backwards compatibility.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Mandatory = true, ParameterSetName = DataFromFile)]
+        [Alias("Record_FilePath")]
+        public System.String FilePath { get; set; }
         #endregion
 
         #region Parameter DeliveryStreamName
@@ -137,11 +177,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             };
 
             context.DeliveryStreamName = this.DeliveryStreamName;
-            if (ParameterWasBound("Record_Text"))
-                context.Record_Text = Record_Text;
+            if (ParameterSetName.Equals(DataFromText, StringComparison.OrdinalIgnoreCase))
+                context.Text = Text;
+            else if (ParameterSetName.Equals(DataFromBlob, StringComparison.OrdinalIgnoreCase))
+                context.Blob = this.Blob;
             else
-                context.Record_Data = this.Record_Data;
-            
+            {
+                if (File.Exists(this.FilePath))
+                    context.FilePath = this.FilePath;
+                else
+                    ThrowArgumentError("File not found", this.FilePath);
+            }
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
@@ -160,34 +207,24 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             }
             
              // populate Record
-            bool requestRecordIsNull = true;
-            request.Record = new Amazon.KinesisFirehose.Model.Record();
-            System.IO.MemoryStream requestRecord_record_Data = null;
-            if (cmdletContext.Record_Text != null)
+            if (cmdletContext.Blob == null)
             {
                 var ms = new MemoryStream();
-                var stringBytes = System.Text.Encoding.UTF8.GetBytes(cmdletContext.Record_Text);
-                ms.Write(stringBytes, 0, stringBytes.Length);
+                byte[] content;
+
+                if (!string.IsNullOrEmpty(cmdletContext.Text))
+                    content = Encoding.UTF8.GetBytes(cmdletContext.Text);
+                else
+                    content = File.ReadAllBytes(cmdletContext.FilePath);
+
+                ms.Write(content, 0, content.Length);
                 ms.Seek(0, SeekOrigin.Begin);
 
-                requestRecord_record_Data = ms;
+                request.Record.Data = ms;
             }
-            else if (cmdletContext.Record_Data != null)
-            {
-                requestRecord_record_Data = cmdletContext.Record_Data;
-            }
+            else
+                request.Record.Data = cmdletContext.Blob;
 
-            if (requestRecord_record_Data != null)
-            {
-                request.Record.Data = requestRecord_record_Data;
-                requestRecordIsNull = false;
-            }
-             // determine if request.Record should be set to null
-            if (requestRecordIsNull)
-            {
-                request.Record = null;
-            }
-            
             CmdletOutput output;
             
             // issue call
@@ -223,8 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         internal class CmdletContext : ExecutorContext
         {
             public System.String DeliveryStreamName { get; set; }
-            public System.IO.MemoryStream Record_Data { get; set; }
-            public System.String Record_Text { get; set; }
+            public System.IO.MemoryStream Blob { get; set; }
+            public System.String Text { get; set; }
+
+            public System.String FilePath { get; set; }
         }
         
     }

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> $records = Get-KINRecord -ShardIterator "AAAAAAAAAAGIc....9VnbiRNaP"
+PS C:\> $records
+
+MillisBehindLatest NextShardIterator            Records
+------------------ -----------------            -------
+0                  AAAAAAAAAAERNIq...uDn11HuUs  {Key1, Key2}
+
+PS C:\> $records.Records[0]
+
+ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
+--------------------------- ----                   ------------ --------------
+3/7/2016 5:14:33 PM         System.IO.MemoryStream Key1         4955986459776...931586
+
+PS C:\> [Text.Encoding]::UTF8.GetString($records.Records[0].Data.ToArray())
+
+test data from string
+</code>
+        <description>This example shows how to return and extract data from a series of one or more records. The iterator supplierd to Get-KINRecord determines the starting position of the records to return which in this example are captured into a variable, $records. Each individual record can then be accessed by indexing the $records collection.<br/><br/>Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.</description>
+    </example>
+</examples>

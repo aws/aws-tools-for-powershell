@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> Get-KINShardIterator -StreamName "mystream" -ShardId "shardId-000000000000" -ShardIteratorType AT_SEQUENCE_NUMBER -StartingSequenceNumber "495598645..."
+
+AAAAAAAAAAGIc....9VnbiRNaP
+        </code>
+        <description>Returns a shard iterator for the specified shard and starting position. Details of the shard identifiers and sequence numbers can be obtained from the output of the Get-KINStream cmdlet, by referencing the Shards collection of the returned stream object. The returned iterator can be used with the Get-KINRecord cmdlet to pull data records in the shard.</description>
+    </example>
+</examples>

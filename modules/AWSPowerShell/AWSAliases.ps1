@@ -1809,11 +1809,16 @@ Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
 Set-Alias -Name Describe-KINStream -Value Get-KINStream
 Set-Alias -Name KIN-DescribeStream -Value Get-KINStream
+Set-Alias -Name Get-KINRecords -Value Get-KINRecord
+Set-Alias -Name KIN-GetRecords -Value Get-KINRecord
+Set-Alias -Name KIN-GetShardIterator -Value Get-KINShardIterator
 Set-Alias -Name KIN-IncreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodIncrease
 Set-Alias -Name KIN-ListStreams -Value Get-KINStreams
 Set-Alias -Name KIN-ListTagsForStream -Value Get-KINTagsForStream
 Set-Alias -Name Merge-KINShards -Value Merge-KINShard
 Set-Alias -Name KIN-MergeShards -Value Merge-KINShard
+Set-Alias -Name Put-KINMultipleRecord -Value Write-KINMultipleRecord
+Set-Alias -Name KIN-PutRecords -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
 Set-Alias -Name Create-KINFDeliveryStream -Value New-KINFDeliveryStream
