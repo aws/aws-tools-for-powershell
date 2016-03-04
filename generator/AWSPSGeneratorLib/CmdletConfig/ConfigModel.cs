@@ -865,6 +865,14 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlIgnore]
         public string OriginalNoun { get; set; }
 
+        /// <summary>
+        /// Set true once we've encountered the operation config and matched it
+        /// with a method on the service client. If any operations are still false
+        /// when we conclude the service generation, we emit a build fail since it
+        /// indicates we could be building against an out-of-date sdk.
+        /// </summary>
+        [XmlIgnore]
+        public bool Processed { get; set; }
         #endregion
     }
 

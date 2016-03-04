@@ -54,14 +54,7 @@
       PipelineParameter="LogGroupName"
       PositionalParameters="FilterName;FilterPattern" />
 
-    <ServiceOperation MethodName="SetRetention" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="RetentionInDays">
-      <Params>
-        <Param Name="RetentionInDays" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
     <ServiceOperation MethodName="TestMetricFilter" PipelineParameter="FilterPattern" PositionalParameters="LogEventMessages"/>
-
-
 
     <ServiceOperation MethodName="CancelExportTask" Output="Void"/>
     <ServiceOperation MethodName="CreateExportTask" PipelineParameter="LogGroupName"/>

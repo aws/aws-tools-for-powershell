@@ -21,7 +21,6 @@
   </ParamEmitters>
 
   <ServiceOperations>
-    <ServiceOperation MethodName="ActivateLicense" Output="Void"/>
     <ServiceOperation MethodName="AllocateAddress" Output="Response" />
     <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId"
                       PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
@@ -88,9 +87,9 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateVolume" PipelineParameter="SnapshotId" PositionalParameters="Size;AvailabilityZone;IOPS;VolumeType;Encrypted"/>
-    <ServiceOperation MethodName="CreateVpc" PipelineParameter="CidrBlock" PositionalParameters="InstanceTenancy"/>    
-    <ServiceOperation MethodName="CreateVpnConnection" PipelineParameter="Type" 
-                      PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" 
+    <ServiceOperation MethodName="CreateVpc" PipelineParameter="CidrBlock" PositionalParameters="InstanceTenancy"/>
+    <ServiceOperation MethodName="CreateVpnConnection" PipelineParameter="Type"
+                      PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly"
                       ShouldProcessTarget="VpnGatewayId">
       <Params>
         <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" /> <!-- maintain compat with v1 sdk name -->
@@ -99,7 +98,6 @@
     <ServiceOperation MethodName="CreateVpnConnectionRoute" Output="Void" PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
     <ServiceOperation MethodName="CreateVpcEndpoint" PipelineParameter="VpcId" Output="Response"/>
     <ServiceOperation MethodName="CreateVpnGateway" PipelineParameter="Type" PositionalParameters="AvailabilityZone"/>
-    <ServiceOperation MethodName="DeactivateLicense" Output="Void"/>
     <ServiceOperation MethodName="DeleteCustomerGateway" Output="Void" ShouldProcessMsgNoun="Customer Gateway" />
     <ServiceOperation MethodName="DeleteDhcpOptions" Output="Void" />
 	<ServiceOperation MethodName="DeleteFlowLogs" />
@@ -159,7 +157,6 @@
     <ServiceOperation MethodName="DescribeInstanceStatus" PipelineParameter="InstanceIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeInternetGateways" PipelineParameter="InternetGatewayIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeKeyPairs" PipelineParameter="KeyNames" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeLicenses"/>
     <ServiceOperation MethodName="DescribeMovingAddresses" Noun="MovingAddress" PipelineParameter="PublicIps" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeNetworkAcls" PipelineParameter="NetworkAclIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeNetworkInterfaceAttribute" Output="Response" PipelineParameter="NetworkInterfaceId" PositionalParameters="Attribute"/>
@@ -208,7 +205,6 @@
     <ServiceOperation MethodName="DisableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
     <ServiceOperation MethodName="DisassociateAddress" Output="Void" PipelineParameter="PublicIp" PositionalParameters="AssociationId"/>
     <ServiceOperation MethodName="DisassociateRouteTable" Output="Void" />
-    <ServiceOperation MethodName="DryRun" Exclude="true"/>
     <ServiceOperation MethodName="EnableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
     <ServiceOperation MethodName="EnableVolumeIO" Output="Void" />
     <ServiceOperation MethodName="GetConsoleOutput" Output="Response"/>
@@ -313,14 +309,14 @@
         <Expression>cmdletContext.PrivateIpAddresses</Expression>
         <Documentation>Returns the secondary private IP addresses</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
     <ServiceOperation MethodName="UnmonitorInstances" Verb="Stop" Noun="InstanceMonitoring" />
 
     <ServiceOperation MethodName="DescribeVpcPeeringConnections" PipelineParameter="VpcPeeringConnectionIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="CreateVpcPeeringConnection" PipelineParameter="VpcId" PositionalParameters="PeerVpcId;PeerOwnerId"/>
     <ServiceOperation MethodName="AcceptVpcPeeringConnection" Verb="Approve" />
     <ServiceOperation MethodName="RejectVpcPeeringConnection" Verb="Deny" Output="Void"  />
-    <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void"  />  
+    <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void"  />
 
     <ServiceOperation MethodName="AttachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId;Groups"/>
     <ServiceOperation MethodName="DescribeClassicLinkInstances" PipelineParameter="InstanceIds" Noun="ClassicLinkInstance"/>
@@ -332,7 +328,7 @@
     <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" />
     <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" />
     <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" />
-    
+
     <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType"/>
     <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="ModifyHosts" Output="Response" PipelineParameter="HostIds" PositionalParameters="AutoPlacement" />
@@ -345,13 +341,13 @@
     <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
     <ServiceOperation MethodName="DeleteNatGateway" />
 
-    <ServiceOperation MethodName="RunScheduledInstances" 
-                      Noun="ScheduledInstance" 
-                      PipelineParameter="LaunchSpecification" 
+    <ServiceOperation MethodName="RunScheduledInstances"
+                      Noun="ScheduledInstance"
+                      PipelineParameter="LaunchSpecification"
                       ShouldProcessTarget="ScheduledInstanceId" />
-    <ServiceOperation MethodName="PurchaseScheduledInstances" 
-                      Verb="New" 
-                      Noun="ScheduledInstancePurchase" 
+    <ServiceOperation MethodName="PurchaseScheduledInstances"
+                      Verb="New"
+                      Noun="ScheduledInstancePurchase"
                       PipelineParameter="PurchaseRequests"/>
     <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" />
     <ServiceOperation MethodName="DescribeScheduledInstances" Noun="ScheduledInstance" />
@@ -384,7 +380,7 @@
   <MetadataProperties>
     <Property>SpotFleetRequestId</Property>
   </MetadataProperties>
-  
+
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory" />
 
   <!-- noun mappings contains service-specific noun remaps, augmenting the global map
@@ -439,7 +435,7 @@
     <Property>ScheduledInstanceId</Property>
     <!-- excluded so we don't take both values and trigger 'cannot specify both
          values' ec2 error
-    <Property>GroupName</Property> 
+    <Property>GroupName</Property>
     -->
     <Property>RouteTableId</Property>
     <Property>DestinationCidrBlock</Property>

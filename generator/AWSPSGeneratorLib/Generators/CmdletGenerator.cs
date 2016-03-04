@@ -293,9 +293,22 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             var methods = clientInterfaceType.GetMethods();
-            foreach (var method in methods.Where(ShouldEmitMethod))
+            foreach (var method in methods)
             {
-                CreateCmdlet(method, configModel);
+                if (ShouldEmitMethod(method))
+                    CreateCmdlet(method, configModel);
+                else
+                {
+                    ServiceOperation so;
+                    if (configModel.ServiceOperations.TryGetValue(method.Name, out so))
+                        so.Processed = true;
+                }
+            }
+
+            foreach (var so in configModel.ServiceOperationsList)
+            {
+                if (!so.Processed)
+                    Logger.LogError(configModel.ServiceName + ": no SDK client method found for ServiceOperation " + so.MethodName);
             }
 
             // fuse the manually-declared custom aliases with the automatic set
@@ -466,6 +479,7 @@ namespace AWSPowerShellGenerator.Generators
             // operation config
             var serviceOperation = configModel.ServiceOperations[methodName];
             CurrentOperation = serviceOperation;
+            CurrentOperation.Processed = true;
 
             var analyzer = new OperationAnalyzer(Options.AnalysisLog)
             {
