@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// before you can delete the rule.
     /// 
     ///  
-    /// <para><b>Note:</b> When you make a change with this action, incoming events might still
-    /// continue to match to the deleted rule. Please allow a short period of time for changes
-    /// to take effect. 
+    /// <para><b>Note:</b> When you delete a rule, incoming events might still continue to match
+    /// to the deleted rule. Please allow a short period of time for changes to take effect.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

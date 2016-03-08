@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// it has a schedule expression.
     /// 
     ///  
-    /// <para><b>Note:</b> When you make a change with this action, incoming events might still
-    /// continue to match to the disabled rule. Please allow a short period of time for changes
-    /// to take effect. 
+    /// <para><b>Note:</b> When you disable a rule, incoming events might still continue to match
+    /// to the disabled rule. Please allow a short period of time for changes to take effect.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// no longer be invoked.
     /// 
     ///  
-    /// <para><b>Note:</b> When you make a change with this action, when the associated rule triggers,
-    /// removed targets might still continue to be invoked. Please allow a short period of
-    /// time for changes to take effect. 
+    /// <para><b>Note:</b> When you remove a target, when the associated rule triggers, removed
+    /// targets might still continue to be invoked. Please allow a short period of time for
+    /// changes to take effect. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWETarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Lists the Amazon CloudWatch Events rules in your account. You can either list all
     /// the rules or you can provide a prefix to match to the rule names. If you have more
     /// rules in your account than the given limit, the results will be paginated. In that
-    /// case, use the next token returned in the response and repeat the ListRules action
-    /// until the NextToken in the response is returned as null.
+    /// case, use the next token returned in the response and repeat ListRules until the NextToken
+    /// in the response is returned as null.
     /// </summary>
     [Cmdlet("Get", "CWERule")]
     [OutputType("Amazon.CloudWatchEvents.Model.Rule")]

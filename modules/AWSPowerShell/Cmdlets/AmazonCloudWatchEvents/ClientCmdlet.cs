@@ -27,7 +27,7 @@ using Amazon.CloudWatchEvents.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
-    [AWSClientCmdlet("Amazon CloudWatch Events", "CWE", "2014-02-03")]
+    [AWSClientCmdlet("Amazon CloudWatch Events", "CWE", "2015-10-07")]
     public abstract class AmazonCloudWatchEventsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudWatchEvents Client { get; private set; }

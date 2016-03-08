@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Enables a rule. If the rule does not exist, the operation fails.
     /// 
     ///  
-    /// <para><b>Note:</b> When you make a change with this action, incoming events might not immediately
-    /// start matching to a newly enabled rule. Please allow a short period of time for changes
+    /// <para><b>Note:</b> When you enable a rule, incoming events might not immediately start
+    /// matching to a newly enabled rule. Please allow a short period of time for changes
     /// to take effect. 
     /// </para>
     /// </summary>

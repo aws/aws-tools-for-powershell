@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// State parameter. You can disable a rule using <a>DisableRule</a>.
     /// 
     ///  
-    /// <para><b>Note:</b> When you make a change with this action, incoming events might not immediately
+    /// <para><b>Note:</b> When you create or update a rule, incoming events might not immediately
     /// start matching to new or updated rules. Please allow a short period of time for changes
     /// to take effect.
     /// </para><para>
