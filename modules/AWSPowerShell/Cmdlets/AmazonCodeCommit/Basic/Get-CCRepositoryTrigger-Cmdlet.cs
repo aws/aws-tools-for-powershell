@@ -28,72 +28,30 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Sets or changes the default branch name for the specified repository.
-    /// 
-    ///  <note><para>
-    /// If you use this operation to change the default branch name to the current default
-    /// branch name, a success message is returned even though the default branch did not
-    /// change.
-    /// </para></note>
+    /// Gets information about triggers configured for a repository.
     /// </summary>
-    [Cmdlet("Update", "CCDefaultBranch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateDefaultBranch operation against AWS CodeCommit.", Operation = new[] {"UpdateDefaultBranch"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RepositoryName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CodeCommit.Model.UpdateDefaultBranchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CCRepositoryTrigger")]
+    [OutputType("Amazon.CodeCommit.Model.GetRepositoryTriggersResponse")]
+    [AWSCmdlet("Invokes the GetRepositoryTriggers operation against AWS CodeCommit.", Operation = new[] {"GetRepositoryTriggers"})]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.GetRepositoryTriggersResponse",
+        "This cmdlet returns a Amazon.CodeCommit.Model.GetRepositoryTriggersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateCCDefaultBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public class GetCCRepositoryTriggerCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
-        
-        #region Parameter DefaultBranchName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the branch to set as the default.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String DefaultBranchName { get; set; }
-        #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository to set or change the default branch for.</para>
+        /// <para>The name of the repository for which the trigger is configured.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RepositoryName { get; set; }
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the RepositoryName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RepositoryName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CCDefaultBranch (UpdateDefaultBranch)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -101,7 +59,6 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
-            context.DefaultBranchName = this.DefaultBranchName;
             context.RepositoryName = this.RepositoryName;
             
             var output = Execute(context) as CmdletOutput;
@@ -114,12 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeCommit.Model.UpdateDefaultBranchRequest();
+            var request = new Amazon.CodeCommit.Model.GetRepositoryTriggersRequest();
             
-            if (cmdletContext.DefaultBranchName != null)
-            {
-                request.DefaultBranchName = cmdletContext.DefaultBranchName;
-            }
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
@@ -131,11 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateDefaultBranch(request);
+                var response = client.GetRepositoryTriggers(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RepositoryName;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -161,7 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DefaultBranchName { get; set; }
             public System.String RepositoryName { get; set; }
         }
         

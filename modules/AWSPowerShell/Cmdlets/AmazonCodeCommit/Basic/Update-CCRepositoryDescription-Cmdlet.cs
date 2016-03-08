@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryDescription
         /// <summary>
         /// <para>
-        /// <para>The new comment or description for the specified repository.</para>
+        /// <para>The new comment or description for the specified repository. Repository descriptions
+        /// are limited to 1,000 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

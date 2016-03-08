@@ -28,81 +28,41 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Creates a new branch in a repository and points the branch to a commit.
-    /// 
-    ///  <note><para>
-    /// Calling the create branch operation does not set a repository's default branch. To
-    /// do this, call the update default branch operation.
-    /// </para></note>
+    /// Returns information about a commit, including commit message and committer information.
     /// </summary>
-    [Cmdlet("New", "CCBranch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateBranch operation against AWS CodeCommit.", Operation = new[] {"CreateBranch"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RepositoryName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CodeCommit.Model.CreateBranchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CCCommit")]
+    [OutputType("Amazon.CodeCommit.Model.Commit")]
+    [AWSCmdlet("Invokes the GetCommit operation against AWS CodeCommit.", Operation = new[] {"GetCommit"})]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.Commit",
+        "This cmdlet returns a Commit object.",
+        "The service call response (type Amazon.CodeCommit.Model.GetCommitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCCBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public class GetCCCommitCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
-        
-        #region Parameter BranchName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the new branch to create.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String BranchName { get; set; }
-        #endregion
         
         #region Parameter CommitId
         /// <summary>
         /// <para>
-        /// <para>The ID of the commit to point the new branch to.</para>
+        /// <para>The commit ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CommitId { get; set; }
         #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository in which you want to create the new branch.</para>
+        /// <para>The name of the repository to which the commit was made.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String RepositoryName { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the RepositoryName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RepositoryName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCBranch (CreateBranch)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -110,7 +70,6 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
-            context.BranchName = this.BranchName;
             context.CommitId = this.CommitId;
             context.RepositoryName = this.RepositoryName;
             
@@ -124,12 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeCommit.Model.CreateBranchRequest();
+            var request = new Amazon.CodeCommit.Model.GetCommitRequest();
             
-            if (cmdletContext.BranchName != null)
-            {
-                request.BranchName = cmdletContext.BranchName;
-            }
             if (cmdletContext.CommitId != null)
             {
                 request.CommitId = cmdletContext.CommitId;
@@ -145,11 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateBranch(request);
+                var response = client.GetCommit(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RepositoryName;
+                object pipelineOutput = response.Commit;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,7 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String BranchName { get; set; }
             public System.String CommitId { get; set; }
             public System.String RepositoryName { get; set; }
         }

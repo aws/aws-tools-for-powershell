@@ -501,9 +501,13 @@ Set-Alias -Name CC-CreateRepository -Value New-CCRepository
 Set-Alias -Name Delete-CCRepository -Value Remove-CCRepository
 Set-Alias -Name CC-DeleteRepository -Value Remove-CCRepository
 Set-Alias -Name CC-GetBranch -Value Get-CCBranch
+Set-Alias -Name CC-GetCommit -Value Get-CCCommit
 Set-Alias -Name CC-GetRepository -Value Get-CCRepository
+Set-Alias -Name CC-GetRepositoryTriggers -Value Get-CCRepositoryTrigger
 Set-Alias -Name CC-ListBranches -Value Get-CCBranchList
 Set-Alias -Name CC-ListRepositories -Value Get-CCRepositoryList
+Set-Alias -Name CC-PutRepositoryTriggers -Value Set-CCRepositoryTrigger
+Set-Alias -Name CC-TestRepositoryTriggers -Value Test-CCRepositoryTrigger
 Set-Alias -Name CC-UpdateDefaultBranch -Value Update-CCDefaultBranch
 Set-Alias -Name CC-UpdateRepositoryDescription -Value Update-CCRepositoryDescription
 Set-Alias -Name CC-UpdateRepositoryName -Value Update-CCRepositoryName

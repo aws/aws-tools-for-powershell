@@ -28,60 +28,37 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Creates a new branch in a repository and points the branch to a commit.
-    /// 
-    ///  <note><para>
-    /// Calling the create branch operation does not set a repository's default branch. To
-    /// do this, call the update default branch operation.
-    /// </para></note>
+    /// Replaces all triggers for a repository. This can be used to create or delete triggers.
     /// </summary>
-    [Cmdlet("New", "CCBranch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateBranch operation against AWS CodeCommit.", Operation = new[] {"CreateBranch"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RepositoryName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CodeCommit.Model.CreateBranchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "CCRepositoryTrigger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the PutRepositoryTriggers operation against AWS CodeCommit.", Operation = new[] {"PutRepositoryTriggers"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CodeCommit.Model.PutRepositoryTriggersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCCBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public class SetCCRepositoryTriggerCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
-        
-        #region Parameter BranchName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the new branch to create.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String BranchName { get; set; }
-        #endregion
-        
-        #region Parameter CommitId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the commit to point the new branch to.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CommitId { get; set; }
-        #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository in which you want to create the new branch.</para>
+        /// <para>The name of the repository where you want to create or update the trigger. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String RepositoryName { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Trigger
         /// <summary>
-        /// Returns the value passed to the RepositoryName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The JSON block of configuration information for each trigger. </para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("Triggers")]
+        public Amazon.CodeCommit.Model.RepositoryTrigger[] Trigger { get; set; }
         #endregion
         
         #region Parameter Force
@@ -99,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RepositoryName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCBranch (CreateBranch)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-CCRepositoryTrigger (PutRepositoryTriggers)"))
             {
                 return;
             }
@@ -110,9 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
-            context.BranchName = this.BranchName;
-            context.CommitId = this.CommitId;
             context.RepositoryName = this.RepositoryName;
+            if (this.Trigger != null)
+            {
+                context.Triggers = new List<Amazon.CodeCommit.Model.RepositoryTrigger>(this.Trigger);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -124,19 +103,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeCommit.Model.CreateBranchRequest();
+            var request = new Amazon.CodeCommit.Model.PutRepositoryTriggersRequest();
             
-            if (cmdletContext.BranchName != null)
-            {
-                request.BranchName = cmdletContext.BranchName;
-            }
-            if (cmdletContext.CommitId != null)
-            {
-                request.CommitId = cmdletContext.CommitId;
-            }
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
+            }
+            if (cmdletContext.Triggers != null)
+            {
+                request.Triggers = cmdletContext.Triggers;
             }
             
             CmdletOutput output;
@@ -145,11 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateBranch(request);
+                var response = client.PutRepositoryTriggers(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RepositoryName;
+                object pipelineOutput = response.ConfigurationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,9 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String BranchName { get; set; }
-            public System.String CommitId { get; set; }
             public System.String RepositoryName { get; set; }
+            public List<Amazon.CodeCommit.Model.RepositoryTrigger> Triggers { get; set; }
         }
         
     }

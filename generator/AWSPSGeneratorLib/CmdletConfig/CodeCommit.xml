@@ -16,9 +16,13 @@
     <ServiceOperation MethodName="CreateRepository"/>
     <ServiceOperation MethodName="DeleteRepository" ShouldProcessTarget="RepositoryName"/>
 	<ServiceOperation MethodName="GetBranch"/>
+	<ServiceOperation MethodName="GetCommit" PipelineParameter="CommitId" />
     <ServiceOperation MethodName="GetRepository"/>
+    <ServiceOperation MethodName="GetRepositoryTriggers" Noun="RepositoryTrigger" Output="Response" />
     <ServiceOperation MethodName="ListBranches" Verb="Get" Noun="BranchList"/>
     <ServiceOperation MethodName="ListRepositories" Verb="Get" Noun="RepositoryList"/>
+    <ServiceOperation MethodName="PutRepositoryTriggers" Verb="Set" Noun="RepositoryTrigger" PipelineParameter="Trigger" />
+    <ServiceOperation MethodName="TestRepositoryTriggers" Noun="RepositoryTrigger" PipelineParameter="Trigger" Output="Response" />
     <ServiceOperation MethodName="UpdateDefaultBranch" Output="Void"/>
     <ServiceOperation MethodName="UpdateRepositoryDescription" Output="Void"/>
     <ServiceOperation MethodName="UpdateRepositoryName" Output="Void" ShouldProcessTarget="OldName"/>

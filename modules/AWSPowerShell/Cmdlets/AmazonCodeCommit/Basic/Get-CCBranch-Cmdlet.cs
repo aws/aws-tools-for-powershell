@@ -28,7 +28,7 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Retrieves information about a repository branch, including its name and the last commit
+    /// Returns information about a repository branch, including its name and the last commit
     /// ID.
     /// </summary>
     [Cmdlet("Get", "CCBranch")]
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the repository that contains the branch for which you want to retrieve
+        /// information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,7 +28,7 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Gets information about one or more repositories.
+    /// Returns information about one or more repositories.
     /// 
     ///  <note><para>
     /// The description field for a repository accepts all HTML characters and all valid Unicode
