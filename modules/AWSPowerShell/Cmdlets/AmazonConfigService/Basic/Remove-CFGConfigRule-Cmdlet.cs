@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <para>
     /// AWS Config sets the state of a rule to <code>DELETING</code> until the deletion is
     /// complete. You cannot update a rule while it is in this state. If you make a <code>PutConfigRule</code>
-    /// request for the rule, you will receive a <code>ResourceInUseException</code>.
+    /// or <code>DeleteConfigRule</code> request for the rule, you will receive a <code>ResourceInUseException</code>.
     /// </para><para>
     /// You can check the state of a rule by using the <code>DescribeConfigRules</code> request.
     /// </para>

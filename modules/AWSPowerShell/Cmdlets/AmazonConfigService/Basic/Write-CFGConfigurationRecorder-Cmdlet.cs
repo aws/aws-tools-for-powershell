@@ -68,10 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter RecordingGroup_IncludeGlobalResourceType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether AWS Config includes all supported types of global resources with
-        /// the resources that it records.</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
+        /// <para>Specifies whether AWS Config includes all supported types of global resources (for
+        /// example, IAM resources) with the resources that it records.</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
         /// option to <code>true</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
-        /// type of global resource, it automatically starts recording resources of that type.</para>
+        /// type of global resource, it automatically starts recording resources of that type.</para><para>The configuration details for any global resource are the same in all regions. To
+        /// prevent duplicate configuration items, you should consider customizing AWS Config
+        /// in only one region to record global resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
