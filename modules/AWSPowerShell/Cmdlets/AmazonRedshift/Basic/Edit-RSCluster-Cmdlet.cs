@@ -145,6 +145,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterVersion { get; set; }
         #endregion
         
+        #region Parameter ElasticIp
+        /// <summary>
+        /// <para>
+        /// <para>The Elastic IP (EIP) address for the cluster.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
+        /// an Internet gateway. For more information about provisioning clusters in EC2-VPC,
+        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+        /// Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticIp { get; set; }
+        #endregion
+        
         #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
@@ -244,6 +257,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
+        #region Parameter PubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, the cluster can be accessed from a public network. Only clusters
+        /// in VPCs can be set to be publicly available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -294,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             context.ClusterType = this.ClusterType;
             context.ClusterVersion = this.ClusterVersion;
+            context.ElasticIp = this.ElasticIp;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             context.MasterUserPassword = this.MasterUserPassword;
@@ -302,6 +327,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (ParameterWasBound("NumberOfNodes"))
                 context.NumberOfNodes = this.NumberOfNodes;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("PubliclyAccessible"))
+                context.PubliclyAccessible = this.PubliclyAccessible;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
@@ -347,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.ClusterVersion = cmdletContext.ClusterVersion;
             }
+            if (cmdletContext.ElasticIp != null)
+            {
+                request.ElasticIp = cmdletContext.ElasticIp;
+            }
             if (cmdletContext.HsmClientCertificateIdentifier != null)
             {
                 request.HsmClientCertificateIdentifier = cmdletContext.HsmClientCertificateIdentifier;
@@ -374,6 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.PubliclyAccessible != null)
+            {
+                request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
             if (cmdletContext.VpcSecurityGroupIds != null)
             {
@@ -421,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public List<System.String> ClusterSecurityGroups { get; set; }
             public System.String ClusterType { get; set; }
             public System.String ClusterVersion { get; set; }
+            public System.String ElasticIp { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
             public System.String MasterUserPassword { get; set; }
@@ -428,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String NodeType { get; set; }
             public System.Int32? NumberOfNodes { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         

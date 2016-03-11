@@ -55,10 +55,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public class RestoreRSFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalInfo
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AdditionalInfo { get; set; }
+        #endregion
+        
         #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If <code>true</code>, major version upgrades can be applied during the maintenance
+        /// <para>If <code>true</code>, major version upgrades can be applied during the maintenance
         /// window to the Amazon Redshift engine that is running on the cluster. </para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
@@ -69,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AutomatedSnapshotRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of days that automated snapshots are retained. If the value is 0, automated
+        /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
         /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para> Default: The value selected for the cluster from which the snapshot was taken. </para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
@@ -301,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            context.AdditionalInfo = this.AdditionalInfo;
             if (ParameterWasBound("AllowVersionUpgrade"))
                 context.AllowVersionUpgrade = this.AllowVersionUpgrade;
             if (ParameterWasBound("AutomatedSnapshotRetentionPeriod"))
@@ -343,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // create request
             var request = new Amazon.Redshift.Model.RestoreFromClusterSnapshotRequest();
             
+            if (cmdletContext.AdditionalInfo != null)
+            {
+                request.AdditionalInfo = cmdletContext.AdditionalInfo;
+            }
             if (cmdletContext.AllowVersionUpgrade != null)
             {
                 request.AllowVersionUpgrade = cmdletContext.AllowVersionUpgrade.Value;
@@ -454,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AdditionalInfo { get; set; }
             public System.Boolean? AllowVersionUpgrade { get; set; }
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
             public System.String AvailabilityZone { get; set; }

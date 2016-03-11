@@ -2197,12 +2197,15 @@ Set-Alias -Name Delete-RDSEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name RDS-DeleteEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
+Set-Alias -Name Modify-RSSnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
+Set-Alias -Name RS-ModifySnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-RSReservedNodeOffering
 Set-Alias -Name RS-PurchaseReservedNodeOffering -Value Request-RSReservedNodeOffering
 Set-Alias -Name Reboot-RSCluster -Value Restart-RSCluster
 Set-Alias -Name RS-RebootCluster -Value Restart-RSCluster
 Set-Alias -Name RS-ResetClusterParameterGroup -Value Reset-RSClusterParameterGroup
 Set-Alias -Name RS-RestoreFromClusterSnapshot -Value Restore-RSFromClusterSnapshot
+Set-Alias -Name RS-RestoreTableFromClusterSnapshot -Value Restore-RSTableFromClusterSnapshot
 Set-Alias -Name RS-RevokeClusterSecurityGroupIngress -Value Revoke-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-RevokeSnapshotAccess -Value Revoke-RSSnapshotAccess
 Set-Alias -Name RS-RotateEncryptionKey -Value Switch-RSEncryptionKey
@@ -2236,6 +2239,8 @@ Set-Alias -Name Describe-RSResize -Value Get-RSResize
 Set-Alias -Name RS-DescribeResize -Value Get-RSResize
 Set-Alias -Name Describe-RSSnapshotCopyGrant -Value Get-RSSnapshotCopyGrant
 Set-Alias -Name RS-DescribeSnapshotCopyGrants -Value Get-RSSnapshotCopyGrant
+Set-Alias -Name Describe-RSTableRestoreStatus -Value Get-RSTableRestoreStatus
+Set-Alias -Name RS-DescribeTableRestoreStatus -Value Get-RSTableRestoreStatus
 Set-Alias -Name Describe-RSTags -Value Get-RSTags
 Set-Alias -Name RS-DescribeTags -Value Get-RSTags
 Set-Alias -Name RS-DisableLogging -Value Disable-RSLogging
@@ -2250,8 +2255,6 @@ Set-Alias -Name Modify-RSClusterSubnetGroup -Value Edit-RSClusterSubnetGroup
 Set-Alias -Name RS-ModifyClusterSubnetGroup -Value Edit-RSClusterSubnetGroup
 Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name RS-ModifyEventSubscription -Value Edit-RSEventSubscription
-Set-Alias -Name Modify-RSSnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
-Set-Alias -Name RS-ModifySnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
 Set-Alias -Name Authorize-RSClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-AuthorizeClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name Authorize-RSSnapshotAccess -Value Approve-RSSnapshotAccess

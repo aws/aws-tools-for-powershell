@@ -103,6 +103,9 @@
     <ServiceOperation MethodName="EnableLogging" Output="Response" />
 
     <ServiceOperation MethodName="RotateEncryptionKey" Verb="Switch" />
+	
+	<ServiceOperation MethodName="RestoreTableFromClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" />
+	<ServiceOperation MethodName="DescribeTableRestoreStatus" />
 
   </ServiceOperations>
 

@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public class NewRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalInfo
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AdditionalInfo { get; set; }
+        #endregion
+        
         #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
@@ -369,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            context.AdditionalInfo = this.AdditionalInfo;
             if (ParameterWasBound("AllowVersionUpgrade"))
                 context.AllowVersionUpgrade = this.AllowVersionUpgrade;
             if (ParameterWasBound("AutomatedSnapshotRetentionPeriod"))
@@ -421,6 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // create request
             var request = new Amazon.Redshift.Model.CreateClusterRequest();
             
+            if (cmdletContext.AdditionalInfo != null)
+            {
+                request.AdditionalInfo = cmdletContext.AdditionalInfo;
+            }
             if (cmdletContext.AllowVersionUpgrade != null)
             {
                 request.AllowVersionUpgrade = cmdletContext.AllowVersionUpgrade.Value;
@@ -552,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AdditionalInfo { get; set; }
             public System.Boolean? AllowVersionUpgrade { get; set; }
             public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
             public System.String AvailabilityZone { get; set; }

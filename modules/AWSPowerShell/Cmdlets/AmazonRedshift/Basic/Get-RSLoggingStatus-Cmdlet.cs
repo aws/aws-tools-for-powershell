@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the cluster to get the logging status from. </para><para>Example: <code>examplecluster</code></para>
+        /// <para> The identifier of the cluster from which to get the logging status. </para><para>Example: <code>examplecluster</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
