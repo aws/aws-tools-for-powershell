@@ -235,8 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (!string.IsNullOrEmpty(cmdletContext.SerialNumber)
                     && !string.IsNullOrEmpty(cmdletContext.AuthenticationValue))
             {
-                request.MfaCodes.SerialNumber = cmdletContext.SerialNumber;
-                request.MfaCodes.AuthenticationValue = cmdletContext.AuthenticationValue;
+                request.MfaCodes = new MfaCodes
+                {
+                    SerialNumber = cmdletContext.SerialNumber,
+                    AuthenticationValue = cmdletContext.AuthenticationValue
+                };
             }
 
             using (var client = Client ?? CreateClient(context.Credentials, context.Region))
@@ -291,8 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (!string.IsNullOrEmpty(cmdletContext.SerialNumber)
                     && !string.IsNullOrEmpty(cmdletContext.AuthenticationValue))
             {
-                request.MfaCodes.SerialNumber = cmdletContext.SerialNumber;
-                request.MfaCodes.AuthenticationValue = cmdletContext.AuthenticationValue;
+                request.MfaCodes = new MfaCodes
+                {
+                    SerialNumber = cmdletContext.SerialNumber,
+                    AuthenticationValue = cmdletContext.AuthenticationValue
+                };
             }
 
             using (var client = Client ?? CreateClient(context.Credentials, context.Region))
