@@ -28,7 +28,8 @@
     <ServiceOperation MethodName="DeleteIdentity" Output="Void" />
     <ServiceOperation MethodName="DeleteIdentityPolicy" Output="Void" PipelineParameter="PolicyName" />
     <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Output="Void" />
-    <ServiceOperation MethodName="GetIdentityDkimAttributes" />
+    <ServiceOperation MethodName="GetIdentityDkimAttributes" />    
+    <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" />
     <ServiceOperation MethodName="GetIdentityNotificationAttributes" />
     <ServiceOperation MethodName="GetIdentityPolicies" Noun="IdentityPolicy" PipelineParameter="PolicyNames" />
     <ServiceOperation MethodName="GetIdentityVerificationAttributes" />
@@ -48,6 +49,7 @@
                       PositionalParameters="Destinations"/>
     <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="DkimEnabled"/>
     <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="ForwardingEnabled"/>
+    <ServiceOperation MethodName="SetIdentityMailFromDomain" Output="Void" PipelineParameter="Identity" PositionalParameters="MailFromDomain;BehaviorOnMXFailure"/>
     <ServiceOperation MethodName="SetIdentityNotificationTopic" Output="Void" PipelineParameter="Identity" PositionalParameters="NotificationType;SnsTopic"/>
     <ServiceOperation MethodName="VerifyDomainDkim" />
     <ServiceOperation MethodName="VerifyDomainIdentity" />

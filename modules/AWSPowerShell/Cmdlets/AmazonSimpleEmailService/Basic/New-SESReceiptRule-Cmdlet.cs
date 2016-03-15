@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Rule_Enabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, the receipt rule is active. The default value is true.</para>
+        /// <para>If <code>true</code>, the receipt rule is active. The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, then messages to which this receipt rule applies are scanned
-        /// for spam and viruses. The default value is <code>true</code>.</para>
+        /// for spam and viruses. The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

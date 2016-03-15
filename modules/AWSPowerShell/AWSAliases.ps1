@@ -2503,11 +2503,13 @@ Set-Alias -Name S3-GetBucketVersioning -Value Get-S3BucketVersioning
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object
+Set-Alias -Name SES-SendBounce -Value Send-SESBounce
 Set-Alias -Name SES-SendEmail -Value Send-SESEmail
 Set-Alias -Name SES-SendRawEmail -Value Send-SESRawEmail
 Set-Alias -Name SES-SetActiveReceiptRuleSet -Value Set-SESActiveReceiptRuleSet
 Set-Alias -Name SES-SetIdentityDkimEnabled -Value Set-SESIdentityDkimEnabled
 Set-Alias -Name SES-SetIdentityFeedbackForwardingEnabled -Value Set-SESIdentityFeedbackForwardingEnabled
+Set-Alias -Name SES-SetIdentityMailFromDomain -Value Set-SESIdentityMailFromDomain
 Set-Alias -Name SES-SetIdentityNotificationTopic -Value Set-SESIdentityNotificationTopic
 Set-Alias -Name SES-SetReceiptRulePosition -Value Set-SESReceiptRulePosition
 Set-Alias -Name SES-UpdateReceiptRule -Value Update-SESReceiptRule
@@ -2546,6 +2548,7 @@ Set-Alias -Name Describe-SESReceiptRuleSet -Value Get-SESReceiptRuleSet
 Set-Alias -Name SES-DescribeReceiptRuleSet -Value Get-SESReceiptRuleSet
 Set-Alias -Name Get-SESIdentityDkimAttributes -Value Get-SESIdentityDkimAttribute
 Set-Alias -Name SES-GetIdentityDkimAttributes -Value Get-SESIdentityDkimAttribute
+Set-Alias -Name SES-GetIdentityMailFromDomainAttributes -Value Get-SESIdentityMailFromDomainAttributes
 Set-Alias -Name Get-SESIdentityNotificationAttributes -Value Get-SESIdentityNotificationAttribute
 Set-Alias -Name SES-GetIdentityNotificationAttributes -Value Get-SESIdentityNotificationAttribute
 Set-Alias -Name SES-GetIdentityPolicies -Value Get-SESIdentityPolicy
@@ -2566,7 +2569,6 @@ Set-Alias -Name SES-ListVerifiedEmailAddresses -Value Get-SESVerifiedEmailAddres
 Set-Alias -Name Put-SESIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-PutIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-ReorderReceiptRuleSet -Value Set-SESReceiptRuleSetOrder
-Set-Alias -Name SES-SendBounce -Value Send-SESBounce
 Set-Alias -Name Set-SNSSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
 Set-Alias -Name SNS-SetSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
 Set-Alias -Name Set-SNSTopicAttributes -Value Set-SNSTopicAttribute
