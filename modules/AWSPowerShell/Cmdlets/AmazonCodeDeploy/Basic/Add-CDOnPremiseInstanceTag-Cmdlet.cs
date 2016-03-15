@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The names of the on-premises instances to add tags to.</para>
+        /// <para>The names of the on-premises instances to which to add tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag key-value pairs to add to the on-premises instances.</para><para>Keys and values are both required. Keys cannot be nulls or empty strings. Value-only
+        /// <para>The tag key-value pairs to add to the on-premises instances.</para><para>Keys and values are both required. Keys cannot be null or empty strings. Value-only
         /// tags are not allowed.</para>
         /// </para>
         /// </summary>

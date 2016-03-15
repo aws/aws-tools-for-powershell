@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Gets information about one or more instances that are part of a deployment group.
+    /// Gets information about one or more instance that are part of a deployment group.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstanceBatch")]
     [OutputType("Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique IDs of instances in the deployment's deployment group.</para>
+        /// <para>The unique IDs of instances in the deployment group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

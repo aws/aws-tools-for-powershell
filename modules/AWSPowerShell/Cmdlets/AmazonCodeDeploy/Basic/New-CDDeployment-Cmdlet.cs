@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
-        /// IAM user or AWS account.</para>
+        /// <para>The name of an AWS CodeDeploy application associated with the applicable IAM user
+        /// or AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing deployment configuration associated with the applicable IAM
-        /// user or AWS account.</para><para>If not specified, the value configured in the deployment group will be used as the
+        /// <para>The name of a deployment configuration associated with the applicable IAM user or
+        /// AWS account.</para><para>If not specified, the value configured in the deployment group will be used as the
         /// default. If the deployment group does not have a deployment configuration associated
         /// with it, then CodeDeployDefault.OneAtATime will be used by default.</para>
         /// </para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
-        /// <para>The deployment group's name.</para>
+        /// <para>The name of the deployment group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>If set to true, then if the deployment causes the ApplicationStop deployment lifecycle
-        /// event to fail to a specific instance, the deployment will not be considered to have
-        /// failed to that instance at that point and will continue on to the BeforeInstall deployment
+        /// event to an instance to fail, the deployment to that instance will not be considered
+        /// to have failed at that point and will continue on to the BeforeInstall deployment
         /// lifecycle event.</para><para>If set to false or not specified, then if the deployment causes the ApplicationStop
-        /// deployment lifecycle event to fail to a specific instance, the deployment will stop
-        /// to that instance, and the deployment to that instance will be considered to have failed.</para>
+        /// deployment lifecycle event to fail to an instance, the deployment to that instance
+        /// will stop, and the deployment to that instance will be considered to have failed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The application revision's type:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
+        /// <para>The type of application revision:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
         /// revision stored in GitHub.</li></ul>
         /// </para>
         /// </summary>

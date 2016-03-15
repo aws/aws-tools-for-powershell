@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// <summary>
     /// Deletes a deployment configuration.
     /// 
-    ///  <note>A deployment configuration cannot be deleted if it is currently in use. Also,
-    /// predefined configurations cannot be deleted.</note>
+    ///  <note>A deployment configuration cannot be deleted if it is currently in use. Predefined
+    /// configurations cannot be deleted.</note>
     /// </summary>
     [Cmdlet("Remove", "CDDeploymentConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing deployment configuration associated with the applicable IAM
-        /// user or AWS account.</para>
+        /// <para>The name of a deployment configuration associated with the applicable IAM user or
+        /// AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

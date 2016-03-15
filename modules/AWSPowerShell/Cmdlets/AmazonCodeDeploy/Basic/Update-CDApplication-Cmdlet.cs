@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Changes an existing application's name.
+    /// Changes the name of an application.
     /// </summary>
     [Cmdlet("Update", "CDApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The current name of the application that you want to change.</para>
+        /// <para>The current name of the application you want to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NewApplicationName
         /// <summary>
         /// <para>
-        /// <para>The new name that you want to change the application to.</para>
+        /// <para>The new name to give the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

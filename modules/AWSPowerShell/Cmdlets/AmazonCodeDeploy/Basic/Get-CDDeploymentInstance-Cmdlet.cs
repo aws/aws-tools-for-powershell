@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of an instance in the deployment's deployment group.</para>
+        /// <para>The unique ID of an instance in the deployment group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,16 +28,15 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Deletes an application.
+    /// Get information about one or more deployment groups.
     /// </summary>
-    [Cmdlet("Remove", "CDApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteApplication operation against AWS CodeDeploy.", Operation = new[] {"DeleteApplication"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CodeDeploy.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CDDeploymentGroupBatch")]
+    [OutputType("Amazon.CodeDeploy.Model.BatchGetDeploymentGroupsResponse")]
+    [AWSCmdlet("Invokes the BatchGetDeploymentGroups operation against AWS CodeDeploy.", Operation = new[] {"BatchGetDeploymentGroups"})]
+    [AWSCmdletOutput("Amazon.CodeDeploy.Model.BatchGetDeploymentGroupsResponse",
+        "This cmdlet returns a Amazon.CodeDeploy.Model.BatchGetDeploymentGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCDApplicationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public class GetCDDeploymentGroupBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -51,34 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String ApplicationName { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter DeploymentGroupName
         /// <summary>
-        /// Returns the value passed to the ApplicationName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The deployment groups' names.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [Alias("DeploymentGroupNames")]
+        public System.String[] DeploymentGroupName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CDApplication (DeleteApplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -87,6 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             };
             
             context.ApplicationName = this.ApplicationName;
+            if (this.DeploymentGroupName != null)
+            {
+                context.DeploymentGroupNames = new List<System.String>(this.DeploymentGroupName);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -98,11 +87,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeDeploy.Model.DeleteApplicationRequest();
+            var request = new Amazon.CodeDeploy.Model.BatchGetDeploymentGroupsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.DeploymentGroupNames != null)
+            {
+                request.DeploymentGroupNames = cmdletContext.DeploymentGroupNames;
             }
             
             CmdletOutput output;
@@ -111,11 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteApplication(request);
+                var response = client.BatchGetDeploymentGroups(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ApplicationName;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
+            public List<System.String> DeploymentGroupNames { get; set; }
         }
         
     }

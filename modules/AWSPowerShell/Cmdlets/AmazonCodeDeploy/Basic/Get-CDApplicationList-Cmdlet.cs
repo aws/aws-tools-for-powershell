@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous list applications call, which can
-        /// be used to return the next set of applications in the list.</para>
+        /// <para>An identifier returned from the previous list applications call. It can be used to
+        /// return the next set of applications in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

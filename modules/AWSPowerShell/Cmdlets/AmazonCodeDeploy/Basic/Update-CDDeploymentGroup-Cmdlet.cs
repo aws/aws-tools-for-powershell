@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Changes information about an existing deployment group.
+    /// Changes information about a deployment group.
     /// </summary>
     [Cmdlet("Update", "CDDeploymentGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeDeploy.Model.AutoScalingGroup")]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The replacement list of Auto Scaling groups to be included in the deployment group,
-        /// if you want to change them. To keep the existing Auto Scaling groups, enter their
-        /// names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.</para>
+        /// if you want to change them. To keep the Auto Scaling groups, enter their names. To
+        /// remove Auto Scaling groups, do not enter any Auto Scaling group names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter CurrentDeploymentGroupName
         /// <summary>
         /// <para>
-        /// <para>The current name of the existing deployment group.</para>
+        /// <para>The current name of the deployment group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,8 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagFilter
         /// <summary>
         /// <para>
-        /// <para>The replacement set of Amazon EC2 tags to filter on, if you want to change them. To
-        /// keep the existing tags, enter their names. To remove tags, do not enter any tag names.</para>
+        /// <para>The replacement set of Amazon EC2 tags on which to filter, if you want to change them.
+        /// To keep the existing tags, enter their names. To remove tags, do not enter any tag
+        /// names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter OnPremisesInstanceTagFilter
         /// <summary>
         /// <para>
-        /// <para>The replacement set of on-premises instance tags for filter on, if you want to change
-        /// them. To keep the existing tags, enter their names. To remove tags, do not enter any
-        /// tag names.</para>
+        /// <para>The replacement set of on-premises instance tags on which to filter, if you want to
+        /// change them. To keep the existing tags, enter their names. To remove tags, do not
+        /// enter any tag names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>A replacement service role's ARN, if you want to change it.</para>
+        /// <para>A replacement ARN for the service role, if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

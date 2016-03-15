@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing AWS CodeDeploy application to get revision information about.</para>
+        /// <para>The name of an AWS CodeDeploy application about which to get revision information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision
         /// <summary>
         /// <para>
-        /// <para>Information to get about the application revisions, including revision type and location.</para>
+        /// <para>Information to get about the application revisions, including type and location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists the instances for a deployment associated with the applicable IAM user or AWS
+    /// Lists the instance for a deployment associated with the applicable IAM user or AWS
     /// account.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstanceList")]
@@ -55,8 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
-        /// <para>A subset of instances to list, by status:</para><ul><li>Pending: Include in the resulting list those instances with pending deployments.</li><li>InProgress: Include in the resulting list those instances with in-progress deployments.</li><li>Succeeded: Include in the resulting list those instances with succeeded deployments.</li><li>Failed: Include in the resulting list those instances with failed deployments.</li><li>Skipped: Include in the resulting list those instances with skipped deployments.</li><li>Unknown: Include in the resulting list those instances with deployments in an
-        /// unknown state.</li></ul>
+        /// <para>A subset of instances to list by status:</para><ul><li>Pending: Include those instance with pending deployments.</li><li>InProgress:
+        /// Include those instance where deployments are still in progress.</li><li>Succeeded:
+        /// Include those instances with successful deployments.</li><li>Failed: Include those
+        /// instance with failed deployments.</li><li>Skipped: Include those instance with skipped
+        /// deployments.</li><li>Unknown: Include those instance with deployments in an unknown
+        /// state.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous list deployment instances call,
-        /// which can be used to return the next set of deployment instances in the list.</para>
+        /// <para>An identifier returned from the previous list deployment instances call. It can be
+        /// used to return the next set of deployment instances in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

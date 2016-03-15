@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The names of the on-premises instances to remove tags from.</para>
+        /// <para>The names of the on-premises instances from which to remove tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

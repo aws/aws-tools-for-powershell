@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The application revision's type:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
+        /// <para>The type of application revision:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
         /// revision stored in GitHub.</li></ul>
         /// </para>
         /// </summary>

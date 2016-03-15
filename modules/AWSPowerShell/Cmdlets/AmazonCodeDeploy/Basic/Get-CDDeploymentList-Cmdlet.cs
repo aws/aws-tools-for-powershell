@@ -28,8 +28,8 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists the deployments within a deployment group for an application registered with
-    /// the applicable IAM user or AWS account.
+    /// Lists the deployments in a deployment group for an application registered with the
+    /// applicable IAM user or AWS account.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentList")]
     [OutputType("System.String")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
-        /// IAM user or AWS account.</para>
+        /// <para>The name of an AWS CodeDeploy application associated with the applicable IAM user
+        /// or AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter CreateTimeRange_End
         /// <summary>
         /// <para>
-        /// <para>The time range's end time.</para><note>Specify null to leave the time range's end time open-ended.</note>
+        /// <para>The end time of the time range.</para><note>Specify null to leave the end time open-ended.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IncludeOnlyStatus
         /// <summary>
         /// <para>
-        /// <para>A subset of deployments to list, by status:</para><ul><li>Created: Include in the resulting list created deployments.</li><li>Queued:
-        /// Include in the resulting list queued deployments.</li><li>In Progress: Include in
-        /// the resulting list in-progress deployments.</li><li>Succeeded: Include in the resulting
-        /// list succeeded deployments.</li><li>Failed: Include in the resulting list failed
-        /// deployments.</li><li>Aborted: Include in the resulting list aborted deployments.</li></ul>
+        /// <para>A subset of deployments to list by status:</para><ul><li>Created: Include created deployments in the resulting list.</li><li>Queued:
+        /// Include queued deployments in the resulting list.</li><li>In Progress: Include in-progress
+        /// deployments in the resulting list.</li><li>Succeeded: Include successful deployments
+        /// in the resulting list.</li><li>Failed: Include failed deployments in the resulting
+        /// list.</li><li>Aborted: Include aborted deployments in the resulting list.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter CreateTimeRange_Start
         /// <summary>
         /// <para>
-        /// <para>The time range's start time.</para><note>Specify null to leave the time range's start time open-ended.</note>
+        /// <para>The start time of the time range.</para><note>Specify null to leave the start time open-ended.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous list deployments call, which can
-        /// be used to return the next set of deployments in the list.</para>
+        /// <para>An identifier returned from the previous list deployments call. It can be used to
+        /// return the next set of deployments in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Gets a list of one or more on-premises instance names.
+    /// Gets a list of names for one or more on-premises instances.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter RegistrationStatus
         /// <summary>
         /// <para>
-        /// <para>The on-premises instances registration status:</para><ul><li>Deregistered: Include in the resulting list deregistered on-premises instances.</li><li>Registered: Include in the resulting list registered on-premises instances.</li></ul>
+        /// <para>The registration status of the on-premises instances:</para><ul><li>Deregistered: Include deregistered on-premises instances in the resulting
+        /// list.</li><li>Registered: Include registered on-premises instances in the resulting
+        /// list.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The on-premises instance tags that will be used to restrict the corresponding on-premises
-        /// instance names that are returned.</para>
+        /// instance names returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous list on-premises instances call,
-        /// which can be used to return the next set of on-premises instances in the list.</para>
+        /// <para>An identifier returned from the previous list on-premises instances call. It can be
+        /// used to return the next set of on-premises instances in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
