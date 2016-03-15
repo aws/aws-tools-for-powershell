@@ -21,6 +21,7 @@
     <Path>CloudWatch.xml</Path>
     <Path>CloudWatchEvents.xml</Path>
     <Path>CloudWatchLogs.xml</Path>
+    <Path>DatabaseMigrationService.xml</Path>
     <Path>DataPipeline.xml</Path>
     <Path>DeviceFarm.xml</Path>
     <Path>DirectConnect.xml</Path>

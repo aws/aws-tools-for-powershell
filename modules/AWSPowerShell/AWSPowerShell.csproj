@@ -108,6 +108,9 @@
     <Reference Include="AWSSDK.Core">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DatabaseMigrationService">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DataPipeline">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.DataPipeline.dll</HintPath>
     </Reference>
