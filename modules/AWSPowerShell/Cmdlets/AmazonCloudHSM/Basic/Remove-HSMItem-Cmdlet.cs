@@ -28,7 +28,7 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
-    /// Deletes an HSM. Once complete, this operation cannot be undone and your key material
+    /// Deletes an HSM. After completion, this operation cannot be undone and your key material
     /// cannot be recovered.
     /// </summary>
     [Cmdlet("Remove", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

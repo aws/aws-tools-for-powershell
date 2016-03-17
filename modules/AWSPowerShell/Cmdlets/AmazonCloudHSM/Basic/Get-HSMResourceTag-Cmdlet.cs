@@ -28,63 +28,31 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
-    /// Modifies the certificate used by the client.
-    /// 
-    ///  
-    /// <para>
-    /// This action can potentially start a workflow to install the new certificate on the
-    /// client's HSMs.
-    /// </para>
+    /// Returns a list of all tags for the specified resource.
     /// </summary>
-    [Cmdlet("Edit", "HSMLunaClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ModifyLunaClient operation against AWS Cloud HSM.", Operation = new[] {"ModifyLunaClient"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.CloudHSM.Model.ModifyLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "HSMResourceTag")]
+    [OutputType("Amazon.CloudHSM.Model.Tag")]
+    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Cloud HSM.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("Amazon.CloudHSM.Model.Tag",
+        "This cmdlet returns a collection of Tag objects.",
+        "The service call response (type Amazon.CloudHSM.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public class GetHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
-        #region Parameter Certificate
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The new certificate for the client.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Certificate { get; set; }
-        #endregion
-        
-        #region Parameter ClientArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the client.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ClientArn { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-HSMLunaClient (ModifyLunaClient)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -92,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
-            context.Certificate = this.Certificate;
-            context.ClientArn = this.ClientArn;
+            context.ResourceArn = this.ResourceArn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -105,15 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudHSM.Model.ModifyLunaClientRequest();
+            var request = new Amazon.CloudHSM.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.Certificate != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Certificate = cmdletContext.Certificate;
-            }
-            if (cmdletContext.ClientArn != null)
-            {
-                request.ClientArn = cmdletContext.ClientArn;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -122,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyLunaClient(request);
+                var response = client.ListTagsForResource(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ClientArn;
+                object pipelineOutput = response.TagList;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Certificate { get; set; }
-            public System.String ClientArn { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

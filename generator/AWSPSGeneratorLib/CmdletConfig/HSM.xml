@@ -98,6 +98,11 @@
         <Map From="ClientArn" To="Arn"/>
       </ParameterRenames>
     </ServiceOperation>
+	
+	<ServiceOperation MethodName="AddTagsToResource" Verb="Set" Noun="ResourceTag" PipelineParameter="ResourceArn" />
+	<ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTag" />
+	<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceArn" />
+	
   </ServiceOperations>
   
 </ConfigModel>

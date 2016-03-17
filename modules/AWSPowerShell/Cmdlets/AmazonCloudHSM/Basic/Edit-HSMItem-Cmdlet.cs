@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
     /// Modifies an HSM.
+    /// 
+    ///  <important><para>
+    /// This operation can result in the HSM being offline for up to 15 minutes while the
+    /// AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should
+    /// ensure that your AWS CloudHSM service is configured for high availability, and consider
+    /// executing this operation during a maintenance window.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Edit", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter EniIp
         /// <summary>
         /// <para>
-        /// <para>The new IP address for the elastic network interface attached to the HSM.</para>
+        /// <para>The new IP address for the elastic network interface (ENI) attached to the HSM.</para><para>If the HSM is moved to a different subnet, and an IP address is not specified, an
+        /// IP address will be randomly chosen from the CIDR range of the new subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The new identifier of the subnet that the HSM is in.</para>
+        /// <para>The new identifier of the subnet that the HSM is in. The new subnet must be in the
+        /// same Availability Zone as the current subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter SyslogIp
         /// <summary>
         /// <para>
-        /// <para>The new IP address for the syslog monitoring server.</para>
+        /// <para>The new IP address for the syslog monitoring server. The AWS CloudHSM service only
+        /// supports one syslog monitoring server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

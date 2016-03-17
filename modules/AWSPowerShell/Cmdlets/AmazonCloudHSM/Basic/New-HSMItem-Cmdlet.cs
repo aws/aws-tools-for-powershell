@@ -28,8 +28,19 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
-    /// Creates an uninitialized HSM instance. Running this command provisions an HSM appliance
-    /// and will result in charges to your AWS account for the HSM.
+    /// Creates an uninitialized HSM instance.
+    /// 
+    ///  
+    /// <para>
+    /// There is an upfront fee charged for each HSM instance that you create with the <a>CreateHsm</a>
+    /// operation. If you accidentally provision an HSM and want to request a refund, delete
+    /// the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home#/">AWS
+    /// Support Center</a>, create a new case, and select <b>Account and Billing Support</b>.
+    /// </para><important><para>
+    /// It can take up to 20 minutes to create and provision an HSM. You can monitor the status
+    /// of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be initialized
+    /// when the status changes to <code>RUNNING</code>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A user-defined token to ensure idempotence. Subsequent calls to this action with the
-        /// same token will be ignored.</para>
+        /// <para>A user-defined token to ensure idempotence. Subsequent calls to this operation with
+        /// the same token will be ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter EniIp
         /// <summary>
         /// <para>
-        /// <para>The IP address to assign to the HSM's ENI.</para>
+        /// <para>The IP address to assign to the HSM's ENI.</para><para>If an IP address is not specified, an IP address will be randomly chosen from the
+        /// CIDR range of the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter SubscriptionType
         /// <summary>
         /// <para>
-        /// <para>The subscription type.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter SyslogIp
         /// <summary>
         /// <para>
-        /// <para>The IP address for the syslog monitoring server.</para>
+        /// <para>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports
+        /// one syslog monitoring server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

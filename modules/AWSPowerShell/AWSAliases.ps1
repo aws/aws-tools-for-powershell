@@ -1524,6 +1524,7 @@ Set-Alias -Name List-GMLFleet -Value Get-GMLFleet
 Set-Alias -Name GML-ListFleets -Value Get-GMLFleet
 Set-Alias -Name GML-RequestUploadCredentials -Value Request-GMLUploadCredential
 Set-Alias -Name GML-ResolveAlias -Value Resolve-GMLAlias
+Set-Alias -Name HSM-AddTagsToResource -Value Set-HSMResourceTag
 Set-Alias -Name Create-HSMHapg -Value New-HSMPartitionGroup
 Set-Alias -Name HSM-CreateHapg -Value New-HSMPartitionGroup
 Set-Alias -Name Create-HSMHsm -Value New-HSMItem
@@ -1551,12 +1552,15 @@ Set-Alias -Name List-HSMItemList -Value Get-HSMItemList
 Set-Alias -Name HSM-ListHsms -Value Get-HSMItemList
 Set-Alias -Name List-HSMLunaClientList -Value Get-HSMLunaClientList
 Set-Alias -Name HSM-ListLunaClients -Value Get-HSMLunaClientList
+Set-Alias -Name List-HSMResourceTag -Value Get-HSMResourceTag
+Set-Alias -Name HSM-ListTagsForResource -Value Get-HSMResourceTag
 Set-Alias -Name Modify-HSMHapg -Value Edit-HSMPartitionGroup
 Set-Alias -Name HSM-ModifyHapg -Value Edit-HSMPartitionGroup
 Set-Alias -Name Modify-HSMHsm -Value Edit-HSMItem
 Set-Alias -Name HSM-ModifyHsm -Value Edit-HSMItem
 Set-Alias -Name Modify-HSMLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-ModifyLunaClient -Value Edit-HSMLunaClient
+Set-Alias -Name HSM-RemoveTagsFromResource -Value Remove-HSMResourceTag
 Set-Alias -Name IAM-UpdateServerCertificate -Value Update-IAMServerCertificate
 Set-Alias -Name IAM-UpdateSigningCertificate -Value Update-IAMSigningCertificate
 Set-Alias -Name IAM-UpdateSSHPublicKey -Value Update-IAMSSHPublicKey

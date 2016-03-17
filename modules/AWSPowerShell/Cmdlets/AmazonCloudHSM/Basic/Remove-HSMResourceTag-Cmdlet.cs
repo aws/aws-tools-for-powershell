@@ -28,42 +28,43 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
-    /// Modifies the certificate used by the client.
+    /// Removes one or more tags from the specified resource.
     /// 
     ///  
     /// <para>
-    /// This action can potentially start a workflow to install the new certificate on the
-    /// client's HSMs.
+    /// To remove a tag, specify only the tag key to remove (not the value). To overwrite
+    /// the value for an existing tag, use <a>AddTagsToResource</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Edit", "HSMLunaClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "HSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ModifyLunaClient operation against AWS Cloud HSM.", Operation = new[] {"ModifyLunaClient"})]
+    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against AWS Cloud HSM.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.CloudHSM.Model.ModifyLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public class RemoveHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
-        #region Parameter Certificate
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The new certificate for the client.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Certificate { get; set; }
-        #endregion
-        
-        #region Parameter ClientArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the client.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ClientArn { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter TagKeyList
+        /// <summary>
+        /// <para>
+        /// <para>The tag key or keys to remove.</para><para>Specify only the tag key to remove (not the value). To overwrite the value for an
+        /// existing tag, use <a>AddTagsToResource</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] TagKeyList { get; set; }
         #endregion
         
         #region Parameter Force
@@ -80,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-HSMLunaClient (ModifyLunaClient)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-HSMResourceTag (RemoveTagsFromResource)"))
             {
                 return;
             }
@@ -92,8 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
-            context.Certificate = this.Certificate;
-            context.ClientArn = this.ClientArn;
+            context.ResourceArn = this.ResourceArn;
+            if (this.TagKeyList != null)
+            {
+                context.TagKeyList = new List<System.String>(this.TagKeyList);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -105,15 +109,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudHSM.Model.ModifyLunaClientRequest();
+            var request = new Amazon.CloudHSM.Model.RemoveTagsFromResourceRequest();
             
-            if (cmdletContext.Certificate != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Certificate = cmdletContext.Certificate;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.ClientArn != null)
+            if (cmdletContext.TagKeyList != null)
             {
-                request.ClientArn = cmdletContext.ClientArn;
+                request.TagKeyList = cmdletContext.TagKeyList;
             }
             
             CmdletOutput output;
@@ -122,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyLunaClient(request);
+                var response = client.RemoveTagsFromResource(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ClientArn;
+                object pipelineOutput = response.Status;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Certificate { get; set; }
-            public System.String ClientArn { get; set; }
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKeyList { get; set; }
         }
         
     }
