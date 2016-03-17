@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>MM</ServiceNounPrefix>
+  <ServiceName>AWS Marketplace Metering</ServiceName>
+  <ServiceNamespace>Amazon.AWSMarketplaceMetering</ServiceNamespace>
+  <ServiceClientInterface>IAmazonAWSMarketplaceMetering</ServiceClientInterface>
+  <ServiceClient>AmazonAWSMarketplaceMeteringClient</ServiceClient>
+
+  <ServiceOperations>
+
+    <ServiceOperation MethodName="MeterUsage" Verb="Send" Noun="MeteringData"
+					  NoPipelineParameter="true" 
+					  ShouldProcessTarget="ProductCode" />
+
+  </ServiceOperations>
+  
+</ConfigModel>

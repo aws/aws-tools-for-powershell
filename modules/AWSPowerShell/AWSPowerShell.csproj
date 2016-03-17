@@ -66,6 +66,9 @@
     <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AWSMarketplaceMetering">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSSupport.dll</HintPath>
     </Reference>

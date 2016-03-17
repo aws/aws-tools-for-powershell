@@ -49,6 +49,7 @@
     <Path>Lambda.xml</Path>
     <Path>ML.xml</Path>
     <Path>MCA.xml</Path>
+    <Path>MarketplaceMetering.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>RDS.xml</Path>
     <Path>Redshift.xml</Path>
