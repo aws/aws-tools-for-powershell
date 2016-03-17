@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate
     /// your certificates.
     /// </para><para>
-    /// This operation can only be called by the transfer destination. Once called, the certificate
-    /// will be returned to the source's account in the INACTIVE state.
+    /// This operation can only be called by the transfer destination. After it is called,
+    /// the certificate will be returned to the source's account in the INACTIVE state.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

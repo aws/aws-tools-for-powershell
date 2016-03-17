@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <para>
     /// You can cancel the transfer until it is acknowledged by the recipient.
     /// </para><para>
-    /// No notification is sent to the transfer destination's account, it is up to the caller
+    /// No notification is sent to the transfer destination's account. It is up to the caller
     /// to notify the transfer target.
     /// </para><para>
-    /// The certificate being transferred must not be in the ACTIVE state. It can be deactivated
-    /// using the UpdateCertificate API.
+    /// The certificate being transferred must not be in the ACTIVE state. You can use the
+    /// UpdateCertificate API to deactivate it.
     /// </para><para>
-    /// The certificate must not have any policies attached to it. These can be detached using
-    /// the DetachPrincipalPolicy API.
+    /// The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy
+    /// API to detach them.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

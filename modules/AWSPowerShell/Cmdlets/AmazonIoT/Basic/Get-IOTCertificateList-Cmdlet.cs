@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
-    /// The results are paginated with a default page size of 25. You can retrieve additional
-    /// results using the returned marker.
+    /// The results are paginated with a default page size of 25. You can use the returned
+    /// marker to retrieve additional results.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTCertificateList")]

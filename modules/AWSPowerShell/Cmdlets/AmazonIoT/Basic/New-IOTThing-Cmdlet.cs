@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a thing in the thing registry.
+    /// Creates a thing in the Thing Registry.
     /// </summary>
     [Cmdlet("New", "IOTThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateThingResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AttributePayload_Attribute
         /// <summary>
         /// <para>
-        /// <para>A JSON string containing up to three key-value pair in JSON format.</para><para>For example: {\"attributes\":{\"string1\":\"string2\"}}</para>
+        /// <para>A JSON string containing up to three key-value pair in JSON format (for example, {\"attributes\":{\"string1\":\"string2\"}}).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

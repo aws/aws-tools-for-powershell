@@ -28,12 +28,12 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a 2048 bit RSA key pair and issues an X.509 certificate using the issued public
+    /// Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public
     /// key.
     /// 
     ///  
-    /// <para><b>Note</b> This is the only time AWS IoT issues the private key for this certificate.
-    /// It is important to keep track of the private key.
+    /// <para><b>Note</b> This is the only time AWS IoT issues the private key for this certificate,
+    /// so it is important to keep it in a secure location.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IOTKeysAndCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

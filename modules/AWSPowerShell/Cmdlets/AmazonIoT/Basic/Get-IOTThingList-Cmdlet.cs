@@ -28,8 +28,8 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists your things. You can pass an AttributeName and/or AttributeValue to filter your
-    /// things. For example: "ListThings where AttributeName=Color and AttributeValue=Red"
+    /// Lists your things. You can pass an AttributeName or AttributeValue to filter your
+    /// things (for example, "ListThings where AttributeName=Color and AttributeValue=Red").
     /// </summary>
     [Cmdlet("Get", "IOTThingList")]
     [OutputType("Amazon.IoT.Model.ThingAttribute")]

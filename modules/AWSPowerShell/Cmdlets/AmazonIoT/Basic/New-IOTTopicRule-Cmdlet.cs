@@ -28,7 +28,8 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a rule.
+    /// Creates a rule. Creating rules is an administrator-level action. Any user who has
+    /// permission to create rules will be able to access data processed by the rule.
     /// </summary>
     [Cmdlet("New", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

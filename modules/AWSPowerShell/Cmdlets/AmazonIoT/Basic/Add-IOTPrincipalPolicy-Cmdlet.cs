@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principal which can be a certificate ARN (as returned from the CreateCertificate
-        /// operation) or a Cognito ID.</para>
+        /// <para>The principal, which can be a certificate ARN (as returned from the CreateCertificate
+        /// operation) or an Amazon Cognito ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

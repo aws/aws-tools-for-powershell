@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
-    /// Moving a cert from the ACTIVE state (including REVOKED) will NOT disconnect currently-connected
-    /// devices, although these devices will be unable to reconnect.
+    /// Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect
+    /// currently connected devices, but these devices will be unable to reconnect.
     /// </para><para>
     /// The ACTIVE state is required to authenticate devices connecting to AWS IoT using a
     /// certificate.
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NewStatus
         /// <summary>
         /// <para>
-        /// <para>The new status.</para><para>Note: setting the status to PENDING_TRANSFER will result in an exception being thrown.
-        /// PENDING_TRANSFER is a status used internally by AWS IoT and is not meant to be used
-        /// by developers.</para>
+        /// <para>The new status.</para><para><b>Note:</b> Setting the status to PENDING_TRANSFER will result in an exception being
+        /// thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended
+        /// for developer use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The JSON document that describes the policy. The length of the <b>policyDocument</b>
-        /// must be a minimum length of 1, with a maximum length of 2048, excluding whitespace.</para>
+        /// <para>The JSON document that describes the policy. <b>policyDocument</b> must have a minimum
+        /// length of 1, with a maximum length of 2048, excluding whitespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
