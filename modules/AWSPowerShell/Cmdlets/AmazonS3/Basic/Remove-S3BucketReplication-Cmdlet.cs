@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Deletes the replication configuration for the given Amazon S3 bucket.
+    /// Deletes the replication configuration from the bucket.
     /// </summary>
     [Cmdlet("Remove", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
