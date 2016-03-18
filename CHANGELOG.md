@@ -1,3 +1,11 @@
+### 3.1.54.0 (2016-03-17)
+  * AWS Cloud HSM
+    - Added support for resource tagging with new cmdlets Set-HSMResourceTag (AddTagsToResource API), Get-HSMResourceTag (ListTagsForResource API) and  Remove-HSMResourceTag (RemoveTagsFromResource API).
+  * AWS Marketplace Metering
+    - Added support for the new service. Cmdlets for the service share the noun prefix 'MM' and can be listed with the command 'Get-AWSCmdletName -service mm'. At this time the service has a single cmdlet, Send-MMMeteringData (MeterUsage API). 
+  * Elastic Load Balancing
+    - Corrected a help example for New-ELBLoadBalancerPolicy.
+
 ### 3.1.53.0 (2016-03-15)
   * AWS Database Migration Service
     - Added support for the new AWS Database Migration Service. Cmdlets for the service share the noun prefix 'DMS' and can be listed with the command 'Get-AWSCmdletName -Service dms'.
