@@ -9,7 +9,7 @@
   <ServiceNamespace>Amazon.DeviceFarm</ServiceNamespace>
 
 
-  <AutoIterate Start="NextToken" Next="NextToken" />
+  <AutoIterate Start="NextToken" Next="NextToken" Exclusions="GetOfferingStatus"/>
 
   <PipelineParameter>Arn</PipelineParameter>
 
@@ -33,7 +33,8 @@
     <ServiceOperation MethodName="GetDevice"/>
     <ServiceOperation MethodName="GetDevicePool"/>
     <ServiceOperation MethodName="GetDevicePoolCompatibility" Output="Response"/>
-    <ServiceOperation MethodName="GetJob"/>
+    <ServiceOperation MethodName="GetJob"/>    
+    <ServiceOperation MethodName="GetOfferingStatus" Output="Response"/>
     <ServiceOperation MethodName="GetProject"/>
     <ServiceOperation MethodName="GetRun"/>
     <ServiceOperation MethodName="GetSuite"/>
@@ -44,6 +45,8 @@
     <ServiceOperation MethodName="ListDevicePools" Noun="DevicePoolList"/>
     <ServiceOperation MethodName="ListDevices" Noun="DeviceList"/>
     <ServiceOperation MethodName="ListJobs" Noun="JobList"/>
+    <ServiceOperation MethodName="ListOfferings" Noun="Offering"/>
+    <ServiceOperation MethodName="ListOfferingTransactions" Noun="OfferingTransaction"/>
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
     <ServiceOperation MethodName="ListRuns" Noun="RunList"/>
     <ServiceOperation MethodName="ListSamples" Noun="SampleList"/>
@@ -51,7 +54,10 @@
     <ServiceOperation MethodName="ListTests" Noun="TestList"/>
     <ServiceOperation MethodName="ListUniqueProblems" Noun="UniqueProblemList"/>
     <ServiceOperation MethodName="ListUploads" Noun="UploadList"/>
-    <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />
+    <ServiceOperation MethodName="PurchaseOffering" Noun="OfferingPurchase" Verb="New" PipelineParameter="OfferingIdentifier" ShouldProcessTarget="OfferingIdentifier"/>
+    <ServiceOperation MethodName="RenewOffering" Noun="OfferingRenewal" Verb="New" PipelineParameter="OfferingIdentifier" ShouldProcessTarget="OfferingIdentifier"/>
+    <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />    
+    <ServiceOperation MethodName="StopRun" ShouldProcessTarget="Arn"/>
     <ServiceOperation MethodName="UpdateDevicePool"/>
     <ServiceOperation MethodName="UpdateProject"/>
   </ServiceOperations>
