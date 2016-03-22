@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment to update.</para><para> If no environment with this ID exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
-        /// error. </para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// <para>The ID of the environment to update.</para><para>If no environment with this ID exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
+        /// error.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
         /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The name of the group to which the target environment belongs. Specify a group name
         /// only if the environment's name is specified in an environment manifest and not with
-        /// the environment name or environment ID parameters. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml">Environment
+        /// the environment name or environment ID parameters. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
         /// Manifest (env.yaml)</a> for details.</para>
         /// </para>
         /// </summary>

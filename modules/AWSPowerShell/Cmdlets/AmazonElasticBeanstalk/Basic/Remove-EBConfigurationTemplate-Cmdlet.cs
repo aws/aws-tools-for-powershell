@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application to delete the configuration template from. </para>
+        /// <para> The name of the application to delete the configuration template from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

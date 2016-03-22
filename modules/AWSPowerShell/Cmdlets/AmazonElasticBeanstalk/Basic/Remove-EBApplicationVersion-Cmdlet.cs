@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para> The label of the version to delete. </para>
+        /// <para>The label of the version to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

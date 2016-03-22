@@ -30,7 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Retrieves the compiled information from a <a>RequestEnvironmentInfo</a> request.
     /// 
-    /// 
     ///  
     /// <para>
     /// Related Topics
@@ -49,10 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data's environment.</para><para> If no such environment is found, returns an <code>InvalidParameterValue</code> error.
-        /// </para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// <para>The ID of the data's environment.</para><para>If no such environment is found, returns an <code>InvalidParameterValue</code> error.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
         /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
-        /// error. </para>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

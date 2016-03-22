@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
         /// those with the specified names. </para>
         /// </para>
         /// </summary>

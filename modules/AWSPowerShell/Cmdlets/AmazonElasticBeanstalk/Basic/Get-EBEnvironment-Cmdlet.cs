@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those that are associated with this application. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
+        /// only those that are associated with this application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those that have the specified IDs. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
+        /// only those that have the specified IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those that have the specified names. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
+        /// only those that have the specified names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter IncludeDeleted
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to include deleted environments: </para><para><code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code>
-        /// are displayed. </para><para><code>false</code>: Do not include deleted environments. </para>
+        /// <para>Indicates whether to include deleted environments:</para><para><code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code>
+        /// are displayed.</para><para><code>false</code>: Do not include deleted environments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those that are associated with this application version. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
+        /// only those that are associated with this application version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

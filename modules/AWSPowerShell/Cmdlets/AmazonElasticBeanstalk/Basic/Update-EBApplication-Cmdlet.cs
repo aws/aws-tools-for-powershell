@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application to update. If no such application is found, <code>UpdateApplication</code>
+        /// <para>The name of the application to update. If no such application is found, <code>UpdateApplication</code>
         /// returns an <code>InvalidParameterValue</code> error. </para>
         /// </para>
         /// </summary>

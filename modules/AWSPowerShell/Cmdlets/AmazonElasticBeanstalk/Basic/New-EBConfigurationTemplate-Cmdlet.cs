@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application to associate with this configuration template. If no
-        /// application is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
+        /// <para>The name of the application to associate with this configuration template. If no application
+        /// is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
         /// error. </para>
         /// </para>
         /// </summary>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para> The ID of the environment used with this configuration template. </para>
+        /// <para>The ID of the environment used with this configuration template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

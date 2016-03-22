@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Returns list of event descriptions matching criteria up to the last 6 weeks.
     /// 
-    ///  <note> This action returns the most recent 1,000 events from the specified <code>NextToken</code>.
-    /// </note>
+    ///  <note>This action returns the most recent 1,000 events from the specified <code>NextToken</code>.</note>
     /// </summary>
     [Cmdlet("Get", "EBEvent")]
     [OutputType("Amazon.ElasticBeanstalk.Model.EventDescription")]
@@ -47,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those associated with this application. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
+        /// only those associated with this application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// associated with this environment. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
+        /// with this environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// associated with this environment. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
+        /// with this environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// that occur on or after this time. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
+        /// occur on or after this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// that are associated with this environment configuration. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
+        /// are associated with this environment configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// associated with this application version. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
+        /// with this application version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

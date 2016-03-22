@@ -28,16 +28,16 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Deletes the draft configuration associated with the running environment. 
+    /// Deletes the draft configuration associated with the running environment.
     /// 
     ///  
     /// <para>
-    ///  Updating a running environment with any configuration changes creates a draft configuration
+    /// Updating a running environment with any configuration changes creates a draft configuration
     /// set. You can get the draft configuration using <a>DescribeConfigurationSettings</a>
     /// while the update is in progress or if the update fails. The <code>DeploymentStatus</code>
     /// for the draft configuration indicates whether the deployment is in process or has
     /// failed. The draft configuration remains in existence until it is deleted with this
-    /// action. 
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EBEnvironmentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application the environment is associated with. </para>
+        /// <para>The name of the application the environment is associated with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the environment to delete the draft configuration from. </para>
+        /// <para>The name of the environment to delete the draft configuration from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

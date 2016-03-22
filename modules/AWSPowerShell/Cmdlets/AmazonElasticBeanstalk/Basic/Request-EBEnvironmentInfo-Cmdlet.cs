@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment of the requested data.</para><para> If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code>
-        /// error. </para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// <para>The ID of the environment of the requested data.</para><para>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code>
+        /// error. </para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
         /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the environment of the requested data.</para><para> If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code>
-        /// error. </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
+        /// <para>The name of the environment of the requested data.</para><para>If no such environment is found, <code>RequestEnvironmentInfo</code> returns an <code>InvalidParameterValue</code>
+        /// error. </para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
         /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter InfoType
         /// <summary>
         /// <para>
-        /// <para> The type of information to request. </para>
+        /// <para>The type of information to request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

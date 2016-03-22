@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application.</para><para> Constraint: This name must be unique within your account. If the specified name already
-        /// exists, the action returns an <code>InvalidParameterValue</code> error. </para>
+        /// <para>The name of the application.</para><para>Constraint: This name must be unique within your account. If the specified name already
+        /// exists, the action returns an <code>InvalidParameterValue</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
