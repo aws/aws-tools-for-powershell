@@ -48,8 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that specifies whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB cluster. </para><para>If this parameter is set to <code>false</code>, changes to the DB cluster are applied
-        /// during the next maintenance window.</para><para>Default: <code>false</code></para>
+        /// setting for the DB cluster. If this parameter is set to <code>false</code>, changes
+        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects the <code>NewDBClusterIdentifier</code>
+        /// and <code>MasterUserPassword</code> values. If you set the <code>ApplyImmediately</code>
+        /// parameter value to false, then changes to the <code>NewDBClusterIdentifier</code>
+        /// and <code>MasterUserPassword</code> values are applied during the next maintenance
+        /// window. All other changes are applied immediately, regardless of the value of the
+        /// <code>ApplyImmediately</code> parameter.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

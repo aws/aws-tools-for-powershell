@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// To share a manual DB snapshot with other AWS accounts, specify <code>restore</code>
     /// as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to
-    /// add a list of the AWS account ids that are authorized to retore the manual DB snapshot.
+    /// add a list of the AWS account ids that are authorized to restore the manual DB snapshot.
     /// Uses the value <code>all</code> to make the manual DB snapshot public and can by copied
     /// or restored by all AWS accounts. Do not add the <code>all</code> value for any manual
     /// DB snapshots that contain private information that you do not want to be available

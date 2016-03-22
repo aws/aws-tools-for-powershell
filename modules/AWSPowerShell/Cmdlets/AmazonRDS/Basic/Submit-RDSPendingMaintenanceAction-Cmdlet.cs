@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ApplyAction
         /// <summary>
         /// <para>
-        /// <para>The pending maintenance action to apply to this resource.</para>
+        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <code>system-update</code>, <code>db-upgrade</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

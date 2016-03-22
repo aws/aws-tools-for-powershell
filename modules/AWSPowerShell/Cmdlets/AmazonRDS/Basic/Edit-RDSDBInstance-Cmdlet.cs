@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB instance. </para><para> If this parameter is set to <code>false</code>, changes to the DB instance are applied
+        /// setting for the DB instance. </para><para>If this parameter is set to <code>false</code>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
         /// will be applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
         /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
@@ -397,12 +397,26 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
+        #region Parameter PromotionTier
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies the order in which an Aurora Replica is promoted to the primary
+        /// instance after a failure of the existing primary instance. For more information, see
+        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
+        /// Fault Tolerance for an Aurora DB Cluster</a>. </para><para>Default: 1</para><para>Valid Values: 0 - 15</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PromotionTier { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>True to make the DB instance Internet-facing with a publicly resolvable DNS name,
-        /// which resolves to a public IP address. False to make the DB instance internal with
-        /// a DNS name that resolves to a private IP address. </para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
+        /// <para>Boolean value that indicates if the DB instance has a publicly resolvable DNS name.
+        /// Set to <code>True</code> to make the DB instance Internet-facing with a publicly resolvable
+        /// DNS name, which resolves to a public IP address. Set to <code>False</code> to make
+        /// the DB instance internal with a DNS name that resolves to a private IP address. </para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
         /// must be part of a public subnet and <code>PubliclyAccessible</code> must be true in
         /// order for it to be publicly accessible. </para><para>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
         /// of the value of the <code>ApplyImmediately</code> parameter.</para><para> Default: false </para>
@@ -520,6 +534,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.OptionGroupName = this.OptionGroupName;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("PromotionTier"))
+                context.PromotionTier = this.PromotionTier;
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
             context.StorageType = this.StorageType;
@@ -630,6 +646,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
             }
+            if (cmdletContext.PromotionTier != null)
+            {
+                request.PromotionTier = cmdletContext.PromotionTier.Value;
+            }
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
@@ -707,6 +727,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String OptionGroupName { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String StorageType { get; set; }
             public System.String TdeCredentialArn { get; set; }

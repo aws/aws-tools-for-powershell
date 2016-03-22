@@ -225,7 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
         /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version 5.6
         /// (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22
-        /// | 5.6.23</code></li></ul><para><b>MariaDB</b></para><ul><li><b>Version 10.0 (Available in all regions except AWS GovCloud (US) Region
+        /// | 5.6.23 | 5.6.27</code></li><li><b>Version 5.7 (Available in all regions):</b><code>
+        /// 5.7.10</code></li></ul><para><b>MariaDB</b></para><ul><li><b>Version 10.0 (Available in all regions except AWS GovCloud (US) Region
         /// (us-gov-west-1)):</b><code> 10.0.17 </code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
         /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version
@@ -405,6 +406,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
+        #region Parameter PromotionTier
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies the order in which an Aurora Replica is promoted to the primary
+        /// instance after a failure of the existing primary instance. For more information, see
+        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance">
+        /// Fault Tolerance for an Aurora DB Cluster</a>. </para><para>Default: 1</para><para>Valid Values: 0 - 15</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PromotionTier { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
@@ -552,6 +566,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("PromotionTier"))
+                context.PromotionTier = this.PromotionTier;
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
             if (ParameterWasBound("StorageEncrypted"))
@@ -688,6 +704,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
             }
+            if (cmdletContext.PromotionTier != null)
+            {
+                request.PromotionTier = cmdletContext.PromotionTier.Value;
+            }
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
@@ -778,6 +798,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
             public System.String StorageType { get; set; }

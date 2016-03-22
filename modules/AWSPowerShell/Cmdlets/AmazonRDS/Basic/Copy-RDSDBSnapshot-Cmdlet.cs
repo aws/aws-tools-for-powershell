@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Copies the specified DBSnapshot. The source DB snapshot must be in the "available"
+    /// Copies the specified DB Snapshot. The source DB snapshot must be in the "available"
     /// state. 
     /// 
     ///  

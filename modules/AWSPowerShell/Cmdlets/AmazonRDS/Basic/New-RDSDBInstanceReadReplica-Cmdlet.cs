@@ -118,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// region that are created from the same source DB instance must either: <ul><li>Specify
         /// DB subnet groups from the same VPC. All these Read Replicas will be created in the
         /// same VPC.</li><li>Not specify a DB subnet group. All these Read Replicas will be created
-        /// outside of any VPC.</li></ul></li></ul>
+        /// outside of any VPC.</li></ul></li></ul><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
