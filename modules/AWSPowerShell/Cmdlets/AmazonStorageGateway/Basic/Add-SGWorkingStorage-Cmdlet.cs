@@ -28,10 +28,9 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation configures one or more gateway local disks as working storage for a
-    /// gateway. This operation is supported only for the gateway-stored volume architecture.
-    /// This operation is deprecated method in cached-volumes API version (20120630). Use
-    /// AddUploadBuffer instead.
+    /// Configures one or more gateway local disks as working storage for a gateway. This
+    /// operation is supported only for the gateway-stored volume architecture. This operation
+    /// is deprecated in cached-volumes API version 20120630. Use <a>AddUploadBuffer</a> instead.
     /// 
     ///  <note><para>
     /// Working storage is also referred to as upload buffer. You can also use the <a>AddUploadBuffer</a>

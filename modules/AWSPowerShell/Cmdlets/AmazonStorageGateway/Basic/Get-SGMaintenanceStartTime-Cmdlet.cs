@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation returns your gateway's weekly maintenance start time including the
-    /// day and time of the week. Note that values are in terms of the gateway's time zone.
+    /// Returns your gateway's weekly maintenance start time including the day and time of
+    /// the week. Note that values are in terms of the gateway's time zone.
     /// </summary>
     [Cmdlet("Get", "SGMaintenanceStartTime")]
     [OutputType("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse")]

@@ -2706,6 +2706,7 @@ Set-Alias -Name Retrieve-SGTapeArchive -Value Get-SGTapeArchive
 Set-Alias -Name SG-RetrieveTapeArchive -Value Get-SGTapeArchive
 Set-Alias -Name Retrieve-SGTapeRecoveryPoint -Value Get-SGTapeRecoveryPoint
 Set-Alias -Name SG-RetrieveTapeRecoveryPoint -Value Get-SGTapeRecoveryPoint
+Set-Alias -Name SG-SetLocalConsolePassword -Value Set-SGLocalConsolePassword
 Set-Alias -Name Shutdown-SGGateway -Value Stop-SGGateway
 Set-Alias -Name SG-ShutdownGateway -Value Stop-SGGateway
 Set-Alias -Name SG-StartGateway -Value Start-SGGateway

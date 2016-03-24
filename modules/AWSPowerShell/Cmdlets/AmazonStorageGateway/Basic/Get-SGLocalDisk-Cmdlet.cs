@@ -28,9 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation returns a list of the gateway's local disks. To specify which gateway
-    /// to describe, you use the Amazon Resource Name (ARN) of the gateway in the body of
-    /// the request.
+    /// Returns a list of the gateway's local disks. To specify which gateway to describe,
+    /// you use the Amazon Resource Name (ARN) of the gateway in the body of the request.
     /// 
     ///  
     /// <para>

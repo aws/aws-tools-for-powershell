@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates a snapshot schedule configured for a gateway volume.
+    /// Updates a snapshot schedule configured for a gateway volume.
     /// 
     ///  
     /// <para>

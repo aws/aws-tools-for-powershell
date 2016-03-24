@@ -28,13 +28,13 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation activates the gateway you previously deployed on your host. For more
-    /// information, see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html">
+    /// Activates the gateway you previously deployed on your host. For more information,
+    /// see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html">
     /// Activate the AWS Storage Gateway</a>. In the activation process, you specify information
-    /// such as the region you want to use for storing snapshots, the time zone for scheduled
-    /// snapshots the gateway snapshot schedule window, an activation key, and a name for
-    /// your gateway. The activation process also associates your gateway with your account;
-    /// for more information, see <a>UpdateGatewayInformation</a>.
+    /// such as the you want to use for storing snapshots, the time zone for scheduled snapshots
+    /// the gateway snapshot schedule window, an activation key, and a name for your gateway.
+    /// The activation process also associates your gateway with your account; for more information,
+    /// see <a>UpdateGatewayInformation</a>.
     /// 
     ///  <note>You must turn on the gateway VM before you can activate your gateway.</note>
     /// </summary>

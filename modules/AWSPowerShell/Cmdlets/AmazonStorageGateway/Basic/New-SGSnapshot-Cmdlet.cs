@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation initiates a snapshot of a volume.
+    /// Initiates a snapshot of a volume.
     /// 
     ///  
     /// <para>

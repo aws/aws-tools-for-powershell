@@ -28,9 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation returns an array of Challenge-Handshake Authentication Protocol (CHAP)
-    /// credentials information for a specified iSCSI target, one for each target-initiator
-    /// pair.
+    /// Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials
+    /// information for a specified iSCSI target, one for each target-initiator pair.
     /// </summary>
     [Cmdlet("Get", "SGChapCredentials")]
     [OutputType("Amazon.StorageGateway.Model.ChapInfo")]

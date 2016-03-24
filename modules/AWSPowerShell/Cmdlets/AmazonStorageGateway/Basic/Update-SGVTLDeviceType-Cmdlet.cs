@@ -28,9 +28,9 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates the type of medium changer in a gateway-VTL. When you activate
-    /// a gateway-VTL, you select a medium changer type for the gateway-VTL. This operation
-    /// enables you to select a different type of medium changer after a gateway-VTL is activated.
+    /// Updates the type of medium changer in a gateway-VTL. When you activate a gateway-VTL,
+    /// you select a medium changer type for the gateway-VTL. This operation enables you to
+    /// select a different type of medium changer after a gateway-VTL is activated.
     /// </summary>
     [Cmdlet("Update", "SGVTLDeviceType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

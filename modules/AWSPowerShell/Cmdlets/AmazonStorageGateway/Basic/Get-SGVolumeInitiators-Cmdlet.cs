@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation lists iSCSI initiators that are connected to a volume. You can use
-    /// this operation to determine whether a volume is being used or not.
+    /// Lists iSCSI initiators that are connected to a volume. You can use this operation
+    /// to determine whether a volume is being used or not.
     /// </summary>
     [Cmdlet("Get", "SGVolumeInitiators")]
     [OutputType("System.String")]

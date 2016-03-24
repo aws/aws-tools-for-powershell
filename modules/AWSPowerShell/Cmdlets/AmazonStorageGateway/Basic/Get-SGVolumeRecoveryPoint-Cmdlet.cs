@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation lists the recovery points for a specified gateway. This operation is
-    /// supported only for the gateway-cached volume architecture.
+    /// Lists the recovery points for a specified gateway. This operation is supported only
+    /// for the gateway-cached volume architecture.
     /// 
     ///  
     /// <para>

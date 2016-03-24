@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation lists the tags that have been added to the specified resource.
+    /// Lists the tags that have been added to the specified resource.
     /// </summary>
     [Cmdlet("Get", "SGResourceTags")]
     [OutputType("Amazon.StorageGateway.Model.Tag")]

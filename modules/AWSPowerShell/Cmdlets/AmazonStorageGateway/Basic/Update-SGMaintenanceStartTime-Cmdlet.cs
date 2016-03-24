@@ -28,9 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates a gateway's weekly maintenance start time information, including
-    /// day and time of the week. The maintenance time is the time in your gateway's time
-    /// zone.
+    /// Updates a gateway's weekly maintenance start time information, including day and time
+    /// of the week. The maintenance time is the time in your gateway's time zone.
     /// </summary>
     [Cmdlet("Update", "SGMaintenanceStartTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

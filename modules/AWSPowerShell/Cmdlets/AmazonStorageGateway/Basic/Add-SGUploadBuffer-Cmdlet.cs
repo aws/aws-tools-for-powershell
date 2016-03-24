@@ -28,9 +28,9 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation configures one or more gateway local disks as upload buffer for a specified
-    /// gateway. This operation is supported for both the gateway-stored and gateway-cached
-    /// volume architectures. 
+    /// Configures one or more gateway local disks as upload buffer for a specified gateway.
+    /// This operation is supported for both the gateway-stored and gateway-cached volume
+    /// architectures. 
     /// 
     ///  
     /// <para>

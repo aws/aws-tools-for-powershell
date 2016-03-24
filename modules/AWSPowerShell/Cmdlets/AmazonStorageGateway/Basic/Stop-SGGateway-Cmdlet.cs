@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation shuts down a gateway. To specify which gateway to shut down, use the
-    /// Amazon Resource Name (ARN) of the gateway in the body of your request.
+    /// Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
+    /// Name (ARN) of the gateway in the body of your request.
     /// 
     ///  
     /// <para>

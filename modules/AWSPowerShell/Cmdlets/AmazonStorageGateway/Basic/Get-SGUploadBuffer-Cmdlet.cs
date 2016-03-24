@@ -28,9 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation returns information about the upload buffer of a gateway. This operation
-    /// is supported for both the gateway-stored and gateway-cached volume architectures.
-    /// 
+    /// Returns information about the upload buffer of a gateway. This operation is supported
+    /// for both the gateway-stored and gateway-cached volume architectures. 
     /// 
     ///  
     /// <para>

@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates the gateway virtual machine (VM) software. The request immediately
-    /// triggers the software update. 
+    /// Updates the gateway virtual machine (VM) software. The request immediately triggers
+    /// the software update. 
     /// 
     ///  <note>When you make this request, you get a <code>200 OK</code> success response
     /// immediately. However, it might take some time for the update to complete. You can

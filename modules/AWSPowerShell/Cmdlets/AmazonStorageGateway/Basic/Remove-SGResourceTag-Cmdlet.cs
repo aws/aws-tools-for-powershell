@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation removes one or more tags from the specified resource.
+    /// Removes one or more tags from the specified resource.
     /// </summary>
     [Cmdlet("Remove", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

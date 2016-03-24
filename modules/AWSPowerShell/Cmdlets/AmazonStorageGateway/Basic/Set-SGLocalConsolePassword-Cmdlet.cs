@@ -28,24 +28,19 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
-    /// which means no bandwidth rate limiting is in effect.
-    /// 
-    ///  
-    /// <para>
-    /// This operation only returns a value for a bandwidth rate limit only if the limit is
-    /// set. If no limits are set for the gateway, then this operation returns only the gateway
-    /// ARN in the response body. To specify which gateway to describe, use the Amazon Resource
-    /// Name (ARN) of the gateway in your request.
-    /// </para>
+    /// Sets the password for your VM local console. When you log in to the local console
+    /// for the first time, you log in to the VM with the default credentials. We recommend
+    /// that you set a new password. You don't need to know the default password to set a
+    /// new password.
     /// </summary>
-    [Cmdlet("Get", "SGBandwidthRateLimit")]
-    [OutputType("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse")]
-    [AWSCmdlet("Invokes the DescribeBandwidthRateLimit operation against AWS Storage Gateway.", Operation = new[] {"DescribeBandwidthRateLimit"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse",
-        "This cmdlet returns a Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "SGLocalConsolePassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the SetLocalConsolePassword operation against AWS Storage Gateway.", Operation = new[] {"SetLocalConsolePassword"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.StorageGateway.Model.SetLocalConsolePasswordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public class SetSGLocalConsolePasswordCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter GatewayARN
@@ -58,9 +53,35 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String GatewayARN { get; set; }
         #endregion
         
+        #region Parameter LocalConsolePassword
+        /// <summary>
+        /// <para>
+        /// <para>The password you want to set for your VM local console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LocalConsolePassword { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GatewayARN", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SGLocalConsolePassword (SetLocalConsolePassword)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -69,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             };
             
             context.GatewayARN = this.GatewayARN;
+            context.LocalConsolePassword = this.LocalConsolePassword;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -80,11 +102,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.DescribeBandwidthRateLimitRequest();
+            var request = new Amazon.StorageGateway.Model.SetLocalConsolePasswordRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.LocalConsolePassword != null)
+            {
+                request.LocalConsolePassword = cmdletContext.LocalConsolePassword;
             }
             
             CmdletOutput output;
@@ -93,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeBandwidthRateLimit(request);
+                var response = client.SetLocalConsolePassword(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.GatewayARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -122,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal class CmdletContext : ExecutorContext
         {
             public System.String GatewayARN { get; set; }
+            public System.String LocalConsolePassword { get; set; }
         }
         
     }

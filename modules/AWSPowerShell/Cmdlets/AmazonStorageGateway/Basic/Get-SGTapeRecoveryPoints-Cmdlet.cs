@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  
     /// <para>
-    /// A recovery point is a point in time view of a virtual tape at which all the data on
+    /// A recovery point is a point-in-time view of a virtual tape at which all the data on
     /// the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery
     /// points can be recovered to a new gateway.
     /// </para>

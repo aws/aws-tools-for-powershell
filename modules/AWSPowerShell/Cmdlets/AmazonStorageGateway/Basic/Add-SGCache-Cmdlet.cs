@@ -28,9 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation configures one or more gateway local disks as cache for a cached-volume
-    /// gateway. This operation is supported only for the gateway-cached volume architecture
-    /// (see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">Storage
+    /// Configures one or more gateway local disks as cache for a cached-volume gateway. This
+    /// operation is supported only for the gateway-cached volume architecture (see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">Storage
     /// Gateway Concepts</a>).
     /// 
     ///  

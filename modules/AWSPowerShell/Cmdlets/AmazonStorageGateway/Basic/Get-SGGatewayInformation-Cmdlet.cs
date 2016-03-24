@@ -28,10 +28,9 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation returns metadata about a gateway such as its name, network interfaces,
-    /// configured time zone, and the state (whether the gateway is running or not). To specify
-    /// which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your
-    /// request.
+    /// Returns metadata about a gateway such as its name, network interfaces, configured
+    /// time zone, and the state (whether the gateway is running or not). To specify which
+    /// gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
     /// </summary>
     [Cmdlet("Get", "SGGatewayInformation")]
     [OutputType("Amazon.StorageGateway.Model.DescribeGatewayInformationResponse")]

@@ -78,6 +78,7 @@
 		PipelineParameter="ResourceARN" 
 		MetadataProperties="ResourceARN" />
 	<ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARN" />
+    <ServiceOperation MethodName="SetLocalConsolePassword"/>
     <ServiceOperation MethodName="ShutdownGateway"/>
     <ServiceOperation MethodName="StartGateway"/>
     <ServiceOperation MethodName="UpdateBandwidthRateLimit" PositionalParameters="AverageUploadRateLimitInBitsPerSec;AverageDownloadRateLimitInBitsPerSec"/>
