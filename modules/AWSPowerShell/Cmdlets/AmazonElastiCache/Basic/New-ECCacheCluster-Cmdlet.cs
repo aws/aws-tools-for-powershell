@@ -144,7 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The version number of the cache engine to be used for this cache cluster. To view
-        /// the supported cache engine versions, use the <i>DescribeCacheEngineVersions</i> action.</para>
+        /// the supported cache engine versions, use the <i>DescribeCacheEngineVersions</i> action.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
+        /// If you want to use an earlier engine version, you must delete the existing cache cluster
+        /// or replication group and create it anew with the earlier engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// the zones in the list is not important.</para><para>This option is only supported on Memcached.</para><note><para>If you are creating your cache cluster in an Amazon VPC (recommended) you can only
         /// locate nodes in Availability Zones that are associated with the subnets in the selected
         /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheNodes</code>.</para></note><para>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code>
-        /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para><para>Example: One Memcached node in each of three different Availability Zones: <code>PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;PreferredAvailabilityZones.member.3=us-west-2c</code></para><para>Example: All three Memcached nodes in one Availability Zone: <code>PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;PreferredAvailabilityZones.member.3=us-west-2a</code></para>
+        /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para><para>Example: One Memcached node in each of three different Availability Zones: <code><![CDATA[PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;PreferredAvailabilityZones.member.3=us-west-2c]]></code></para><para>Example: All three Memcached nodes in one Availability Zone: <code><![CDATA[PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;PreferredAvailabilityZones.member.3=us-west-2a]]></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

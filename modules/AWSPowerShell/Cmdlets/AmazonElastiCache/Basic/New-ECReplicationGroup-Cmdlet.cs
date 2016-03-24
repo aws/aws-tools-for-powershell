@@ -142,7 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The version number of the cache engine to be used for the cache clusters in this replication
         /// group. To view the supported cache engine versions, use the <i>DescribeCacheEngineVersions</i>
-        /// action.</para>
+        /// action.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
+        /// If you want to use an earlier engine version, you must delete the existing cache cluster
+        /// or replication group and create it anew with the earlier engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// be created. The order of the availability zones in the list is not important.</para><note>If you are creating your replication group in an Amazon VPC (recommended),
         /// you can only locate cache clusters in availability zones associated with the subnets
         /// in the selected subnet group. 
-        /// <para>The number of availability zones listed must equal the value of <i>NumCacheClusters</i>.</para></note><para>Default: system chosen availability zones.</para><para>Example: One Redis cache cluster in each of three availability zones. PreferredAvailabilityZones.member.1=us-west-2a
-        /// PreferredAvailabilityZones.member.2=us-west-2c PreferredAvailabilityZones.member.3=us-west-2c</para>
+        /// <para>The number of availability zones listed must equal the value of <i>NumCacheClusters</i>.</para></note><para>Default: system chosen availability zones.</para><para>Example: One Redis cache cluster in each of three availability zones. <![CDATA[PreferredAvailabilityZones.member.1=us-west-2a
+        /// PreferredAvailabilityZones.member.2=us-west-2c PreferredAvailabilityZones.member.3=us-west-2c]]></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

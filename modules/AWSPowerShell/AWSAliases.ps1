@@ -1288,6 +1288,7 @@ Set-Alias -Name Modify-EFSMountTargetSecurityGroups -Value Edit-EFSMountTargetSe
 Set-Alias -Name EFS-ModifyMountTargetSecurityGroups -Value Edit-EFSMountTargetSecurityGroup
 Set-Alias -Name Describe-ECSnapshots -Value Get-ECSnapshots
 Set-Alias -Name EC-DescribeSnapshots -Value Get-ECSnapshots
+Set-Alias -Name EC-ListAllowedNodeTypeModifications -Value Get-ECAllowedNodeTypeModification
 Set-Alias -Name EC-ListTagsForResource -Value Get-ECTag
 Set-Alias -Name Modify-ECCacheCluster -Value Edit-ECCacheCluster
 Set-Alias -Name EC-ModifyCacheCluster -Value Edit-ECCacheCluster

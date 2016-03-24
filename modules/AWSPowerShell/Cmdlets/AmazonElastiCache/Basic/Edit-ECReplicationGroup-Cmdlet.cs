@@ -74,6 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
         #endregion
         
+        #region Parameter CacheNodeType
+        /// <summary>
+        /// <para>
+        /// <para>A valid cache node type that you want to scale this replication group to. The value
+        /// of this parameter must be one of the <i>ScaleUpModifications</i> values returned by
+        /// the <code>ListAllowedCacheNodeTypeModification</code> action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CacheNodeType { get; set; }
+        #endregion
+        
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
@@ -103,7 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The upgraded version of the cache engine to be run on the cache clusters in the replication
-        /// group.</para>
+        /// group.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
+        /// If you want to use an earlier engine version, you must delete the existing replication
+        /// group and create it anew with the earlier engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PrimaryClusterId
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified, ElastiCache will promote each of the cache clusters
-        /// in the specified replication group to the primary role. The nodes of all other cache
-        /// clusters in the replication group will be read replicas.</para>
+        /// <para>If this parameter is specified, ElastiCache will promote the specified cluster in
+        /// the specified replication group to the primary role. The nodes of all other clusters
+        /// in the replication group will be read replicas.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -195,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic node group snapshots
         /// before deleting them. For example, if you set <i>SnapshotRetentionLimit</i> to 5,
-        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b>If the value of SnapshotRetentionLimit is set to zero (0), backups
+        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b><br />If the value of SnapshotRetentionLimit is set to zero (0), backups
         /// are turned off.</para>
         /// </para>
         /// </summary>
@@ -258,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
                 context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
+            context.CacheNodeType = this.CacheNodeType;
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.CacheSecurityGroupName != null)
             {
@@ -302,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
+            }
+            if (cmdletContext.CacheNodeType != null)
+            {
+                request.CacheNodeType = cmdletContext.CacheNodeType;
             }
             if (cmdletContext.CacheParameterGroupName != null)
             {
@@ -393,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.String CacheNodeType { get; set; }
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupNames { get; set; }
             public System.String EngineVersion { get; set; }

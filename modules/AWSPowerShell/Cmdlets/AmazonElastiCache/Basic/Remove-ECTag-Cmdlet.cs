@@ -44,8 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the ElastiCache resource from which you want the listed tags removed,
-        /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource from which you want the tags removed,
+        /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
+        /// or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</para><para>For more information on ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

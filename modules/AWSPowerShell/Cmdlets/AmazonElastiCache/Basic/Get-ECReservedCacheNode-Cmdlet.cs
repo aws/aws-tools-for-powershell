@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The offering type filter value. Use this parameter to show only the available offerings
-        /// matching the specified offering type.</para><para>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code></para>
+        /// matching the specified offering type.</para><para>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy
+        /// Utilization"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

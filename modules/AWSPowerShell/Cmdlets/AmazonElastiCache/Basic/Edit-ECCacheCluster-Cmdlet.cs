@@ -110,6 +110,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String[] CacheNodeIdsToRemove { get; set; }
         #endregion
         
+        #region Parameter CacheNodeType
+        /// <summary>
+        /// <para>
+        /// <para>A valid cache node type that you want to scale this cache cluster to. The value of
+        /// this parameter must be one of the <i>ScaleUpModifications</i> values returned by the
+        /// <code>ListAllowedCacheNodeTypeModification</code> action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CacheNodeType { get; set; }
+        #endregion
+        
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
@@ -138,7 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para>
+        /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
+        /// If you want to use an earlier engine version, you must delete the existing cache cluster
+        /// and create it anew with the earlier engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,24 +166,22 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The list of Availability Zones where the new Memcached cache nodes will be created.</para><para>This parameter is only valid when <i>NumCacheNodes</i> in the request is greater than
         /// the sum of the number of active cache nodes and the number of cache nodes pending
         /// creation (which may be zero). The number of Availability Zones supplied in this list
-        /// must match the cache nodes being added in this request.</para><para>This option is only supported on Memcached clusters.</para><para>Scenarios: <ul><li><b>Scenario 1:</b> You have 3 active nodes and wish to add 2
-        /// nodes. Specify <code>NumCacheNodes=5</code> (3 + 2) and optionally specify two Availability
-        /// Zones for the two new nodes.</li><li><b>Scenario 2:</b> You have 3 active nodes
-        /// and 2 nodes pending creation (from the scenario 1 call) and want to add 1 more node.
+        /// must match the cache nodes being added in this request.</para><para>This option is only supported on Memcached clusters.</para><para>Scenarios: <ul><li><b>Scenario 1:</b> You have 3 active nodes and wish to add 2 nodes.<br />
+        /// Specify <code>NumCacheNodes=5</code> (3 + 2) and optionally specify two Availability
+        /// Zones for the two new nodes.</li><li><b>Scenario 2:</b> You have 3 active nodes and
+        /// 2 nodes pending creation (from the scenario 1 call) and want to add 1 more node.<br />
         /// Specify <code>NumCacheNodes=6</code> ((3 + 2) + 1)</li> and optionally specify an
         /// Availability Zone for the new node. <li><b>Scenario 3:</b> You want to cancel all
-        /// pending actions. Specify <code>NumCacheNodes=3</code> to cancel all pending actions.</li></ul></para><para>The Availability Zone placement of nodes pending creation cannot be modified. If you
+        /// pending actions.<br /> Specify <code>NumCacheNodes=3</code> to cancel all pending actions.</li></ul></para><para>The Availability Zone placement of nodes pending creation cannot be modified. If you
         /// wish to cancel any nodes pending creation, add 0 nodes by setting <code>NumCacheNodes</code>
         /// to the number of current nodes.</para><para>If <code>cross-az</code> is specified, existing Memcached nodes remain in their current
         /// Availability Zone. Only newly created nodes can be located in different Availability
         /// Zones. For guidance on how to move existing Memcached nodes to different Availability
         /// Zones, see the <b>Availability Zone Considerations</b> section of <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html">Cache
-        /// Node Considerations for Memcached</a>.</para><para><b>Impact of new add/remove requests upon pending requests</b></para><table><tr><th>Scenarios</th><th>Pending action</th><th>New Request</th><th>Results</th></tr><tr><td>Scenario-1</td><td>Delete</td><td>Delete</td><td>The new delete,
-        /// pending or immediate, replaces the pending delete.</td></tr><tr><td>Scenario-2</td><td>Delete</td><td>Create</td><td>The new create, pending or immediate, replaces
-        /// the pending delete.</td></tr><tr><td>Scenario-3</td><td>Create</td><td>Delete</td><td>The new delete, pending or immediate, replaces the pending create.</td></tr><tr><td>Scenario-4</td><td>Create</td><td>Create</td><td>The new create is added
-        /// to the pending create.<br /><b>Important:</b><br />If the new create request is <b>Apply
-        /// Immediately - Yes</b>, all creates are performed immediately. If the new create request
-        /// is <b>Apply Immediately - No</b>, all creates are pending.</td></tr></table><para>Example: <code>NewAvailabilityZones.member.1=us-west-2a&amp;NewAvailabilityZones.member.2=us-west-2b&amp;NewAvailabilityZones.member.3=us-west-2c</code></para>
+        /// Node Considerations for Memcached</a>.</para><para><b>Impact of new add/remove requests upon pending requests</b></para><ul><li>Scenario-1 <ul><li>Pending Action: Delete</li><li>New Request: Delete</li><li>Result: The new delete, pending or immediate, replaces the pending delete.</li></ul></li><li>Scenario-2 <ul><li>Pending Action: Delete</li><li>New Request: Create</li><li>Result: The new create, pending or immediate, replaces the pending delete.</li></ul></li><li>Scenario-3 <ul><li>Pending Action: Create</li><li>New Request: Delete</li><li>Result: The new delete, pending or immediate, replaces the pending create.</li></ul></li><li>Scenario-4 <ul><li>Pending Action: Create</li><li>New Request: Create</li><li>Result: The new create is added to the pending create. <b>Important:</b><br />If
+        /// the new create request is <b>Apply Immediately - Yes</b>, all creates are performed
+        /// immediately.<br /> If the new create request is <b>Apply Immediately - No</b>, all
+        /// creates are pending.</li></ul></li></ul><para>Example: <code><![CDATA[NewAvailabilityZones.member.1=us-west-2a&amp;NewAvailabilityZones.member.2=us-west-2b&amp;NewAvailabilityZones.member.3=us-west-2c]]></code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -208,21 +221,22 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// If the value is equal to the number of current cache nodes, then any pending add or
         /// remove requests are canceled.</para><para>If you are removing cache nodes, you must use the <code>CacheNodeIdsToRemove</code>
         /// parameter to provide the IDs of the specific cache nodes to remove.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
-        /// this value must be between 1 and 20.</para><para><b>Note:</b>Adding or removing Memcached cache nodes can be applied immediately or
-        /// as a pending action. See <code>ApplyImmediately</code>. A pending action to modify
-        /// the number of cache nodes in a cluster during its maintenance window, whether by adding
-        /// or removing nodes in accordance with the scale out architecture, is not queued. The
-        /// customer's latest request to add or remove nodes to the cluster overrides any previous
-        /// pending actions to modify the number of cache nodes in the cluster. For example, a
-        /// request to remove 2 nodes would override a previous pending action to remove 3 nodes.
-        /// Similarly, a request to add 2 nodes would override a previous pending action to remove
-        /// 3 nodes and vice versa. As Memcached cache nodes may now be provisioned in different
-        /// Availability Zones with flexible cache node placement, a request to add nodes does
-        /// not automatically override a previous pending action to add nodes. The customer can
-        /// modify the previous pending action to add more nodes or explicitly cancel the pending
-        /// request and retry the new request. To cancel pending actions to modify the number
-        /// of cache nodes in a cluster, use the <code>ModifyCacheCluster</code> request and set
-        /// <i>NumCacheNodes</i> equal to the number of cache nodes currently in the cache cluster.</para>
+        /// this value must be between 1 and 20.</para><para><b>Note:</b><br />Adding or removing Memcached cache nodes can be applied immediately
+        /// or as a pending action. See <code>ApplyImmediately</code>.<br /> A pending action to
+        /// modify the number of cache nodes in a cluster during its maintenance window, whether
+        /// by adding or removing nodes in accordance with the scale out architecture, is not
+        /// queued. The customer's latest request to add or remove nodes to the cluster overrides
+        /// any previous pending actions to modify the number of cache nodes in the cluster. For
+        /// example, a request to remove 2 nodes would override a previous pending action to remove
+        /// 3 nodes. Similarly, a request to add 2 nodes would override a previous pending action
+        /// to remove 3 nodes and vice versa. As Memcached cache nodes may now be provisioned
+        /// in different Availability Zones with flexible cache node placement, a request to add
+        /// nodes does not automatically override a previous pending action to add nodes. The
+        /// customer can modify the previous pending action to add more nodes or explicitly cancel
+        /// the pending request and retry the new request. To cancel pending actions to modify
+        /// the number of cache nodes in a cluster, use the <code>ModifyCacheCluster</code> request
+        /// and set <i>NumCacheNodes</i> equal to the number of cache nodes currently in the cache
+        /// cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -260,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic cache cluster snapshots
         /// before deleting them. For example, if you set <i>SnapshotRetentionLimit</i> to 5,
-        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b>If the value of SnapshotRetentionLimit is set to zero (0), backups
+        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b><br />If the value of SnapshotRetentionLimit is set to zero (0), backups
         /// are turned off.</para>
         /// </para>
         /// </summary>
@@ -315,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 context.CacheNodeIdsToRemove = new List<System.String>(this.CacheNodeIdsToRemove);
             }
+            context.CacheNodeType = this.CacheNodeType;
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.CacheSecurityGroupName != null)
             {
@@ -369,6 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheNodeIdsToRemove != null)
             {
                 request.CacheNodeIdsToRemove = cmdletContext.CacheNodeIdsToRemove;
+            }
+            if (cmdletContext.CacheNodeType != null)
+            {
+                request.CacheNodeType = cmdletContext.CacheNodeType;
             }
             if (cmdletContext.CacheParameterGroupName != null)
             {
@@ -454,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public Amazon.ElastiCache.AZMode AZMode { get; set; }
             public System.String CacheClusterId { get; set; }
             public List<System.String> CacheNodeIdsToRemove { get; set; }
+            public System.String CacheNodeType { get; set; }
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupNames { get; set; }
             public System.String EngineVersion { get; set; }

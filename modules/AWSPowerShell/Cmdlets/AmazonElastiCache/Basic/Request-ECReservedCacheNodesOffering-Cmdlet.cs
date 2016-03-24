@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReservedCacheNodeId
         /// <summary>
         /// <para>
-        /// <para>A customer-specified identifier to track this reservation.</para><para>Example: myreservationID</para>
+        /// <para>A customer-specified identifier to track this reservation.</para><para><b>Note:</b><br />The Reserved Cache Node ID is an unique customer-specified identifier
+        /// to track this reservation. If this parameter is not specified, ElastiCache automatically
+        /// generates an identifier for the reservation.</para><para>Example: myreservationID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

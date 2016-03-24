@@ -93,6 +93,7 @@
     <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" 
                       PipelineParameter="ReservedCacheNodesOfferingId" 
                       PositionalParameters="CacheNodeType"/>
+    <ServiceOperation MethodName="ListAllowedNodeTypeModifications" Verb="Get" Noun="AllowedNodeTypeModification"/>
     <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="Tag" PositionalParameters="ResourceName" />
     <ServiceOperation MethodName="ModifyCacheCluster" PositionalParameters="NumCacheNodes"/>
     <ServiceOperation MethodName="ModifyCacheParameterGroup" 
