@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the database subnet group to delete. </para><note>You cannot delete the default subnet group.</note><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para> The name of the database subnet group to delete. </para><note>You cannot delete the default subnet group.</note><para> Constraints: </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>

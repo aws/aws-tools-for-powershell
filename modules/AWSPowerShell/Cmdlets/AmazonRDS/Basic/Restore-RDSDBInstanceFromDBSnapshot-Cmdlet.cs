@@ -153,6 +153,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para> Specify the Active Directory Domain to restore the instance in. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter DomainIAMRoleName
+        /// <summary>
+        /// <para>
+        /// <para> Specify the name of the IAM role to be used when making API calls to the Directory
+        /// Service. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DomainIAMRoleName { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
@@ -322,6 +343,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBName = this.DBName;
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.Domain = this.Domain;
+            context.DomainIAMRoleName = this.DomainIAMRoleName;
             context.Engine = this.Engine;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
@@ -384,6 +407,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.DomainIAMRoleName != null)
+            {
+                request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
             }
             if (cmdletContext.Engine != null)
             {
@@ -472,6 +503,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBName { get; set; }
             public System.String DBSnapshotIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.String Domain { get; set; }
+            public System.String DomainIAMRoleName { get; set; }
             public System.String Engine { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }

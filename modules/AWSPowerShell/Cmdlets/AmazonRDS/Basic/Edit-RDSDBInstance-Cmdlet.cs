@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB instance. </para><para>If this parameter is set to <code>false</code>, changes to the DB instance are applied
+        /// setting for the DB instance. </para><para> If this parameter is set to <code>false</code>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
         /// will be applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
         /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The port number on which the database accepts connections. </para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
         /// values specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <code>DBPortNumber</code> value regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
         /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
         /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para>
         /// </para>
@@ -227,6 +227,28 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("DBSecurityGroups")]
         public System.String[] DBSecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para> Specify the Active Directory Domain to move the instance to. </para><para>The specified Active Directory Domain must be created prior to this operation. Currently
+        /// only a SQL Server instance can be created in a Active Directory Domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter DomainIAMRoleName
+        /// <summary>
+        /// <para>
+        /// <para> Specify the name of the IAM role to be used when making API calls to the Directory
+        /// Service. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DomainIAMRoleName { get; set; }
         #endregion
         
         #region Parameter EngineVersion
@@ -521,6 +543,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
+            context.Domain = this.Domain;
+            context.DomainIAMRoleName = this.DomainIAMRoleName;
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
@@ -605,6 +629,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSecurityGroups != null)
             {
                 request.DBSecurityGroups = cmdletContext.DBSecurityGroups;
+            }
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.DomainIAMRoleName != null)
+            {
+                request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -717,6 +749,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public System.Int32? DBPortNumber { get; set; }
             public List<System.String> DBSecurityGroups { get; set; }
+            public System.String Domain { get; set; }
+            public System.String DomainIAMRoleName { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String MasterUserPassword { get; set; }
