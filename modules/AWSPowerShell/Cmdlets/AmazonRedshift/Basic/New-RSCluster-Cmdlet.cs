@@ -229,6 +229,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String HsmConfigurationIdentifier { get; set; }
         #endregion
         
+        #region Parameter IamRole
+        /// <summary>
+        /// <para>
+        /// <para>A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster
+        /// to access other AWS services. You must supply the IAM roles in their Amazon Resource
+        /// Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated at any time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IamRoles")]
+        public System.String[] IamRole { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -400,6 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.Encrypted = this.Encrypted;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
+            if (this.IamRole != null)
+            {
+                context.IamRoles = new List<System.String>(this.IamRole);
+            }
             context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
@@ -492,6 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.HsmConfigurationIdentifier = cmdletContext.HsmConfigurationIdentifier;
             }
+            if (cmdletContext.IamRoles != null)
+            {
+                request.IamRoles = cmdletContext.IamRoles;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -582,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? Encrypted { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
+            public List<System.String> IamRoles { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }

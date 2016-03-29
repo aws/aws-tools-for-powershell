@@ -2271,6 +2271,8 @@ Set-Alias -Name Delete-RDSEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name RDS-DeleteEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
+Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription
+Set-Alias -Name RS-ModifyEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name Modify-RSSnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
 Set-Alias -Name RS-ModifySnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-RSReservedNodeOffering
@@ -2323,12 +2325,12 @@ Set-Alias -Name RS-EnableLogging -Value Enable-RSLogging
 Set-Alias -Name RS-EnableSnapshotCopy -Value Enable-RSSnapshotCopy
 Set-Alias -Name Modify-RSCluster -Value Edit-RSCluster
 Set-Alias -Name RS-ModifyCluster -Value Edit-RSCluster
+Set-Alias -Name Modify-RSClusterIamRoles -Value Edit-RSClusterIamRoles
+Set-Alias -Name RS-ModifyClusterIamRoles -Value Edit-RSClusterIamRoles
 Set-Alias -Name Modify-RSClusterParameterGroup -Value Edit-RSClusterParameterGroup
 Set-Alias -Name RS-ModifyClusterParameterGroup -Value Edit-RSClusterParameterGroup
 Set-Alias -Name Modify-RSClusterSubnetGroup -Value Edit-RSClusterSubnetGroup
 Set-Alias -Name RS-ModifyClusterSubnetGroup -Value Edit-RSClusterSubnetGroup
-Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription
-Set-Alias -Name RS-ModifyEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name Authorize-RSClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-AuthorizeClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name Authorize-RSSnapshotAccess -Value Approve-RSSnapshotAccess

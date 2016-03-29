@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NewTableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table to create as a result of the current request.</para>
+        /// <para>The name of the table to create as a result of the current request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SourceSchemaName
         /// <summary>
         /// <para>
-        /// <para>The name of the source schema that contains the table to restore from.</para>
+        /// <para>The name of the source schema that contains the table to restore from. If you do not
+        /// specify a <code>SourceSchemaName</code> value, the default is <code>public</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

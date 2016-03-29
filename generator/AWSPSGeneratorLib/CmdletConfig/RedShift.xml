@@ -70,6 +70,8 @@
       </Params>
     </ServiceOperation>
 
+	<ServiceOperation MethodName="ModifyClusterIamRoles" />
+	
     <ServiceOperation MethodName="ModifyClusterParameterGroup" Output="Response" PipelineParameter="ParameterGroupName" PositionalParameters="Parameters"/>
     <ServiceOperation MethodName="ModifyClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds"/>
     <ServiceOperation MethodName="PurchaseReservedNodeOffering" PipelineParameter="ReservedNodeOfferingId" PositionalParameters="NodeCount"/>
