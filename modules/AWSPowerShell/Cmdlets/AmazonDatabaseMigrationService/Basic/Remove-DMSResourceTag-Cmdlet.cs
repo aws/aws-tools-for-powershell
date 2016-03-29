@@ -28,7 +28,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// For internal use only
+    /// Removes metadata tags from a DMS resource.
     /// 
     ///  <note />
     /// </summary>

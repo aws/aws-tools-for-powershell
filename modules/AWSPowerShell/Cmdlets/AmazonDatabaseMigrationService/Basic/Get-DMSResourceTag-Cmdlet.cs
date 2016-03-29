@@ -28,7 +28,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// For internal use only
+    /// Lists all tags for an AWS DMS resource.
     /// 
     ///  <note />
     /// </summary>

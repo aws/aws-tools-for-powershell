@@ -28,7 +28,10 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// For internal use only
+    /// Adds metadata tags to a DMS resource, including replication instance, endpoint, security
+    /// group, and migration task. These tags can also be used with cost allocation reporting
+    /// to track cost associated with DMS resources, or used in a Condition statement in an
+    /// IAM policy for DMS.
     /// 
     ///  <note />
     /// </summary>
