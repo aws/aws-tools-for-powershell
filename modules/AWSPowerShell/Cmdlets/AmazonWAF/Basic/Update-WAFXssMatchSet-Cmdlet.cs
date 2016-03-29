@@ -1,0 +1,199 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.WAF;
+using Amazon.WAF.Model;
+
+namespace Amazon.PowerShell.Cmdlets.WAF
+{
+    /// <summary>
+    /// Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
+    /// For each <code>XssMatchTuple</code> object, you specify the following values:
+    /// 
+    ///  <ul><li><code>Action</code>: Whether to insert the object into or delete the object
+    /// from the array. To change a <code>XssMatchTuple</code>, you delete the existing object
+    /// and add a new one.</li><li><code>FieldToMatch</code>: The part of web requests that
+    /// you want AWS WAF to inspect and, if you want AWS WAF to inspect a header, the name
+    /// of the header.</li><li><code>TextTransformation</code>: Which text transformation,
+    /// if any, to perform on the web request before inspecting the request for cross-site
+    /// scripting attacks.</li></ul><para>
+    /// You use <code>XssMatchSet</code> objects to specify which CloudFront requests you
+    /// want to allow, block, or count. For example, if you're receiving requests that contain
+    /// cross-site scripting attacks in the request body and you want to block the requests,
+    /// you can create an <code>XssMatchSet</code> with the applicable settings, and then
+    /// configure AWS WAF to block the requests. 
+    /// </para><para>
+    /// To create and configure an <code>XssMatchSet</code>, perform the following steps:
+    /// </para><ol><li>Submit a <a>CreateXssMatchSet</a> request.</li><li>Use <a>GetChangeToken</a>
+    /// to get the change token that you provide in the <code>ChangeToken</code> parameter
+    /// of an <a>UpdateIPSet</a> request.</li><li>Submit an <code>UpdateXssMatchSet</code>
+    /// request to specify the parts of web requests that you want AWS WAF to inspect for
+    /// cross-site scripting attacks.</li></ol><para>
+    /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+    /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+    /// Guide</a>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Update", "WAFXssMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the UpdateXssMatchSet operation against AWS WAF.", Operation = new[] {"UpdateXssMatchSet"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.WAF.Model.UpdateXssMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class UpdateWAFXssMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ChangeToken
+        /// <summary>
+        /// <para>
+        /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ChangeToken { get; set; }
+        #endregion
+        
+        #region Parameter Update
+        /// <summary>
+        /// <para>
+        /// <para>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or
+        /// delete from a <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code></li><li><a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code></li><li><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Updates")]
+        public Amazon.WAF.Model.XssMatchSetUpdate[] Update { get; set; }
+        #endregion
+        
+        #region Parameter XssMatchSetId
+        /// <summary>
+        /// <para>
+        /// <para>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update.
+        /// <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String XssMatchSetId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("XssMatchSetId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WAFXssMatchSet (UpdateXssMatchSet)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.ChangeToken = this.ChangeToken;
+            if (this.Update != null)
+            {
+                context.Updates = new List<Amazon.WAF.Model.XssMatchSetUpdate>(this.Update);
+            }
+            context.XssMatchSetId = this.XssMatchSetId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.WAF.Model.UpdateXssMatchSetRequest();
+            
+            if (cmdletContext.ChangeToken != null)
+            {
+                request.ChangeToken = cmdletContext.ChangeToken;
+            }
+            if (cmdletContext.Updates != null)
+            {
+                request.Updates = cmdletContext.Updates;
+            }
+            if (cmdletContext.XssMatchSetId != null)
+            {
+                request.XssMatchSetId = cmdletContext.XssMatchSetId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.UpdateXssMatchSet(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.ChangeToken;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String ChangeToken { get; set; }
+            public List<Amazon.WAF.Model.XssMatchSetUpdate> Updates { get; set; }
+            public System.String XssMatchSetId { get; set; }
+        }
+        
+    }
+}

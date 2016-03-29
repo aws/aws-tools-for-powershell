@@ -2787,6 +2787,11 @@ Set-Alias -Name STS-DecodeAuthorizationMessage -Value Convert-STSAuthorizationMe
 Set-Alias -Name STS-GetFederationToken -Value Get-STSFederationToken
 Set-Alias -Name STS-GetSessionToken -Value Get-STSSessionToken
 Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole
+Set-Alias -Name WAF-GetXssMatchSet -Value Get-WAFXssMatchSet
+Set-Alias -Name List-WAFByteMatchSetList -Value Get-WAFByteMatchSetList
+Set-Alias -Name WAF-ListByteMatchSets -Value Get-WAFByteMatchSetList
+Set-Alias -Name List-WAFIPSetList -Value Get-WAFIPSetList
+Set-Alias -Name WAF-ListIPSets -Value Get-WAFIPSetList
 Set-Alias -Name List-WAFRuleList -Value Get-WAFRuleList
 Set-Alias -Name WAF-ListRules -Value Get-WAFRuleList
 Set-Alias -Name List-WAFSizeConstraintSetList -Value Get-WAFSizeConstraintSetList
@@ -2795,12 +2800,15 @@ Set-Alias -Name List-WAFSqlInjectionMatchSetList -Value Get-WAFSqlInjectionMatch
 Set-Alias -Name WAF-ListSqlInjectionMatchSets -Value Get-WAFSqlInjectionMatchSetList
 Set-Alias -Name List-WAFWebACLList -Value Get-WAFWebACLList
 Set-Alias -Name WAF-ListWebACLs -Value Get-WAFWebACLList
+Set-Alias -Name List-WAFXssMatchSetList -Value Get-WAFXssMatchSetList
+Set-Alias -Name WAF-ListXssMatchSets -Value Get-WAFXssMatchSetList
 Set-Alias -Name WAF-UpdateByteMatchSet -Value Update-WAFByteMatchSet
 Set-Alias -Name WAF-UpdateIPSet -Value Update-WAFIPSet
 Set-Alias -Name WAF-UpdateRule -Value Update-WAFRule
 Set-Alias -Name WAF-UpdateSizeConstraintSet -Value Update-WAFSizeConstraintSet
 Set-Alias -Name WAF-UpdateSqlInjectionMatchSet -Value Update-WAFSqlInjectionMatchSet
 Set-Alias -Name WAF-UpdateWebACL -Value Update-WAFWebACL
+Set-Alias -Name WAF-UpdateXssMatchSet -Value Update-WAFXssMatchSet
 Set-Alias -Name Create-WAFByteMatchSet -Value New-WAFByteMatchSet
 Set-Alias -Name WAF-CreateByteMatchSet -Value New-WAFByteMatchSet
 Set-Alias -Name Create-WAFIPSet -Value New-WAFIPSet
@@ -2813,6 +2821,8 @@ Set-Alias -Name Create-WAFSqlInjectionMatchSet -Value New-WAFSqlInjectionMatchSe
 Set-Alias -Name WAF-CreateSqlInjectionMatchSet -Value New-WAFSqlInjectionMatchSet
 Set-Alias -Name Create-WAFWebACL -Value New-WAFWebACL
 Set-Alias -Name WAF-CreateWebACL -Value New-WAFWebACL
+Set-Alias -Name Create-WAFXssMatchSet -Value New-WAFXssMatchSet
+Set-Alias -Name WAF-CreateXssMatchSet -Value New-WAFXssMatchSet
 Set-Alias -Name Delete-WAFByteMatchSet -Value Remove-WAFByteMatchSet
 Set-Alias -Name WAF-DeleteByteMatchSet -Value Remove-WAFByteMatchSet
 Set-Alias -Name Delete-WAFIPSet -Value Remove-WAFIPSet
@@ -2825,6 +2835,8 @@ Set-Alias -Name Delete-WAFSqlInjectionMatchSet -Value Remove-WAFSqlInjectionMatc
 Set-Alias -Name WAF-DeleteSqlInjectionMatchSet -Value Remove-WAFSqlInjectionMatchSet
 Set-Alias -Name Delete-WAFWebACL -Value Remove-WAFWebACL
 Set-Alias -Name WAF-DeleteWebACL -Value Remove-WAFWebACL
+Set-Alias -Name Delete-WAFXssMatchSet -Value Remove-WAFXssMatchSet
+Set-Alias -Name WAF-DeleteXssMatchSet -Value Remove-WAFXssMatchSet
 Set-Alias -Name WAF-GetByteMatchSet -Value Get-WAFByteMatchSet
 Set-Alias -Name WAF-GetChangeToken -Value Get-WAFChangeToken
 Set-Alias -Name WAF-GetChangeTokenStatus -Value Get-WAFChangeTokenStatus
@@ -2834,10 +2846,6 @@ Set-Alias -Name WAF-GetSampledRequests -Value Get-WAFSampledRequestList
 Set-Alias -Name WAF-GetSizeConstraintSet -Value Get-WAFSizeConstraintSet
 Set-Alias -Name WAF-GetSqlInjectionMatchSet -Value Get-WAFSqlInjectionMatchSet
 Set-Alias -Name WAF-GetWebACL -Value Get-WAFWebACL
-Set-Alias -Name List-WAFByteMatchSetList -Value Get-WAFByteMatchSetList
-Set-Alias -Name WAF-ListByteMatchSets -Value Get-WAFByteMatchSetList
-Set-Alias -Name List-WAFIPSetList -Value Get-WAFIPSetList
-Set-Alias -Name WAF-ListIPSets -Value Get-WAFIPSetList
 Set-Alias -Name Create-WKSWorkspace -Value New-WKSWorkspace
 Set-Alias -Name WKS-CreateWorkspaces -Value New-WKSWorkspace
 Set-Alias -Name Describe-WKSWorkspaceBundles -Value Get-WKSWorkspaceBundles

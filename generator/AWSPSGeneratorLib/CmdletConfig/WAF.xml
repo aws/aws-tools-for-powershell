@@ -58,6 +58,13 @@
     <ServiceOperation MethodName="CreateSizeConstraintSet" PipelineParameter="ChangeToken" Output="Response" ShouldProcessTarget="Name"/>    
     <ServiceOperation MethodName="DeleteSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />    
     <ServiceOperation MethodName="GetSizeConstraintSet" />    
+	
+	<ServiceOperation MethodName="GetXssMatchSet" />
+	<ServiceOperation MethodName="ListXssMatchSets" Noun="XssMatchSetList" />
+	<ServiceOperation MethodName="UpdateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
+	<ServiceOperation MethodName="CreateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="Name" Output="Response"/>
+	<ServiceOperation MethodName="DeleteXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
+	
   </ServiceOperations>
   
 </ConfigModel>
