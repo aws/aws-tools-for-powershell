@@ -50,16 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String SourceSnapshotName { get; set; }
         #endregion
         
-        #region Parameter TargetBucket
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String TargetBucket { get; set; }
-        #endregion
-        
         #region Parameter TargetSnapshotName
         /// <summary>
         /// <para>
@@ -97,7 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
             };
             
             context.SourceSnapshotName = this.SourceSnapshotName;
-            context.TargetBucket = this.TargetBucket;
             context.TargetSnapshotName = this.TargetSnapshotName;
             
             var output = Execute(context) as CmdletOutput;
@@ -115,10 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.SourceSnapshotName != null)
             {
                 request.SourceSnapshotName = cmdletContext.SourceSnapshotName;
-            }
-            if (cmdletContext.TargetBucket != null)
-            {
-                request.TargetBucket = cmdletContext.TargetBucket;
             }
             if (cmdletContext.TargetSnapshotName != null)
             {
@@ -160,7 +145,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         internal class CmdletContext : ExecutorContext
         {
             public System.String SourceSnapshotName { get; set; }
-            public System.String TargetBucket { get; set; }
             public System.String TargetSnapshotName { get; set; }
         }
         
