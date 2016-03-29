@@ -28,28 +28,30 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Updates a stack as specified in the template. After the call completes successfully,
-    /// the stack update starts. You can check the status of the stack via the <a>DescribeStacks</a>
-    /// action.
+    /// Creates a list of changes for a stack. AWS CloudFormation generates the change set
+    /// by comparing the stack's information with the information that you submit. A change
+    /// set can help you understand which resources AWS CloudFormation will change and how
+    /// it will change them before you update your stack. Change sets allow you to check before
+    /// you make a change so that you don't delete or replace critical resources.
     /// 
     ///  
     /// <para>
-    /// To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a>
+    /// AWS CloudFormation doesn't make any changes to the stack when you create a change
+    /// set. To make the specified changes, you must execute the change set by using the <a>ExecuteChangeSet</a>
     /// action.
     /// </para><para>
-    /// For more information about creating an update template, updating a stack, and monitoring
-    /// the progress of the update, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">Updating
-    /// a Stack</a>.
+    /// After the call successfully completes, AWS CloudFormation starts creating the change
+    /// set. To check the status of the change set, use the <a>DescribeChangeSet</a> action.
     /// </para>
     /// </summary>
-    [Cmdlet("Update", "CFNStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateStack operation against AWS CloudFormation.", Operation = new[] {"UpdateStack"})]
+    [AWSCmdlet("Invokes the CreateChangeSet operation against AWS CloudFormation.", Operation = new[] {"CreateChangeSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.CloudFormation.Model.UpdateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.CreateChangeSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public class NewCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter Capability
@@ -79,11 +81,47 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] Capability { get; set; }
         #endregion
         
+        #region Parameter ChangeSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the change set. The name must be unique among all change sets that are
+        /// associated with the specified stack.</para><para>A change set name can contain only alphanumeric, case sensitive characters and hyphens.
+        /// It must start with an alphabetic character and cannot exceed 128 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ChangeSetName { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>CreateChangeSet</code> request. Specify this token
+        /// if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+        /// to create another change set with the same name. You might retry <code>CreateChangeSet</code>
+        /// requests to ensure that AWS CloudFormation successfully received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A description to help you identify this change set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter NotificationARNs
         /// <summary>
         /// <para>
-        /// <para>Amazon Simple Notification Service topic Amazon Resource Names (ARNs) that AWS CloudFormation
-        /// associates with the stack. Specify an empty list to remove all notification topics.</para>
+        /// <para>The Amazon Resource Names (ARNs) of Amazon Simple Notification Service (Amazon SNS)
+        /// topics that AWS CloudFormation associates with the stack. To remove all associated
+        /// notification topics, specify an empty list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>A list of <code>Parameter</code> structures that specify input parameters for the
-        /// stack. For more information, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
+        /// change set. For more information, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
         /// data type.</para>
         /// </para>
         /// </summary>
@@ -106,13 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The template resource types that you have permissions to work with for this update
-        /// stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-        /// <code>Custom::MyCustomInstance</code>.</para><para>If the list of resource types doesn't include a resource that you're updating, the
-        /// stack update fails. By default, AWS CloudFormation grants permissions to all resource
-        /// types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific
-        /// condition keys in IAM policies. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
-        /// Access with AWS Identity and Access Management</a>.</para>
+        /// <para>The template resource types that you have permissions to work with if you execute
+        /// this change set, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>,
+        /// or <code>Custom::MyCustomInstance</code>.</para><para>If the list of resource types doesn't include a resource type that you're updating,
+        /// the stack update fails. By default, AWS CloudFormation grants permissions to all resource
+        /// types. AWS Identity and Access Management (IAM) uses this parameter for condition
+        /// keys in IAM policies for AWS CloudFormation. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
+        /// Access with AWS Identity and Access Management</a> in the AWS CloudFormation User
+        /// Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,76 +162,21 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or unique stack ID of the stack to update.</para>
+        /// <para>The name or the unique ID of the stack for which you are creating a change set. AWS
+        /// CloudFormation generates the change set by comparing this stack's information with
+        /// the information that you submit, such as a modified template or different parameter
+        /// input values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
         #endregion
         
-        #region Parameter StackPolicyBody
-        /// <summary>
-        /// <para>
-        /// <para>Structure containing a new stack policy body. You can specify either the <code>StackPolicyBody</code>
-        /// or the <code>StackPolicyURL</code> parameter, but not both.</para><para>You might update the stack policy, for example, in order to protect a new resource
-        /// that you created during a stack update. If you do not specify a stack policy, the
-        /// current policy that is associated with the stack is unchanged.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String StackPolicyBody { get; set; }
-        #endregion
-        
-        #region Parameter StackPolicyDuringUpdateBody
-        /// <summary>
-        /// <para>
-        /// <para>Structure containing the temporary overriding stack policy body. You can specify either
-        /// the <code>StackPolicyDuringUpdateBody</code> or the <code>StackPolicyDuringUpdateURL</code>
-        /// parameter, but not both.</para><para>If you want to update protected resources, specify a temporary overriding stack policy
-        /// during this update. If you do not specify a stack policy, the current policy that
-        /// is associated with the stack will be used.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String StackPolicyDuringUpdateBody { get; set; }
-        #endregion
-        
-        #region Parameter StackPolicyDuringUpdateURL
-        /// <summary>
-        /// <para>
-        /// <para>Location of a file containing the temporary overriding stack policy. The URL must
-        /// point to a policy (max size: 16KB) located in an S3 bucket in the same region as the
-        /// stack. You can specify either the <code>StackPolicyDuringUpdateBody</code> or the
-        /// <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</para><para>If you want to update protected resources, specify a temporary overriding stack policy
-        /// during this update. If you do not specify a stack policy, the current policy that
-        /// is associated with the stack will be used.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String StackPolicyDuringUpdateURL { get; set; }
-        #endregion
-        
-        #region Parameter StackPolicyURL
-        /// <summary>
-        /// <para>
-        /// <para>Location of a file containing the updated stack policy. The URL must point to a policy
-        /// (max size: 16KB) located in an S3 bucket in the same region as the stack. You can
-        /// specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
-        /// parameter, but not both.</para><para>You might update the stack policy, for example, in order to protect a new resource
-        /// that you created during a stack update. If you do not specify a stack policy, the
-        /// current policy that is associated with the stack is unchanged.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String StackPolicyURL { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>Key-value pairs to associate with this stack. AWS CloudFormation also propagates these
-        /// tags to supported resources in the stack. You can specify a maximum number of 10 tags.</para><para>If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's
-        /// tags. If you specify an empty value, AWS CloudFormation removes all associated tags.</para>
+        /// tags to resources in the stack. You can specify a maximum of 10 tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -203,10 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
-        /// length of 51,200 bytes. (For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.)</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
-        /// parameter, but not both.</para>
+        /// <para>A structure that contains the body of the revised template, with a minimum length
+        /// of 1 byte and a maximum length of 51,200 bytes. AWS CloudFormation generates the change
+        /// set by comparing this template with the template of the stack that you specified.</para><para>Conditional: You must specify only <code>TemplateBody</code> or <code>TemplateURL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -216,10 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TemplateURL
         /// <summary>
         /// <para>
-        /// <para>Location of file containing the template body. The URL must point to a template that
-        /// is located in an Amazon S3 bucket. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
-        /// parameter, but not both.</para>
+        /// <para>The location of the file that contains the revised template. The URL must point to
+        /// a template (max size: 460,800 bytes) that is located in an S3 bucket. AWS CloudFormation
+        /// generates the change set by comparing this template with the stack that you specified.</para><para>Conditional: You must specify only <code>TemplateBody</code> or <code>TemplateURL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -229,7 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter UsePreviousTemplate
         /// <summary>
         /// <para>
-        /// <para>Reuse the existing template that is associated with the stack that you are updating.</para>
+        /// <para>Whether to reuse the template that is associated with the stack to create the change
+        /// set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -251,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StackName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CFNStack (UpdateStack)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CFNChangeSet (CreateChangeSet)"))
             {
                 return;
             }
@@ -266,6 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Capabilities = new List<System.String>(this.Capability);
             }
+            context.ChangeSetName = this.ChangeSetName;
+            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
             if (this.NotificationARNs != null)
             {
                 context.NotificationARNs = new List<System.String>(this.NotificationARNs);
@@ -279,10 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
             context.StackName = this.StackName;
-            context.StackPolicyBody = this.StackPolicyBody;
-            context.StackPolicyDuringUpdateBody = this.StackPolicyDuringUpdateBody;
-            context.StackPolicyDuringUpdateURL = this.StackPolicyDuringUpdateURL;
-            context.StackPolicyURL = this.StackPolicyURL;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.CloudFormation.Model.Tag>(this.Tag);
@@ -302,11 +284,23 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFormation.Model.UpdateStackRequest();
+            var request = new Amazon.CloudFormation.Model.CreateChangeSetRequest();
             
             if (cmdletContext.Capabilities != null)
             {
                 request.Capabilities = cmdletContext.Capabilities;
+            }
+            if (cmdletContext.ChangeSetName != null)
+            {
+                request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.NotificationARNs != null)
             {
@@ -323,22 +317,6 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
-            }
-            if (cmdletContext.StackPolicyBody != null)
-            {
-                request.StackPolicyBody = cmdletContext.StackPolicyBody;
-            }
-            if (cmdletContext.StackPolicyDuringUpdateBody != null)
-            {
-                request.StackPolicyDuringUpdateBody = cmdletContext.StackPolicyDuringUpdateBody;
-            }
-            if (cmdletContext.StackPolicyDuringUpdateURL != null)
-            {
-                request.StackPolicyDuringUpdateURL = cmdletContext.StackPolicyDuringUpdateURL;
-            }
-            if (cmdletContext.StackPolicyURL != null)
-            {
-                request.StackPolicyURL = cmdletContext.StackPolicyURL;
             }
             if (cmdletContext.Tags != null)
             {
@@ -363,9 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateStack(request);
+                var response = client.CreateChangeSet(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.StackId;
+                object pipelineOutput = response.Id;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -392,14 +370,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> Capabilities { get; set; }
+            public System.String ChangeSetName { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public List<System.String> ResourceTypes { get; set; }
             public System.String StackName { get; set; }
-            public System.String StackPolicyBody { get; set; }
-            public System.String StackPolicyDuringUpdateBody { get; set; }
-            public System.String StackPolicyDuringUpdateURL { get; set; }
-            public System.String StackPolicyURL { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateURL { get; set; }

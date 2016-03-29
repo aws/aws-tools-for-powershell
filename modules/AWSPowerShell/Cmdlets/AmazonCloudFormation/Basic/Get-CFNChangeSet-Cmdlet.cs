@@ -1,0 +1,156 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CloudFormation;
+using Amazon.CloudFormation.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CFN
+{
+    /// <summary>
+    /// Returns the inputs for the change set and a list of changes that AWS CloudFormation
+    /// will make if you execute the change set. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating
+    /// Stacks Using Change Sets</a> in the AWS CloudFormation User Guide.
+    /// </summary>
+    [Cmdlet("Get", "CFNChangeSet")]
+    [OutputType("Amazon.CloudFormation.Model.DescribeChangeSetResponse")]
+    [AWSCmdlet("Invokes the DescribeChangeSet operation against AWS CloudFormation.", Operation = new[] {"DescribeChangeSet"})]
+    [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeChangeSetResponse",
+        "This cmdlet returns a Amazon.CloudFormation.Model.DescribeChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ChangeSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name or Amazon Resource Name (ARN) of the change set that you want to describe.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ChangeSetName { get; set; }
+        #endregion
+        
+        #region Parameter StackName
+        /// <summary>
+        /// <para>
+        /// <para>If you specified the name of a change set, specify the stack name or ID (ARN) of the
+        /// change set you want to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StackName { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A string (provided by the <a>DescribeChangeSet</a> response output) that identifies
+        /// the next page of information that you want to retrieve.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.ChangeSetName = this.ChangeSetName;
+            context.NextToken = this.NextToken;
+            context.StackName = this.StackName;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CloudFormation.Model.DescribeChangeSetRequest();
+            
+            if (cmdletContext.ChangeSetName != null)
+            {
+                request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.StackName != null)
+            {
+                request.StackName = cmdletContext.StackName;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DescribeChangeSet(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String ChangeSetName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String StackName { get; set; }
+        }
+        
+    }
+}

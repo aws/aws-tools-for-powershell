@@ -28,57 +28,55 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Sets a stack policy for a specified stack.
+    /// Updates a stack using the input information that was provided when the specified change
+    /// set was created. After the call successfully completes, AWS CloudFormation starts
+    /// updating the stack. Use the <a>DescribeStacks</a> action to view the status of the
+    /// update.
+    /// 
+    ///  
+    /// <para>
+    /// When you execute a change set, AWS CloudFormation deletes all other change sets associated
+    /// with the stack because they aren't valid for the updated stack.
+    /// </para><para>
+    /// If a stack policy is associated with the stack, AWS CloudFormation enforces the policy
+    /// during the update. You can't specify a temporary stack policy that overrides the current
+    /// policy.
+    /// </para>
     /// </summary>
-    [Cmdlet("Set", "CFNStackPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Start", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetStackPolicy operation against AWS CloudFormation.", Operation = new[] {"SetStackPolicy"})]
+    [AWSCmdlet("Invokes the ExecuteChangeSet operation against AWS CloudFormation.", Operation = new[] {"ExecuteChangeSet"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudFormation.Model.SetStackPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ChangeSetName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.CloudFormation.Model.ExecuteChangeSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public class StartCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name or ARN of the change set that you want use to update the specified stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ChangeSetName { get; set; }
+        #endregion
         
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or unique stack ID that you want to associate a policy with.</para>
+        /// <para>If you specified the name of a change set, specify the stack name or ID (ARN) that
+        /// is associated with the change set you want to execute.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StackName { get; set; }
-        #endregion
-        
-        #region Parameter StackPolicyBody
-        /// <summary>
-        /// <para>
-        /// <para>Structure containing the stack policy body. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-        /// Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You can
-        /// specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
-        /// parameter, but not both.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String StackPolicyBody { get; set; }
-        #endregion
-        
-        #region Parameter StackPolicyURL
-        /// <summary>
-        /// <para>
-        /// <para>Location of a file containing the stack policy. The URL must point to a policy (maximum
-        /// size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify
-        /// either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter,
-        /// but not both.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String StackPolicyURL { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the StackName parameter.
+        /// Returns the value passed to the ChangeSetName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StackName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-CFNStackPolicy (SetStackPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ChangeSetName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CFNChangeSet (ExecuteChangeSet)"))
             {
                 return;
             }
@@ -111,9 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            context.ChangeSetName = this.ChangeSetName;
             context.StackName = this.StackName;
-            context.StackPolicyBody = this.StackPolicyBody;
-            context.StackPolicyURL = this.StackPolicyURL;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -125,19 +122,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFormation.Model.SetStackPolicyRequest();
+            var request = new Amazon.CloudFormation.Model.ExecuteChangeSetRequest();
             
+            if (cmdletContext.ChangeSetName != null)
+            {
+                request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
-            }
-            if (cmdletContext.StackPolicyBody != null)
-            {
-                request.StackPolicyBody = cmdletContext.StackPolicyBody;
-            }
-            if (cmdletContext.StackPolicyURL != null)
-            {
-                request.StackPolicyURL = cmdletContext.StackPolicyURL;
             }
             
             CmdletOutput output;
@@ -146,11 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.SetStackPolicy(request);
+                var response = client.ExecuteChangeSet(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StackName;
+                    pipelineOutput = this.ChangeSetName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -176,9 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ChangeSetName { get; set; }
             public System.String StackName { get; set; }
-            public System.String StackPolicyBody { get; set; }
-            public System.String StackPolicyURL { get; set; }
         }
         
     }
