@@ -1,0 +1,123 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Inspector;
+using Amazon.Inspector.Model;
+
+namespace Amazon.PowerShell.Cmdlets.INS
+{
+    /// <summary>
+    /// Describes the assessment template(s) specified by the assessment template(s) ARN(s).
+    /// </summary>
+    [Cmdlet("Get", "INSAssessmentTemplate")]
+    [OutputType("Amazon.Inspector.Model.DescribeAssessmentTemplatesResponse")]
+    [AWSCmdlet("Invokes the DescribeAssessmentTemplates operation against Amazon Inspector.", Operation = new[] {"DescribeAssessmentTemplates"})]
+    [AWSCmdletOutput("Amazon.Inspector.Model.DescribeAssessmentTemplatesResponse",
+        "This cmdlet returns a Amazon.Inspector.Model.DescribeAssessmentTemplatesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetINSAssessmentTemplateCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    {
+        
+        #region Parameter AssessmentTemplateArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN(s) specifying the assessment template(s) that you want to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Alias("AssessmentTemplateArns")]
+        public System.String[] AssessmentTemplateArn { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.AssessmentTemplateArn != null)
+            {
+                context.AssessmentTemplateArns = new List<System.String>(this.AssessmentTemplateArn);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Inspector.Model.DescribeAssessmentTemplatesRequest();
+            
+            if (cmdletContext.AssessmentTemplateArns != null)
+            {
+                request.AssessmentTemplateArns = cmdletContext.AssessmentTemplateArns;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DescribeAssessmentTemplates(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public List<System.String> AssessmentTemplateArns { get; set; }
+        }
+        
+    }
+}

@@ -1,0 +1,140 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Inspector;
+using Amazon.Inspector.Model;
+
+namespace Amazon.PowerShell.Cmdlets.INS
+{
+    /// <summary>
+    /// Describes the rules package(s) specified by the rules package ARN(s).
+    /// </summary>
+    [Cmdlet("Get", "INSRulesPackage")]
+    [OutputType("Amazon.Inspector.Model.DescribeRulesPackagesResponse")]
+    [AWSCmdlet("Invokes the DescribeRulesPackages operation against Amazon Inspector.", Operation = new[] {"DescribeRulesPackages"})]
+    [AWSCmdletOutput("Amazon.Inspector.Model.DescribeRulesPackagesResponse",
+        "This cmdlet returns a Amazon.Inspector.Model.DescribeRulesPackagesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetINSRulesPackageCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Locale
+        /// <summary>
+        /// <para>
+        /// <para>The locale that you want to translate a rules package description(s) into.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Inspector.Locale")]
+        public Amazon.Inspector.Locale Locale { get; set; }
+        #endregion
+        
+        #region Parameter RulesPackageArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN(s) specifying the rules package(s) that you want to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RulesPackageArns")]
+        public System.String[] RulesPackageArn { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.Locale = this.Locale;
+            if (this.RulesPackageArn != null)
+            {
+                context.RulesPackageArns = new List<System.String>(this.RulesPackageArn);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.Inspector.Model.DescribeRulesPackagesRequest();
+            
+            if (cmdletContext.Locale != null)
+            {
+                request.Locale = cmdletContext.Locale;
+            }
+            if (cmdletContext.RulesPackageArns != null)
+            {
+                request.RulesPackageArns = cmdletContext.RulesPackageArns;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DescribeRulesPackages(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Amazon.Inspector.Locale Locale { get; set; }
+            public List<System.String> RulesPackageArns { get; set; }
+        }
+        
+    }
+}

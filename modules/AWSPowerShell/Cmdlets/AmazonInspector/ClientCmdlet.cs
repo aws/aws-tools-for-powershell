@@ -27,7 +27,7 @@ using Amazon.Inspector.Model;
 
 namespace Amazon.PowerShell.Cmdlets.INS
 {
-    [AWSClientCmdlet("Amazon Inspector", "INS", "2015-08-18")]
+    [AWSClientCmdlet("Amazon Inspector", "INS", "2016-02-16")]
     public abstract class AmazonInspectorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonInspector Client { get; private set; }
