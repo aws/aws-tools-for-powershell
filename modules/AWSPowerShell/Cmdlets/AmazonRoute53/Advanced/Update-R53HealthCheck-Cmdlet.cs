@@ -134,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.Int32 HealthThreshold { get; set; }
         #endregion
         
+        #region Parameter InsufficientDataHealthStatus
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.InsufficientDataHealthStatus")]
+        public Amazon.Route53.InsufficientDataHealthStatus InsufficientDataHealthStatus { get; set; }
+        #endregion
+        
         #region Parameter Inverted
         /// <summary>
         /// <para>
@@ -156,6 +167,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public System.String IPAddress { get; set; }
         #endregion
         
+        #region Parameter AlarmIdentifier_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch alarm.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AlarmIdentifier_Name { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -165,6 +186,31 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
+        
+        #region Parameter AlarmIdentifier_Region
+        /// <summary>
+        /// <para>
+        /// <para>The <code>CloudWatchRegion</code> that the CloudWatch alarm was created in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.CloudWatchRegion")]
+        public Amazon.Route53.CloudWatchRegion AlarmIdentifier_Region { get; set; }
+        #endregion
+        
+        #region Parameter Region
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>HealthCheckRegion</code> values that specify the Amazon EC2 regions
+        /// that you want Amazon Route 53 to use to perform health checks. You must specify at
+        /// least three regions.</para><note>When you remove a region from the list, Amazon Route 53 will briefly continue
+        /// to check your endpoint from that region.</note><para>Specify this value only if you want to change it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Regions")]
+        public System.String[] HealthCheckRegion { get; set; }
         #endregion
         
         #region Parameter ResourcePath
@@ -241,6 +287,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
             }
             if (ParameterWasBound("EnableSNI"))
                 context.EnableSNI = this.EnableSNI;
+            if (this.HealthCheckRegion != null)
+            {
+                context.Regions = new List<System.String>(this.HealthCheckRegion);
+            }
+            context.AlarmIdentifier_Region = this.AlarmIdentifier_Region;
+            context.AlarmIdentifier_Name = this.AlarmIdentifier_Name;
+            context.InsufficientDataHealthStatus = this.InsufficientDataHealthStatus;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -302,6 +355,43 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 request.EnableSNI = cmdletContext.EnableSNI.Value;
             }
+            if (cmdletContext.Regions != null)
+            {
+                request.Regions = cmdletContext.Regions;
+            }
+            
+             // populate AlarmIdentifier
+            bool requestAlarmIdentifierIsNull = true;
+            request.AlarmIdentifier = new Amazon.Route53.Model.AlarmIdentifier();
+            Amazon.Route53.CloudWatchRegion requestAlarmIdentifier_alarmIdentifier_Region = null;
+            if (cmdletContext.AlarmIdentifier_Region != null)
+            {
+                requestAlarmIdentifier_alarmIdentifier_Region = cmdletContext.AlarmIdentifier_Region;
+            }
+            if (requestAlarmIdentifier_alarmIdentifier_Region != null)
+            {
+                request.AlarmIdentifier.Region = requestAlarmIdentifier_alarmIdentifier_Region;
+                requestAlarmIdentifierIsNull = false;
+            }
+            System.String requestAlarmIdentifier_alarmIdentifier_Name = null;
+            if (cmdletContext.AlarmIdentifier_Name != null)
+            {
+                requestAlarmIdentifier_alarmIdentifier_Name = cmdletContext.AlarmIdentifier_Name;
+            }
+            if (requestAlarmIdentifier_alarmIdentifier_Name != null)
+            {
+                request.AlarmIdentifier.Name = requestAlarmIdentifier_alarmIdentifier_Name;
+                requestAlarmIdentifierIsNull = false;
+            }
+             // determine if request.AlarmIdentifier should be set to null
+            if (requestAlarmIdentifierIsNull)
+            {
+                request.AlarmIdentifier = null;
+            }
+            if (cmdletContext.InsufficientDataHealthStatus != null)
+            {
+                request.InsufficientDataHealthStatus = cmdletContext.InsufficientDataHealthStatus;
+            }
             
             CmdletOutput output;
             
@@ -349,6 +439,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.Int32? HealthThreshold { get; set; }
             public List<System.String> ChildHealthChecks { get; set; }
             public System.Boolean? EnableSNI { get; set; }
+            public List<System.String> Regions { get; set; }
+            public Amazon.Route53.CloudWatchRegion AlarmIdentifier_Region { get; set; }
+            public System.String AlarmIdentifier_Name { get; set; }
+            public Amazon.Route53.InsufficientDataHealthStatus InsufficientDataHealthStatus { get; set; }
         }
         
     }

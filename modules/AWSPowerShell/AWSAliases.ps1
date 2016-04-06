@@ -2385,10 +2385,6 @@ Set-Alias -Name Describe-RSClusterSecurityGroups -Value Get-RSClusterSecurityGro
 Set-Alias -Name RS-DescribeClusterSecurityGroups -Value Get-RSClusterSecurityGroups
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-ECReservedNodeOffering
 Set-Alias -Name R53-GetTrafficPolicyInstanceCount -Value Get-R53TrafficPolicyInstanceCount
-Set-Alias -Name List-R53ChangeBatchesByHostedZone -Value Get-R53ChangeBatchesByHostedZone
-Set-Alias -Name R53-ListChangeBatchesByHostedZone -Value Get-R53ChangeBatchesByHostedZone
-Set-Alias -Name List-R53ChangeBatchesByRRSet -Value Get-R53ChangeBatchesByRRSet
-Set-Alias -Name R53-ListChangeBatchesByRRSet -Value Get-R53ChangeBatchesByRRSet
 Set-Alias -Name List-R53GeoLocations -Value Get-R53GeoLocations
 Set-Alias -Name R53-ListGeoLocations -Value Get-R53GeoLocations
 Set-Alias -Name List-R53HealthChecks -Value Get-R53HealthChecks
@@ -2409,7 +2405,6 @@ Set-Alias -Name List-R53TrafficPolicyInstancesByHostedZone -Value Get-R53Traffic
 Set-Alias -Name R53-ListTrafficPolicyInstancesByHostedZone -Value Get-R53TrafficPolicyInstancesByHostedZone
 Set-Alias -Name List-R53TrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
 Set-Alias -Name R53-ListTrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
-Set-Alias -Name R53-UpdateHealthCheck -Value Update-R53HealthCheck
 Set-Alias -Name R53-UpdateHostedZoneComment -Value Update-R53HostedZoneComment
 Set-Alias -Name R53-UpdateTrafficPolicyComment -Value Update-R53TrafficPolicyComment
 Set-Alias -Name R53-UpdateTrafficPolicyInstance -Value Update-R53TrafficPolicyInstance
@@ -2442,7 +2437,6 @@ Set-Alias -Name Delete-R53TrafficPolicyInstance -Value Remove-R53TrafficPolicyIn
 Set-Alias -Name R53-DeleteTrafficPolicyInstance -Value Remove-R53TrafficPolicyInstance
 Set-Alias -Name R53-DisassociateVPCFromHostedZone -Value Unregister-R53VPCFromHostedZone
 Set-Alias -Name R53-GetChange -Value Get-R53Change
-Set-Alias -Name R53-GetChangeDetails -Value Get-R53ChangeDetails
 Set-Alias -Name R53-GetCheckerIpRanges -Value Get-R53CheckerIpRanges
 Set-Alias -Name R53-GetGeoLocation -Value Get-R53GeoLocation
 Set-Alias -Name R53-GetHealthCheck -Value Get-R53HealthCheck

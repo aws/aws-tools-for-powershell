@@ -29,6 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// This action returns the status and changes of a change batch request.
+    /// <br/><b>NOTE: This operation is deprecated because it is an experimental feature not intended for use. The
+    /// cmdlet will be removed in a future release.</b>
     /// </summary>
     [Cmdlet("Get", "R53ChangeDetails")]
     [OutputType("Amazon.Route53.Model.ChangeBatchRecord")]
@@ -39,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53ChangeDetailsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
-        
+
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -51,38 +53,38 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
         #endregion
-        
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
+
             var context = new CmdletContext
             {
                 Region = this.Region,
                 Credentials = this.CurrentCredentials
             };
-            
+
             context.Id = this.Id;
-            
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
-        
+
         #region IExecutor Members
-        
+
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
             // create request
             var request = new Amazon.Route53.Model.GetChangeDetailsRequest();
-            
+
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
             }
-            
+
             CmdletOutput output;
-            
+
             // issue call
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
@@ -101,22 +103,22 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 output = new CmdletOutput { ErrorResponse = e };
             }
-            
+
             return output;
         }
-        
+
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+
         internal class CmdletContext : ExecutorContext
         {
             public System.String Id { get; set; }
         }
-        
+
     }
 }
