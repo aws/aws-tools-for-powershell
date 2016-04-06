@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    
+    /// Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.
     /// </summary>
     [Cmdlet("New", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateAuthorizerResponse")]
@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String AuthorizerUri { get; set; }
         #endregion
         
+        #region Parameter AuthType
+        /// <summary>
+        /// <para>
+        /// <para>Optional customer-defined field, used in Swagger imports/exports. Has no functional
+        /// impact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthType { get; set; }
+        #endregion
+        
         #region Parameter IdentitySource
         /// <summary>
         /// <para>
@@ -104,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The <a>RestApi</a> identifier under which the <a>Authorizer</a> will be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -152,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (ParameterWasBound("AuthorizerResultTtlInSecond"))
                 context.AuthorizerResultTtlInSeconds = this.AuthorizerResultTtlInSecond;
             context.AuthorizerUri = this.AuthorizerUri;
+            context.AuthType = this.AuthType;
             context.IdentitySource = this.IdentitySource;
             context.IdentityValidationExpression = this.IdentityValidationExpression;
             context.Name = this.Name;
@@ -181,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.AuthorizerUri != null)
             {
                 request.AuthorizerUri = cmdletContext.AuthorizerUri;
+            }
+            if (cmdletContext.AuthType != null)
+            {
+                request.AuthType = cmdletContext.AuthType;
             }
             if (cmdletContext.IdentitySource != null)
             {
@@ -240,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String AuthorizerCredentials { get; set; }
             public System.Int32? AuthorizerResultTtlInSeconds { get; set; }
             public System.String AuthorizerUri { get; set; }
+            public System.String AuthType { get; set; }
             public System.String IdentitySource { get; set; }
             public System.String IdentityValidationExpression { get; set; }
             public System.String Name { get; set; }

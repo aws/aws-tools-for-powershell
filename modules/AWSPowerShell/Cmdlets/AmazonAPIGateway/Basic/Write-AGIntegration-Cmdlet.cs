@@ -156,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration input's Uniform Resource Identifier (URI). When the integration
-        /// type is HTTP or AWS, this field is required.</para>
+        /// type is HTTP or AWS, this field is required. For integration with Lambda as an AWS
+        /// service proxy, this value is of the 'arn:aws:apigateway:&lt;region&gt;:lambda:path/2015-03-31/functions/&lt;functionArn&gt;/invocations'
+        /// format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

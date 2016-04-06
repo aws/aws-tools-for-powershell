@@ -28,7 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    
+    /// Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters,
+    /// and an incoming request body.
     /// </summary>
     [Cmdlet("Test", "AGInvokeMethod")]
     [OutputType("Amazon.APIGateway.Model.TestInvokeMethodResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Body
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The simulated request body of an incoming invocation request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A <a>ClientCertificate</a> identifier to use in the test invocation. API Gateway will
+        /// use use the certificate when making the HTTPS request to the defined backend endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Specifies a test invoke method request's HTTP method.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PathWithQueryString
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The URI path, including query string, of the simulated invocation request. Use this
+        /// to specify path parameters and query string parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Specifies a test invoke method request's resource ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Specifies a test invoke method request's API identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageVariable
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A key-value map of stage variables to simulate an invocation on a deployed <a>Stage</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Header
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A key-value map of headers to simulate an incoming invocation request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

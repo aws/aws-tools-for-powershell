@@ -1,5 +1,9 @@
+Set-Alias -Name Put-AGMethod -Value Write-AGMethod
+Set-Alias -Name AG-PutMethod -Value Write-AGMethod
 Set-Alias -Name Put-AGMethodResponse -Value Write-AGMethodResponse
 Set-Alias -Name AG-PutMethodResponse -Value Write-AGMethodResponse
+Set-Alias -Name Put-AGRestApi -Value Write-AGRestApi
+Set-Alias -Name AG-PutRestApi -Value Write-AGRestApi
 Set-Alias -Name AG-TestInvokeAuthorizer -Value Test-AGInvokeAuthorizer
 Set-Alias -Name AG-TestInvokeMethod -Value Test-AGInvokeMethod
 Set-Alias -Name AG-UpdateAccount -Value Update-AGAccount
@@ -42,12 +46,11 @@ Set-Alias -Name AG-GetRestApis -Value Get-AGRestApiList
 Set-Alias -Name AG-GetSdk -Value Get-AGSdk
 Set-Alias -Name AG-GetStage -Value Get-AGStage
 Set-Alias -Name AG-GetStages -Value Get-AGStageList
+Set-Alias -Name AG-ImportRestApi -Value Import-AGRestApi
 Set-Alias -Name Put-AGIntegration -Value Write-AGIntegration
 Set-Alias -Name AG-PutIntegration -Value Write-AGIntegration
 Set-Alias -Name Put-AGIntegrationResponse -Value Write-AGIntegrationResponse
 Set-Alias -Name AG-PutIntegrationResponse -Value Write-AGIntegrationResponse
-Set-Alias -Name Put-AGMethod -Value Write-AGMethod
-Set-Alias -Name AG-PutMethod -Value Write-AGMethod
 Set-Alias -Name Create-AGApiKey -Value New-AGApiKey
 Set-Alias -Name AG-CreateApiKey -Value New-AGApiKey
 Set-Alias -Name Create-AGAuthorizer -Value New-AGAuthorizer

@@ -28,48 +28,58 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Exports a deployed version of a <a>RestApi</a> in a specified format.
+    /// A feature of the Amazon API Gateway control service for updating an existing API with
+    /// an input of external API definitions. The update can take the form of merging the
+    /// supplied definition into the existing API or overwriting the existing API.
     /// </summary>
-    [Cmdlet("Get", "AGExport")]
-    [OutputType("Amazon.APIGateway.Model.GetExportResponse")]
-    [AWSCmdlet("Invokes the GetExport operation against Amazon API Gateway.", Operation = new[] {"GetExport"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.GetExportResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.GetExportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.PutRestApiResponse")]
+    [AWSCmdlet("Invokes the PutRestApi operation against Amazon API Gateway.", Operation = new[] {"PutRestApi"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.PutRestApiResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.PutRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetAGExportCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public class WriteAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter Accept
+        #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The content-type of the export, for example 'application/json'. Currently 'application/json'
-        /// and 'application/yaml' are supported for exportType 'swagger'. Should be specifed
-        /// in the 'Accept' header for direct API requests.</para>
+        /// <para>The PUT request body containing external API definitions. Currently, only Swagger
+        /// definition JSON files are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Accepts")]
-        public System.String Accept { get; set; }
+        public System.IO.MemoryStream Body { get; set; }
         #endregion
         
-        #region Parameter ExportType
+        #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>The type of export. Currently only 'swagger' is supported.</para>
+        /// <para>A query parameter to indicate whether to rollback the API update (<code>true</code>)
+        /// or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ExportType { get; set; }
+        [Alias("FailOnWarnings")]
+        public System.Boolean FailOnWarning { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The <code>mode</code> query parameter to specify the update mode. Valid values are
+        /// "merge" and "overwrite". By default, the update mode is "merge".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.PutMode")]
+        public Amazon.APIGateway.PutMode Mode { get; set; }
         #endregion
         
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>A key-value map of query string parameters that specify properties of the export,
-        /// depending on the requested exportType. For exportType 'swagger', any combination of
-        /// the following parameters are supported: 'integrations' will export x-amazon-apigateway-integration
-        /// extensions 'authorizers' will export x-amazon-apigateway-authorizer extensions 'postman'
-        /// will export with Postman extensions, allowing for import to the Postman tool</para>
+        /// <para>Custom headers supplied as part of the request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -80,26 +90,32 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <a>RestApi</a> to be exported.</para>
+        /// <para>The identifier of the <a>RestApi</a> to be updated. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RestApiId { get; set; }
         #endregion
         
-        #region Parameter StageName
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The name of the <a>Stage</a> that will be exported.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StageName { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-AGRestApi (PutRestApi)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -107,8 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
-            context.Accepts = this.Accept;
-            context.ExportType = this.ExportType;
+            context.Body = this.Body;
+            if (ParameterWasBound("FailOnWarning"))
+                context.FailOnWarnings = this.FailOnWarning;
+            context.Mode = this.Mode;
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -118,7 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 }
             }
             context.RestApiId = this.RestApiId;
-            context.StageName = this.StageName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -130,15 +147,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.GetExportRequest();
+            var request = new Amazon.APIGateway.Model.PutRestApiRequest();
             
-            if (cmdletContext.Accepts != null)
+            if (cmdletContext.Body != null)
             {
-                request.Accepts = cmdletContext.Accepts;
+                request.Body = cmdletContext.Body;
             }
-            if (cmdletContext.ExportType != null)
+            if (cmdletContext.FailOnWarnings != null)
             {
-                request.ExportType = cmdletContext.ExportType;
+                request.FailOnWarnings = cmdletContext.FailOnWarnings.Value;
+            }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
             }
             if (cmdletContext.Parameters != null)
             {
@@ -148,10 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.RestApiId = cmdletContext.RestApiId;
             }
-            if (cmdletContext.StageName != null)
-            {
-                request.StageName = cmdletContext.StageName;
-            }
             
             CmdletOutput output;
             
@@ -159,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetExport(request);
+                var response = client.PutRestApi(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -187,11 +204,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Accepts { get; set; }
-            public System.String ExportType { get; set; }
+            public System.IO.MemoryStream Body { get; set; }
+            public System.Boolean? FailOnWarnings { get; set; }
+            public Amazon.APIGateway.PutMode Mode { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
             public System.String RestApiId { get; set; }
-            public System.String StageName { get; set; }
         }
         
     }

@@ -130,6 +130,9 @@
     <ServiceOperation MethodName="DeleteAuthorizer" ShouldProcessTarget="AuthorizerId" Output="Void" />
     <ServiceOperation MethodName="GetAuthorizer" Output="Response" />
 
+    <ServiceOperation MethodName="ImportRestApi" PipelineParameter="Parameters" Output="Response" />
+    <ServiceOperation MethodName="PutRestApi" PipelineParameter="Parameters" Output="Response" />
+
   </ServiceOperations>
 
 </ConfigModel>

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    
+    /// Gets a collection of <a>ClientCertificate</a> resources.
     /// </summary>
     [Cmdlet("Get", "AGClientCertificateList")]
     [OutputType("Amazon.APIGateway.Model.ClientCertificate")]
@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The maximum number of <a>ClientCertificate</a> resources in the collection to get
+        /// information about. The default limit is 25. It should be an integer between 1 - 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The position of the current <a>ClientCertificate</a> resource in the collection to
+        /// get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

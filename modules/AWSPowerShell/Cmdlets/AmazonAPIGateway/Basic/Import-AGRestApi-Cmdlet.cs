@@ -28,65 +28,71 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.
+    /// A feature of the Amazon API Gateway control service for creating a new API from an
+    /// external API definition file.
     /// </summary>
-    [Cmdlet("Get", "AGSdk")]
-    [OutputType("Amazon.APIGateway.Model.GetSdkResponse")]
-    [AWSCmdlet("Invokes the GetSdk operation against Amazon API Gateway.", Operation = new[] {"GetSdk"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.GetSdkResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.GetSdkResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Import", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.ImportRestApiResponse")]
+    [AWSCmdlet("Invokes the ImportRestApi operation against Amazon API Gateway.", Operation = new[] {"ImportRestApi"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.ImportRestApiResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.ImportRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetAGSdkCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public class ImportAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Body
+        /// <summary>
+        /// <para>
+        /// <para>The POST request body containing external API definitions. Currently, only Swagger
+        /// definition JSON files are supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.IO.MemoryStream Body { get; set; }
+        #endregion
+        
+        #region Parameter FailOnWarning
+        /// <summary>
+        /// <para>
+        /// <para>A query parameter to indicate whether to rollback the API creation (<code>true</code>)
+        /// or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("FailOnWarnings")]
+        public System.Boolean FailOnWarning { get; set; }
+        #endregion
         
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>A key-value map of query string parameters that specify properties of the SDK, depending
-        /// on the requested sdkType. For sdkType 'objectivec', a parameter named "classPrefix"
-        /// is required. For sdkType 'android', parameters named "groupId", "artifactId", "artifactVersion",
-        /// and "invokerPackage" are required.</para>
+        /// <para>Custom header parameters as part of the request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
-        #region Parameter RestApiId
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The identifier of the <a>RestApi</a> that the SDK will use.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
-        #endregion
-        
-        #region Parameter SdkType
-        /// <summary>
-        /// <para>
-        /// <para>The language for the generated SDK. Currently javascript, android, and objectivec
-        /// (for iOS) are supported.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String SdkType { get; set; }
-        #endregion
-        
-        #region Parameter StageName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the <a>Stage</a> that the SDK will use.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StageName { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Parameter", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-AGRestApi (ImportRestApi)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -94,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            context.Body = this.Body;
+            if (ParameterWasBound("FailOnWarning"))
+                context.FailOnWarnings = this.FailOnWarning;
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -102,9 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
                     context.Parameters.Add((String)hashKey, (String)(this.Parameter[hashKey]));
                 }
             }
-            context.RestApiId = this.RestApiId;
-            context.SdkType = this.SdkType;
-            context.StageName = this.StageName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -116,23 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.GetSdkRequest();
+            var request = new Amazon.APIGateway.Model.ImportRestApiRequest();
             
+            if (cmdletContext.Body != null)
+            {
+                request.Body = cmdletContext.Body;
+            }
+            if (cmdletContext.FailOnWarnings != null)
+            {
+                request.FailOnWarnings = cmdletContext.FailOnWarnings.Value;
+            }
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
-            }
-            if (cmdletContext.RestApiId != null)
-            {
-                request.RestApiId = cmdletContext.RestApiId;
-            }
-            if (cmdletContext.SdkType != null)
-            {
-                request.SdkType = cmdletContext.SdkType;
-            }
-            if (cmdletContext.StageName != null)
-            {
-                request.StageName = cmdletContext.StageName;
             }
             
             CmdletOutput output;
@@ -141,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetSdk(request);
+                var response = client.ImportRestApi(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -169,10 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.IO.MemoryStream Body { get; set; }
+            public System.Boolean? FailOnWarnings { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
-            public System.String RestApiId { get; set; }
-            public System.String SdkType { get; set; }
-            public System.String StageName { get; set; }
         }
         
     }
