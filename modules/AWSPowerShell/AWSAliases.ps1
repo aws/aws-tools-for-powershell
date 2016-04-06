@@ -2777,6 +2777,7 @@ Set-Alias -Name Assume-STSRole -Value Use-STSRole
 Set-Alias -Name STS-AssumeRoleWithSAML -Value Use-STSRoleWithSAML
 Set-Alias -Name Decode-STSAuthorizationMessage -Value Convert-STSAuthorizationMessage
 Set-Alias -Name STS-DecodeAuthorizationMessage -Value Convert-STSAuthorizationMessage
+Set-Alias -Name STS-GetCallerIdentity -Value Get-STSCallerIdentity
 Set-Alias -Name STS-GetFederationToken -Value Get-STSFederationToken
 Set-Alias -Name STS-GetSessionToken -Value Get-STSSessionToken
 Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole

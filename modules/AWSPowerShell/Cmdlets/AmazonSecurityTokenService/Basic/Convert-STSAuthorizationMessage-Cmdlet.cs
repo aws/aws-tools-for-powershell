@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// The decoded message includes the following type of information: 
     /// </para><ul><li>Whether the request was denied due to an explicit deny or due to the absence
     /// of an explicit allow. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow">Determining
-    /// Whether a Request is Allowed or Denied</a> in the <i>Using IAM</i>. </li><li>The
+    /// Whether a Request is Allowed or Denied</a> in the <i>IAM User Guide</i>. </li><li>The
     /// principal who made the request.</li><li>The requested action.</li><li>The requested
     /// resource.</li><li>The values of condition keys in the context of the user's request.</li></ul>
     /// </summary>

@@ -31,18 +31,28 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// Returns a set of temporary security credentials for users who have been authenticated
     /// via a SAML authentication response. This operation provides a mechanism for tying
     /// an enterprise identity store or directory to role-based AWS access without user-specific
-    /// credentials or configuration. 
+    /// credentials or configuration. For a comparison of <code>AssumeRoleWithSAML</code>
+    /// with the other APIs that produce temporary credentials, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
+    /// Temporary Security Credentials</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
+    /// the AWS STS APIs</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para>
     /// The temporary security credentials returned by this operation consist of an access
     /// key ID, a secret access key, and a security token. Applications can use these temporary
-    /// security credentials to sign calls to AWS services. The credentials are valid for
-    /// the duration that you specified when calling <code>AssumeRoleWithSAML</code>, which
-    /// can be up to 3600 seconds (1 hour) or until the time specified in the SAML authentication
-    /// response's <code>SessionNotOnOrAfter</code> value, whichever is shorter.
-    /// </para><note>The maximum duration for a session is 1 hour, and the minimum duration is 15
-    /// minutes, even if values outside this range are specified. </note><para>
+    /// security credentials to sign calls to AWS services.
+    /// </para><para>
+    /// The temporary security credentials are valid for the duration that you specified when
+    /// calling <code>AssumeRole</code>, or until the time specified in the SAML authentication
+    /// response's <code>SessionNotOnOrAfter</code> value, whichever is shorter. The duration
+    /// can be from 900 seconds (15 minutes) to a maximum of 3600 seconds (1 hour). The default
+    /// is 1 hour.
+    /// </para><para>
+    /// The temporary security credentials created by <code>AssumeRoleWithSAML</code> can
+    /// be used to make API calls to any AWS service with the following exception: you cannot
+    /// call the STS service's <code>GetFederationToken</code> or <code>GetSessionToken</code>
+    /// APIs.
+    /// </para><para>
     /// Optionally, you can pass an IAM access policy to this operation. If you choose not
     /// to pass a policy, the temporary security credentials that are returned by the operation
     /// have the permissions that are defined in the access policy of the role that is being
@@ -53,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// temporary security credentials. You cannot use the passed policy to grant permissions
     /// that are in excess of those allowed by the access policy of the role that is being
     /// assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
-    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>Using
-    /// IAM</i>.
+    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>IAM
+    /// User Guide</i>.
     /// </para><para>
     /// Before your application can call <code>AssumeRoleWithSAML</code>, you must configure
     /// your SAML identity provider (IdP) to issue the claims required by AWS. Additionally,
@@ -68,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para><para>
     /// For more information, see the following resources:
     /// </para><ul><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
-    /// SAML 2.0-based Federation</a> in the <i>Using IAM</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html">Creating
-    /// SAML Identity Providers</a> in the <i>Using IAM</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html">Configuring
-    /// a Relying Party and Claims</a> in the <i>Using IAM</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating
-    /// a Role for SAML 2.0 Federation</a> in the <i>Using IAM</i>. </li></ul><member name="RoleArn" target="arnType" /><member name="SAMLAssertion" target="SAMLAssertionType" /><member name="Policy" target="sessionPolicyDocumentType" /><member name="DurationSeconds" target="roleDurationSecondsType" />
+    /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html">Creating
+    /// SAML Identity Providers</a> in the <i>IAM User Guide</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html">Configuring
+    /// a Relying Party and Claims</a> in the <i>IAM User Guide</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating
+    /// a Role for SAML 2.0 Federation</a> in the <i>IAM User Guide</i>. </li></ul><member name="RoleArn" target="arnType" /><member name="SAMLAssertion" target="SAMLAssertionType" /><member name="Policy" target="sessionPolicyDocumentType" /><member name="DurationSeconds" target="roleDurationSecondsType" />
     /// </summary>
     [Cmdlet("Use", "STSRoleWithSAML", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse")]
@@ -107,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// temporary security credentials. You cannot use the passed policy to grant permissions
         /// that are in excess of those allowed by the access policy of the role that is being
         /// assumed. For more information, <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
-        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>Using
-        /// IAM</i>. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
+        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>IAM
+        /// User Guide</i>. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
         /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
         /// response element indicates by percentage how close to the upper size limit the policy
         /// is, with 100% equaling the maximum allowed size. </note>

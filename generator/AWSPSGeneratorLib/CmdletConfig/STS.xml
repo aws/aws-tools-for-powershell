@@ -43,6 +43,7 @@
         <Param Name="DurationSeconds" NewName="DurationInSeconds" />
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="GetCallerIdentity" Output="Response" />
 
   </ServiceOperations>
 

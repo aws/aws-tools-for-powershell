@@ -34,7 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// applications inside a corporate network. Because you must call the <code>GetFederationToken</code>
     /// action using the long-term security credentials of an IAM user, this call is appropriate
     /// in contexts where those credentials can be safely stored, usually in a server-based
-    /// application.
+    /// application. For a comparison of <code>GetFederationToken</code> with the other APIs
+    /// that produce temporary credentials, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
+    /// Temporary Security Credentials</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
+    /// the AWS STS APIs</a> in the <i>IAM User Guide</i>.
     /// 
     ///  <note><para>
     ///  If you are creating a mobile-based or browser-based app that can authenticate users
@@ -45,17 +48,25 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para></note><para>
     /// The <code>GetFederationToken</code> action must be called by using the long-term AWS
     /// security credentials of an IAM user. You can also call <code>GetFederationToken</code>
-    /// using the security credentials of an AWS account (root), but this is not recommended.
+    /// using the security credentials of an AWS root account, but we do not recommended it.
     /// Instead, we recommend that you create an IAM user for the purpose of the proxy application
     /// and then attach a policy to the IAM user that limits federated users to only the actions
-    /// and resources they need access to. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM
-    /// Best Practices</a> in the <i>Using IAM</i>. 
+    /// and resources that they need access to. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM
+    /// Best Practices</a> in the <i>IAM User Guide</i>. 
     /// </para><para>
     /// The temporary security credentials that are obtained by using the long-term credentials
-    /// of an IAM user are valid for the specified duration, between 900 seconds (15 minutes)
-    /// and 129600 seconds (36 hours). Temporary credentials that are obtained by using AWS
-    /// account (root) credentials have a maximum duration of 3600 seconds (1 hour)
-    /// </para><para><b>Permissions</b></para><para>
+    /// of an IAM user are valid for the specified duration, from 900 seconds (15 minutes)
+    /// up to a maximium of 129600 seconds (36 hours). The default is 43200 seconds (12 hours).
+    /// Temporary credentials that are obtained by using AWS root account credentials have
+    /// a maximum duration of 3600 seconds (1 hour).
+    /// </para><para>
+    /// The temporary security credentials created by <code>GetFederationToken</code> can
+    /// be used to make API calls to any AWS service with the following exceptions:
+    /// </para><ul><li><para>
+    /// You cannot use these credentials to call any IAM APIs.
+    /// </para></li><li><para>
+    /// You cannot call any STS APIs.
+    /// </para></li></ul><para><b>Permissions</b></para><para>
     /// The permissions for the temporary security credentials returned by <code>GetFederationToken</code>
     /// are determined by a combination of the following: 
     /// </para><ul><li>The policy or policies that are attached to the IAM user whose credentials

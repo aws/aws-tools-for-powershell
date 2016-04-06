@@ -36,16 +36,29 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// is associated with their MFA device. Using the temporary security credentials that
     /// are returned from the call, IAM users can then make programmatic calls to APIs that
     /// require MFA authentication. If you do not supply a correct MFA code, then the API
-    /// returns an access denied error.
+    /// returns an access denied error. For a comparison of <code>GetSessionToken</code> with
+    /// the other APIs that produce temporary credentials, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
+    /// Temporary Security Credentials</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
+    /// the AWS STS APIs</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para>
     /// The <code>GetSessionToken</code> action must be called by using the long-term AWS
     /// security credentials of the AWS account or an IAM user. Credentials that are created
-    /// by IAM users are valid for the duration that you specify, between 900 seconds (15
-    /// minutes) and 129600 seconds (36 hours); credentials that are created by using account
-    /// credentials have a maximum duration of 3600 seconds (1 hour). 
-    /// </para><note><para>
+    /// by IAM users are valid for the duration that you specify, from 900 seconds (15 minutes)
+    /// up to a maximum of 129600 seconds (36 hours), with a default of 43200 seconds (12
+    /// hours); credentials that are created by using account credentials can range from 900
+    /// seconds (15 minutes) up to a maximum of 3600 seconds (1 hour), with a default of 1
+    /// hour. 
+    /// </para><para>
+    /// The temporary security credentials created by <code>GetSessionToken</code> can be
+    /// used to make API calls to any AWS service with the following exceptions:
+    /// </para><ul><li><para>
+    /// You cannot call any IAM APIs unless MFA authentication information is included in
+    /// the request. 
+    /// </para></li><li><para>
+    /// You cannot call any STS API <i>except</i><code>AssumeRole</code>.
+    /// </para></li></ul><note><para>
     /// We recommend that you do not call <code>GetSessionToken</code> with root account credentials.
     /// Instead, follow our <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users">best
     /// practices</a> by creating one or more IAM users, giving them the necessary permissions,
@@ -60,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para><para>
     /// For more information about using <code>GetSessionToken</code> to create temporary
     /// credentials, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
-    /// Credentials for Users in Untrusted Environments</a> in the <i>Using IAM</i>. 
+    /// Credentials for Users in Untrusted Environments</a> in the <i>IAM User Guide</i>.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "STSSessionToken")]
