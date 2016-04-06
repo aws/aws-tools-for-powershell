@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.Inspector.Event")]
-        public Amazon.Inspector.Event Event { get; set; }
+        [AWSConstantClassSource("Amazon.Inspector.InspectorEvent")]
+        public Amazon.Inspector.InspectorEvent Event { get; set; }
         #endregion
         
         #region Parameter ResourceArn
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.Inspector.Event Event { get; set; }
+            public Amazon.Inspector.InspectorEvent Event { get; set; }
             public System.String ResourceArn { get; set; }
             public System.String TopicArn { get; set; }
         }
