@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Action { get; set; }
         #endregion
         
+        #region Parameter EventSourceToken
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EventSourceToken { get; set; }
+        #endregion
+        
         #region Parameter FunctionName
         /// <summary>
         /// <para>
@@ -182,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.Action = this.Action;
+            context.EventSourceToken = this.EventSourceToken;
             context.FunctionName = this.FunctionName;
             context.Principal = this.Principal;
             context.Qualifier = this.Qualifier;
@@ -204,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Action != null)
             {
                 request.Action = cmdletContext.Action;
+            }
+            if (cmdletContext.EventSourceToken != null)
+            {
+                request.EventSourceToken = cmdletContext.EventSourceToken;
             }
             if (cmdletContext.FunctionName != null)
             {
@@ -265,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public System.String Action { get; set; }
+            public System.String EventSourceToken { get; set; }
             public System.String FunctionName { get; set; }
             public System.String Principal { get; set; }
             public System.String Qualifier { get; set; }

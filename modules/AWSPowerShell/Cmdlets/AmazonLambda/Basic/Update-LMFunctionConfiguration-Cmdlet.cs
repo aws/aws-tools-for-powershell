@@ -114,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Role { get; set; }
         #endregion
         
+        #region Parameter Runtime
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Lambda.Runtime")]
+        public Amazon.Lambda.Runtime Runtime { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
@@ -180,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (ParameterWasBound("MemorySize"))
                 context.MemorySize = this.MemorySize;
             context.Role = this.Role;
+            context.Runtime = this.Runtime;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
             if (this.VpcConfig_SecurityGroupId != null)
@@ -222,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
+            }
+            if (cmdletContext.Runtime != null)
+            {
+                request.Runtime = cmdletContext.Runtime;
             }
             if (cmdletContext.Timeout != null)
             {
@@ -296,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Handler { get; set; }
             public System.Int32? MemorySize { get; set; }
             public System.String Role { get; set; }
+            public Amazon.Lambda.Runtime Runtime { get; set; }
             public System.Int32? Timeout { get; set; }
             public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
             public List<System.String> VpcConfig_SubnetIds { get; set; }
