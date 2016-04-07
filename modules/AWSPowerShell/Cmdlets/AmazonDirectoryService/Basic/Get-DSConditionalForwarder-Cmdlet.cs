@@ -28,58 +28,50 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Deletes an existing trust relationship between your Microsoft AD in the AWS cloud
-    /// and an external domain.
+    /// Obtains information about the conditional forwarders for this account.
+    /// 
+    ///  
+    /// <para>
+    /// If no input parameters are provided for RemoteDomainNames, this request describes
+    /// all conditional forwarders for the specified directory ID.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "DSTrust", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteTrust operation against AWS Directory Service.", Operation = new[] {"DeleteTrust"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.DirectoryService.Model.DeleteTrustResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSConditionalForwarder")]
+    [OutputType("Amazon.DirectoryService.Model.ConditionalForwarder")]
+    [AWSCmdlet("Invokes the DescribeConditionalForwarders operation against AWS Directory Service.", Operation = new[] {"DescribeConditionalForwarders"})]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.ConditionalForwarder",
+        "This cmdlet returns a collection of ConditionalForwarder objects.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeConditionalForwardersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class GetDSConditionalForwarderCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DeleteAssociatedConditionalForwarder
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean DeleteAssociatedConditionalForwarder { get; set; }
-        #endregion
-        
-        #region Parameter TrustId
-        /// <summary>
-        /// <para>
-        /// The Trust ID of the trust relationship to be deleted.
+        /// <para>The directory ID for which to get the list of associated conditional forwarders.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String TrustId { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter RemoteDomainName
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>The fully qualified domain names (FQDN) of the remote domains for which to get the
+        /// list of associated conditional forwarders. If this member is null, all conditional
+        /// forwarders are returned.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [Alias("RemoteDomainNames")]
+        public System.String[] RemoteDomainName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TrustId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSTrust (DeleteTrust)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -87,9 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("DeleteAssociatedConditionalForwarder"))
-                context.DeleteAssociatedConditionalForwarder = this.DeleteAssociatedConditionalForwarder;
-            context.TrustId = this.TrustId;
+            context.DirectoryId = this.DirectoryId;
+            if (this.RemoteDomainName != null)
+            {
+                context.RemoteDomainNames = new List<System.String>(this.RemoteDomainName);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -101,15 +95,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.DeleteTrustRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeConditionalForwardersRequest();
             
-            if (cmdletContext.DeleteAssociatedConditionalForwarder != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.DeleteAssociatedConditionalForwarder = cmdletContext.DeleteAssociatedConditionalForwarder.Value;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.TrustId != null)
+            if (cmdletContext.RemoteDomainNames != null)
             {
-                request.TrustId = cmdletContext.TrustId;
+                request.RemoteDomainNames = cmdletContext.RemoteDomainNames;
             }
             
             CmdletOutput output;
@@ -118,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteTrust(request);
+                var response = client.DescribeConditionalForwarders(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TrustId;
+                object pipelineOutput = response.ConditionalForwarders;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -146,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DeleteAssociatedConditionalForwarder { get; set; }
-            public System.String TrustId { get; set; }
+            public System.String DirectoryId { get; set; }
+            public List<System.String> RemoteDomainNames { get; set; }
         }
         
     }

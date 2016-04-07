@@ -817,11 +817,14 @@ Set-Alias -Name Describe-DCVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name DC-DescribeVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name Describe-DCVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name DC-DescribeVirtualInterfaces -Value Get-DCVirtualInterface
+Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name DS-ConnectDirectory -Value Connect-DSDirectory
 Set-Alias -Name Create-DSAlias -Value New-DSAlias
 Set-Alias -Name DS-CreateAlias -Value New-DSAlias
 Set-Alias -Name Create-DSComputer -Value New-DSComputer
 Set-Alias -Name DS-CreateComputer -Value New-DSComputer
+Set-Alias -Name Create-DSConditionalForwarder -Value New-DSConditionalForwarder
+Set-Alias -Name DS-CreateConditionalForwarder -Value New-DSConditionalForwarder
 Set-Alias -Name Create-DSDirectory -Value New-DSDirectory
 Set-Alias -Name DS-CreateDirectory -Value New-DSDirectory
 Set-Alias -Name Create-DSMicrosoftAD -Value New-DSMicrosoftAD
@@ -830,6 +833,8 @@ Set-Alias -Name Create-DSSnapshot -Value New-DSSnapshot
 Set-Alias -Name DS-CreateSnapshot -Value New-DSSnapshot
 Set-Alias -Name Create-DSTrust -Value New-DSTrust
 Set-Alias -Name DS-CreateTrust -Value New-DSTrust
+Set-Alias -Name Delete-DSConditionalForwarder -Value Remove-DSConditionalForwarder
+Set-Alias -Name DS-DeleteConditionalForwarder -Value Remove-DSConditionalForwarder
 Set-Alias -Name Delete-DSDirectory -Value Remove-DSDirectory
 Set-Alias -Name DS-DeleteDirectory -Value Remove-DSDirectory
 Set-Alias -Name Delete-DSSnapshot -Value Remove-DSSnapshot
@@ -837,6 +842,8 @@ Set-Alias -Name DS-DeleteSnapshot -Value Remove-DSSnapshot
 Set-Alias -Name Delete-DSTrust -Value Remove-DSTrust
 Set-Alias -Name DS-DeleteTrust -Value Remove-DSTrust
 Set-Alias -Name DS-DeregisterEventTopic -Value Unregister-DSEventTopic
+Set-Alias -Name Describe-DSConditionalForwarder -Value Get-DSConditionalForwarder
+Set-Alias -Name DS-DescribeConditionalForwarders -Value Get-DSConditionalForwarder
 Set-Alias -Name Describe-DSDirectory -Value Get-DSDirectory
 Set-Alias -Name DS-DescribeDirectories -Value Get-DSDirectory
 Set-Alias -Name Describe-DSEventTopic -Value Get-DSEventTopic
@@ -852,8 +859,8 @@ Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
 Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
+Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
-Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit

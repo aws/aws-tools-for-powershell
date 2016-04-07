@@ -23,6 +23,9 @@
 
 	<ServiceOperation MethodName="CreateComputer"
 		PipelineParameter="DirectoryId" />
+    
+	<ServiceOperation MethodName="CreateConditionalForwarder" Output="Void"
+		PipelineParameter="DirectoryId" />    
 
 	<ServiceOperation MethodName="CreateDirectory"
 		PositionalParameters="Name;Password"
@@ -32,10 +35,16 @@
 	<ServiceOperation MethodName="CreateSnapshot"
 		PipelineParameter="DirectoryId"/>
 
+  <ServiceOperation MethodName="DeleteConditionalForwarder" Output="Void" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" />
+
 	<ServiceOperation MethodName="DeleteDirectory" />
 
 	<ServiceOperation MethodName="DeleteSnapshot" />
 
+	<ServiceOperation MethodName="DescribeConditionalForwarders"
+		Noun="ConditionalForwarder"
+		PipelineParameter="DirectoryId"/>    
+    
 	<ServiceOperation MethodName="DescribeDirectories"
 		Noun="Directory"
 		PipelineParameter="DirectoryIds"/>
@@ -82,11 +91,13 @@
     <ServiceOperation MethodName="CreateTrust"
         PipelineParameter="DirectoryId" />
 
-    <ServiceOperation MethodName="DeleteTrust" />
+    <ServiceOperation MethodName="DeleteTrust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" />
 
     <ServiceOperation MethodName="DescribeTrusts"
         PipelineParameter="DirectoryId"
         Noun="Trust" Verb="Get" />
+
+    <ServiceOperation MethodName="UpdateConditionalForwarder" Output="Void" PipelineParameter="DirectoryId"/>
 
     <ServiceOperation MethodName="VerifyTrust"
         Verb="Approve" />

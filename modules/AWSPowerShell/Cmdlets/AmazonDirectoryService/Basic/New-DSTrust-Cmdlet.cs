@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public class NewDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter ConditionalForwarderIpAddr
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ConditionalForwarderIpAddrs")]
+        public System.String[] ConditionalForwarderIpAddr { get; set; }
+        #endregion
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
@@ -131,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.ConditionalForwarderIpAddr != null)
+            {
+                context.ConditionalForwarderIpAddrs = new List<System.String>(this.ConditionalForwarderIpAddr);
+            }
             context.DirectoryId = this.DirectoryId;
             context.RemoteDomainName = this.RemoteDomainName;
             context.TrustDirection = this.TrustDirection;
@@ -149,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             // create request
             var request = new Amazon.DirectoryService.Model.CreateTrustRequest();
             
+            if (cmdletContext.ConditionalForwarderIpAddrs != null)
+            {
+                request.ConditionalForwarderIpAddrs = cmdletContext.ConditionalForwarderIpAddrs;
+            }
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
@@ -204,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> ConditionalForwarderIpAddrs { get; set; }
             public System.String DirectoryId { get; set; }
             public System.String RemoteDomainName { get; set; }
             public Amazon.DirectoryService.TrustDirection TrustDirection { get; set; }
