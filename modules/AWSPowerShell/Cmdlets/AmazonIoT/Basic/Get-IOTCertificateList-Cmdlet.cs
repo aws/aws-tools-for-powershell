@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists your certificates.
+    /// Lists the certificates registered in your AWS account.
     /// 
     ///  
     /// <para>

@@ -28,55 +28,37 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
-    /// the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.
-    /// 
-    ///  
-    /// <para>
-    /// To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate
-    /// your certificates.
-    /// </para><para>
-    /// This operation can only be called by the transfer destination. After it is called,
-    /// the certificate will be returned to the source's account in the INACTIVE state.
-    /// </para>
+    /// Updates a registered CA certificate.
     /// </summary>
-    [Cmdlet("Deny", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RejectCertificateTransfer operation against AWS IoT.", Operation = new[] {"RejectCertificateTransfer"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.RejectCertificateTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "IOTCACertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the UpdateCACertificate operation against AWS IoT.", Operation = new[] {"UpdateCACertificate"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type Amazon.IoT.Model.UpdateCACertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DenyIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class UpdateIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate.</para>
+        /// <para>The CA certificate identifier.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String CertificateId { get; set; }
         #endregion
         
-        #region Parameter RejectReason
+        #region Parameter NewStatus
         /// <summary>
         /// <para>
-        /// <para>The reason the certificate transfer was rejected.</para>
+        /// <para>The updated status of the CA certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String RejectReason { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the CertificateId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [AWSConstantClassSource("Amazon.IoT.CACertificateStatus")]
+        public Amazon.IoT.CACertificateStatus NewStatus { get; set; }
         #endregion
         
         #region Parameter Force
@@ -94,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Deny-IOTCertificateTransfer (RejectCertificateTransfer)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTCACertificate (UpdateCACertificate)"))
             {
                 return;
             }
@@ -106,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             };
             
             context.CertificateId = this.CertificateId;
-            context.RejectReason = this.RejectReason;
+            context.NewStatus = this.NewStatus;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,15 +100,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.RejectCertificateTransferRequest();
+            var request = new Amazon.IoT.Model.UpdateCACertificateRequest();
             
             if (cmdletContext.CertificateId != null)
             {
                 request.CertificateId = cmdletContext.CertificateId;
             }
-            if (cmdletContext.RejectReason != null)
+            if (cmdletContext.NewStatus != null)
             {
-                request.RejectReason = cmdletContext.RejectReason;
+                request.NewStatus = cmdletContext.NewStatus;
             }
             
             CmdletOutput output;
@@ -135,11 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RejectCertificateTransfer(request);
+                var response = client.UpdateCACertificate(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.CertificateId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -166,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal class CmdletContext : ExecutorContext
         {
             public System.String CertificateId { get; set; }
-            public System.String RejectReason { get; set; }
+            public Amazon.IoT.CACertificateStatus NewStatus { get; set; }
         }
         
     }

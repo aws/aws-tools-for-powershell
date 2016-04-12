@@ -125,7 +125,8 @@
     </ServiceOperation>
     <ServiceOperation MethodName="RejectCertificateTransfer"
         Verb="Deny"
-        Output="Void" />
+        Output="Void"
+        PipelineParameter="CertificateId"/>
     <ServiceOperation MethodName="SetDefaultPolicyVersion"
         PipelineParameter="PolicyName"
         Output="Void"/>
@@ -150,6 +151,31 @@
         PipelineParameter="RuleName"
         Output="Void"/>
 
+    <!-- BYOCertificate operations -->
+    
+    <ServiceOperation MethodName="DeleteCACertificate" Output="Void"/>
+    <ServiceOperation MethodName="DeleteRegistrationCode" 
+        Output="Void"
+        IgnoreSupportsShouldProcess="true" />
+    <ServiceOperation MethodName="DescribeCACertificate" />
+    <ServiceOperation MethodName="RegisterCACertificate" 
+        Output="Response"
+        IgnoreSupportsShouldProcess="true"
+        NoPipelineParameter="true" />
+    <ServiceOperation MethodName="RegisterCertificate" 
+        Output="Response" 
+        IgnoreSupportsShouldProcess="true"
+        NoPipelineParameter="true" />
+    <ServiceOperation MethodName="ListCACertificates" 
+        NoPipelineParameter="true" 
+        Verb="Get" Noun="CACertificateList" />   
+    <ServiceOperation MethodName="ListCertificatesByCA" 
+        NoPipelineParameter="true" 
+        Verb="Get" Noun="CertificateListByCA" /> 
+    <ServiceOperation MethodName="GetRegistrationCode" />   
+    <ServiceOperation MethodName="UpdateCACertificate"
+        Output="Void" 
+        NoPipelineParameter="true"/>    
   </ServiceOperations>
 
 </ConfigModel>

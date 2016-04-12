@@ -74,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String TargetAwsAccount { get; set; }
         #endregion
         
+        #region Parameter TransferMessage
+        /// <summary>
+        /// <para>
+        /// <para>The transfer message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TransferMessage { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             context.CertificateId = this.CertificateId;
             context.TargetAwsAccount = this.TargetAwsAccount;
+            context.TransferMessage = this.TransferMessage;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -122,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.TargetAwsAccount != null)
             {
                 request.TargetAwsAccount = cmdletContext.TargetAwsAccount;
+            }
+            if (cmdletContext.TransferMessage != null)
+            {
+                request.TransferMessage = cmdletContext.TransferMessage;
             }
             
             CmdletOutput output;
@@ -160,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String CertificateId { get; set; }
             public System.String TargetAwsAccount { get; set; }
+            public System.String TransferMessage { get; set; }
         }
         
     }

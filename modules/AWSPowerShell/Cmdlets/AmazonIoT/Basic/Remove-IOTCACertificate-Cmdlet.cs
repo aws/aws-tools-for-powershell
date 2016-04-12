@@ -28,46 +28,26 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,
-    /// the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.
-    /// 
-    ///  
-    /// <para>
-    /// To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate
-    /// your certificates.
-    /// </para><para>
-    /// This operation can only be called by the transfer destination. After it is called,
-    /// the certificate will be returned to the source's account in the INACTIVE state.
-    /// </para>
+    /// Deletes a registered CA certificate.
     /// </summary>
-    [Cmdlet("Deny", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "IOTCACertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RejectCertificateTransfer operation against AWS IoT.", Operation = new[] {"RejectCertificateTransfer"})]
+    [AWSCmdlet("Invokes the DeleteCACertificate operation against AWS IoT.", Operation = new[] {"DeleteCACertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.RejectCertificateTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteCACertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DenyIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class RemoveIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate.</para>
+        /// <para>The ID of the certificate to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CertificateId { get; set; }
-        #endregion
-        
-        #region Parameter RejectReason
-        /// <summary>
-        /// <para>
-        /// <para>The reason the certificate transfer was rejected.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String RejectReason { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -94,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Deny-IOTCertificateTransfer (RejectCertificateTransfer)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTCACertificate (DeleteCACertificate)"))
             {
                 return;
             }
@@ -106,7 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             };
             
             context.CertificateId = this.CertificateId;
-            context.RejectReason = this.RejectReason;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,15 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.RejectCertificateTransferRequest();
+            var request = new Amazon.IoT.Model.DeleteCACertificateRequest();
             
             if (cmdletContext.CertificateId != null)
             {
                 request.CertificateId = cmdletContext.CertificateId;
-            }
-            if (cmdletContext.RejectReason != null)
-            {
-                request.RejectReason = cmdletContext.RejectReason;
             }
             
             CmdletOutput output;
@@ -135,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RejectCertificateTransfer(request);
+                var response = client.DeleteCACertificate(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -166,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal class CmdletContext : ExecutorContext
         {
             public System.String CertificateId { get; set; }
-            public System.String RejectReason { get; set; }
         }
         
     }
