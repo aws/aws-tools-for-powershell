@@ -215,6 +215,10 @@ Set-Alias -Name Describe-ASATrustedAdvisorCheckSummaries -Value Get-ASATrustedAd
 Set-Alias -Name ASA-DescribeTrustedAdvisorCheckSummaries -Value Get-ASATrustedAdvisorCheckSummaries
 Set-Alias -Name ASA-RefreshTrustedAdvisorCheck -Value Request-ASATrustedAdvisorCheckRefresh
 Set-Alias -Name ASA-ResolveCase -Value Resolve-ASACase
+Set-Alias -Name EB-RequestEnvironmentInfo -Value Request-EBEnvironmentInfo
+Set-Alias -Name EB-RestartAppServer -Value Restart-EBAppServer
+Set-Alias -Name Retrieve-EBEnvironmentInfo -Value Get-EBEnvironmentInfo
+Set-Alias -Name EB-RetrieveEnvironmentInfo -Value Get-EBEnvironmentInfo
 Set-Alias -Name Swap-EBEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name EB-SwapEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name Terminate-EBEnvironment -Value Stop-EBEnvironment
@@ -226,6 +230,7 @@ Set-Alias -Name EB-UpdateEnvironment -Value Update-EBEnvironment
 Set-Alias -Name Validate-EBConfigurationSettings -Value Test-EBConfigurationSetting
 Set-Alias -Name EB-ValidateConfigurationSettings -Value Test-EBConfigurationSetting
 Set-Alias -Name EB-AbortEnvironmentUpdate -Value Stop-EBEnvironmentUpdate
+Set-Alias -Name EB-ApplyEnvironmentManagedAction -Value Submit-EBEnvironmentManagedAction
 Set-Alias -Name Check-EBDNSAvailability -Value Get-EBDNSAvailability
 Set-Alias -Name EB-CheckDNSAvailability -Value Get-EBDNSAvailability
 Set-Alias -Name Group-EBEnvironments -Value Group-EBEnvironment
@@ -258,6 +263,10 @@ Set-Alias -Name Describe-EBConfigurationSettings -Value Get-EBConfigurationSetti
 Set-Alias -Name EB-DescribeConfigurationSettings -Value Get-EBConfigurationSetting
 Set-Alias -Name Describe-EBEnvironmentHealth -Value Get-EBEnvironmentHealth
 Set-Alias -Name EB-DescribeEnvironmentHealth -Value Get-EBEnvironmentHealth
+Set-Alias -Name Describe-EBEnvironmentManagedActionHistory -Value Get-EBEnvironmentManagedActionHistory
+Set-Alias -Name EB-DescribeEnvironmentManagedActionHistory -Value Get-EBEnvironmentManagedActionHistory
+Set-Alias -Name Describe-EBEnvironmentManagedAction -Value Get-EBEnvironmentManagedAction
+Set-Alias -Name EB-DescribeEnvironmentManagedActions -Value Get-EBEnvironmentManagedAction
 Set-Alias -Name Describe-EBEnvironmentResources -Value Get-EBEnvironmentResource
 Set-Alias -Name EB-DescribeEnvironmentResources -Value Get-EBEnvironmentResource
 Set-Alias -Name Describe-EBEnvironments -Value Get-EBEnvironment
@@ -269,10 +278,6 @@ Set-Alias -Name EB-DescribeInstancesHealth -Value Get-EBInstanceHealth
 Set-Alias -Name List-EBAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
 Set-Alias -Name EB-ListAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
 Set-Alias -Name EB-RebuildEnvironment -Value Start-EBEnvironmentRebuild
-Set-Alias -Name EB-RequestEnvironmentInfo -Value Request-EBEnvironmentInfo
-Set-Alias -Name EB-RestartAppServer -Value Restart-EBAppServer
-Set-Alias -Name Retrieve-EBEnvironmentInfo -Value Get-EBEnvironmentInfo
-Set-Alias -Name EB-RetrieveEnvironmentInfo -Value Get-EBEnvironmentInfo
 Set-Alias -Name Delete-ACMCertificate -Value Remove-ACMCertificate
 Set-Alias -Name ACM-DeleteCertificate -Value Remove-ACMCertificate
 Set-Alias -Name Describe-ACMCertificateDetail -Value Get-ACMCertificateDetail

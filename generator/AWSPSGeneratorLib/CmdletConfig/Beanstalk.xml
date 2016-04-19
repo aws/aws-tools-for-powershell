@@ -50,6 +50,7 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="AbortEnvironmentUpdate" Verb="Stop" Output="Void" ShouldProcessTarget="EnvironmentName"/>
+    <ServiceOperation MethodName="ApplyEnvironmentManagedAction" Verb="Submit" Output="Response" ShouldProcessTarget="EnvironmentName"/>
     <ServiceOperation MethodName="CheckDNSAvailability" Output="Response" />
     <ServiceOperation MethodName="ComposeEnvironments" Verb="Group" />
     <ServiceOperation MethodName="CreateApplication" PositionalParameters="Description"/>
@@ -73,6 +74,8 @@
     <ServiceOperation MethodName="DescribeConfigurationSettings" />
     <ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
     <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName"/>
+    <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" />
+    <ServiceOperation MethodName="DescribeEnvironmentManagedActions" Noun="EnvironmentManagedAction" />
     <ServiceOperation MethodName="DescribeEnvironments" PositionalParameters="EnvironmentIds;VersionLabel"/>
     <ServiceOperation MethodName="DescribeEvents"/>
     <ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
@@ -106,6 +109,7 @@
     <ServiceOperation MethodName="UpdateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove"/>
     <ServiceOperation MethodName="UpdateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description"/>
     <ServiceOperation MethodName="ValidateConfigurationSettings" PositionalParameters="OptionSettings"/>
+
   </ServiceOperations>
 
 </ConfigModel>
