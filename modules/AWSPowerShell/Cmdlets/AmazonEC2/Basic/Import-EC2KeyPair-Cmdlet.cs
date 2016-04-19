@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PublicKeyMaterial
         /// <summary>
         /// <para>
-        /// <para>The public key. You must base64 encode the public key material before sending it to
-        /// AWS.</para>
+        /// <para>The public key. For API calls, the text must be base64-encoded. For command line tools,
+        /// base64 encoding is performed for you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

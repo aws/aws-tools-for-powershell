@@ -34,23 +34,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC
     /// 2132</a>.
     /// 
-    ///  <ul><li><code>domain-name-servers</code> - The IP addresses of up to four domain
-    /// name servers, or <code>AmazonProvidedDNS</code>. The default DHCP option set specifies
-    /// <code>AmazonProvidedDNS</code>. If specifying more than one domain name server, specify
-    /// the IP addresses in a single parameter, separated by commas.</li><li><code>domain-name</code>
-    /// - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>.
-    /// If you're using AmazonProvidedDNS in another region, specify <code>region.compute.internal</code>
-    /// (for example, <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a
-    /// domain name (for example, <code>MyCompany.com</code>). <b>Important</b>: Some Linux
-    /// operating systems accept multiple domain names separated by spaces. However, Windows
-    /// and other Linux operating systems treat the value as a single domain, which results
-    /// in unexpected behavior. If your DHCP options set is associated with a VPC that has
-    /// instances with multiple operating systems, specify only one domain name.</li><li><code>ntp-servers</code>
-    /// - The IP addresses of up to four Network Time Protocol (NTP) servers.</li><li><code>netbios-name-servers</code>
-    /// - The IP addresses of up to four NetBIOS name servers.</li><li><code>netbios-node-type</code>
-    /// - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast
-    /// and multicast are not currently supported). For more information about these node
-    /// types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>. </li></ul><para>
+    ///  <ul><li><para><code>domain-name-servers</code> - The IP addresses of up to four domain name servers,
+    /// or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If
+    /// specifying more than one domain name server, specify the IP addresses in a single
+    /// parameter, separated by commas.
+    /// </para></li><li><para><code>domain-name</code> - If you're using AmazonProvidedDNS in "us-east-1", specify
+    /// "ec2.internal". If you're using AmazonProvidedDNS in another region, specify "region.compute.internal"
+    /// (for example, "ap-northeast-1.compute.internal"). Otherwise, specify a domain name
+    /// (for example, "MyCompany.com"). <b>Important</b>: Some Linux operating systems accept
+    /// multiple domain names separated by spaces. However, Windows and other Linux operating
+    /// systems treat the value as a single domain, which results in unexpected behavior.
+    /// If your DHCP options set is associated with a VPC that has instances with multiple
+    /// operating systems, specify only one domain name.
+    /// </para></li><li><para><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
+    /// servers.
+    /// </para></li><li><para><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.
+    /// </para></li><li><para><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend
+    /// that you specify 2 (broadcast and multicast are not currently supported). For more
+    /// information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC
+    /// 2132</a>.
+    /// </para></li></ul><para>
     /// Your VPC automatically starts out with a set of DHCP options that includes only a
     /// DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and
     /// if your VPC has an Internet gateway, make sure to set the <code>domain-name-servers</code>

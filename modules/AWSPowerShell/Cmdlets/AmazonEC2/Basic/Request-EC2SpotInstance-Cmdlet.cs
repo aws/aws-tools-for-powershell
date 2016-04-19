@@ -114,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchSpecification_BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>One or more block device mapping entries.</para>
+        /// <para>One or more block device mapping entries.</para><para>Although you can specify encrypted EBS volumes in this block device mapping for your
+        /// Spot Instances, these volumes are not encrypted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

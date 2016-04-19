@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations per second
-        /// (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB.</para><para>Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes </para>
+        /// <para>Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second
+        /// (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB.</para><para>Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Size
         /// <summary>
         /// <para>
-        /// <para>The size of the volume, in GiBs.</para><para>Constraints: <code>1-1024</code> for <code>standard</code> volumes, <code>1-16384</code>
-        /// for <code>gp2</code> volumes, and <code>4-16384</code> for <code>io1</code> volumes.
+        /// <para>The size of the volume, in GiBs.</para><para>Constraints: 1-16384 for <code>gp2</code>, 4-16384 for <code>io1</code>, 500-16384
+        /// for <code>st1</code>, 500-16384 for <code>sc1</code>, and 1-1024 for <code>standard</code>.
         /// If you specify a snapshot, the volume size must be equal to or larger than the snapshot
         /// size.</para><para>Default: If you're creating the volume from a snapshot and don't specify a volume
         /// size, the default is the snapshot size.</para>
@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>The volume type. This can be <code>gp2</code> for General Purpose (SSD) volumes, <code>io1</code>
-        /// for Provisioned IOPS (SSD) volumes, or <code>standard</code> for Magnetic volumes.</para><para>Default: <code>standard</code></para>
+        /// <para>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code>
+        /// for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code>
+        /// for Cold HDD, or <code>standard</code> for Magnetic volumes.</para><para>Default: standard</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

@@ -43,11 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EC2 Instance Store</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// If a volume has an AWS Marketplace product code:
-    /// </para><ul><li>The volume can be attached only to a stopped instance.</li><li>AWS Marketplace
-    /// product codes are copied from the volume to the instance.</li><li>You must be subscribed
-    /// to the product.</li><li>The instance type and operating system of the instance must
-    /// support the product. For example, you can't detach a volume from a Windows instance
-    /// and attach it to a Linux instance.</li></ul><para>
+    /// </para><ul><li><para>
+    /// The volume can be attached only to a stopped instance.
+    /// </para></li><li><para>
+    /// AWS Marketplace product codes are copied from the volume to the instance.
+    /// </para></li><li><para>
+    /// You must be subscribed to the product.
+    /// </para></li><li><para>
+    /// The instance type and operating system of the instance must support the product. For
+    /// example, you can't detach a volume from a Windows instance and attach it to a Linux
+    /// instance.
+    /// </para></li></ul><para>
     /// For an overview of the AWS Marketplace, see <a href="https://aws.amazon.com/marketplace/help/200900000">Introducing
     /// AWS Marketplace</a>.
     /// </para><para>

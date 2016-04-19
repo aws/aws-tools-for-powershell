@@ -112,11 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results of the initial request can be seen by sending another request with the returned
-        /// <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code>
-        /// is given a value larger than 1000, only 1000 results are returned. You cannot specify
-        /// this parameter and the instance IDs parameter in the same request.</para>
+        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
+        /// results, make another call with the returned <code>NextToken</code> value. This value
+        /// can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+        /// parameter in the same call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

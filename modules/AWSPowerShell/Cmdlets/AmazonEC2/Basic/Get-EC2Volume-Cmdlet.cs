@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i>
         /// filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
         /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>volume-id</code> - The volume ID.</para></li><li><para><code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code>
-        /// for General Purpose (SSD) volumes, <code>io1</code> for Provisioned IOPS (SSD) volumes,
-        /// or <code>standard</code> for Magnetic volumes.</para></li></ul>
+        /// for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code>
+        /// for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code>
+        /// for Magnetic volumes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

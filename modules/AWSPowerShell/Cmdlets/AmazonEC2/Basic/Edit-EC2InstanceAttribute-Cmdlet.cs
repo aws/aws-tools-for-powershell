@@ -193,7 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserData
         /// <summary>
         /// <para>
-        /// <para>Changes the instance's user data to the specified value.</para>
+        /// <para>Changes the instance's user data to the specified base64-encoded value. For command
+        /// line tools, base64 encoding is performed for you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
