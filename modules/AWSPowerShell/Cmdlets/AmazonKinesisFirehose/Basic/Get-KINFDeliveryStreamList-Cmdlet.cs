@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// <para>
     /// The number of delivery streams might be too large to return using a single call to
     /// <a>ListDeliveryStreams</a>. You can limit the number of delivery streams returned,
-    /// using the <code>Limit</code> parameter. To determine whether there are more delivery
-    /// streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output.
-    /// If there are more delivery streams to list, you can request them by specifying the
-    /// name of the last delivery stream returned in the call in the <code>ExclusiveStartDeliveryStreamName</code>
+    /// using the <b>Limit</b> parameter. To determine whether there are more delivery streams
+    /// to list, check the value of <b>HasMoreDeliveryStreams</b> in the output. If there
+    /// are more delivery streams to list, you can request them by specifying the name of
+    /// the last delivery stream returned in the call in the <b>ExclusiveStartDeliveryStreamName</b>
     /// parameter of a subsequent call.
     /// </para>
     /// </summary>

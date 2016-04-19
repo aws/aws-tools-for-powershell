@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Specifies the destination ID to start returning the destination information. Currently
-        /// Amazon Kinesis Firehose supports one destination per delivery stream.</para>
+        /// Firehose supports one destination per delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,9 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Updates the specified destination of the specified delivery stream. 
+    /// Updates the specified destination of the specified delivery stream. Note: Switching
+    /// between Elasticsearch and other services is not supported. For Elasticsearch destination,
+    /// you can only update an existing Elasticsearch destination with this operation.
     /// 
     ///  
     /// <para>
@@ -40,25 +42,24 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// can continue during this process. The updated configurations are normally effective
     /// within a few minutes. 
     /// </para><para>
-    /// If the destination type is the same, Amazon Kinesis Firehose merges the configuration
-    /// parameters specified in the <a>UpdateDestination</a> request with the destination
-    /// configuration that already exists on the delivery stream. If any of the parameters
-    /// are not specified in the update request, then the existing configuration parameters
-    /// are retained. For example, in the Amazon S3 destination, if <a>EncryptionConfiguration</a>
-    /// is not specified then the existing <a>EncryptionConfiguration</a> is maintained on
-    /// the destination.
+    /// If the destination type is the same, Firehose merges the configuration parameters
+    /// specified in the <a>UpdateDestination</a> request with the destination configuration
+    /// that already exists on the delivery stream. If any of the parameters are not specified
+    /// in the update request, then the existing configuration parameters are retained. For
+    /// example, in the Amazon S3 destination, if <a>EncryptionConfiguration</a> is not specified
+    /// then the existing <a>EncryptionConfiguration</a> is maintained on the destination.
     /// </para><para>
     /// If the destination type is not the same, for example, changing the destination from
-    /// Amazon S3 to Amazon Redshift, Amazon Kinesis Firehose does not merge any parameters.
-    /// In this case, all parameters must be specified.
+    /// Amazon S3 to Amazon Redshift, Firehose does not merge any parameters. In this case,
+    /// all parameters must be specified.
     /// </para><para>
-    /// Amazon Kinesis Firehose uses the <code>CurrentDeliveryStreamVersionId</code> to avoid
-    /// race conditions and conflicting merges. This is a required field in every request
-    /// and the service only updates the configuration if the existing configuration matches
-    /// the <code>VersionId</code>. After the update is applied successfully, the <code>VersionId</code>
-    /// is updated, which can be retrieved with the <a>DescribeDeliveryStream</a> operation.
-    /// The new <code>VersionId</code> should be uses to set <code>CurrentDeliveryStreamVersionId</code>
-    /// in the next <a>UpdateDestination</a> operation.
+    /// Firehose uses the <b>CurrentDeliveryStreamVersionId</b> to avoid race conditions and
+    /// conflicting merges. This is a required field in every request and the service only
+    /// updates the configuration if the existing configuration matches the <b>VersionId</b>.
+    /// After the update is applied successfully, the <b>VersionId</b> is updated, which can
+    /// be retrieved with the <a>DescribeDeliveryStream</a> operation. The new <b>VersionId</b>
+    /// should be uses to set <b>CurrentDeliveryStreamVersionId</b> in the next <a>UpdateDestination</a>
+    /// operation.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KINFDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,12 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter CurrentDeliveryStreamVersionId
         /// <summary>
         /// <para>
-        /// <para>Obtain this value from the <code>VersionId</code> result of the <a>DeliveryStreamDescription</a>
+        /// <para>Obtain this value from the <b>VersionId</b> result of the <a>DeliveryStreamDescription</a>
         /// operation. This value is required, and helps the service to perform conditional operations.
         /// For example, if there is a interleaving update and this value is null, then the update
-        /// destination fails. After the update is successful, the <code>VersionId</code> value
-        /// is updated. The service then performs a merge of the old configuration with the new
-        /// configuration.</para>
+        /// destination fails. After the update is successful, the <b>VersionId</b> value is updated.
+        /// The service then performs a merge of the old configuration with the new configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,6 +106,100 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String DestinationId { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchDestinationUpdate_DomainARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon ES domain. The IAM role must have permission for DescribeElasticsearchDomain,
+        /// DescribeElasticsearchDomains , and DescribeElasticsearchDomainConfig after assuming
+        /// <b>RoleARN</b>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchDestinationUpdate_DomainARN { get; set; }
+        #endregion
+        
+        #region Parameter RetryOptions_DurationInSecond
+        /// <summary>
+        /// <para>
+        /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
+        /// which Firehose re-attempts delivery. After this time has elapsed, the failed documents
+        /// are written to Amazon S3. Default value is 300 seconds. A value of 0 (zero) results
+        /// in no retries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchDestinationUpdate_RetryOptions_DurationInSeconds")]
+        public System.Int32 RetryOptions_DurationInSecond { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables CloudWatch logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_Enabled")]
+        public System.Boolean CloudWatchLoggingOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchDestinationUpdate_IndexName
+        /// <summary>
+        /// <para>
+        /// <para>The Elasticsearch index name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchDestinationUpdate_IndexName { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchDestinationUpdate_IndexRotationPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
+        /// IndexName to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
+        /// Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod")]
+        public Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod ElasticsearchDestinationUpdate_IndexRotationPeriod { get; set; }
+        #endregion
+        
+        #region Parameter BufferingHints_IntervalInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Buffer incoming data for the specified period of time, in seconds, before delivering
+        /// it to the destination. The default value is 300 (5 minutes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchDestinationUpdate_BufferingHints_IntervalInSeconds")]
+        public System.Int32 BufferingHints_IntervalInSecond { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingOptions_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch group name for logging. This value is required if Enabled is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName")]
+        public System.String CloudWatchLoggingOptions_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingOptions_LogStreamName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch log stream name for logging. This value is required if Enabled is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogStreamName")]
+        public System.String CloudWatchLoggingOptions_LogStreamName { get; set; }
+        #endregion
+        
         #region Parameter RedshiftDestinationUpdate
         /// <summary>
         /// <para>
@@ -116,6 +210,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchDestinationUpdate_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration
+        /// API and for indexing documents. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon
+        /// S3 Bucket Access</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchDestinationUpdate_RoleARN { get; set; }
+        #endregion
+        
         #region Parameter S3DestinationUpdate
         /// <summary>
         /// <para>
@@ -124,6 +230,40 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchDestinationUpdate_S3Update
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.KinesisFirehose.Model.S3DestinationUpdate ElasticsearchDestinationUpdate_S3Update { get; set; }
+        #endregion
+        
+        #region Parameter BufferingHints_SizeInMBs
+        /// <summary>
+        /// <para>
+        /// <para>Buffer incoming data to the specified size, in MBs, before delivering it to the destination.
+        /// The default value is 5.</para><para>We recommend setting <b>SizeInMBs</b> to a value greater than the amount of data you
+        /// typically ingest into the delivery stream in 10 seconds. For example, if you typically
+        /// ingest data at 1 MB/sec, set <b>SizeInMBs</b> to be 10 MB or higher.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs")]
+        public System.Int32 BufferingHints_SizeInMBs { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchDestinationUpdate_TypeName
+        /// <summary>
+        /// <para>
+        /// <para>The Elasticsearch type name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchDestinationUpdate_TypeName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -155,6 +295,22 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.CurrentDeliveryStreamVersionId = this.CurrentDeliveryStreamVersionId;
             context.DeliveryStreamName = this.DeliveryStreamName;
             context.DestinationId = this.DestinationId;
+            if (ParameterWasBound("BufferingHints_IntervalInSecond"))
+                context.ElasticsearchDestinationUpdate_BufferingHints_IntervalInSeconds = this.BufferingHints_IntervalInSecond;
+            if (ParameterWasBound("BufferingHints_SizeInMBs"))
+                context.ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs = this.BufferingHints_SizeInMBs;
+            if (ParameterWasBound("CloudWatchLoggingOptions_Enabled"))
+                context.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_Enabled = this.CloudWatchLoggingOptions_Enabled;
+            context.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName = this.CloudWatchLoggingOptions_LogGroupName;
+            context.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogStreamName = this.CloudWatchLoggingOptions_LogStreamName;
+            context.ElasticsearchDestinationUpdate_DomainARN = this.ElasticsearchDestinationUpdate_DomainARN;
+            context.ElasticsearchDestinationUpdate_IndexName = this.ElasticsearchDestinationUpdate_IndexName;
+            context.ElasticsearchDestinationUpdate_IndexRotationPeriod = this.ElasticsearchDestinationUpdate_IndexRotationPeriod;
+            if (ParameterWasBound("RetryOptions_DurationInSecond"))
+                context.ElasticsearchDestinationUpdate_RetryOptions_DurationInSeconds = this.RetryOptions_DurationInSecond;
+            context.ElasticsearchDestinationUpdate_RoleARN = this.ElasticsearchDestinationUpdate_RoleARN;
+            context.ElasticsearchDestinationUpdate_S3Update = this.ElasticsearchDestinationUpdate_S3Update;
+            context.ElasticsearchDestinationUpdate_TypeName = this.ElasticsearchDestinationUpdate_TypeName;
             context.RedshiftDestinationUpdate = this.RedshiftDestinationUpdate;
             context.S3DestinationUpdate = this.S3DestinationUpdate;
             
@@ -181,6 +337,180 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (cmdletContext.DestinationId != null)
             {
                 request.DestinationId = cmdletContext.DestinationId;
+            }
+            
+             // populate ElasticsearchDestinationUpdate
+            bool requestElasticsearchDestinationUpdateIsNull = true;
+            request.ElasticsearchDestinationUpdate = new Amazon.KinesisFirehose.Model.ElasticsearchDestinationUpdate();
+            System.String requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DomainARN = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_DomainARN != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DomainARN = cmdletContext.ElasticsearchDestinationUpdate_DomainARN;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DomainARN != null)
+            {
+                request.ElasticsearchDestinationUpdate.DomainARN = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_DomainARN;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            System.String requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexName = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_IndexName != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexName = cmdletContext.ElasticsearchDestinationUpdate_IndexName;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexName != null)
+            {
+                request.ElasticsearchDestinationUpdate.IndexName = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexName;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexRotationPeriod = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_IndexRotationPeriod != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexRotationPeriod = cmdletContext.ElasticsearchDestinationUpdate_IndexRotationPeriod;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexRotationPeriod != null)
+            {
+                request.ElasticsearchDestinationUpdate.IndexRotationPeriod = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_IndexRotationPeriod;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            System.String requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RoleARN = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_RoleARN != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RoleARN = cmdletContext.ElasticsearchDestinationUpdate_RoleARN;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RoleARN != null)
+            {
+                request.ElasticsearchDestinationUpdate.RoleARN = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RoleARN;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.S3DestinationUpdate requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_S3Update = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_S3Update != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_S3Update = cmdletContext.ElasticsearchDestinationUpdate_S3Update;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_S3Update != null)
+            {
+                request.ElasticsearchDestinationUpdate.S3Update = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_S3Update;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            System.String requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_TypeName = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_TypeName != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_TypeName = cmdletContext.ElasticsearchDestinationUpdate_TypeName;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_TypeName != null)
+            {
+                request.ElasticsearchDestinationUpdate.TypeName = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_TypeName;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.ElasticsearchRetryOptions requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions = null;
+            
+             // populate RetryOptions
+            bool requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptionsIsNull = true;
+            requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions = new Amazon.KinesisFirehose.Model.ElasticsearchRetryOptions();
+            System.Int32? requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions_retryOptions_DurationInSecond = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_RetryOptions_DurationInSeconds != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions_retryOptions_DurationInSecond = cmdletContext.ElasticsearchDestinationUpdate_RetryOptions_DurationInSeconds.Value;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions_retryOptions_DurationInSecond != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions.DurationInSeconds = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions_retryOptions_DurationInSecond.Value;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptionsIsNull = false;
+            }
+             // determine if requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions should be set to null
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptionsIsNull)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions = null;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions != null)
+            {
+                request.ElasticsearchDestinationUpdate.RetryOptions = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_RetryOptions;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.ElasticsearchBufferingHints requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints = null;
+            
+             // populate BufferingHints
+            bool requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHintsIsNull = true;
+            requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints = new Amazon.KinesisFirehose.Model.ElasticsearchBufferingHints();
+            System.Int32? requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_IntervalInSecond = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_BufferingHints_IntervalInSeconds != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_IntervalInSecond = cmdletContext.ElasticsearchDestinationUpdate_BufferingHints_IntervalInSeconds.Value;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_IntervalInSecond != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints.IntervalInSeconds = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_IntervalInSecond.Value;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHintsIsNull = false;
+            }
+            System.Int32? requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_SizeInMBs = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_SizeInMBs = cmdletContext.ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs.Value;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_SizeInMBs != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints.SizeInMBs = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints_bufferingHints_SizeInMBs.Value;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHintsIsNull = false;
+            }
+             // determine if requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints should be set to null
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHintsIsNull)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints = null;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints != null)
+            {
+                request.ElasticsearchDestinationUpdate.BufferingHints = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_BufferingHints;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions = null;
+            
+             // populate CloudWatchLoggingOptions
+            bool requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptionsIsNull = true;
+            requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions = new Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions();
+            System.Boolean? requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_Enabled = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_Enabled = cmdletContext.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_Enabled.Value;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_Enabled != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions.Enabled = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_Enabled.Value;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogGroupName = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogGroupName = cmdletContext.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions.LogGroupName = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogGroupName;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogStreamName = null;
+            if (cmdletContext.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogStreamName = cmdletContext.ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogStreamName;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions.LogStreamName = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions_cloudWatchLoggingOptions_LogStreamName;
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+             // determine if requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions should be set to null
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptionsIsNull)
+            {
+                requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions = null;
+            }
+            if (requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions != null)
+            {
+                request.ElasticsearchDestinationUpdate.CloudWatchLoggingOptions = requestElasticsearchDestinationUpdate_elasticsearchDestinationUpdate_CloudWatchLoggingOptions;
+                requestElasticsearchDestinationUpdateIsNull = false;
+            }
+             // determine if request.ElasticsearchDestinationUpdate should be set to null
+            if (requestElasticsearchDestinationUpdateIsNull)
+            {
+                request.ElasticsearchDestinationUpdate = null;
             }
             if (cmdletContext.RedshiftDestinationUpdate != null)
             {
@@ -228,6 +558,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String CurrentDeliveryStreamVersionId { get; set; }
             public System.String DeliveryStreamName { get; set; }
             public System.String DestinationId { get; set; }
+            public System.Int32? ElasticsearchDestinationUpdate_BufferingHints_IntervalInSeconds { get; set; }
+            public System.Int32? ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs { get; set; }
+            public System.Boolean? ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_Enabled { get; set; }
+            public System.String ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName { get; set; }
+            public System.String ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogStreamName { get; set; }
+            public System.String ElasticsearchDestinationUpdate_DomainARN { get; set; }
+            public System.String ElasticsearchDestinationUpdate_IndexName { get; set; }
+            public Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod ElasticsearchDestinationUpdate_IndexRotationPeriod { get; set; }
+            public System.Int32? ElasticsearchDestinationUpdate_RetryOptions_DurationInSeconds { get; set; }
+            public System.String ElasticsearchDestinationUpdate_RoleARN { get; set; }
+            public Amazon.KinesisFirehose.Model.S3DestinationUpdate ElasticsearchDestinationUpdate_S3Update { get; set; }
+            public System.String ElasticsearchDestinationUpdate_TypeName { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
         }
