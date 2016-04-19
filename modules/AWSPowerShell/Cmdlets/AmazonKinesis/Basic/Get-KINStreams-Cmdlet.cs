@@ -28,16 +28,16 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Lists your streams.
+    /// Lists your Amazon Kinesis streams.
     /// 
     ///  
     /// <para>
-    ///  The number of streams may be too large to return from a single call to <code>ListStreams</code>.
+    /// The number of streams may be too large to return from a single call to <code>ListStreams</code>.
     /// You can limit the number of returned streams using the <code>Limit</code> parameter.
     /// If you do not specify a value for the <code>Limit</code> parameter, Amazon Kinesis
     /// uses the default limit, which is currently 10.
     /// </para><para>
-    ///  You can detect if there are more streams available to list by using the <code>HasMoreStreams</code>
+    /// You can detect if there are more streams available to list by using the <code>HasMoreStreams</code>
     /// flag from the returned output. If there are more streams available, you can request
     /// more streams by using the name of the last stream returned by the <code>ListStreams</code>
     /// request in the <code>ExclusiveStartStreamName</code> parameter in a subsequent request

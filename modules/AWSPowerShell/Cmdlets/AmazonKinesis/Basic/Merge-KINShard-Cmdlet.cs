@@ -28,21 +28,21 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Merges two adjacent shards in a stream and combines them into a single shard to reduce
-    /// the stream's capacity to ingest and transport data. Two shards are considered adjacent
-    /// if the union of the hash key ranges for the two shards form a contiguous set with
-    /// no gaps. For example, if you have two shards, one with a hash key range of 276...381
-    /// and the other with a hash key range of 382...454, then you could merge these two shards
-    /// into a single shard that would have a hash key range of 276...454. After the merge,
-    /// the single child shard receives data for all hash key values covered by the two parent
-    /// shards.
+    /// Merges two adjacent shards in an Amazon Kinesis stream and combines them into a single
+    /// shard to reduce the stream's capacity to ingest and transport data. Two shards are
+    /// considered adjacent if the union of the hash key ranges for the two shards form a
+    /// contiguous set with no gaps. For example, if you have two shards, one with a hash
+    /// key range of 276...381 and the other with a hash key range of 382...454, then you
+    /// could merge these two shards into a single shard that would have a hash key range
+    /// of 276...454. After the merge, the single child shard receives data for all hash key
+    /// values covered by the two parent shards.
     /// 
     ///  
     /// <para><code>MergeShards</code> is called when there is a need to reduce the overall capacity
     /// of a stream because of excess capacity that is not being used. You must specify the
     /// shard to be merged and the adjacent shard for a stream. For more information about
     /// merging shards, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html">Merge
-    /// Two Shards</a> in the <i>Amazon Kinesis Developer Guide</i>.
+    /// Two Shards</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.
     /// </para><para>
     /// If the stream is in the <code>ACTIVE</code> state, you can call <code>MergeShards</code>.
     /// If a stream is in the <code>CREATING</code>, <code>UPDATING</code>, or <code>DELETING</code>

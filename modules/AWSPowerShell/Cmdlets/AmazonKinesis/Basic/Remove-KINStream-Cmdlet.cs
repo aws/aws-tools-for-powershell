@@ -28,9 +28,10 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Deletes a stream and all its shards and data. You must shut down any applications
-    /// that are operating on the stream before you delete the stream. If an application attempts
-    /// to operate on a deleted stream, it will receive the exception <code>ResourceNotFoundException</code>.
+    /// Deletes an Amazon Kinesis stream and all its shards and data. You must shut down any
+    /// applications that are operating on the stream before you delete the stream. If an
+    /// application attempts to operate on a deleted stream, it will receive the exception
+    /// <code>ResourceNotFoundException</code>.
     /// 
     ///  
     /// <para>

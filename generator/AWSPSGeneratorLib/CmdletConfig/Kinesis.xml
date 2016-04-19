@@ -48,5 +48,8 @@
 
     <ServiceOperation MethodName="SplitShard" Output="Void" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName"/>
 
+	<ServiceOperation MethodName="DisableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
+	<ServiceOperation MethodName="EnableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
+	
   </ServiceOperations>
 </ConfigModel>

@@ -1909,6 +1909,8 @@ Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
 Set-Alias -Name Describe-KINStream -Value Get-KINStream
 Set-Alias -Name KIN-DescribeStream -Value Get-KINStream
+Set-Alias -Name KIN-DisableEnhancedMonitoring -Value Disable-KINEnhancedMonitoring
+Set-Alias -Name KIN-EnableEnhancedMonitoring -Value Enable-KINEnhancedMonitoring
 Set-Alias -Name Get-KINRecords -Value Get-KINRecord
 Set-Alias -Name KIN-GetRecords -Value Get-KINRecord
 Set-Alias -Name KIN-GetShardIterator -Value Get-KINShardIterator

@@ -28,52 +28,39 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Removes tags from the specified Amazon Kinesis stream. Removed tags are deleted and
-    /// cannot be recovered after this operation successfully completes.
-    /// 
-    ///  
-    /// <para>
-    /// If you specify a tag that does not exist, it is ignored.
-    /// </para>
+    /// Enables enhanced Amazon Kinesis stream monitoring for shard-level metrics.
     /// </summary>
-    [Cmdlet("Remove", "KINTagsFromStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromStream operation against Amazon Kinesis.", Operation = new[] {"RemoveTagsFromStream"})]
-    [AWSCmdletOutput("None or System.String",
-        "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Kinesis.Model.RemoveTagsFromStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Enable", "KINEnhancedMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse")]
+    [AWSCmdlet("Invokes the EnableEnhancedMonitoring operation against Amazon Kinesis.", Operation = new[] {"EnableEnhancedMonitoring"})]
+    [AWSCmdletOutput("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse",
+        "This cmdlet returns a Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveKINTagsFromStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public class EnableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ShardLevelMetric
+        /// <summary>
+        /// <para>
+        /// <para>List of shard-level metrics to enable.</para><para>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
+        /// every metric.</para><ul><li><code>IncomingBytes</code></li><li><code>IncomingRecords</code></li><li><code>OutgoingBytes</code></li><li><code>OutgoingRecords</code></li><li><code>WriteProvisionedThroughputExceeded</code></li><li><code>ReadProvisionedThroughputExceeded</code></li><li><code>IteratorAgeMilliseconds</code></li><li><code>ALL</code></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
+        /// the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis
+        /// Streams Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ShardLevelMetrics")]
+        public System.String[] ShardLevelMetric { get; set; }
+        #endregion
         
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the stream.</para>
+        /// <para>The name of the stream for which to enable enhanced monitoring.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>A list of tag keys. Each corresponding tag is removed from the stream.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the collection of tag keys that were removed.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINTagsFromStream (RemoveTagsFromStream)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-KINEnhancedMonitoring (EnableEnhancedMonitoring)"))
             {
                 return;
             }
@@ -102,11 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
-            context.StreamName = this.StreamName;
-            if (this.TagKey != null)
+            if (this.ShardLevelMetric != null)
             {
-                context.TagKeys = new List<System.String>(this.TagKey);
+                context.ShardLevelMetrics = new List<System.String>(this.ShardLevelMetric);
             }
+            context.StreamName = this.StreamName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,15 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.RemoveTagsFromStreamRequest();
+            var request = new Amazon.Kinesis.Model.EnableEnhancedMonitoringRequest();
             
+            if (cmdletContext.ShardLevelMetrics != null)
+            {
+                request.ShardLevelMetrics = cmdletContext.ShardLevelMetrics;
+            }
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
-            }
-            if (cmdletContext.TagKeys != null)
-            {
-                request.TagKeys = cmdletContext.TagKeys;
             }
             
             CmdletOutput output;
@@ -135,11 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RemoveTagsFromStream(request);
+                var response = client.EnableEnhancedMonitoring(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = cmdletContext.TagKeys;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -165,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> ShardLevelMetrics { get; set; }
             public System.String StreamName { get; set; }
-            public List<System.String> TagKeys { get; set; }
         }
         
     }
