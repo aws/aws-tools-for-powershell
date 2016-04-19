@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     [AWSClientCmdlet("Amazon Simple Storage Service", "S3", "2006-03-01")]
-    public abstract class AmazonS3ClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonS3ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonS3 Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var config = new AmazonS3Config { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonS3Client(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,13 +28,14 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     [AWSClientCmdlet("Amazon Lambda", "LM", "2015-03-31")]
-    public abstract class AmazonLambdaClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonLambdaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLambda Client { get; private set; }
         protected IAmazonLambda CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonLambdaConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonLambdaClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

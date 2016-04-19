@@ -28,13 +28,14 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     [AWSClientCmdlet("Amazon Kinesis Firehose", "KINF", "2015-08-04")]
-    public abstract class AmazonKinesisFirehoseClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonKinesisFirehoseClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKinesisFirehose Client { get; private set; }
         protected IAmazonKinesisFirehose CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonKinesisFirehoseConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonKinesisFirehoseClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

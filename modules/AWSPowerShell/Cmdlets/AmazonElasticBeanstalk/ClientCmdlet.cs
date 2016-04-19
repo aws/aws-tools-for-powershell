@@ -28,13 +28,14 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     [AWSClientCmdlet("AWS Elastic Beanstalk", "EB", "2010-12-01")]
-    public abstract class AmazonElasticBeanstalkClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonElasticBeanstalkClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticBeanstalk Client { get; private set; }
         protected IAmazonElasticBeanstalk CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonElasticBeanstalkConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonElasticBeanstalkClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

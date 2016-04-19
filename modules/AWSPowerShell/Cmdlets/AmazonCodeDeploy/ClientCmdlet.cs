@@ -28,13 +28,14 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     [AWSClientCmdlet("AWS CodeDeploy", "CD", "2014-10-06")]
-    public abstract class AmazonCodeDeployClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCodeDeployClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeDeploy Client { get; private set; }
         protected IAmazonCodeDeploy CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCodeDeployConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCodeDeployClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

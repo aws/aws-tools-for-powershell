@@ -28,13 +28,14 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     [AWSClientCmdlet("Auto Scaling", "AS", "2011-01-01")]
-    public abstract class AmazonAutoScalingClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonAutoScalingClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAutoScaling Client { get; private set; }
         protected IAmazonAutoScaling CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonAutoScalingConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonAutoScalingClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

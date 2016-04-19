@@ -28,13 +28,14 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     [AWSClientCmdlet("AWS Directory Service", "DS", "2015-04-16")]
-    public abstract class AmazonDirectoryServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonDirectoryServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDirectoryService Client { get; private set; }
         protected IAmazonDirectoryService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonDirectoryServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonDirectoryServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

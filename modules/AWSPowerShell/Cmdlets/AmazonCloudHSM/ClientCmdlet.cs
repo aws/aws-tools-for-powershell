@@ -28,13 +28,14 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     [AWSClientCmdlet("AWS Cloud HSM", "HSM", "2014-05-30")]
-    public abstract class AmazonCloudHSMClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCloudHSMClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudHSM Client { get; private set; }
         protected IAmazonCloudHSM CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCloudHSMConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCloudHSMClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

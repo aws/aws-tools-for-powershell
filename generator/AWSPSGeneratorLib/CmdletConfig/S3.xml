@@ -44,6 +44,7 @@
     <ParamEmitter ParamType="Amazon.S3.Model.S3StorageClass" EmitterType="Generators.ParamEmitters.AmazonS3.S3StorageClassParamEmitter" />
     <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
     <ParamEmitter ParamType="Amazon.S3.Model.Protocol" EmitterType="Generators.ParamEmitters.AmazonS3.ProtocolParamEmitter" />
+    <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.AccelerateParamEmitter" Excludes="ListBuckets;PutBucket;DeleteBucket"/>
   </ParamEmitters>
 
   <ExcludeProperties>
@@ -74,6 +75,7 @@
     -->
     
     <ServiceOperation MethodName="GetACL" PositionalParameters="Key;VersionId"/>
+    <ServiceOperation MethodName="GetBucketAccelerateConfiguration" />
     <ServiceOperation MethodName="GetBucketLocation"/>
     <ServiceOperation MethodName="GetBucketLogging"/>
     <ServiceOperation MethodName="GetBucketNotification" Output="Response"/>
@@ -107,6 +109,7 @@
     <ServiceOperation MethodName="ListVersions" Output="Response" PositionalParameters="Prefix"/>
     <ServiceOperation MethodName="PutACL" Exclude="true"/>
     <ServiceOperation MethodName="PutBucket" Exclude="true"/>
+    <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Output="Void"/>
     <ServiceOperation MethodName="PutBucketLogging" Output="Void"/>
     <ServiceOperation MethodName="PutBucketNotification" Output="Void"/>
     <ServiceOperation MethodName="PutBucketPolicy" Output="Void" PositionalParameters="Policy"/>

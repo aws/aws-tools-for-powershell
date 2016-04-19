@@ -28,7 +28,7 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     [AWSClientCmdlet("AWS OpsWorks", "OPS", "2013-02-18")]
-    public abstract class AmazonOpsWorksClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonOpsWorksClientCmdlet : ServiceCmdlet
     {
         protected IAmazonOpsWorks Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var config = new AmazonOpsWorksConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonOpsWorksClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

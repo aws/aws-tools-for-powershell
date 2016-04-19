@@ -28,16 +28,16 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the request payment configuration of a bucket.
+    /// Returns the accelerate configuration of a bucket.
     /// </summary>
-    [Cmdlet("Get", "S3BucketRequestPayment")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetBucketRequestPayment operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketRequestPayment"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.S3.Model.GetBucketRequestPaymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "S3BucketAccelerateConfiguration")]
+    [OutputType("Amazon.S3.BucketAccelerateStatus")]
+    [AWSCmdlet("Invokes the GetBucketAccelerateConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketAccelerateConfiguration"})]
+    [AWSCmdletOutput("Amazon.S3.BucketAccelerateStatus",
+        "This cmdlet returns a BucketAccelerateStatus object.",
+        "The service call response (type Amazon.S3.Model.GetBucketAccelerateConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetS3BucketRequestPaymentCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public class GetS3BucketAccelerateConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3.Model.GetBucketRequestPaymentRequest();
+            var request = new Amazon.S3.Model.GetBucketAccelerateConfigurationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetBucketRequestPayment(request);
+                var response = client.GetBucketAccelerateConfiguration(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Payer;
+                object pipelineOutput = response.Status;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -28,7 +28,7 @@ using Amazon.ImportExport.Model;
 namespace Amazon.PowerShell.Cmdlets.IE
 {
     [AWSClientCmdlet("AWS Import/Export", "IE", "2010-06-01")]
-    public abstract class AmazonImportExportClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonImportExportClientCmdlet : ServiceCmdlet
     {
         protected IAmazonImportExport Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         {
             var config = new AmazonImportExportConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonImportExportClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

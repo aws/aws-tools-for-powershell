@@ -28,13 +28,14 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     [AWSClientCmdlet("Amazon CloudWatch", "CW", "2010-08-01")]
-    public abstract class AmazonCloudWatchClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCloudWatchClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudWatch Client { get; private set; }
         protected IAmazonCloudWatch CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCloudWatchConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCloudWatchClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,13 +28,14 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     [AWSClientCmdlet("Amazon CloudFront", "CF", "2016-01-28")]
-    public abstract class AmazonCloudFrontClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCloudFrontClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudFront Client { get; private set; }
         protected IAmazonCloudFront CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCloudFrontConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCloudFrontClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

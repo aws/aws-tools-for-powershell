@@ -28,13 +28,14 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     [AWSClientCmdlet("Amazon DynamoDB", "DDB", "2012-08-10")]
-    public abstract class AmazonDynamoDBClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonDynamoDBClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDynamoDB Client { get; private set; }
         protected IAmazonDynamoDB CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonDynamoDBConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonDynamoDBClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

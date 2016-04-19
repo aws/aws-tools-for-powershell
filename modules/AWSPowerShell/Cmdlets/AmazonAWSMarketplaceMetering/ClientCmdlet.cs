@@ -28,13 +28,14 @@ using Amazon.AWSMarketplaceMetering.Model;
 namespace Amazon.PowerShell.Cmdlets.MM
 {
     [AWSClientCmdlet("AWS Marketplace Metering", "MM", "2016-01-14")]
-    public abstract class AmazonAWSMarketplaceMeteringClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonAWSMarketplaceMeteringClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSMarketplaceMetering Client { get; private set; }
         protected IAmazonAWSMarketplaceMetering CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonAWSMarketplaceMeteringConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonAWSMarketplaceMeteringClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

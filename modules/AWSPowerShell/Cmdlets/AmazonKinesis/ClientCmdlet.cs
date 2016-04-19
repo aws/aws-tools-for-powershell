@@ -28,13 +28,14 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     [AWSClientCmdlet("Amazon Kinesis", "KIN", "2013-12-02")]
-    public abstract class AmazonKinesisClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonKinesisClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKinesis Client { get; private set; }
         protected IAmazonKinesis CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonKinesisConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonKinesisClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

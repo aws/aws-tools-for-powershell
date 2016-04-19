@@ -28,13 +28,14 @@ using Amazon.AWSMarketplaceCommerceAnalytics.Model;
 namespace Amazon.PowerShell.Cmdlets.MCA
 {
     [AWSClientCmdlet("AWS Marketplace Commerce Analytics", "MCA", "2015-07-01")]
-    public abstract class AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSMarketplaceCommerceAnalytics Client { get; private set; }
         protected IAmazonAWSMarketplaceCommerceAnalytics CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonAWSMarketplaceCommerceAnalyticsConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonAWSMarketplaceCommerceAnalyticsClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

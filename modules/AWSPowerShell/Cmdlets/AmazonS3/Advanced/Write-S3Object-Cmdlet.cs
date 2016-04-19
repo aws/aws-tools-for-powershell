@@ -32,29 +32,29 @@ using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
-	/// <summary>
-	/// <para>
-	/// Uploads a local file, text content or a folder hierarchy of files to Amazon S3, placing them into the specified bucket
-	/// using the specified key (single object) or key prefix (multiple objects).
-	/// </para>
-	/// <para>
-	/// If you are uploading large files, Write-S3Object cmdlet will use multipart upload to fulfill the request. 
-	/// If a multipart upload is interrupted, Write-S3Object cmdlet will attempt to abort the multipart upload.
-	/// Under certain circumstances (network outage, power failure, etc.), Write-S3Object cmdlet will not be able to abort the multipart upload. 
-	/// In this case, in order to stop getting charged for the storage of uploaded parts, 
-	/// you should manually invoke the Remove-S3MultipartUploads to abort the incomplete multipart uploads.
-	/// </para>
-	/// </summary>
+    /// <summary>
+    /// <para>
+    /// Uploads a local file, text content or a folder hierarchy of files to Amazon S3, placing them into the specified bucket
+    /// using the specified key (single object) or key prefix (multiple objects).
+    /// </para>
+    /// <para>
+    /// If you are uploading large files, Write-S3Object cmdlet will use multipart upload to fulfill the request. 
+    /// If a multipart upload is interrupted, Write-S3Object cmdlet will attempt to abort the multipart upload.
+    /// Under certain circumstances (network outage, power failure, etc.), Write-S3Object cmdlet will not be able to abort the multipart upload. 
+    /// In this case, in order to stop getting charged for the storage of uploaded parts, 
+    /// you should manually invoke the Remove-S3MultipartUploads to abort the incomplete multipart uploads.
+    /// </para>
+    /// </summary>
     [Cmdlet("Write", "S3Object", DefaultParameterSetName = ParamSet_FromLocalFile, ConfirmImpact = ConfirmImpact.Low, SupportsShouldProcess = true)]
-	[AWSCmdlet("Uploads one or more files from the local file system to an S3 bucket.")]
-	public class WriteS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
-	{
-		const string ParamSet_FromLocalFile = "FromLocalFileParamSet";
-		const string ParamSet_FromContent = "FromContentParamSet";
-		const string ParamSet_FromLocalFolder = "FromLocalFolderParamSet";
-		const string ParamSet_FromStream = "FromStreamParamSet";
+    [AWSCmdlet("Uploads one or more files from the local file system to an S3 bucket.")]
+    public class WriteS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
+    {
+        const string ParamSet_FromLocalFile = "FromLocalFileParamSet";
+        const string ParamSet_FromContent = "FromContentParamSet";
+        const string ParamSet_FromLocalFolder = "FromLocalFolderParamSet";
+        const string ParamSet_FromStream = "FromStreamParamSet";
 
-		// try and anticipate all the ways a user might mean 'write everything to root'
+        // try and anticipate all the ways a user might mean 'write everything to root'
         readonly string[] rootIndicators = new string[] { "/", @"\" };
 
         #region Parameter BucketName
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket that will hold the uploaded content.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-		public System.String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         #endregion
 
         #region Upload Single File Params
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFile, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromContent, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromStream, Mandatory = true, ValueFromPipelineByPropertyName = true)]
-		public System.String Key { get; set; }
+        public System.String Key { get; set; }
         #endregion
 
         #region Parameter File
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The full path to the local file to be uploaded.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFile, Mandatory = true)]
-		public System.String File { get; set; }
+        public System.String File { get; set; }
         #endregion
 
         #region Parameter Content 
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// specify multiple lines of text.
         /// </summary>
         [Alias("Text")]
-		[Parameter(ParameterSetName = ParamSet_FromContent, Mandatory = true)]
-		public System.String Content { get; set; }
+        [Parameter(ParameterSetName = ParamSet_FromContent, Mandatory = true)]
+        public System.String Content { get; set; }
         #endregion
 
         #endregion
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The stream to be uploaded.
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_FromStream, Mandatory = true)]
-		public System.IO.Stream Stream { get; set; }
+        public System.IO.Stream Stream { get; set; }
         #endregion
 
         #endregion
@@ -307,6 +307,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter]
         [Alias("Headers")]
         public System.Collections.Hashtable HeaderCollection { get; set; }
+        #endregion
+
+        #region Parameter UseAccelerateEndpoint
+        /// <summary>
+        /// Enables S3 accelerate by sending requests to the accelerate endpoint instead of the regular region endpoint.
+        /// To use this feature, the bucket name must be DNS compliant and must not contain periods (.). 
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseAccelerateEndpoint { get; set; }
         #endregion
 
         #endregion
@@ -694,25 +703,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-	    internal class UploadFolderProgressTracker : ProgressTracker<UploadDirectoryProgressArgs>
-	    {
-	        private int _filesCompleted = 0;
-	        private readonly string _startingFolder;
+        internal class UploadFolderProgressTracker : ProgressTracker<UploadDirectoryProgressArgs>
+        {
+            private int _filesCompleted = 0;
+            private readonly string _startingFolder;
 
-	        private const string UploadingFolderActivity = "Uploading";
-	        private const string ProgressMsgFormat = "Uploaded {0} of {1} files from {2}, processing: {3}";
+            private const string UploadingFolderActivity = "Uploading";
+            private const string ProgressMsgFormat = "Uploaded {0} of {1} files from {2}, processing: {3}";
 
-	        public override string Activity
-	        {
-	            get { return UploadingFolderActivity; }
-	        }
+            public override string Activity
+            {
+                get { return UploadingFolderActivity; }
+            }
 
-	        public int UploadedCount
-	        {
-	            get { return _filesCompleted; }
-	        }
+            public int UploadedCount
+            {
+                get { return _filesCompleted; }
+            }
 
-    	    public UploadFolderProgressTracker(ProgressRunner runner, Action<EventHandler<UploadDirectoryProgressArgs>> subscribe, string startingFolder)
+            public UploadFolderProgressTracker(ProgressRunner runner, Action<EventHandler<UploadDirectoryProgressArgs>> subscribe, string startingFolder)
                 : base(runner, subscribe)
             {
                 this._startingFolder = startingFolder;

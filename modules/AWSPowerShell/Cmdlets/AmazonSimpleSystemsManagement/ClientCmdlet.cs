@@ -28,13 +28,14 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     [AWSClientCmdlet("Amazon Simple Systems Management", "SSM", "2014-11-06")]
-    public abstract class AmazonSimpleSystemsManagementClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonSimpleSystemsManagementClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleSystemsManagement Client { get; private set; }
         protected IAmazonSimpleSystemsManagement CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonSimpleSystemsManagementConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonSimpleSystemsManagementClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

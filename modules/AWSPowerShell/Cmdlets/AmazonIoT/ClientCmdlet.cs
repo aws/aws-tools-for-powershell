@@ -28,13 +28,14 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     [AWSClientCmdlet("AWS IoT", "IOT", "2015-05-28")]
-    public abstract class AmazonIoTClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonIoTClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoT Client { get; private set; }
         protected IAmazonIoT CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonIoTConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonIoTClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

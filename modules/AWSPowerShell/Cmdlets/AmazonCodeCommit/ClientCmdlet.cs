@@ -28,13 +28,14 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     [AWSClientCmdlet("AWS CodeCommit", "CC", "2015-04-13")]
-    public abstract class AmazonCodeCommitClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCodeCommitClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeCommit Client { get; private set; }
         protected IAmazonCodeCommit CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCodeCommitConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCodeCommitClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

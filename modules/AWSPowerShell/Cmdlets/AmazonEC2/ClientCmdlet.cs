@@ -28,13 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     [AWSClientCmdlet("Amazon Elastic Compute Cloud", "EC2", "2015-10-01")]
-    public abstract class AmazonEC2ClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonEC2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEC2 Client { get; private set; }
         protected IAmazonEC2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonEC2Config { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonEC2Client(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

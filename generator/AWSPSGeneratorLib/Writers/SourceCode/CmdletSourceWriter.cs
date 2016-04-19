@@ -133,8 +133,18 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         {
                             customParamEmitters.Add(p);
                             p.WriteParams(writer, MethodAnalysis, property, paramCustomization, ref usedPositionalCount);
-                        }
+                        }                        
                         writer.WriteLine("#endregion");
+                    }
+
+                    // Execute any global parameter emitters for this cmdlet
+                    var globalParamEmitters = FindGlobalParamEmitters();
+                    foreach (var paramEmitter in globalParamEmitters)
+                    {
+                        writer.WriteLine();
+                        customParamEmitters.Add(paramEmitter);
+                        paramEmitter.WriteParams(writer, MethodAnalysis, null, null, ref usedPositionalCount);
+                        
                     }
 
                     if (MethodAnalysis.RequiresPassThruGeneration)
@@ -1383,6 +1393,28 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
             orderedParams.AddRange(deferToEnd.OrderBy(p => p.Name));
             return orderedParams;
+        }
+
+        IEnumerable<IParamEmitter> FindGlobalParamEmitters()
+        {
+            // Global param emitters do not have any mapping to param name or param type
+            var emitters = ServiceConfig.ParamEmittersList.Where(p => string.IsNullOrEmpty(p.ParamName) && string.IsNullOrEmpty(p.ParamType));
+
+            var emitterInstances = new List<IParamEmitter>();
+            foreach (var item in emitters)
+            {
+                // Check if the emitter is excluded for the current cmdlet
+                if (!string.IsNullOrEmpty(item.Exclude))
+                {
+                    var excludedMethods = item.Exclude.Split(';');
+                    if (excludedMethods.Any(m => m.Equals(this.Operation.MethodName, StringComparison.Ordinal)))
+                        continue;
+                }
+
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + item.EmitterType);
+                emitterInstances.Add((IParamEmitter)obj.Unwrap());
+            }
+            return emitterInstances;
         }
 
         /// <summary>

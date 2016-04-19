@@ -28,13 +28,14 @@ using Amazon.SecurityToken.Model;
 namespace Amazon.PowerShell.Cmdlets.STS
 {
     [AWSClientCmdlet("AWS Security Token Service", "STS", "2011-06-15")]
-    public abstract class AmazonSecurityTokenServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonSecurityTokenServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSecurityTokenService Client { get; private set; }
         protected IAmazonSecurityTokenService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonSecurityTokenServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonSecurityTokenServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,7 +28,7 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     [AWSClientCmdlet("AWS Support API", "ASA", "2013-04-15")]
-    public abstract class AmazonAWSSupportClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonAWSSupportClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSSupport Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var config = new AmazonAWSSupportConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonAWSSupportClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

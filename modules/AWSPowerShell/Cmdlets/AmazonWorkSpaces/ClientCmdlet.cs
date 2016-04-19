@@ -28,13 +28,14 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     [AWSClientCmdlet("Amazon WorkSpaces", "WKS", "2015-04-08")]
-    public abstract class AmazonWorkSpacesClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonWorkSpacesClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWorkSpaces Client { get; private set; }
         protected IAmazonWorkSpaces CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonWorkSpacesConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonWorkSpacesClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

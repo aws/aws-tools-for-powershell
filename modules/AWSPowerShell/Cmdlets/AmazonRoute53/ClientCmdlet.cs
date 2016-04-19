@@ -28,7 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     [AWSClientCmdlet("Amazon Route 53", "R53", "2013-04-01")]
-    public abstract class AmazonRoute53ClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonRoute53ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoute53 Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var config = new AmazonRoute53Config { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonRoute53Client(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

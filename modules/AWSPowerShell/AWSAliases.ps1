@@ -2491,6 +2491,11 @@ Set-Alias -Name R53D-UpdateDomainContact -Value Update-R53DDomainContact
 Set-Alias -Name R53D-UpdateDomainContactPrivacy -Value Update-R53DDomainContactPrivacy
 Set-Alias -Name R53D-UpdateDomainNameservers -Value Update-R53DDomainNameservers
 Set-Alias -Name R53D-UpdateTagsForDomain -Value Update-R53DTagsForDomain
+Set-Alias -Name Put-S3BucketTagging -Value Write-S3BucketTagging
+Set-Alias -Name S3-PutBucketTagging -Value Write-S3BucketTagging
+Set-Alias -Name Put-S3BucketVersioning -Value Write-S3BucketVersioning
+Set-Alias -Name S3-PutBucketVersioning -Value Write-S3BucketVersioning
+Set-Alias -Name Set-S3BucketVersioning -Value Write-S3BucketVersioning
 Set-Alias -Name Put-S3BucketWebsite -Value Write-S3BucketWebsite
 Set-Alias -Name S3-PutBucketWebsite -Value Write-S3BucketWebsite
 Set-Alias -Name Put-S3CORSConfiguration -Value Write-S3CORSConfiguration
@@ -2498,12 +2503,15 @@ Set-Alias -Name S3-PutCORSConfiguration -Value Write-S3CORSConfiguration
 Set-Alias -Name Put-S3LifecycleConfiguration -Value Write-S3LifecycleConfiguration
 Set-Alias -Name S3-PutLifecycleConfiguration -Value Write-S3LifecycleConfiguration
 Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
+Set-Alias -Name S3-GetBucketVersioning -Value Get-S3BucketVersioning
 Set-Alias -Name S3-GetBucketWebsite -Value Get-S3BucketWebsite
 Set-Alias -Name S3-GetCORSConfiguration -Value Get-S3CORSConfiguration
 Set-Alias -Name S3-GetLifecycleConfiguration -Value Get-S3LifecycleConfiguration
 Set-Alias -Name S3-GetObjectMetadata -Value Get-S3ObjectMetadata
 Set-Alias -Name List-S3Versions -Value Get-S3Version
 Set-Alias -Name S3-ListVersions -Value Get-S3Version
+Set-Alias -Name Put-S3BucketAccelerateConfiguration -Value Write-S3BucketAccelerateConfiguration
+Set-Alias -Name S3-PutBucketAccelerateConfiguration -Value Write-S3BucketAccelerateConfiguration
 Set-Alias -Name Put-S3BucketLogging -Value Write-S3BucketLogging
 Set-Alias -Name S3-PutBucketLogging -Value Write-S3BucketLogging
 Set-Alias -Name Put-S3BucketNotification -Value Write-S3BucketNotification
@@ -2514,11 +2522,6 @@ Set-Alias -Name Put-S3BucketReplication -Value Write-S3BucketReplication
 Set-Alias -Name S3-PutBucketReplication -Value Write-S3BucketReplication
 Set-Alias -Name Put-S3BucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name S3-PutBucketRequestPayment -Value Write-S3BucketRequestPayment
-Set-Alias -Name Put-S3BucketTagging -Value Write-S3BucketTagging
-Set-Alias -Name S3-PutBucketTagging -Value Write-S3BucketTagging
-Set-Alias -Name Put-S3BucketVersioning -Value Write-S3BucketVersioning
-Set-Alias -Name S3-PutBucketVersioning -Value Write-S3BucketVersioning
-Set-Alias -Name Set-S3BucketVersioning -Value Write-S3BucketVersioning
 Set-Alias -Name S3-GetPreSignedURL -Value Get-S3PreSignedURL
 Set-Alias -Name Delete-S3BucketPolicy -Value Remove-S3BucketPolicy
 Set-Alias -Name S3-DeleteBucketPolicy -Value Remove-S3BucketPolicy
@@ -2533,6 +2536,7 @@ Set-Alias -Name S3-DeleteCORSConfiguration -Value Remove-S3CORSConfiguration
 Set-Alias -Name Delete-S3LifecycleConfiguration -Value Remove-S3LifecycleConfiguration
 Set-Alias -Name S3-DeleteLifecycleConfiguration -Value Remove-S3LifecycleConfiguration
 Set-Alias -Name S3-GetACL -Value Get-S3ACL
+Set-Alias -Name S3-GetBucketAccelerateConfiguration -Value Get-S3BucketAccelerateConfiguration
 Set-Alias -Name S3-GetBucketLocation -Value Get-S3BucketLocation
 Set-Alias -Name S3-GetBucketLogging -Value Get-S3BucketLogging
 Set-Alias -Name S3-GetBucketNotification -Value Get-S3BucketNotification
@@ -2540,7 +2544,6 @@ Set-Alias -Name S3-GetBucketPolicy -Value Get-S3BucketPolicy
 Set-Alias -Name S3-GetBucketReplication -Value Get-S3BucketReplication
 Set-Alias -Name S3-GetBucketRequestPayment -Value Get-S3BucketRequestPayment
 Set-Alias -Name S3-GetBucketTagging -Value Get-S3BucketTagging
-Set-Alias -Name S3-GetBucketVersioning -Value Get-S3BucketVersioning
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object

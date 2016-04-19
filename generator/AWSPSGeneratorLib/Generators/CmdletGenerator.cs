@@ -378,6 +378,10 @@ namespace AWSPowerShellGenerator.Generators
             var toFiles = Directory.EnumerateFiles(toDir, "*", SearchOption.AllDirectories)
                 .Select(Path.GetFullPath)
                 .ToList();
+            // Filter out any hand written partial extension classes
+            toFiles = toFiles.Where(
+                f => !f.EndsWith(".extensions.cs", StringComparison.OrdinalIgnoreCase)).ToList();
+
             var toMap = toFiles
                 .ToDictionary(f => ToRelativePath(toDir, f), f => f)
                 .Where(t => !(FoldersToIgnore.Any(i => t.Key.Contains(i))))

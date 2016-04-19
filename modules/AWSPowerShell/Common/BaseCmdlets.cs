@@ -391,6 +391,10 @@ namespace Amazon.PowerShell.Common
             }
         }
 
+        protected virtual void CustomizeClientConfig(ClientConfig config)
+        {
+        }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

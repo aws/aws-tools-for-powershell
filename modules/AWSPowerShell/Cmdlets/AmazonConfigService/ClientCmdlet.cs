@@ -28,7 +28,7 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     [AWSClientCmdlet("AWS Config", "CFG", "2014-11-12")]
-    public abstract class AmazonConfigServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonConfigServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConfigService Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var config = new AmazonConfigServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonConfigServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

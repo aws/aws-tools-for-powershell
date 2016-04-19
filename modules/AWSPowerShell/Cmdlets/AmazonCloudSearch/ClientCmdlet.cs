@@ -28,13 +28,14 @@ using Amazon.CloudSearch.Model;
 namespace Amazon.PowerShell.Cmdlets.CS
 {
     [AWSClientCmdlet("Amazon CloudSearch", "CS", "2013-01-01")]
-    public abstract class AmazonCloudSearchClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCloudSearchClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudSearch Client { get; private set; }
         protected IAmazonCloudSearch CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCloudSearchConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCloudSearchClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

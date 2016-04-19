@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.Model.ReplicationRule[] Configuration_Rule { get; set; }
         #endregion
         
+        #region Parameter UseAccelerateEndpoint
+        /// <summary>
+        /// Enables S3 accelerate by sending requests to the accelerate endpoint instead of the regular region endpoint.
+        /// To use this feature, the bucket name must be DNS compliant and must not contain periods (.). 
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseAccelerateEndpoint { get; set; }
+        
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.

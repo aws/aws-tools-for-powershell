@@ -31,7 +31,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.OpenRegion();
             {
                 writer.WriteLine("[AWSClientCmdlet(\"{0}\", \"{1}\", \"{2}\")]", clientName, prefix, serviceApiVersion);
-                writer.WriteLine("public abstract class {0}Cmdlet : ServiceCmdlet", serviceConfig.ServiceClient);
+                writer.WriteLine("public abstract partial class {0}Cmdlet : ServiceCmdlet", serviceConfig.ServiceClient);
                 writer.OpenRegion();
                 {
                     writer.WriteLine("protected {0} Client {{ get; private set; }}", serviceConfig.ServiceClientInterface);
@@ -54,6 +54,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     {
                         writer.WriteLine("var config = new {0} {{ RegionEndpoint = region }};", serviceConfig.ServiceClientConfig);
                         writer.WriteLine("Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);");
+                        writer.WriteLine("this.CustomizeClientConfig(config);");
                         writer.WriteLine("var client = new {0}(credentials, config);", serviceConfig.ServiceClient);
                         writer.WriteLine("client.BeforeRequestEvent += RequestEventHandler;");
                         writer.WriteLine("client.AfterResponseEvent += ResponseEventHandler;");

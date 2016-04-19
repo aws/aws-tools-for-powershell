@@ -28,13 +28,14 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     [AWSClientCmdlet("Amazon ElastiCache", "EC", "2015-02-02")]
-    public abstract class AmazonElastiCacheClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonElastiCacheClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElastiCache Client { get; private set; }
         protected IAmazonElastiCache CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonElastiCacheConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonElastiCacheClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

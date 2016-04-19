@@ -28,13 +28,14 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     [AWSClientCmdlet("Amazon Redshift", "RS", "2012-12-01")]
-    public abstract class AmazonRedshiftClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonRedshiftClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRedshift Client { get; private set; }
         protected IAmazonRedshift CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonRedshiftConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonRedshiftClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

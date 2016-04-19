@@ -28,13 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     [AWSClientCmdlet("Amazon GameLift Service", "GML", "2015-10-01")]
-    public abstract class AmazonGameLiftClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonGameLiftClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGameLift Client { get; private set; }
         protected IAmazonGameLift CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonGameLiftConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonGameLiftClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

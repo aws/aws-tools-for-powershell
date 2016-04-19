@@ -28,13 +28,14 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     [AWSClientCmdlet("Amazon Inspector", "INS", "2016-02-16")]
-    public abstract class AmazonInspectorClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonInspectorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonInspector Client { get; private set; }
         protected IAmazonInspector CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonInspectorConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonInspectorClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

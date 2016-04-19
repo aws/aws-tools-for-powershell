@@ -28,13 +28,14 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     [AWSClientCmdlet("AWS Key Management Service", "KMS", "2014-11-01")]
-    public abstract class AmazonKeyManagementServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonKeyManagementServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKeyManagementService Client { get; private set; }
         protected IAmazonKeyManagementService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonKeyManagementServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonKeyManagementServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

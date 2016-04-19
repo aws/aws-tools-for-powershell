@@ -28,13 +28,14 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     [AWSClientCmdlet("Amazon Elastic File System", "EFS", "2015-02-01")]
-    public abstract class AmazonElasticFileSystemClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonElasticFileSystemClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticFileSystem Client { get; private set; }
         protected IAmazonElasticFileSystem CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonElasticFileSystemConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonElasticFileSystemClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

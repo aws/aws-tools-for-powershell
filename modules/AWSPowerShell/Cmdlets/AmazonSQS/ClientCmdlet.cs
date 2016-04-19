@@ -28,13 +28,14 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     [AWSClientCmdlet("Amazon Simple Queue Service", "SQS", "2012-11-05")]
-    public abstract class AmazonSQSClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonSQSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSQS Client { get; private set; }
         protected IAmazonSQS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonSQSConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonSQSClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

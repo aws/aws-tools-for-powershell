@@ -22,31 +22,20 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECS;
-using Amazon.ECS.Model;
+using Amazon.S3;
+using Amazon.S3.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECS
+namespace Amazon.PowerShell.Cmdlets.S3
 {
-    [AWSClientCmdlet("Amazon EC2 Container Service", "ECS", "2014-11-13")]
-    public abstract partial class AmazonECSClientCmdlet : ServiceCmdlet
-    {
-        protected IAmazonECS Client { get; private set; }
-        protected IAmazonECS CreateClient(AWSCredentials credentials, RegionEndpoint region)
+    public abstract partial class AmazonS3ClientCmdlet : ServiceCmdlet
+    {        
+        protected override void CustomizeClientConfig(ClientConfig config)
         {
-            var config = new AmazonECSConfig { RegionEndpoint = region };
-            Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
-            this.CustomizeClientConfig(config);
-            var client = new AmazonECSClient(credentials, config);
-            client.BeforeRequestEvent += RequestEventHandler;
-            client.AfterResponseEvent += ResponseEventHandler;
-            return client;
-        }
-        
-        protected override void ProcessRecord()
-        {
-            base.ProcessRecord();
-            
-            Client = CreateClient(CurrentCredentials, Region);
+            var s3Config = (AmazonS3Config)config;
+            if (this.ParameterWasBound("UseAccelerateEndpoint"))
+            {
+                s3Config.UseAccelerateEndpoint = true;
+            }
         }
     }
 }

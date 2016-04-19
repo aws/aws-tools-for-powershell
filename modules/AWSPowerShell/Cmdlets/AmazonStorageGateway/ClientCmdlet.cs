@@ -28,13 +28,14 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     [AWSClientCmdlet("AWS Storage Gateway", "SG", "2013-06-30")]
-    public abstract class AmazonStorageGatewayClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonStorageGatewayClientCmdlet : ServiceCmdlet
     {
         protected IAmazonStorageGateway Client { get; private set; }
         protected IAmazonStorageGateway CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonStorageGatewayConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonStorageGatewayClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

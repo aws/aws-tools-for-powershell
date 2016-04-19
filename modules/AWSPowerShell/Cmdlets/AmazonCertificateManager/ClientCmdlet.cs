@@ -28,13 +28,14 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     [AWSClientCmdlet("AWS Certificate Manager", "ACM", "2015-12-08")]
-    public abstract class AmazonCertificateManagerClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCertificateManagerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCertificateManager Client { get; private set; }
         protected IAmazonCertificateManager CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCertificateManagerConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCertificateManagerClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,13 +28,14 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     [AWSClientCmdlet("Amazon Simple Notification Service", "SNS", "2010-03-31")]
-    public abstract class AmazonSimpleNotificationServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonSimpleNotificationServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleNotificationService Client { get; private set; }
         protected IAmazonSimpleNotificationService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonSimpleNotificationServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonSimpleNotificationServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

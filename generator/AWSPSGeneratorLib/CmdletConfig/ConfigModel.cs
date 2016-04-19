@@ -1180,6 +1180,8 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public string ParamName = string.Empty;
         [XmlAttribute]
         public string EmitterType = string.Empty;
+        [XmlAttribute]
+        public string Exclude = string.Empty;
 
         public ParamEmitter() { }
         public ParamEmitter(string paramType, string emitterType) : this(paramType, string.Empty, emitterType) { }

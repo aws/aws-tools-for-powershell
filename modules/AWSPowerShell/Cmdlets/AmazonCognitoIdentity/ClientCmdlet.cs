@@ -28,13 +28,14 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     [AWSClientCmdlet("Amazon Cognito Identity", "CGI", "2014-06-30")]
-    public abstract class AmazonCognitoIdentityClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCognitoIdentityClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCognitoIdentity Client { get; private set; }
         protected IAmazonCognitoIdentity CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCognitoIdentityConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCognitoIdentityClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

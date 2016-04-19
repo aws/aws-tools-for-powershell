@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     [AWSClientCmdlet("AWS Identity and Access Management", "IAM", "2010-05-08")]
-    public abstract class AmazonIdentityManagementServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonIdentityManagementServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIdentityManagementService Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var config = new AmazonIdentityManagementServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonIdentityManagementServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,13 +28,14 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     [AWSClientCmdlet("Amazon Relational Database Service", "RDS", "2014-10-31")]
-    public abstract class AmazonRDSClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonRDSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRDS Client { get; private set; }
         protected IAmazonRDS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonRDSConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonRDSClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

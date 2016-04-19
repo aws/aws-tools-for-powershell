@@ -28,13 +28,14 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     [AWSClientCmdlet("Amazon Elastic MapReduce", "EMR", "2009-03-31")]
-    public abstract class AmazonElasticMapReduceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonElasticMapReduceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticMapReduce Client { get; private set; }
         protected IAmazonElasticMapReduce CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonElasticMapReduceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonElasticMapReduceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,7 +28,7 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     [AWSClientCmdlet("Amazon Simple Email Service", "SES", "2010-12-01")]
-    public abstract class AmazonSimpleEmailServiceClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonSimpleEmailServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleEmailService Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var config = new AmazonSimpleEmailServiceConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonSimpleEmailServiceClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

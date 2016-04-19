@@ -28,13 +28,14 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     [AWSClientCmdlet("AWS CloudTrail", "CT", "2013-11-01")]
-    public abstract class AmazonCloudTrailClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCloudTrailClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudTrail Client { get; private set; }
         protected IAmazonCloudTrail CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCloudTrailConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCloudTrailClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

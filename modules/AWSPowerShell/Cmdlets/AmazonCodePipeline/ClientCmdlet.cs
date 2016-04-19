@@ -28,13 +28,14 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     [AWSClientCmdlet("AWS CodePipeline", "CP", "2015-07-09")]
-    public abstract class AmazonCodePipelineClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonCodePipelineClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodePipeline Client { get; private set; }
         protected IAmazonCodePipeline CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonCodePipelineConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonCodePipelineClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,13 +28,14 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     [AWSClientCmdlet("Amazon EC2 Container Registry", "ECR", "2015-09-21")]
-    public abstract class AmazonECRClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonECRClientCmdlet : ServiceCmdlet
     {
         protected IAmazonECR Client { get; private set; }
         protected IAmazonECR CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonECRConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonECRClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

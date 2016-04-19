@@ -57,6 +57,7 @@
     <Compile Include="Generators\CmdletGenerator.cs" />
     <Compile Include="Generators\FormatGenerator.cs" />
     <Compile Include="Generators\ParamEmitters\AmazonEC2\InstanceIdsParamEmitter.cs" />
+    <Compile Include="Generators\ParamEmitters\AmazonS3\AccelerateParamEmitter.cs" />
     <Compile Include="Generators\PSHelpGenerator.cs" />
     <Compile Include="Generators\HelpGeneratorBase.cs" />
     <Compile Include="Generators\WebHelpGenerator.cs" />

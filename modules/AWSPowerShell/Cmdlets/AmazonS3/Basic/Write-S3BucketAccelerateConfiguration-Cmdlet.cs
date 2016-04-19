@@ -28,38 +28,37 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets lifecycle configuration for your bucket. If a lifecycle configuration exists,
-    /// it replaces it.
+    /// Sets the accelerate configuration of an existing bucket.
     /// </summary>
-    [Cmdlet("Write", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Write", "S3BucketAccelerateConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutLifecycleConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"PutLifecycleConfiguration"})]
+    [AWSCmdlet("Invokes the PutBucketAccelerateConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketAccelerateConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketAccelerateConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public class WriteS3BucketAccelerateConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket to have the lifecycle configuration applied.
+        /// The name of the bucket to contain the object.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
         #endregion
         
-        #region Parameter Configuration_Rule
+        #region Parameter AccelerateConfiguration_Status
         /// <summary>
         /// <para>
-        /// These rules defined the lifecycle configuration.
+        /// The accelerate status of the bucket.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Configuration_Rules")]
-        public Amazon.S3.Model.LifecycleRule[] Configuration_Rule { get; set; }
+        [AWSConstantClassSource("Amazon.S3.BucketAccelerateStatus")]
+        public Amazon.S3.BucketAccelerateStatus AccelerateConfiguration_Status { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -96,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BucketName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3LifecycleConfiguration (PutLifecycleConfiguration)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3BucketAccelerateConfiguration (PutBucketAccelerateConfiguration)"))
             {
                 return;
             }
@@ -108,10 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             };
             
             context.BucketName = this.BucketName;
-            if (this.Configuration_Rule != null)
-            {
-                context.Configuration_Rules = new List<Amazon.S3.Model.LifecycleRule>(this.Configuration_Rule);
-            }
+            context.AccelerateConfiguration_Status = this.AccelerateConfiguration_Status;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -123,30 +119,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3.Model.PutLifecycleConfigurationRequest();
+            var request = new Amazon.S3.Model.PutBucketAccelerateConfigurationRequest();
             
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
             }
             
-             // populate Configuration
-            bool requestConfigurationIsNull = true;
-            request.Configuration = new Amazon.S3.Model.LifecycleConfiguration();
-            List<Amazon.S3.Model.LifecycleRule> requestConfiguration_configuration_Rule = null;
-            if (cmdletContext.Configuration_Rules != null)
+             // populate AccelerateConfiguration
+            bool requestAccelerateConfigurationIsNull = true;
+            request.AccelerateConfiguration = new Amazon.S3.Model.AccelerateConfiguration();
+            Amazon.S3.BucketAccelerateStatus requestAccelerateConfiguration_accelerateConfiguration_Status = null;
+            if (cmdletContext.AccelerateConfiguration_Status != null)
             {
-                requestConfiguration_configuration_Rule = cmdletContext.Configuration_Rules;
+                requestAccelerateConfiguration_accelerateConfiguration_Status = cmdletContext.AccelerateConfiguration_Status;
             }
-            if (requestConfiguration_configuration_Rule != null)
+            if (requestAccelerateConfiguration_accelerateConfiguration_Status != null)
             {
-                request.Configuration.Rules = requestConfiguration_configuration_Rule;
-                requestConfigurationIsNull = false;
+                request.AccelerateConfiguration.Status = requestAccelerateConfiguration_accelerateConfiguration_Status;
+                requestAccelerateConfigurationIsNull = false;
             }
-             // determine if request.Configuration should be set to null
-            if (requestConfigurationIsNull)
+             // determine if request.AccelerateConfiguration should be set to null
+            if (requestAccelerateConfigurationIsNull)
             {
-                request.Configuration = null;
+                request.AccelerateConfiguration = null;
             }
             
             CmdletOutput output;
@@ -155,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutLifecycleConfiguration(request);
+                var response = client.PutBucketAccelerateConfiguration(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -186,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
-            public List<Amazon.S3.Model.LifecycleRule> Configuration_Rules { get; set; }
+            public Amazon.S3.BucketAccelerateStatus AccelerateConfiguration_Status { get; set; }
         }
         
     }

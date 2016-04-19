@@ -28,13 +28,14 @@ using Amazon.DataPipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     [AWSClientCmdlet("AWS Data Pipeline", "DP", "2012-10-29")]
-    public abstract class AmazonDataPipelineClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonDataPipelineClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDataPipeline Client { get; private set; }
         protected IAmazonDataPipeline CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonDataPipelineConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonDataPipelineClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

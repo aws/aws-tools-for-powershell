@@ -28,13 +28,14 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     [AWSClientCmdlet("AWS Direct Connect", "DC", "2012-10-25")]
-    public abstract class AmazonDirectConnectClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonDirectConnectClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDirectConnect Client { get; private set; }
         protected IAmazonDirectConnect CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonDirectConnectConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonDirectConnectClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

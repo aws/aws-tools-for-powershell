@@ -28,13 +28,14 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     [AWSClientCmdlet("AWS WAF", "WAF", "2015-08-24")]
-    public abstract class AmazonWAFClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonWAFClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWAF Client { get; private set; }
         protected IAmazonWAF CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonWAFConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonWAFClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

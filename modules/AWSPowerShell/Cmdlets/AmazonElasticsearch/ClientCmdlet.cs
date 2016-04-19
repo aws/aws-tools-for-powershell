@@ -28,13 +28,14 @@ using Amazon.Elasticsearch.Model;
 namespace Amazon.PowerShell.Cmdlets.ES
 {
     [AWSClientCmdlet("Amazon Elasticsearch", "ES", "2015-01-01")]
-    public abstract class AmazonElasticsearchClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonElasticsearchClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticsearch Client { get; private set; }
         protected IAmazonElasticsearch CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonElasticsearchConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonElasticsearchClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

@@ -28,13 +28,14 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     [AWSClientCmdlet("AWS Device Farm", "DF", "2015-06-23")]
-    public abstract class AmazonDeviceFarmClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonDeviceFarmClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDeviceFarm Client { get; private set; }
         protected IAmazonDeviceFarm CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonDeviceFarmConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonDeviceFarmClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

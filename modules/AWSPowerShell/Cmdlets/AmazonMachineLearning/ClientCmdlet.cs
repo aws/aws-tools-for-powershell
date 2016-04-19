@@ -28,13 +28,14 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     [AWSClientCmdlet("Amazon Machine Learning", "ML", "2014-12-12")]
-    public abstract class AmazonMachineLearningClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonMachineLearningClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMachineLearning Client { get; private set; }
         protected IAmazonMachineLearning CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonMachineLearningConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonMachineLearningClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

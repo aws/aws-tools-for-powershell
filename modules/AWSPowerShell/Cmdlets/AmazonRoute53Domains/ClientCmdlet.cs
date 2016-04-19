@@ -28,7 +28,7 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     [AWSClientCmdlet("Amazon Route 53 Domains", "R53D", "2014-05-15")]
-    public abstract class AmazonRoute53DomainsClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonRoute53DomainsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoute53Domains Client { get; private set; }
         protected override string DefaultRegion
@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var config = new AmazonRoute53DomainsConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonRoute53DomainsClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;

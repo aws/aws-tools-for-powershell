@@ -28,13 +28,14 @@ using Amazon.ElasticTranscoder.Model;
 namespace Amazon.PowerShell.Cmdlets.ETS
 {
     [AWSClientCmdlet("Amazon Elastic Transcoder", "ETS", "2012-09-25")]
-    public abstract class AmazonElasticTranscoderClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonElasticTranscoderClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticTranscoder Client { get; private set; }
         protected IAmazonElasticTranscoder CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonElasticTranscoderConfig { RegionEndpoint = region };
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
             var client = new AmazonElasticTranscoderClient(credentials, config);
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;
