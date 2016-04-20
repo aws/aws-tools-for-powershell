@@ -383,6 +383,20 @@ namespace Amazon.PowerShell.Common
 
         private object Parameters { get; set; }
 
+        /// <summary>
+        /// <para>
+        /// The endpoint to make the call against.
+        /// </para>
+        /// <para>
+        /// <b>Note:</b> This parameter is primarily for internal AWS use and is not required/should not be specified for 
+        /// normal usage. The cmdlets normally determine which endpoint to call based on the region specified to the -Region
+        /// parameter or set as default in the shell (via Set-DefaultAWSRegion). Only specify this parameter if you must
+        /// direct the call to a specific custom endpoint.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        public System.String EndpointUrl { get; set; }
+
         protected virtual string DefaultRegion
         {
             get
@@ -393,6 +407,11 @@ namespace Amazon.PowerShell.Common
 
         protected virtual void CustomizeClientConfig(ClientConfig config)
         {
+            // if user passes $null as value, we see a bound parameter
+            if (ParameterWasBound("EndpointUrl") && !string.IsNullOrEmpty(this.EndpointUrl))
+            {
+                config.ServiceURL = this.EndpointUrl.ToString();
+            }
         }
 
         protected override void ProcessRecord()
