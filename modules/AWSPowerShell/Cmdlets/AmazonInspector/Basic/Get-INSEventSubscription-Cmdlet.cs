@@ -28,8 +28,9 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Lists all the event subscriptions for the assessment template specified by the assessment
-    /// template ARN. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.
+    /// Lists all the event subscriptions for the assessment template that is specified by
+    /// the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a>
+    /// and <a>UnsubscribeFromEvent</a>.
     /// </summary>
     [Cmdlet("Get", "INSEventSubscription")]
     [OutputType("Amazon.Inspector.Model.Subscription")]
@@ -68,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to 'null' on your first call to the <b>ListEventSubscriptions</b> action. Subsequent
+        /// to null on your first call to the <b>ListEventSubscriptions</b> action. Subsequent
         /// calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
-        /// from previous response to continue listing data.</para>
+        /// from the previous response to continue listing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

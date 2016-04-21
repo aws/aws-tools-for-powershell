@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Removes entire attributes (key and value pairs) from the findings specified by the
-    /// finding ARNs where an attribute with the specified key exists.
+    /// Removes entire attributes (key and value pairs) from the findings that are specified
+    /// by the ARNs of the findings where an attribute with the specified key exists.
     /// </summary>
     [Cmdlet("Remove", "INSFindingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter FindingArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs specifying the findings that you want to remove attributes from.</para>
+        /// <para>The ARNs that specify the findings that you want to remove attributes from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

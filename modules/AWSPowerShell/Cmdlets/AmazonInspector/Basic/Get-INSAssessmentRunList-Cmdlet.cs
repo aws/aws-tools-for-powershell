@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Lists the assessments run corresponding to assessment template(s) specified by the
-    /// assessment template(s)' ARN(s).
+    /// Lists the assessment runs that correspond to the assessment templates that are specified
+    /// by the ARNs of the assessment templates.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentRunList")]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTemplateArn
         /// <summary>
         /// <para>
-        /// <para>ARN(s) specifying the assessment template(s) whose assessment run(s) you want to list.</para>
+        /// <para>The ARNs that specify the assessment templates whose assessment runs you want to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, an explicit value or a string containing a wildcard
-        /// specified for this data type property must match the value of the <b>assessmentRunName</b>
+        /// that is specified for this data type property must match the value of the <b>assessmentRunName</b>
         /// property of the <a>AssessmentRun</a> data type.</para>
         /// </para>
         /// </summary>
@@ -157,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter Filter_RulesPackageArn
         /// <summary>
         /// <para>
-        /// <para>For a record to match a filter, the value specified for this data type property must
-        /// be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a>
-        /// data type.</para>
+        /// <para>For a record to match a filter, the value that is specified for this data type property
+        /// must be contained in the list of values of the <b>rulesPackages</b> property of the
+        /// <a>AssessmentRun</a> data type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter to indicate the maximum number of items you want in the
-        /// response. The default value is 10. The maximum value is 500.</para>
+        /// <para>You can use this parameter to indicate the maximum number of items that you want in
+        /// the response. The default value is 10. The maximum value is 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -196,9 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to 'null' on your first call to the <b>ListAssessmentRuns</b> action. Subsequent calls
+        /// to null on your first call to the <b>ListAssessmentRuns</b> action. Subsequent calls
         /// to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
-        /// from previous response to continue listing data.</para>
+        /// from the previous response to continue listing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,9 +28,9 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Starts the assessment run specified by the assessment template ARN. For this API to
-    /// function properly, you must not exceed the limit of running up to 500 concurrent agents
-    /// per AWS account.
+    /// Starts the assessment run specified by the ARN of the assessment template. For this
+    /// API to function properly, you must not exceed the limit of running up to 500 concurrent
+    /// agents per AWS account.
     /// </summary>
     [Cmdlet("Start", "INSAssessmentRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunName
         /// <summary>
         /// <para>
-        /// <para>You can specify the name for the assessment run, or it is auto-generated based on
-        /// the assessment template name. Must be unique for the assessment template. </para>
+        /// <para>You can specify the name for the assessment run, or you can use the auto-generated
+        /// name that is based on the assessment template name. The name must be unique for the
+        /// assessment template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTemplateArn
         /// <summary>
         /// <para>
-        /// <para>The assessment template ARN of the assessment run that you want to start.</para>
+        /// <para>The ARN of the assessment template of the assessment run that you want to start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
