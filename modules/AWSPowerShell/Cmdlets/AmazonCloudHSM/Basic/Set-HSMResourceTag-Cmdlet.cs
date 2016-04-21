@@ -28,11 +28,11 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified resource.
+    /// Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
     /// 
     ///  
     /// <para>
-    /// Each tag consists of a key and a value. Tag keys must be unique per resource.
+    /// Each tag consists of a key and a value. Tag keys must be unique to each resource.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "HSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to tag.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

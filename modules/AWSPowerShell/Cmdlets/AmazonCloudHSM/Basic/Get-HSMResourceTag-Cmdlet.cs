@@ -28,7 +28,7 @@ using Amazon.CloudHSM.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM
 {
     /// <summary>
-    /// Returns a list of all tags for the specified resource.
+    /// Returns a list of all tags for the specified AWS CloudHSM resource.
     /// </summary>
     [Cmdlet("Get", "HSMResourceTag")]
     [OutputType("Amazon.CloudHSM.Model.Tag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
