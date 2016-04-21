@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the assessment template whose tags you want to list.</para>
+        /// <para>The ARN specifying the assessment template whose tags you want to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Assigns attributes (key and value pairs) to the findings that are specified by the
-    /// ARNs of the findings.
+    /// Assigns attributes (key and value pair) to the findings specified by the findings'
+    /// ARNs.
     /// </summary>
     [Cmdlet("Add", "INSFindingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter FindingArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs that specify the findings that you want to assign attributes to.</para>
+        /// <para>The ARNs specifying the findings that you want to assign attributes to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Lists the ARNs of the assessment targets within this AWS account. For more information
-    /// about assessment targets, see <a href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
+    /// Lists the ARN(s) of the assessment target(s) within this AWS account. For more information
+    /// about assessment targets, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide//inspector_applications.html">Amazon
     /// Inspector Assessment Targets</a>.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentTargetList")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter Filter_AssessmentTargetNamePattern
         /// <summary>
         /// <para>
-        /// <para>For a record to match a filter, an explicit value or a string that contains a wildcard
-        /// that is specified for this data type property must match the value of the <b>assessmentTargetName</b>
+        /// <para>For a record to match a filter, an explicit value or a string containing a wildcard
+        /// specified for this data type property must match the value of the <b>assessmentTargetName</b>
         /// property of the <a>AssessmentTarget</a> data type.</para>
         /// </para>
         /// </summary>
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the <b>ListAssessmentTargets</b> action. Subsequent
+        /// to 'null' on your first call to the <b>ListAssessmentTargets</b> action. Subsequent
         /// calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
-        /// from the previous response to continue listing data.</para>
+        /// from previous response to continue listing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

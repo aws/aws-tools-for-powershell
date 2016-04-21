@@ -28,8 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Lists the agents of the assessment runs that are specified by the ARNs of the assessment
-    /// runs.
+    /// Lists the agents of the assessment run specified by the assessment run ARN.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentRunAgent")]
     [OutputType("Amazon.Inspector.Model.AssessmentRunAgent")]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the assessment run whose agents you want to list.</para>
+        /// <para>The ARN specifying the assessment run whose agents you want to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter to indicate the maximum number of items that you want in
-        /// the response. The default value is 10. The maximum value is 500.</para>
+        /// <para>You can use this parameter to indicate the maximum number of items you want in the
+        /// response. The default value is 10. The maximum value is 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the <b>ListAssessmentRunAgents</b> action. Subsequent
+        /// to 'null' on your first call to the <b>ListAssessmentRunAgents</b> action. Subsequent
         /// calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
-        /// from the previous response to continue listing data.</para>
+        /// from previous response to continue listing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

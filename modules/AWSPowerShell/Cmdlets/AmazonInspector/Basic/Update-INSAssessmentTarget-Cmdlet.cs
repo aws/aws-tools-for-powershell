@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Updates the assessment target that is specified by the ARN of the assessment target.
+    /// Updates the assessment target specified by the assessment target ARN.
     /// </summary>
     [Cmdlet("Update", "INSAssessmentTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter ResourceGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource group that is used to specify the new resource group to associate
+        /// <para>The resource group ARN that is used to specify the new resource group to associate
         /// with the assessment target.</para>
         /// </para>
         /// </summary>

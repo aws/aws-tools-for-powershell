@@ -28,8 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the assessment targets that are specified by the ARNs of the assessment
-    /// targets.
+    /// Describes the assessment target(s) specified by the assessment target ARN(s).
     /// </summary>
     [Cmdlet("Get", "INSAssessmentTarget")]
     [OutputType("Amazon.Inspector.Model.DescribeAssessmentTargetsResponse")]
@@ -43,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTargetArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs that specifies the assessment targets that you want to describe.</para>
+        /// <para>The ARN(s) specifying the assessment target(s) that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

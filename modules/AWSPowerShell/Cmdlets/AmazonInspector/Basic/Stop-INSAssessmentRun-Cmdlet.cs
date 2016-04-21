@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Stops the assessment run that is specified by the ARN of the assessment run.
+    /// Stops the assessment run specified by the assessment run ARN.
     /// </summary>
     [Cmdlet("Stop", "INSAssessmentRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the assessment run that you want to stop.</para>
+        /// <para>The ARN of the assessment run that you want to stop. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

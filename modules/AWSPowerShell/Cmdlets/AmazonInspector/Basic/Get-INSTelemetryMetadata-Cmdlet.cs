@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Information about the data that is collected for the specified assessment run.
+    /// Information about the data collected for the specified assessment run.
     /// </summary>
     [Cmdlet("Get", "INSTelemetryMetadata")]
     [OutputType("Amazon.Inspector.Model.TelemetryMetadata")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the assessment run that has the telemetry data that you want
-        /// to obtain.</para>
+        /// <para>The ARN specifying the assessment run the telemetry of which you want to obtain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

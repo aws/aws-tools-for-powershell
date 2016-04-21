@@ -53,6 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.Action[] TopicRulePayload_Action { get; set; }
         #endregion
         
+        #region Parameter TopicRulePayload_AwsIotSqlVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the SQL rules engine to use when evaluating the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TopicRulePayload_AwsIotSqlVersion { get; set; }
+        #endregion
+        
         #region Parameter TopicRulePayload_Description
         /// <summary>
         /// <para>
@@ -134,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.TopicRulePayload_Actions = new List<Amazon.IoT.Model.Action>(this.TopicRulePayload_Action);
             }
+            context.TopicRulePayload_AwsIotSqlVersion = this.TopicRulePayload_AwsIotSqlVersion;
             context.TopicRulePayload_Description = this.TopicRulePayload_Description;
             if (ParameterWasBound("TopicRulePayload_RuleDisabled"))
                 context.TopicRulePayload_RuleDisabled = this.TopicRulePayload_RuleDisabled;
@@ -167,6 +178,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_Action != null)
             {
                 request.TopicRulePayload.Actions = requestTopicRulePayload_topicRulePayload_Action;
+                requestTopicRulePayloadIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_AwsIotSqlVersion = null;
+            if (cmdletContext.TopicRulePayload_AwsIotSqlVersion != null)
+            {
+                requestTopicRulePayload_topicRulePayload_AwsIotSqlVersion = cmdletContext.TopicRulePayload_AwsIotSqlVersion;
+            }
+            if (requestTopicRulePayload_topicRulePayload_AwsIotSqlVersion != null)
+            {
+                request.TopicRulePayload.AwsIotSqlVersion = requestTopicRulePayload_topicRulePayload_AwsIotSqlVersion;
                 requestTopicRulePayloadIsNull = false;
             }
             System.String requestTopicRulePayload_topicRulePayload_Description = null;
@@ -243,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String RuleName { get; set; }
             public List<Amazon.IoT.Model.Action> TopicRulePayload_Actions { get; set; }
+            public System.String TopicRulePayload_AwsIotSqlVersion { get; set; }
             public System.String TopicRulePayload_Description { get; set; }
             public System.Boolean? TopicRulePayload_RuleDisabled { get; set; }
             public System.String TopicRulePayload_Sql { get; set; }

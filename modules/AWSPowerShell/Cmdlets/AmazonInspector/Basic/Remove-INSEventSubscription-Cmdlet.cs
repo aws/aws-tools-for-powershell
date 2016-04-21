@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
     /// Disables the process of sending Amazon Simple Notification Service (SNS) notifications
-    /// about a specified event to a specified SNS topic.
+    /// about a specified event to a specified topic.
     /// </summary>
     [Cmdlet("Remove", "INSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the assessment template that is used during the event for which you want
-        /// to stop receiving SNS notifications.</para>
+        /// <para>The ARN of the assessment template used during the event for which you want to stop
+        /// recieving SNS notifications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the assessment templates that are specified by the ARNs of the assessment
-    /// templates.
+    /// Describes the assessment template(s) specified by the assessment template(s) ARN(s).
     /// </summary>
     [Cmdlet("Get", "INSAssessmentTemplate")]
     [OutputType("Amazon.Inspector.Model.DescribeAssessmentTemplatesResponse")]
@@ -43,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTemplateArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifiesthe assessment templates that you want to describe.</para>
+        /// <para>The ARN(s) specifying the assessment template(s) that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

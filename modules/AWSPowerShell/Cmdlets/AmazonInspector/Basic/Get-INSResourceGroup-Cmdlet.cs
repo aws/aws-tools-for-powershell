@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the resource groups that are specified by the ARNs of the resource groups.
+    /// Describes resource group(s) specified by the resource group ARN(s).
     /// </summary>
     [Cmdlet("Get", "INSResourceGroup")]
     [OutputType("Amazon.Inspector.Model.DescribeResourceGroupsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter ResourceGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the resource group that you want to describe.</para>
+        /// <para>The ARN(s) specifying the resource group(s) that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

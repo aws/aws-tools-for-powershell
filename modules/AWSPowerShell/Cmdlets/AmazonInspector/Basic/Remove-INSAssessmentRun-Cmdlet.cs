@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Deletes the assessment run that is specified by the ARN of the assessment run.
+    /// Deletes the assessment run specified by the assessment run ARN.
     /// </summary>
     [Cmdlet("Remove", "INSAssessmentRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the assessment run that you want to delete.</para>
+        /// <para>The ARN specifying the assessment run that you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

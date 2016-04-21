@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Sets tags (key and value pairs) to the assessment template that is specified by the
-    /// ARN of the assessment template.
+    /// Sets tags (key and value pairs) to the assessment template specified by the assessment
+    /// template ARN.
     /// </summary>
     [Cmdlet("Set", "INSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

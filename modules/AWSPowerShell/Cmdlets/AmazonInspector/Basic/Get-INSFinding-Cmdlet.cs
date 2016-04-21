@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the findings that are specified by the ARNs of the findings.
+    /// Describes the finding(s) specified by the finding ARN(s).
     /// </summary>
     [Cmdlet("Get", "INSFinding")]
     [OutputType("Amazon.Inspector.Model.DescribeFindingsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter FindingArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the finding that you want to describe.</para>
+        /// <para>The ARN(s) specifying the finding(s) that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale into which you want to translate a finding description, recommendation,
-        /// and the short description that identifies the finding.</para>
+        /// <para>The locale that you want to translate a finding description(s), recommendation(s),
+        /// and the short description(s) that identify the finding(s) into.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the <b>PreviewAgents</b> action. Subsequent calls to
-        /// the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
-        /// from the previous response to continue listing data.</para>
+        /// to 'null' on your first call to the <b>PreviewAgents</b> action. Subsequent calls
+        /// to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
+        /// from previous response to continue listing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

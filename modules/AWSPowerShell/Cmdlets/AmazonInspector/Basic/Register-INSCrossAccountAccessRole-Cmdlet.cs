@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the
-    /// start of the assessment run or when you call the <a>PreviewAgents</a> action.
+    /// Registers the IAM role that Inspector uses to list your EC2 instances at the start
+    /// of the assessment run or when you call the <a>PreviewAgents</a> action.
     /// </summary>
     [Cmdlet("Register", "INSCrossAccountAccessRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during
-        /// the assessment run or when you call the <a>PreviewAgents</a> action. </para>
+        /// <para>The ARN of the IAM role that Inspector uses to list your EC2 instances during the
+        /// assessment run or when you call the <a>PreviewAgents</a> action. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

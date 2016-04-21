@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the rules packages that are specified by the ARNs of the rules packages.
+    /// Describes the rules package(s) specified by the rules package ARN(s).
     /// </summary>
     [Cmdlet("Get", "INSRulesPackage")]
     [OutputType("Amazon.Inspector.Model.DescribeRulesPackagesResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale that you want to translate a rules package description into.</para>
+        /// <para>The locale that you want to translate a rules package description(s) into.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter RulesPackageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifies the rules package that you want to describe.</para>
+        /// <para>The ARN(s) specifying the rules package(s) that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
