@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para> Identifies the statuses of the ACM Certificates for which you want to retrieve the
-        /// ARNs. This can be one or more of the following values: <ul><li><code>PENDING_VALIDATION</code></li><li><code>ISSUED</code></li><li><code>INACTIVE</code></li><li><code>EXPIRED</code></li><li><code>VALIDATION_TIMED_OUT</code></li><li><code>REVOKED</code></li><li><code>FAILED</code></li></ul></para>
+        /// ARNs. This can be one or more of the following values: <ul><li><para><code>PENDING_VALIDATION</code></para></li><li><para><code>ISSUED</code></para></li><li><para><code>INACTIVE</code></para></li><li><para><code>EXPIRED</code></para></li><li><para><code>VALIDATION_TIMED_OUT</code></para></li><li><para><code>REVOKED</code></para></li><li><para><code>FAILED</code></para></li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -278,12 +278,15 @@ Set-Alias -Name EB-DescribeInstancesHealth -Value Get-EBInstanceHealth
 Set-Alias -Name List-EBAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
 Set-Alias -Name EB-ListAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
 Set-Alias -Name EB-RebuildEnvironment -Value Start-EBEnvironmentRebuild
+Set-Alias -Name ACM-AddTagsToCertificate -Value Add-ACMCertificateTag
 Set-Alias -Name Delete-ACMCertificate -Value Remove-ACMCertificate
 Set-Alias -Name ACM-DeleteCertificate -Value Remove-ACMCertificate
 Set-Alias -Name Describe-ACMCertificateDetail -Value Get-ACMCertificateDetail
 Set-Alias -Name ACM-DescribeCertificate -Value Get-ACMCertificateDetail
 Set-Alias -Name ACM-GetCertificate -Value Get-ACMCertificate
 Set-Alias -Name ACM-ListCertificates -Value Get-ACMCertificateList
+Set-Alias -Name ACM-ListTagsForCertificate -Value Get-ACMCertificateTagList
+Set-Alias -Name ACM-RemoveTagsFromCertificate -Value Remove-ACMCertificateTag
 Set-Alias -Name ACM-RequestCertificate -Value New-ACMCertificate
 Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack

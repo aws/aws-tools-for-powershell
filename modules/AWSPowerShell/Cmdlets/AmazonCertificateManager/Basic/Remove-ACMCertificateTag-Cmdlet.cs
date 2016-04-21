@@ -28,62 +28,49 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Resends the email that requests domain ownership validation. The domain owner or
-    /// an authorized representative must approve the ACM Certificate before it can be issued.
-    /// The certificate can be approved by clicking a link in the mail to navigate to the
-    /// Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
-    /// validation email can be blocked by spam filters. Therefore, if you do not receive
-    /// the original mail, you can request that the mail be resent within 72 hours of requesting
-    /// the ACM Certificate. If more than 72 hours have elapsed since your original request
-    /// or since your last attempt to resend validation mail, you must request a new certificate.
+    /// Remove one or more tags from an ACM Certificate. A tag consists of a key-value pair.
+    /// If you do not specify the value portion of the tag when calling this function, the
+    /// tag will be removed regardless of value. If you specify a value, the tag is removed
+    /// only if it is associated with the specified value. 
+    /// 
+    ///  
+    /// <para>
+    /// To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To view
+    /// all of the tags that have been applied to a specific ACM Certificate, use the <a>ListTagsForCertificate</a>
+    /// action. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Send", "ACMValidationEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "ACMCertificateTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ResendValidationEmail operation against AWS Certificate Manager.", Operation = new[] {"ResendValidationEmail"})]
+    [AWSCmdlet("Invokes the RemoveTagsFromCertificate operation against AWS Certificate Manager.", Operation = new[] {"RemoveTagsFromCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CertificateManager.Model.ResendValidationEmailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CertificateManager.Model.RemoveTagsFromCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SendACMValidationEmailCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public class RemoveACMCertificateTagCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para> String that contains the ARN of the requested certificate. The certificate ARN is
-        /// generated and returned by the <a>RequestCertificate</a> action as soon as the request
-        /// is made. By default, using this parameter causes email to be sent to all top-level
-        /// domains you specified in the certificate request. </para><para> The ARN must be of the form: </para><para><code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para>
+        /// <para> String that contains the ARN of the ACM Certificate with one or more tags that you
+        /// want to remove. This must be of the form: </para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para> For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CertificateArn { get; set; }
         #endregion
         
-        #region Parameter Domain
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The Fully Qualified Domain Name (FQDN) of the certificate that needs to be validated.
-        /// </para>
+        /// <para>The key-value pair that defines the tag to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Domain { get; set; }
-        #endregion
-        
-        #region Parameter ValidationDomain
-        /// <summary>
-        /// <para>
-        /// <para> The base validation domain that will act as the suffix of the email addresses that
-        /// are used to send the emails. This must be the same as the <code>Domain</code> value
-        /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
-        /// certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
-        /// of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical
-        /// contact, and administrative contact in WHOIS and the following five addresses: <ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ValidationDomain { get; set; }
+        [Alias("Tags")]
+        public Amazon.CertificateManager.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -110,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-ACMValidationEmail (ResendValidationEmail)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ACMCertificateTag (RemoveTagsFromCertificate)"))
             {
                 return;
             }
@@ -122,8 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             };
             
             context.CertificateArn = this.CertificateArn;
-            context.Domain = this.Domain;
-            context.ValidationDomain = this.ValidationDomain;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.CertificateManager.Model.Tag>(this.Tag);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,19 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CertificateManager.Model.ResendValidationEmailRequest();
+            var request = new Amazon.CertificateManager.Model.RemoveTagsFromCertificateRequest();
             
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
             }
-            if (cmdletContext.Domain != null)
+            if (cmdletContext.Tags != null)
             {
-                request.Domain = cmdletContext.Domain;
-            }
-            if (cmdletContext.ValidationDomain != null)
-            {
-                request.ValidationDomain = cmdletContext.ValidationDomain;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -156,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ResendValidationEmail(request);
+                var response = client.RemoveTagsFromCertificate(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -187,8 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         internal class CmdletContext : ExecutorContext
         {
             public System.String CertificateArn { get; set; }
-            public System.String Domain { get; set; }
-            public System.String ValidationDomain { get; set; }
+            public List<Amazon.CertificateManager.Model.Tag> Tags { get; set; }
         }
         
     }

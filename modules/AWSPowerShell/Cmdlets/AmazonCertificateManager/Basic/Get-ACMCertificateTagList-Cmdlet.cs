@@ -28,26 +28,25 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Returns a list of the fields contained in the specified ACM Certificate. For example,
-    /// this action returns the certificate status, a flag that indicates whether the certificate
-    /// is associated with any other AWS service, and the date at which the certificate request
-    /// was created. You specify the ACM Certificate on input by its Amazon Resource Name
-    /// (ARN).
+    /// Lists the tags that have been applied to the ACM Certificate. Use the certificate
+    /// ARN to specify the certificate. To add a tag to an ACM Certificate, use the <a>AddTagsToCertificate</a>
+    /// action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action.
     /// </summary>
-    [Cmdlet("Get", "ACMCertificateDetail")]
-    [OutputType("Amazon.CertificateManager.Model.CertificateDetail")]
-    [AWSCmdlet("Invokes the DescribeCertificate operation against AWS Certificate Manager.", Operation = new[] {"DescribeCertificate"})]
-    [AWSCmdletOutput("Amazon.CertificateManager.Model.CertificateDetail",
-        "This cmdlet returns a CertificateDetail object.",
-        "The service call response (type Amazon.CertificateManager.Model.DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ACMCertificateTagList")]
+    [OutputType("Amazon.CertificateManager.Model.Tag")]
+    [AWSCmdlet("Invokes the ListTagsForCertificate operation against AWS Certificate Manager.", Operation = new[] {"ListTagsForCertificate"})]
+    [AWSCmdletOutput("Amazon.CertificateManager.Model.Tag",
+        "This cmdlet returns a collection of Tag objects.",
+        "The service call response (type Amazon.CertificateManager.Model.ListTagsForCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetACMCertificateDetailCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public class GetACMCertificateTagListCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para> String that contains an ACM Certificate ARN. The ARN must be of the form: </para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para> For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para> String that contains the ARN of the ACM Certificate for which you want to list the
+        /// tags. This must be of the form: </para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para> For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
         /// </para>
         /// </summary>
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CertificateManager.Model.DescribeCertificateRequest();
+            var request = new Amazon.CertificateManager.Model.ListTagsForCertificateRequest();
             
             if (cmdletContext.CertificateArn != null)
             {
@@ -90,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeCertificate(request);
+                var response = client.ListTagsForCertificate(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Certificate;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

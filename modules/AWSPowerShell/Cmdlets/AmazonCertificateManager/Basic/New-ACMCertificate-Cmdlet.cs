@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
         /// certificate for <code>test.example.com</code> and specify <b>DomainValidationOptions</b>
         /// of <code>example.com</code>, ACM sends email to the domain registrant, technical contact,
-        /// and administrative contact in WHOIS and the following five addresses: <ul><li>admin@example.com</li><li>administrator@example.com</li><li>hostmaster@example.com</li><li>postmaster@example.com</li><li>webmaster@example.com</li></ul></para>
+        /// and administrative contact in WHOIS and the following five addresses: <ul><li><para>admin@example.com</para></li><li><para>administrator@example.com</para></li><li><para>hostmaster@example.com</para></li><li><para>postmaster@example.com</para></li><li><para>webmaster@example.com</para></li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -17,11 +17,14 @@
   </PipelineByValueProperties>
 
   <ServiceOperations>
+    <ServiceOperation MethodName="AddTagsToCertificate" Noun="CertificateTag" Output="Void" PositionalParameters="Tags"/>
     <ServiceOperation MethodName="DeleteCertificate" Output="Void" />
     <ServiceOperation MethodName="DescribeCertificate" Noun="CertificateDetail" />
     <ServiceOperation MethodName="GetCertificate" Output="Response" />
     <ServiceOperation MethodName="ListCertificates" Verb="Get" Noun="CertificateList" />
+    <ServiceOperation MethodName="ListTagsForCertificate" Verb="Get" Noun="CertificateTagList" />
     <ServiceOperation MethodName="RequestCertificate" Verb="New" NoPipelineParameter="true" ShouldProcessTarget="DomainName" />
+    <ServiceOperation MethodName="RemoveTagsFromCertificate" Noun="CertificateTag" Output="Void" ShouldProcessTarget="CertificateArn" />
     <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Output="Void" />
   </ServiceOperations>
 
