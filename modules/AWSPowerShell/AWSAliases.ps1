@@ -880,6 +880,8 @@ Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name Request-EC2SpotInstances -Value Request-EC2SpotInstance
+Set-Alias -Name EC2-RequestSpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name EC2-ResetImageAttribute -Value Reset-EC2ImageAttribute
 Set-Alias -Name EC2-ResetInstanceAttribute -Value Reset-EC2InstanceAttribute
 Set-Alias -Name EC2-ResetNetworkInterfaceAttribute -Value Reset-EC2NetworkInterfaceAttribute
@@ -916,6 +918,8 @@ Set-Alias -Name Modify-EC2VolumeAttribute -Value Edit-EC2VolumeAttribute
 Set-Alias -Name EC2-ModifyVolumeAttribute -Value Edit-EC2VolumeAttribute
 Set-Alias -Name Modify-EC2VpcEndpoint -Value Edit-EC2VpcEndpoint
 Set-Alias -Name EC2-ModifyVpcEndpoint -Value Edit-EC2VpcEndpoint
+Set-Alias -Name Modify-EC2VpcPeeringConnectionOption -Value Edit-EC2VpcPeeringConnectionOption
+Set-Alias -Name EC2-ModifyVpcPeeringConnectionOptions -Value Edit-EC2VpcPeeringConnectionOption
 Set-Alias -Name EC2-MonitorInstances -Value Start-EC2InstanceMonitoring
 Set-Alias -Name EC2-MoveAddressToVpc -Value Move-EC2AddressToVpc
 Set-Alias -Name EC2-PurchaseReservedInstancesOffering -Value New-EC2ReservedInstance
@@ -939,8 +943,6 @@ Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssocia
 Set-Alias -Name Report-EC2InstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-ReportInstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-RequestSpotFleet -Value Request-EC2SpotFleet
-Set-Alias -Name Request-EC2SpotInstances -Value Request-EC2SpotInstance
-Set-Alias -Name EC2-RequestSpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name Describe-EC2VpcEndpointService -Value Get-EC2VpcEndpointService
 Set-Alias -Name EC2-DescribeVpcEndpointServices -Value Get-EC2VpcEndpointService
 Set-Alias -Name Describe-EC2VpcPeeringConnections -Value Get-EC2VpcPeeringConnections

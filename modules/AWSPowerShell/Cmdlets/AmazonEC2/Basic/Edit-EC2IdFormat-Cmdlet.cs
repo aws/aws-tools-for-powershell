@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Modifies the ID format for the specified resource on a per-region basis. You can specify
     /// that resources should receive longer IDs (17-character IDs) when they are created.
-    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
+    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
+    /// | <code>snapshot</code> | <code>volume</code>.
     /// 
     ///  
     /// <para>

@@ -34,7 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour
     /// for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
-    /// to check for available schedules and obtain a purchase token.
+    /// to check for available schedules and obtain a purchase token. After you purchase a
+    /// Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled
+    /// time period.
+    /// </para><para>
+    /// After you purchase a Scheduled Instance, you can't cancel, modify, or resell your
+    /// purchase.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2ScheduledInstancePurchase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

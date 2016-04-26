@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Modifies a subnet attribute.
     /// </summary>
     [Cmdlet("Edit", "EC2SubnetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Invokes the ModifySubnetAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifySubnetAttribute"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubnetId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2SubnetAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
@@ -57,8 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the subnet.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the SubnetId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -121,6 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 var response = client.ModifySubnetAttribute(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.SubnetId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

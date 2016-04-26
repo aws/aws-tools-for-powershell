@@ -256,7 +256,7 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="ModifyReservedInstances" />
-    <ServiceOperation MethodName="ModifySubnetAttribute"  Output="Void" PipelineParameter="PipelineParameter" PositionalParameters="MapPublicIpOnLaunch"/>
+    <ServiceOperation MethodName="ModifySubnetAttribute"  Output="Void" PipelineParameter="SubnetId" PositionalParameters="MapPublicIpOnLaunch"/>
     <ServiceOperation MethodName="ModifySnapshotAttribute" Output="Void" PipelineParameter="SnapshotId">
       <Params>
         <Param Name="GroupNames" Alias="UserGroup" /> <!-- maintain compat with v1 sdk name -->
@@ -264,6 +264,7 @@
     </ServiceOperation>
     <ServiceOperation MethodName="ModifyVolumeAttribute" Output="Void" PipelineParameter="VolumeId" PositionalParameters="AutoEnableIO"/>
     <ServiceOperation MethodName="ModifyVpcAttribute" Exclude="true"/>
+    <ServiceOperation MethodName="ModifyVpcPeeringConnectionOptions" Noun="VpcPeeringConnectionOption" PipelineParameter="VpcPeeringConnectionId" Output="Response" />
     <ServiceOperation MethodName="ModifyVpcEndpoint" PipelineParameter="VpcEndpointId" Output="Void"/>
     <ServiceOperation MethodName="MonitorInstances" Verb="Start" Noun="InstanceMonitoring" />
     <ServiceOperation MethodName="MoveAddressToVpc" Output="Response"/>

@@ -98,9 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NoReboot
         /// <summary>
         /// <para>
-        /// <para>By default, this parameter is set to <code>false</code>, which means Amazon EC2 attempts
-        /// to shut down the instance cleanly before image creation and then reboots the instance.
-        /// When the parameter is set to <code>true</code>, Amazon EC2 doesn't shut down the instance
+        /// <para>By default, Amazon EC2 attempts to shut down and reboot the instance before creating
+        /// the image. If the 'No Reboot' option is set, Amazon EC2 doesn't shut down the instance
         /// before creating the image. When this option is used, file system integrity on the
         /// created image can't be guaranteed.</para>
         /// </para>

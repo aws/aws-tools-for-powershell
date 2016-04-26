@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code>
         /// for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code>
-        /// for Cold HDD, or <code>standard</code> for Magnetic volumes.</para><para>Default: standard</para>
+        /// for Cold HDD, or <code>standard</code> for Magnetic volumes.</para><para>Default: <code>standard</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

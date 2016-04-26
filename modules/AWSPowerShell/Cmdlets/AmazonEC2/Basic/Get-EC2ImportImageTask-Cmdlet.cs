@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para>
+        /// <para>Filter tasks using the <code>task-state</code> filter and one of the following values:
+        /// active, completed, deleting, deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

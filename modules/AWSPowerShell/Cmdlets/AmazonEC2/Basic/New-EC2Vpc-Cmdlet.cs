@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// includes only a default DNS server that we provide (AmazonProvidedDNS). For more information
     /// about DHCP options, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
     /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// </para><para>
+    /// You can specify the instance tenancy value for the VPC when you create it. You can't
+    /// change this value for the VPC after you create it. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html">Dedicated
+    /// Instances</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Vpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,11 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceTenancy
         /// <summary>
         /// <para>
-        /// <para>The supported tenancy options for instances launched into the VPC. A value of <code>default</code>
-        /// means that instances can be launched with any tenancy; a value of <code>dedicated</code>
-        /// means all instances launched into the VPC are launched as dedicated tenancy instances
-        /// regardless of the tenancy assigned to the instance at launch. Dedicated tenancy instances
-        /// run on single-tenant hardware.</para><para><b>Important:</b> The <code>host</code> value cannot be used with this parameter.
+        /// <para>The tenancy options for instances launched into the VPC. For <code>default</code>,
+        /// instances are launched with shared tenancy by default. You can launch instances with
+        /// any tenancy into a shared tenancy VPC. For <code>dedicated</code>, instances are launched
+        /// as dedicated tenancy instances by default. You can only launch instances with a tenancy
+        /// of <code>dedicated</code> or <code>host</code> into a dedicated tenancy VPC. </para><para><b>Important:</b> The <code>host</code> value cannot be used with this parameter.
         /// Use the <code>default</code> or <code>dedicated</code> values only.</para><para>Default: <code>default</code></para>
         /// </para>
         /// </summary>

@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
-    /// 
+    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
+    /// | <code>snapshot</code> | <code>volume</code>. 
     /// </para><para>
     /// These settings apply to the IAM user who makes the request; they do not apply to the
     /// entire AWS account. By default, an IAM user defaults to the same settings as the root

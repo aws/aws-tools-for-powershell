@@ -28,7 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the status of one or more instances.
+    /// Describes the status of one or more instances. By default, only running instances
+    /// are described, unless specified otherwise.
     /// 
     ///  
     /// <para>
