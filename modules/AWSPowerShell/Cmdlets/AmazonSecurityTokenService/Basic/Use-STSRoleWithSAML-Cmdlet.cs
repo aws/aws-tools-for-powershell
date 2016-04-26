@@ -75,13 +75,23 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// Calling <code>AssumeRoleWithSAML</code> does not require the use of AWS security credentials.
     /// The identity of the caller is validated by using keys in the metadata document that
     /// is uploaded for the SAML provider entity for your identity provider. 
-    /// </para><para>
+    /// </para><important><para>
+    /// Calling <code>AssumeRoleWithSAML</code> can result in an entry in your AWS CloudTrail
+    /// logs. The entry includes the value in the <code>NameID</code> element of the SAML
+    /// assertion. We recommend that you use a NameIDType that is not associated with any
+    /// personally identifiable information (PII). For example, you could instead use the
+    /// Persistent Identifier (<code>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</code>).
+    /// </para></important><para>
     /// For more information, see the following resources:
-    /// </para><ul><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
-    /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html">Creating
-    /// SAML Identity Providers</a> in the <i>IAM User Guide</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html">Configuring
-    /// a Relying Party and Claims</a> in the <i>IAM User Guide</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating
-    /// a Role for SAML 2.0 Federation</a> in the <i>IAM User Guide</i>. </li></ul><member name="RoleArn" target="arnType" /><member name="SAMLAssertion" target="SAMLAssertionType" /><member name="Policy" target="sessionPolicyDocumentType" /><member name="DurationSeconds" target="roleDurationSecondsType" />
+    /// </para><ul><li><para><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
+    /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i>. 
+    /// </para></li><li><para><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html">Creating
+    /// SAML Identity Providers</a> in the <i>IAM User Guide</i>. 
+    /// </para></li><li><para><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html">Configuring
+    /// a Relying Party and Claims</a> in the <i>IAM User Guide</i>. 
+    /// </para></li><li><para><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating
+    /// a Role for SAML 2.0 Federation</a> in the <i>IAM User Guide</i>. 
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Use", "STSRoleWithSAML", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse")]
@@ -98,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <para>The duration, in seconds, of the role session. The value can range from 900 seconds
         /// (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.
         /// An expiration can also be specified in the SAML authentication response's <code>SessionNotOnOrAfter</code>
-        /// value. The actual expiration time is whichever value is shorter. </para><note>The maximum duration for a session is 1 hour, and the minimum duration is 15
-        /// minutes, even if values outside this range are specified. </note>
+        /// value. The actual expiration time is whichever value is shorter. </para><note><para>The maximum duration for a session is 1 hour, and the minimum duration is 15 minutes,
+        /// even if values outside this range are specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -118,10 +128,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// that are in excess of those allowed by the access policy of the role that is being
         /// assumed. For more information, <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
         /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>IAM
-        /// User Guide</i>. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
+        /// User Guide</i>. </para><para>The format for this parameter, as described by its regex pattern, is a string of characters
+        /// up to 2048 characters in length. The characters can be any ASCII character from the
+        /// space character to the end of the valid character list (\u0020-\u00FF). It can also
+        /// include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.</para><note><para>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
         /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
         /// response element indicates by percentage how close to the upper size limit the policy
-        /// is, with 100% equaling the maximum allowed size. </note>
+        /// is, with 100% equaling the maximum allowed size.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

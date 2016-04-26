@@ -69,16 +69,19 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para></li></ul><para><b>Permissions</b></para><para>
     /// The permissions for the temporary security credentials returned by <code>GetFederationToken</code>
     /// are determined by a combination of the following: 
-    /// </para><ul><li>The policy or policies that are attached to the IAM user whose credentials
-    /// are used to call <code>GetFederationToken</code>.</li><li>The policy that is passed
-    /// as a parameter in the call.</li></ul><para>
+    /// </para><ul><li><para>
+    /// The policy or policies that are attached to the IAM user whose credentials are used
+    /// to call <code>GetFederationToken</code>.
+    /// </para></li><li><para>
+    /// The policy that is passed as a parameter in the call.
+    /// </para></li></ul><para>
     /// The passed policy is attached to the temporary security credentials that result from
     /// the <code>GetFederationToken</code> API call--that is, to the <i>federated user</i>.
     /// When the federated user makes an AWS request, AWS evaluates the policy attached to
     /// the federated user in combination with the policy or policies attached to the IAM
     /// user whose credentials were used to call <code>GetFederationToken</code>. AWS allows
-    /// the federated user's request only when both the federated user <i><b>and</b></i> the
-    /// IAM user are explicitly allowed to perform the requested action. The passed policy
+    /// the federated user's request only when both the federated user <i><b>and</b></i>
+    /// the IAM user are explicitly allowed to perform the requested action. The passed policy
     /// cannot grant more permissions than those that are defined in the IAM user policy.
     /// </para><para>
     /// A typical use case is that the permissions of the IAM user whose credentials are used
@@ -91,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// If you do not pass a policy, the resulting temporary security credentials have no
     /// effective permissions. The only exception is when the temporary security credentials
     /// are used to access a resource that has a resource-based policy that specifically allows
-    /// the federated user to access the resource. 
+    /// the federated user to access the resource.
     /// </para><para>
     /// For more information about how permissions work, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html">Permissions
     /// for GetFederationToken</a>. For information about using <code>GetFederationToken</code>
@@ -116,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials
         /// are restricted to a maximum of 3600 seconds (one hour). If the specified duration
         /// is longer than one hour, the session obtained by using AWS account (root) credentials
-        /// defaults to one hour. </para>
+        /// defaults to one hour.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -129,8 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <para>
         /// <para>The name of the federated user. The name is used as an identifier for the temporary
         /// security credentials (such as <code>Bob</code>). For example, you can reference the
-        /// federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.
-        /// </para>
+        /// federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
+        /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
+        /// also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -150,10 +154,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// of the passed policy and the IAM user policy.</para><para>If you do not pass a policy, the resulting temporary security credentials have no
         /// effective permissions. The only exception is when the temporary security credentials
         /// are used to access a resource that has a resource-based policy that specifically allows
-        /// the federated user to access the resource. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
+        /// the federated user to access the resource.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
+        /// up to 2048 characters in length. The characters can be any ASCII character from the
+        /// space character to the end of the valid character list (\u0020-\u00FF). It can also
+        /// include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.</para><note><para>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
         /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
         /// response element indicates by percentage how close to the upper size limit the policy
-        /// is, with 100% equaling the maximum allowed size. </note><para>For more information about how permissions work, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html">Permissions
+        /// is, with 100% equaling the maximum allowed size.</para></note><para>For more information about how permissions work, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html">Permissions
         /// for GetFederationToken</a>.</para>
         /// </para>
         /// </summary>

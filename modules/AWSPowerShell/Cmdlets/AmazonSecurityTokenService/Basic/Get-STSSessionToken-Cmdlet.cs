@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// used to make API calls to any AWS service with the following exceptions:
     /// </para><ul><li><para>
     /// You cannot call any IAM APIs unless MFA authentication information is included in
-    /// the request. 
+    /// the request.
     /// </para></li><li><para>
     /// You cannot call any STS API <i>except</i><code>AssumeRole</code>.
     /// </para></li></ul><note><para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// for IAM user sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours),
         /// with 43200 seconds (12 hours) as the default. Sessions for AWS account owners are
         /// restricted to a maximum of 3600 seconds (one hour). If the duration is longer than
-        /// one hour, the session for AWS account owners defaults to one hour. </para>
+        /// one hour, the session for AWS account owners defaults to one hour.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -111,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// for a hardware device (such as <code>GAHT12345678</code>) or an Amazon Resource Name
         /// (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).
         /// You can find the device for an IAM user by going to the AWS Management Console and
-        /// viewing the user's security credentials. </para>
+        /// viewing the user's security credentials. </para><para>The format for this parameter, as described by its regex pattern, is a string of characters
+        /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
+        /// also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -125,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// IAM user to submit an MFA code, specify this value. If MFA authentication is required,
         /// and the user does not provide a code when requesting a set of temporary security credentials,
         /// the user will receive an "access denied" response when requesting resources that require
-        /// MFA authentication.</para>
+        /// MFA authentication.</para><para>The format for this parameter, as described by its regex pattern, is a sequence of
+        /// six numeric digits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
