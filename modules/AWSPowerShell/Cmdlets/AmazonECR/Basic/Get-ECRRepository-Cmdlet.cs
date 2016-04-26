@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>A list of repositories to describe. If this parameter is omitted, then all repositories
-        /// in a registry are described. </para>
+        /// in a registry are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

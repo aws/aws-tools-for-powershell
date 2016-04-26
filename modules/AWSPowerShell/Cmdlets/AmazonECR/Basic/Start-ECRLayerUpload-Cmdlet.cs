@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Notify Amazon ECR that you intend to upload an image layer. 
+    /// Notify Amazon ECR that you intend to upload an image layer.
     /// 
     ///  <note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general
