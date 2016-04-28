@@ -20,6 +20,7 @@
     <ServiceOperation MethodName="DisableDomainTransferLock" />
     <ServiceOperation MethodName="EnableDomainAutoRenew" Output="Void" />
     <ServiceOperation MethodName="EnableDomainTransferLock" />
+	<ServiceOperation MethodName="GetContactReachabilityStatus" Output="Response" />
     <ServiceOperation MethodName="GetDomainDetail" Output="Response" />
     <ServiceOperation MethodName="GetOperationDetail" Output="Response" />
     <ServiceOperation MethodName="ListDomains" Verb="Get" />
@@ -32,6 +33,8 @@
       </Params>
     </ServiceOperation>
 
+	<ServiceOperation MethodName="ResendContactReachabilityEmail" Verb="Send" Output="Response" />
+	
     <ServiceOperation MethodName="RetrieveDomainAuthCode" Verb="Get" />
     <ServiceOperation MethodName="TransferDomain" Verb="Invoke" Noun="DomainTransfer" ShouldProcessTarget="DomainName">
       <Params>

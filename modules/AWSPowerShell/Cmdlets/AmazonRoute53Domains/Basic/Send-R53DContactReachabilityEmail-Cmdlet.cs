@@ -28,44 +28,49 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation checks the availability of one domain name. Note that if the availability
-    /// status of a domain is pending, you must submit another request to determine the availability
-    /// of the domain name.
+    /// For operations that require confirmation that the email address for the registrant
+    /// contact is valid, such as registering a new domain, this operation resends the confirmation
+    /// email to the current email address for the registrant contact.
     /// </summary>
-    [Cmdlet("Get", "R53DDomainAvailability")]
-    [OutputType("Amazon.Route53Domains.DomainAvailability")]
-    [AWSCmdlet("Invokes the CheckDomainAvailability operation against Amazon Route 53 Domains.", Operation = new[] {"CheckDomainAvailability"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.DomainAvailability",
-        "This cmdlet returns a DomainAvailability object.",
-        "The service call response (type Amazon.Route53Domains.Model.CheckDomainAvailabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Send", "R53DContactReachabilityEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse")]
+    [AWSCmdlet("Invokes the ResendContactReachabilityEmail operation against Amazon Route 53 Domains.", Operation = new[] {"ResendContactReachabilityEmail"})]
+    [AWSCmdletOutput("Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse",
+        "This cmdlet returns a Amazon.Route53Domains.Model.ResendContactReachabilityEmailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53DDomainAvailabilityCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public class SendR53DContactReachabilityEmailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para><para>Required: Yes</para>
+        /// <para>The name of the domain for which you want Amazon Route 53 to resend a confirmation
+        /// email to the registrant contact.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter IdnLangCode
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>Reserved for future use.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String IdnLangCode { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DomainName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-R53DContactReachabilityEmail (ResendContactReachabilityEmail)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -74,7 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             };
             
             context.DomainName = this.DomainName;
-            context.IdnLangCode = this.IdnLangCode;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -86,15 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.CheckDomainAvailabilityRequest();
+            var request = new Amazon.Route53Domains.Model.ResendContactReachabilityEmailRequest();
             
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
-            }
-            if (cmdletContext.IdnLangCode != null)
-            {
-                request.IdnLangCode = cmdletContext.IdnLangCode;
             }
             
             CmdletOutput output;
@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CheckDomainAvailability(request);
+                var response = client.ResendContactReachabilityEmail(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Availability;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -132,7 +132,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         internal class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
-            public System.String IdnLangCode { get; set; }
         }
         
     }

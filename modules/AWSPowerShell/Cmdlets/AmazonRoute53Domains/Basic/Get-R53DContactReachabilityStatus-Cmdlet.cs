@@ -28,39 +28,34 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation checks the availability of one domain name. Note that if the availability
-    /// status of a domain is pending, you must submit another request to determine the availability
-    /// of the domain name.
+    /// For operations that require confirmation that the email address for the registrant
+    /// contact is valid, such as registering a new domain, this operation returns information
+    /// about whether the registrant contact has responded.
+    /// 
+    ///  
+    /// <para>
+    /// If you want us to resend the email, use the <code>ResendContactReachabilityEmail</code>
+    /// operation.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "R53DDomainAvailability")]
-    [OutputType("Amazon.Route53Domains.DomainAvailability")]
-    [AWSCmdlet("Invokes the CheckDomainAvailability operation against Amazon Route 53 Domains.", Operation = new[] {"CheckDomainAvailability"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.DomainAvailability",
-        "This cmdlet returns a DomainAvailability object.",
-        "The service call response (type Amazon.Route53Domains.Model.CheckDomainAvailabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "R53DContactReachabilityStatus")]
+    [OutputType("Amazon.Route53Domains.Model.GetContactReachabilityStatusResponse")]
+    [AWSCmdlet("Invokes the GetContactReachabilityStatus operation against Amazon Route 53 Domains.", Operation = new[] {"GetContactReachabilityStatus"})]
+    [AWSCmdletOutput("Amazon.Route53Domains.Model.GetContactReachabilityStatusResponse",
+        "This cmdlet returns a Amazon.Route53Domains.Model.GetContactReachabilityStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53DDomainAvailabilityCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public class GetR53DContactReachabilityStatusCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para><para>Required: Yes</para>
+        /// <para>The name of the domain for which you want to know whether the registrant contact has
+        /// confirmed that the email address is valid.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
-        #endregion
-        
-        #region Parameter IdnLangCode
-        /// <summary>
-        /// <para>
-        /// <para>Reserved for future use.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String IdnLangCode { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,7 +69,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             };
             
             context.DomainName = this.DomainName;
-            context.IdnLangCode = this.IdnLangCode;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -86,15 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.CheckDomainAvailabilityRequest();
+            var request = new Amazon.Route53Domains.Model.GetContactReachabilityStatusRequest();
             
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
-            }
-            if (cmdletContext.IdnLangCode != null)
-            {
-                request.IdnLangCode = cmdletContext.IdnLangCode;
             }
             
             CmdletOutput output;
@@ -103,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CheckDomainAvailability(request);
+                var response = client.GetContactReachabilityStatus(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Availability;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -132,7 +122,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         internal class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
-            public System.String IdnLangCode { get; set; }
         }
         
     }
