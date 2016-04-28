@@ -1,3 +1,9 @@
+### 3.1.63.0 (2016-04-26)
+  * Amazon EC2
+    - Added a new cmdlet, Edit-EC2VpcPeeringConnectionOption, to support the new ModifyVpcPeeringConnectionOptions API for VPC peering with ClassicLink.
+  * Amazon EC2 Container Registry
+    - The repository object output by Get-ECRRepository and other cmdlets has been extended to include the repository URL.
+
 ### 3.1.62.0 (2016-04-21)
   * AWS IoT
     - Added support for specifying the SQL rules engine to be used with new parameters on the New-IOTTopicRule and Set-IOTTopicRule cmdlets.
