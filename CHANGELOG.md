@@ -1,3 +1,9 @@
+### 3.1.64.0 (2016-04-28)
+  * Amazon Route53 Domains
+    - Add support for new service operations ResendContactReachabilityEmail (Send-R53DContactReachability cmdlet) and GetContactReachabilityStatus (Get-R53DContactReachabilityStatus).
+  * AWS OpsWorks
+    - Updated the New-OPSDeployment and New-OPSInstance cmdlets to add support for default tenancy selection.
+
 ### 3.1.63.0 (2016-04-26)
   * Amazon EC2
     - Added a new cmdlet, Edit-EC2VpcPeeringConnectionOption, to support the new ModifyVpcPeeringConnectionOptions API for VPC peering with ClassicLink.
