@@ -25,6 +25,7 @@ using System.Collections.ObjectModel;
 
 using Amazon.Runtime;
 using Amazon.Util;
+
 using Amazon.SecurityToken.SAML;
 
 namespace Amazon.PowerShell.Common
@@ -135,12 +136,12 @@ namespace Amazon.PowerShell.Common
 
             if (currentCredentials != null)
             {
-                var samlCredentials = currentCredentials.Credentials as StoredProfileSAMLCredentials;
-                if (samlCredentials != null && samlCredentials.RequestUserCredentialCallback != null)
+                var samlCredentials = currentCredentials.Credentials as StoredProfileFederatedCredentials;
+                if (samlCredentials != null)
                 {
-                    // update the custom state we have applied (if the callback is ours) to hold the host
-                    // and any network credential the user has supplied to us as a shell default to fall
-                    // back on if we get called to show the password dialog
+                    // update the custom state we have applied to hold the host and any network credential 
+                    // the user has supplied to us as a shell default to fall back on if we get called to 
+                    // show the password dialog
                     var callbackState = samlCredentials.CustomCallbackState as SAMLCredentialCallbackState;
                     if (callbackState != null) // is our callback that's attached
                     {

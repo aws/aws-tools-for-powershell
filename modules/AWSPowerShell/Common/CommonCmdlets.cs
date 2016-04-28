@@ -18,16 +18,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Management.Automation;
 using Amazon.Runtime;
 using System.Management.Automation.Host;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using Amazon.Util;
-using Amazon.SecurityToken.SAML;
 
 namespace Amazon.PowerShell.Common
 {
@@ -43,9 +39,15 @@ namespace Amazon.PowerShell.Common
     /// <li>Active credentials in the current shell (in the variable $StoredAWSCredentials)</li>
     /// <li>EC2 role metadata (for instances launched with instance profiles)</li>
     /// </ul>
-    /// A default region to assume when the default profile is active is also set using the -Region parameter or 
-    /// from a default region already set in the current shell. If a region setting cannot be determined from
-    /// a parameter or the shell you are prompted to select one.
+    /// A default region to assume when the default profile is active is also set using the -Region parameter,  
+    /// from a default region already set in the current shell or, if the cmdlet is executing on an EC2 instance,
+    /// from the instance metadata. If a region setting cannot be determined from a parameter or the shell you are 
+    /// prompted to select one.
+    /// </para>
+    /// <para>
+    /// Note that if run on an EC2 instance and you want to select a region other than the region containing the
+    /// instance you should supply the -Region parameter so that the cmdlet does not inspect EC2 instance metadata
+    /// to auto-discover the region.
     /// </para>
     /// <para>
     /// In all cases a profile named 'default' will be created or updated to contain the specified credential and
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Common
                 + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
-    public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
+    public class InitializeDefaultsCmdlet : BaseCmdlet, IDynamicParameters
     {
         private object Parameters { get; set; }
 
@@ -89,18 +91,19 @@ namespace Amazon.PowerShell.Common
             {
                 if (commonArguments.TryGetCredentials(Host, out passedCredentials))
                 {
-                    WriteVerbose(string.Format("{0}: Credentials for this shell were set using {1}",
+                    WriteVerbose(string.Format("{0}: Credentials for this shell were set from {1}",
                                                MyInvocation.MyCommand.Name,
                                                ServiceCmdlet.FormatCredentialSourceForDisplay(passedCredentials)));
                 }
 
+
                 RegionSource regionSource;
                 if (commonArguments.TryGetRegion(out passedRegion, out regionSource))
                 {
-                    WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell using {2}",
-                                               MyInvocation.MyCommand.Name, 
-                                               passedRegion.SystemName,
-                                               ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
+                    WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell from {2}",
+                                                MyInvocation.MyCommand.Name,
+                                                passedRegion.SystemName,
+                                                ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
                 }
             }
 

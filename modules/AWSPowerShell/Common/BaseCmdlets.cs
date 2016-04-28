@@ -530,6 +530,11 @@ namespace Amazon.PowerShell.Common
                     return "shell variable $" + SessionKeys.AWSRegionVariableName;
                 case CredentialsSource.Strings:
                     return "the supplied key parameters";
+                case CredentialsSource.Environment:
+                    return string.Format("environment variables ({0}/{1}/{2})",
+                                         EnvironmentVariablesAWSCredentials.ENVIRONMENT_VARIABLE_ACCESSKEY,
+                                         EnvironmentVariablesAWSCredentials.ENVIRONMENT_VARIABLE_SECRETKEY,
+                                         EnvironmentVariablesAWSCredentials.ENVIRONMENT_VARIABLE_SESSION_TOKEN);
             }
 
             // fallback
@@ -552,6 +557,10 @@ namespace Amazon.PowerShell.Common
                     return "shell variable $" + SessionKeys.AWSRegionVariableName;
                 case RegionSource.String:
                     return "region parameter";
+                case RegionSource.Environment:
+                    return string.Concat("environment variable %", EnvironmentVariableAWSRegion.ENVIRONMENT_VARIABLE_REGION, "%");
+                case RegionSource.InstanceMetadata:
+                    return "instance metadata";
             }
 
             // fallback
