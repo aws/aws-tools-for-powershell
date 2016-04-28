@@ -251,6 +251,25 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         public System.String SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tenancy
+        /// <summary>
+        /// <para>
+        /// <para>The instance's tenancy option. The default option is no tenancy, or if the instance
+        /// is running in a VPC, inherit tenancy settings from the VPC. The following are valid
+        /// values for this parameter: <code>dedicated</code>, <code>default</code>, or <code>host</code>.
+        /// Because there are costs associated with changes in tenancy options, we recommend that
+        /// you research tenancy options before choosing them for your instances. For more information
+        /// about dedicated hosts, see <a href="https://aws.amazon.com/ec2/dedicated-hosts/">Dedicated
+        /// Hosts Overview</a> and <a href="https://aws.amazon.com/ec2/dedicated-hosts/">Amazon
+        /// EC2 Dedicated Hosts</a>. For more information about dedicated instances, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html">Dedicated
+        /// Instances</a> and <a href="https://aws.amazon.com/ec2/purchasing-options/dedicated-instances/">Amazon
+        /// EC2 Dedicated Instances</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Tenancy { get; set; }
+        #endregion
+        
         #region Parameter VirtualizationType
         /// <summary>
         /// <para>
@@ -312,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.SshKeyName = this.SshKeyName;
             context.StackId = this.StackId;
             context.SubnetId = this.SubnetId;
+            context.Tenancy = this.Tenancy;
             context.VirtualizationType = this.VirtualizationType;
             
             var output = Execute(context) as CmdletOutput;
@@ -390,6 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             {
                 request.SubnetId = cmdletContext.SubnetId;
             }
+            if (cmdletContext.Tenancy != null)
+            {
+                request.Tenancy = cmdletContext.Tenancy;
+            }
             if (cmdletContext.VirtualizationType != null)
             {
                 request.VirtualizationType = cmdletContext.VirtualizationType;
@@ -445,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             public System.String SshKeyName { get; set; }
             public System.String StackId { get; set; }
             public System.String SubnetId { get; set; }
+            public System.String Tenancy { get; set; }
             public Amazon.OpsWorks.VirtualizationType VirtualizationType { get; set; }
         }
         

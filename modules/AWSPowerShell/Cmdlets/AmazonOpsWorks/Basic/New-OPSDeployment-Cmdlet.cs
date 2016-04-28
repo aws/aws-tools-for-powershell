@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         public System.String[] InstanceId { get; set; }
         #endregion
         
+        #region Parameter LayerId
+        /// <summary>
+        /// <para>
+        /// <para>The layer IDs for the deployment targets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LayerIds")]
+        public System.String[] LayerId { get; set; }
+        #endregion
+        
         #region Parameter Command_Name
         /// <summary>
         /// <para>
@@ -204,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             {
                 context.InstanceIds = new List<System.String>(this.InstanceId);
             }
+            if (this.LayerId != null)
+            {
+                context.LayerIds = new List<System.String>(this.LayerId);
+            }
             context.StackId = this.StackId;
             
             var output = Execute(context) as CmdletOutput;
@@ -263,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             {
                 request.InstanceIds = cmdletContext.InstanceIds;
             }
+            if (cmdletContext.LayerIds != null)
+            {
+                request.LayerIds = cmdletContext.LayerIds;
+            }
             if (cmdletContext.StackId != null)
             {
                 request.StackId = cmdletContext.StackId;
@@ -308,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             public System.String Comment { get; set; }
             public System.String CustomJson { get; set; }
             public List<System.String> InstanceIds { get; set; }
+            public List<System.String> LayerIds { get; set; }
             public System.String StackId { get; set; }
         }
         
