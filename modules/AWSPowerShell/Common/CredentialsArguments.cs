@@ -470,7 +470,7 @@ namespace Amazon.PowerShell.Common
         /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("AK")]
-        [Parameter]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string AccessKey { get; set; }
 
         /// <summary>
@@ -480,7 +480,7 @@ namespace Amazon.PowerShell.Common
         /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("SK", "SecretAccessKey")]
-        [Parameter]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SecretKey { get; set; }
 
         /// <summary>
@@ -489,7 +489,7 @@ namespace Amazon.PowerShell.Common
         /// instance only and cannot be saved to the credential store file.
         /// </summary>
         [Alias("ST")]
-        [Parameter]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SessionToken { get; set; }
 
         /// <summary>
@@ -529,7 +529,7 @@ namespace Amazon.PowerShell.Common
         /// An AWSCredentials object instance containing access and secret key information,
         /// and optionally a token for session-based credentials.
         /// </summary>
-        [Parameter]
+        [Parameter(ValueFromPipeline = true)]
         public AWSCredentials Credential { get; set; }
 
         /// <summary>
@@ -538,7 +538,7 @@ namespace Amazon.PowerShell.Common
         /// configured identity provider's endpoint. This parameter is not required if the
         /// user's default network identity can or should be used during authentication.
         /// </summary>
-        [Parameter]
+        [Parameter(ValueFromPipeline = true)]
         public PSCredential NetworkCredential { get; set; }
 
         public AWSCredentialsArguments(SessionState sessionState)
@@ -587,7 +587,7 @@ namespace Amazon.PowerShell.Common
         /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("AK")]
-        [Parameter]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string AccessKey { get; set; }
 
         /// <summary>
@@ -597,7 +597,7 @@ namespace Amazon.PowerShell.Common
         /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("SK", "SecretAccessKey")]
-        [Parameter]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SecretKey { get; set; }
 
         /// <summary>
@@ -606,7 +606,7 @@ namespace Amazon.PowerShell.Common
         /// instance only and cannot be saved to the credential store file.
         /// </summary>
         [Alias("ST")]
-        [Parameter]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SessionToken { get; set; }
 
         /// <summary>
@@ -646,7 +646,7 @@ namespace Amazon.PowerShell.Common
         /// An AWSCredentials object instance containing access and secret key information,
         /// and optionally a token for session-based credentials.
         /// </summary>
-        [Parameter]
+        [Parameter(ValueFromPipeline = true)]
         public AWSCredentials Credential { get; set; }
 
         /// <summary>
@@ -655,7 +655,7 @@ namespace Amazon.PowerShell.Common
         /// configured identity provider's endpoint. This parameter is not required if the
         /// user's default network identity can or should be used during authentication.
         /// </summary>
-        [Parameter]
+        [Parameter(ValueFromPipeline = true)]
         public PSCredential NetworkCredential { get; set; }
 
         public AWSCommonArguments(SessionState sessionState)
