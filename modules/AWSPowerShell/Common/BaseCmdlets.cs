@@ -369,6 +369,106 @@ namespace Amazon.PowerShell.Common
         }
 
         #endregion
+
+        /// <summary>
+        /// Safely emit a diagnostic message indicating where the credentials we are about to use
+        /// originated from.
+        /// </summary>
+        /// <param name="awsPSCredentials"></param>
+        protected void WriteCredentialSourceDiagnostic(AWSPSCredentials awsPSCredentials)
+        {
+            try
+            {
+                WriteCredentialSourceDiagnostic(FormatCredentialSourceForDisplay(awsPSCredentials));
+            }
+            catch
+            {
+            }
+        }
+
+        /// <summary>
+        /// Emit a diagnostic message indicating where the credentials we are about to use
+        /// originated from.
+        /// </summary>
+        /// <param name="credentialSource"></param>
+        protected void WriteCredentialSourceDiagnostic(string credentialSource)
+        {
+            WriteDebug(string.Format("Credentials obtained from {0}", credentialSource));
+        }
+
+        /// <summary>
+        /// Emit a diagnostic message indicating where the credentials we are about to use
+        /// originated from.
+        /// </summary>
+        /// <param name="regionSource"></param>
+        /// <param name="regionValue"></param>
+        protected void WriteRegionSourceDiagnostic(RegionSource regionSource, string regionValue = null)
+        {
+            WriteRegionSourceDiagnostic(FormatRegionSourceForDisplay(regionSource), regionValue);
+        }
+
+        /// <summary>
+        /// Emit a diagnostic message indicating where the credentials we are about to use
+        /// originated from.
+        /// </summary>
+        /// <param name="regionSource"></param>
+        /// <param name="regionValue"></param>
+        protected void WriteRegionSourceDiagnostic(string regionSource, string regionValue = null)
+        {
+            var sb = new StringBuilder();
+            sb.AppendFormat("Region obtained from {0}", regionSource);
+            if (!String.IsNullOrEmpty(regionValue))
+                sb.AppendFormat(" with value '{0}'", regionValue);
+
+            WriteDebug(sb.ToString());
+        }
+
+        /// <summary>
+        /// Translates enum into a friendlier 'from xxx' display string
+        /// </summary>
+        /// <param name="creds"></param>
+        /// <returns></returns>
+        internal static string FormatCredentialSourceForDisplay(AWSPSCredentials creds)
+        {
+            switch (creds.Source)
+            {
+                case CredentialsSource.CredentialsObject:
+                    return "supplied credentials object";
+                case CredentialsSource.InstanceProfile:
+                    return "instance profile";
+                case CredentialsSource.Saved:
+                    return String.Format("stored profile name '{0}'", creds.Name);
+                case CredentialsSource.Session:
+                    return "shell variable $" + SessionKeys.AWSRegionVariableName;
+                case CredentialsSource.Strings:
+                    return "the supplied key parameters";
+            }
+
+            // fallback
+            return Enum.GetName(typeof(CredentialsSource), creds.Source);
+        }
+        /// <summary>
+        /// Translates enum into a friendlier 'from xxx' display string
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        internal static string FormatRegionSourceForDisplay(RegionSource source)
+        {
+            switch (source)
+            {
+                case RegionSource.RegionObject:
+                    return "supplied region object";
+                case RegionSource.Saved:
+                    return "stored region";
+                case RegionSource.Session:
+                    return "shell variable $" + SessionKeys.AWSRegionVariableName;
+                case RegionSource.String:
+                    return "region parameter";
+            }
+
+            // fallback
+            return Enum.GetName(typeof(RegionSource), source);
+        }
     }
 
     /// <summary>
@@ -458,104 +558,97 @@ namespace Amazon.PowerShell.Common
                 ThrowArgumentError("Unrecognized arguments", this);
         }
 
-        /// <summary>
-        /// Safely emit a diagnostic message indicating where the credentials we are about to use
-        /// originated from.
-        /// </summary>
-        /// <param name="awsPSCredentials"></param>
-        private void WriteCredentialSourceDiagnostic(AWSPSCredentials awsPSCredentials)
+        #region IDynamicParameters Members
+
+        public object GetDynamicParameters()
         {
-            try
+            object context = null;
+            if (this.SessionState != null &&
+                this.SessionState.Drive != null &&
+                this.SessionState.Drive.Current != null)
             {
-                WriteCredentialSourceDiagnostic(FormatCredentialSourceForDisplay(awsPSCredentials));
+                context = this.SessionState.Drive.Current;
             }
-            catch
+            SetDynamicParameters(context);
+            return Parameters;
+        }
+
+        #endregion
+
+        private void SetDynamicParameters(object context)
+        {
+            Parameters = new AWSCommonArguments(this.SessionState);
+        }
+    }
+
+    /// <summary>
+    /// Base class for all AWS cmdlets that interact with an AWS service in some way but can call
+    /// with anonymous user credentials.
+    /// </summary>
+    public abstract class AnonymousServiceCmdlet : BaseCmdlet, IDynamicParameters
+    {
+        protected RegionEndpoint Region { get; private set; }
+
+        private object Parameters { get; set; }
+
+        /// <summary>
+        /// <para>
+        /// The endpoint to make the call against.
+        /// </para>
+        /// <para>
+        /// <b>Note:</b> This parameter is primarily for internal AWS use and is not required/should not be specified for 
+        /// normal usage. The cmdlets normally determine which endpoint to call based on the region specified to the -Region
+        /// parameter or set as default in the shell (via Set-DefaultAWSRegion). Only specify this parameter if you must
+        /// direct the call to a specific custom endpoint.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        public System.String EndpointUrl { get; set; }
+
+        protected virtual string DefaultRegion
+        {
+            get
             {
-            }            
-        }
-
-        /// <summary>
-        /// Emit a diagnostic message indicating where the credentials we are about to use
-        /// originated from.
-        /// </summary>
-        /// <param name="credentialSource"></param>
-        private void WriteCredentialSourceDiagnostic(string credentialSource)
-        {
-            WriteDebug(string.Format("Credentials obtained from {0}", credentialSource));
-        }
-
-        /// <summary>
-        /// Emit a diagnostic message indicating where the credentials we are about to use
-        /// originated from.
-        /// </summary>
-        /// <param name="regionSource"></param>
-        /// <param name="regionValue"></param>
-        private void WriteRegionSourceDiagnostic(RegionSource regionSource, string regionValue = null)
-        {
-            WriteRegionSourceDiagnostic(FormatRegionSourceForDisplay(regionSource), regionValue);
-        }
-
-        /// <summary>
-        /// Emit a diagnostic message indicating where the credentials we are about to use
-        /// originated from.
-        /// </summary>
-        /// <param name="regionSource"></param>
-        /// <param name="regionValue"></param>
-        private void WriteRegionSourceDiagnostic(string regionSource, string regionValue = null)
-        {
-            var sb = new StringBuilder();
-            sb.AppendFormat("Region obtained from {0}", regionSource);
-            if (!String.IsNullOrEmpty(regionValue))
-                sb.AppendFormat(" with value '{0}'", regionValue);
-
-            WriteDebug(sb.ToString());
-        }
-
-        /// <summary>
-        /// Translates enum into a friendlier 'from xxx' display string
-        /// </summary>
-        /// <param name="creds"></param>
-        /// <returns></returns>
-        internal static string FormatCredentialSourceForDisplay(AWSPSCredentials creds)
-        {
-            switch (creds.Source)
-            {
-                case CredentialsSource.CredentialsObject:
-                    return "supplied credentials object";
-                case CredentialsSource.InstanceProfile:
-                    return "instance profile";
-                case CredentialsSource.Saved:
-                    return String.Format("stored profile name '{0}'", creds.Name);
-                case CredentialsSource.Session:
-                    return "shell variable $" + SessionKeys.AWSRegionVariableName;
-                case CredentialsSource.Strings:
-                    return "the supplied key parameters";
+                return null;
             }
-
-            // fallback
-            return Enum.GetName(typeof(CredentialsSource), creds.Source);
         }
-        /// <summary>
-        /// Translates enum into a friendlier 'from xxx' display string
-        /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
-        internal static string FormatRegionSourceForDisplay(RegionSource source)
-        {
-            switch (source)
-            {
-                case RegionSource.RegionObject:
-                    return "supplied region object";
-                case RegionSource.Saved:
-                    return "stored region";
-                case RegionSource.Session:
-                    return "shell variable $" + SessionKeys.AWSRegionVariableName;
-                case RegionSource.String:
-                    return "region parameter";
-            }
 
-            // fallback
-            return Enum.GetName(typeof(RegionSource), source);
+        protected virtual void CustomizeClientConfig(ClientConfig config)
+        {
+            // if user passes $null as value, we see a bound parameter
+            if (ParameterWasBound("EndpointUrl") && !string.IsNullOrEmpty(this.EndpointUrl))
+            {
+                config.ServiceURL = this.EndpointUrl.ToString();
+            }
+        }
+
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+
+            var commonArguments = Parameters as IAWSRegionArguments;
+            if (commonArguments != null)
+            {
+                RegionEndpoint region;
+                RegionSource regionSource;
+                commonArguments.TryGetRegion(out region, out regionSource);
+                Region = region;
+
+                if (Region == null)
+                {
+                    if (String.IsNullOrEmpty(DefaultRegion))
+                        ThrowExecutionError("No region specified or obtained from persisted/shell defaults.", this);
+                    else
+                    {
+                        Region = RegionEndpoint.GetBySystemName(DefaultRegion);
+                        WriteRegionSourceDiagnostic("built-in-default", DefaultRegion);
+                    }
+                }
+                else
+                    WriteRegionSourceDiagnostic(regionSource, region.SystemName);
+            }
+            else
+                ThrowArgumentError("Unrecognized arguments", this);
         }
 
         #region IDynamicParameters Members
@@ -577,7 +670,7 @@ namespace Amazon.PowerShell.Common
 
         private void SetDynamicParameters(object context)
         {
-            Parameters = new AWSCommonArguments(this.SessionState);
+            Parameters = new AWSRegionArguments(this.SessionState);
         }
     }
 

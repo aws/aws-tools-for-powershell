@@ -104,7 +104,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine("public class {0}{1}Cmdlet : {2}Cmdlet, IExecutor",
                                         Operation.SelectedVerb,
                                         Operation.SelectedNoun,
-                                        ServiceConfig.ServiceClient);
+                                        ServiceConfig.GetServiceCmdletClassName(Operation.RequiresAnonymousAuthentication));
                 writer.OpenRegion();
                 {
                     // create cmdlet parameters
@@ -150,7 +150,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     if (MethodAnalysis.RequiresPassThruGeneration)
                         WritePassThruSwitchParam(writer, MethodAnalysis);
 
-                    if (Operation.SupportsAnonymous)
+                    // not the same semantics as the 'Anonymous' attribute - this adds a specific parameter the 
+                    // user can employ to force anonymous auth on cmdlets that support both modes. The Anonymous
+                    // attribute is used to mark cmdlets that are always anonymous.
+                    if (Operation.AnonymousAuthentication == ServiceOperation.AnonymousAuthenticationMode.Optional)
                         WriteAnonymousCredentialsProperty(writer);
 
                     if (requiresSupportsShouldProcess)
@@ -161,7 +164,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("protected override void ProcessRecord()");
                     writer.OpenRegion();
                     {
-                        if (Operation.SupportsAnonymous)
+                        if (Operation.AnonymousAuthentication == ServiceOperation.AnonymousAuthenticationMode.Optional)
                             writer.WriteLine("this.ExecuteWithAnonymousCredentials = this.UseAnonymousCredentials;");
 
                         writer.WriteLine("base.ProcessRecord();");
@@ -247,7 +250,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
         private void WriteAWSCmdletAttributes(IndentedTextWriter writer)
         {
-            var synopsis = string.Format("Invokes the {0} operation against {1}.", Operation.MethodName, ServiceDisplayName);
+            var synopsis = new StringBuilder();
+            synopsis.AppendFormat("Invokes the {0} operation against {1}.", Operation.MethodName, ServiceDisplayName);
+            if (Operation.RequiresAnonymousAuthentication)
+                synopsis.Append(" This operation uses anonymous authentication and does not require credential parameters to be supplied.");
+
             writer.WriteLine("[AWSCmdlet(\"{0}\", Operation = new[] {{\"{1}\"}})]", synopsis, Operation.MethodName);
 
             var analyzedResult = MethodAnalysis.AnalyzedResult;
@@ -662,7 +669,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("var context = new CmdletContext");
             writer.OpenRegion();
             writer.WriteLine("Region = this.Region,");
-            writer.WriteLine("Credentials = this.CurrentCredentials");
+            if (!Operation.RequiresAnonymousAuthentication)
+                writer.WriteLine("Credentials = this.CurrentCredentials");
             writer.CloseRegion("};");
 
             writer.WriteLine();
@@ -832,7 +840,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 writer.WriteLine();
                 writer.WriteLine("// issue call");
-                writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+                if (Operation.RequiresAnonymousAuthentication)
+                    writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                else
+                    writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
 
                 writer.WriteLine("try");
                 writer.OpenRegion();
@@ -1069,7 +1080,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("do");
                     writer.OpenRegion();
                     {
-                        writer.WriteLine("request.{0} = _nextMarker;", ServiceConfig.AutoIterate.Start);
+                        writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
                         writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit))");
                         writer.OpenRegion();
                         {

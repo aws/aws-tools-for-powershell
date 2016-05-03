@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CGIP</ServiceNounPrefix>
+  <ServiceName>Amazon Cognito Identity Provider</ServiceName>
+  <ServiceNamespace>Amazon.CognitoIdentityProvider</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCognitoIdentityProvider</ServiceClientInterface>
+  <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
+
+  <PipelineParameter>UserPoolId</PipelineParameter>
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
+
+  <PipelineByValueProperties>
+    <Property>UserPoolId</Property>
+    <Property>UserName</Property>
+    <Property>ClientId</Property>
+    <Property>ClientName</Property>
+    <Property>PoolName</Property>
+    <Property>AccessToken</Property>
+    <Property>AttributeName</Property>
+  </PipelineByValueProperties>
+
+  <MetadataProperties>
+    <Property>PaginationToken</Property>
+  </MetadataProperties>
+
+  <ServiceOperations>
+
+    <ServiceOperation MethodName="AddCustomAttributes" Output="Void" Noun="CustomAttribute"/>
+    <ServiceOperation MethodName="AdminConfirmSignUp" Output="Void" ShouldProcessTarget="UserName" Verb="Confirm" Noun="UserRegistrationAdmin"/>
+    <ServiceOperation MethodName="AdminDeleteUser" Output="Void" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Remove"/>
+    <ServiceOperation MethodName="AdminDeleteUserAttributes" Output="Void" ShouldProcessTarget="UserName" Noun="UserAttributeAdmin" Verb="Remove"/>
+    <ServiceOperation MethodName="AdminDisableUser" Output="Void" ShouldProcessTarget="UserName" Verb="Disable" Noun="UserAdmin"/>
+    <ServiceOperation MethodName="AdminEnableUser" Output="Void" ShouldProcessTarget="UserName" Verb="Enable" Noun="UserAdmin"/>
+    <ServiceOperation MethodName="AdminGetUser" Output="Response" Verb="Get" Noun="UserAdmin"/>
+    <ServiceOperation MethodName="AdminResetUserPassword" Output="Void" Verb="Reset" Noun="UserPasswordAdmin"/>
+    <ServiceOperation MethodName="AdminSetUserSettings" Output="Void" Verb="Set" Noun="UserSettingAdmin"/>
+    <ServiceOperation MethodName="AdminUpdateUserAttributes" Output="Void" Verb="Update" Noun="UserAttributeAdmin"/>
+    <ServiceOperation MethodName="CreateUserPool" />
+    <ServiceOperation MethodName="CreateUserPoolClient" />
+    <ServiceOperation MethodName="DeleteUserPool" Output="Void"/>
+    <ServiceOperation MethodName="DeleteUserPoolClient" Output="Void" PipelineParameter="ClientId"/>
+    <ServiceOperation MethodName="DescribeUserPool" />
+    <ServiceOperation MethodName="DescribeUserPoolClient" />
+    <ServiceOperation MethodName="ListUserPoolClients" Verb="Get" Noun="UserPoolClientList"/>
+
+    <ServiceOperation MethodName="ListUsers" Verb="Get" Noun="UserList">
+      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
+    </ServiceOperation>
+    
+    <ServiceOperation MethodName="ListUserPools" Verb="Get" Noun="UserPoolList"/>
+    <ServiceOperation MethodName="UpdateUserPool" Output="Void"/>
+    <ServiceOperation MethodName="UpdateUserPoolClient" />
+
+
+    <!-- these operations do not need user auth (they use AnonymousAWSCredentials when instantiating the client) -->
+    <ServiceOperation MethodName="ChangePassword" AnonymousAuthentication="Always" Output="Void" Verb="Update" ShouldProcessTarget="AccessToken"/>
+    <ServiceOperation MethodName="ConfirmForgotPassword" AnonymousAuthentication="Always" Output="Void"/>
+    <ServiceOperation MethodName="ConfirmSignUp" AnonymousAuthentication="Always" Output="Void" Noun="UserRegistration"/>
+    <ServiceOperation MethodName="DeleteUser" AnonymousAuthentication="Always" Output="Void" />
+    <ServiceOperation MethodName="DeleteUserAttributes" AnonymousAuthentication="Always" Output="Void" PipelineParameter="AccessToken" Noun="UserAttribute"/>
+    <ServiceOperation MethodName="ForgotPassword" AnonymousAuthentication="Always" Verb="Reset" Noun="ForgottenPassword" />
+    <ServiceOperation MethodName="GetUser" AnonymousAuthentication="Always" Output="Response"/>
+    <ServiceOperation MethodName="GetUserAttributeVerificationCode" AnonymousAuthentication="Always" />
+    <ServiceOperation MethodName="ResendConfirmationCode" AnonymousAuthentication="Always" Verb="Send"/>
+    <ServiceOperation MethodName="SetUserSettings" AnonymousAuthentication="Always" Output="Void" Noun="UserSetting" ShouldProcessTarget="AccessToken"/>
+    <ServiceOperation MethodName="SignUp" AnonymousAuthentication="Always" Output="Response" Verb="Register" Noun="UserInPool"/>
+    <ServiceOperation MethodName="UpdateUserAttributes" AnonymousAuthentication="Always" Noun="UserAttribute" ShouldProcessTarget="AccessToken"/>
+    <ServiceOperation MethodName="VerifyUserAttribute" AnonymousAuthentication="Always" Output="Void" Verb="Test" PipelineParameter="AccessToken"/>
+
+  </ServiceOperations>
+</ConfigModel>

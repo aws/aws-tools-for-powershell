@@ -1,0 +1,223 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CGIP
+{
+    /// <summary>
+    /// Registers the user in the specified user pool and creates a user name, password, and
+    /// user attributes.
+    /// </summary>
+    [Cmdlet("Register", "CGIPUserInPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.SignUpResponse")]
+    [AWSCmdlet("Invokes the SignUp operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"SignUp"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.SignUpResponse",
+        "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.SignUpResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RegisterCGIPUserInPoolCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the client associated with the user pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientId { get; set; }
+        #endregion
+        
+        #region Parameter Password
+        /// <summary>
+        /// <para>
+        /// <para>The password of the user you wish to register.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Password { get; set; }
+        #endregion
+        
+        #region Parameter SecretHash
+        /// <summary>
+        /// <para>
+        /// <para>A keyed-hash message authentication code (HMAC) calculated using the secret key of
+        /// a user pool client and username plus the client ID in the message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SecretHash { get; set; }
+        #endregion
+        
+        #region Parameter UserAttribute
+        /// <summary>
+        /// <para>
+        /// <para>An array of name-value pairs representing user attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UserAttributes")]
+        public Amazon.CognitoIdentityProvider.Model.AttributeType[] UserAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Username
+        /// <summary>
+        /// <para>
+        /// <para>The user name of the user you wish to register.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Username { get; set; }
+        #endregion
+        
+        #region Parameter ValidationData
+        /// <summary>
+        /// <para>
+        /// <para>The validation data in the request to register a user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CognitoIdentityProvider.Model.AttributeType[] ValidationData { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-CGIPUserInPool (SignUp)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+            };
+            
+            context.ClientId = this.ClientId;
+            context.Password = this.Password;
+            context.SecretHash = this.SecretHash;
+            if (this.UserAttribute != null)
+            {
+                context.UserAttributes = new List<Amazon.CognitoIdentityProvider.Model.AttributeType>(this.UserAttribute);
+            }
+            context.Username = this.Username;
+            if (this.ValidationData != null)
+            {
+                context.ValidationData = new List<Amazon.CognitoIdentityProvider.Model.AttributeType>(this.ValidationData);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CognitoIdentityProvider.Model.SignUpRequest();
+            
+            if (cmdletContext.ClientId != null)
+            {
+                request.ClientId = cmdletContext.ClientId;
+            }
+            if (cmdletContext.Password != null)
+            {
+                request.Password = cmdletContext.Password;
+            }
+            if (cmdletContext.SecretHash != null)
+            {
+                request.SecretHash = cmdletContext.SecretHash;
+            }
+            if (cmdletContext.UserAttributes != null)
+            {
+                request.UserAttributes = cmdletContext.UserAttributes;
+            }
+            if (cmdletContext.Username != null)
+            {
+                request.Username = cmdletContext.Username;
+            }
+            if (cmdletContext.ValidationData != null)
+            {
+                request.ValidationData = cmdletContext.ValidationData;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Region);
+            try
+            {
+                var response = client.SignUp(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String ClientId { get; set; }
+            public System.String Password { get; set; }
+            public System.String SecretHash { get; set; }
+            public List<Amazon.CognitoIdentityProvider.Model.AttributeType> UserAttributes { get; set; }
+            public System.String Username { get; set; }
+            public List<Amazon.CognitoIdentityProvider.Model.AttributeType> ValidationData { get; set; }
+        }
+        
+    }
+}

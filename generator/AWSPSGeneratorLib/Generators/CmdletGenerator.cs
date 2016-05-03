@@ -280,6 +280,8 @@ namespace AWSPowerShellGenerator.Generators
 
             using (var sw = new StringWriter())
             {
+                // if the service has operations requiring anonymous access, we'll generate two clients
+                // one for regular authenticated calls and one using anonymous credentials
                 using (var writer = new IndentedTextWriter(sw))
                 {
                     CmdletServiceClientWriter.Write(writer, 
@@ -549,7 +551,7 @@ namespace AWSPowerShellGenerator.Generators
 
                 if (analyzedResult.SingleResultProperty == null)
                 {
-                    Logger.LogError("Method {0} is configured to produce iteration code, but SingleResultProperty is null (there are multiple properties being returned). This operation may need to be added to itrExclusions for the service.",
+                    Logger.LogError("Method {0} is configured to produce iteration code, but SingleResultProperty is null (there are multiple properties being returned). This operation may need to be added to Exclusions for the service.",
                                     methodName);
                     return;
                 }

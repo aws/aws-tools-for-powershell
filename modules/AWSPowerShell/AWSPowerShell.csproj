@@ -105,6 +105,9 @@
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CognitoIdentityProvider">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>

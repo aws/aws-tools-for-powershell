@@ -572,6 +572,36 @@ namespace AWSPowerShellGenerator.CmdletConfig
             return SupportsShouldProcessVerbs.Contains(selectedVerb);
         }
 
+        public string GetServiceCmdletClassName(bool usingAnonymousAuth)
+        {
+            if (usingAnonymousAuth)
+                return string.Concat("Anonymous", ServiceClient);
+
+            return ServiceClient;
+        }
+
+        private bool? _requiresAnonymousServiceCmdletClass = null;
+        [XmlIgnore]
+        public bool RequiresAnonymousServiceCmdletClass
+        {
+            get
+            {
+                if (_requiresAnonymousServiceCmdletClass == null)
+                {
+                    _requiresAnonymousServiceCmdletClass = false;
+                    foreach (var so in ServiceOperationsList)
+                    {
+                        if (so.RequiresAnonymousAuthentication)
+                        {
+                            _requiresAnonymousServiceCmdletClass = true;
+                            break;
+                        }
+                    }
+                }
+
+                return _requiresAnonymousServiceCmdletClass.Value;
+            }
+        }
         #endregion
 
         #region Generated Output Properties
@@ -773,11 +803,34 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public string ShouldProcessMsgNoun = string.Empty;
 
         /// <summary>
-        /// If the operation needs support for both signed/unsigned requests, this should 
-        /// be set to true. E.g. All Cloud Search Domain operations.
+        /// The type of anonymous authentication permitted for a given operation.
+        /// Most operations require user authentication, some allow it to be optional
+        /// (via an injected SwitchParameter that the user can specify) and others 
+        /// always operate anonymously.
+        /// </summary>
+        public enum AnonymousAuthenticationMode
+        {
+            Never,
+            Optional,
+            Always
+        }
+
+        /// <summary>
+        /// If set 'Always;, the operation is unauthenticated and will be generated to use a
+        /// service cmdlet base class that is configured to use AnonymousCredentials (eventually 
+        /// we could detect this from attribution on the operation in the SDK or C2j model).
         /// </summary>
         [XmlAttribute]
-        public bool SupportsAnonymous = false;
+        public AnonymousAuthenticationMode AnonymousAuthentication = AnonymousAuthenticationMode.Never;
+
+        [XmlIgnore]
+        public bool RequiresAnonymousAuthentication
+        {
+            get
+            {
+                return AnonymousAuthentication == AnonymousAuthenticationMode.Always;
+            }
+        }
 
         /// <summary>
         /// Set of parameter names, ;-delimited, that should have Position data emitted
@@ -1000,22 +1053,22 @@ namespace AWSPowerShellGenerator.CmdletConfig
             None = 0,
 
             /// <summary>
-            /// Only page marker tokens, iterate until itrNext is empty.
-            /// 'AutoIterate itrStart="NextToken" itrNext="NextToken"'
+            /// Only page marker tokens, iterate until Next is empty.
+            /// 'AutoIterate Start="NextToken" Next="NextToken"'
             /// </summary>
             Pattern1,
 
             /// <summary>
-            /// Page marker tokens and ability to control data size; iterate until itrNext is empty.
-            /// 'AutoIterate itrLimit="MaxRecords" itrStart="Marker"    itrNext="Marker"'
+            /// Page marker tokens and ability to control data size; iterate until Next is empty.
+            /// 'AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker"'
             /// </summary>
             Pattern2,
 
             /// <summary>
-            /// Page marker tokens and ability to control data size; iterate until itrNext is empty and also
-            /// have itrTruncated to indicate more data. For generating iteration code, we treat pattern 3
-            /// as pattern 2, since itrTruncated has no real bearing on the iteration loop.
-            /// 'AutoIterate itrLimit="MaxItems" itrStart="Marker" itrNext="Marker" itrTruncated="IsTruncated"'
+            /// Page marker tokens and ability to control data size; iterate until Next is empty and also
+            /// have Truncated to indicate more data. For generating iteration code, we treat pattern 3
+            /// as pattern 2, since Truncated has no real bearing on the iteration loop.
+            /// 'AutoIterate EmitLimit="MaxItems" Start="Marker" Next="Marker" Truncated="IsTruncated"'
             /// </summary>
             Pattern3
         }
@@ -1057,13 +1110,22 @@ namespace AWSPowerShellGenerator.CmdletConfig
 
         /// <summary>
         /// The list of methods which, for whatever reason, we do not support
-        /// autoiteration on. Goal = none :-)
+        /// autoiteration on. Goal = none :-).  ;-delimited list of operation names.
         /// </summary>
         [XmlAttribute]
         public string Exclusions = String.Empty;
 
+        private HashSet<string> _exclusionSet;
         [XmlIgnore]
-        public HashSet<string> ExclusionSet { get { return new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries)); } }
+        public HashSet<string> ExclusionSet
+        {
+            get
+            {
+                if (_exclusionSet == null)
+                    _exclusionSet = new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries));
+                return _exclusionSet;
+            }
+        }
 
         /// <summary>
         /// Allows the generator to filter out properties related to iteration; note that the

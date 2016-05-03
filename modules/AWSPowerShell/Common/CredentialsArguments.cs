@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Common
 {
     #region Credentials arguments
 
-    internal enum CredentialsSource
+    public enum CredentialsSource
     {
         Strings, Saved, CredentialsObject, Session, InstanceProfile, Unknown
     }
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Common
 
     #region Region arguments
 
-    internal enum RegionSource
+    public enum RegionSource
     {
         String, Saved, RegionObject, Session, Unknown
     }
