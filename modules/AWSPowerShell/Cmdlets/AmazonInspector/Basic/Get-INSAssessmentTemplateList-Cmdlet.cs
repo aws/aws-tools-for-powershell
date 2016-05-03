@@ -28,8 +28,8 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Lists the assessment template(s) corresponding to the assessment target(s) specified
-    /// by the assessment targets' ARN(s).
+    /// Lists the assessment templates that correspond to the assessment targets that are
+    /// specified by the ARNs of the assessment targets.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentTemplateList")]
     [OutputType("System.String")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTargetArn
         /// <summary>
         /// <para>
-        /// <para>A list of ARN(s) specifying the assessment target(s) whose assessment template(s)
-        /// you want to list.</para>
+        /// <para>A list of ARNs that specifies the assessment targets whose assessment templates you
+        /// want to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter Filter_NamePattern
         /// <summary>
         /// <para>
-        /// <para>For a record to match a filter, an explicit value or a string containing a wildcard
-        /// specified for this data type property must match the value of the <b>assessmentTemplateName</b>
+        /// <para>For a record to match a filter, an explicit value or a string that contains a wildcard
+        /// that is specified for this data type property must match the value of the <b>assessmentTemplateName</b>
         /// property of the <a>AssessmentTemplate</a> data type.</para>
         /// </para>
         /// </summary>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter Filter_RulesPackageArn
         /// <summary>
         /// <para>
-        /// <para>For a record to match a filter, the value(s) specified for this data type property
+        /// <para>For a record to match a filter, the values that are specified for this data type property
         /// must be contained in the list of values of the <b>rulesPackageArns</b> property of
         /// the <a>AssessmentTemplate</a> data type.</para>
         /// </para>
@@ -118,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to 'null' on your first call to the <b>ListAssessmentTemplates</b> action. Subsequent
+        /// to null on your first call to the <b>ListAssessmentTemplates</b> action. Subsequent
         /// calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b>
-        /// from previous response to continue listing data.</para>
+        /// from the previous response to continue listing data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

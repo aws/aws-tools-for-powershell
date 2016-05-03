@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the IAM role that enables Inspector to access your AWS account.
+    /// Describes the IAM role that enables Amazon Inspector to access your AWS account.
     /// </summary>
     [Cmdlet("Get", "INSCrossAccountAccessRole")]
     [OutputType("Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse")]

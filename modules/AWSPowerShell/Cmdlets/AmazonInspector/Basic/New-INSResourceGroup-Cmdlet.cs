@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
     /// Creates a resource group using the specified set of tags (key and value pairs) that
-    /// are used to select the EC2 instances to be included in an Inspector assessment target.
-    /// The created resource group is then used to create an Inspector assessment target.
+    /// are used to select the EC2 instances to be included in an Amazon Inspector assessment
+    /// target. The created resource group is then used to create an Amazon Inspector assessment
+    /// target. For more information, see <a>CreateAssessmentTarget</a>.
     /// </summary>
     [Cmdlet("New", "INSResourceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter ResourceGroupTag
         /// <summary>
         /// <para>
-        /// <para>A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</para><para>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'. </para>
+        /// <para>A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</para><para>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

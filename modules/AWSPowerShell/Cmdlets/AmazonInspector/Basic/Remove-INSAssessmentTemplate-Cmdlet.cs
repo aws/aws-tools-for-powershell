@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Deletes the assessment template specified by the assessment template ARN.
+    /// Deletes the assessment template that is specified by the ARN of the assessment template.
     /// </summary>
     [Cmdlet("Remove", "INSAssessmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTemplateArn
         /// <summary>
         /// <para>
-        /// <para>The ARN specifying the assessment template that you want to delete.</para>
+        /// <para>The ARN that specifies the assessment template that you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

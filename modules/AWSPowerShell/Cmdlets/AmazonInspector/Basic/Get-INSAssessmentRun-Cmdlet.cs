@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Describes the assessment run(s) specified by the assessment run ARN(s).
+    /// Describes the assessment runs that are specified by the ARNs of the assessment runs.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentRun")]
     [OutputType("Amazon.Inspector.Model.DescribeAssessmentRunsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>
-        /// <para>The ARN(s) specifying the assessment run(s) that you want to describe.</para>
+        /// <para>The ARN that specifies the assessment run that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
