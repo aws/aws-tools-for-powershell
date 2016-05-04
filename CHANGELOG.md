@@ -1,6 +1,6 @@
 ### 3.1.65.0 (2016-04-04)
   * Amazon Cognito Identity Provider
-    - Added support for the new Cognito Identity Provider service. The cmdlets for this service have the noun prefix 'CGIP'; you can view the set of comdlets available and the API functions they map to with the command 'Get-AWSCmdletName -Service cgip'.
+    - Added support for the new Cognito Identity Provider service. The cmdlets for this service have the noun prefix 'CGIP'; you can view the set of cmdlets available and the API functions they map to with the command 'Get-AWSCmdletName -Service cgip'.
 
 ### 3.1.64.0 (2016-04-28)
   * Amazon Route53 Domains
