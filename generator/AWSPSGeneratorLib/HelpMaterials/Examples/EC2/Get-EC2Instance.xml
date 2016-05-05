@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> (Get-EC2Instance -Instance i-12345678).Instances
+    <code>PS C:\> (Get-EC2Instance -InstanceId i-12345678).Instances
     
 AmiLaunchIndex        : 0
 Architecture          : x86_64
@@ -59,6 +59,6 @@ OwnerId       : 123456789012
 RequesterId   : 854251627541
 ReservationId : r-63e65bab
 ...</code>
-    <description>This example describes all your instances.</description>
+    <description>This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.</description>
   </example>
 </examples>

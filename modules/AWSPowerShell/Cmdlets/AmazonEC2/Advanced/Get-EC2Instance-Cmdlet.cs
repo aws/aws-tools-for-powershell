@@ -48,13 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        #region Parameter Instance
+        #region Parameter InstanceId
         /// <summary>
-        /// Identifies the set of instances to return, specified either a collection of string instance ids, 
-        /// or a collection of RunningInstance objects. If not specified, all running instances are returned.
+        /// Identifies the set of instances to return. You can supply a collection of string instance ids, 
+        /// or a collection of Amazon.EC2.Model.Instance objects. If not specified, instances for all reservations
+        /// in the region the cmdlet is invoked against are returned.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline=true)]
-        public System.Object[] Instance { get; set; }
+        public System.Object[] InstanceId { get; set; }
         #endregion
 
         #region Parameter Filter
@@ -164,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                               {
                                   Region = this.Region,
                                   Credentials = this.CurrentCredentials,
-                                  InstanceIds = AmazonEC2Helper.InstanceParamToIDs(this.Instance)
+                                  InstanceIds = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId)
                               };
 
             // process standard parameters, if present

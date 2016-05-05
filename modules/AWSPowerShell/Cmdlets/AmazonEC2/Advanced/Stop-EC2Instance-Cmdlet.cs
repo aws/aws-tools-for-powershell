@@ -63,15 +63,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         const string ParamSet_StopInstances = "StopInstancesParamSet";
         const string ParamSet_TerminateInstances = "TerminateInstancesParamSet";
 
-        #region Parameter Instance
+        #region Parameter InstanceId
         /// <summary>
-        /// Identifies the set of instances to stop or terminate. Accepts a string instance ID 
-        /// or a collection of RunningInstance or Reservation objects.
+        /// Identifies the set of instances to stop or terminate. Accepts one or more string instance IDs,
+        /// or collections of Amazon.EC2.Model.Instance or Amazon.EC2.Model.Reservation objects.
         /// If a Reservation object is supplied, all of the instances in the reservation are
         /// processed.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline=true)]
-        public System.Object[] Instance { get; set; }
+        public System.Object[] InstanceId { get; set; }
         #endregion
 
         #region Parameter ForceStop
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
 
-            var instanceIds = AmazonEC2Helper.InstanceParamToIDs(this.Instance);
+            var instanceIds = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
 
             var resourceIdentifiersText = string.Join(",", instanceIds.ToArray<string>());
             var operation = string.Format("Stop-EC2Instance ({0})", Terminate.IsPresent ? "TerminateInstances" : "StopInstances");

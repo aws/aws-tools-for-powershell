@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Stop-EC2Instance -Instance i-12345678
+    <code>PS C:\> Stop-EC2Instance -InstanceId i-12345678
     
 CurrentState                      InstanceId    PreviousState
 ------------                      ----------    -------------
@@ -9,7 +9,7 @@ Amazon.EC2.Model.InstanceState    i-12345678    Amazon.EC2.Model.InstanceState</
     <description>This example stops the specified instance.</description>
   </example>
   <example>
-    <code>PS C:\> Stop-EC2Instance -Instance i-12345678 -Terminate -Force</code>
+    <code>PS C:\> Stop-EC2Instance -InstanceId i-12345678 -Terminate -Force</code>
     <description>This example terminates the specified instance.</description>
   </example>
 </examples>
