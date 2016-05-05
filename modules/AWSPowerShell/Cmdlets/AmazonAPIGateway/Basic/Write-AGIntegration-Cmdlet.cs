@@ -91,6 +91,23 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String IntegrationHttpMethod { get; set; }
         #endregion
         
+        #region Parameter PassthroughBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the pass-through behavior for incoming requests based on the Content-Type
+        /// header in the request, and the available requestTemplates defined on the Integration.
+        /// There are three valid values: <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>,
+        /// and <code>NEVER</code>.</para><para><code>WHEN_NO_MATCH</code> passes the request body for unmapped content types through
+        /// to the Integration backend without transformation.</para><para><code>NEVER</code> rejects unmapped content types with an HTTP 415 'Unsupported Media
+        /// Type' response.</para><para><code>WHEN_NO_TEMPLATES</code> will allow pass-through when the Integration has NO
+        /// content types mapped to templates. However if there is at least one content type defined,
+        /// unmapped content types will be rejected with the same 415 response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PassthroughBehavior { get; set; }
+        #endregion
+        
         #region Parameter RequestParameter
         /// <summary>
         /// <para>
@@ -111,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RequestTemplate
         /// <summary>
         /// <para>
-        /// <para>Specifies the templates used to transform the method request body. Request templates
-        /// are represented as a key/value map, with a content-type as the key and a template
-        /// as the value.</para>
+        /// <para>Represents a map of Velocity templates that are applied on the request payload based
+        /// on the value of the Content-Type header sent by the client. The content type value
+        /// is the key in this map, and the template (as a String) is the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.TargetCredential = this.TargetCredential;
             context.HttpMethod = this.HttpMethod;
             context.IntegrationHttpMethod = this.IntegrationHttpMethod;
+            context.PassthroughBehavior = this.PassthroughBehavior;
             if (this.RequestParameter != null)
             {
                 context.RequestParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -251,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.IntegrationHttpMethod != null)
             {
                 request.IntegrationHttpMethod = cmdletContext.IntegrationHttpMethod;
+            }
+            if (cmdletContext.PassthroughBehavior != null)
+            {
+                request.PassthroughBehavior = cmdletContext.PassthroughBehavior;
             }
             if (cmdletContext.RequestParameters != null)
             {
@@ -316,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String TargetCredential { get; set; }
             public System.String HttpMethod { get; set; }
             public System.String IntegrationHttpMethod { get; set; }
+            public System.String PassthroughBehavior { get; set; }
             public Dictionary<System.String, System.String> RequestParameters { get; set; }
             public Dictionary<System.String, System.String> RequestTemplates { get; set; }
             public System.String ResourceId { get; set; }
