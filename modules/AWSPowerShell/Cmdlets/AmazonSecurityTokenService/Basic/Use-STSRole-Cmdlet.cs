@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// 
     ///  
     /// <para><b>Important:</b> You cannot call <code>AssumeRole</code> by using AWS root account
-    /// credentials; access is denied. You must use IAM user credentials or temporary security
-    /// credentials to call <code>AssumeRole</code>. 
+    /// credentials; access is denied. You must use credentials for an IAM user or an IAM
+    /// role to call <code>AssumeRole</code>. 
     /// </para><para>
     /// For cross-account access, imagine that you own multiple accounts and need to access
     /// resources in each account. You could create long-term credentials in each account
