@@ -35,6 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
+    /// In addition to maintaining the desired count of tasks in your service, you can optionally
+    /// run your service behind a load balancer. The load balancer distributes traffic across
+    /// the tasks that are associated with the service.
+    /// </para><para>
     /// You can optionally specify a deployment configuration for your service. During a deployment
     /// (which is triggered by changing the task definition of a service with an <a>UpdateService</a>
     /// operation), the service scheduler uses the <code>minimumHealthyPercent</code> and
@@ -121,9 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LoadBalancer
         /// <summary>
         /// <para>
-        /// <para>A list of load balancer objects, containing the load balancer name, the container
-        /// name (as it appears in a container definition), and the container port to access from
-        /// the load balancer.</para>
+        /// <para>A load balancer object representing the load balancer to use with your service.</para><para>For Elastic Load Balancing standard load balancers, this object must contain the load
+        /// balancer name, the container name (as it appears in a container definition), and the
+        /// container port to access from the load balancer. When a task from this service is
+        /// placed on a container instance, the container instance is registered with the load
+        /// balancer specified here.</para><para>For Elastic Load Balancing application load balancers, this object must contain the
+        /// load balancer target group ARN, the container name (as it appears in a container definition),
+        /// and the container port to access from the load balancer. When a task from this service
+        /// is placed on a container instance, the container instance and port combination is
+        /// registered as a target in the target group specified here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
