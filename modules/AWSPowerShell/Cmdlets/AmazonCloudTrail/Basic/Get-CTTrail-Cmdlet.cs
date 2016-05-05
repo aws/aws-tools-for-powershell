@@ -57,16 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The
-        /// format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.
-        /// If an empty list is specified, information for the trail in the current region is
-        /// returned.</para><ul><li>If an empty list is specified and <code>IncludeShadowTrails</code> is false,
-        /// then information for all trails in the current region is returned.</li><li> If an
-        /// empty list is specified and IncludeShadowTrails is null or true, then information
+        /// format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para><para>If an empty list is specified, information for the trail in the current region is
+        /// returned.</para><ul><li><para>If an empty list is specified and <code>IncludeShadowTrails</code> is false, then
+        /// information for all trails in the current region is returned.</para></li><li><para>If an empty list is specified and IncludeShadowTrails is null or true, then information
         /// for all trails in the current region and any associated shadow trails in other regions
-        /// is returned. </li></ul><note>If one or more trail names are specified, information
-        /// is returned only if the names match the names of trails belonging only to the current
-        /// region. To return information about a trail in another region, you must specify its
-        /// trail ARN.</note>
+        /// is returned.</para></li></ul><note><para>If one or more trail names are specified, information is returned only if the names
+        /// match the names of trails belonging only to the current region. To return information
+        /// about a trail in another region, you must specify its trail ARN.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

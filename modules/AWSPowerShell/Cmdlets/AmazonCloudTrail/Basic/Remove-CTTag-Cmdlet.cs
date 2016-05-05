@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the trail from which tags should be removed. The format of a
-        /// trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter TagsList
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of tags to be removed. </para>
+        /// <para>Specifies a list of tags to be removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

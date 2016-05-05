@@ -28,12 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lists the tags for the specified trail or trails in the current region.
-    /// 
-    ///  
-    /// <para>
     /// Lists the tags for the trail in the current region.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "CTTag")]
     [OutputType("Amazon.CloudTrail.Model.ResourceTag")]
@@ -50,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of
-        /// 20 ARNs. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// 20 ARNs. The format of a trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

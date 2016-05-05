@@ -36,12 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// maximum number of attributes that can be specified in any one lookup request are time
     /// range and one other attribute. The default number of results returned is 10, with
     /// a maximum of 50 possible. The response includes a token that you can use to get the
-    /// next page of results. 
+    /// next page of results.
     /// 
-    ///  <important>The rate of lookup requests is limited to one per second per account.
-    /// If this limit is exceeded, a throttling error occurs. </important><important>Events
-    /// that occurred during the selected time range will not be available for lookup if CloudTrail
-    /// logging was not enabled when the events occurred.</important>
+    ///  <important><para>
+    /// The rate of lookup requests is limited to one per second per account. If this limit
+    /// is exceeded, a throttling error occurs.
+    /// </para></important><important><para>
+    /// Events that occurred during the selected time range will not be available for lookup
+    /// if CloudTrail logging was not enabled when the events occurred.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Find", "CTEvents")]
     [OutputType("Amazon.CloudTrail.Model.Event")]
