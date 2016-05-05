@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by
-    /// using any of the following functions: <ul><li><a>GenerateDataKey</a></li><li><a>GenerateDataKeyWithoutPlaintext</a></li><li><a>Encrypt</a></li></ul><para>
+    /// using any of the following functions:
+    /// 
+    ///  <ul><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li><li><para><a>Encrypt</a></para></li></ul><para>
     /// Note that if a caller has been granted access permissions to all keys (through, for
     /// example, IAM user policies that grant <code>Decrypt</code> permission on all resources),
     /// then ciphertext encrypted by using keys in other accounts where the key grants access
@@ -37,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <code>Decrypt</code> access in an IAM user policy. Instead grant <code>Decrypt</code>
     /// access only in key policies. If you must grant <code>Decrypt</code> access in an IAM
     /// user policy, you should scope the resource to specific keys or to specific trusted
-    /// accounts. 
+    /// accounts.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSDecrypt")]
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>The encryption context. If this was specified in the <a>Encrypt</a> function, it must
         /// be specified here or the decryption operation will fail. For more information, see
         /// <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html">Encryption
-        /// Context</a>. </para>
+        /// Context</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GrantToken
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// <para>A list of grant tokens.</para><para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
         /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,13 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Attaches a policy to the specified key.
+    /// Attaches a key policy to the specified customer master key (CMK).
+    /// 
+    ///  
+    /// <para>
+    /// For more information about key policies, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key
+    /// Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "KMSKeyPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -40,11 +46,23 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public class WriteKMSKeyPolicyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter BypassPolicyLockoutSafetyCheck
+        /// <summary>
+        /// <para>
+        /// <para>A flag to indicate whether to bypass the key policy lockout safety check.</para><important><para>Setting this value to true increases the likelihood that the CMK becomes unmanageable.
+        /// Do not set this value to true indiscriminately.</para><para>For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you intend to prevent the principal making the request
+        /// from making a subsequent <code>PutKeyPolicy</code> request on the CMK.</para><para>The default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean BypassPolicyLockoutSafetyCheck { get; set; }
+        #endregion
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier or the fully specified ARN to a key. <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para>
+        /// <para>A unique identifier for the CMK.</para><para>Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:</para><ul><li><para>Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para></li><li><para>ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,8 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The policy to attach to the key. This is required and delegates back to the account.
-        /// The key is the root of trust. The policy size limit is 32 KiB (32768 bytes). </para>
+        /// <para>The key policy to attach to the CMK.</para><para>The key policy must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>PutKeyPolicy</code> request to make a
+        /// subsequent <code>PutKeyPolicy</code> request on the CMK. This reduces the likelihood
+        /// that the CMK becomes unmanageable. For more information, refer to the scenario in
+        /// the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></li><li><para>The principal(s) specified in the key policy must exist and be visible to AWS KMS.
+        /// When you create a new AWS principal (for example, an IAM user or role), you might
+        /// need to enforce a delay before specifying the new principal in a key policy because
+        /// the new principal might not immediately be visible to AWS KMS. For more information,
+        /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
+        /// that I make are not always immediately visible</a> in the <i>IAM User Guide</i>.</para></li></ul><para>The policy size limit is 32 KiB (32768 bytes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>Name of the policy to be attached. Currently, the only supported name is "default".</para>
+        /// <para>The name of the key policy.</para><para>This value must be <code>default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,6 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("BypassPolicyLockoutSafetyCheck"))
+                context.BypassPolicyLockoutSafetyCheck = this.BypassPolicyLockoutSafetyCheck;
             context.KeyId = this.KeyId;
             context.Policy = this.Policy;
             context.PolicyName = this.PolicyName;
@@ -123,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request
             var request = new Amazon.KeyManagementService.Model.PutKeyPolicyRequest();
             
+            if (cmdletContext.BypassPolicyLockoutSafetyCheck != null)
+            {
+                request.BypassPolicyLockoutSafetyCheck = cmdletContext.BypassPolicyLockoutSafetyCheck.Value;
+            }
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
@@ -172,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BypassPolicyLockoutSafetyCheck { get; set; }
             public System.String KeyId { get; set; }
             public System.String Policy { get; set; }
             public System.String PolicyName { get; set; }

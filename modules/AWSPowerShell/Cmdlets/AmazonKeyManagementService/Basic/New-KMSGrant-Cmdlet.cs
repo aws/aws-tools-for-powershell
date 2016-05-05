@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GrantToken
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// <para>A list of grant tokens.</para><para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
         /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the customer master key (CMK) that the grant applies to.</para><para>To specify this value, use the globally unique key ID or the Amazon Resource Name
-        /// (ARN) of the key. Examples: <ul><li>Globally unique key ID: 12345678-1234-1234-1234-123456789012</li><li>Key ARN: arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012</li></ul></para>
+        /// (ARN) of the key. Examples:</para><ul><li><para>Globally unique key ID: 12345678-1234-1234-1234-123456789012</para></li><li><para>Key ARN: arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>A list of operations that the grant permits. The list can contain any combination
-        /// of one or more of the following values: <ul><li>Decrypt</li><li>Encrypt</li><li>GenerateDataKey</li><li>GenerateDataKeyWithoutPlaintext</li><li>ReEncryptFrom</li><li>ReEncryptTo</li><li>CreateGrant</li><li>RetireGrant</li></ul></para>
+        /// of one or more of the following values:</para><ul><li><para><a>Decrypt</a></para></li><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li><li><para><a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html">ReEncryptFrom</a></para></li><li><para><a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html">ReEncryptTo</a></para></li><li><para><a>CreateGrant</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>DescribeKey</a></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

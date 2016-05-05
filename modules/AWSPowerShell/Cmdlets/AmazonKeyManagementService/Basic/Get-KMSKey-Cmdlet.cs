@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GrantToken
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// <para>A list of grant tokens.</para><para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
         /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
         /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
-        /// by "alias/". <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li><li>Alias
-        /// Name Example - alias/MyAliasName</li></ul></para>
+        /// by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

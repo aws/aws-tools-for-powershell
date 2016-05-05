@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Integer that contains the number of bytes to generate. Common values are 128, 256,
-        /// 512, 1024 and so on. The current limit is 1024 bytes. </para>
+        /// 512, 1024 and so on. The current limit is 1024 bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

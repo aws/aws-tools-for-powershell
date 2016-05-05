@@ -28,10 +28,19 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Creates a customer master key. Customer master keys can be used to encrypt small amounts
-    /// of data (less than 4K) directly, but they are most commonly used to encrypt or envelope
-    /// data keys that are then used to encrypt customer data. For more information about
-    /// data keys, see <a>GenerateDataKey</a> and <a>GenerateDataKeyWithoutPlaintext</a>.
+    /// Creates a customer master key (CMK).
+    /// 
+    ///  
+    /// <para>
+    /// You can use a CMK to encrypt small amounts of data (4 KiB or less) directly, but CMKs
+    /// are more commonly used to encrypt data encryption keys (DEKs), which are used to encrypt
+    /// raw data. For more information about DEKs and the difference between CMKs and DEKs,
+    /// see the following:
+    /// </para><ul><li><para>
+    /// The <a>GenerateDataKey</a> operation
+    /// </para></li><li><para><a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS
+    /// Key Management Service Concepts</a> in the <i>AWS Key Management Service Developer
+    /// Guide</i></para></li></ul>
     /// </summary>
     [Cmdlet("New", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]
@@ -43,11 +52,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public class NewKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter BypassPolicyLockoutSafetyCheck
+        /// <summary>
+        /// <para>
+        /// <para>A flag to indicate whether to bypass the key policy lockout safety check.</para><important><para>Setting this value to true increases the likelihood that the CMK becomes unmanageable.
+        /// Do not set this value to true indiscriminately.</para><para>For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you include a policy in the request and you intend to
+        /// prevent the principal making the request from making a subsequent <a>PutKeyPolicy</a>
+        /// request on the CMK.</para><para>The default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean BypassPolicyLockoutSafetyCheck { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the key. We recommend that you choose a description that helps your
-        /// customer decide whether the key is appropriate for a task. </para>
+        /// <para>A description of the CMK.</para><para>Use a description that helps you decide whether the CMK is appropriate for a task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyUsage
         /// <summary>
         /// <para>
-        /// <para>Specifies the intended use of the key. Currently this defaults to ENCRYPT/DECRYPT,
-        /// and only symmetric encryption and decryption are supported. </para>
+        /// <para>The intended use of the CMK.</para><para>You can use CMKs only for symmetric encryption and decryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,8 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>Policy to attach to the key. This is required and delegates back to the account. The
-        /// key is the root of trust. The policy size limit is 32 KiB (32768 bytes). </para>
+        /// <para>The key policy to attach to the CMK.</para><para>If you specify a key policy, it must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>CreateKey</code> request to make a subsequent
+        /// <a>PutKeyPolicy</a> request on the CMK. This reduces the likelihood that the CMK becomes
+        /// unmanageable. For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></li><li><para>The principal(s) specified in the key policy must exist and be visible to AWS KMS.
+        /// When you create a new AWS principal (for example, an IAM user or role), you might
+        /// need to enforce a delay before specifying the new principal in a key policy because
+        /// the new principal might not immediately be visible to AWS KMS. For more information,
+        /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
+        /// that I make are not always immediately visible</a> in the <i>IAM User Guide</i>.</para></li></ul><para>If you do not specify a policy, AWS KMS attaches a default key policy to the CMK.
+        /// For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
+        /// Key Policy</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The policy size limit is 32 KiB (32768 bytes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,6 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("BypassPolicyLockoutSafetyCheck"))
+                context.BypassPolicyLockoutSafetyCheck = this.BypassPolicyLockoutSafetyCheck;
             context.Description = this.Description;
             context.KeyUsage = this.KeyUsage;
             context.Policy = this.Policy;
@@ -119,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request
             var request = new Amazon.KeyManagementService.Model.CreateKeyRequest();
             
+            if (cmdletContext.BypassPolicyLockoutSafetyCheck != null)
+            {
+                request.BypassPolicyLockoutSafetyCheck = cmdletContext.BypassPolicyLockoutSafetyCheck.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -166,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BypassPolicyLockoutSafetyCheck { get; set; }
             public System.String Description { get; set; }
             public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
             public System.String Policy { get; set; }

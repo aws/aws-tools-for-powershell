@@ -32,7 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// plaintext of the data on the client side. The data is first decrypted and then encrypted.
     /// This operation can also be used to change the encryption context of a ciphertext.
     /// 
-    /// 
     ///  
     /// <para>
     /// Unlike other actions, <code>ReEncrypt</code> is authorized twice - once as <code>ReEncryptFrom</code>
@@ -41,7 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// in your key policies to permit re-encryption from or to the key. The statement is
     /// included automatically when you authorize use of the key through the console but must
     /// be included manually when you set a policy by using the <a>PutKeyPolicy</a> function.
-    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSReEncrypt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>A unique identifier for the customer master key used to re-encrypt the data. This
         /// value can be a globally unique identifier, a fully specified ARN to either an alias
-        /// or a key, or an alias name prefixed by "alias/". <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li><li>Alias
-        /// Name Example - alias/MyAliasName</li></ul></para>
+        /// or a key, or an alias name prefixed by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GrantToken
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// <para>A list of grant tokens.</para><para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
         /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -102,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Encryption context used to encrypt and decrypt the data specified in the <code>CiphertextBlob</code>
-        /// parameter. </para>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
