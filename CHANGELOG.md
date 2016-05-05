@@ -1,4 +1,12 @@
-### 3.1.65.0 (2016-04-04)
+### 3.1.66.0 (2016-05-05)
+  * Amazon EC2
+    - The parameter '-Instance' on the Get-EC2Instance and Stop-EC2Instance cmdlets has been renamed to '-InstanceId' to match usage in other EC2 cmdlets (this is a backwards compatible change). The two affected cmdlets continue to accept collections of string instance ids, Amazon.EC2.Model.Instance objects or Amazon.EC2.Model.Reservation objects to specify the instances to operate on.
+  * AWS Key Management, Amazon Security Token Service
+    - Updated cmdlet documentation to match the latest service API reference.
+  * Amazon API Gateway
+    - Updated the Write-AGIntegration cmdlet to support a new parameter, -PassthroughBehavior. This parameter enables you to configure pass-through behavior for incoming requests based on the Content-Type header and the available request templates defined on the integration.
+
+### 3.1.65.0 (2016-05-03)
   * Amazon Cognito Identity Provider
     - Added support for the new Cognito Identity Provider service. The cmdlets for this service have the noun prefix 'CGIP'; you can view the set of cmdlets available and the API functions they map to with the command 'Get-AWSCmdletName -Service cgip'.
 
