@@ -105,6 +105,7 @@
     <ServiceOperation MethodName="ListBuckets" Exclude="true"/>
     <ServiceOperation MethodName="ListMultipartUploads" Exclude="true"/>
     <ServiceOperation MethodName="ListObjects" Exclude="true"/>
+    <ServiceOperation MethodName="ListObjectsV2" Exclude="true"/>
     <ServiceOperation MethodName="ListParts" Exclude="true"/>
     <ServiceOperation MethodName="ListVersions" Output="Response" PositionalParameters="Prefix"/>
     <ServiceOperation MethodName="PutACL" Exclude="true"/>
