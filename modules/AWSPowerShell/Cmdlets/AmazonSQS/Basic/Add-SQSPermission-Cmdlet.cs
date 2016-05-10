@@ -41,9 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// your own policy, use <a>SetQueueAttributes</a> to upload your policy. For more information
     /// about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html">Using
     /// The Access Policy Language</a> in the <i>Amazon SQS Developer Guide</i>.
-    /// </para></note><note>Some API actions take lists of parameters. These lists are specified
-    /// using the <code>param.n</code> notation. Values of <code>n</code> are integers starting
-    /// from 1. For example, a parameter list with two elements looks like this: </note><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para>
+    /// </para></note><note><para>
+    /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
+    /// list with two elements looks like this:
+    /// </para></note><para><code><![CDATA[&amp;Attribute.1=this]]></code></para><para><code><![CDATA[&amp;Attribute.2=that]]></code></para>
     /// </summary>
     [Cmdlet("Add", "SQSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -103,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para>
+        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

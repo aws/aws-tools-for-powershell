@@ -33,12 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// You can send up to 10 <a>ChangeMessageVisibility</a> requests with each <code>ChangeMessageVisibilityBatch</code>
     /// action.
     /// 
-    ///  <important>Because the batch request can result in a combination of successful and
-    /// unsuccessful actions, you should check for batch errors even when the call returns
-    /// an HTTP status code of 200.</important><note>Some API actions take lists of parameters.
-    /// These lists are specified using the <code>param.n</code> notation. Values of <code>n</code>
-    /// are integers starting from 1. For example, a parameter list with two elements looks
-    /// like this: </note><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para>
+    ///  <important><para>
+    /// Because the batch request can result in a combination of successful and unsuccessful
+    /// actions, you should check for batch errors even when the call returns an HTTP status
+    /// code of 200.
+    /// </para></important><note><para>
+    /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
+    /// list with two elements looks like this:
+    /// </para></note><para><code><![CDATA[&amp;Attribute.1=this]]></code></para><para><code><![CDATA[&amp;Attribute.2=that]]></code></para>
     /// </summary>
     [Cmdlet("Edit", "SQSMessageVisibilityBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse")]
@@ -64,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para>
+        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

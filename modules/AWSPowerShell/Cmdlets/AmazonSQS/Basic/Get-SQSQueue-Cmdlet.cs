@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>A string to use for filtering the list results. Only those queues whose name begins
-        /// with the specified string are returned.</para>
+        /// with the specified string are returned.</para><para>Queue names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

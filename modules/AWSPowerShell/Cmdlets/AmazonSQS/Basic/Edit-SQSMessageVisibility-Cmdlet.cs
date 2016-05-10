@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     ///  
     /// <para>
     /// For example, let's say you have a message and its default message visibility timeout
-    /// is 30 minutes. You could call <code>ChangeMessageVisiblity</code> with a value of
-    /// two hours and the effective timeout would be two hours and 30 minutes. When that time
-    /// comes near you could again extend the time out by calling ChangeMessageVisiblity,
-    /// but this time the maximum allowed timeout would be 9 hours and 30 minutes.
+    /// is 5 minutes. After 3 minutes, you call <code>ChangeMessageVisiblity</code> with a
+    /// timeout of 10 minutes. At that time, the timeout for the message would be extended
+    /// by 10 minutes beyond the time of the ChangeMessageVisibility call. This results in
+    /// a total visibility timeout of 13 minutes. You can continue to call ChangeMessageVisibility
+    /// to extend the visibility timeout to a maximum of 12 hours. If you try to extend beyond
+    /// 12 hours, the request will be rejected.
     /// </para><note><para>
     /// There is a 120,000 limit for the number of inflight messages per queue. Messages are
     /// inflight after they have been received from the queue by a consuming component, but
@@ -48,14 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// receive an OverLimit error message from Amazon SQS. To help avoid reaching the limit,
     /// you should delete the messages from the queue after they have been processed. You
     /// can also increase the number of queues you use to process the messages. 
-    /// </para></note><important>If you attempt to set the <code>VisibilityTimeout</code> to an
-    /// amount more than the maximum time left, Amazon SQS returns an error. It will not automatically
-    /// recalculate and increase the timeout to the maximum time remaining.</important><important>Unlike
-    /// with a queue, when you change the visibility timeout for a specific message, that
-    /// timeout value is applied immediately but is not saved in memory for that message.
+    /// </para></note><important><para>
+    /// If you attempt to set the <code>VisibilityTimeout</code> to an amount more than the
+    /// maximum time left, Amazon SQS returns an error. It will not automatically recalculate
+    /// and increase the timeout to the maximum time remaining.
+    /// </para></important><important><para>
+    /// Unlike with a queue, when you change the visibility timeout for a specific message,
+    /// that timeout value is applied immediately but is not saved in memory for that message.
     /// If you don't delete a message after it is received, the visibility timeout for the
     /// message the next time it is received reverts to the original timeout value, not the
-    /// value you set with the <code>ChangeMessageVisibility</code> action.</important>
+    /// value you set with the <code>ChangeMessageVisibility</code> action.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Edit", "SQSMessageVisibility", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -70,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para>
+        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

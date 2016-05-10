@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric
-        /// characters, hyphens (-), and underscores (_) are allowed.</para>
+        /// characters, hyphens (-), and underscores (_) are allowed.</para><para>Queue names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
