@@ -28,13 +28,13 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists the server certificates that have the specified path prefix. If none exist,
-    /// the action returns an empty list. 
+    /// Lists the server certificates stored in IAM that have the specified path prefix. If
+    /// none exist, the action returns an empty list.
     /// 
     ///  
     /// <para>
     ///  You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters. 
+    /// parameters.
     /// </para><para>
     /// For more information about working with server certificates, including a list of AWS
     /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
@@ -56,9 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The path prefix for filtering the results. For example: <code>/company/servercerts</code>
-        /// would get all server certificates for which the path starts with <code>/company/servercerts</code>.
-        /// </para><para> This parameter is optional. If it is not included, it defaults to a slash (/), listing
-        /// all server certificates. </para>
+        /// would get all server certificates for which the path starts with <code>/company/servercerts</code>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/), listing
+        /// all server certificates. The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+        /// for this parameter is a string of characters consisting of either a forward slash
+        /// (/) by itself or a string that must begin and end with forward slashes, containing
+        /// any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including
+        /// most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -87,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

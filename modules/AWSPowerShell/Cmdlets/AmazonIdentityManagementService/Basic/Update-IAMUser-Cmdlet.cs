@@ -28,16 +28,20 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Updates the name and/or the path of the specified user.
+    /// Updates the name and/or the path of the specified IAM user.
     /// 
-    ///  <important> You should understand the implications of changing a user's path or name.
-    /// For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming
+    ///  <important><para>
+    ///  You should understand the implications of changing an IAM user's path or name. For
+    /// more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming
     /// an IAM User</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming
-    /// an IAM Group</a> in the <i>IAM User Guide</i>. </important><note> To change a user
-    /// name the requester must have appropriate permissions on both the source object and
-    /// the target object. For example, to change Bob to Robert, the entity making the request
-    /// must have permission on Bob and Robert, or must have permission on all (*). For more
-    /// information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html" target="blank">Permissions and Policies</a>. </note>
+    /// an IAM Group</a> in the <i>IAM User Guide</i>.
+    /// </para></important><note><para>
+    ///  To change a user name the requester must have appropriate permissions on both the
+    /// source object and the target object. For example, to change Bob to Robert, the entity
+    /// making the request must have permission on Bob and Robert, or must have permission
+    /// on all (*). For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
+    /// and Policies</a>. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -52,7 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NewPath
         /// <summary>
         /// <para>
-        /// <para>New path for the user. Include this parameter only if you're changing the user's path.</para>
+        /// <para>New path for the IAM user. Include this parameter only if you're changing the user's
+        /// path.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of either a forward slash (/) by itself or a
+        /// string that must begin and end with forward slashes, containing any ASCII character
+        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -62,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NewUserName
         /// <summary>
         /// <para>
-        /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para>
+        /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -73,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Name of the user to update. If you're changing the name of the user, this is the original
-        /// user name. </para>
+        /// user name.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

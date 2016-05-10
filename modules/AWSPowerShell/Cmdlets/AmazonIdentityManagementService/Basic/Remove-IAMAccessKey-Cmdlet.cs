@@ -28,14 +28,14 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the access key associated with the specified user.
+    /// Deletes the access key pair associated with the specified IAM user.
     /// 
     ///  
     /// <para>
-    ///  If you do not specify a user name, IAM determines the user name implicitly based
-    /// on the AWS access key ID signing the request. Because this action works for access
-    /// keys under the AWS account, you can use this action to manage root credentials even
-    /// if the AWS account has no associated users. 
+    /// If you do not specify a user name, IAM determines the user name implicitly based on
+    /// the AWS access key ID signing the request. Because this action works for access keys
+    /// under the AWS account, you can use this action to manage root credentials even if
+    /// the AWS account has no associated users.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AccessKeyId
         /// <summary>
         /// <para>
-        /// <para>The access key ID for the access key ID and secret access key you want to delete.</para>
+        /// <para>The access key ID for the access key ID and secret access key you want to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters that can consist of any upper or lowercased letter or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -61,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose key you want to delete.</para>
+        /// <para>The name of the user whose access key pair you want to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

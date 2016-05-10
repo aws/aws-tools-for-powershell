@@ -28,15 +28,17 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes a SAML provider.
+    /// Deletes a SAML provider resource in IAM.
     /// 
     ///  
     /// <para>
-    ///  Deleting the provider does not update any roles that reference the SAML provider
-    /// as a principal in their trust policies. Any attempt to assume a role that references
-    /// a SAML provider that has been deleted will fail. 
-    /// </para><note> This operation requires <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-    /// Version 4</a>. </note>
+    /// Deleting the provider resource from IAM does not update any roles that reference the
+    /// SAML provider resource's ARN as a principal in their trust policies. Any attempt to
+    /// assume a role that references a non-existent provider resource ARN fails.
+    /// </para><note><para>
+    ///  This operation requires <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    /// Version 4</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

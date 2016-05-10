@@ -28,14 +28,14 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the specified inline policy that is embedded in the specified group.
+    /// Deletes the specified inline policy that is embedded in the specified IAM group.
     /// 
     ///  
     /// <para>
     /// A group can also have managed policies attached to it. To detach a managed policy
     /// from a group, use <a>DetachGroupPolicy</a>. For more information about policies, refer
     /// to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The name (friendly name, not ARN) identifying the group that the policy is embedded
-        /// in.</para>
+        /// in.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name identifying the policy document to delete.</para>
+        /// <para>The name identifying the policy document to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -29,20 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Retrieves the specified inline policy document that is embedded with the specified
-    /// role. 
+    /// IAM role.
     /// 
     ///  
     /// <para>
-    /// A role can also have managed policies attached to it. To retrieve a managed policy
+    /// An IAM role can also have managed policies attached to it. To retrieve a managed policy
     /// document that is attached to a role, use <a>GetPolicy</a> to determine the policy's
     /// default version, then use <a>GetPolicyVersion</a> to retrieve the policy document.
-    /// 
     /// </para><para>
-    /// For more information about policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// For more information about policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
-    /// For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-    /// Roles to Delegate Permissions and Federate Identities</a>. 
+    /// For more information about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
+    /// Roles to Delegate Permissions and Federate Identities</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMRolePolicy")]
@@ -57,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the policy document to get.</para>
+        /// <para>The name of the policy document to get.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -67,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the role associated with the policy.</para>
+        /// <para>The name of the role associated with the policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

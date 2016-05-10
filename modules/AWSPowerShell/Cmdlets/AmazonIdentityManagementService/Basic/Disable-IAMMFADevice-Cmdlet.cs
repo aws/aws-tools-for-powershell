@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Deactivates the specified MFA device and removes it from association with the user
-    /// name for which it was originally enabled. 
+    /// name for which it was originally enabled.
     /// 
     ///  
     /// <para>
     /// For more information about creating and working with virtual MFA devices, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using
-    /// a Virtual MFA Device</a> in the <i>Using IAM</i> guide. 
+    /// a Virtual MFA Device</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "IAMMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SerialNumber
         /// <summary>
         /// <para>
-        /// <para> The serial number that uniquely identifies the MFA device. For virtual MFA devices,
-        /// the serial number is the device ARN. </para>
+        /// <para>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
+        /// the serial number is the device ARN.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =/:,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose MFA device you want to deactivate.</para>
+        /// <para>The name of the user whose MFA device you want to deactivate.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

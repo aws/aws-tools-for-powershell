@@ -29,16 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Sets the specified version of the specified policy as the policy's default (operative)
-    /// version. 
+    /// version.
     /// 
     ///  
     /// <para>
     /// This action affects all users, groups, and roles that the policy is attached to. To
     /// list the users, groups, and roles that the policy is attached to, use the <a>ListEntitiesForPolicy</a>
-    /// API. 
+    /// API.
     /// </para><para>
-    /// For information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// For information about managed policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "IAMDefaultPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to
+        /// set.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The version of the policy to set as the default (operative) version.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>IAM User Guide</i>. </para>
+        /// for Managed Policies</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

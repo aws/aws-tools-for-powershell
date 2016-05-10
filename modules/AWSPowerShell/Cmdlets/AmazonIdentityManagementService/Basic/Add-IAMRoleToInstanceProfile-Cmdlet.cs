@@ -28,10 +28,16 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Adds the specified role to the specified instance profile. For more information about
-    /// roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
+    /// Adds the specified IAM role to the specified instance profile.
+    /// 
+    ///  <note><para>
+    /// The caller of this API must be granted the <code>PassRole</code> permission on the
+    /// IAM role by a permission policy.
+    /// </para></note><para>
+    /// For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
     /// with Roles</a>. For more information about instance profiles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
     /// Instance Profiles</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "IAMRoleToInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -46,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
-        /// <para>The name of the instance profile to update.</para>
+        /// <para>The name of the instance profile to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the role to add.</para>
+        /// <para>The name of the role to add.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

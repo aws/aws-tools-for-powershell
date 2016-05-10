@@ -2542,6 +2542,8 @@ Set-Alias -Name R53D-UpdateDomainContact -Value Update-R53DDomainContact
 Set-Alias -Name R53D-UpdateDomainContactPrivacy -Value Update-R53DDomainContactPrivacy
 Set-Alias -Name R53D-UpdateDomainNameservers -Value Update-R53DDomainNameservers
 Set-Alias -Name R53D-UpdateTagsForDomain -Value Update-R53DTagsForDomain
+Set-Alias -Name Put-S3BucketRequestPayment -Value Write-S3BucketRequestPayment
+Set-Alias -Name S3-PutBucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name Put-S3BucketTagging -Value Write-S3BucketTagging
 Set-Alias -Name S3-PutBucketTagging -Value Write-S3BucketTagging
 Set-Alias -Name Put-S3BucketVersioning -Value Write-S3BucketVersioning
@@ -2571,8 +2573,6 @@ Set-Alias -Name Put-S3BucketPolicy -Value Write-S3BucketPolicy
 Set-Alias -Name S3-PutBucketPolicy -Value Write-S3BucketPolicy
 Set-Alias -Name Put-S3BucketReplication -Value Write-S3BucketReplication
 Set-Alias -Name S3-PutBucketReplication -Value Write-S3BucketReplication
-Set-Alias -Name Put-S3BucketRequestPayment -Value Write-S3BucketRequestPayment
-Set-Alias -Name S3-PutBucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name S3-GetPreSignedURL -Value Get-S3PreSignedURL
 Set-Alias -Name Delete-S3BucketPolicy -Value Remove-S3BucketPolicy
 Set-Alias -Name S3-DeleteBucketPolicy -Value Remove-S3BucketPolicy

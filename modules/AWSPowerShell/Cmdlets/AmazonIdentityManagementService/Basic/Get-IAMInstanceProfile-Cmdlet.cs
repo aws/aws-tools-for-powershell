@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Retrieves information about the specified instance profile, including the instance
     /// profile's path, GUID, ARN, and role. For more information about instance profiles,
-    /// go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-    /// Instance Profiles</a>. For more information about ARNs, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs">ARNs</a>.
+    /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+    /// Instance Profiles</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "IAMInstanceProfile")]
     [OutputType("Amazon.IdentityManagement.Model.InstanceProfile")]
@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
-        /// <para>The name of the instance profile to get information about.</para>
+        /// <para>The name of the instance profile to get information about.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

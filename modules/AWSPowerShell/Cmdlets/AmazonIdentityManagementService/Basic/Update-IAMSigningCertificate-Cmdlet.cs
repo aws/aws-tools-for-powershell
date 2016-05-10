@@ -28,16 +28,16 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Changes the status of the specified signing certificate from active to disabled, or
-    /// vice versa. This action can be used to disable a user's signing certificate as part
-    /// of a certificate rotation work flow. 
+    /// Changes the status of the specified user signing certificate from active to disabled,
+    /// or vice versa. This action can be used to disable an IAM user's signing certificate
+    /// as part of a certificate rotation work flow.
     /// 
     ///  
     /// <para>
     /// If the <code>UserName</code> field is not specified, the UserName is determined implicitly
     /// based on the AWS access key ID used to sign the request. Because this action works
     /// for access keys under the AWS account, you can use this action to manage root credentials
-    /// even if the AWS account has no associated users. 
+    /// even if the AWS account has no associated users.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMSigningCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CertificateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the signing certificate you want to update.</para>
+        /// <para>The ID of the signing certificate you want to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters that can consist of any upper or lowercased letter or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para> The status you want to assign to the certificate. <code>Active</code> means the certificate
         /// can be used for API calls to AWS, while <code>Inactive</code> means the certificate
-        /// cannot be used. </para>
+        /// cannot be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -76,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user the signing certificate belongs to.</para>
+        /// <para>The name of the IAM user the signing certificate belongs to.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

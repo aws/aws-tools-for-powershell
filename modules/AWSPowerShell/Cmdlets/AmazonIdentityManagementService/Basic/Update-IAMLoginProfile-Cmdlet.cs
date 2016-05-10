@@ -28,13 +28,13 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Changes the password for the specified user.
+    /// Changes the password for the specified IAM user.
     /// 
     ///  
     /// <para>
-    /// Users can change their own passwords by calling <a>ChangePassword</a>. For more information
-    /// about modifying passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
-    /// Passwords</a> in the <i>IAM User Guide</i>. 
+    /// IAM users can change their own passwords by calling <a>ChangePassword</a>. For more
+    /// information about modifying passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+    /// Passwords</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The new password for the specified user.</para>
+        /// <para>The new password for the specified IAM user.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D). However, the format can be further restricted by the account administrator
+        /// by setting a password policy on the AWS account. For more information, see <a>UpdateAccountPasswordPolicy</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -60,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PasswordResetRequired
         /// <summary>
         /// <para>
-        /// <para>Require the specified user to set a new password on next sign-in.</para>
+        /// <para>Allows this new password to be used only once by requiring the specified IAM user
+        /// to set a new password on next sign-in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose password you want to update.</para>
+        /// <para>The name of the user whose password you want to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

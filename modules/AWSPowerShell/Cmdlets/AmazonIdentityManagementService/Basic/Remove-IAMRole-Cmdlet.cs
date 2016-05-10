@@ -30,11 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Deletes the specified role. The role must not have any policies attached. For more
     /// information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-    /// with Roles</a>. 
+    /// with Roles</a>.
     /// 
-    ///  <important>Make sure you do not have any Amazon EC2 instances running with the role
-    /// you are about to delete. Deleting a role or instance profile that is associated with
-    /// a running instance will break any applications running on the instance. </important>
+    ///  <important><para>
+    /// Make sure you do not have any Amazon EC2 instances running with the role you are about
+    /// to delete. Deleting a role or instance profile that is associated with a running instance
+    /// will break any applications running on the instance.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the role to delete.</para>
+        /// <para>The name of the role to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

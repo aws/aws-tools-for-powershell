@@ -28,13 +28,13 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Retrieves information about the specified user, including the user's creation date,
-    /// path, unique ID, and ARN. 
+    /// Retrieves information about the specified IAM user, including the user's creation
+    /// date, path, unique ID, and ARN.
     /// 
     ///  
     /// <para>
     /// If you do not specify a user name, IAM determines the user name implicitly based on
-    /// the AWS access key ID used to sign the request. 
+    /// the AWS access key ID used to sign the request to this API.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMUser")]
@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The name of the user to get information about.</para><para>This parameter is optional. If it is not included, it defaults to the user making
-        /// the request.</para>
+        /// the request. The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this
+        /// parameter is a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

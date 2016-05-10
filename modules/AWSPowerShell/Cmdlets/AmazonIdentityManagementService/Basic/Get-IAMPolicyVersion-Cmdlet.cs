@@ -29,18 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Retrieves information about the specified version of the specified managed policy,
-    /// including the policy document. 
+    /// including the policy document.
     /// 
     ///  
     /// <para>
-    /// To list the available versions for a policy, use <a>ListPolicyVersions</a>. 
+    /// To list the available versions for a policy, use <a>ListPolicyVersions</a>.
     /// </para><para>
     /// This API retrieves information about managed policies. To retrieve information about
     /// an inline policy that is embedded in a user, group, or role, use the <a>GetUserPolicy</a>,
-    /// <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API. 
+    /// <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API.
     /// </para><para>
-    /// For more information about the types of policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// For more information about the types of policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
+    /// </para><para>
+    /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMPolicyVersion")]
@@ -56,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the managed policy that you want information about.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -66,7 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>Identifies the policy version to retrieve.</para>
+        /// <para>Identifies the policy version to retrieve.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters that consists of the lowercase letter 'v' followed by one
+        /// or two digits, and optionally followed by a period '.' and a string of letters and
+        /// digits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

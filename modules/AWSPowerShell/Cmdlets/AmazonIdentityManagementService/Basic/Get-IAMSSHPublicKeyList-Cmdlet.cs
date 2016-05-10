@@ -57,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user to list SSH public keys for. If none is specified, the UserName
-        /// field is determined implicitly based on the AWS access key used to sign the request.</para>
+        /// field is determined implicitly based on the AWS access key used to sign the request.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

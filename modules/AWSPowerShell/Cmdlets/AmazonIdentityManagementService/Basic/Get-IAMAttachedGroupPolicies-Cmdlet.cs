@@ -28,20 +28,20 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists all managed policies that are attached to the specified group.
+    /// Lists all managed policies that are attached to the specified IAM group.
     /// 
     ///  
     /// <para>
-    /// A group can also have inline policies embedded with it. To list the inline policies
+    /// An IAM group can also have inline policies embedded with it. To list the inline policies
     /// for a group, use the <a>ListGroupPolicies</a> API. For information about policies,
-    /// refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. You can use the <code>PathPrefix</code> parameter to limit the list of
     /// policies to only those matching the specified path prefix. If there are no policies
     /// attached to the specified group (or none that match the specified path prefix), the
-    /// action returns an empty list. 
+    /// action returns an empty list.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMAttachedGroupPolicies")]
@@ -58,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name (friendly name, not ARN) of the group to list attached policies for.</para>
+        /// <para>The name (friendly name, not ARN) of the group to list attached policies for.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -69,7 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
-        /// included, it defaults to a slash (/), listing all policies.</para>
+        /// included, it defaults to a slash (/), listing all policies.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of either a forward slash (/) by itself or a
+        /// string that must begin and end with forward slashes, containing any ASCII character
+        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

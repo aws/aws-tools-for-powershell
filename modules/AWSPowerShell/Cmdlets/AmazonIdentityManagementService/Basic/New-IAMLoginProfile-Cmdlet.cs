@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Creates a password for the specified user, giving the user the ability to access
     /// AWS services through the AWS Management Console. For more information about managing
     /// passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
-    /// Passwords</a> in the <i>Using IAM</i> guide.
+    /// Passwords</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.LoginProfile")]
@@ -46,7 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The new password for the user.</para>
+        /// <para>The new password for the user.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of almost any printable ASCII character from
+        /// the space (\u0020) through the end of the ASCII character range (\u00FF). You can
+        /// also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters.
+        /// Although any of these characters are valid in a password, note that many tools, such
+        /// as the AWS Management Console, might restrict the ability to enter certain characters
+        /// because they have special meaning within that tool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -56,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PasswordResetRequired
         /// <summary>
         /// <para>
-        /// <para> Specifies whether the user is required to set a new password on next sign-in. </para>
+        /// <para>Specifies whether the user is required to set a new password on next sign-in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user to create a password for.</para>
+        /// <para>The name of the IAM user to create a password for. The user must already exist.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

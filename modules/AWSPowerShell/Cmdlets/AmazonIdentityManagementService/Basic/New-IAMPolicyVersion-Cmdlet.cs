@@ -31,16 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Creates a new version of the specified managed policy. To update a managed policy,
     /// you create a new policy version. A managed policy can have up to five versions. If
     /// the policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a>
-    /// before you create a new version. 
+    /// before you create a new version.
     /// 
     ///  
     /// <para>
     /// Optionally, you can set the new version as the policy's default version. The default
-    /// version is the operative version; that is, the version that is in effect for the IAM
-    /// users, groups, and roles that the policy is attached to. 
+    /// version is the version that is in effect for the IAM users, groups, and roles to which
+    /// the policy is attached.
     /// </para><para>
     /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>IAM User Guide</i>. 
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -66,7 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The policy document.</para>
+        /// <para>The JSON policy document that you want to use as the content for this new version
+        /// of the policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -79,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>Specifies whether to set this version as the policy's default version.</para><para>When this parameter is <code>true</code>, the new policy version becomes the operative
         /// version; that is, the version that is in effect for the IAM users, groups, and roles
         /// that the policy is attached to.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>IAM User Guide</i>. </para>
+        /// for Managed Policies</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

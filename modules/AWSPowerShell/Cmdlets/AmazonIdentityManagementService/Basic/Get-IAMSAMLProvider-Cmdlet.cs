@@ -28,11 +28,13 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Returns the SAML provider metadocument that was uploaded when the provider was created
-    /// or updated. 
+    /// Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
+    /// resource object was created or updated.
     /// 
-    ///  <note>This operation requires <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-    /// Version 4</a>. </note>
+    ///  <note><para>
+    /// This operation requires <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    /// Version 4</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IAMSAMLProvider")]
     [OutputType("Amazon.IdentityManagement.Model.GetSAMLProviderResponse")]
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SAMLProviderArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the SAML provider to get information about.</para>
+        /// <para>The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get
+        /// information about.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

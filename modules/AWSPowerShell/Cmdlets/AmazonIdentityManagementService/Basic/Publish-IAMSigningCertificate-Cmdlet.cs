@@ -28,23 +28,25 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Uploads an X.509 signing certificate and associates it with the specified user. Some
-    /// AWS services use X.509 signing certificates to validate requests that are signed with
-    /// a corresponding private key. When you upload the certificate, its default status is
-    /// <code>Active</code>. 
+    /// Uploads an X.509 signing certificate and associates it with the specified IAM user.
+    /// Some AWS services use X.509 signing certificates to validate requests that are signed
+    /// with a corresponding private key. When you upload the certificate, its default status
+    /// is <code>Active</code>.
     /// 
     ///  
     /// <para>
-    /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-    /// based on the AWS access key ID used to sign the request. Because this action works
-    /// for access keys under the AWS account, you can use this action to manage root credentials
-    /// even if the AWS account has no associated users. 
-    /// </para><note>Because the body of a X.509 certificate can be large, you should use POST rather
-    /// than GET when calling <code>UploadSigningCertificate</code>. For information about
-    /// setting up signatures and authorization through the API, go to <a href="http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
+    /// If the <code>UserName</code> field is not specified, the IAM user name is determined
+    /// implicitly based on the AWS access key ID used to sign the request. Because this action
+    /// works for access keys under the AWS account, you can use this action to manage root
+    /// credentials even if the AWS account has no associated users.
+    /// </para><note><para>
+    /// Because the body of a X.509 certificate can be large, you should use POST rather than
+    /// GET when calling <code>UploadSigningCertificate</code>. For information about setting
+    /// up signatures and authorization through the API, go to <a href="http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
     /// AWS API Requests</a> in the <i>AWS General Reference</i>. For general information
     /// about using the Query API with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
-    /// Query Requests</a> in the <i>Using IAM</i>guide. </note>
+    /// Query Requests</a> in the <i>IAM User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Publish", "IAMSigningCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.SigningCertificate")]
@@ -59,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CertificateBody
         /// <summary>
         /// <para>
-        /// <para>The contents of the signing certificate.</para>
+        /// <para>The contents of the signing certificate.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user the signing certificate is for.</para>
+        /// <para>The name of the user the signing certificate is for.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists the account alias associated with the account (Note: you can have only one).
+    /// Lists the account alias associated with the AWS account (Note: you can have only one).
     /// For information about using an AWS account alias, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
     /// an Alias for Your AWS Account ID</a> in the <i>IAM User Guide</i>.
     /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

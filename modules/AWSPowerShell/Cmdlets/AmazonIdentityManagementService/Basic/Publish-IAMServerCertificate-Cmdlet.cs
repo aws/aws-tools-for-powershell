@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Uploads a server certificate entity for the AWS account. The server certificate entity
     /// includes a public key certificate, a private key, and an optional certificate chain,
-    /// which should all be PEM-encoded. 
+    /// which should all be PEM-encoded.
     /// 
     ///  
     /// <para>
@@ -39,14 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// with Server Certificates</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// For information about the number of server certificates you can upload, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html">Limitations
-    /// on IAM Entities and Objects</a> in the <i>IAM User Guide</i>. 
-    /// </para><note>Because the body of the public key certificate, private key, and the certificate
-    /// chain can be large, you should use POST rather than GET when calling <code>UploadServerCertificate</code>.
+    /// on IAM Entities and Objects</a> in the <i>IAM User Guide</i>.
+    /// </para><note><para>
+    /// Because the body of the public key certificate, private key, and the certificate chain
+    /// can be large, you should use POST rather than GET when calling <code>UploadServerCertificate</code>.
     /// For information about setting up signatures and authorization through the API, go
     /// to <a href="http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
     /// AWS API Requests</a> in the <i>AWS General Reference</i>. For general information
     /// about using the Query API with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html">Calling
-    /// the API by Making HTTP Query Requests</a> in the <i>IAM User Guide</i>. </note>
+    /// the API by Making HTTP Query Requests</a> in the <i>IAM User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Publish", "IAMServerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.ServerCertificateMetadata")]
@@ -61,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CertificateBody
         /// <summary>
         /// <para>
-        /// <para>The contents of the public key certificate in PEM-encoded format.</para>
+        /// <para>The contents of the public key certificate in PEM-encoded format.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -72,7 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded
-        /// public key certificates of the chain. </para>
+        /// public key certificates of the chain.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -83,10 +93,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path for the server certificate. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>Using IAM</i> guide. </para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><note> If you are uploading a server certificate specifically for use with Amazon
-        /// CloudFront distributions, you must specify a path using the <code>--path</code> option.
-        /// The path must begin with <code>/cloudfront</code> and must include a trailing slash
-        /// (for example, <code>/cloudfront/test/</code>). </note>
+        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/). The
+        /// <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter is
+        /// a string of characters consisting of either a forward slash (/) by itself or a string
+        /// that must begin and end with forward slashes, containing any ASCII character from
+        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// digits, and upper and lowercased letters.</para><note><para> If you are uploading a server certificate specifically for use with Amazon CloudFront
+        /// distributions, you must specify a path using the <code>--path</code> option. The path
+        /// must begin with <code>/cloudfront</code> and must include a trailing slash (for example,
+        /// <code>/cloudfront/test/</code>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -96,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PrivateKey
         /// <summary>
         /// <para>
-        /// <para>The contents of the private key in PEM-encoded format.</para>
+        /// <para>The contents of the private key in PEM-encoded format.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -107,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The name for the server certificate. Do not include the path in this value. The name
-        /// of the certificate cannot contain any spaces.</para>
+        /// of the certificate cannot contain any spaces.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

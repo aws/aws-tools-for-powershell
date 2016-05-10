@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Changes the password of the IAM user who is calling this action. The root account
-    /// password is not affected by this action. 
+    /// password is not affected by this action.
     /// 
     ///  
     /// <para>
     /// To change the password for a different user, see <a>UpdateLoginProfile</a>. For more
     /// information about modifying passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
-    /// Passwords</a> in the <i>IAM User Guide</i>. 
+    /// Passwords</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "IAMPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +52,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The new password. The new password must conform to the AWS account's password policy,
-        /// if one exists.</para>
+        /// if one exists.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of almost any printable ASCII character from
+        /// the space (\u0020) through the end of the ASCII character range (\u00FF). You can
+        /// also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters.
+        /// Although any of these characters are valid in a password, note that many tools, such
+        /// as the AWS Management Console, might restrict the ability to enter certain characters
+        /// because they have special meaning within that tool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

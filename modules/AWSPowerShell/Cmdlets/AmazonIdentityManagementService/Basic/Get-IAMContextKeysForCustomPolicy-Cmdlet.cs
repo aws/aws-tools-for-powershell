@@ -28,19 +28,18 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Gets a list of all of the context keys referenced in <code>Condition</code> elements
-    /// in the input policies. The policies are supplied as a list of one or more strings.
-    /// To get the context keys from policies associated with an IAM user, group, or role,
-    /// use <a>GetContextKeysForPrincipalPolicy</a>.
+    /// Gets a list of all of the context keys referenced in the input policies. The policies
+    /// are supplied as a list of one or more strings. To get the context keys from policies
+    /// associated with an IAM user, group, or role, use <a>GetContextKeysForPrincipalPolicy</a>.
     /// 
     ///  
     /// <para>
     /// Context keys are variables maintained by AWS and its services that provide details
-    /// about the context of an API query request, and can be evaluated by using the <code>Condition</code>
-    /// element of an IAM policy. Use GetContextKeysForCustomPolicy to understand what key
-    /// names and values you must supply when you call <a>SimulateCustomPolicy</a>. Note that
-    /// all parameters are shown in unencoded form here for clarity, but must be URL encoded
-    /// to be included as a part of a real HTML request.
+    /// about the context of an API query request, and can be evaluated by testing against
+    /// a value specified in an IAM policy. Use GetContextKeysForCustomPolicy to understand
+    /// what key names and values you must supply when you call <a>SimulateCustomPolicy</a>.
+    /// Note that all parameters are shown in unencoded form here for clarity, but must be
+    /// URL encoded to be included as a part of a real HTML request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMContextKeysForCustomPolicy")]
@@ -56,9 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyInputList
         /// <summary>
         /// <para>
-        /// <para>A list of policies for which you want list of context keys used in <code>Condition</code>
-        /// elements. Each document is specified as a string containing the complete, valid JSON
-        /// text of an IAM policy.</para>
+        /// <para>A list of policies for which you want the list of context keys referenced in those
+        /// policies. Each document is specified as a string containing the complete, valid JSON
+        /// text of an IAM policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

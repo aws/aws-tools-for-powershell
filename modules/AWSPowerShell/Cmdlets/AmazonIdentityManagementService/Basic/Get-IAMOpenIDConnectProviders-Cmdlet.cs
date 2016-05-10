@@ -28,7 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists information about the OpenID Connect providers in the AWS account.
+    /// Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined
+    /// in the AWS account.
     /// </summary>
     [Cmdlet("Get", "IAMOpenIDConnectProviders")]
     [OutputType("Amazon.IdentityManagement.Model.OpenIDConnectProviderListEntry")]

@@ -31,16 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Creates a new virtual MFA device for the AWS account. After creating the virtual MFA,
     /// use <a>EnableMFADevice</a> to attach the MFA device to an IAM user. For more information
     /// about creating and working with virtual MFA devices, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using
-    /// a Virtual MFA Device</a> in the <i>Using IAM</i> guide. 
+    /// a Virtual MFA Device</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para>
     /// For information about limits on the number of MFA devices you can create, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on Entities</a> in the <i>Using IAM</i> guide. 
-    /// </para><important>The seed information contained in the QR code and the Base32 string should
-    /// be treated like any other secret access information, such as your AWS access keys
-    /// or your passwords. After you provision your virtual device, you should ensure that
-    /// the information is destroyed following secure procedures. </important>
+    /// on Entities</a> in the <i>IAM User Guide</i>.
+    /// </para><important><para>
+    /// The seed information contained in the QR code and the Base32 string should be treated
+    /// like any other secret access information, such as your AWS access keys or your passwords.
+    /// After you provision your virtual device, you should ensure that the information is
+    /// destroyed following secure procedures.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "IAMVirtualMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.VirtualMFADevice")]
@@ -56,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The path for the virtual MFA device. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>Using IAM</i> guide. </para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para>
+        /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of either a forward slash (/) by itself or a
+        /// string that must begin and end with forward slashes, containing any ASCII character
+        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter VirtualMFADeviceName
         /// <summary>
         /// <para>
-        /// <para> The name of the virtual MFA device. Use with path to uniquely identify a virtual
-        /// MFA device. </para>
+        /// <para>The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA
+        /// device.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

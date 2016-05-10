@@ -31,16 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Changes the status of the specified access key from Active to Inactive, or vice versa.
     /// This action can be used to disable a user's key as part of a key rotation work flow.
     /// 
-    /// 
     ///  
     /// <para>
     /// If the <code>UserName</code> field is not specified, the UserName is determined implicitly
     /// based on the AWS access key ID used to sign the request. Because this action works
     /// for access keys under the AWS account, you can use this action to manage root credentials
-    /// even if the AWS account has no associated users. 
+    /// even if the AWS account has no associated users.
     /// </para><para>
     /// For information about rotating keys, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
-    /// Keys and Certificates</a> in the <i>IAM User Guide</i>. 
+    /// Keys and Certificates</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AccessKeyId
         /// <summary>
         /// <para>
-        /// <para>The access key ID of the secret access key you want to update.</para>
+        /// <para>The access key ID of the secret access key you want to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters that can consist of any upper or lowercased letter or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para> The status you want to assign to the secret access key. <code>Active</code> means
         /// the key can be used for API calls to AWS, while <code>Inactive</code> means the key
-        /// cannot be used. </para>
+        /// cannot be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -79,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose key you want to update.</para>
+        /// <para>The name of the user whose key you want to update.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

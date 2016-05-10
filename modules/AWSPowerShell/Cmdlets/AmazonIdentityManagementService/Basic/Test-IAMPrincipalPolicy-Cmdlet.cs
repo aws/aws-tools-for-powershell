@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CallerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the user that you want to specify as the simulated caller of the APIs.
+        /// <para>The ARN of the IAM user that you want to specify as the simulated caller of the APIs.
         /// If you do not specify a <code>CallerArn</code>, it defaults to the ARN of the user
         /// that you specify in <code>PolicySourceArn</code>, if you specified a user. If you
         /// include both a <code>PolicySourceArn</code> (for example, <code>arn:aws:iam::123456789012:user/David</code>)
@@ -93,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// role, federated user, or a service principal.</para><para><code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and
         /// the <code>PolicySourceArn</code> is not the ARN for an IAM user. This is required
         /// so that the resource-based policy's <code>Principal</code> element has a value to
-        /// use in evaluating the policy.</para>
+        /// use in evaluating the policy.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of context keys and corresponding values for the simulation to use. Whenever
-        /// a context key is evaluated by a <code>Condition</code> element in one of the simulated
-        /// policies, the corresponding value is supplied.</para>
+        /// a context key is evaluated in one of the simulated IAM permission policies, the corresponding
+        /// value is supplied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,7 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>An optional list of additional policy documents to include in the simulation. Each
         /// document is specified as a string containing the complete, valid JSON text of an IAM
-        /// policy.</para>
+        /// policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
         /// include in the simulation. If you specify a user, group, or role, the simulation includes
         /// all policies that are associated with that entity. If you specify a user, the simulation
-        /// also includes all policies that are attached to any groups the user belongs to.</para>
+        /// also includes all policies that are attached to any groups the user belongs to.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -147,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// The simulation determines the access result (allowed or denied) of each combination
         /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
-        /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para>
+        /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -198,7 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
         /// in the simulation is treated as if it had this policy attached. You can include only
-        /// one resource-based policy in a simulation.</para>
+        /// one resource-based policy in a simulation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -227,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

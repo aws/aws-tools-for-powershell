@@ -28,8 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the specified group. The group must not contain any users or have any attached
-    /// policies.
+    /// Deletes the specified IAM group. The group must not contain any users or have any
+    /// attached policies.
     /// </summary>
     [Cmdlet("Remove", "IAMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group to delete.</para>
+        /// <para>The name of the IAM group to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

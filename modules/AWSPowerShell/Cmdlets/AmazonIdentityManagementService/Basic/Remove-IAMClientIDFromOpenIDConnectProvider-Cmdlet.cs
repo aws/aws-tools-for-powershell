@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Removes the specified client ID (also known as audience) from the list of client IDs
-    /// registered for the specified IAM OpenID Connect provider.
+    /// registered for the specified IAM OpenID Connect (OIDC) provider resource object.
     /// 
     ///  
     /// <para>
     /// This action is idempotent; it does not fail or return an error if you try to remove
-    /// a client ID that was removed previously.
+    /// a client ID that does not exist.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMClientIDFromOpenIDConnectProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter ClientID
         /// <summary>
         /// <para>
-        /// <para>The client ID (also known as audience) to remove from the IAM OpenID Connect provider.
+        /// <para>The client ID (also known as audience) to remove from the IAM OIDC provider resource.
         /// For more information about client IDs, see <a>CreateOpenIDConnectProvider</a>.</para>
         /// </para>
         /// </summary>
@@ -61,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to remove
-        /// the client ID from. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
-        /// action.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client
+        /// ID from. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
+        /// action.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

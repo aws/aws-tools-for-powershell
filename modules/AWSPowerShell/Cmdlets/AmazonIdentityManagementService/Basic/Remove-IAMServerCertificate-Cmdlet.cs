@@ -35,13 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// For more information about working with server certificates, including a list of AWS
     /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
     /// with Server Certificates</a> in the <i>IAM User Guide</i>.
-    /// </para><important> If you are using a server certificate with Elastic Load Balancing, deleting
-    /// the certificate could have implications for your application. If Elastic Load Balancing
-    /// doesn't detect the deletion of bound certificates, it may continue to use the certificates.
-    /// This could cause Elastic Load Balancing to stop accepting traffic. We recommend that
-    /// you remove the reference to the certificate from Elastic Load Balancing before using
-    /// this command to delete the certificate. For more information, go to <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html">DeleteLoadBalancerListeners</a>
-    /// in the <i>Elastic Load Balancing API Reference</i>. </important>
+    /// </para><important><para>
+    ///  If you are using a server certificate with Elastic Load Balancing, deleting the certificate
+    /// could have implications for your application. If Elastic Load Balancing doesn't detect
+    /// the deletion of bound certificates, it may continue to use the certificates. This
+    /// could cause Elastic Load Balancing to stop accepting traffic. We recommend that you
+    /// remove the reference to the certificate from Elastic Load Balancing before using this
+    /// command to delete the certificate. For more information, go to <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html">DeleteLoadBalancerListeners</a>
+    /// in the <i>Elastic Load Balancing API Reference</i>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "IAMServerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter ServerCertificateName
         /// <summary>
         /// <para>
-        /// <para>The name of the server certificate you want to delete.</para>
+        /// <para>The name of the server certificate you want to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

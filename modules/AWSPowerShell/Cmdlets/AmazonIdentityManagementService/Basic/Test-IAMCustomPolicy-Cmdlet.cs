@@ -75,9 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CallerArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the user that you want to use as the simulated caller of the APIs. <code>CallerArn</code>
-        /// is required if you include a <code>ResourcePolicy</code> so that the policy's <code>Principal</code>
-        /// element has a value to use in evaluating the policy.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
+        /// <para>The ARN of the IAM user that you want to use as the simulated caller of the APIs.
+        /// <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> so
+        /// that the policy's <code>Principal</code> element has a value to use in evaluating
+        /// the policy.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
         /// role, federated user, or a service principal.</para>
         /// </para>
         /// </summary>
@@ -89,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of context keys and corresponding values for the simulation to use. Whenever
-        /// a context key is evaluated by a <code>Condition</code> element in one of the simulated
-        /// IAM permission policies, the corresponding value is supplied.</para>
+        /// a context key is evaluated in one of the simulated IAM permission policies, the corresponding
+        /// value is supplied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
         /// policies, such as you could include in a call to <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
         /// or one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
-        /// APIs to restrict what a user can do while using the temporary credentials.</para>
+        /// APIs to restrict what a user can do while using the temporary credentials.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -124,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
         /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of
-        /// the resources included in the simulation or you receive an invalid input error.</para>
+        /// the resources included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,7 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
         /// in the simulation is treated as if it had this policy attached. You can include only
-        /// one resource-based policy in a simulation.</para>
+        /// one resource-based policy in a simulation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -204,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

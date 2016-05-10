@@ -28,15 +28,15 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists the MFA devices. If the request includes the user name, then this action lists
-    /// all the MFA devices associated with the specified user name. If you do not specify
-    /// a user name, IAM determines the user name implicitly based on the AWS access key ID
-    /// signing the request. 
+    /// Lists the MFA devices for an IAM user. If the request includes a IAM user name, then
+    /// this action lists all the MFA devices associated with the specified user. If you do
+    /// not specify a user name, IAM determines the user name implicitly based on the AWS
+    /// access key ID signing the request for this API.
     /// 
     ///  
     /// <para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters. 
+    /// parameters.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMMFADevice")]
@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose MFA devices you want to list.</para>
+        /// <para>The name of the user whose MFA devices you want to list.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

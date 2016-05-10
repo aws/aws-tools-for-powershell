@@ -28,18 +28,18 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists all users, groups, and roles that the specified managed policy is attached to.
-    /// 
+    /// Lists all IAM users, groups, and roles that the specified managed policy is attached
+    /// to.
     /// 
     ///  
     /// <para>
     /// You can use the optional <code>EntityFilter</code> parameter to limit the results
     /// to a particular type of entity (users, groups, or roles). For example, to list only
     /// the roles that are attached to the specified policy, set <code>EntityFilter</code>
-    /// to <code>Role</code>. 
+    /// to <code>Role</code>.
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters. 
+    /// parameters.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMEntitiesForPolicy")]
@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter EntityFilter
         /// <summary>
         /// <para>
-        /// <para>The entity type to use for filtering the results. </para><para>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
+        /// <para>The entity type to use for filtering the results.</para><para>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
         /// are attached to the specified policy are returned. This parameter is optional. If
         /// it is not included, all attached entities (users, groups, and roles) are returned.
-        /// </para>
+        /// The argument for this parameter must be one of the valid values listed below.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,7 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
-        /// included, it defaults to a slash (/), listing all entities.</para>
+        /// included, it defaults to a slash (/), listing all entities.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of either a forward slash (/) by itself or a
+        /// string that must begin and end with forward slashes, containing any ASCII character
+        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -108,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

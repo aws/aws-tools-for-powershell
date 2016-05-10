@@ -28,16 +28,15 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Retrieves information about all IAM users, groups, roles, and policies in your account,
-    /// including their relationships to one another. Use this API to obtain a snapshot of
-    /// the configuration of IAM permissions (users, groups, roles, and policies) in your
+    /// Retrieves information about all IAM users, groups, roles, and policies in your AWS
+    /// account, including their relationships to one another. Use this API to obtain a snapshot
+    /// of the configuration of IAM permissions (users, groups, roles, and policies) in your
     /// account.
     /// 
     ///  
     /// <para>
     /// You can optionally filter the results using the <code>Filter</code> parameter. You
     /// can paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.
-    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMAccountAuthorizationDetails")]
@@ -53,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of entity types (user, group, role, local managed policy, or AWS managed policy)
-        /// for filtering the results.</para>
+        /// for filtering the results.</para><para>The format for this parameter is a comma-separated (if more than one) list of strings.
+        /// Each string value in the list must be one of the valid values listed below.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// IAM might return fewer results, even when there are more results available. In that
         /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from. </para>
+        /// the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

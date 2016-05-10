@@ -28,9 +28,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Enables the specified MFA device and associates it with the specified user name.
-    /// When enabled, the MFA device is required for every subsequent login by the user name
-    /// associated with the device.
+    /// Enables the specified MFA device and associates it with the specified IAM user. When
+    /// enabled, the MFA device is required for every subsequent login by the IAM user associated
+    /// with the device.
     /// </summary>
     [Cmdlet("Enable", "IAMMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AuthenticationCode1
         /// <summary>
         /// <para>
-        /// <para>An authentication code emitted by the device.</para>
+        /// <para>An authentication code emitted by the device.</para><para>The format for this parameter is a string of 6 digits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AuthenticationCode2
         /// <summary>
         /// <para>
-        /// <para>A subsequent authentication code emitted by the device.</para>
+        /// <para>A subsequent authentication code emitted by the device.</para><para>The format for this parameter is a string of 6 digits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -65,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SerialNumber
         /// <summary>
         /// <para>
-        /// <para> The serial number that uniquely identifies the MFA device. For virtual MFA devices,
-        /// the serial number is the device ARN. </para>
+        /// <para>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
+        /// the serial number is the device ARN.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =/:,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -76,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user for whom you want to enable the MFA device.</para>
+        /// <para>The name of the IAM user for whom you want to enable the MFA device.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

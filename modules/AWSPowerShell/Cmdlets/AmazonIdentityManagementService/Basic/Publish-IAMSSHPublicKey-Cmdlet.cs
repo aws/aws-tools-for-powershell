@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SSHPublicKeyBody
         /// <summary>
         /// <para>
-        /// <para>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</para>
+        /// <para>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM user to associate the SSH public key with.</para>
+        /// <para>The name of the IAM user to associate the SSH public key with.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

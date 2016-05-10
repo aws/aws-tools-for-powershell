@@ -28,7 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Returns information about the specified OpenID Connect provider.
+    /// Returns information about the specified OpenID Connect (OIDC) provider resource object
+    /// in IAM.
     /// </summary>
     [Cmdlet("Get", "IAMOpenIDConnectProvider")]
     [OutputType("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse")]
@@ -42,9 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to get information
-        /// for. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
-        /// action.</para>
+        /// <para>The Amazon Resource Name (ARN) of the OIDC provider resource object in IAM to get
+        /// information for. You can get a list of OIDC provider resource ARNs by using the <a>ListOpenIDConnectProviders</a>
+        /// action.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

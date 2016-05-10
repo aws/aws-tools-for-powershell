@@ -28,8 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Retrieves the user name and password-creation date for the specified user. If the
-    /// user has not been assigned a password, the action returns a 404 (<code>NoSuchEntity</code>)
+    /// Retrieves the user name and password-creation date for the specified IAM user. If
+    /// the user has not been assigned a password, the action returns a 404 (<code>NoSuchEntity</code>)
     /// error.
     /// </summary>
     [Cmdlet("Get", "IAMLoginProfile")]
@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose login profile you want to retrieve.</para>
+        /// <para>The name of the user whose login profile you want to retrieve.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

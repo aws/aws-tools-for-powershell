@@ -28,23 +28,24 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Adds (or updates) an inline policy document that is embedded in the specified group.
-    /// 
+    /// Adds or updates an inline policy document that is embedded in the specified IAM group.
     /// 
     ///  
     /// <para>
     /// A user can also have managed policies attached to it. To attach a managed policy to
     /// a group, use <a>AttachGroupPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-    /// For information about policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// For information about policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// For information about limits on the number of inline policies that you can embed in
     /// a group, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
-    /// </para><note>Because policy documents can be large, you should use POST rather than GET
-    /// when calling <code>PutGroupPolicy</code>. For general information about using the
-    /// Query API with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
-    /// Query Requests</a> in the <i>Using IAM</i> guide. </note>
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>.
+    /// </para><note><para>
+    /// Because policy documents can be large, you should use POST rather than GET when calling
+    /// <code>PutGroupPolicy</code>. For general information about using the Query API with
+    /// IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
+    /// Query Requests</a> in the <i>IAM User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -59,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group to associate the policy with.</para>
+        /// <para>The name of the group to associate the policy with.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The policy document.</para>
+        /// <para>The policy document.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -79,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the policy document.</para>
+        /// <para>The name of the policy document.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

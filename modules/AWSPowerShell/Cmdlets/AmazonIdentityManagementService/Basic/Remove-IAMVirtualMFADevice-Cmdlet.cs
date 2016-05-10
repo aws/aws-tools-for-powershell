@@ -30,8 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Deletes a virtual MFA device.
     /// 
-    ///  <note> You must deactivate a user's virtual MFA device before you can delete it.
-    /// For information about deactivating MFA devices, see <a>DeactivateMFADevice</a>. </note>
+    ///  <note><para>
+    ///  You must deactivate a user's virtual MFA device before you can delete it. For information
+    /// about deactivating MFA devices, see <a>DeactivateMFADevice</a>. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IAMVirtualMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SerialNumber
         /// <summary>
         /// <para>
-        /// <para> The serial number that uniquely identifies the MFA device. For virtual MFA devices,
-        /// the serial number is the same as the ARN. </para>
+        /// <para>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
+        /// the serial number is the same as the ARN.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of upper and lowercase alphanumeric characters
+        /// with no spaces. You can also include any of the following characters: =/:,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

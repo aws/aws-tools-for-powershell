@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Adds a new client ID (also known as audience) to the list of client IDs already registered
-    /// for the specified IAM OpenID Connect provider.
+    /// for the specified IAM OpenID Connect (OIDC) provider resource.
     /// 
     ///  
     /// <para>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter ClientID
         /// <summary>
         /// <para>
-        /// <para>The client ID (also known as audience) to add to the IAM OpenID Connect provider.</para>
+        /// <para>The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to add the
-        /// client ID to. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
-        /// action. </para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource
+        /// to add the client ID to. You can get a list of OIDC provider ARNs by using the <a>ListOpenIDConnectProviders</a>
+        /// action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

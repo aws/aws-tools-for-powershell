@@ -32,19 +32,24 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// Before you can delete a managed policy, you must detach the policy from all users,
-    /// groups, and roles that it is attached to, and you must delete all of the policy's
+    /// Before you can delete a managed policy, you must first detach the policy from all
+    /// users, groups, and roles that it is attached to, and you must delete all of the policy's
     /// versions. The following steps describe the process for deleting a managed policy:
-    /// <ol><li>Detach the policy from all users, groups, and roles that the policy is attached
-    /// to, using the <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>
+    /// </para><ul><li><para>
+    /// Detach the policy from all users, groups, and roles that the policy is attached to,
+    /// using the <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>
     /// APIs. To list all the users, groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.
-    /// </li><li>Delete all versions of the policy using <a>DeletePolicyVersion</a>. To list
-    /// the policy's versions, use <a>ListPolicyVersions</a>. You cannot use <a>DeletePolicyVersion</a>
+    /// </para></li><li><para>
+    /// Delete all versions of the policy using <a>DeletePolicyVersion</a>. To list the policy's
+    /// versions, use <a>ListPolicyVersions</a>. You cannot use <a>DeletePolicyVersion</a>
     /// to delete the version that is marked as the default version. You delete the policy's
-    /// default version in the next step of the process. </li><li>Delete the policy (this
-    /// automatically deletes the policy's default version) using this API. </li></ol></para><para>
-    /// For information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
+    /// default version in the next step of the process.
+    /// </para></li><li><para>
+    /// Delete the policy (this automatically deletes the policy's default version) using
+    /// this API.
+    /// </para></li></ul><para>
+    /// For information about managed policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -60,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the IAM policy you want to delete.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

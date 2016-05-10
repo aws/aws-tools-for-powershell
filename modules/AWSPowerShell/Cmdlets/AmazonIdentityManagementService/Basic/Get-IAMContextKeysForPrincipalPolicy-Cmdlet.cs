@@ -28,24 +28,24 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Gets a list of all of the context keys referenced in <code>Condition</code> elements
-    /// in all of the IAM policies attached to the specified IAM entity. The entity can be
-    /// an IAM user, group, or role. If you specify a user, then the request also includes
-    /// all of the policies attached to groups that the user is a member of.
+    /// Gets a list of all of the context keys referenced in all of the IAM policies attached
+    /// to the specified IAM entity. The entity can be an IAM user, group, or role. If you
+    /// specify a user, then the request also includes all of the policies attached to groups
+    /// that the user is a member of.
     /// 
     ///  
     /// <para>
     /// You can optionally include a list of one or more additional policies, specified as
-    /// strings. If you want to include only a list of policies by string, use <a>GetContextKeysForCustomPolicy</a>
+    /// strings. If you want to include <i>only</i> a list of policies by string, use <a>GetContextKeysForCustomPolicy</a>
     /// instead.
     /// </para><para><b>Note:</b> This API discloses information about the permissions granted to other
     /// users. If you do not want users to see other user's permissions, then consider allowing
     /// them to use <a>GetContextKeysForCustomPolicy</a> instead.
     /// </para><para>
     /// Context keys are variables maintained by AWS and its services that provide details
-    /// about the context of an API query request, and can be evaluated by using the <code>Condition</code>
-    /// element of an IAM policy. Use GetContextKeysForPrincipalPolicy to understand what
-    /// key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.
+    /// about the context of an API query request, and can be evaluated by testing against
+    /// a value in an IAM policy. Use <a>GetContextKeysForPrincipalPolicy</a> to understand
+    /// what key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMContextKeysForPrincipalPolicy")]
@@ -61,8 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyInputList
         /// <summary>
         /// <para>
-        /// <para>A optional list of additional policies for which you want list of context keys used
-        /// in <code>Condition</code> elements.</para>
+        /// <para>An optional list of additional policies for which you want the list of context keys
+        /// that are referenced.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
+        /// is a string of characters consisting of any printable ASCII character ranging from
+        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
+        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
+        /// return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// of. If you pick a group or a role, then it includes only those context keys that are
         /// found in policies attached to that entity. Note that all parameters are shown in unencoded
         /// form here for clarity, but must be URL encoded to be included as a part of a real
-        /// HTML request.</para>
+        /// HTML request.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
