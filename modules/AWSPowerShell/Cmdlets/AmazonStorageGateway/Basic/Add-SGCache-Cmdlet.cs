@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  
     /// <para>
     /// In the request, you specify the gateway Amazon Resource Name (ARN) to which you want
-    /// to add cache, and one or more disk IDs that you want to configure as cache. 
+    /// to add cache, and one or more disk IDs that you want to configure as cache.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "SGCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

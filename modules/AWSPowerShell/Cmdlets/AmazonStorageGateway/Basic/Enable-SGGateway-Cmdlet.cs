@@ -36,7 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// The activation process also associates your gateway with your account; for more information,
     /// see <a>UpdateGatewayInformation</a>.
     /// 
-    ///  <note>You must turn on the gateway VM before you can activate your gateway.</note>
+    ///  <note><para>
+    /// You must turn on the gateway VM before you can activate your gateway.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Enable", "SGGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -80,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// gateway region specified must be the same region as the region in your <code>Host</code>
         /// header in the request. For more information about available regions and endpoints
         /// for AWS Storage Gateway, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
-        /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para><i>Valid Values</i>: "us-east-1", "us-west-1", "us-west-2", "eu-west-1", "eu-central-1",
-        /// "ap-northeast-1", "ap-southeast-1", "ap-southeast-2", "sa-east-1"</para>
+        /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: "us-east-1", "us-west-1", "us-west-2", "eu-west-1", "eu-central-1",
+        /// "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "sa-east-1"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The value that indicates the type of medium changer to use for gateway-VTL. This field
-        /// is optional.</para><para><i>Valid Values</i>: "STK-L700", "AWS-Gateway-VTL"</para>
+        /// is optional.</para><para> Valid Values: "STK-L700", "AWS-Gateway-VTL"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The value that indicates the type of tape drive to use for gateway-VTL. This field
-        /// is optional. </para><para><i>Valid Values</i>: "IBM-ULT3580-TD5" </para>
+        /// is optional.</para><para> Valid Values: "IBM-ULT3580-TD5" </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

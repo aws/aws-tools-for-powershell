@@ -35,16 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <para>
     /// The operation shuts down the gateway service component running in the storage gateway's
     /// virtual machine (VM) and not the VM.
-    /// </para><note>If you want to shut down the VM, it is recommended that you first shut down
-    /// the gateway component in the VM to avoid unpredictable conditions.</note><para>
+    /// </para><note><para>
+    /// If you want to shut down the VM, it is recommended that you first shut down the gateway
+    /// component in the VM to avoid unpredictable conditions.
+    /// </para></note><para>
     /// After the gateway is shutdown, you cannot call any other API except <a>StartGateway</a>,
     /// <a>DescribeGatewayInformation</a>, and <a>ListGateways</a>. For more information,
     /// see <a>ActivateGateway</a>. Your applications cannot read from or write to the gateway's
     /// storage volumes, and there are no snapshots taken.
-    /// </para><note>When you make a shutdown request, you will get a <code>200 OK</code> success
-    /// response immediately. However, it might take some time for the gateway to shut down.
-    /// You can call the <a>DescribeGatewayInformation</a> API to check the status. For more
-    /// information, see <a>ActivateGateway</a>.</note><para>
+    /// </para><note><para>
+    /// When you make a shutdown request, you will get a <code>200 OK</code> success response
+    /// immediately. However, it might take some time for the gateway to shut down. You can
+    /// call the <a>DescribeGatewayInformation</a> API to check the status. For more information,
+    /// see <a>ActivateGateway</a>.
+    /// </para></note><para>
     /// If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>)
     /// to no longer pay software charges associated with the gateway.
     /// </para>

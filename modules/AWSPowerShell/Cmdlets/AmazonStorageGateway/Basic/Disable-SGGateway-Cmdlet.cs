@@ -31,11 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Disables a gateway when the gateway is no longer functioning. For example, if your
     /// gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
     /// 
-    /// 
     ///  
     /// <para>
     /// Use this operation for a gateway-VTL that is not reachable or not functioning.
-    /// </para><important>Once a gateway is disabled it cannot be enabled.</important>
+    /// </para><important><para>
+    /// Once a gateway is disabled it cannot be enabled.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Disable", "SGGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

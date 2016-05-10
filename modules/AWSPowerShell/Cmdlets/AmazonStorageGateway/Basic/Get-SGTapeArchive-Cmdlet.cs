@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual
-        /// tape shelf (VTS). </para>
+        /// tape shelf (VTS).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

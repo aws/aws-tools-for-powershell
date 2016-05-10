@@ -2775,6 +2775,8 @@ Set-Alias -Name List-SGLocalDisks -Value Get-SGLocalDisk
 Set-Alias -Name SG-ListLocalDisks -Value Get-SGLocalDisk
 Set-Alias -Name List-SGResourceTags -Value Get-SGResourceTags
 Set-Alias -Name SG-ListTagsForResource -Value Get-SGResourceTags
+Set-Alias -Name List-SGTape -Value Get-SGTape
+Set-Alias -Name SG-ListTapes -Value Get-SGTape
 Set-Alias -Name List-SGVolumeInitiators -Value Get-SGVolumeInitiators
 Set-Alias -Name SG-ListVolumeInitiators -Value Get-SGVolumeInitiators
 Set-Alias -Name List-SGVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint

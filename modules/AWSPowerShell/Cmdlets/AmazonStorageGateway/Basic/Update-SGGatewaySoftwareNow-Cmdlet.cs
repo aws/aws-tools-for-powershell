@@ -29,17 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Updates the gateway virtual machine (VM) software. The request immediately triggers
-    /// the software update. 
+    /// the software update.
     /// 
-    ///  <note>When you make this request, you get a <code>200 OK</code> success response
-    /// immediately. However, it might take some time for the update to complete. You can
-    /// call <a>DescribeGatewayInformation</a> to verify the gateway is in the <code>STATE_RUNNING</code>
-    /// state.</note><important>A software update forces a system restart of your gateway.
-    /// You can minimize the chance of any disruption to your applications by increasing your
-    /// iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator
-    /// timeouts for Windows and Linux, see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings">Customizing
+    ///  <note><para>
+    /// When you make this request, you get a <code>200 OK</code> success response immediately.
+    /// However, it might take some time for the update to complete. You can call <a>DescribeGatewayInformation</a>
+    /// to verify the gateway is in the <code>STATE_RUNNING</code> state.
+    /// </para></note><important><para>
+    /// A software update forces a system restart of your gateway. You can minimize the chance
+    /// of any disruption to your applications by increasing your iSCSI Initiators' timeouts.
+    /// For more information about increasing iSCSI Initiator timeouts for Windows and Linux,
+    /// see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings">Customizing
     /// Your Windows iSCSI Settings</a> and <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings">Customizing
-    /// Your Linux iSCSI Settings</a>, respectively.</important>
+    /// Your Linux iSCSI Settings</a>, respectively.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "SGGatewaySoftwareNow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

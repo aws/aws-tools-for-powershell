@@ -28,30 +28,35 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Returns a description of specified virtual tapes in the virtual tape shelf (VTS).
+    /// Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
+    /// (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource
+    /// Names (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes
+    /// in both your VTL and VTS.
     /// 
     ///  
     /// <para>
-    /// If a specific <code>TapeARN</code> is not specified, AWS Storage Gateway returns a
-    /// description of all virtual tapes found in the VTS associated with your account.
+    /// This operation supports pagination. By default, the operation returns a maximum of
+    /// up to 100 tapes. You can optionally specify the <code>Limit</code> parameter in the
+    /// body to limit the number of tapes in the response. If the number of tapes returned
+    /// in the response is truncated, the response includes a <code>Marker</code> element
+    /// that you can use in your subsequent request to retrieve the next set of tapes.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "SGTapeArchives")]
-    [OutputType("Amazon.StorageGateway.Model.TapeArchive")]
-    [AWSCmdlet("Invokes the DescribeTapeArchives operation against AWS Storage Gateway.", Operation = new[] {"DescribeTapeArchives"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.TapeArchive",
-        "This cmdlet returns a collection of TapeArchive objects.",
-        "The service call response (type Amazon.StorageGateway.Model.DescribeTapeArchivesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SGTape")]
+    [OutputType("Amazon.StorageGateway.Model.TapeInfo")]
+    [AWSCmdlet("Invokes the ListTapes operation against AWS Storage Gateway.", Operation = new[] {"ListTapes"})]
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.TapeInfo",
+        "This cmdlet returns a collection of TapeInfo objects.",
+        "The service call response (type Amazon.StorageGateway.Model.ListTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetSGTapeArchivesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public class GetSGTapeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter TapeARNs
         /// <summary>
         /// <para>
-        /// <para>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
-        /// tapes you want to describe.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Specifies that the number of virtual tapes descried be limited to the specified number.</para>
+        /// <para>An optional number limit for the tapes in the list returned by this call.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion
@@ -72,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>An opaque string that indicates the position at which to begin describing virtual
-        /// tapes.</para>
+        /// <para>A string that indicates the position at which to begin the returned list of tapes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.StorageGateway.Model.DescribeTapeArchivesRequest();
+            var request = new Amazon.StorageGateway.Model.ListTapesRequest();
             if (cmdletContext.TapeARNs != null)
             {
                 request.TapeARNs = cmdletContext.TapeARNs;
@@ -147,9 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                     try
                     {
                         
-                        var response = client.DescribeTapeArchives(request);
+                        var response = client.ListTapes(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.TapeArchives;
+                        object pipelineOutput = response.TapeInfos;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -158,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.TapeArchives.Count;
+                        int _receivedThisCall = response.TapeInfos.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));

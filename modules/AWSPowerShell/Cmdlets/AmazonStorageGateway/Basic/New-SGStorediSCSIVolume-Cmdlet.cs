@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Creates a volume on a specified gateway. This operation is supported only for the
-    /// gateway-stored volume architecture. 
+    /// gateway-stored volume architecture.
     /// 
     ///  
     /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
         /// addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of the
-        /// network interfaces available on a gateway.</para><para><i>Valid Values</i>: A valid IP address.</para>
+        /// network interfaces available on a gateway.</para><para> Valid Values: A valid IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>Specify this field as true if you want to preserve the data on the local disk. Otherwise,
-        /// specifying this field as false creates an empty volume.</para><para><i>Valid Values</i>: true, false</para>
+        /// specifying this field as false creates an empty volume.</para><para> Valid Values: true, false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

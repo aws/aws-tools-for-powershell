@@ -77,6 +77,7 @@
 		Noun="ResourceTags" 
 		PipelineParameter="ResourceARN" 
 		MetadataProperties="ResourceARN" />
+	<ServiceOperation MethodName="ListTapes" Noun="Tape" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARN" />
     <ServiceOperation MethodName="SetLocalConsolePassword"/>
     <ServiceOperation MethodName="ShutdownGateway"/>
