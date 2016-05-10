@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String[] InstanceGroupType { get; set; }
         #endregion
         
+        #region Parameter InstanceState
+        /// <summary>
+        /// <para>
+        /// <para>A list of instance states that will filter the instances returned with this request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InstanceStates")]
+        public System.String[] InstanceState { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -102,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 context.InstanceGroupTypes = new List<System.String>(this.InstanceGroupType);
             }
+            if (this.InstanceState != null)
+            {
+                context.InstanceStates = new List<System.String>(this.InstanceState);
+            }
             context.Marker = this.Marker;
             
             var output = Execute(context) as CmdletOutput;
@@ -128,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.InstanceGroupTypes != null)
             {
                 request.InstanceGroupTypes = cmdletContext.InstanceGroupTypes;
+            }
+            if (cmdletContext.InstanceStates != null)
+            {
+                request.InstanceStates = cmdletContext.InstanceStates;
             }
             
             // Initialize loop variant and commence piping
@@ -204,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String ClusterId { get; set; }
             public System.String InstanceGroupId { get; set; }
             public List<System.String> InstanceGroupTypes { get; set; }
+            public List<System.String> InstanceStates { get; set; }
             public System.String Marker { get; set; }
         }
         
