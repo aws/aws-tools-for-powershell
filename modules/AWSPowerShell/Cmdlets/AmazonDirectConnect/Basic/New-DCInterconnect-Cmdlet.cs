@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// interconnect by calling AllocateConnectionOnInterconnect. The end customer can then
     /// connect to AWS resources by creating a virtual interface on their connection, using
     /// the VLAN assigned to them by the AWS Direct Connect partner.
-    /// </para>
+    /// </para><note><para>
+    /// This is intended for use by AWS Direct Connect partners only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.CreateInterconnectResponse")]

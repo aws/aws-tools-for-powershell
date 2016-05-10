@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Return a list of connections that have been provisioned on the given interconnect.
+    /// 
+    ///  <note><para>
+    /// This is intended for use by AWS Direct Connect partners only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DCConnectionsOnInterconnect")]
     [OutputType("Amazon.DirectConnect.Model.Connection")]

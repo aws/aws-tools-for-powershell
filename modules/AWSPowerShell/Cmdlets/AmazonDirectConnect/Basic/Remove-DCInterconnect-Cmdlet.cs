@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Deletes the specified interconnect.
+    /// 
+    ///  <note><para>
+    /// This is intended for use by AWS Direct Connect partners only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.InterconnectState")]

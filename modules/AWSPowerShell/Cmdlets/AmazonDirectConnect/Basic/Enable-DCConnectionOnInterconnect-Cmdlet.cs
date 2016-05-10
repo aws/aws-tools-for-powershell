@@ -34,7 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// <para>
     /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
     /// on the given interconnect.
-    /// </para>
+    /// </para><note><para>
+    /// This is intended for use by AWS Direct Connect partners only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Enable", "DCConnectionOnInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse")]
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para>
+        /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para><para>Values: 50M, 100M, 200M, 300M, 400M, or 500M</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
