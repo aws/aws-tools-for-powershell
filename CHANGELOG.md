@@ -1,3 +1,9 @@
+### 3.1.67.0 (2016-05-10)
+  * AWS Storage Gateway
+    - Added a new cmdlet, Get-SGTape, to support the new ListTapes API.
+  * Amazon Elastic MapReduce
+    - Added parameter InstanceState to the Get-EMRInstances cmdlet to support filtering by state.
+
 ### 3.1.66.0 (2016-05-05)
   * Amazon EC2
     - The parameter '-Instance' on the Get-EC2Instance and Stop-EC2Instance cmdlets has been renamed to '-InstanceId' to match usage in other EC2 cmdlets (this is a backwards compatible change). The two affected cmdlets continue to accept collections of string instance ids, Amazon.EC2.Model.Instance objects or Amazon.EC2.Model.Reservation objects to specify the instances to operate on.
