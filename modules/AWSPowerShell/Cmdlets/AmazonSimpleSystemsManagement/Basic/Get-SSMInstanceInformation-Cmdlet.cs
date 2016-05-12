@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceInformationFilterList
         /// <summary>
         /// <para>
-        /// One or more filters. Use
-        /// a filter to return a more specific list of instances.
+        /// <para>One or more filters. Use a filter to return a more specific list of instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -60,9 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of items to return for this
-        /// call. The call also returns a token that you can specify in a subsequent call to get
-        /// the next set of results.
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The token for the next set of items to return.
-        /// (You received this token from a previous call.)
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

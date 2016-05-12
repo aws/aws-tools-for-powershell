@@ -43,19 +43,40 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// User-specified information about the command,
-        /// such as a brief description of what the command should do.
+        /// <para>User-specified information about the command, such as a brief description of what
+        /// the command should do.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Comment { get; set; }
         #endregion
         
+        #region Parameter DocumentHash
+        /// <summary>
+        /// <para>
+        /// <para>The Sha256 or Sha1 hash created by the system when the document was created. </para><note><para>Sha1 hashes have been deprecated.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DocumentHash { get; set; }
+        #endregion
+        
+        #region Parameter DocumentHashType
+        /// <summary>
+        /// <para>
+        /// <para>Sha256 or Sha1.</para><note><para>Sha1 hashes have been deprecated.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.DocumentHashType")]
+        public Amazon.SimpleSystemsManagement.DocumentHashType DocumentHashType { get; set; }
+        #endregion
+        
         #region Parameter DocumentName
         /// <summary>
         /// <para>
-        /// Required. The name of the SSM document to
-        /// execute. This can be an SSM public document or a custom document.
+        /// <para>Required. The name of the SSM document to execute. This can be an SSM public document
+        /// or a custom document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// Required. The instance IDs where the command
-        /// should execute.
+        /// <para>Required. The instance IDs where the command should execute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OutputS3BucketName
         /// <summary>
         /// <para>
-        /// The name of the S3 bucket where command
-        /// execution responses should be stored.
+        /// <para>The name of the S3 bucket where command execution responses should be stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,8 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OutputS3KeyPrefix
         /// <summary>
         /// <para>
-        /// The directory structure within the S3
-        /// bucket where the responses should be stored.
+        /// <para>The directory structure within the S3 bucket where the responses should be stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,8 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// The required and optional parameters specified
-        /// in the SSM document being executed.
+        /// <para>The required and optional parameters specified in the SSM document being executed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TimeoutSecond
         /// <summary>
         /// <para>
-        /// If this time is reached and the command
-        /// has not already started executing, it will not execute.
+        /// <para>If this time is reached and the command has not already started executing, it will
+        /// not execute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -147,6 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             };
             
             context.Comment = this.Comment;
+            context.DocumentHash = this.DocumentHash;
+            context.DocumentHashType = this.DocumentHashType;
             context.DocumentName = this.DocumentName;
             if (this.InstanceId != null)
             {
@@ -192,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Comment != null)
             {
                 request.Comment = cmdletContext.Comment;
+            }
+            if (cmdletContext.DocumentHash != null)
+            {
+                request.DocumentHash = cmdletContext.DocumentHash;
+            }
+            if (cmdletContext.DocumentHashType != null)
+            {
+                request.DocumentHashType = cmdletContext.DocumentHashType;
             }
             if (cmdletContext.DocumentName != null)
             {
@@ -253,6 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal class CmdletContext : ExecutorContext
         {
             public System.String Comment { get; set; }
+            public System.String DocumentHash { get; set; }
+            public Amazon.SimpleSystemsManagement.DocumentHashType DocumentHashType { get; set; }
             public System.String DocumentName { get; set; }
             public List<System.String> InstanceIds { get; set; }
             public System.String OutputS3BucketName { get; set; }

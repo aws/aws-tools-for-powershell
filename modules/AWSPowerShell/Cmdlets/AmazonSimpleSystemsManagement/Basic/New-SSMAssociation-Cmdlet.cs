@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The Windows Server instance ID.</para>
+        /// <para>The instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// The parameters for the documents runtime configuration.
+        /// <para>The parameters for the documents runtime configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -2751,6 +2751,8 @@ Set-Alias -Name Describe-SSMAssociation -Value Get-SSMAssociation
 Set-Alias -Name SSM-DescribeAssociation -Value Get-SSMAssociation
 Set-Alias -Name Describe-SSMDocumentDescription -Value Get-SSMDocumentDescription
 Set-Alias -Name SSM-DescribeDocument -Value Get-SSMDocumentDescription
+Set-Alias -Name Describe-SSMDocumentPermission -Value Get-SSMDocumentPermission
+Set-Alias -Name SSM-DescribeDocumentPermission -Value Get-SSMDocumentPermission
 Set-Alias -Name Describe-SSMInstanceInformation -Value Get-SSMInstanceInformation
 Set-Alias -Name SSM-DescribeInstanceInformation -Value Get-SSMInstanceInformation
 Set-Alias -Name SSM-GetDocument -Value Get-SSMDocument
@@ -2758,6 +2760,8 @@ Set-Alias -Name SSM-ListAssociations -Value Get-SSMAssociationList
 Set-Alias -Name SSM-ListCommandInvocations -Value Get-SSMCommandInvocation
 Set-Alias -Name SSM-ListCommands -Value Get-SSMCommand
 Set-Alias -Name SSM-ListDocuments -Value Get-SSMDocumentList
+Set-Alias -Name Modify-SSMDocumentPermission -Value Edit-SSMDocumentPermission
+Set-Alias -Name SSM-ModifyDocumentPermission -Value Edit-SSMDocumentPermission
 Set-Alias -Name SSM-SendCommand -Value Send-SSMCommand
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
 Set-Alias -Name Describe-SGTapeArchives -Value Get-SGTapeArchives

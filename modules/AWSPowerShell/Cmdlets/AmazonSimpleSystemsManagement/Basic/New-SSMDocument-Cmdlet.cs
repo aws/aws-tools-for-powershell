@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  
     /// <para>
-    /// After you create an SSM document, you can use <a>CreateAssociation</a> to associate
-    /// it with one or more running instances.
+    /// After you create an SSM document, you can use CreateAssociation to associate it with
+    /// one or more running instances.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>A valid JSON string. For more information about the contents of this string, see <a href="http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html">SSM
-        /// Document</a>.</para>
+        /// <para>A valid JSON string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

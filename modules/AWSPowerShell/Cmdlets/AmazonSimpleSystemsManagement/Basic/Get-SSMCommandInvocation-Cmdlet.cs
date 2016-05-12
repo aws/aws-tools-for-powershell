@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter CommandId
         /// <summary>
         /// <para>
-        /// (Optional) The invocations for a specific command
-        /// ID.
+        /// <para>(Optional) The invocations for a specific command ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Detail
         /// <summary>
         /// <para>
-        /// (Optional) If set this returns the response of
-        /// the command executions and any command output. By default this is set to False.
+        /// <para>(Optional) If set this returns the response of the command executions and any command
+        /// output. By default this is set to False. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// (Optional) One or more filters. Use a filter to
-        /// return a more specific list of results.
+        /// <para>(Optional) One or more filters. Use a filter to return a more specific list of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// (Optional) The command execution details for
-        /// a specific instance ID.
+        /// <para>(Optional) The command execution details for a specific instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -94,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// (Optional) The maximum number of items to return
-        /// for this call. The call also returns a token that you can specify in a subsequent
-        /// call to get the next set of results.
+        /// <para>(Optional) The maximum number of items to return for this call. The call also returns
+        /// a token that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// (Optional) The token for the next set of items
-        /// to return. (You received this token from a previous call.)
+        /// <para>(Optional) The token for the next set of items to return. (You received this token
+        /// from a previous call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,60 +28,44 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Attempts to cancel the command specified by the Command ID. There is no guarantee
-    /// that the command will be terminated and the underlying process stopped.
+    /// Describes the permissions for an SSM document. If you created the document, you are
+    /// the owner. If a document is shared, it can either be shared privately (by specifying
+    /// a user’s AWS account ID) or publicly (<i>All</i>).
     /// </summary>
-    [Cmdlet("Stop", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the CancelCommand operation against Amazon Simple Systems Management.", Operation = new[] {"CancelCommand"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.CancelCommandResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMDocumentPermission")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the DescribeDocumentPermission operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeDocumentPermission"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public class GetSSMDocumentPermissionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter CommandId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The ID of the command you want to cancel.</para>
+        /// <para>The name of the document for which you are the owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PermissionType
+        /// <summary>
+        /// <para>
+        /// <para>The permission type for the document. The permission type can be <i>Share</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String CommandId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) A list of instance IDs on which you want to cancel the command. If not
-        /// provided, the command is canceled on every instance on which it was requested.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InstanceIds")]
-        public System.String[] InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.DocumentPermissionType")]
+        public Amazon.SimpleSystemsManagement.DocumentPermissionType PermissionType { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SSMCommand (CancelCommand)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -89,11 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
-            context.CommandId = this.CommandId;
-            if (this.InstanceId != null)
-            {
-                context.InstanceIds = new List<System.String>(this.InstanceId);
-            }
+            context.Name = this.Name;
+            context.PermissionType = this.PermissionType;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -105,15 +86,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.CancelCommandRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DescribeDocumentPermissionRequest();
             
-            if (cmdletContext.CommandId != null)
+            if (cmdletContext.Name != null)
             {
-                request.CommandId = cmdletContext.CommandId;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.InstanceIds != null)
+            if (cmdletContext.PermissionType != null)
             {
-                request.InstanceIds = cmdletContext.InstanceIds;
+                request.PermissionType = cmdletContext.PermissionType;
             }
             
             CmdletOutput output;
@@ -122,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelCommand(request);
+                var response = client.DescribeDocumentPermission(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.AccountIds;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CommandId { get; set; }
-            public List<System.String> InstanceIds { get; set; }
+            public System.String Name { get; set; }
+            public Amazon.SimpleSystemsManagement.DocumentPermissionType PermissionType { get; set; }
         }
         
     }

@@ -32,6 +32,10 @@
     <ServiceOperation MethodName="ListCommands" Verb="Get" Noun="Command" />
     <ServiceOperation MethodName="SendCommand" ShouldProcessTarget="InstanceIds"/>
     <ServiceOperation MethodName="DescribeInstanceInformation" />
+
+	<!-- Document sharing apis -->
+    <ServiceOperation MethodName="DescribeDocumentPermission" PipelineParameter="Name" />
+    <ServiceOperation MethodName="ModifyDocumentPermission" PipelineParameter="Name" Output="Void" />
 	
   </ServiceOperations>
 
