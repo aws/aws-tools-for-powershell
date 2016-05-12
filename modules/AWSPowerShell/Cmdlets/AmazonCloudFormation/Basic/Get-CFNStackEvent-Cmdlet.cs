@@ -28,12 +28,14 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns all stack related events for a specified stack. For more information about
-    /// a stack's event history, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html">Stacks</a>
+    /// Returns all stack related events for a specified stack in reverse chronological order.
+    /// For more information about a stack's event history, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html">Stacks</a>
     /// in the AWS CloudFormation User Guide.
     /// 
-    ///  <note>You can list events for stacks that have failed to create or have been deleted
-    /// by specifying the unique stack identifier (stack ID).</note>
+    ///  <note><para>
+    /// You can list events for stacks that have failed to create or have been deleted by
+    /// specifying the unique stack identifier (stack ID).
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFNStackEvent")]
     [OutputType("Amazon.CloudFormation.Model.StackEvent")]
@@ -50,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
-        /// interchangeable:</para><ul><li>Running stacks: You can specify either the stack's name or its unique stack
-        /// ID.</li><li>Deleted stacks: You must specify the unique stack ID.</li></ul><para>Default: There is no default value.</para>
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

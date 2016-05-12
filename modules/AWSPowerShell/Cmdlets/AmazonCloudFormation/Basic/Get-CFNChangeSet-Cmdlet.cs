@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ChangeSetName
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the change set that you want to describe.
-        /// </para>
+        /// <para>The name or Amazon Resource Name (ARN) of the change set that you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

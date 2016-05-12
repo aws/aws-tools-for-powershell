@@ -33,8 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// If <code>PhysicalResourceId</code> is specified, the associated resources of the stack
     /// that the resource belongs to are returned.
     /// 
-    ///  <note>Only the first 100 resources will be returned. If your stack has more resources
-    /// than this, you should use <code>ListStackResources</code> instead.</note><para>
+    ///  <note><para>
+    /// Only the first 100 resources will be returned. If your stack has more resources than
+    /// this, you should use <code>ListStackResources</code> instead.
+    /// </para></note><para>
     /// For deleted stacks, <code>DescribeStackResources</code> returns resource information
     /// for up to 90 days after the stack has been deleted.
     /// </para><para>
@@ -43,8 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// the returned result. For more information about resources, the <code>LogicalResourceId</code>
     /// and <code>PhysicalResourceId</code>, go to the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">AWS
     /// CloudFormation User Guide</a>.
-    /// </para><note>A <code>ValidationError</code> is returned if you specify both <code>StackName</code>
-    /// and <code>PhysicalResourceId</code> in the same request.</note>
+    /// </para><note><para>
+    /// A <code>ValidationError</code> is returned if you specify both <code>StackName</code>
+    /// and <code>PhysicalResourceId</code> in the same request.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFNStackResources")]
     [OutputType("Amazon.CloudFormation.Model.StackResource")]
@@ -85,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
-        /// interchangeable:</para><ul><li>Running stacks: You can specify either the stack's name or its unique stack
-        /// ID.</li><li>Deleted stacks: You must specify the unique stack ID.</li></ul><para>Default: There is no default value.</para><para>Required: Conditional. If you do not specify <code>StackName</code>, you must specify
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para><para>Required: Conditional. If you do not specify <code>StackName</code>, you must specify
         /// <code>PhysicalResourceId</code>.</para>
         /// </para>
         /// </summary>

@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <para>
     /// For deleted stacks, GetTemplate returns the template for up to 90 days after the stack
     /// has been deleted.
-    /// </para><note> If the template does not exist, a <code>ValidationError</code> is returned.
-    /// </note>
+    /// </para><note><para>
+    ///  If the template does not exist, a <code>ValidationError</code> is returned. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFNTemplate")]
     [OutputType("System.String")]
@@ -52,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
-        /// interchangeable:</para><ul><li>Running stacks: You can specify either the stack's name or its unique stack
-        /// ID.</li><li>Deleted stacks: You must specify the unique stack ID.</li></ul><para>Default: There is no default value.</para>
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

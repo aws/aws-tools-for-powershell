@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The Simple Notification Service (SNS) topic ARNs to publish stack related events.
-        /// You can find your SNS topic ARNs using the <a href="http://console.aws.amazon.com/sns">SNS
+        /// You can find your SNS topic ARNs using the <a href="https://console.aws.amazon.com/sns">SNS
         /// console</a> or your Command Line Interface (CLI).</para>
         /// </para>
         /// </summary>
@@ -128,8 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// resource types: <code>AWS::*</code> (for all AWS resource), <code>Custom::*</code>
         /// (for all custom resources), <code>Custom::<i>logical_ID</i></code> (for a specific
         /// custom resource), <code>AWS::<i>service_name</i>::*</code> (for all resources of a
-        /// particular AWS service), and <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i></code>
-        /// (for a specific AWS resource).</para><para>If the list of resource types doesn't include a resource that you're creating, the
+        /// particular AWS service), and <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i></code> (for a specific AWS resource).</para><para>If the list of resource types doesn't include a resource that you're creating, the
         /// stack creation fails. By default, AWS CloudFormation grants permissions to all resource
         /// types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific
         /// condition keys in IAM policies. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
@@ -145,9 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name that is associated with the stack. The name must be unique in the region
-        /// in which you are creating the stack.</para><note>A stack name can contain only alphanumeric characters (case sensitive) and
-        /// hyphens. It must start with an alphabetic character and cannot be longer than 128
-        /// characters.</note>
+        /// in which you are creating the stack.</para><note><para>A stack name can contain only alphanumeric characters (case sensitive) and hyphens.
+        /// It must start with an alphabetic character and cannot be longer than 128 characters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
