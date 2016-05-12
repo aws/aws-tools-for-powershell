@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ADS</ServiceNounPrefix>
+  <ServiceName>Application Discovery Service</ServiceName>
+  <ServiceClientInterface>IAmazonApplicationDiscoveryService</ServiceClientInterface>
+  <ServiceClient>AmazonApplicationDiscoveryServiceClient</ServiceClient>
+  <ServiceNamespace>Amazon.ApplicationDiscoveryService</ServiceNamespace>
+
+  <VerbMappings />
+  
+  <NounMappings>
+    <Map From="Tags" To="Tag" />
+    <Map From="Agents" To="Agent" />
+    <Map From="Configurations" To="Configurations" />
+  </NounMappings>
+
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="100" />
+
+  <PipelineParameter>ConfigurationIds</PipelineParameter>
+
+  <PipelineByValueProperties>
+    <Property>AgentId</Property>
+	<Property>ConfigurationId</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+	<ServiceOperation MethodName="CreateTags" Output="Void" />
+	<ServiceOperation MethodName="DeleteTags" Output="Void" />
+	<ServiceOperation MethodName="DescribeAgents" />
+	<ServiceOperation MethodName="DescribeTags" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="ExportConfigurations" 
+	                  Verb="Get"
+					  Noun="ExportConfiguration" />
+	<ServiceOperation MethodName="GetConfigurationAttributes" Noun="ConfigurationAttribute" />
+	<ServiceOperation MethodName="GetExportStatus" Output="Response" />
+	<ServiceOperation MethodName="ListConfigurations" 
+	                  Verb="Get"
+	                  Noun="ConfigurationList" 
+					  NoPipelineParameter="true" />
+	<ServiceOperation MethodName="RemoveConfiguration" Output="Void" />
+	<ServiceOperation MethodName="StartDataCollectionByAgentIds" 
+	                  Noun="DataCollectionByAgentId" />
+	<ServiceOperation MethodName="StopDataCollectionByAgentIds" 
+	                  Noun="DataCollectionByAgentId" />
+  </ServiceOperations>
+
+</ConfigModel>

@@ -2,6 +2,7 @@
 <ConfigModelCollection>
   <Configs>
     <Path>APIGateway.xml</Path>
+	<Path>ApplicationDiscovery.xml</Path>
     <Path>AutoScaling.xml</Path>
     <Path>AWSSupport.xml</Path>
     <Path>Beanstalk.xml</Path>

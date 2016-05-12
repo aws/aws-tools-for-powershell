@@ -60,6 +60,9 @@
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.APIGateway.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ApplicationDiscoveryService">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
