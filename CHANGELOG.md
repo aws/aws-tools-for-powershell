@@ -1,3 +1,11 @@
+### 3.1.68.0 (2016-05-12)
+  * AWS Application Discovery Service [New Service]
+    - Added cmdlets to support the new Application Discovery Service. Cmdlets for this service have the prefix 'ADS' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service ads'.
+  * Amazon EC2 Simple Systems Management
+    - Added support for the new document sharing features with two new cmdlets, Get-SSMDocumentPermission (DescribeDocumentPermission API) and Edit-SSMDocumentPermission (ModifyDocumentPermission API).
+  * Amazon EC2
+    - Added support for identitfying stale security groups with two new cmdlets, Get-EC2SecurityGroupReference (DescribeSecurityGroupReferences API) and Get-EC2StaleSecurityGroup (DescribeStaleSecurityGroups API).
+
 ### 3.1.67.0 (2016-05-10)
   * AWS Storage Gateway
     - Added a new cmdlet, Get-SGTape, to support the new ListTapes API.
