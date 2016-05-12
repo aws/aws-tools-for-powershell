@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>One or more subnet, network interface, or VPC IDs.</para>
+        /// <para>One or more subnet, network interface, or VPC IDs.</para><para>Constraints: Maximum of 1000 resources</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

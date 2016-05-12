@@ -174,11 +174,13 @@
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeRouteTables" PipelineParameter="RouteTableIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeSecurityGroups" PipelineParameter="GroupIds" PositionalParameters="Filters"/>
+	<ServiceOperation MethodName="DescribeSecurityGroupReferences" Noun="SecurityGroupReference" />
     <ServiceOperation MethodName="DescribeSnapshotAttribute" Output="Response" PipelineParameter="SnapshotId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeSnapshots" PipelineParameter="SnapshotIds" PositionalParameters="OwnerIds;RestorableByUserIds;Filters"/>
     <ServiceOperation MethodName="DescribeSpotDatafeedSubscription"/>
     <ServiceOperation MethodName="DescribeSpotInstanceRequests" PipelineParameter="SpotInstanceRequestIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeSpotPriceHistory"/>
+	<ServiceOperation MethodName="DescribeStaleSecurityGroups" Noun="StaleSecurityGroup" PipelineParameter="VpcId" />
     <ServiceOperation MethodName="DescribeSubnets" PipelineParameter="SubnetIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeTags" />
     <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" PipelineParameter="VolumeId" PositionalParameters="Attribute"/>
