@@ -1,3 +1,7 @@
+### 3.1.70.0 (2016-05-18)
+  * Application Auto Scaling
+    - Added support for Application Auto Scaling, a general purpose Auto Scaling service for supported elastic AWS resources. With Application Auto Scaling, you can automatically scale your AWS resources, with an experience similar to that of Auto Scaling. The cmdlets for this service have the prefix 'AAS' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service aas'.
+
 ### 3.1.69.0 (2016-05-17)
   * Amazon WorkSpaces
     - Added support for the new tagging APIs with three new cmdlets: Get-WKSTag (DescribeTags API), New-WKSTag (CreateTags API) and Remove-WKSTag (DeleteTags API).
