@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para> A maximum number of table names to return. If this parameter is not specified, the
+        /// <para>A maximum number of table names to return. If this parameter is not specified, the
         /// limit is 100.</para>
         /// </para>
         /// </summary>

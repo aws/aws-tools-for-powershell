@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
-        /// the array, you can request one action:</para><ul><li><para><i>Create</i> - add a new global secondary index to the table.</para></li><li><para><i>Update</i> - modify the provisioned throughput settings of an existing global secondary
-        /// index.</para></li><li><para><i>Delete</i> - remove a global secondary index from the table.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+        /// the array, you can request one action:</para><ul><li><para><i>Create</i> - add a new global secondary index to the table.</para></li><li><para><i>Update</i> - modify the provisioned throughput settings of an existing global
+        /// secondary index.</para></li><li><para><i>Delete</i> - remove a global secondary index from the table.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
         /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// for <i>StreamViewType</i> are:</para><ul><li><para><i>KEYS_ONLY</i> - Only the key attributes of the modified item are written to the
         /// stream.</para></li><li><para><i>NEW_IMAGE</i> - The entire item, as it appears after it was modified, is written
         /// to the stream.</para></li><li><para><i>OLD_IMAGE</i> - The entire item, as it appeared before it was modified, is written
-        /// to the stream.</para></li><li><para><i>NEW_AND_OLD_IMAGES</i> - Both the new and the old item images of the item are written
-        /// to the stream.</para></li></ul></li></ul>
+        /// to the stream.</para></li><li><para><i>NEW_AND_OLD_IMAGES</i> - Both the new and the old item images of the item are
+        /// written to the stream.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

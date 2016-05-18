@@ -45,20 +45,30 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// imposed by your account so that you have enough time to apply for an increase before
     /// you hit a limit.
     /// </para><para>
-    ///  For example, you could use one of the AWS SDKs to do the following:
-    /// </para><ol><li>Call <i>DescribeLimits</i> for a particular region to obtain your current
-    /// account limits on provisioned capacity there.</li><li>Create a variable to hold the
-    /// aggregate read capacity units provisioned for all your tables in that region, and
-    /// one to hold the aggregate write capacity units. Zero them both.</li><li>Call <i>ListTables</i>
-    /// to obtain a list of all your DynamoDB tables.</li><li><para>
+    /// For example, you could use one of the AWS SDKs to do the following:
+    /// </para><ol><li><para>
+    /// Call <i>DescribeLimits</i> for a particular region to obtain your current account
+    /// limits on provisioned capacity there.
+    /// </para></li><li><para>
+    /// Create a variable to hold the aggregate read capacity units provisioned for all your
+    /// tables in that region, and one to hold the aggregate write capacity units. Zero them
+    /// both.
+    /// </para></li><li><para>
+    /// Call <i>ListTables</i> to obtain a list of all your DynamoDB tables.
+    /// </para></li><li><para>
     /// For each table name listed by <i>ListTables</i>, do the following:
-    /// </para><ul><li>Call <i>DescribeTable</i> with the table name.</li><li>Use the data returned
-    /// by <i>DescribeTable</i> to add the read capacity units and write capacity units provisioned
-    /// for the table itself to your variables.</li><li>If the table has one or more global
-    /// secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity
-    /// values to your variables as well.</li></ul></li><li>Report the account limits for
-    /// that region returned by <i>DescribeLimits</i>, along with the total current provisioned
-    /// capacity levels you have calculated.</li></ol><para>
+    /// </para><ul><li><para>
+    /// Call <i>DescribeTable</i> with the table name.
+    /// </para></li><li><para>
+    /// Use the data returned by <i>DescribeTable</i> to add the read capacity units and write
+    /// capacity units provisioned for the table itself to your variables.
+    /// </para></li><li><para>
+    /// If the table has one or more global secondary indexes (GSIs), loop over these GSIs
+    /// and add their provisioned capacity values to your variables as well.
+    /// </para></li></ul></li><li><para>
+    /// Report the account limits for that region returned by <i>DescribeLimits</i>, along
+    /// with the total current provisioned capacity levels you have calculated.
+    /// </para></li></ol><para>
     /// This will let you see whether you are getting close to your account-level limits.
     /// </para><para>
     /// The per-table limits apply only when you are creating a new table. They restrict the
