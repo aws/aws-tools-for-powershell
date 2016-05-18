@@ -2943,8 +2943,14 @@ Set-Alias -Name WAF-GetSampledRequests -Value Get-WAFSampledRequestList
 Set-Alias -Name WAF-GetSizeConstraintSet -Value Get-WAFSizeConstraintSet
 Set-Alias -Name WAF-GetSqlInjectionMatchSet -Value Get-WAFSqlInjectionMatchSet
 Set-Alias -Name WAF-GetWebACL -Value Get-WAFWebACL
+Set-Alias -Name Create-WKSTags -Value New-WKSTag
+Set-Alias -Name WKS-CreateTags -Value New-WKSTag
 Set-Alias -Name Create-WKSWorkspace -Value New-WKSWorkspace
 Set-Alias -Name WKS-CreateWorkspaces -Value New-WKSWorkspace
+Set-Alias -Name Delete-WKSTags -Value Remove-WKSTag
+Set-Alias -Name WKS-DeleteTags -Value Remove-WKSTag
+Set-Alias -Name Describe-WKSTags -Value Get-WKSTag
+Set-Alias -Name WKS-DescribeTags -Value Get-WKSTag
 Set-Alias -Name Describe-WKSWorkspaceBundles -Value Get-WKSWorkspaceBundles
 Set-Alias -Name WKS-DescribeWorkspaceBundles -Value Get-WKSWorkspaceBundles
 Set-Alias -Name Describe-WKSWorkspaceDirectories -Value Get-WKSWorkspaceDirectories

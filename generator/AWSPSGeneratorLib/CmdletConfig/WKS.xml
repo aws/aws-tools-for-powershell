@@ -11,9 +11,12 @@
   <AutoIterate EmitLimit="Limit"
                Start="NextToken"
                Next="NextToken" />
-       
-  -->
-  <ServiceOperations>
+
+  <NounMappings>
+    <Map From="Tags" To="Tag" />
+  </NounMappings>
+
+    <ServiceOperations>
     <ServiceOperation MethodName="CreateWorkspaces" Output="Response" Noun="Workspace"/>
     <ServiceOperation MethodName="DescribeWorkspaceBundles" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeWorkspaceDirectories" />
@@ -33,6 +36,10 @@
         <Param Name="TerminateWorkspaceRequests" NewName="Request" />
       </Params>
     </ServiceOperation>
+
+    <ServiceOperation MethodName="CreateTags" Output="Void" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteTags" Output="Void" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeTags" />
   </ServiceOperations>
   
 </ConfigModel>
