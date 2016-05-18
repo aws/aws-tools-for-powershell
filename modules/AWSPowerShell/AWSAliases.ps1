@@ -103,6 +103,16 @@ Set-Alias -Name AG-GenerateClientCertificate -Value New-AGClientCertificate
 Set-Alias -Name AG-GetAccount -Value Get-AGAccount
 Set-Alias -Name AG-GetApiKey -Value Get-AGApiKey
 Set-Alias -Name AG-GetApiKeys -Value Get-AGApiKeyList
+Set-Alias -Name AAS-DeleteScalingPolicy -Value Remove-AASScalingPolicy
+Set-Alias -Name AAS-DeregisterScalableTarget -Value Remove-AASScalableTarget
+Set-Alias -Name Describe-AASScalableTarget -Value Get-AASScalableTarget
+Set-Alias -Name AAS-DescribeScalableTargets -Value Get-AASScalableTarget
+Set-Alias -Name Describe-AASScalingActivity -Value Get-AASScalingActivity
+Set-Alias -Name AAS-DescribeScalingActivities -Value Get-AASScalingActivity
+Set-Alias -Name Describe-AASScalingPolicy -Value Get-AASScalingPolicy
+Set-Alias -Name AAS-DescribeScalingPolicies -Value Get-AASScalingPolicy
+Set-Alias -Name AAS-PutScalingPolicy -Value Write-AASScalingPolicy
+Set-Alias -Name AAS-RegisterScalableTarget -Value Add-AASScalableTarget
 Set-Alias -Name Create-ADSTags -Value New-ADSTag
 Set-Alias -Name ADS-CreateTags -Value New-ADSTag
 Set-Alias -Name Delete-ADSTags -Value Remove-ADSTag

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>AAS</ServiceNounPrefix>
+  <ServiceName>Application Auto Scaling</ServiceName>
+  <ServiceClientInterface>IAmazonApplicationAutoScaling</ServiceClientInterface>
+  <ServiceClient>AmazonApplicationAutoScalingClient</ServiceClient>
+  <ServiceNamespace>Amazon.ApplicationAutoScaling</ServiceNamespace>
+
+  <PipelineParameter>ServiceNamespace</PipelineParameter>
+
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="PutScalingPolicy" Verb="Write" ShouldProcessTarget="PolicyName" />
+    <ServiceOperation MethodName="RegisterScalableTarget" Verb="Add" Output="Void" />
+
+    <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Output="Void" ShouldProcessTarget="PolicyName" />
+    <ServiceOperation MethodName="DeregisterScalableTarget" Verb="Remove" Output="Void" />
+
+    <ServiceOperation MethodName="DescribeScalableTargets" Noun="ScalableTarget" />
+    <ServiceOperation MethodName="DescribeScalingActivities" Noun="ScalingActivity" />
+    <ServiceOperation MethodName="DescribeScalingPolicies" Noun="ScalingPolicy" />
+  </ServiceOperations>
+
+</ConfigModel>

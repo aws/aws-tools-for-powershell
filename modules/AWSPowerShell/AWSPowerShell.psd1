@@ -52,6 +52,7 @@ RequiredModules = @()
 # external SDK assembly.
 RequiredAssemblies = @(
   "AWSSDK.APIGateway.dll",
+  "AWSSDK.ApplicationAutoScaling.dll",
   "AWSSDK.ApplicationDiscoveryService.dll",
   "AWSSDK.AutoScaling.dll",
   "AWSSDK.AWSMarketplaceCommerceAnalytics.dll",
