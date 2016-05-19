@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// destination). The update may not occur immediately. The target delivery stream remains
     /// active while the configurations are updated, so data writes to the delivery stream
     /// can continue during this process. The updated configurations are normally effective
-    /// within a few minutes. 
+    /// within a few minutes.
     /// </para><para>
     /// If the destination type is the same, Firehose merges the configuration parameters
     /// specified in the <a>UpdateDestination</a> request with the destination configuration
@@ -122,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
-        /// which Firehose re-attempts delivery. After this time has elapsed, the failed documents
-        /// are written to Amazon S3. Default value is 300 seconds. A value of 0 (zero) results
-        /// in no retries.</para>
+        /// which Firehose re-attempts delivery (including the first attempt). After this time
+        /// has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds
+        /// (5 minutes). A value of 0 (zero) results in no retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter RedshiftDestinationUpdate
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Describes an update for a destination in Amazon Redshift.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter S3DestinationUpdate
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Describes an update for a destination in Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
