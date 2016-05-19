@@ -28,7 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Deletes one or more tags associated with a configuration item.
+    /// Deletes the association between configuration items and one or more tags. This API
+    /// accepts a list of multiple configuration items.
     /// </summary>
     [Cmdlet("Remove", "ADSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Tags that you want to delete from one or more configuration items. Specify the tags
-        /// that you want to delete in a <i>key</i>, <i>value</i> format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
+        /// that you want to delete in a <i>key</i>-<i>value</i> format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

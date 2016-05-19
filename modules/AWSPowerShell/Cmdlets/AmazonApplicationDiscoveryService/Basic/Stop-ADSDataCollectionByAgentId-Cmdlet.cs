@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// Instructs the specified agents to stop collecting data.
     /// </summary>
     [Cmdlet("Stop", "ADSDataCollectionByAgentId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigStatus")]
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus")]
     [AWSCmdlet("Invokes the StopDataCollectionByAgentIds operation against Application Discovery Service.", Operation = new[] {"StopDataCollectionByAgentIds"})]
-    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigStatus",
-        "This cmdlet returns a collection of AgentConfigStatus objects.",
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus",
+        "This cmdlet returns a collection of AgentConfigurationStatus objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 var response = client.StopDataCollectionByAgentIds(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AgentsConfigStatus;
+                object pipelineOutput = response.AgentsConfigurationStatus;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

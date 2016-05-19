@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Instructs the specified agents to start collecting data. Agents can reside on host
-    /// servers or virtual machines in your data center or on AWS EC2 instances.
+    /// servers or virtual machines in your data center.
     /// </summary>
     [Cmdlet("Start", "ADSDataCollectionByAgentId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigStatus")]
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus")]
     [AWSCmdlet("Invokes the StartDataCollectionByAgentIds operation against Application Discovery Service.", Operation = new[] {"StartDataCollectionByAgentIds"})]
-    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigStatus",
-        "This cmdlet returns a collection of AgentConfigStatus objects.",
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus",
+        "This cmdlet returns a collection of AgentConfigurationStatus objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
@@ -44,7 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the agents that you want to start collecting data.</para>
+        /// <para>The IDs of the agents that you want to start collecting data. If you send a request
+        /// to an AWS agent ID that you do not have permission to contact, according to your AWS
+        /// account, the service does not throw an exception. Instead, it returns the error in
+        /// the <i>Description</i> field. If you send a request to multiple agents and you do
+        /// not have permission to contact some of those agents, the system does not throw an
+        /// exception. Instead, the system shows <code>Failed</code> in the <i>Description</i>
+        /// field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -108,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 var response = client.StartDataCollectionByAgentIds(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AgentsConfigStatus;
+                object pipelineOutput = response.AgentsConfigurationStatus;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -28,8 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieve a list of configurations items according to the criteria you specify in a
-    /// filter. The filter criteria identify relationship requirements.
+    /// Retrieves a list of configurations items according to the criteria you specify in
+    /// a filter. The filter criteria identify relationship requirements.
     /// </summary>
     [Cmdlet("Get", "ADSConfigurationList")]
     [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>You can filter the list using a key, value format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
+        /// <para>You can filter the list using a <i>key</i>-<i>value</i> format. For example: </para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>You can separate these items by using logical operators. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

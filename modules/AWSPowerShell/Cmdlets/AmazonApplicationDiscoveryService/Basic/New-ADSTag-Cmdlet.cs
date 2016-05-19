@@ -28,8 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Creates one or more tags for a configuration item. Tags are metadata that help you
-    /// categorize IT assets.
+    /// Creates one or more tags for configuration items. Tags are metadata that help you
+    /// categorize IT assets. This API accepts a list of multiple configuration items.
     /// </summary>
     [Cmdlet("New", "ADSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Tags that you want to associate with one or more configuration items. Specify the
-        /// tags that you want to create in a <i>key</i>,<i>value</i> format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
+        /// tags that you want to create in a <i>key</i>-<i>value</i> format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

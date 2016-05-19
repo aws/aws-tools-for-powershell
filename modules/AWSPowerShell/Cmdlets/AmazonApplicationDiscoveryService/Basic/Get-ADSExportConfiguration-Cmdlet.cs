@@ -28,17 +28,54 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Exports the selected configurations to an Amazon S3 bucket.
+    /// Retrieves the status of a given export process. You can retrieve status from a maximum
+    /// of 100 processes.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfiguration")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ExportConfigurations operation against Application Discovery Service.", Operation = new[] {"ExportConfigurations"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
+    [AWSCmdlet("Invokes the DescribeExportConfigurations operation against Application Discovery Service.", Operation = new[] {"DescribeExportConfigurations"})]
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ExportInfo",
+        "This cmdlet returns a collection of ExportInfo objects.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetADSExportConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExportId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier that you can use to query the export status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("ExportIds")]
+        public System.String[] ExportId { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results that you want to display as a part of the query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A token to get the next set of results. For example, if you specified 100 IDs for
+        /// <code>DescribeConfigurationsRequest$configurationIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code>
+        /// to 10, you will get results in a set of 10. Use the token in the query to get the
+        /// next set of 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -50,6 +87,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.ExportId != null)
+            {
+                context.ExportIds = new List<System.String>(this.ExportId);
+            }
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -60,32 +104,118 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest();
+            if (cmdletContext.ExportIds != null)
+            {
+                request.ExportIds = cmdletContext.ExportIds;
+            }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            int? _pageSize = 100;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            {
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxResults;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ExportConfigurations(request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ExportId;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = client.DescribeExportConfigurations(request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.ExportsInfo;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.ExportsInfo.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -98,6 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> ExportIds { get; set; }
+            public int? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

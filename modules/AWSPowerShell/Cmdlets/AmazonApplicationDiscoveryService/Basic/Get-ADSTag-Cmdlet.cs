@@ -28,8 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieve a list of configuration items that are tagged with a specific tag. Or retrieve
-    /// a list all tags assigned to a specific configuration item.
+    /// Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves
+    /// a list of all tags assigned to a specific configuration item.
     /// </summary>
     [Cmdlet("Get", "ADSTag")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ConfigurationTag")]
@@ -45,11 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>You can filter the list using a key, value format. For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>You can separate these items by using logical operators. Allowed filters include tagkey,
-        /// tagValue, and configid. </para>
+        /// <para>You can filter the list using a <i>key</i>-<i>value</i> format. You can separate these
+        /// items by using logical operators. Allowed filters include <code>tagKey</code>, <code>tagValue</code>,
+        /// and <code>configurationId</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("Filters")]
         public Amazon.ApplicationDiscoveryService.Model.TagFilter[] Filter { get; set; }
         #endregion
         
@@ -86,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             
             if (this.Filter != null)
             {
-                context.Filter = new List<Amazon.ApplicationDiscoveryService.Model.TagFilter>(this.Filter);
+                context.Filters = new List<Amazon.ApplicationDiscoveryService.Model.TagFilter>(this.Filter);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -104,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             
             // create request and set iteration invariants
             var request = new Amazon.ApplicationDiscoveryService.Model.DescribeTagsRequest();
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.Filters != null)
             {
-                request.Filter = cmdletContext.Filter;
+                request.Filters = cmdletContext.Filters;
             }
             
             // Initialize loop variants and commence piping
@@ -225,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.ApplicationDiscoveryService.Model.TagFilter> Filter { get; set; }
+            public List<Amazon.ApplicationDiscoveryService.Model.TagFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

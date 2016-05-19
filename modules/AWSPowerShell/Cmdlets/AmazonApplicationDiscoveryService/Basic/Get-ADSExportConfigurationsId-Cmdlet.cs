@@ -28,30 +28,21 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieve a list of attributes for a specific configuration ID. For example, the output
-    /// for a <i>server</i> configuration item includes a list of attributes about the server,
-    /// including host name, operating system, number of network cards, etc.
+    /// Exports all discovered configuration data to an Amazon S3 bucket or an application
+    /// that enables you to view and evaluate the data. Data includes tags and tag associations,
+    /// processes, connections, servers, and system performance. This API returns an export
+    /// ID which you can query using the <i>GetExportStatus</i> API. The system imposes a
+    /// limit of two configuration exports in six hours.
     /// </summary>
-    [Cmdlet("Get", "ADSConfigurationAttribute")]
+    [Cmdlet("Get", "ADSExportConfigurationsId")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetConfigurationAttributes operation against Application Discovery Service.", Operation = new[] {"GetConfigurationAttributes"})]
+    [AWSCmdlet("Invokes the ExportConfigurations operation against Application Discovery Service.", Operation = new[] {"ExportConfigurations"})]
     [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.GetConfigurationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetADSConfigurationAttributeCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public class GetADSExportConfigurationsIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
-        
-        #region Parameter ConfigurationId
-        /// <summary>
-        /// <para>
-        /// <para>One or more configuration IDs.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("ConfigurationIds")]
-        public System.String[] ConfigurationId { get; set; }
-        #endregion
         
         protected override void ProcessRecord()
         {
@@ -63,10 +54,6 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.ConfigurationId != null)
-            {
-                context.ConfigurationIds = new List<System.String>(this.ConfigurationId);
-            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -78,12 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationDiscoveryService.Model.GetConfigurationAttributesRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsRequest();
             
-            if (cmdletContext.ConfigurationIds != null)
-            {
-                request.ConfigurationIds = cmdletContext.ConfigurationIds;
-            }
             
             CmdletOutput output;
             
@@ -91,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetConfigurationAttributes(request);
+                var response = client.ExportConfigurations(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Configurations;
+                object pipelineOutput = response.ExportId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -119,7 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ConfigurationIds { get; set; }
         }
         
     }

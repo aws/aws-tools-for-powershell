@@ -12,7 +12,7 @@
   <NounMappings>
     <Map From="Tags" To="Tag" />
     <Map From="Agents" To="Agent" />
-    <Map From="Configurations" To="Configurations" />
+    <Map From="Configurations" To="Configuration" />
   </NounMappings>
 
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="100" />
@@ -28,17 +28,16 @@
 	<ServiceOperation MethodName="CreateTags" Output="Void" />
 	<ServiceOperation MethodName="DeleteTags" Output="Void" />
 	<ServiceOperation MethodName="DescribeAgents" />
+	<ServiceOperation MethodName="DescribeConfigurations" />
+	<ServiceOperation MethodName="DescribeExportConfigurations" Noun="ExportConfiguration" />
 	<ServiceOperation MethodName="DescribeTags" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="ExportConfigurations" 
 	                  Verb="Get"
-					  Noun="ExportConfiguration" />
-	<ServiceOperation MethodName="GetConfigurationAttributes" Noun="ConfigurationAttribute" />
-	<ServiceOperation MethodName="GetExportStatus" Output="Response" />
+					  Noun="ExportConfigurationsId" />
 	<ServiceOperation MethodName="ListConfigurations" 
 	                  Verb="Get"
 	                  Noun="ConfigurationList" 
 					  NoPipelineParameter="true" />
-	<ServiceOperation MethodName="RemoveConfiguration" Output="Void" />
 	<ServiceOperation MethodName="StartDataCollectionByAgentIds" 
 	                  Noun="DataCollectionByAgentId" />
 	<ServiceOperation MethodName="StopDataCollectionByAgentIds" 

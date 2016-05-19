@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of items to return. The maximum value is 100.</para>
+        /// <para>The total number of agents to return. The maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
