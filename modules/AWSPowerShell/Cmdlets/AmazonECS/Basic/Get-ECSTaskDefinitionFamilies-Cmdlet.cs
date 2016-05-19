@@ -30,7 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Returns a list of task definition families that are registered to your account (which
     /// may include task definition families that no longer have any <code>ACTIVE</code> task
-    /// definitions). You can filter the results with the <code>familyPrefix</code> parameter.
+    /// definition revisions).
+    /// 
+    ///  
+    /// <para>
+    /// You can filter out task definition families that do not contain any <code>ACTIVE</code>
+    /// task definition revisions by setting the <code>status</code> parameter to <code>ACTIVE</code>.
+    /// You can also filter the results with the <code>familyPrefix</code> parameter.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitionFamilies")]
     [OutputType("System.String")]
@@ -51,8 +58,26 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// begin with the <code>familyPrefix</code> string are returned.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String FamilyPrefix { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The task definition family status with which to filter the <code>ListTaskDefinitionFamilies</code>
+        /// results. By default, both <code>ACTIVE</code> and <code>INACTIVE</code> task definition
+        /// families are listed. If this parameter is set to <code>ACTIVE</code>, only task definition
+        /// families that have an <code>ACTIVE</code> task definition revision are returned. If
+        /// this parameter is set to <code>INACTIVE</code>, only task definition families that
+        /// do not have any <code>ACTIVE</code> task definition revisions are returned. If you
+        /// paginate the resulting output, be sure to keep the <code>status</code> value constant
+        /// in each subsequent request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.TaskDefinitionFamilyStatus")]
+        public Amazon.ECS.TaskDefinitionFamilyStatus Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -79,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para>
+        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,6 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Status = this.Status;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -116,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.FamilyPrefix != null)
             {
                 request.FamilyPrefix = cmdletContext.FamilyPrefix;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variants and commence piping
@@ -207,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String FamilyPrefix { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.ECS.TaskDefinitionFamilyStatus Status { get; set; }
         }
         
     }
