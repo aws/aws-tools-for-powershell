@@ -210,6 +210,7 @@
     <ServiceOperation MethodName="EnableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
     <ServiceOperation MethodName="EnableVolumeIO" Output="Void" />
     <ServiceOperation MethodName="GetConsoleOutput" Output="Response"/>
+	<ServiceOperation MethodName="GetConsoleScreenshot" Output="Response" />
     <ServiceOperation MethodName="GetPasswordData" Exclude="true"/>
     <ServiceOperation MethodName="ImportInstance" Exclude="true"/>
     <ServiceOperation MethodName="ImportKeyPair" Output="Response" PipelineParameter="KeyName" PositionalParameters="PublicKeyMaterial"/>

@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// it is no longer available for use in the EC2-Classic platform, unless you move it
     /// back using the <a>RestoreAddressToClassic</a> request. You cannot move an Elastic
     /// IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic
-    /// platform. You cannot migrate an Elastic IP address that's associated with a reverse
-    /// DNS record. Contact AWS account and billing support to remove the reverse DNS record.
+    /// platform.
     /// </summary>
     [Cmdlet("Move", "EC2AddressToVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]

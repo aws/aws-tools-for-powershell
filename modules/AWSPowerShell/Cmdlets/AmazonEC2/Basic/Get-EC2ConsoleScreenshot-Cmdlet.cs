@@ -28,49 +28,47 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Restores an Elastic IP address that was previously moved to the EC2-VPC platform back
-    /// to the EC2-Classic platform. You cannot move an Elastic IP address that was originally
-    /// allocated for use in EC2-VPC. The Elastic IP address must not be associated with an
-    /// instance or network interface.
+    /// Retrieve a JPG-format screenshot of an instance to help with troubleshooting.
+    /// 
+    ///  
+    /// <para>
+    /// For API calls, the returned content is base64-encoded. For command line tools, the
+    /// decoding is performed for you.
+    /// </para>
     /// </summary>
-    [Cmdlet("Restore", "EC2AddressToClassic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.RestoreAddressToClassicResponse")]
-    [AWSCmdlet("Invokes the RestoreAddressToClassic operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RestoreAddressToClassic"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.RestoreAddressToClassicResponse",
-        "This cmdlet returns a Amazon.EC2.Model.RestoreAddressToClassicResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2ConsoleScreenshot")]
+    [OutputType("Amazon.EC2.Model.GetConsoleScreenshotResponse")]
+    [AWSCmdlet("Invokes the GetConsoleScreenshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetConsoleScreenshot"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleScreenshotResponse",
+        "This cmdlet returns a Amazon.EC2.Model.GetConsoleScreenshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RestoreEC2AddressToClassicCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class GetEC2ConsoleScreenshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter PublicIp
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The Elastic IP address.</para>
+        /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String PublicIp { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter WakeUp
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>When set to <code>true</code>, acts as keystroke input and wakes up an instance that's
+        /// in standby or "sleep" mode.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.Boolean WakeUp { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PublicIp", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-EC2AddressToClassic (RestoreAddressToClassic)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -78,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.PublicIp = this.PublicIp;
+            context.InstanceId = this.InstanceId;
+            if (ParameterWasBound("WakeUp"))
+                context.WakeUp = this.WakeUp;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -90,11 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.RestoreAddressToClassicRequest();
+            var request = new Amazon.EC2.Model.GetConsoleScreenshotRequest();
             
-            if (cmdletContext.PublicIp != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.PublicIp = cmdletContext.PublicIp;
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.WakeUp != null)
+            {
+                request.WakeUp = cmdletContext.WakeUp.Value;
             }
             
             CmdletOutput output;
@@ -103,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RestoreAddressToClassic(request);
+                var response = client.GetConsoleScreenshot(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -131,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String PublicIp { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Boolean? WakeUp { get; set; }
         }
         
     }

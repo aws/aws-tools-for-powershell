@@ -948,6 +948,8 @@ Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name Replace-EC2RouteTableAssociation -Value Set-EC2RouteTableAssociation
+Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name Report-EC2InstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-ReportInstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-RequestSpotFleet -Value Request-EC2SpotFleet
@@ -967,6 +969,7 @@ Set-Alias -Name EC2-StartInstances -Value Start-EC2Instance
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
 Set-Alias -Name Modify-EC2Hosts -Value Edit-EC2Hosts
 Set-Alias -Name EC2-ModifyHosts -Value Edit-EC2Hosts
 Set-Alias -Name Modify-EC2IdFormat -Value Edit-EC2IdFormat
@@ -1011,8 +1014,6 @@ Set-Alias -Name Replace-EC2NetworkAclEntry -Value Set-EC2NetworkAclEntry
 Set-Alias -Name EC2-ReplaceNetworkAclEntry -Value Set-EC2NetworkAclEntry
 Set-Alias -Name Replace-EC2Route -Value Set-EC2Route
 Set-Alias -Name EC2-ReplaceRoute -Value Set-EC2Route
-Set-Alias -Name Replace-EC2RouteTableAssociation -Value Set-EC2RouteTableAssociation
-Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name Describe-EC2VpcClassicLinkDnsSupport -Value Get-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name EC2-DescribeVpcClassicLinkDnsSupport -Value Get-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Describe-EC2VpcEndpoint -Value Get-EC2VpcEndpoint
@@ -1049,9 +1050,9 @@ Set-Alias -Name EC2-EnableVolumeIO -Value Enable-EC2VolumeIO
 Set-Alias -Name EC2-EnableVpcClassicLink -Value Enable-EC2VpcClassicLink
 Set-Alias -Name EC2-EnableVpcClassicLinkDnsSupport -Value Enable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name EC2-GetConsoleOutput -Value Get-EC2ConsoleOutput
+Set-Alias -Name EC2-GetConsoleScreenshot -Value Get-EC2ConsoleScreenshot
 Set-Alias -Name EC2-ImportImage -Value Import-EC2Image
 Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
-Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
 Set-Alias -Name Describe-EC2ReservedInstancesListings -Value Get-EC2ReservedInstancesListing
 Set-Alias -Name EC2-DescribeReservedInstancesListings -Value Get-EC2ReservedInstancesListing
 Set-Alias -Name Describe-EC2ReservedInstancesModifications -Value Get-EC2ReservedInstancesModifications
