@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Lists all of the attributes for a customer account. The attributes include Amazon
     /// RDS quotas for the account, such as the number of DB instances allowed. The description
     /// for a quota includes the quota name, current usage toward that quota, and the quota's
-    /// maximum value. 
+    /// maximum value.
     /// 
     ///  
     /// <para>

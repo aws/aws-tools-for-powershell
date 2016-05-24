@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns the default engine and system parameter information for the cluster database
-    /// engine. 
+    /// engine.
     /// 
     ///  
     /// <para>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para> The name of the DB cluster parameter group family to return engine parameter information
-        /// for. </para>
+        /// <para>The name of the DB cluster parameter group family to return engine parameter information
+        /// for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

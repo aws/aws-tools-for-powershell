@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB security group to return details for. </para>
+        /// <para>The name of the DB security group to return details for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

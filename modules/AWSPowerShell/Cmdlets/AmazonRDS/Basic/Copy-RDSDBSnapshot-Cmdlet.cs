@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Copies the specified DB snapshot. The source DB snapshot must be in the "available"
-    /// state. 
+    /// state.
     /// 
     ///  
     /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) key identifier for an encrypted DB snapshot.
         /// The KMS key identifier is the Amazon Resource Name (ARN) or the KMS key alias for
-        /// the KMS encryption key. </para><para>If you copy an unencrypted DB snapshot and specify a value for the <code>KmsKeyId</code>
+        /// the KMS encryption key.</para><para>If you copy an unencrypted DB snapshot and specify a value for the <code>KmsKeyId</code>
         /// parameter, Amazon RDS encrypts the target DB snapshot using the specified KMS encryption
         /// key.</para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
         /// for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
@@ -80,12 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier for the source DB snapshot. </para><para>If you are copying from a shared manual DB snapshot, this must be the ARN of the shared
-        /// DB snapshot.</para><para>Constraints:</para><ul><li>Must specify a valid system snapshot in the "available" state.</li><li>If
-        /// the source snapshot is in the same region as the copy, specify a valid DB snapshot
-        /// identifier.</li><li>If the source snapshot is in a different region than the copy,
-        /// specify a valid DB snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-        /// Copying a DB Snapshot</a>.</li></ul><para>Example: <code>rds:mydb-2012-04-02-00-01</code></para><para>Example: <code>arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805</code></para>
+        /// <para>The identifier for the source DB snapshot.</para><para>If you are copying from a shared manual DB snapshot, this must be the ARN of the shared
+        /// DB snapshot.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same region as the copy, specify a valid DB snapshot
+        /// identifier.</para></li><li><para>If the source snapshot is in a different region than the copy, specify a valid DB
+        /// snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
+        /// Copying a DB Snapshot</a>.</para></li></ul><para>Example: <code>rds:mydb-2012-04-02-00-01</code></para><para>Example: <code>arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -106,9 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TargetDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier for the copied snapshot. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank</li><li>Must contain from 1 to 255 alphanumeric
-        /// characters or hyphens</li><li>First character must be a letter</li><li>Cannot end
-        /// with a hyphen or contain two consecutive hyphens</li></ul><para>Example: <code>my-db-snapshot</code></para>
+        /// <para>The identifier for the copied snapshot.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-db-snapshot</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

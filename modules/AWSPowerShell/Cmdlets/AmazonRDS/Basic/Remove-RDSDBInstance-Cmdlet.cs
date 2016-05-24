@@ -28,22 +28,20 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// The DeleteDBInstance action deletes a previously provisioned DB instance. A successful
-    /// response from the web service indicates the request was received correctly. When you
+    /// The DeleteDBInstance action deletes a previously provisioned DB instance. When you
     /// delete a DB instance, all automated backups for that instance are deleted and cannot
     /// be recovered. Manual DB snapshots of the DB instance to be deleted are not deleted.
     /// 
-    /// 
     ///  
     /// <para>
-    ///  If a final DB snapshot is requested the status of the RDS instance will be "deleting"
+    ///  If a final DB snapshot is requested the status of the RDS instance will be <code>deleting</code>
     /// until the DB snapshot is created. The API action <code>DescribeDBInstance</code> is
     /// used to monitor the status of this operation. The action cannot be canceled or reverted
     /// once submitted. 
     /// </para><para>
-    /// Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore',
-    /// or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter
-    /// is set to "true".
+    /// Note that when a DB instance is in a failure state and has a status of <code>failed</code>,
+    /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, it can only
+    /// be deleted when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -59,10 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB instance identifier for the DB instance to be deleted. This parameter isn't
-        /// case-sensitive. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// <para>The DB instance identifier for the DB instance to be deleted. This parameter isn't
+        /// case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,9 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
-        /// set to <code>false</code>. </para><note> Specifying this parameter and also setting the SkipFinalShapshot parameter
-        /// to true results in an error. </note><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li><li>Cannot be specified when deleting a Read Replica.</li></ul>
+        /// set to <code>false</code>. </para><note><para>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
+        /// results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li><li><para>Cannot be specified when deleting a Read Replica.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// If <code>true</code> is specified, no DBSnapshot is created. If <code>false</code>
         /// is specified, a DB snapshot is created before the DB instance is deleted. </para><para>Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore',
         /// or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter
-        /// is set to "true".</para><para>Specify <code>true</code> when deleting a Read Replica.</para><note>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot
-        /// is <code>false</code>.</note><para>Default: <code>false</code></para>
+        /// is set to "true".</para><para>Specify <code>true</code> when deleting a Read Replica.</para><note><para>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot is
+        /// <code>false</code>.</para></note><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para> A required parameter. Options available for the given engine name will be described.
-        /// </para>
+        /// <para>A required parameter. Options available for the given engine name will be described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MajorEngineVersion
         /// <summary>
         /// <para>
-        /// <para> If specified, filters the results to include only options for the specified major
-        /// engine version. </para>
+        /// <para>If specified, filters the results to include only options for the specified major
+        /// engine version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para> The DB instance class filter value. Specify this parameter to show only the available
-        /// offerings matching the specified DB instance class. </para>
+        /// <para>The DB instance class filter value. Specify this parameter to show only the available
+        /// offerings matching the specified DB instance class.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para> The name of the engine to retrieve DB instance options for. </para>
+        /// <para>The name of the engine to retrieve DB instance options for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para> The engine version filter value. Specify this parameter to show only the available
-        /// offerings matching the specified engine version. </para>
+        /// <para>The engine version filter value. Specify this parameter to show only the available
+        /// offerings matching the specified engine version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para> The license model filter value. Specify this parameter to show only the available
-        /// offerings matching the specified license model. </para>
+        /// <para>The license model filter value. Specify this parameter to show only the available
+        /// offerings matching the specified license model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Vpc
         /// <summary>
         /// <para>
-        /// <para> The VPC filter value. Specify this parameter to show only the available VPC or non-VPC
-        /// offerings. </para>
+        /// <para>The VPC filter value. Specify this parameter to show only the available VPC or non-VPC
+        /// offerings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

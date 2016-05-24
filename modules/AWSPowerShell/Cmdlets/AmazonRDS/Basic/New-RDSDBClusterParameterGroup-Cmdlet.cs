@@ -28,12 +28,11 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new DB cluster parameter group. 
+    /// Creates a new DB cluster parameter group.
     /// 
     ///  
     /// <para>
-    ///  Parameters in a DB cluster parameter group apply to all of the instances in a DB
-    /// cluster. 
+    /// Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
     /// </para><para>
     ///  A DB cluster parameter group is initially created with the default parameters for
     /// the database engine used by instances in the DB cluster. To provide custom values
@@ -71,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB cluster parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><note>This value is stored as a lowercase string.</note>
+        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><note><para>This value is stored as a lowercase string.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -82,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para> The DB cluster parameter group family name. A DB cluster parameter group can be associated
+        /// <para>The DB cluster parameter group family name. A DB cluster parameter group can be associated
         /// with one and only one DB cluster parameter group family, and can be applied only to
         /// a DB cluster running a database engine and engine version compatible with that DB
-        /// cluster parameter group family. </para>
+        /// cluster parameter group family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description for the DB cluster parameter group. </para>
+        /// <para>The description for the DB cluster parameter group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

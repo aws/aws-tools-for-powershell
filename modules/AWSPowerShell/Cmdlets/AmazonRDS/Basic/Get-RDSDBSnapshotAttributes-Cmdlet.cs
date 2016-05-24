@@ -33,14 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// When sharing snapshots with other AWS accounts, <code>DescribeDBSnapshotAttributes</code>
-    /// returns the <code>restore</code> attribute and a list of the AWS account ids that
-    /// are authorized to copy or restore the manual DB snapshot. If <code>all</code> is included
-    /// in the list of values for the <code>restore</code> attribute, then the manual DB snapshot
-    /// is public and can be copied or restored by all AWS accounts.
+    /// returns the <code>restore</code> attribute and a list of IDs for the AWS accounts
+    /// that are authorized to copy or restore the manual DB snapshot. If <code>all</code>
+    /// is included in the list of values for the <code>restore</code> attribute, then the
+    /// manual DB snapshot is public and can be copied or restored by all AWS accounts.
     /// </para><para>
     /// To add or remove access for an AWS account to copy or restore a manual DB snapshot,
     /// or to make the manual DB snapshot public or private, use the <a>ModifyDBSnapshotAttribute</a>
-    /// API.
+    /// API action.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "RDSDBSnapshotAttributes")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB snapshot to modify the attributes for.</para>
+        /// <para>The identifier for the DB snapshot to describe the attributes for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

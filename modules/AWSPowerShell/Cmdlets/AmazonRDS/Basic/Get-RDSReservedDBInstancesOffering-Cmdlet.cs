@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceCount
         /// <summary>
         /// <para>
-        /// <para> The number of instances to reserve. </para><para>Default: <code>1</code></para>
+        /// <para>The number of instances to reserve.</para><para>Default: <code>1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReservedDBInstanceId
         /// <summary>
         /// <para>
-        /// <para> Customer-specified identifier to track this reservation. </para><para>Example: myreservationID</para>
+        /// <para>Customer-specified identifier to track this reservation.</para><para>Example: myreservationID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReservedDBInstancesOfferingId
         /// <summary>
         /// <para>
-        /// <para> The ID of the Reserved DB instance offering to purchase. </para><para>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</para>
+        /// <para>The ID of the Reserved DB instance offering to purchase.</para><para>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

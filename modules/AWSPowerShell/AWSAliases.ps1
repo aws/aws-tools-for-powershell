@@ -2237,6 +2237,8 @@ Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
+Set-Alias -Name Describe-RDSPendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
+Set-Alias -Name RDS-DescribePendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
 Set-Alias -Name Describe-RDSReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name RDS-DescribeReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
@@ -2250,6 +2252,8 @@ Set-Alias -Name Modify-RDSDBCluster -Value Edit-RDSDBCluster
 Set-Alias -Name RDS-ModifyDBCluster -Value Edit-RDSDBCluster
 Set-Alias -Name Modify-RDSDBClusterParameterGroup -Value Edit-RDSDBClusterParameterGroup
 Set-Alias -Name RDS-ModifyDBClusterParameterGroup -Value Edit-RDSDBClusterParameterGroup
+Set-Alias -Name Modify-RDSDBClusterSnapshotAttribute -Value Edit-RDSDBClusterSnapshotAttribute
+Set-Alias -Name RDS-ModifyDBClusterSnapshotAttribute -Value Edit-RDSDBClusterSnapshotAttribute
 Set-Alias -Name Modify-RDSDBInstance -Value Edit-RDSDBInstance
 Set-Alias -Name RDS-ModifyDBInstance -Value Edit-RDSDBInstance
 Set-Alias -Name Modify-RDSDBParameterGroup -Value Edit-RDSDBParameterGroup
@@ -2286,6 +2290,8 @@ Set-Alias -Name Describe-RDSDBClusterParameters -Value Get-RDSDBClusterParameter
 Set-Alias -Name RDS-DescribeDBClusterParameters -Value Get-RDSDBClusterParameter
 Set-Alias -Name Describe-RDSDBClusters -Value Get-RDSDBCluster
 Set-Alias -Name RDS-DescribeDBClusters -Value Get-RDSDBCluster
+Set-Alias -Name Describe-RDSDBClusterSnapshotAttribute -Value Get-RDSDBClusterSnapshotAttribute
+Set-Alias -Name RDS-DescribeDBClusterSnapshotAttributes -Value Get-RDSDBClusterSnapshotAttribute
 Set-Alias -Name Describe-RDSDBClusterSnapshots -Value Get-RDSDBClusterSnapshot
 Set-Alias -Name RDS-DescribeDBClusterSnapshots -Value Get-RDSDBClusterSnapshot
 Set-Alias -Name Describe-RDSDBEngineVersions -Value Get-RDSDBEngineVersion
@@ -2322,8 +2328,6 @@ Set-Alias -Name Describe-RDSOptionGroups -Value Get-RDSOptionGroup
 Set-Alias -Name RDS-DescribeOptionGroups -Value Get-RDSOptionGroup
 Set-Alias -Name Describe-RDSOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
 Set-Alias -Name RDS-DescribeOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
-Set-Alias -Name Describe-RDSPendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
-Set-Alias -Name RDS-DescribePendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
 Set-Alias -Name RDS-AddSourceIdentifierToSubscription -Value Add-RDSSourceIdentifierToSubscription
 Set-Alias -Name RDS-AddTagsToResource -Value Add-RDSTagsToResource
 Set-Alias -Name RDS-ApplyPendingMaintenanceAction -Value Submit-RDSPendingMaintenanceAction

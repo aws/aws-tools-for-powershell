@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// default security group and the default DB parameter group. By default, the new DB
     /// instance is created as a single-AZ deployment except when the instance is a SQL Server
     /// instance that has an option group that is associated with mirroring; in this case,
-    /// the instance becomes a mirrored AZ deployment and not a single-AZ deployment. 
+    /// the instance becomes a mirrored AZ deployment and not a single-AZ deployment.
     /// 
     ///  
     /// <para>
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> Indicates that minor version upgrades will be applied automatically to the DB instance
-        /// during the maintenance window. </para>
+        /// <para>Indicates that minor version upgrades will be applied automatically to the DB instance
+        /// during the maintenance window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The EC2 Availability Zone that the database instance will be created in. </para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// <para>The EC2 Availability Zone that the database instance will be created in.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.</para><para>Example: <code>us-east-1a</code></para>
         /// </para>
         /// </summary>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para> The compute and memory capacity of the Amazon RDS DB instance. </para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
+        /// <para>The compute and memory capacity of the Amazon RDS DB instance.</para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
         /// | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large
         /// | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
@@ -109,10 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.
-        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for
-        /// SQL Server)</li><li>First character must be a letter</li><li>Cannot end with a hyphen
-        /// or contain two consecutive hyphens</li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server)</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -122,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para> The database name for the restored DB instance. </para><note><para>This parameter doesn't apply to the MySQL or MariaDB engines.</para></note>
+        /// <para>The database name for the restored DB instance.</para><note><para>This parameter doesn't apply to the MySQL or MariaDB engines.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier for the DB snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+        /// <para>The identifier for the DB snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
         /// must be the ARN of the shared DB snapshot.</para>
         /// </para>
         /// </summary>
@@ -145,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The DB subnet group name to use for the new instance. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para>The DB subnet group name to use for the new instance.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -156,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> Specify the Active Directory Domain to restore the instance in. </para>
+        /// <para>Specify the Active Directory Domain to restore the instance in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -166,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para> Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service. </para>
+        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
+        /// Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -177,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// <para>The database engine to use for the new instance.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
         /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
         /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code> |
         /// <code>aurora</code></para>
@@ -190,11 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para> Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations
+        /// <para>Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations
         /// per second. If this parameter is not specified, the IOPS value will be taken from
         /// the backup. If this parameter is set to 0, the new instance will be converted to a
         /// non-PIOPS instance, which will take additional time, though your DB instance will
-        /// be available for connections before the conversion starts. </para><para> Constraints: Must be an integer greater than 1000.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para>
+        /// be available for connections before the conversion starts.</para><para>Constraints: Must be an integer greater than 1000.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -204,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LicenseModel
         /// <summary>
         /// <para>
-        /// <para> License model information for the restored DB instance. </para><para> Default: Same as source. </para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
+        /// <para>License model information for the restored DB instance.</para><para>Default: Same as source.</para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
         /// | <code>general-public-license</code></para>
         /// </para>
         /// </summary>
@@ -215,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para> Specifies if the DB instance is a Multi-AZ deployment. </para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// <para>Specifies if the DB instance is a Multi-AZ deployment.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.</para>
         /// </para>
         /// </summary>
@@ -228,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of the option group to be used for the restored DB instance.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
         /// be removed from an option group, and that option group cannot be removed from a DB
-        /// instance once it is associated with a DB instance </para>
+        /// instance once it is associated with a DB instance</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the database accepts connections. </para><para>Default: The same port as the original DB instance</para><para>Constraints: Value must be <code>1150-65535</code></para>
+        /// <para>The port number on which the database accepts connections.</para><para>Default: The same port as the original DB instance</para><para>Constraints: Value must be <code>1150-65535</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -248,14 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para> Specifies the accessibility options for the DB instance. A value of true specifies
+        /// <para>Specifies the accessibility options for the DB instance. A value of true specifies
         /// an Internet-facing instance with a publicly resolvable DNS name, which resolves to
         /// a public IP address. A value of false specifies an internal instance with a DNS name
-        /// that resolves to a private IP address. </para><para> Default: The default behavior varies depending on whether a VPC has been requested
-        /// or not. The following list shows the default behavior in each case. </para><ul><li><b>Default VPC:</b> true</li><li><b>VPC:</b> false</li></ul><para> If no DB subnet group has been specified as part of the request and the PubliclyAccessible
+        /// that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether a VPC has been requested
+        /// or not. The following list shows the default behavior in each case.</para><ul><li><para><b>Default VPC:</b> true</para></li><li><para><b>VPC:</b> false</para></li></ul><para>If no DB subnet group has been specified as part of the request and the PubliclyAccessible
         /// value has not been set, the DB instance will be publicly accessible. If a specific
         /// DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be private. </para>
+        /// value has not been set, the DB instance will be private.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -265,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para> Specifies the storage type to be associated with the DB instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
         /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
         /// <code>standard</code></para>
         /// </para>
@@ -288,8 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para> The ARN from the Key Store with which to associate the instance for TDE encryption.
-        /// </para>
+        /// <para>The ARN from the Key Store with which to associate the instance for TDE encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -299,8 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
-        /// <para> The password for the given ARN from the Key Store in order to access the device.
-        /// </para>
+        /// <para>The password for the given ARN from the Key Store in order to access the device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,9 +28,15 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new Amazon Aurora DB cluster. For more information on Amazon Aurora, see
-    /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i>
+    /// Creates a new Amazon Aurora DB cluster.
+    /// 
+    ///  
+    /// <para>
+    /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
+    /// cluster as a Read Replica of another DB cluster.
+    /// </para><para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
     [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -59,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of days for which automated backups are retained. You must specify a minimum
-        /// value of 1. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 1 to 35</li></ul>
+        /// value of 1.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// CharacterSet. </para>
+        /// CharacterSet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,9 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
-        /// character must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens.</li></ul><para>Example: <code>my-cluster1</code></para>
+        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -105,8 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
         /// this argument is omitted, <code>default.aurora5.6</code> for the specified engine
-        /// will be used. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// will be used. </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB cluster. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para>A DB subnet group to associate with this DB cluster.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -127,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster. </para><para>Valid Values: <code>aurora</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use. </para><para><b>Aurora</b></para><para>Example: <code>5.6.10a</code></para>
+        /// <para>The version number of the database engine to use.</para><para><b>Aurora</b></para><para>Example: <code>5.6.10a</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,8 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para> The name of the master user for the client DB cluster. </para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>First character must be
-        /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul>
+        /// <para>The name of the master user for the client DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@". </para><para>Constraints: Must contain from 8 to 41 characters. </para>
+        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -186,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// option group. </para><para>Permanent options cannot be removed from an option group. The option group cannot
-        /// be removed from a DB cluster once it is associated with a DB cluster. </para>
+        /// option group.</para><para>Permanent options cannot be removed from an option group. The option group cannot
+        /// be removed from a DB cluster once it is associated with a DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the instances in the DB cluster accept connections. </para><para> Default: <code>3306</code></para>
+        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <code>3306</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -210,9 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>Default: A 30-minute window selected at random from an 8-hour block of time per region.
         /// To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li>Must be in the format <code>hh24:mi-hh24:mi</code>.</li><li>Times should
-        /// be in Universal Coordinated Time (UTC).</li><li>Must not conflict with the preferred
-        /// maintenance window.</li><li>Must be at least 30 minutes.</li></ul>
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Times should be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -223,13 +223,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC). </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per region,
+        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per region,
         /// occurring on a random day of the week. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter ReplicationSourceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is created
+        /// as a Read Replica.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ReplicationSourceIdentifier { get; set; }
         #endregion
         
         #region Parameter StorageEncrypted
@@ -256,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB cluster. </para>
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -311,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.ReplicationSourceIdentifier = this.ReplicationSourceIdentifier;
             if (ParameterWasBound("StorageEncrypted"))
                 context.StorageEncrypted = this.StorageEncrypted;
             if (this.Tag != null)
@@ -398,6 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
             }
+            if (cmdletContext.ReplicationSourceIdentifier != null)
+            {
+                request.ReplicationSourceIdentifier = cmdletContext.ReplicationSourceIdentifier;
+            }
             if (cmdletContext.StorageEncrypted != null)
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
@@ -461,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.String ReplicationSourceIdentifier { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }

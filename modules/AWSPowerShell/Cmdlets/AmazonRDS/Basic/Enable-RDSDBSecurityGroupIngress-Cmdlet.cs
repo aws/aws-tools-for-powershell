@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// using the database is running on EC2 or VPC instances. Second, IP ranges are available
     /// if the application accessing your database is running on the Internet. Required parameters
     /// for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
-    /// and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC). 
+    /// and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).
     /// 
     ///  <note><para>
     /// You cannot authorize ingress from an EC2 security group in one region to an Amazon
     /// RDS DB instance in another. You cannot authorize ingress from a VPC security group
-    /// in one VPC to an Amazon RDS DB instance in another. 
+    /// in one VPC to an Amazon RDS DB instance in another.
     /// </para></note><para>
     /// For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia
     /// Tutorial</a>. 
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CIDRIP
         /// <summary>
         /// <para>
-        /// <para> The IP range to authorize. </para>
+        /// <para>The IP range to authorize.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB security group to add authorization to. </para>
+        /// <para>The name of the DB security group to add authorization to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

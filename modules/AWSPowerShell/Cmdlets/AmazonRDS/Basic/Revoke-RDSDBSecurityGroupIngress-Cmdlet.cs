@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB security group to revoke ingress from. </para>
+        /// <para>The name of the DB security group to revoke ingress from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

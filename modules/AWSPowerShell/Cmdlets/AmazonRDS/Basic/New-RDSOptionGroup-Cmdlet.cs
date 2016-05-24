@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para> Specifies the name of the engine that this option group should be associated with.
-        /// </para>
+        /// <para>Specifies the name of the engine that this option group should be associated with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -54,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MajorEngineVersion
         /// <summary>
         /// <para>
-        /// <para> Specifies the major version of the engine that this option group should be associated
-        /// with. </para>
+        /// <para>Specifies the major version of the engine that this option group should be associated
+        /// with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupDescription
         /// <summary>
         /// <para>
-        /// <para> The description of the option group. </para>
+        /// <para>The description of the option group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -75,8 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para> Specifies the name of the option group to be created. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens</li><li>First character
-        /// must be a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><para>Example: <code>myoptiongroup</code></para>
+        /// <para>Specifies the name of the option group to be created.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>myoptiongroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

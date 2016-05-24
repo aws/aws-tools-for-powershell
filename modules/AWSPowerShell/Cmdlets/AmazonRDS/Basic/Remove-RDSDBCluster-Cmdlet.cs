@@ -28,13 +28,11 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// The DeleteDBCluster action deletes a previously provisioned DB cluster. A successful
-    /// response from the web service indicates the request was received correctly. When you
-    /// delete a DB cluster, all automated backups for that DB cluster are deleted and cannot
-    /// be recovered. Manual DB cluster snapshots of the DB cluster to be deleted are not
-    /// deleted. 
+    /// The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete
+    /// a DB cluster, all automated backups for that DB cluster are deleted and cannot be
+    /// recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
     /// 
-    ///  
+    ///   
     /// <para>
     /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
     /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
@@ -52,10 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.
-        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// <para>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,9 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
-        /// is set to <code>false</code>. </para><note> Specifying this parameter and also setting the <code>SkipFinalShapshot</code>
-        /// parameter to true results in an error. </note><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// is set to <code>false</code>. </para><note><para> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
+        /// to true results in an error. </para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> Determines whether a final DB cluster snapshot is created before the DB cluster is
         /// deleted. If <code>true</code> is specified, no DB cluster snapshot is created. If
         /// <code>false</code> is specified, a DB cluster snapshot is created before the DB cluster
-        /// is deleted. </para><note>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code>
-        /// is <code>false</code>.</note><para>Default: <code>false</code></para>
+        /// is deleted. </para><note><para>You must specify a <code>FinalDBSnapshotIdentifier</code> parameter if <code>SkipFinalSnapshot</code>
+        /// is <code>false</code>.</para></note><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

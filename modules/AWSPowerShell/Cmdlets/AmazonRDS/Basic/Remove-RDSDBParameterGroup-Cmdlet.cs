@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group. </para><para>Constraints:</para><ul><li>Must be the name of an existing DB parameter group</li><li>You cannot delete
-        /// a default DB parameter group</li><li>Cannot be associated with any DB instances</li></ul>
+        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB parameter group</para></li><li><para>You cannot delete a default DB parameter group</para></li><li><para>Cannot be associated with any DB instances</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

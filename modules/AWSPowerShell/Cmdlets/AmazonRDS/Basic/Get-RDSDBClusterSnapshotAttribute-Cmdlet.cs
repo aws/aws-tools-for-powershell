@@ -28,55 +28,45 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation
-    /// is terminated.
+    /// Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
+    /// snapshot.
     /// 
-    ///  <note><para>
-    /// The DB cluster snapshot must be in the <code>available</code> state to be deleted.
-    /// </para></note><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+    ///  
+    /// <para>
+    /// When sharing snapshots with other AWS accounts, <code>DescribeDBClusterSnapshotAttributes</code>
+    /// returns the <code>restore</code> attribute and a list of IDs for the AWS accounts
+    /// that are authorized to copy or restore the manual DB cluster snapshot. If <code>all</code>
+    /// is included in the list of values for the <code>restore</code> attribute, then the
+    /// manual DB cluster snapshot is public and can be copied or restored by all AWS accounts.
+    /// </para><para>
+    /// To add or remove access for an AWS account to copy or restore a manual DB cluster
+    /// snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a>
+    /// API action.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "RDSDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.RDS.Model.DBClusterSnapshot")]
-    [AWSCmdlet("Invokes the DeleteDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBClusterSnapshot"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
-        "This cmdlet returns a DBClusterSnapshot object.",
-        "The service call response (type Amazon.RDS.Model.DeleteDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RDSDBClusterSnapshotAttribute")]
+    [OutputType("Amazon.RDS.Model.DBClusterSnapshotAttributesResult")]
+    [AWSCmdlet("Invokes the DescribeDBClusterSnapshotAttributes operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBClusterSnapshotAttributes"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshotAttributesResult",
+        "This cmdlet returns a DBClusterSnapshotAttributesResult object.",
+        "The service call response (type Amazon.RDS.Model.DescribeDBClusterSnapshotAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class GetRDSDBClusterSnapshotAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code>
-        /// state.</para>
+        /// <para>The identifier for the DB cluster snapshot to describe the attributes for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterSnapshotIdentifier { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterSnapshotIdentifier", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBClusterSnapshot (DeleteDBClusterSnapshot)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -96,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.DeleteDBClusterSnapshotRequest();
+            var request = new Amazon.RDS.Model.DescribeDBClusterSnapshotAttributesRequest();
             
             if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
@@ -109,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteDBClusterSnapshot(request);
+                var response = client.DescribeDBClusterSnapshotAttributes(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DBClusterSnapshot;
+                object pipelineOutput = response.DBClusterSnapshotAttributesResult;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

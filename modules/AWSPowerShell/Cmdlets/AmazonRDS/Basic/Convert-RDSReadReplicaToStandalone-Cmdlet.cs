@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Promotes a Read Replica DB instance to a standalone DB instance. 
+    /// Promotes a Read Replica DB instance to a standalone DB instance.
     /// 
     ///  <note><para>
     /// We recommend that you enable automated backups on your Read Replica before promoting
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of days to retain automated backups. Setting this parameter to a positive
-        /// number enables backups. Setting this parameter to 0 disables automated backups. </para><para> Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 0 to 8</li></ul>
+        /// <para>The number of days to retain automated backups. Setting this parameter to a positive
+        /// number enables backups. Setting this parameter to 0 disables automated backups.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 8</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,9 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB instance identifier. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be the identifier for an existing Read Replica DB instance</li><li>Must
-        /// contain from 1 to 63 alphanumeric characters or hyphens</li><li>First character must
-        /// be a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must be the identifier for an existing Read Replica DB instance</para></li><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -76,9 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. </para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region.
         /// To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li>Must be in the format <code>hh24:mi-hh24:mi</code>.</li><li>Times should
-        /// be in Universal Coordinated Time (UTC).</li><li>Must not conflict with the preferred
-        /// maintenance window.</li><li>Must be at least 30 minutes.</li></ul>
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Times should be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

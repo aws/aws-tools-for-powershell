@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new DB parameter group. 
+    /// Creates a new DB parameter group.
     /// 
     ///  
     /// <para>
@@ -64,10 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para> The DB parameter group family name. A DB parameter group can be associated with one
+        /// <para>The DB parameter group family name. A DB parameter group can be associated with one
         /// and only one DB parameter group family, and can be applied only to a DB instance running
-        /// a database engine and engine version compatible with that DB parameter group family.
-        /// </para>
+        /// a database engine and engine version compatible with that DB parameter group family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><note>This value is stored as a lowercase string.</note>
+        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><note><para>This value is stored as a lowercase string.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -88,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description for the DB parameter group. </para>
+        /// <para>The description for the DB parameter group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

@@ -28,10 +28,10 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns events related to DB instances, DB security groups, DB snapshots, and DB
-    /// parameter groups for the past 14 days. Events specific to a particular DB instance,
-    /// DB security group, database snapshot, or DB parameter group can be obtained by providing
-    /// the name as a parameter. By default, the past hour of events are returned.
+    /// Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
+    /// groups for the past 14 days. Events specific to a particular DB instance, DB security
+    /// group, database snapshot, or DB parameter group can be obtained by providing the name
+    /// as a parameter. By default, the past hour of events are returned.
     /// </summary>
     [Cmdlet("Get", "RDSEvent")]
     [OutputType("Amazon.RDS.Model.Event")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Duration
         /// <summary>
         /// <para>
-        /// <para> The number of minutes to retrieve events for. </para><para>Default: 60</para>
+        /// <para>The number of minutes to retrieve events for.</para><para>Default: 60</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EventCategory
         /// <summary>
         /// <para>
-        /// <para> A list of event categories that trigger notifications for a event notification subscription.
-        /// </para>
+        /// <para>A list of event categories that trigger notifications for a event notification subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,12 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the event source for which events will be returned. If not specified,
-        /// then all sources are included in the response. </para><para>Constraints:</para><ul><li>If SourceIdentifier is supplied, SourceType must also be provided.</li><li>If the source type is <code>DBInstance</code>, then a <code>DBInstanceIdentifier</code>
-        /// must be supplied.</li><li>If the source type is <code>DBSecurityGroup</code>, a <code>DBSecurityGroupName</code>
-        /// must be supplied.</li><li>If the source type is <code>DBParameterGroup</code>, a
-        /// <code>DBParameterGroupName</code> must be supplied.</li><li>If the source type is
-        /// <code>DBSnapshot</code>, a <code>DBSnapshotIdentifier</code> must be supplied.</li><li>Cannot end with a hyphen or contain two consecutive hyphens.</li></ul>
+        /// <para>The identifier of the event source for which events will be returned. If not specified,
+        /// then all sources are included in the response.</para><para>Constraints:</para><ul><li><para>If SourceIdentifier is supplied, SourceType must also be provided.</para></li><li><para>If the source type is <code>DBInstance</code>, then a <code>DBInstanceIdentifier</code>
+        /// must be supplied.</para></li><li><para>If the source type is <code>DBSecurityGroup</code>, a <code>DBSecurityGroupName</code>
+        /// must be supplied.</para></li><li><para>If the source type is <code>DBParameterGroup</code>, a <code>DBParameterGroupName</code>
+        /// must be supplied.</para></li><li><para>If the source type is <code>DBSnapshot</code>, a <code>DBSnapshotIdentifier</code>
+        /// must be supplied.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -107,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para> The event source to retrieve events for. If no value is specified, all events are
-        /// returned. </para>
+        /// <para>The event source to retrieve events for. If no value is specified, all events are
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

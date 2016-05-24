@@ -42,10 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The customer-assigned name of the DB instance that contains the log files you want
-        /// to list. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// <para>The customer-assigned name of the DB instance that contains the log files you want
+        /// to list.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter LogFileName
         /// <summary>
         /// <para>
-        /// <para> The name of the log file to be downloaded. </para>
+        /// <para>The name of the log file to be downloaded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -65,17 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter NumberOfLines
         /// <summary>
         /// <para>
-        /// <para> The number of lines to download. If the number of lines specified results in a file
-        /// over 1 MB in size, the file will be truncated at 1 MB in size. </para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
+        /// <para>The number of lines to download. If the number of lines specified results in a file
+        /// over 1 MB in size, the file will be truncated at 1 MB in size.</para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
         /// be from the beginning or the end of the log file, depending on the value of the Marker
-        /// parameter. <ul><li><para>If neither Marker or NumberOfLines are specified, the entire log file is returned
+        /// parameter.</para><ul><li><para>If neither Marker or NumberOfLines are specified, the entire log file is returned
         /// up to a maximum of 10000 lines, starting with the most recent log entries first.</para></li><li><para>If NumberOfLines is specified and Marker is not specified, then the most recent lines
         /// from the end of the log file are returned.</para></li><li><para>If Marker is specified as "0", then the specified number of lines from the beginning
         /// of the log file are returned.</para></li><li><para>You can download the log file in blocks of lines by specifying the size of the block
         /// using the NumberOfLines parameter, and by specifying a value of "0" for the Marker
         /// parameter in your first request. Include the Marker value returned in the response
         /// as the Marker value for the next request, continuing until the AdditionalDataPending
-        /// response element returns false.</para></li></ul></para>
+        /// response element returns false.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> The pagination token provided in the previous request or "0". If the Marker parameter
+        /// <para>The pagination token provided in the previous request or "0". If the Marker parameter
         /// is specified the response includes only records beyond the marker until the end of
-        /// the file or up to NumberOfLines. </para>
+        /// the file or up to NumberOfLines.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

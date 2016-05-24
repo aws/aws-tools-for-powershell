@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is terminated.
     /// 
-    /// 
-    ///  <note>The DBSnapshot must be in the <code>available</code> state to be deleted.</note>
+    ///  <note><para>
+    /// The DBSnapshot must be in the <code>available</code> state to be deleted.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DBSnapshot identifier. </para><para>Constraints: Must be the name of an existing DB snapshot in the <code>available</code>
+        /// <para>The DBSnapshot identifier.</para><para>Constraints: Must be the name of an existing DB snapshot in the <code>available</code>
         /// state.</para>
         /// </para>
         /// </summary>

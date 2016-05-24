@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para> Indicates whether the changes should be applied immediately, or during the next maintenance
-        /// window for each instance associated with the option group. </para>
+        /// <para>Indicates whether the changes should be applied immediately, or during the next maintenance
+        /// window for each instance associated with the option group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the option group to be modified. </para><para> Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
+        /// <para>The name of the option group to be modified.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
         /// be removed from an option group, and that option group cannot be removed from a DB
-        /// instance once it is associated with a DB instance </para>
+        /// instance once it is associated with a DB instance</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionsToInclude
         /// <summary>
         /// <para>
-        /// <para> Options in this list are added to the option group or, if already present, the specified
-        /// configuration is used to update the existing configuration. </para>
+        /// <para>Options in this list are added to the option group or, if already present, the specified
+        /// configuration is used to update the existing configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
-        /// <para> Options in this list are removed from the option group. </para>
+        /// <para>Options in this list are removed from the option group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

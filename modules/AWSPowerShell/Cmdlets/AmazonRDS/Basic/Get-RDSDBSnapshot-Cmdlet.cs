@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about DB snapshots. This API supports pagination.
+    /// Returns information about DB snapshots. This API action supports pagination.
     /// </summary>
     [Cmdlet("Get", "RDSDBSnapshot")]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]
@@ -44,11 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> A DB instance identifier to retrieve the list of DB snapshots for. This parameter
+        /// <para>The ID of the DB instance to retrieve the list of DB snapshots for. This parameter
         /// cannot be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
-        /// is not case-sensitive. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// is not case-sensitive. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -60,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction
         /// with <code>DBInstanceIdentifier</code>. This value is stored as a lowercase string.
-        /// </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters.</li><li>First character must
-        /// be a letter.</li><li>Cannot end with a hyphen or contain two consecutive hyphens.</li><li>If this is the identifier of an automated snapshot, the <code>SnapshotType</code>
-        /// parameter must also be specified.</li></ul>
+        /// </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -83,8 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludePublic
         /// <summary>
         /// <para>
-        /// <para>True to include manual DB snapshots that are public and can be copied or restored
-        /// by any AWS account; otherwise false. The default is false.</para><para>An manual DB snapshot is shared as public by the <a>ModifyDBSnapshotAttribute</a>
+        /// <para>Set this value to <code>true</code> to include manual DB snapshots that are public
+        /// and can be copied or restored by any AWS account, otherwise set this value to <code>false</code>.
+        /// The default is <code>false</code>.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
         /// API.</para>
         /// </para>
         /// </summary>
@@ -95,9 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>True to include shared manual DB snapshots from other AWS accounts that this AWS account
-        /// has been given permission to copy or restore; otherwise false. The default is false.</para><para>An AWS account is given permission to restore a manual DB snapshot from another AWS
-        /// account by the <a>ModifyDBSnapshotAttribute</a> API.</para>
+        /// <para>Set this value to <code>true</code> to include shared manual DB snapshots from other
+        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise
+        /// set this value to <code>false</code>. The default is <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB snapshot from another
+        /// AWS account by using the <a>ModifyDBSnapshotAttribute</a> API action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,19 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SnapshotType
         /// <summary>
         /// <para>
-        /// <para>The type of snapshots that will be returned. You can specify one of the following
-        /// values:</para><ul><li><code>automated</code> - Return all DB snapshots that have been automatically
-        /// taken by Amazon RDS for my AWS account.</li><li><code>manual</code> - Return all
-        /// DB snapshots that have been taken by my AWS account.</li><li><code>shared</code>
-        /// - Return all manual DB snapshots that have been shared to my AWS account.</li><li><code>public</code>
-        /// - Return all DB snapshots that have been marked as public.</li></ul><para>If you do not specify a <code>SnapshotType</code>, then both automated and manual
+        /// <para>The type of snapshots to be returned. You can specify one of the following values:</para><ul><li><para><code>automated</code> - Return all DB snapshots that have been automatically taken
+        /// by Amazon RDS for my AWS account.</para></li><li><para><code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</para></li><li><para><code>shared</code> - Return all manual DB snapshots that have been shared to my
+        /// AWS account.</para></li><li><para><code>public</code> - Return all DB snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
         /// snapshots are returned. You can include shared snapshots with these results by setting
         /// the <code>IncludeShared</code> parameter to <code>true</code>. You can include public
         /// snapshots with these results by setting the <code>IncludePublic</code> parameter to
-        /// <code>true</code>.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters do not apply
+        /// <code>true</code>.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply
         /// for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.
-        /// The <code>IncludePublic</code> parameter does not apply when <code>SnapshotType</code>
-        /// is set to <code>shared</code>. the <code>IncludeShared</code> parameter does not apply
+        /// The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code>
+        /// is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply
         /// when <code>SnapshotType</code> is set to <code>public</code>.</para>
         /// </para>
         /// </summary>

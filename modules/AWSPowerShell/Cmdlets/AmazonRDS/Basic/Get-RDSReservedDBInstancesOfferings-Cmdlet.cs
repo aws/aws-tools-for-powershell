@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para> The DB instance class filter value. Specify this parameter to show only the available
-        /// offerings matching the specified DB instance class. </para>
+        /// <para>The DB instance class filter value. Specify this parameter to show only the available
+        /// offerings matching the specified DB instance class.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Duration
         /// <summary>
         /// <para>
-        /// <para> Duration filter value, specified in years or seconds. Specify this parameter to show
-        /// only reservations for this duration. </para><para>Valid Values: <code>1 | 3 | 31536000 | 94608000</code></para>
+        /// <para>Duration filter value, specified in years or seconds. Specify this parameter to show
+        /// only reservations for this duration.</para><para>Valid Values: <code>1 | 3 | 31536000 | 94608000</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para> The Multi-AZ filter value. Specify this parameter to show only the available offerings
-        /// matching the specified Multi-AZ parameter. </para>
+        /// <para>The Multi-AZ filter value. Specify this parameter to show only the available offerings
+        /// matching the specified Multi-AZ parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OfferingType
         /// <summary>
         /// <para>
-        /// <para> The offering type filter value. Specify this parameter to show only the available
-        /// offerings matching the specified offering type. </para><para>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code></para>
+        /// <para>The offering type filter value. Specify this parameter to show only the available
+        /// offerings matching the specified offering type.</para><para>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ProductDescription
         /// <summary>
         /// <para>
-        /// <para> Product description filter value. Specify this parameter to show only the available
-        /// offerings matching the specified product description. </para>
+        /// <para>Product description filter value. Specify this parameter to show only the available
+        /// offerings matching the specified product description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReservedDBInstancesOfferingId
         /// <summary>
         /// <para>
-        /// <para> The offering identifier filter value. Specify this parameter to show only the available
-        /// offering that matches the specified reservation identifier. </para><para>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code></para>
+        /// <para>The offering identifier filter value. Specify this parameter to show only the available
+        /// offering that matches the specified reservation identifier.</para><para>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is created
     /// from the source DB cluster restore point with the same configuration as the original
     /// source DB cluster, except that the new DB cluster is created with the default security
-    /// group. 
+    /// group.
     /// 
     ///  
     /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The database name for the restored DB cluster. </para>
+        /// <para>The database name for the restored DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,9 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the DB cluster snapshot. This parameter
-        /// isn't case-sensitive. </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -86,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB subnet group to use for the new DB cluster. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -97,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for the new DB cluster. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para>
+        /// <para>The database engine to use for the new DB cluster.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,9 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// will occur:</para><ul><li>If the DB cluster snapshot is encrypted, then the restored DB cluster is
-        /// encrypted using the KMS key that was used to encrypt the DB cluster snapshot.</li><li>If the DB cluster snapshot is not encrypted, then the restored DB cluster is not
-        /// encrypted.</li></ul><para>If <code>SnapshotIdentifier</code> refers to a DB cluster snapshot that is not encrypted,
+        /// will occur:</para><ul><li><para>If the DB cluster snapshot is encrypted, then the restored DB cluster is encrypted
+        /// using the KMS key that was used to encrypt the DB cluster snapshot.</para></li><li><para>If the DB cluster snapshot is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>SnapshotIdentifier</code> refers to a DB cluster snapshot that is not encrypted,
         /// and you specify a value for the <code>KmsKeyId</code> parameter, then the restore
         /// request is rejected.</para>
         /// </para>
@@ -136,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group to use for the restored DB cluster. </para>
+        /// <para>The name of the option group to use for the restored DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the new DB cluster accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -156,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB cluster snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// <para>The identifier for the DB cluster snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -168,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the restored DB cluster. </para>
+        /// <para>The tags to be assigned to the restored DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para> A list of VPC security groups that the new DB cluster will belong to. </para>
+        /// <para>A list of VPC security groups that the new DB cluster will belong to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

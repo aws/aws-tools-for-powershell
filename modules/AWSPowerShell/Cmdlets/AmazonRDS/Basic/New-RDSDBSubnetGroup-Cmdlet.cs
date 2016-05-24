@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new DB subnet group. DB subnet groups must contain at least one subnet
-    /// in at least two AZs in the region.
+    /// Creates a new DB subnet group. DB subnet groups must contain at least one subnet in
+    /// at least two AZs in the region.
     /// </summary>
     [Cmdlet("New", "RDSDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSubnetGroup")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupDescription
         /// <summary>
         /// <para>
-        /// <para> The description for the DB subnet group. </para>
+        /// <para>The description for the DB subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The name for the DB subnet group. This value is stored as a lowercase string. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para>The name for the DB subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para> The EC2 Subnet IDs for the DB subnet group. </para>
+        /// <para>The EC2 Subnet IDs for the DB subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

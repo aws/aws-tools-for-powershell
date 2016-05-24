@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// request. 
     /// 
     ///  <note><para>
-    ///  Changes to dynamic parameters are applied immediately. Changes to static parameters
+    /// Changes to dynamic parameters are applied immediately. Changes to static parameters
     /// require a reboot without failover to the DB instance associated with the parameter
-    /// group before the change can take effect. 
+    /// group before the change can take effect.
     /// </para></note><important><para>
     /// After you modify a DB parameter group, you should wait at least 5 minutes before creating
     /// your first DB instance that uses that DB parameter group as the default parameter
@@ -62,9 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group. </para><para>Constraints:</para><ul><li>Must be the name of an existing DB parameter group</li><li>Must be 1 to
-        /// 255 alphanumeric characters</li><li>First character must be a letter</li><li>Cannot
-        /// end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB parameter group</para></li><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,12 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para> An array of parameter names, values, and the apply method for the parameter update.
+        /// <para>An array of parameter names, values, and the apply method for the parameter update.
         /// At least one parameter name, value, and apply method must be supplied; subsequent
-        /// arguments are optional. A maximum of 20 parameters can be modified in a single request.
-        /// </para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note>You can use the immediate value with dynamic parameters only. You can use the
-        /// pending-reboot value for both dynamic and static parameters, and changes are applied
-        /// when you reboot the DB instance without failover. </note>
+        /// arguments are optional. A maximum of 20 parameters can be modified in a single request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the immediate value with dynamic parameters only. You can use the pending-reboot
+        /// value for both dynamic and static parameters, and changes are applied when you reboot
+        /// the DB instance without failover.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

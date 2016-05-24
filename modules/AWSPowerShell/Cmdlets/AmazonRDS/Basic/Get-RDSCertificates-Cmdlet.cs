@@ -44,11 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para> The user-supplied certificate identifier. If this parameter is specified, information
-        /// for only the identified certificate is returned. This parameter isn't case-sensitive.
-        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// <para>The user-supplied certificate identifier. If this parameter is specified, information
+        /// for only the identified certificate is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

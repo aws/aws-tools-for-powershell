@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para> Filters the list of option groups to only include groups associated with a specific
-        /// database engine. </para>
+        /// <para>Filters the list of option groups to only include groups associated with a specific
+        /// database engine.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MajorEngineVersion
         /// <summary>
         /// <para>
-        /// <para> Filters the list of option groups to only include groups associated with a specific
-        /// database engine version. If specified, then EngineName must also be specified. </para>
+        /// <para>Filters the list of option groups to only include groups associated with a specific
+        /// database engine version. If specified, then EngineName must also be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the option group to describe. Cannot be supplied together with EngineName
-        /// or MajorEngineVersion. </para>
+        /// <para>The name of the option group to describe. Cannot be supplied together with EngineName
+        /// or MajorEngineVersion.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

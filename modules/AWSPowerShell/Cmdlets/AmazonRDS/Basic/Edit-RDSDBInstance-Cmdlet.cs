@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// that are not at least 10% greater than the existing value are rounded up so that they
         /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>Oracle</b></para><para>Default: Uses existing setting</para><para>Valid Values: 10-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para><b>SQL Server</b></para><para>Cannot be modified.</para><para> If you choose to migrate your DB instance from using standard storage to using Provisioned
+        /// are 10% greater than the current value.</para><para><b>SQL Server</b></para><para>Cannot be modified.</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
         /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
         /// time. The duration of the migration depends on several factors such as database load,
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance will
         /// be suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance. </para>
+        /// Read Replica for the instance, and creating a DB snapshot of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,9 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> Indicates that major version upgrades are allowed. Changing this parameter does not
-        /// result in an outage and the change is asynchronously applied as soon as possible.
-        /// </para><para>Constraints: This parameter must be set to true when specifying a value for the EngineVersion
+        /// <para>Indicates that major version upgrades are allowed. Changing this parameter does not
+        /// result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints: This parameter must be set to true when specifying a value for the EngineVersion
         /// parameter that is a different major version than the DB instance's current version.</para>
         /// </para>
         /// </summary>
@@ -120,15 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of days to retain automated backups. Setting this parameter to a positive
-        /// number enables backups. Setting this parameter to 0 disables automated backups. </para><para>Changing this parameter can result in an outage if you change from 0 to a non-zero
+        /// <para>The number of days to retain automated backups. Setting this parameter to a positive
+        /// number enables backups. Setting this parameter to 0 disables automated backups.</para><para>Changing this parameter can result in an outage if you change from 0 to a non-zero
         /// value or from a non-zero value to 0. These changes are applied during the next maintenance
         /// window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>
         /// for this request. If you change the parameter from one non-zero value to another non-zero
-        /// value, the change is asynchronously applied as soon as possible.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li>Must be a value from 0 to 35</li><li>Can be specified for a MySQL Read
-        /// Replica only if the source is running MySQL 5.6</li><li>Can be specified for a PostgreSQL
-        /// Read Replica only if the source is running PostgreSQL 9.3.5</li><li>Cannot be set
-        /// to 0 if the DB instance is a source to Read Replicas</li></ul>
+        /// value, the change is asynchronously applied as soon as possible.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
+        /// 9.3.5</para></li><li><para>Cannot be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para> Indicates the certificate that needs to be associated with the instance. </para>
+        /// <para>Indicates the certificate that needs to be associated with the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -177,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB instance identifier. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be the identifier for an existing DB instance</li><li>Must contain
-        /// from 1 to 63 alphanumeric characters or hyphens</li><li>First character must be a
-        /// letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// <para>The DB instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must be the identifier for an existing DB instance</para></li><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -189,11 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group to apply to the DB instance. Changing this setting
+        /// <para>The name of the DB parameter group to apply to the DB instance. Changing this setting
         /// does not result in an outage. The parameter group name itself is changed immediately,
         /// but the actual parameter changes are not applied until you reboot the instance without
         /// failover. The db instance will NOT be rebooted automatically and the parameter changes
-        /// will NOT be applied during the next maintenance window. </para><para>Default: Uses existing setting</para><para>Constraints: The DB parameter group must be in the same DB parameter group family
+        /// will NOT be applied during the next maintenance window.</para><para>Default: Uses existing setting</para><para>Constraints: The DB parameter group must be in the same DB parameter group family
         /// as this DB instance.</para>
         /// </para>
         /// </summary>
@@ -204,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBPortNumber
         /// <summary>
         /// <para>
-        /// <para> The port number on which the database accepts connections. </para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
+        /// <para>The port number on which the database accepts connections.</para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
         /// values specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <code>DBPortNumber</code> value regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
         /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
         /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para>
         /// </para>
@@ -218,10 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSecurityGroup
         /// <summary>
         /// <para>
-        /// <para> A list of DB security groups to authorize on this DB instance. Changing this setting
-        /// does not result in an outage and the change is asynchronously applied as soon as possible.
-        /// </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// <para>A list of DB security groups to authorize on this DB instance. Changing this setting
+        /// does not result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -232,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> Specify the Active Directory Domain to move the instance to. </para><para>The specified Active Directory Domain must be created prior to this operation. Currently
+        /// <para>Specify the Active Directory Domain to move the instance to.</para><para>The specified Active Directory Domain must be created prior to this operation. Currently
         /// only a SQL Server instance can be created in a Active Directory Domain.</para>
         /// </para>
         /// </summary>
@@ -243,8 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para> Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service. </para>
+        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
+        /// Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -257,10 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The version number of the database engine to upgrade to. Changing this parameter
         /// results in an outage and the change is applied during the next maintenance window
         /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
-        /// this request. </para><para> For major version upgrades, if a non-default DB parameter group is currently in use,
+        /// this request. </para><para>For major version upgrades, if a non-default DB parameter group is currently in use,
         /// a new DB parameter group in the DB parameter group family for the new engine version
         /// must be specified. The new DB parameter group can be the default for that DB parameter
-        /// group family. </para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>.</para>
+        /// group family.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// that are not at least 10% greater than the existing value are rounded up so that they
         /// are 10% greater than the current value. If you are migrating from Provisioned IOPS
         /// to standard storage, set this value to 0. The DB instance will require a reboot for
-        /// the change in storage type to take effect.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para><para>Type: Integer</para><para> If you choose to migrate your DB instance from using standard storage to using Provisioned
+        /// the change in storage type to take effect.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para><para>Type: Integer</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
         /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
         /// time. The duration of the migration depends on several factors such as database load,
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
@@ -287,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance will
         /// be suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance. </para>
+        /// Read Replica for the instance, and creating a DB snapshot of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -297,15 +290,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para> The new password for the DB instance master user. Can be any printable ASCII character
+        /// <para>The new password for the DB instance master user. Can be any printable ASCII character
         /// except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora),
         /// 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
-        /// Server).</para><note> Amazon RDS API actions never return the password, so this action provides
-        /// a way to regain access to a primary instance user if the password is lost. This includes
-        /// restoring privileges that might have been accidentally revoked. </note>
+        /// Server).</para><note><para>Amazon RDS API actions never return the password, so this action provides a way to
+        /// regain access to a primary instance user if the password is lost. This includes restoring
+        /// privileges that might have been accidentally revoked.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -317,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
         /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
-        /// The default is 60.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// The default is 0.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
         /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
         /// </para>
         /// </summary>
@@ -361,9 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// you change the DB instance identifier, an instance reboot will occur immediately if
         /// you set <code>Apply Immediately</code> to true, or will occur during the next maintenance
         /// window if <code>Apply Immediately</code> to false. This value is stored as a lowercase
-        /// string. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -379,9 +370,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// parameter is set to <code>true</code> for this request. If the parameter change results
         /// in an option group that enables OEM, this change can cause a brief (sub-second) period
         /// during which new connections are rejected but existing connections are not interrupted.
-        /// </para><para> Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
+        /// </para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
         /// be removed from an option group, and that option group cannot be removed from a DB
-        /// instance once it is associated with a DB instance </para>
+        /// instance once it is associated with a DB instance</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,8 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
         /// this parameter does not result in an outage and the change is asynchronously applied
-        /// as soon as possible. </para><para>Constraints:</para><ul><li>Must be in the format hh24:mi-hh24:mi</li><li>Times should be in Universal
-        /// Time Coordinated (UTC)</li><li>Must not conflict with the preferred maintenance window</li><li>Must be at least 30 minutes</li></ul>
+        /// as soon as possible. </para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Times should be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -405,14 +395,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The weekly time range (in UTC) during which system maintenance can occur, which might
+        /// <para>The weekly time range (in UTC) during which system maintenance can occur, which might
         /// result in an outage. Changing this parameter does not result in an outage, except
         /// in the following situation, and the change is asynchronously applied as soon as possible.
         /// If there are pending actions that cause a reboot, and the maintenance window is changed
         /// to include the current time, then changing this parameter will cause a reboot of the
         /// DB instance. If moving this window to the current time, there must be at least 30
         /// minutes between the current time and end of the window to ensure pending changes are
-        /// applied. </para><para>Default: Uses existing setting</para><para>Format: ddd:hh24:mi-ddd:hh24:mi</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Must be at least 30 minutes</para>
+        /// applied.</para><para>Default: Uses existing setting</para><para>Format: ddd:hh24:mi-ddd:hh24:mi</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Must be at least 30 minutes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -441,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// the DB instance internal with a DNS name that resolves to a private IP address. </para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
         /// must be part of a public subnet and <code>PubliclyAccessible</code> must be true in
         /// order for it to be publicly accessible. </para><para>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para> Default: false </para>
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -451,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para> Specifies the storage type to be associated with the DB instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
         /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
         /// <code>standard</code></para>
         /// </para>
@@ -463,8 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para> The ARN from the Key Store with which to associate the instance for TDE encryption.
-        /// </para>
+        /// <para>The ARN from the Key Store with which to associate the instance for TDE encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -474,8 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
-        /// <para> The password for the given ARN from the Key Store in order to access the device.
-        /// </para>
+        /// <para>The password for the given ARN from the Key Store in order to access the device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -485,9 +473,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para> A list of EC2 VPC security groups to authorize on this DB instance. This change is
-        /// asynchronously applied as soon as possible. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// <para>A list of EC2 VPC security groups to authorize on this DB instance. This change is
+        /// asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

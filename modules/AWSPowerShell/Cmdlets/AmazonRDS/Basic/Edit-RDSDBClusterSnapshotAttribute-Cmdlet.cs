@@ -29,64 +29,64 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Adds an attribute and values to, or removes an attribute and values from, a manual
-    /// DB snapshot.
+    /// DB cluster snapshot.
     /// 
     ///  
     /// <para>
-    /// To share a manual DB snapshot with other AWS accounts, specify <code>restore</code>
+    /// To share a manual DB cluster snapshot with other AWS accounts, specify <code>restore</code>
     /// as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to
     /// add a list of IDs of the AWS accounts that are authorized to restore the manual DB
-    /// snapshot. Uses the value <code>all</code> to make the manual DB snapshot public, which
-    /// means it can be copied or restored by all AWS accounts. Do not add the <code>all</code>
-    /// value for any manual DB snapshots that contain private information that you don't
-    /// want available to all AWS accounts.
+    /// cluster snapshot. Use the value <code>all</code> to make the manual DB cluster snapshot
+    /// public, which means that it can be copied or restored by all AWS accounts. Do not
+    /// add the <code>all</code> value for any manual DB cluster snapshots that contain private
+    /// information that you don't want available to all AWS accounts.
     /// </para><para>
-    /// To view which AWS accounts have access to copy or restore a manual DB snapshot, or
-    /// whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a>
+    /// To view which AWS accounts have access to copy or restore a manual DB cluster snapshot,
+    /// or whether a manual DB cluster snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a>
     /// API action.
     /// </para><para>
-    /// If the manual DB snapshot is encrypted, it cannot be shared.
+    /// If a manual DB cluster snapshot is encrypted, it cannot be shared.
     /// </para>
     /// </summary>
-    [Cmdlet("Edit", "RDSDBSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RDS.Model.DBSnapshotAttributesResult")]
-    [AWSCmdlet("Invokes the ModifyDBSnapshotAttribute operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBSnapshotAttribute"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshotAttributesResult",
-        "This cmdlet returns a DBSnapshotAttributesResult object.",
-        "The service call response (type Amazon.RDS.Model.ModifyDBSnapshotAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "RDSDBClusterSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DBClusterSnapshotAttributesResult")]
+    [AWSCmdlet("Invokes the ModifyDBClusterSnapshotAttribute operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBClusterSnapshotAttribute"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshotAttributesResult",
+        "This cmdlet returns a DBClusterSnapshotAttributesResult object.",
+        "The service call response (type Amazon.RDS.Model.ModifyDBClusterSnapshotAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditRDSDBSnapshotAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class EditRDSDBClusterSnapshotAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB snapshot attribute to modify.</para><para>To manage authorization for other AWS accounts to copy or restore a manual DB snapshot,
-        /// set this value to <code>restore</code>.</para>
+        /// <para>The name of the DB cluster snapshot attribute to modify.</para><para>To manage authorization for other AWS accounts to copy or restore a manual DB cluster
+        /// snapshot, set this value to <code>restore</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttributeName { get; set; }
         #endregion
         
-        #region Parameter DBSnapshotIdentifier
+        #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB snapshot to modify the attributes for.</para>
+        /// <para>The identifier for the DB cluster snapshot to modify the attributes for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DBSnapshotIdentifier { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String DBClusterSnapshotIdentifier { get; set; }
         #endregion
         
         #region Parameter ValuesToAdd
         /// <summary>
         /// <para>
-        /// <para>A list of DB snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</para><para>To authorize other AWS accounts to copy or restore a manual snapshot, set this list
-        /// to include one or more AWS account IDs, or <code>all</code> to make the manual DB
-        /// snapshot restorable by any AWS account. Do not add the <code>all</code> value for
-        /// any manual DB snapshots that contain private information that you don't want available
-        /// to all AWS accounts.</para>
+        /// <para>A list of DB cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</para><para>To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set
+        /// this list to include one or more AWS account IDs, or <code>all</code> to make the
+        /// manual DB cluster snapshot restorable by any AWS account. Do not add the <code>all</code>
+        /// value for any manual DB cluster snapshots that contain private information that you
+        /// don't want available to all AWS accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,11 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ValuesToRemove
         /// <summary>
         /// <para>
-        /// <para>A list of DB snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</para><para>To remove authorization for other AWS accounts to copy or restore a manual snapshot,
-        /// set this list to include one or more AWS account identifiers, or <code>all</code>
-        /// to remove authorization for any AWS account to copy or restore the DB snapshot. If
-        /// you specify <code>all</code>, an AWS account whose account ID is explicitly added
-        /// to the <code>restore</code> attribute can still copy or restore the manual DB snapshot.</para>
+        /// <para>A list of DB cluster snapshot attributes to remove from the attribute specified by
+        /// <code>AttributeName</code>.</para><para>To remove authorization for other AWS accounts to copy or restore a manual DB cluster
+        /// snapshot, set this list to include one or more AWS account identifiers, or <code>all</code>
+        /// to remove authorization for any AWS account to copy or restore the DB cluster snapshot.
+        /// If you specify <code>all</code>, an AWS account whose account ID is explicitly added
+        /// to the <code>restore</code> attribute can still copy or restore a manual DB cluster
+        /// snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AttributeName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RDSDBSnapshotAttribute (ModifyDBSnapshotAttribute)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RDSDBClusterSnapshotAttribute (ModifyDBClusterSnapshotAttribute)"))
             {
                 return;
             }
@@ -134,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             };
             
             context.AttributeName = this.AttributeName;
-            context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
+            context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             if (this.ValuesToAdd != null)
             {
                 context.ValuesToAdd = new List<System.String>(this.ValuesToAdd);
@@ -154,15 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.ModifyDBSnapshotAttributeRequest();
+            var request = new Amazon.RDS.Model.ModifyDBClusterSnapshotAttributeRequest();
             
             if (cmdletContext.AttributeName != null)
             {
                 request.AttributeName = cmdletContext.AttributeName;
             }
-            if (cmdletContext.DBSnapshotIdentifier != null)
+            if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
-                request.DBSnapshotIdentifier = cmdletContext.DBSnapshotIdentifier;
+                request.DBClusterSnapshotIdentifier = cmdletContext.DBClusterSnapshotIdentifier;
             }
             if (cmdletContext.ValuesToAdd != null)
             {
@@ -179,9 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyDBSnapshotAttribute(request);
+                var response = client.ModifyDBClusterSnapshotAttribute(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DBSnapshotAttributesResult;
+                object pipelineOutput = response.DBClusterSnapshotAttributesResult;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -208,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal class CmdletContext : ExecutorContext
         {
             public System.String AttributeName { get; set; }
-            public System.String DBSnapshotIdentifier { get; set; }
+            public System.String DBClusterSnapshotIdentifier { get; set; }
             public List<System.String> ValuesToAdd { get; set; }
             public List<System.String> ValuesToRemove { get; set; }
         }

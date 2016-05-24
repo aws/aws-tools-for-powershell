@@ -52,9 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The name of the new DB cluster to be created. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// <para>The name of the new DB cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -64,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The DB subnet group name to use for the new DB cluster. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para>The DB subnet group name to use for the new DB cluster.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -83,9 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// that is different than the KMS key used to encrypt the source DB cluster. The new
         /// DB cluster will be encrypted with the KMS key identified by the <code>KmsKeyId</code>
         /// parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// will occur:</para><ul><li>If the DB cluster is encrypted, then the restored DB cluster is encrypted
-        /// using the KMS key that was used to encrypt the source DB cluster.</li></ul><li>If
-        /// the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</li><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is note encrypted,
+        /// will occur:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
+        /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is note encrypted,
         /// then the restore request is rejected.</para>
         /// </para>
         /// </summary>
@@ -106,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the new DB cluster accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,8 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RestoreToTime
         /// <summary>
         /// <para>
-        /// <para> The date and time to restore the DB cluster to. </para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li>Must be before the latest restorable time for the DB instance</li><li>Cannot
-        /// be specified if <code>UseLatestRestorableTime</code> parameter is true</li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Cannot be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,9 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the source DB cluster from which to restore. </para><para>Constraints:</para><ul><li>Must be the identifier of an existing database instance</li><li>Must contain
-        /// from 1 to 63 alphanumeric characters or hyphens</li><li>First character must be a
-        /// letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// <para>The identifier of the source DB cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing database instance</para></li><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -161,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para> A lst of VPC security groups that the new DB cluster belongs to. </para>
+        /// <para>A lst of VPC security groups that the new DB cluster belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

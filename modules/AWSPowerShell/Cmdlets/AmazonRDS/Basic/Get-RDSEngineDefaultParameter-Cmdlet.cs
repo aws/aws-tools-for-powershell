@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group family. </para>
+        /// <para>The name of the DB parameter group family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> Not currently supported. </para>
+        /// <para>Not currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A filter that specifies one or more resources to return pending maintenance actions
-        /// for.</para><para>Supported filters:</para><ul><li><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance
-        /// Amazon Resource Names (ARNs). The results list will only include pending maintenance
-        /// actions for the DB instances identified by these ARNs.</li></ul>
+        /// for.</para><para>Supported filters:</para><ul><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon
+        /// Resource Names (ARNs). The results list will only include pending maintenance actions
+        /// for the DB instances identified by these ARNs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

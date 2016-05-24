@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified,
-    /// the list will contain only the descriptions of the specified DBSubnetGroup. 
+    /// the list will contain only the descriptions of the specified DBSubnetGroup.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB subnet group to return details for. </para>
+        /// <para>The name of the DB subnet group to return details for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

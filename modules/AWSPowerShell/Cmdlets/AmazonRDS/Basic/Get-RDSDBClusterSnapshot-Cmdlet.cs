@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about DB cluster snapshots. This API supports pagination. 
+    /// Returns information about DB cluster snapshots. This API action supports pagination.
     /// 
     ///  
     /// <para>
@@ -49,11 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>A DB cluster identifier to retrieve the list of DB cluster snapshots for. This parameter
+        /// <para>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
         /// cannot be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter.
-        /// This parameter is not case-sensitive. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// This parameter is not case-sensitive. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A specific DB cluster snapshot identifier to describe. This parameter cannot be used
         /// in conjunction with the <code>DBClusterIdentifier</code> parameter. This value is
-        /// stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li><li>If this is the identifier of an automated snapshot, the <code>SnapshotType</code>
-        /// parameter must also be specified.</li></ul>
+        /// stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,12 +82,48 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludePublic
+        /// <summary>
+        /// <para>
+        /// <para>Set this value to <code>true</code> to include manual DB cluster snapshots that are
+        /// public and can be copied or restored by any AWS account, otherwise set this value
+        /// to <code>false</code>. The default is <code>false</code>. The default is false.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
+        /// API action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludePublic { get; set; }
+        #endregion
+        
+        #region Parameter IncludeShared
+        /// <summary>
+        /// <para>
+        /// <para>Set this value to <code>true</code> to include shared manual DB cluster snapshots
+        /// from other AWS accounts that this AWS account has been given permission to copy or
+        /// restore, otherwise set this value to <code>false</code>. The default is <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB cluster snapshot from
+        /// another AWS account by the <a>ModifyDBClusterSnapshotAttribute</a> API action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludeShared { get; set; }
+        #endregion
+        
         #region Parameter SnapshotType
         /// <summary>
         /// <para>
-        /// <para>The type of DB cluster snapshots that will be returned. Values can be <code>automated</code>
-        /// or <code>manual</code>. If this parameter is not specified, the returned results will
-        /// include all snapshot types. </para>
+        /// <para>The type of DB cluster snapshots to be returned. You can specify one of the following
+        /// values:</para><ul><li><para><code>automated</code> - Return all DB cluster snapshots that have been automatically
+        /// taken by Amazon RDS for my AWS account.</para></li><li><para><code>manual</code> - Return all DB cluster snapshots that have been taken by my
+        /// AWS account.</para></li><li><para><code>shared</code> - Return all manual DB cluster snapshots that have been shared
+        /// to my AWS account.</para></li><li><para><code>public</code> - Return all DB cluster snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
+        /// DB cluster snapshots are returned. You can include shared DB cluster snapshots with
+        /// these results by setting the <code>IncludeShared</code> parameter to <code>true</code>.
+        /// You can include public DB cluster snapshots with these results by setting the <code>IncludePublic</code>
+        /// parameter to <code>true</code>.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply
+        /// for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.
+        /// The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code>
+        /// is set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply
+        /// when <code>SnapshotType</code> is set to <code>public</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
+            if (ParameterWasBound("IncludePublic"))
+                context.IncludePublic = this.IncludePublic;
+            if (ParameterWasBound("IncludeShared"))
+                context.IncludeShared = this.IncludeShared;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -167,6 +204,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.IncludePublic != null)
+            {
+                request.IncludePublic = cmdletContext.IncludePublic.Value;
+            }
+            if (cmdletContext.IncludeShared != null)
+            {
+                request.IncludeShared = cmdletContext.IncludeShared.Value;
             }
             if (cmdletContext.SnapshotType != null)
             {
@@ -262,6 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterSnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.Boolean? IncludePublic { get; set; }
+            public System.Boolean? IncludeShared { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
             public System.String SnapshotType { get; set; }
