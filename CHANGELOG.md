@@ -1,3 +1,9 @@
+### 3.1.72.0 (2016-05-24)
+  * Amazon EC2
+    - Added the new cmdlet Get-EC2ConsoleSnapshot to support the new GetConsoleSnapshot API.
+  * Amazon RDS
+    - Added support for cross-account snapshot sharing with two new cmdlets Edit-RDSDBClusterSnapshot (ModifyDBClusterSnapshot API) and Get-RDSDBClusterSnapshot (DescribeDBClusterSnapshotAttributes API).
+
 ### 3.1.71.0 (2016-05-19)
   * AWS Application Discovery Service [Breaking Change]
     - The initial release for this service used an incorrect service model. The corrections involve two new new cmdlets, Get-ADSConfiguration (DescribeConfigurations API) and Get-ADSExportConfigurationsId (ExportConfigurations API). The existing Get-ADSExportConfiguration has been remapped to the correct DescribeExportConfigurations API. 
