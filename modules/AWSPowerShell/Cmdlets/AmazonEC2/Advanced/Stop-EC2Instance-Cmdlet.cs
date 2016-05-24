@@ -26,30 +26,36 @@ using Amazon.PowerShell.Properties;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Stops or terminates an instance.
-    /// 
+    /// <para>
+    /// Stops or terminates an Amazon EC2 instance.
+    /// </para>
+    /// <para>
     /// Instances that use Amazon EBS volumes as their root devices can be
-    /// quickly stopped and started. When an instance is
-    /// stopped, the compute resources are released and
-    /// you are not billed for hourly instance usage. However,
-    /// your root partition Amazon EBS volume remains,
-    /// continues to persist your data, and you are charged
-    /// for Amazon EBS volume usage. You can restart
+    /// quickly stopped and started. When an instance is stopped, the compute resources are released and
+    /// you are not billed for hourly instance usage. However, your root partition Amazon EBS volume remains,
+    /// continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart
     /// your instance at any time.
-    /// 
-    /// Before stopping an instance, make sure it is in a state from
-    /// which it can be restarted. Stopping an instance does not preserve
-    /// data stored in RAM.
-    /// 
-    /// Stopping an instance that uses an instance store as its
+    /// </para>
+    /// <para>
+    /// <br/><br/>
+    /// Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an 
+    /// instance does not preserve data stored in RAM. Stopping an instance that uses an instance store as its
     /// root device returns an error.
-    /// 
-    /// The Terminate operation is idempotent; if you
-    /// terminate an instance more than once, each
-    /// call will succeed.
-    /// 
-    /// Terminated instances will remain visible after
-    /// termination (approximately one hour).
+    /// </para>
+    /// <para>
+    /// <br/><br/>
+    /// The Terminate operation is idempotent; if you terminate an instance more than once, each call will succeed.
+    /// Terminated instances will remain visible after termination (approximately one hour).
+    /// </para>
+    /// <para>
+    /// <br/><br/>
+    /// <b>Note: Terminating instances using this cmdlet is considered deprecated.</b> Please use the <b><i>Remove-EC2Instance</i></b> 
+    /// cmdlet for instance termination as it supports confirmation prompts when a shell's $ConfirmPreference 
+    /// setting is at its default value (High). The Stop-EC2Instance cmdlet is marked as medium impact (for backwards compatibility) 
+    /// and will not therefore trigger a confirmation prompt for both stop <b>and</b> termination operations unless $ConfirmPreference
+    /// is set to Medium or lower. This could lead to accidental termination of instances. Use of the -Terminate switch is maintained 
+    /// for backwards compatibility only.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "EC2Instance", SupportsShouldProcess = true, DefaultParameterSetName = ParamSet_StopInstances)]
     [OutputType("Amazon.EC2.Model.InstanceStateChange")]
@@ -87,9 +93,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region Parameter Terminate
         /// <summary>
-        /// Signals that the command should Terminate the instance, instead of just stopping it. If this
-        /// option is specified, the cmdlet prompts for user confirmation unless the -Force switch is
-        /// specified.
+        /// <para>
+        /// Signals that the command should Terminate the instance(s) instead of just stopping them.
+        /// </para>
+        /// <para>
+        /// <br/>
+        /// <b>Note:</b> This parameter is deprecated and maintained solely for backwards compatibility. Please
+        /// use the Remove-EC2Instance cmdlet for instance termination.
+        /// </para>
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_TerminateInstances)]
         public SwitchParameter Terminate { get; set; }
@@ -97,14 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region Parameter Force
         /// <summary>
-        /// <para>
-        /// If -Terminate is specified, the instance(s) specified are terminated with no further
-        /// confirmation.
-        /// </para>
-        /// <para>
-        /// If this is switch is not specified, the instance(s) are simply stopped and are thus
-        /// available for restart. No confirmation is required to stop an instance.
-        /// </para>
+        /// Suppresses prompts for confirmation. Note that this cmdlet is marked as medium impact for backwards
+        /// compatibility and therefore will only trigger a confirmation prompt if the shell's $ConfirmPreference 
+        /// setting is Medium or lower, regardless of whether you are stopping or terminating instances.
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_TerminateInstances)]
         public SwitchParameter Force { get; set; }
@@ -120,6 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var operation = string.Format("Stop-EC2Instance ({0})", Terminate.IsPresent ? "TerminateInstances" : "StopInstances");
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, operation))
                 return;
+
+            if (ParameterWasBound("Terminate"))
+                WriteWarning("The -Terminate parameter has been deprecated and may be removed in a future release. Please use the Remove-EC2Instance cmdlet to terminate instances.");
 
             var context = new CmdletContext
                               {
