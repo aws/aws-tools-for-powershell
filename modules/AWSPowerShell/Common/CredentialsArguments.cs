@@ -27,8 +27,8 @@ using System.Management.Automation.Host;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal.Settings;
 using Amazon.PowerShell.Utils;
-using Amazon.SecurityToken.SAML;
 using Amazon.Util;
+using ThirdParty.Json.LitJson;
 
 namespace Amazon.PowerShell.Common
 {
@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Common
 
     public enum CredentialsSource
     {
-        Strings, Saved, CredentialsObject, Session, InstanceProfile, Unknown
+        Strings, Saved, CredentialsObject, Session, Environment, InstanceProfile, Unknown
     }
 
     internal interface IAWSCredentialsArguments
@@ -100,6 +100,9 @@ namespace Amazon.PowerShell.Common
             var source = CredentialsSource.Unknown;
             var userSpecifiedProfile = !string.IsNullOrEmpty(self.ProfileName) || !string.IsNullOrEmpty(self.ProfilesLocation);
 
+            // we probe for credentials by first checking the bound parameters to see if explicit credentials 
+            // were supplied (keys, profile name, credential object), overriding anything in the shell environment
+
             if (!string.IsNullOrEmpty(self.AccessKey) && !string.IsNullOrEmpty(self.SecretKey))
             {
                 innerCredentials = string.IsNullOrEmpty(self.SessionToken) ?
@@ -109,8 +112,7 @@ namespace Amazon.PowerShell.Common
                 name = "Supplied Key Parameters";
             }
 
-            // if profile or profile location explicitly specified, try lookup now - could be an AWS or a SAML
-            // profile
+            // user gave us the profile name?
             if (innerCredentials == null && userSpecifiedProfile)
             {
                 if (StoredProfileAWSCredentials.CanCreateFrom(self.ProfileName, self.ProfilesLocation))
@@ -125,6 +127,7 @@ namespace Amazon.PowerShell.Common
 					return false;
            }
 
+            // how about an aws credentials object?
             if (innerCredentials == null && self.Credential != null)
             {
                 innerCredentials = self.Credential;
@@ -132,6 +135,7 @@ namespace Amazon.PowerShell.Common
                 name = "Credentials Object";
             }
 
+            // shell session variable set (this allows override of machine-wide environment variables)
             if (innerCredentials == null && self.SessionState != null)
             {
                 var variableValue = self.SessionState.PSVariable.GetValue(SessionKeys.AWSCredentialsVariableName);
@@ -143,7 +147,21 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
-            // if profile or profile location not specified, try lookup for defaults now
+            // no explicit command-level or shell instance override set, start to inspect the environment
+            // starting environment variables
+            if (innerCredentials == null)
+            {
+                try
+                {
+                    var environmentCredentials = new EnvironmentVariablesAWSCredentials();
+                    innerCredentials = environmentCredentials;
+                    source = CredentialsSource.Environment;
+                    name = "Environment Variables";
+                }
+                catch { }
+            }
+
+            // get credentials from a 'default' profile?
             if (innerCredentials == null && !userSpecifiedProfile)
             {
                 if (StoredProfileAWSCredentials.IsProfileKnown(SettingsStore.PSDefaultSettingName, self.ProfilesLocation))
@@ -155,7 +173,7 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
-            // load credentials from legacy settings store
+            // get credentials from a legacy default profile name?
             if (innerCredentials == null)
             {
                 try
@@ -168,7 +186,7 @@ namespace Amazon.PowerShell.Common
                 catch { }
             }
 
-            // load credentials from EC2 Instance Profile
+            // last chance, try and load credentials from EC2 Instance Profile
             if (innerCredentials == null)
             {
                 try
@@ -191,33 +209,23 @@ namespace Amazon.PowerShell.Common
             if (credentials != null)
             {
                 // if we have picked up a SAML-based credentials profile, make sure the callback
-                // to authenticate the user (if a non-default identity is configured in the profile)
-                // is set. We have no need of the callback, or state management, for role profiles that
-                // are configured to use default identity.
-                var samlCredentials = credentials.Credentials as StoredProfileSAMLCredentials;
-                if (samlCredentials != null && !samlCredentials.ProfileData.UseDefaultUserIdentity)
+                // to authenticate the user is set. The underlying SDK will then call us back
+                // if it needs to (we could skip setting if the profile indicates its for the
+                // default identity, but it's simpler to just set up anyway)
+                var samlCredentials = credentials.Credentials as StoredProfileFederatedCredentials;
+                if (samlCredentials != null)
                 {
-                    if (samlCredentials.RequestUserCredentialCallback == null)
+                    var state = new SAMLCredentialCallbackState
                     {
-                        var state = new SAMLCredentialCallbackState
-                        {
-                            Host = psHost,
-                            CmdletNetworkCredentialParameter = self.NetworkCredential
-                        };
+                        Host = psHost,
+                        CmdletNetworkCredentialParameter = self.NetworkCredential
+                    };
 
-                        samlCredentials.CustomCallbackState = state;
-                        samlCredentials.RequestUserCredentialCallback = UserCredentialCallbackHandler;
-                    }
-                    else
-                    {
-                        var callbackState = samlCredentials.CustomCallbackState as SAMLCredentialCallbackState;
-                        if (callbackState != null) // is our callback that's attached
-                            callbackState.CmdletNetworkCredentialParameter = self.NetworkCredential;
-                    }
+                    samlCredentials.SetCredentialCallbackData(UserCredentialCallbackHandler, state);
                 }
             }
 
-            return (credentials != null); // && source != CredentialsSource.Unknown);
+            return (credentials != null);
         }
 
         private static void LoadAWSCredentialProfile(IAWSCredentialsArguments self,
@@ -263,7 +271,11 @@ namespace Amazon.PowerShell.Common
             var profileName = userSpecifiedProfile ? self.ProfileName : SettingsStore.PSDefaultSettingName;
             try
             {
-                var storedCredentials = new StoredProfileSAMLCredentials(profileName, self.ProfilesLocation);
+                // proxy data must be passed into the credential profile to use when making the HTTPS authentication
+                // calls
+                var proxySettings = ProxySettings.GetFromSettingsVariable(self.SessionState);
+                var webProxy = proxySettings != null ? proxySettings.GetWebProxy() : null;
+                var storedCredentials = new StoredProfileFederatedCredentials(profileName, self.ProfilesLocation, webProxy);
                 innerCredentials = storedCredentials;
                 source = CredentialsSource.Saved;
                 name = profileName;
@@ -274,15 +286,15 @@ namespace Amazon.PowerShell.Common
                 {
                     var message = "Unable to load stored role details in ";
                     if (!string.IsNullOrEmpty(profileName))
-                        message += "profile = [" + profileName + "], ";
+                        message += "profile = [" + profileName + "]";
                     if (!string.IsNullOrEmpty(self.ProfilesLocation))
-                        message += "profile location = [" + self.ProfilesLocation + "]";
+                        message += ", profile location = [" + self.ProfilesLocation + "]";
                     throw new ArgumentException(message, e);
                 }
             }
         }
 
-        private static NetworkCredential UserCredentialCallbackHandler(CredentialCallbackArgs args)
+        private static NetworkCredential UserCredentialCallbackHandler(CredentialRequestCallbackArgs args)
         {
             var callbackContext = args.CustomState as SAMLCredentialCallbackState;
             if (callbackContext == null) // not our callback, so don't attempt to handle
@@ -302,13 +314,13 @@ namespace Amazon.PowerShell.Common
                 else if (callbackContext.ShellNetworkCredentialParameter != null)
                     psCredential = callbackContext.ShellNetworkCredentialParameter;
                 else
-                    msgPrompt = string.Format("Enter the password to obtain or refresh temporary credentials for user '{0}'.", args.UserIdentity);
+                    msgPrompt = string.Format("Enter your credentials to authenticate and obtain AWS role credentials for the profile '{0}'", args.ProfileName);
             }
             else
                 msgPrompt = string.Format("Authentication failed. Enter the password for '{0}' to try again.", args.UserIdentity);
 
             if (psCredential == null)
-                psCredential = callbackContext.Host.UI.PromptForCredential("Password Required", msgPrompt, args.UserIdentity, "");
+                psCredential = callbackContext.Host.UI.PromptForCredential("Authenticating for AWS Role Credentials", msgPrompt, args.UserIdentity, "");
 
             return psCredential != null ? psCredential.GetNetworkCredential() : null;
         }
@@ -350,7 +362,7 @@ namespace Amazon.PowerShell.Common
 
     public enum RegionSource
     {
-        String, Saved, RegionObject, Session, Unknown
+        String, Saved, RegionObject, Session, Environment, InstanceMetadata, Unknown
     }
 
     internal interface IAWSRegionArguments
@@ -367,6 +379,8 @@ namespace Amazon.PowerShell.Common
 
             region = null;
             source = RegionSource.Unknown;
+
+            // user gave a command-level region parameter override?
             if (self.Region != null)
             {
                 string regionSysName = string.Empty;
@@ -402,6 +416,8 @@ namespace Amazon.PowerShell.Common
                     throw new ArgumentOutOfRangeException(sb.ToString());
                 }
             }
+
+            // user pushed default shell variable? (this allows override of machine-wide environment setting)
             if (region == null && self.SessionState != null)
             {
                 object variableValue = self.SessionState.PSVariable.GetValue(SessionKeys.AWSRegionVariableName);
@@ -412,11 +428,35 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
-            // load region from default settings store
+            // region set in environment variables?
+            if (region == null)
+            {
+                try
+                {
+                    var environmentRegion = new EnvironmentVariableAWSRegion();
+                    region = environmentRegion.Region;
+                    source = RegionSource.Environment;
+                }
+                catch { }
+            }
+
+            // region set in profile store (including legacy key name)?
             if (region == null)
             {
                 if (!TryLoad(SettingsStore.PSDefaultSettingName, ref region, ref source))
                     TryLoad(SettingsStore.PSLegacyDefaultSettingName, ref region, ref source);
+            }
+
+            // last chance, attempt load from EC2 instance metadata
+            if (region == null)
+            {
+                try
+                {
+                    region = EC2InstanceMetadata.Region;
+                    if (region != null)
+                        source = RegionSource.InstanceMetadata;
+                }
+                catch { }
             }
 
             return (region != null && source != RegionSource.Unknown);
@@ -727,7 +767,7 @@ namespace Amazon.PowerShell.Common
             {
                  // could be SAML role data or AWS keys
                 if (SAMLRoleProfile.CanCreateFrom(setting))
-                    credentials = new StoredProfileSAMLCredentials(name, null);
+                    credentials = new StoredProfileFederatedCredentials(name, null);
                 else
                     credentials = new BasicAWSCredentials(setting[SettingsConstants.AccessKeyField], setting[SettingsConstants.SecretKeyField]);
             }
@@ -870,7 +910,7 @@ namespace Amazon.PowerShell.Common
             if (credentials is BasicAWSCredentials)
                 return credentials.GetCredentials();
 
-            if (credentials is InstanceProfileAWSCredentials)
+            if (credentials is InstanceProfileAWSCredentials || credentials is StoredProfileFederatedCredentials)
                 return null;
 
             if (credentials is SessionAWSCredentials)

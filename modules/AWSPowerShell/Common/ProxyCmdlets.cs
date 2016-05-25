@@ -125,19 +125,41 @@ namespace Amazon.PowerShell.Common
             }
         }
 
+        internal WebProxy GetWebProxy()
+        {
+            WebProxy proxy = null;
+            if (!string.IsNullOrEmpty(Hostname) && Port > 0)
+            {
+                proxy = new WebProxy(Hostname, Port);
+            }
+            if (proxy != null && Credentials != null)
+            {
+                proxy.Credentials = Credentials;
+            }
+
+            return proxy;
+        }
+
         internal static ProxySettings GetSettings(PSCmdlet cmdlet)
         {
-            ProxySettings ps = null;
-
-            var variable = cmdlet.SessionState.PSVariable.Get(SessionKeys.AWSProxyVariableName);
-            if (variable != null && variable.Value != null)
-                ps = variable.Value as ProxySettings;
-
+            ProxySettings ps = GetFromSettingsVariable(cmdlet.SessionState);
             if (ps == null)
                 ps = new ProxySettings();
 
             return ps;
         }
+
+        internal static ProxySettings GetFromSettingsVariable(SessionState session)
+        {
+            ProxySettings ps = null;
+
+            var variable = session.PSVariable.Get(SessionKeys.AWSProxyVariableName);
+            if (variable != null && variable.Value != null)
+                ps = variable.Value as ProxySettings;
+
+            return ps;
+        }
+
         internal void SaveSettings(PSCmdlet cmdlet)
         {
             SaveSettings(cmdlet, this);

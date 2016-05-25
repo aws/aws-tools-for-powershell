@@ -19,11 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
-using System.Runtime.InteropServices;
 using System.Text;
 using Amazon.Runtime;
 using System.Collections;
-using Amazon.StorageGateway.Model;
 
 namespace Amazon.PowerShell.Common
 {
