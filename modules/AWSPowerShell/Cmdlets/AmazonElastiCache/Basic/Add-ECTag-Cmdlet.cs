@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// by your tags. You can apply tags that represent business categories (such as cost
     /// centers, application names, or owners) to organize your costs across multiple services.
     /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html">Using
-    /// Cost Allocation Tags in Amazon ElastiCache</a>.
+    /// Cost Allocation Tags in Amazon ElastiCache</a> in the <i>ElastiCache User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ECTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

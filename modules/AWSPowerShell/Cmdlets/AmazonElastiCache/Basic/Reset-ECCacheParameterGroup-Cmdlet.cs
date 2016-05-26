@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ParameterNameValue
         /// <summary>
         /// <para>
-        /// <para>An array of parameter names to be reset. If you are not resetting the entire cache
-        /// parameter group, you must specify at least one parameter name.</para>
+        /// <para>An array of parameter names to reset to their default values. If <i>ResetAllParameters</i>
+        /// is <i>false</i>, you must specify the name of at least one parameter to reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para>If <i>true</i>, all parameters in the cache parameter group will be reset to default
-        /// values. If <i>false</i>, no such action occurs.</para><para>Valid values: <code>true</code> | <code>false</code></para>
+        /// <para>If <i>true</i>, all parameters in the cache parameter group will be reset to their
+        /// default values. If <i>false</i>, only the parameters listed by <i>ParameterNameValues</i>
+        /// are reset to their default values.</para><para>Valid values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

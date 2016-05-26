@@ -46,17 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The cache node type filter value. Use this parameter to show only the available offerings
-        /// matching the specified cache node type.</para><para>Valid node types are as follows:</para><ul><li>General purpose: <ul><li>Current generation: <code>cache.t2.micro</code>,
-        /// <code>cache.t2.small</code>, <code>cache.t2.medium</code>, <code>cache.m3.medium</code>,
-        /// <code>cache.m3.large</code>, <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></li><li>Previous generation: <code>cache.t1.micro</code>, <code>cache.m1.small</code>,
-        /// <code>cache.m1.medium</code>, <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></li></ul></li><li>Compute optimized: <code>cache.c1.xlarge</code></li><li>Memory optimized
-        /// <ul><li>Current generation: <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
-        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></li><li>Previous generation: <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-        /// <code>cache.m2.4xlarge</code></li></ul></li></ul><para><b>Notes:</b></para><ul><li>All t2 instances are created in an Amazon Virtual Private Cloud (VPC).</li><li>Redis backup/restore is not supported for t2 instances.</li><li>Redis Append-only
-        /// files (AOF) functionality is not supported for t1 or t2 instances.</li></ul><para>For a complete listing of cache node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
+        /// matching the specified cache node type.</para><para>Valid node types are as follows:</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: <code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code>,
+        /// <code>cache.m3.medium</code>, <code>cache.m3.large</code>, <code>cache.m3.xlarge</code>,
+        /// <code>cache.m3.2xlarge</code></para></li><li><para>Previous generation: <code>cache.t1.micro</code>, <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
+        /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para></li></ul></li><li><para>Compute optimized: <code>cache.c1.xlarge</code></para></li><li><para>Memory optimized:</para><ul><li><para>Current generation: <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
+        /// <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li><li><para>Previous generation: <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+        /// <code>cache.m2.4xlarge</code></para></li></ul></li></ul><para><b>Notes:</b></para><ul><li><para>All t2 instances are created in an Amazon Virtual Private Cloud (VPC).</para></li><li><para>Redis backup/restore is not supported for t2 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.</para></li></ul><para>For a complete listing of cache node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
         /// ElastiCache Product Features and Details</a> and <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific">Cache
         /// Node Type-Specific Parameters for Memcached</a> or <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific">Cache
-        /// Node Type-Specific Parameters for Redis</a>. </para>
+        /// Node Type-Specific Parameters for Redis</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -78,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The offering type filter value. Use this parameter to show only the available offerings
-        /// matching the specified offering type.</para><para>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy
-        /// Utilization"</code></para>
+        /// matching the specified offering type.</para><para>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

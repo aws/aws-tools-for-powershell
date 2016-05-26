@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of records to include in the response. If more records exist than
+        /// <para>The maximum number of brecords to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a marker is included in the response
         /// so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
         /// </para>

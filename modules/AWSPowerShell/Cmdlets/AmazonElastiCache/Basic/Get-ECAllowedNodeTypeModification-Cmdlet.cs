@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the cache cluster you want to scale up to a larger node instanced type.
         /// ElastiCache uses the cluster id to identify the current node type of this cluster
-        /// and from that to to create a list of node types you can scale up to.</para><para><b>Important:</b><br /> You must provide a value for either the <i>CacheClusterId</i>
-        /// or the <i>ReplicationGroupId</i>.</para>
+        /// and from that to to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <i>CacheClusterId</i> or the <i>ReplicationGroupId</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the replication group want to scale up to a larger node type. ElastiCache
         /// uses the replication group id to identify the current node type being used by this
-        /// replication group, and from that to create a list of node types you can scale up to.</para><para><b>Important:</b><br /> You must provide a value for either the <i>CacheClusterId</i>
-        /// or the <i>ReplicationGroupId</i>.</para>
+        /// replication group, and from that to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <i>CacheClusterId</i> or the <i>ReplicationGroupId</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// The <i>DeleteCacheSecurityGroup</i> action deletes a cache security group.
     /// 
-    ///  <note>You cannot delete a cache security group if it is associated with any cache
-    /// clusters.</note>
+    ///  <note><para>
+    /// You cannot delete a cache security group if it is associated with any cache clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECCacheSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the cache security group to delete.</para><note>You cannot delete the default security group.</note>
+        /// <para>The name of the cache security group to delete.</para><note><para>You cannot delete the default security group.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

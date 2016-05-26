@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the cache parameter group to delete.</para><note>The specified cache security group must not be associated with any cache clusters.</note>
+        /// <para>The name of the cache parameter group to delete.</para><note><para>The specified cache security group must not be associated with any cache clusters.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

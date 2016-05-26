@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The node group identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li>A name must contain from 1 to 20 alphanumeric characters or hyphens.</li><li>The first character must be a letter.</li><li>A name cannot end with a hyphen
-        /// or contain two consecutive hyphens.</li></ul>
+        /// <para>The node group identifier. This parameter is stored as a lowercase string.</para><para><b>Constraints:</b></para><ul><li><para>A name must contain from 1 to 20 alphanumeric characters or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>A name cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -79,17 +78,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheNodeType
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the nodes in the node group.</para><para>Valid node types are as follows:</para><ul><li>General purpose: <ul><li>Current generation: <code>cache.t2.micro</code>,
-        /// <code>cache.t2.small</code>, <code>cache.t2.medium</code>, <code>cache.m3.medium</code>,
-        /// <code>cache.m3.large</code>, <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></li><li>Previous generation: <code>cache.t1.micro</code>, <code>cache.m1.small</code>,
-        /// <code>cache.m1.medium</code>, <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></li></ul></li><li>Compute optimized: <code>cache.c1.xlarge</code></li><li>Memory optimized
-        /// <ul><li>Current generation: <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
-        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></li><li>Previous generation: <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-        /// <code>cache.m2.4xlarge</code></li></ul></li></ul><para><b>Notes:</b></para><ul><li>All t2 instances are created in an Amazon Virtual Private Cloud (VPC).</li><li>Redis backup/restore is not supported for t2 instances.</li><li>Redis Append-only
-        /// files (AOF) functionality is not supported for t1 or t2 instances.</li></ul><para>For a complete listing of cache node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
+        /// <para>The compute and memory capacity of the nodes in the node group.</para><para>Valid node types are as follows:</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: <code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code>,
+        /// <code>cache.m3.medium</code>, <code>cache.m3.large</code>, <code>cache.m3.xlarge</code>,
+        /// <code>cache.m3.2xlarge</code></para></li><li><para>Previous generation: <code>cache.t1.micro</code>, <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
+        /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para></li></ul></li><li><para>Compute optimized: <code>cache.c1.xlarge</code></para></li><li><para>Memory optimized:</para><ul><li><para>Current generation: <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
+        /// <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li><li><para>Previous generation: <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+        /// <code>cache.m2.4xlarge</code></para></li></ul></li></ul><para><b>Notes:</b></para><ul><li><para>All t2 instances are created in an Amazon Virtual Private Cloud (VPC).</para></li><li><para>Redis backup/restore is not supported for t2 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances.</para></li></ul><para>For a complete listing of cache node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
         /// ElastiCache Product Features and Details</a> and <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific">Cache
         /// Node Type-Specific Parameters for Memcached</a> or <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific">Cache
-        /// Node Type-Specific Parameters for Redis</a>. </para>
+        /// Node Type-Specific Parameters for Redis</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic
-        /// to which notifications will be sent.</para><note>The Amazon SNS topic owner must be the same as the cache cluster owner.</note>
+        /// to which notifications will be sent.</para><note><para>The Amazon SNS topic owner must be the same as the cache cluster owner.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -206,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// the zones in the list is not important.</para><para>This option is only supported on Memcached.</para><note><para>If you are creating your cache cluster in an Amazon VPC (recommended) you can only
         /// locate nodes in Availability Zones that are associated with the subnets in the selected
         /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheNodes</code>.</para></note><para>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code>
-        /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para><para>Example: One Memcached node in each of three different Availability Zones: <code><![CDATA[PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;PreferredAvailabilityZones.member.3=us-west-2c]]></code></para><para>Example: All three Memcached nodes in one Availability Zone: <code><![CDATA[PreferredAvailabilityZones.member.1=us-west-2a&amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;PreferredAvailabilityZones.member.3=us-west-2a]]></code></para>
+        /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para><para>Example: One Memcached node in each of three different Availability Zones: <code>PreferredAvailabilityZones.member.1=us-west-2a&amp;amp;PreferredAvailabilityZones.member.2=us-west-2b&amp;amp;PreferredAvailabilityZones.member.3=us-west-2c</code></para><para>Example: All three Memcached nodes in one Availability Zone: <code>PreferredAvailabilityZones.member.1=us-west-2a&amp;amp;PreferredAvailabilityZones.member.2=us-west-2a&amp;amp;PreferredAvailabilityZones.member.3=us-west-2a</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -220,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
-        /// are:</para><ul><li><code>sun</code></li><li><code>mon</code></li><li><code>tue</code></li><li><code>wed</code></li><li><code>thu</code></li><li><code>fri</code></li><li><code>sat</code></li></ul><para>Example: <code>sun:05:00-sun:09:00</code></para>
+        /// are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:05:00-sun:09:00</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,8 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// group as a read replica; otherwise, the cache cluster will be a standalone primary
         /// that is not part of any replication group.</para><para>If the specified replication group is Multi-AZ enabled and the availability zone is
         /// not specified, the cache cluster will be created in availability zones that provide
-        /// the best spread of read replicas across availability zones.</para><para><b>Note:</b> This parameter is only valid if the <code>Engine</code> parameter is
-        /// <code>redis</code>.</para>
+        /// the best spread of read replicas across availability zones.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,8 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
         /// identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file will be
         /// used to populate the node group. The Amazon S3 object name in the ARN cannot contain
-        /// any commas.</para><para><b>Note:</b> This parameter is only valid if the <code>Engine</code> parameter is
-        /// <code>redis</code>.</para><para>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code></para>
+        /// any commas.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -274,8 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of a snapshot from which to restore data into the new node group. The snapshot
-        /// status changes to <code>restoring</code> while the new node group is being created.</para><para><b>Note:</b> This parameter is only valid if the <code>Engine</code> parameter is
-        /// <code>redis</code>.</para>
+        /// status changes to <code>restoring</code> while the new node group is being created.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,8 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic snapshots before deleting
         /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, then a snapshot
-        /// that was taken today will be retained for 5 days before being deleted.</para><para><b>Note:</b> This parameter is only valid if the <code>Engine</code> parameter is
-        /// <code>redis</code>.</para><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
+        /// that was taken today will be retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

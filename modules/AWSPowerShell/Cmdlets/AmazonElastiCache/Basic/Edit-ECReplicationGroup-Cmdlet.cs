@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Whether a read replica will be automatically promoted to read/write primary if the
-        /// existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para><note><para>ElastiCache Multi-AZ replication groups are not supported on:</para><ul><li>Redis versions earlier than 2.8.6.</li><li>T1 and T2 cache node types.</li></ul></note>
+        /// existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para><note><para>ElastiCache Multi-AZ replication groups are not supported on:</para><ul><li><para>Redis versions earlier than 2.8.6.</para></li><li><para>T1 and T2 cache node types.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
-        /// be sent.</para><note>The Amazon SNS topic owner must be same as the replication group owner. </note>
+        /// be sent.</para><note><para>The Amazon SNS topic owner must be same as the replication group owner. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
-        /// are:</para><ul><li><code>sun</code></li><li><code>mon</code></li><li><code>tue</code></li><li><code>wed</code></li><li><code>thu</code></li><li><code>fri</code></li><li><code>sat</code></li></ul><para>Example: <code>sun:05:00-sun:09:00</code></para>
+        /// are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:05:00-sun:09:00</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic node group snapshots
         /// before deleting them. For example, if you set <i>SnapshotRetentionLimit</i> to 5,
-        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b><br />If the value of SnapshotRetentionLimit is set to zero (0), backups
+        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b> If the value of SnapshotRetentionLimit is set to zero (0), backups
         /// are turned off.</para>
         /// </para>
         /// </summary>

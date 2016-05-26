@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>CopySnapshot</i> action makes a copy of an existing snapshot.
+    /// Amazon.ElastiCache.IAmazonElastiCache.CopySnapshot
     /// </summary>
     [Cmdlet("Copy", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]
@@ -43,17 +43,27 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SourceSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing snapshot from which to copy.</para>
+        /// <para>The name of an existing snapshot from which to make a copy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceSnapshotName { get; set; }
         #endregion
         
+        #region Parameter TargetBucket
+        /// <summary>
+        /// <para>
+        /// Amazon.ElastiCache.Model.CopySnapshotRequest.TargetBucket
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TargetBucket { get; set; }
+        #endregion
+        
         #region Parameter TargetSnapshotName
         /// <summary>
         /// <para>
-        /// <para>A name for the copied snapshot.</para>
+        /// Amazon.ElastiCache.Model.CopySnapshotRequest.TargetSnapshotName
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -87,6 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             };
             
             context.SourceSnapshotName = this.SourceSnapshotName;
+            context.TargetBucket = this.TargetBucket;
             context.TargetSnapshotName = this.TargetSnapshotName;
             
             var output = Execute(context) as CmdletOutput;
@@ -104,6 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.SourceSnapshotName != null)
             {
                 request.SourceSnapshotName = cmdletContext.SourceSnapshotName;
+            }
+            if (cmdletContext.TargetBucket != null)
+            {
+                request.TargetBucket = cmdletContext.TargetBucket;
             }
             if (cmdletContext.TargetSnapshotName != null)
             {
@@ -153,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         internal class CmdletContext : ExecutorContext
         {
             public System.String SourceSnapshotName { get; set; }
+            public System.String TargetBucket { get; set; }
             public System.String TargetSnapshotName { get; set; }
         }
         
