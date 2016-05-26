@@ -1,3 +1,10 @@
+### 3.1.73.0 (2016-05-26)
+  * Amazon EC2
+    - Added a new cmdlet, Remove-EC2Instance (TerminateInstances API) following user suggestion. The existing -Terminate switch is still present on Stop-EC2Instance but is considered deprecated.
+    - Added a new cmdlet, Get-EC2InstanceMetadata, to return instance metadata when running on EC2 instances. For more information see the blog post at http://blogs.aws.amazon.com/net/.
+  * Added support for specifying AWS access key, secret key and session token values from environment variables. For more information see the blog post at http://blogs.aws.amazon.com/net/.
+  * Added support for auto-detecting AWS region using instance metadata when cmdlets are run on EC2 instances. The Initialize-AWSDefaults cmdlets no longer prompts for region selection when run in this scenario. To set a region different to that in which the instance is running, specify the -Region parameter.
+
 ### 3.1.72.0 (2016-05-24)
   * Amazon EC2
     - Added the new cmdlet Get-EC2ConsoleSnapshot to support the new GetConsoleSnapshot API.
