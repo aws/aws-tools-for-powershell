@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListPublicKeys(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.PublicKeyList;
                 notes = new Dictionary<string, object>();
@@ -157,6 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudTrail.Model.ListPublicKeysResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListPublicKeysRequest request)
+        {
+            return client.ListPublicKeys(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

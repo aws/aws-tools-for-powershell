@@ -218,13 +218,14 @@ namespace Amazon.PowerShell.Cmdlets.STS
             {
                 request.DurationSeconds = cmdletContext.DurationSeconds.Value;
             }
-                        
+
             // issue call
             var client = Client ?? CreateClient(this.Region);
             CmdletOutput output;
+
             try
             {
-                var response = client.AssumeRoleWithWebIdentity(request);
+                var response = CallAWSServiceOperation(client, request);
 
                 var credentials = response.Credentials;
                 var sessionCredentials = new AWSWebIdentityCredentials
@@ -249,9 +250,18 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-                
+
+        #region AWS Service Operation Call
+
+        private static Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityRequest request)
+        {
+            return client.AssumeRoleWithWebIdentity(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String RoleArn { get; set; }

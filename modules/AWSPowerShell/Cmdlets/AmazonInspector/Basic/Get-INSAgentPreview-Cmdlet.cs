@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                     try
                     {
                         
-                        var response = client.PreviewAgents(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.AgentPreviews;
                         notes = new Dictionary<string, object>();
@@ -192,6 +192,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.PreviewAgentsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.PreviewAgentsRequest request)
+        {
+            return client.PreviewAgents(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

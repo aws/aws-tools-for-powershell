@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GenerateDataKey(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -239,6 +239,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.KeyManagementService.Model.GenerateDataKeyResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateDataKeyRequest request)
+        {
+            return client.GenerateDataKey(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

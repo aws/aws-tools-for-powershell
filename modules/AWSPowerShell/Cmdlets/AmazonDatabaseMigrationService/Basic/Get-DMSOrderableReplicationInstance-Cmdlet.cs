@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeOrderableReplicationInstances(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.OrderableReplicationInstances;
                 notes = new Dictionary<string, object>();
@@ -138,6 +138,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.DescribeOrderableReplicationInstancesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeOrderableReplicationInstancesRequest request)
+        {
+            return client.DescribeOrderableReplicationInstances(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

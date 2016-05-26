@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                     try
                     {
                         
-                        var response = client.DescribeCacheEngineVersions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.CacheEngineVersions;
                         notes = new Dictionary<string, object>();
@@ -241,6 +241,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheEngineVersionsRequest request)
+        {
+            return client.DescribeCacheEngineVersions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

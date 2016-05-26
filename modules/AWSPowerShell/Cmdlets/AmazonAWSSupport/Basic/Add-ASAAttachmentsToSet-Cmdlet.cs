@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AddAttachmentsToSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -160,6 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AWSSupport.Model.AddAttachmentsToSetResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddAttachmentsToSetRequest request)
+        {
+            return client.AddAttachmentsToSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeLimits(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -149,6 +149,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DynamoDBv2.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeLimitsRequest request)
+        {
+            return client.DescribeLimits(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

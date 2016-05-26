@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PromoteReadReplica(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DBInstance;
                 output = new CmdletOutput
@@ -168,6 +168,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.PromoteReadReplicaResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.PromoteReadReplicaRequest request)
+        {
+            return client.PromoteReadReplica(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

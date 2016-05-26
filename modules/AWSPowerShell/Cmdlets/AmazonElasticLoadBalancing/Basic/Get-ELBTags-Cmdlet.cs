@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeTags(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TagDescriptions;
                 output = new CmdletOutput
@@ -114,6 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DescribeTagsRequest request)
+        {
+            return client.DescribeTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

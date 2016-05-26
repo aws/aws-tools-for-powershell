@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     CmdletOutput output;
                     try
                     {
-                        var response = client.ListObjects(request);
+                        var response = CallAWSServiceOperation(client, request);
                         object pipelineOutput = response.S3Objects;
                         int keysRetrieved = response.S3Objects.Count;
 
@@ -257,7 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             return new CmdletContext();
         }
-        
+
+        #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.ListObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListObjectsRequest request)
+        {
+            return client.ListObjects(request);
+        }
+
         #endregion
 
         internal class CmdletContext : ExecutorContext

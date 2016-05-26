@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateCase(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CaseId;
                 output = new CmdletOutput
@@ -286,6 +286,14 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AWSSupport.Model.CreateCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.CreateCaseRequest request)
+        {
+            return client.CreateCase(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -410,7 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutMetricAlarm(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -437,6 +437,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatch.Model.PutMetricAlarmResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.PutMetricAlarmRequest request)
+        {
+            return client.PutMetricAlarm(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

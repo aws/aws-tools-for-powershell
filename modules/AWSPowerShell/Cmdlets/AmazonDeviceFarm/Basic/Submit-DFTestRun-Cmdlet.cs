@@ -538,7 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ScheduleRun(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Run;
                 output = new CmdletOutput
@@ -563,6 +563,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.ScheduleRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ScheduleRunRequest request)
+        {
+            return client.ScheduleRun(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

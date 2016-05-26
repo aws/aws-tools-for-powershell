@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.StopLogging(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -144,6 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudTrail.Model.StopLoggingResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.StopLoggingRequest request)
+        {
+            return client.StopLogging(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

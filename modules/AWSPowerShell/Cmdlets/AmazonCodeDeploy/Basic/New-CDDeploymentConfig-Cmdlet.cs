@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateDeploymentConfig(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DeploymentConfigId;
                 output = new CmdletOutput
@@ -192,6 +192,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeDeploy.Model.CreateDeploymentConfigResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.CreateDeploymentConfigRequest request)
+        {
+            return client.CreateDeploymentConfig(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

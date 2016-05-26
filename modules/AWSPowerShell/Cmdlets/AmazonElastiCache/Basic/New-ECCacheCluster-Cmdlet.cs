@@ -495,7 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateCacheCluster(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CacheCluster;
                 output = new CmdletOutput
@@ -520,6 +520,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.CreateCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CreateCacheClusterRequest request)
+        {
+            return client.CreateCacheCluster(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeLifecycleHookTypes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.LifecycleHookTypes;
                 output = new CmdletOutput
@@ -95,6 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeLifecycleHookTypesRequest request)
+        {
+            return client.DescribeLifecycleHookTypes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

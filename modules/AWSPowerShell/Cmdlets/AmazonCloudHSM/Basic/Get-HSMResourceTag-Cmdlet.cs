@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListTagsForResource(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TagList;
                 output = new CmdletOutput
@@ -110,6 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListTagsForResourceRequest request)
+        {
+            return client.ListTagsForResource(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

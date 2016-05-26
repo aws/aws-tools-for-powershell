@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ReportTaskRunnerHeartbeat(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Terminate;
                 output = new CmdletOutput
@@ -166,6 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatRequest request)
+        {
+            return client.ReportTaskRunnerHeartbeat(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

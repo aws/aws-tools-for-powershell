@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ReadJob(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Job;
                 output = new CmdletOutput
@@ -126,6 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticTranscoder.Model.ReadJobResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.ReadJobRequest request)
+        {
+            return client.ReadJob(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

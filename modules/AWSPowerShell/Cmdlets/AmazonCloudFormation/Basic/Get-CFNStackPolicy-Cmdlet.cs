@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetStackPolicy(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.StackPolicyBody;
                 output = new CmdletOutput
@@ -112,6 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.GetStackPolicyResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.GetStackPolicyRequest request)
+        {
+            return client.GetStackPolicy(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

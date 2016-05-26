@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeClusters(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Clusters;
                         notes = new Dictionary<string, object>();
@@ -290,6 +290,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeClustersResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClustersRequest request)
+        {
+            return client.DescribeClusters(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

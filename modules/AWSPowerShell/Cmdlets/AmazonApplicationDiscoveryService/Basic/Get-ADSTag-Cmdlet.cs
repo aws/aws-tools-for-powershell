@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                     try
                     {
                         
-                        var response = client.DescribeTags(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
@@ -224,6 +224,14 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationDiscoveryService.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeTagsRequest request)
+        {
+            return client.DescribeTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

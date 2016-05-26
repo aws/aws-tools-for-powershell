@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ResumeProcesses(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -163,6 +163,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.ResumeProcessesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.ResumeProcessesRequest request)
+        {
+            return client.ResumeProcesses(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

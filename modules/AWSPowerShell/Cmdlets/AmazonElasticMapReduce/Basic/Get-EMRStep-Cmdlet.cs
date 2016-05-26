@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeStep(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Step;
                 output = new CmdletOutput
@@ -125,6 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticMapReduce.Model.DescribeStepResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DescribeStepRequest request)
+        {
+            return client.DescribeStep(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

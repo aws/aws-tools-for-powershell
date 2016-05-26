@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PollForJobs(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Jobs;
                 output = new CmdletOutput
@@ -242,6 +242,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodePipeline.Model.PollForJobsResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PollForJobsRequest request)
+        {
+            return client.PollForJobs(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

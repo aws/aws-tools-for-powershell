@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     try
                     {
 
-                        var response = client.ListChangeBatchesByHostedZone(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ChangeBatchRecords;
                         notes = new Dictionary<string, object>();
@@ -254,6 +254,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         #endregion
 
+        #region AWS Service Operation Call
+
+        private static Amazon.Route53.Model.ListChangeBatchesByHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListChangeBatchesByHostedZoneRequest request)
+        {
+            return client.ListChangeBatchesByHostedZone(request);
+        }
+
+        #endregion
 
         internal class CmdletContext : ExecutorContext
         {

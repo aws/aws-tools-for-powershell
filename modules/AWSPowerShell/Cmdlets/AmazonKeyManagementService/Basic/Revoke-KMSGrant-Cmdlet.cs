@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RevokeGrant(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -154,6 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.KeyManagementService.Model.RevokeGrantResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.RevokeGrantRequest request)
+        {
+            return client.RevokeGrant(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     try
                     {
                         
-                        var response = client.DescribeAccountLimits(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.AccountLimits;
@@ -146,6 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeAccountLimitsRequest request)
+        {
+            return client.DescribeAccountLimits(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

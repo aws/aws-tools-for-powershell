@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetIPSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.IPSet;
                 output = new CmdletOutput
@@ -111,6 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WAF.Model.GetIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetIPSetRequest request)
+        {
+            return client.GetIPSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

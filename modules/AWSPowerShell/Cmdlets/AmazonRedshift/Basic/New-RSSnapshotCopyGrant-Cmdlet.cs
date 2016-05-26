@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateSnapshotCopyGrant(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.SnapshotCopyGrant;
                 output = new CmdletOutput
@@ -174,6 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateSnapshotCopyGrantRequest request)
+        {
+            return client.CreateSnapshotCopyGrant(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

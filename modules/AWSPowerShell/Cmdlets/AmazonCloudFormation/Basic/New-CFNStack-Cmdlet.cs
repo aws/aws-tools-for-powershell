@@ -357,7 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateStack(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.StackId;
                 output = new CmdletOutput
@@ -382,6 +382,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.CreateStackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.CreateStackRequest request)
+        {
+            return client.CreateStack(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

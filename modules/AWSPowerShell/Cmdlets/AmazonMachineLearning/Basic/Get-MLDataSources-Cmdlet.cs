@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                     try
                     {
                         
-                        var response = client.DescribeDataSources(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Results;
                         notes = new Dictionary<string, object>();
@@ -357,6 +357,14 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.MachineLearning.Model.DescribeDataSourcesResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DescribeDataSourcesRequest request)
+        {
+            return client.DescribeDataSources(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

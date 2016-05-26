@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeletePlatformApplication(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -139,6 +139,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.DeletePlatformApplicationRequest request)
+        {
+            return client.DeletePlatformApplication(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

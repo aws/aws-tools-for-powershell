@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutLifecycleConfiguration(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -182,6 +182,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.S3.Model.PutLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutLifecycleConfigurationRequest request)
+        {
+            return client.PutLifecycleConfiguration(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

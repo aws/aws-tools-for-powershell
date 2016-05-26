@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribeSpotFleetRequests(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.SpotFleetRequestConfigs;
                         notes = new Dictionary<string, object>();
@@ -193,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeSpotFleetRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSpotFleetRequestsRequest request)
+        {
+            return client.DescribeSpotFleetRequests(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

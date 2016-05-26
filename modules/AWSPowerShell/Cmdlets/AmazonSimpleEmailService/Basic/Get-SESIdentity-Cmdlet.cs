@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                     try
                     {
                         
-                        var response = client.ListIdentities(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Identities;
                         notes = new Dictionary<string, object>();
@@ -195,6 +195,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleEmail.Model.ListIdentitiesResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ListIdentitiesRequest request)
+        {
+            return client.ListIdentities(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

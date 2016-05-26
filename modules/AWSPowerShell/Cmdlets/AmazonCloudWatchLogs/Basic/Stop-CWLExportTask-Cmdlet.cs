@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelExportTask(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -137,6 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatchLogs.Model.CancelExportTaskResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CancelExportTaskRequest request)
+        {
+            return client.CancelExportTask(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateDBClusterSnapshot(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DBClusterSnapshot;
                 output = new CmdletOutput
@@ -162,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.CreateDBClusterSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateDBClusterSnapshotRequest request)
+        {
+            return client.CreateDBClusterSnapshot(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

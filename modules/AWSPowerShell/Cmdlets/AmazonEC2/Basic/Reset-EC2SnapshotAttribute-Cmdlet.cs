@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ResetSnapshotAttribute(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -160,6 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.ResetSnapshotAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetSnapshotAttributeRequest request)
+        {
+            return client.ResetSnapshotAttribute(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

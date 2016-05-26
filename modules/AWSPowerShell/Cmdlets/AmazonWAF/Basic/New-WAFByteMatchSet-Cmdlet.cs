@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateByteMatchSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -160,6 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WAF.Model.CreateByteMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateByteMatchSetRequest request)
+        {
+            return client.CreateByteMatchSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

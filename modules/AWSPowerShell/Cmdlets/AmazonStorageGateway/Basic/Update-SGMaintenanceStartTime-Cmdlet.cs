@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateMaintenanceStartTime(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.GatewayARN;
                 output = new CmdletOutput
@@ -178,6 +178,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeRequest request)
+        {
+            return client.UpdateMaintenanceStartTime(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

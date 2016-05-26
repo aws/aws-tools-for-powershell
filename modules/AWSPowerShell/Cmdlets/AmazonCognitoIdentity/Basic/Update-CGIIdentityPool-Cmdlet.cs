@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateIdentityPool(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -219,6 +219,14 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentity.Model.UpdateIdentityPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.UpdateIdentityPoolRequest request)
+        {
+            return client.UpdateIdentityPool(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetJob(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Job;
                 output = new CmdletOutput
@@ -110,6 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.GetJobResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetJobRequest request)
+        {
+            return client.GetJob(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

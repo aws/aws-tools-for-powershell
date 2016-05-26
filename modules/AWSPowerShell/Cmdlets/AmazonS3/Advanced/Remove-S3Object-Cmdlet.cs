@@ -21,6 +21,7 @@ using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.S3.Model;
 using Amazon.PowerShell.Properties;
+using Amazon.S3;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -257,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CmdletOutput output;
                 try
                 {
-                    var response = client.DeleteObject(request);
+                    var response = CallAWSServiceOperation(client, request);
 
                     output = new CmdletOutput
                     {
@@ -316,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CmdletOutput output;
                 try
                 {
-                    var response = client.DeleteObjects(request);
+                    var response = CallAWSServiceOperation(client, request);
 
                     output = new CmdletOutput
                     {
@@ -335,6 +336,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();
+        }
+
+        #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.DeleteObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectRequest request)
+        {
+            return client.DeleteObject(request);
+        }
+
+        private static Amazon.S3.Model.DeleteObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectsRequest request)
+        {
+            return client.DeleteObjects(request);
         }
 
         #endregion

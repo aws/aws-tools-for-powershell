@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribeOrderableDBInstanceOptions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.OrderableDBInstanceOptions;
                         notes = new Dictionary<string, object>();
@@ -276,6 +276,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribeOrderableDBInstanceOptionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeOrderableDBInstanceOptionsRequest request)
+        {
+            return client.DescribeOrderableDBInstanceOptions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateSnapshot(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.SnapshotId;
                 output = new CmdletOutput
@@ -145,6 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectoryService.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateSnapshotRequest request)
+        {
+            return client.CreateSnapshot(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

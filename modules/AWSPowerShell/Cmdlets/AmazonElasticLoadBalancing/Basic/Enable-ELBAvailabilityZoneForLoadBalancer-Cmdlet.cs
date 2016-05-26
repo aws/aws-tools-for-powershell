@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.EnableAvailabilityZonesForLoadBalancer(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.AvailabilityZones;
                 output = new CmdletOutput
@@ -155,6 +155,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerRequest request)
+        {
+            return client.EnableAvailabilityZonesForLoadBalancer(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

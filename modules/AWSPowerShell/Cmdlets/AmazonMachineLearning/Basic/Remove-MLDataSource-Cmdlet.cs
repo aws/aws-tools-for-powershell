@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteDataSource(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DataSourceId;
                 output = new CmdletOutput
@@ -133,6 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.MachineLearning.Model.DeleteDataSourceResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteDataSourceRequest request)
+        {
+            return client.DeleteDataSource(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

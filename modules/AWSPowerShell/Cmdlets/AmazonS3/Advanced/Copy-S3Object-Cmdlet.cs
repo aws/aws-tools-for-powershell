@@ -470,7 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CmdletOutput output;
                 try
                 {
-                    var response = client.CopyObject(request);
+                    var response = CallAWSServiceOperation(client, request);
                     output = new CmdletOutput
                     {
                         PipelineOutput = response,
@@ -519,6 +519,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             return output;
         }
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
+        {
+            return client.CopyObject(request);
+        }
+
+        #endregion
 
         internal class CmdletContext : ExecutorContext
         {

@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateCustomerGateway(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CustomerGateway;
                 output = new CmdletOutput
@@ -186,6 +186,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.CreateCustomerGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCustomerGatewayRequest request)
+        {
+            return client.CreateCustomerGateway(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AddAttributesToFindings(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.FailedItems;
                 output = new CmdletOutput
@@ -150,6 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.AddAttributesToFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.AddAttributesToFindingsRequest request)
+        {
+            return client.AddAttributesToFindings(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -570,13 +570,13 @@ namespace Amazon.PowerShell.Cmdlets.CSD
             }
             
             CmdletOutput output;
-            
+
             // issue call
             using (var client = CreateClient(cmdletContext.ServiceUrl))
             {
                 try
                 {
-                    var response = client.Search(request);
+                    var response = CallAWSServiceOperation(client, request);
                     Dictionary<string, object> notes = null;
                     object pipelineOutput = response;
                     output = new CmdletOutput
@@ -599,10 +599,18 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.CloudSearchDomain.Model.SearchResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.SearchRequest request)
+        {
+            return client.Search(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public string ServiceUrl { get; set; }

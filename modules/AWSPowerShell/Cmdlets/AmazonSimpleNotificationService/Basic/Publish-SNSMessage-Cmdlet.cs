@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.Publish(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.MessageId;
                 output = new CmdletOutput
@@ -248,6 +248,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleNotificationService.Model.PublishResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.PublishRequest request)
+        {
+            return client.Publish(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

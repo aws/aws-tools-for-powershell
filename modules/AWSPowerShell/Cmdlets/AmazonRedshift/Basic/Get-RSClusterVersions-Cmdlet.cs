@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeClusterVersions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ClusterVersions;
                         notes = new Dictionary<string, object>();
@@ -245,6 +245,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeClusterVersionsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterVersionsRequest request)
+        {
+            return client.DescribeClusterVersions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListActionTypes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ActionTypes;
                 notes = new Dictionary<string, object>();
@@ -130,6 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodePipeline.Model.ListActionTypesResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListActionTypesRequest request)
+        {
+            return client.ListActionTypes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

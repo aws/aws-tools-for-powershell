@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribeInstanceStatus(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.InstanceStatuses;
                         notes = new Dictionary<string, object>();
@@ -267,6 +267,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeInstanceStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceStatusRequest request)
+        {
+            return client.DescribeInstanceStatus(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

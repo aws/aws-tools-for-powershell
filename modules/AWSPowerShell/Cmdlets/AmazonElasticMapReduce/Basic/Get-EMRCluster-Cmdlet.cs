@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeCluster(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Cluster;
                 output = new CmdletOutput
@@ -111,6 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticMapReduce.Model.DescribeClusterResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DescribeClusterRequest request)
+        {
+            return client.DescribeCluster(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

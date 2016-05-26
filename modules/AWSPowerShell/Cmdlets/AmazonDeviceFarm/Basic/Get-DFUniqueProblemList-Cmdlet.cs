@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                     try
                     {
                         
-                        var response = client.ListUniqueProblems(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.UniqueProblems;
@@ -161,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.ListUniqueProblemsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListUniqueProblemsRequest request)
+        {
+            return client.ListUniqueProblems(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

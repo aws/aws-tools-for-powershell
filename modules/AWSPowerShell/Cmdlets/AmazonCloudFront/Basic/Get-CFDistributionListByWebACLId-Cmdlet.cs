@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListDistributionsByWebACLId(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DistributionList;
                 output = new CmdletOutput
@@ -149,6 +149,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.ListDistributionsByWebACLIdResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListDistributionsByWebACLIdRequest request)
+        {
+            return client.ListDistributionsByWebACLId(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

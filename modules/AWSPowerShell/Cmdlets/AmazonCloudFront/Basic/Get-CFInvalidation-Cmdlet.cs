@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetInvalidation(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Invalidation;
                 output = new CmdletOutput
@@ -125,6 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.GetInvalidationResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.GetInvalidationRequest request)
+        {
+            return client.GetInvalidation(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

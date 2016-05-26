@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ReceiveMessage(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Messages;
                 output = new CmdletOutput
@@ -280,6 +280,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SQS.Model.ReceiveMessageResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ReceiveMessageRequest request)
+        {
+            return client.ReceiveMessage(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

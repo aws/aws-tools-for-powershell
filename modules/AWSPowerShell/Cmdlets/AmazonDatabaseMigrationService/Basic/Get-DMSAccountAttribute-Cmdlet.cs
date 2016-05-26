@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeAccountAttributes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.AccountQuotas;
                 output = new CmdletOutput
@@ -103,6 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesRequest request)
+        {
+            return client.DescribeAccountAttributes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

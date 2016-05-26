@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     try
                     {
                         
-                        var response = client.ListAccountAliases(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.AccountAliases;
                         notes = new Dictionary<string, object>();
@@ -184,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.ListAccountAliasesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListAccountAliasesRequest request)
+        {
+            return client.ListAccountAliases(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetDeploymentGroup(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DeploymentGroupInfo;
                 output = new CmdletOutput
@@ -126,6 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeDeploy.Model.GetDeploymentGroupResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.GetDeploymentGroupRequest request)
+        {
+            return client.GetDeploymentGroup(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

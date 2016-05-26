@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                     try
                     {
                         
-                        var response = client.DescribeCacheParameterGroups(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.CacheParameterGroups;
                         notes = new Dictionary<string, object>();
@@ -194,6 +194,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DescribeCacheParameterGroupsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheParameterGroupsRequest request)
+        {
+            return client.DescribeCacheParameterGroups(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

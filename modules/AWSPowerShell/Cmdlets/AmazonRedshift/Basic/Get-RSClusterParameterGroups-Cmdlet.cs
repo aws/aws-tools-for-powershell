@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeClusterParameterGroups(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ParameterGroups;
                         notes = new Dictionary<string, object>();
@@ -294,6 +294,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeClusterParameterGroupsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterParameterGroupsRequest request)
+        {
+            return client.DescribeClusterParameterGroups(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

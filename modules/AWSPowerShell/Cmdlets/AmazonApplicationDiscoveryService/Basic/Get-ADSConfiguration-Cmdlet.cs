@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeConfigurations(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Configurations;
                 output = new CmdletOutput
@@ -116,6 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsRequest request)
+        {
+            return client.DescribeConfigurations(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

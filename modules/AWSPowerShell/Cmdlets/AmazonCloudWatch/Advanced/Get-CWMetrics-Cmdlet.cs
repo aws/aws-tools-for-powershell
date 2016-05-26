@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.CloudWatch.Model;
+using Amazon.CloudWatch;
 
 namespace Amazon.PowerShell.Cmdlets.CW
 {
@@ -158,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
 
                 try
                 {            
-                    var response = client.ListMetrics(request);
+                    var response = CallAWSServiceOperation(client, request);
                     Dictionary<string, object> notes = null;
                     notes = new Dictionary<string, object>();
                     notes["NextToken"] = response.NextToken;
@@ -186,10 +187,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.CloudWatch.Model.ListMetricsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.ListMetricsRequest request)
+        {
+            return client.ListMetrics(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String Namespace { get; set; }

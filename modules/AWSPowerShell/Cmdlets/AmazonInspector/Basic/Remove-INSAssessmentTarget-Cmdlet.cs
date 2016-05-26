@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteAssessmentTarget(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -137,6 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.DeleteAssessmentTargetResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DeleteAssessmentTargetRequest request)
+        {
+            return client.DeleteAssessmentTarget(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

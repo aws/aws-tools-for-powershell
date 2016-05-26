@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateWebACL(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ChangeToken;
                 output = new CmdletOutput
@@ -232,6 +232,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WAF.Model.UpdateWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateWebACLRequest request)
+        {
+            return client.UpdateWebACL(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

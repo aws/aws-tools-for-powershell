@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListStreams(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -142,6 +142,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Kinesis.Model.ListStreamsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.ListStreamsRequest request)
+        {
+            return client.ListStreams(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

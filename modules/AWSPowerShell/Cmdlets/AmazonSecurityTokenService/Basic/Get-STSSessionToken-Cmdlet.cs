@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetSessionToken(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Credentials;
                 output = new CmdletOutput
@@ -206,6 +206,14 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SecurityToken.Model.GetSessionTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetSessionTokenRequest request)
+        {
+            return client.GetSessionToken(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

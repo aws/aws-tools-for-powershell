@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateTapeWithBarcode(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TapeARN;
                 output = new CmdletOutput
@@ -166,6 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateTapeWithBarcodeRequest request)
+        {
+            return client.CreateTapeWithBarcode(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

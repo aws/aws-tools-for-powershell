@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GenerateDataSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DataSetRequestId;
                 output = new CmdletOutput
@@ -253,6 +253,14 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetRequest request)
+        {
+            return client.GenerateDataSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

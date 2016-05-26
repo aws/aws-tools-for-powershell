@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeEnvironmentManagedActionHistory(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ManagedActionHistoryItems;
                 notes = new Dictionary<string, object>();
@@ -160,6 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryRequest request)
+        {
+            return client.DescribeEnvironmentManagedActionHistory(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

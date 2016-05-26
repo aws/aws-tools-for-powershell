@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateAssessmentTemplate(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.AssessmentTemplateArn;
                 output = new CmdletOutput
@@ -204,6 +204,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.CreateAssessmentTemplateResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateAssessmentTemplateRequest request)
+        {
+            return client.CreateAssessmentTemplate(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

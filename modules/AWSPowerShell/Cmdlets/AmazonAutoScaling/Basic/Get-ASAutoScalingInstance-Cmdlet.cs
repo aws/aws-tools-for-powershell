@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                     try
                     {
                         
-                        var response = client.DescribeAutoScalingInstances(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.AutoScalingInstances;
                         notes = new Dictionary<string, object>();
@@ -195,6 +195,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.DescribeAutoScalingInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAutoScalingInstancesRequest request)
+        {
+            return client.DescribeAutoScalingInstances(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

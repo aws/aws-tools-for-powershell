@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeConfigurationOptions(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Options;
                 notes = new Dictionary<string, object>();
@@ -184,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsRequest request)
+        {
+            return client.DescribeConfigurationOptions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

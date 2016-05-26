@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AddTags(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -156,6 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DataPipeline.Model.AddTagsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.AddTagsRequest request)
+        {
+            return client.AddTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

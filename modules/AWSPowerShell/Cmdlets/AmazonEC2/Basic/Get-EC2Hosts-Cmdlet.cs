@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribeHosts(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Hosts;
                         notes = new Dictionary<string, object>();
@@ -226,6 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeHostsRequest request)
+        {
+            return client.DescribeHosts(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

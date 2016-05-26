@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteReplicationInstance(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ReplicationInstance;
                 output = new CmdletOutput
@@ -129,6 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.DeleteReplicationInstanceResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DeleteReplicationInstanceRequest request)
+        {
+            return client.DeleteReplicationInstance(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.VerifyDomainDkim(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DkimTokens;
                 output = new CmdletOutput
@@ -142,6 +142,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleEmail.Model.VerifyDomainDkimResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyDomainDkimRequest request)
+        {
+            return client.VerifyDomainDkim(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

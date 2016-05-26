@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                     try
                     {
                         
-                        var response = client.DescribeCases(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Cases;
                         notes = new Dictionary<string, object>();
@@ -305,6 +305,14 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AWSSupport.Model.DescribeCasesResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeCasesRequest request)
+        {
+            return client.DescribeCases(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribePrefixLists(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.PrefixLists;
                         notes = new Dictionary<string, object>();
@@ -215,6 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribePrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePrefixListsRequest request)
+        {
+            return client.DescribePrefixLists(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

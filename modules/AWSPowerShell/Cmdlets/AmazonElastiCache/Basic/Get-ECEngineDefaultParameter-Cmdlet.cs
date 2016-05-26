@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeEngineDefaultParameters(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.EngineDefaults;
                 output = new CmdletOutput
@@ -149,6 +149,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DescribeEngineDefaultParametersResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeEngineDefaultParametersRequest request)
+        {
+            return client.DescribeEngineDefaultParameters(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

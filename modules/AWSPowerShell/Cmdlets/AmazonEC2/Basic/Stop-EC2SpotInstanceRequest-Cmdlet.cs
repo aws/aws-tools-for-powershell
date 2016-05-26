@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelSpotInstanceRequests(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CancelledSpotInstanceRequests;
                 output = new CmdletOutput
@@ -139,6 +139,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.CancelSpotInstanceRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelSpotInstanceRequestsRequest request)
+        {
+            return client.CancelSpotInstanceRequests(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                     try
                     {
                         
-                        var response = client.DescribeEvents(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Events;
                         notes = new Dictionary<string, object>();
@@ -268,6 +268,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DescribeEventsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeEventsRequest request)
+        {
+            return client.DescribeEvents(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

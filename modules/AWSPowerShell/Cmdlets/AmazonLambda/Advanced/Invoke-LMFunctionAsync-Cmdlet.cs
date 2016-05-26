@@ -114,14 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
 
             request.InvokeArgs = cmdletContext.InvokeArgs ?? "{}";
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.InvokeAsync(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Status;
                 output = new CmdletOutput
@@ -143,10 +143,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.Lambda.Model.InvokeAsyncResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.InvokeAsyncRequest request)
+        {
+            return client.InvokeAsync(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }

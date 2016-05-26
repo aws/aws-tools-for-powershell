@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     try
                     {
                         
-                        var response = client.ListGrants(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Grants;
                         notes = new Dictionary<string, object>();
@@ -195,6 +195,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.KeyManagementService.Model.ListGrantsResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListGrantsRequest request)
+        {
+            return client.ListGrants(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

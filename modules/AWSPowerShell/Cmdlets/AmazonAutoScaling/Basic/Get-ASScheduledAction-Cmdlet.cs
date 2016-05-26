@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                     try
                     {
                         
-                        var response = client.DescribeScheduledActions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ScheduledUpdateGroupActions;
                         notes = new Dictionary<string, object>();
@@ -246,6 +246,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.DescribeScheduledActionsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeScheduledActionsRequest request)
+        {
+            return client.DescribeScheduledActions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -156,14 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 ReadCapacityUnits = cmdletContext.ReadCapacityUnits.Value,
                 WriteCapacityUnits = cmdletContext.WriteCapacityUnits.Value
             };
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateTable(request);
+                var response = CallAWSServiceOperation(client, request);
                 output = new CmdletOutput
                 {
                     PipelineOutput = response.TableDescription,
@@ -291,10 +291,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.DynamoDBv2.Model.CreateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.CreateTableRequest request)
+        {
+            return client.CreateTable(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public List<AttributeDefinition> AttributeDefinitions { get; set; }

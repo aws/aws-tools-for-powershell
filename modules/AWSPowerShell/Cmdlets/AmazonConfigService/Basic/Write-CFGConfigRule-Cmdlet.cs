@@ -501,7 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutConfigRule(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -528,6 +528,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ConfigService.Model.PutConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutConfigRuleRequest request)
+        {
+            return client.PutConfigRule(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

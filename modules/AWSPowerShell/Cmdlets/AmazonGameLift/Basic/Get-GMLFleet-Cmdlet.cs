@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     try
                     {
                         
-                        var response = client.ListFleets(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.FleetIds;
                         notes = new Dictionary<string, object>();
@@ -198,6 +198,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.GameLift.Model.ListFleetsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListFleetsRequest request)
+        {
+            return client.ListFleets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteTags(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -162,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationDiscoveryService.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteTagsRequest request)
+        {
+            return client.DeleteTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

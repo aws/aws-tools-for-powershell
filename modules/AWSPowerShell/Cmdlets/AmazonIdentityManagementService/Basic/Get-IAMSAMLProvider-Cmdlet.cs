@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetSAMLProvider(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -117,6 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.GetSAMLProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetSAMLProviderRequest request)
+        {
+            return client.GetSAMLProvider(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

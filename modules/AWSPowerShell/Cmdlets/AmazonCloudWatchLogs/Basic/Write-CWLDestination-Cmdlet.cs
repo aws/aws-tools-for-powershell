@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutDestination(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Destination;
                 output = new CmdletOutput
@@ -170,6 +170,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatchLogs.Model.PutDestinationResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutDestinationRequest request)
+        {
+            return client.PutDestination(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

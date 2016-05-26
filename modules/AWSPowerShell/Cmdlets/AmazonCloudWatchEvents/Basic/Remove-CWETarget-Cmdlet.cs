@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RemoveTargets(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.FailedEntries;
                 output = new CmdletOutput
@@ -152,6 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatchEvents.Model.RemoveTargetsResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.RemoveTargetsRequest request)
+        {
+            return client.RemoveTargets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

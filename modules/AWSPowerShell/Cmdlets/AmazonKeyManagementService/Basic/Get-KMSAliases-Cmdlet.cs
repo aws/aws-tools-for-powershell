@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     try
                     {
                         
-                        var response = client.ListAliases(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Aliases;
                         notes = new Dictionary<string, object>();
@@ -179,6 +179,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.KeyManagementService.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListAliasesRequest request)
+        {
+            return client.ListAliases(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

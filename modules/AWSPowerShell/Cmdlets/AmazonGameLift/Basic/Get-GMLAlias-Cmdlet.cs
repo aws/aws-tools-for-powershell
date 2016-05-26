@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     try
                     {
                         
-                        var response = client.ListAliases(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Aliases;
                         notes = new Dictionary<string, object>();
@@ -218,6 +218,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.GameLift.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListAliasesRequest request)
+        {
+            return client.ListAliases(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

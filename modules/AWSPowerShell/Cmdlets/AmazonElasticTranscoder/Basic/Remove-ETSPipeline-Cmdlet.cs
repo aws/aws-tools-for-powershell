@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeletePipeline(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -144,6 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticTranscoder.Model.DeletePipelineResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.DeletePipelineRequest request)
+        {
+            return client.DeletePipeline(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

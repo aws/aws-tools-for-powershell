@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetCommit(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Commit;
                 output = new CmdletOutput
@@ -125,6 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeCommit.Model.GetCommitResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetCommitRequest request)
+        {
+            return client.GetCommit(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

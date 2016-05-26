@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ChangeMessageVisibility(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -202,6 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SQS.Model.ChangeMessageVisibilityResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ChangeMessageVisibilityRequest request)
+        {
+            return client.ChangeMessageVisibility(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateNetworkAcl(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.NetworkAcl;
                 output = new CmdletOutput
@@ -133,6 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.CreateNetworkAclResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateNetworkAclRequest request)
+        {
+            return client.CreateNetworkAcl(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

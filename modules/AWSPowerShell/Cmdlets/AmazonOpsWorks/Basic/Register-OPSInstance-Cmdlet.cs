@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RegisterInstance(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.InstanceId;
                 output = new CmdletOutput
@@ -264,6 +264,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.OpsWorks.Model.RegisterInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterInstanceRequest request)
+        {
+            return client.RegisterInstance(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

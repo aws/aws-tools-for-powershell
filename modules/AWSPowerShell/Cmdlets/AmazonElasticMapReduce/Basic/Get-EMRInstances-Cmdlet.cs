@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                     try
                     {
                         
-                        var response = client.ListInstances(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Instances;
@@ -217,6 +217,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticMapReduce.Model.ListInstancesResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListInstancesRequest request)
+        {
+            return client.ListInstances(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

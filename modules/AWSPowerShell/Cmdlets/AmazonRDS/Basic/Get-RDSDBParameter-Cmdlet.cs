@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribeDBParameters(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Parameters;
                         notes = new Dictionary<string, object>();
@@ -226,6 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribeDBParametersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBParametersRequest request)
+        {
+            return client.DescribeDBParameters(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

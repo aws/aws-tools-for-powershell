@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     try
                     {
                         
-                        var response = client.ListStackResources(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.StackResourceSummaries;
@@ -167,6 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.ListStackResourcesResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListStackResourcesRequest request)
+        {
+            return client.ListStackResources(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

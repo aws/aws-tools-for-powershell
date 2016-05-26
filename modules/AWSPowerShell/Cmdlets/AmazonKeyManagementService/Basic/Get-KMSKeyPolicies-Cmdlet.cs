@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     try
                     {
                         
-                        var response = client.ListKeyPolicies(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.PolicyNames;
                         notes = new Dictionary<string, object>();
@@ -196,6 +196,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.KeyManagementService.Model.ListKeyPoliciesResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListKeyPoliciesRequest request)
+        {
+            return client.ListKeyPolicies(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

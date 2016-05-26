@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                     try
                     {
                         
-                        var response = client.ListHapgs(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.HapgList;
@@ -154,6 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.ListHapgsResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListHapgsRequest request)
+        {
+            return client.ListHapgs(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

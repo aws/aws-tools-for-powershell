@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteCacheCluster(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CacheCluster;
                 output = new CmdletOutput
@@ -154,6 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DeleteCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteCacheClusterRequest request)
+        {
+            return client.DeleteCacheCluster(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

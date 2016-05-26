@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribeOptionGroups(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.OptionGroupsList;
                         notes = new Dictionary<string, object>();
@@ -244,6 +244,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribeOptionGroupsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeOptionGroupsRequest request)
+        {
+            return client.DescribeOptionGroups(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                     try
                     {
                         
-                        var response = client.ListOperations(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Operations;
@@ -168,6 +168,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Route53Domains.Model.ListOperationsResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ListOperationsRequest request)
+        {
+            return client.ListOperations(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

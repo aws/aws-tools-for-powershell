@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AddRoleToInstanceProfile(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -165,6 +165,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.AddRoleToInstanceProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AddRoleToInstanceProfileRequest request)
+        {
+            return client.AddRoleToInstanceProfile(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

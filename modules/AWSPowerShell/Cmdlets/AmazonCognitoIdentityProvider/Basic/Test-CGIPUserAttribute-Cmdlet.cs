@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             var client = Client ?? CreateClient(context.Region);
             try
             {
-                var response = client.VerifyUserAttribute(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -150,6 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeRequest request)
+        {
+            return client.VerifyUserAttribute(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

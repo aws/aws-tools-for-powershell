@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AdminSetUserSettings(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -172,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsRequest request)
+        {
+            return client.AdminSetUserSettings(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

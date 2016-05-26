@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     try
                     {
 
-                        var response = client.ListHostedZonesByName(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.HostedZones;
                         notes = new Dictionary<string, object>();
@@ -224,10 +224,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.Route53.Model.ListHostedZonesByNameResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListHostedZonesByNameRequest request)
+        {
+            return client.ListHostedZonesByName(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String DNSName { get; set; }

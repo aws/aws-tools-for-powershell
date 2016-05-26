@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetFunctionConfiguration(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -146,6 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Lambda.Model.GetFunctionConfigurationResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetFunctionConfigurationRequest request)
+        {
+            return client.GetFunctionConfiguration(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ResetDBClusterParameterGroup(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DBClusterParameterGroupName;
                 output = new CmdletOutput
@@ -182,6 +182,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.ResetDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ResetDBClusterParameterGroupRequest request)
+        {
+            return client.ResetDBClusterParameterGroup(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListAliases(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Aliases;
                 notes = new Dictionary<string, object>();
@@ -172,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Lambda.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListAliasesRequest request)
+        {
+            return client.ListAliases(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

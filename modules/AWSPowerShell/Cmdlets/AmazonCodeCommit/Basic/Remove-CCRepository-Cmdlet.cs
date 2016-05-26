@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteRepository(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.RepositoryId;
                 output = new CmdletOutput
@@ -131,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeCommit.Model.DeleteRepositoryResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.DeleteRepositoryRequest request)
+        {
+            return client.DeleteRepository(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

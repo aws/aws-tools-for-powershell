@@ -168,13 +168,13 @@ namespace Amazon.PowerShell.Cmdlets.CSD
             }
             
             CmdletOutput output;
-            
+
             // issue call
             using (var client = CreateClient(cmdletContext.ServiceUrl))
             {
                 try
                 {
-                    var response = client.UploadDocuments(request);
+                    var response = CallAWSServiceOperation(client, request);
                     Dictionary<string, object> notes = null;
                     object pipelineOutput = response;
                     output = new CmdletOutput
@@ -197,10 +197,18 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.CloudSearchDomain.Model.UploadDocumentsResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.UploadDocumentsRequest request)
+        {
+            return client.UploadDocuments(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public string ServiceUrl { get; set; }

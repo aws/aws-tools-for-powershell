@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeSchemas(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Schemas;
                 notes = new Dictionary<string, object>();
@@ -152,6 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.DescribeSchemasResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeSchemasRequest request)
+        {
+            return client.DescribeSchemas(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

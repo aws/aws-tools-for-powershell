@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeEvents(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Events;
                         notes = new Dictionary<string, object>();
@@ -303,6 +303,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeEventsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeEventsRequest request)
+        {
+            return client.DescribeEvents(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

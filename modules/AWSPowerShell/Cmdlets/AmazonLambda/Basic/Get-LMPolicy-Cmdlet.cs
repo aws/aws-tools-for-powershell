@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetPolicy(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Policy;
                 output = new CmdletOutput
@@ -147,6 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Lambda.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetPolicyRequest request)
+        {
+            return client.GetPolicy(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

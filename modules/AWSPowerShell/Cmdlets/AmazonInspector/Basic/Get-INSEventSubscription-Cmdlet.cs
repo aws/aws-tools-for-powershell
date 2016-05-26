@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                     try
                     {
                         
-                        var response = client.ListEventSubscriptions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Subscriptions;
                         notes = new Dictionary<string, object>();
@@ -193,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.ListEventSubscriptionsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListEventSubscriptionsRequest request)
+        {
+            return client.ListEventSubscriptions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

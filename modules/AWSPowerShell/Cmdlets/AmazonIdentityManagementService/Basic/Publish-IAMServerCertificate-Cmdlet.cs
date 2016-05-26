@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UploadServerCertificate(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ServerCertificateMetadata;
                 output = new CmdletOutput
@@ -231,6 +231,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.UploadServerCertificateResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UploadServerCertificateRequest request)
+        {
+            return client.UploadServerCertificate(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

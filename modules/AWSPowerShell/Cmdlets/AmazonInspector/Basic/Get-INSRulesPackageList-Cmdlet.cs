@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                     try
                     {
                         
-                        var response = client.ListRulesPackages(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.RulesPackageArns;
                         notes = new Dictionary<string, object>();
@@ -176,6 +176,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.ListRulesPackagesResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListRulesPackagesRequest request)
+        {
+            return client.ListRulesPackages(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

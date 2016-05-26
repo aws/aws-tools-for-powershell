@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RefreshSchemas(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.RefreshSchemasStatus;
                 output = new CmdletOutput
@@ -145,6 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.RefreshSchemasResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.RefreshSchemasRequest request)
+        {
+            return client.RefreshSchemas(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

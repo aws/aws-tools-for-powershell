@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteService(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Service;
                 output = new CmdletOutput
@@ -157,6 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECS.Model.DeleteServiceResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteServiceRequest request)
+        {
+            return client.DeleteService(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

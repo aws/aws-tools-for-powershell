@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetIdentityPolicies(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Policies;
                 output = new CmdletOutput
@@ -145,6 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleEmail.Model.GetIdentityPoliciesResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.GetIdentityPoliciesRequest request)
+        {
+            return client.GetIdentityPolicies(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

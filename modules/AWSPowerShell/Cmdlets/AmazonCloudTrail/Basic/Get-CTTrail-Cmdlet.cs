@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeTrails(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TrailList;
                 output = new CmdletOutput
@@ -140,6 +140,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudTrail.Model.DescribeTrailsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DescribeTrailsRequest request)
+        {
+            return client.DescribeTrails(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -541,7 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateDeliveryStream(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DeliveryStreamARN;
                 output = new CmdletOutput
@@ -566,6 +566,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.KinesisFirehose.Model.CreateDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.CreateDeliveryStreamRequest request)
+        {
+            return client.CreateDeliveryStream(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

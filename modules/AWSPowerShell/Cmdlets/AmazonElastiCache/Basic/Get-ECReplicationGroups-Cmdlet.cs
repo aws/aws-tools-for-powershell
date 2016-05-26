@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                     try
                     {
                         
-                        var response = client.DescribeReplicationGroups(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ReplicationGroups;
                         notes = new Dictionary<string, object>();
@@ -196,6 +196,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeReplicationGroupsRequest request)
+        {
+            return client.DescribeReplicationGroups(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

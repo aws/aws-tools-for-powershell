@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribeDBSubnetGroups(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.DBSubnetGroups;
                         notes = new Dictionary<string, object>();
@@ -218,6 +218,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribeDBSubnetGroupsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBSubnetGroupsRequest request)
+        {
+            return client.DescribeDBSubnetGroups(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

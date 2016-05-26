@@ -216,14 +216,14 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             {
                 request.UploadId = cmdletContext.UploadId;
             }
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UploadLayerPart(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -245,10 +245,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.ECR.Model.UploadLayerPartResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UploadLayerPartRequest request)
+        {
+            return client.UploadLayerPart(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public System.String LayerPartBlob { get; set; }

@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyDocumentPermission(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -195,6 +195,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionRequest request)
+        {
+            return client.ModifyDocumentPermission(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeOrderableClusterOptions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.OrderableClusterOptions;
                         notes = new Dictionary<string, object>();
@@ -250,6 +250,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeOrderableClusterOptionsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeOrderableClusterOptionsRequest request)
+        {
+            return client.DescribeOrderableClusterOptions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

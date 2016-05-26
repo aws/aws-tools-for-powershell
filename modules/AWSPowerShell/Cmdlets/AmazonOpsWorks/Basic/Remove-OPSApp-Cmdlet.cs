@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteApp(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -144,6 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.OpsWorks.Model.DeleteAppResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeleteAppRequest request)
+        {
+            return client.DeleteApp(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

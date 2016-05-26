@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateRepository(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Repository;
                 output = new CmdletOutput
@@ -128,6 +128,14 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECR.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CreateRepositoryRequest request)
+        {
+            return client.CreateRepository(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

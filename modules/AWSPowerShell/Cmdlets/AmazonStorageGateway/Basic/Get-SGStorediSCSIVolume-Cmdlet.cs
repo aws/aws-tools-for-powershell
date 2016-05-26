@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeStorediSCSIVolumes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.StorediSCSIVolumes;
                 output = new CmdletOutput
@@ -117,6 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.DescribeStorediSCSIVolumesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeStorediSCSIVolumesRequest request)
+        {
+            return client.DescribeStorediSCSIVolumes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

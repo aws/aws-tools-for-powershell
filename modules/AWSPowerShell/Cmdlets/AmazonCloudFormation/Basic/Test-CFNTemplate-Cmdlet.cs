@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ValidateTemplate(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -131,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.ValidateTemplateResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ValidateTemplateRequest request)
+        {
+            return client.ValidateTemplate(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

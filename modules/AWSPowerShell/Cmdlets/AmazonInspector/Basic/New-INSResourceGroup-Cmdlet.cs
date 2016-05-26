@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateResourceGroup(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ResourceGroupArn;
                 output = new CmdletOutput
@@ -133,6 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.CreateResourceGroupResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateResourceGroupRequest request)
+        {
+            return client.CreateResourceGroup(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

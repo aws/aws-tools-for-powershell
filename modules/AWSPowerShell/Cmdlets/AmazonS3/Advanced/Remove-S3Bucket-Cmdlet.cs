@@ -22,6 +22,7 @@ using Amazon.S3.Model;
 using Amazon.S3.Util;
 
 using Amazon.PowerShell.Properties;
+using Amazon.S3;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -118,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     try
                     {
-                        var response = client.DeleteBucket(request);
+                        var response = CallAWSServiceOperation(client, request);
                         output = new CmdletOutput
                         {
                             PipelineOutput = response,
@@ -139,10 +140,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.DeleteBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketRequest request)
+        {
+            return client.DeleteBucket(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String BucketName { get; set; }

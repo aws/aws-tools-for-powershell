@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeElasticIps(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ElasticIps;
                 output = new CmdletOutput
@@ -157,6 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.OpsWorks.Model.DescribeElasticIpsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeElasticIpsRequest request)
+        {
+            return client.DescribeElasticIps(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

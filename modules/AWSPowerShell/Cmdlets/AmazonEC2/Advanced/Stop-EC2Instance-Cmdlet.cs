@@ -22,6 +22,7 @@ using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
 using Amazon.PowerShell.Properties;
+using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -150,13 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
 
             if (cmdletContext.Terminate.GetValueOrDefault())
             {
                 var request = new TerminateInstancesRequest {InstanceIds = cmdletContext.InstanceIds};
-                var response = client.TerminateInstances(request);
+                var response = CallAWSServiceOperation(client, request);
                 output = new CmdletOutput
                 {
                     PipelineOutput = response.TerminatingInstances,
@@ -171,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     request.Force = cmdletContext.ForceStop.Value;
                 }
 
-                var response = client.StopInstances(request);
+                var response = CallAWSServiceOperation(client, request);
                 output = new CmdletOutput
                 {
                     PipelineOutput = response.StoppingInstances,
@@ -186,10 +188,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.StopInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StopInstancesRequest request)
+        {
+            return client.StopInstances(request);
+        }
+
+        private static Amazon.EC2.Model.TerminateInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.TerminateInstancesRequest request)
+        {
+            return client.TerminateInstances(request);
+        }
+
+        #endregion
+
+
         internal class CmdletContext : ExecutorContext
         {
             public List<string> InstanceIds { get; set; }

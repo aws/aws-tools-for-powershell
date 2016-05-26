@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetQueueAttributes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -151,6 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SQS.Model.GetQueueAttributesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.GetQueueAttributesRequest request)
+        {
+            return client.GetQueueAttributes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

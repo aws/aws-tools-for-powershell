@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribeVpcClassicLinkDnsSupport(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Vpcs;
                         notes = new Dictionary<string, object>();
@@ -198,6 +198,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcClassicLinkDnsSupportRequest request)
+        {
+            return client.DescribeVpcClassicLinkDnsSupport(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

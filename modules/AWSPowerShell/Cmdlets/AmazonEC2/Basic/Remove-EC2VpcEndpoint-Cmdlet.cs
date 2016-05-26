@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteVpcEndpoints(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Unsuccessful;
                 output = new CmdletOutput
@@ -131,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DeleteVpcEndpointsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcEndpointsRequest request)
+        {
+            return client.DeleteVpcEndpoints(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                     try
                     {
                         
-                        var response = client.DescribeScalableTargets(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ScalableTargets;
                         notes = new Dictionary<string, object>();
@@ -250,6 +250,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsRequest request)
+        {
+            return client.DescribeScalableTargets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateUserProfile(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.IamUserArn;
                 output = new CmdletOutput
@@ -185,6 +185,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.OpsWorks.Model.CreateUserProfileResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CreateUserProfileRequest request)
+        {
+            return client.CreateUserProfile(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

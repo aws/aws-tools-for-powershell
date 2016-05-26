@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                     try
                     {
                         
-                        var response = client.ListImages(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ImageIds;
                         notes = new Dictionary<string, object>();
@@ -243,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECR.Model.ListImagesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ListImagesRequest request)
+        {
+            return client.ListImages(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

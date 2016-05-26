@@ -174,14 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         }
                         request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                     }
-                    
+
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
                     try
                     {
                         
-                        var response = client.ListTrafficPolicies(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.TrafficPolicySummaries;
                         notes = new Dictionary<string, object>();
@@ -241,10 +241,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.Route53.Model.ListTrafficPoliciesResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTrafficPoliciesRequest request)
+        {
+            return client.ListTrafficPolicies(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public System.String TrafficPolicyIdMarker { get; set; }

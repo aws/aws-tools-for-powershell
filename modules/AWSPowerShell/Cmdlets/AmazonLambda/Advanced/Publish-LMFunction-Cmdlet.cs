@@ -237,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 this.ThrowArgumentError(string.Format("\"{0}\" is not a valid file path for the FunctionZip parameter.", this.FunctionZip), this);
             }
 
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
 
             using (var stream = new FileStream(cmdletContext.FunctionZip, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -251,10 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 };
 
                 // issue call
-                var client = Client ?? CreateClient(context.Credentials, context.Region);
                 try
                 {
-                    var response = client.CreateFunction(request);
+                    var response = CallAWSServiceOperation(client, request);
                     Dictionary<string, object> notes = null;
                     object pipelineOutput = response;
                     output = new CmdletOutput
@@ -277,10 +277,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.Lambda.Model.CreateFunctionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.CreateFunctionRequest request)
+        {
+            return client.CreateFunction(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String Description { get; set; }

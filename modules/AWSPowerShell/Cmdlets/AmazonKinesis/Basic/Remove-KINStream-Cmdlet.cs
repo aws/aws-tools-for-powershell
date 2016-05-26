@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteStream(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -157,6 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Kinesis.Model.DeleteStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DeleteStreamRequest request)
+        {
+            return client.DeleteStream(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

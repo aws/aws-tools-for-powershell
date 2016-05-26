@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                     try
                     {
                         
-                        var response = client.DescribeAlarms(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.MetricAlarms;
                         notes = new Dictionary<string, object>();
@@ -241,6 +241,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatch.Model.DescribeAlarmsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmsRequest request)
+        {
+            return client.DescribeAlarms(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

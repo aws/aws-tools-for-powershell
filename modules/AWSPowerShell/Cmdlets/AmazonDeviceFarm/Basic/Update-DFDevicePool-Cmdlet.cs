@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateDevicePool(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DevicePool;
                 output = new CmdletOutput
@@ -179,6 +179,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.UpdateDevicePoolResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.UpdateDevicePoolRequest request)
+        {
+            return client.UpdateDevicePool(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

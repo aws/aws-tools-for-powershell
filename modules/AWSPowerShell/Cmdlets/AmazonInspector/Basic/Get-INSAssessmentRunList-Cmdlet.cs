@@ -475,7 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                     try
                     {
                         
-                        var response = client.ListAssessmentRuns(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.AssessmentRunArns;
                         notes = new Dictionary<string, object>();
@@ -527,6 +527,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.ListAssessmentRunsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListAssessmentRunsRequest request)
+        {
+            return client.ListAssessmentRuns(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

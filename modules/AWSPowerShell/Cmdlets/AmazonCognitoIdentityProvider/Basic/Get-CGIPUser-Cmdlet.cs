@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             var client = Client ?? CreateClient(context.Region);
             try
             {
-                var response = client.GetUser(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -108,6 +108,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentityProvider.Model.GetUserResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetUserRequest request)
+        {
+            return client.GetUser(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

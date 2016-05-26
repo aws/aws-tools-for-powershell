@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateBranch(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -172,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeCommit.Model.CreateBranchResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.CreateBranchRequest request)
+        {
+            return client.CreateBranch(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

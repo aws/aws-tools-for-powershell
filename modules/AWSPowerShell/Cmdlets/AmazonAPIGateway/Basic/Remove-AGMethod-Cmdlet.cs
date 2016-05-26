@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteMethod(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -167,6 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.APIGateway.Model.DeleteMethodResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteMethodRequest request)
+        {
+            return client.DeleteMethod(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

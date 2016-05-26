@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateOrUpdateTags(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -150,6 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.CreateOrUpdateTagsRequest request)
+        {
+            return client.CreateOrUpdateTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

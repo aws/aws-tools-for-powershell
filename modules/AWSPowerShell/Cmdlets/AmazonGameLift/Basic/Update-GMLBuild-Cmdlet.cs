@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateBuild(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Build;
                 output = new CmdletOutput
@@ -159,6 +159,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.GameLift.Model.UpdateBuildResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateBuildRequest request)
+        {
+            return client.UpdateBuild(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     try
                     {
                         
-                        var response = client.ListVirtualMFADevices(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.VirtualMFADevices;
                         notes = new Dictionary<string, object>();
@@ -209,6 +209,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.ListVirtualMFADevicesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListVirtualMFADevicesRequest request)
+        {
+            return client.ListVirtualMFADevices(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

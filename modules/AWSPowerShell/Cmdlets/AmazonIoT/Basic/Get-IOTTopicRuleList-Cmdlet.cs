@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     try
                     {
                         
-                        var response = client.ListTopicRules(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Rules;
                         notes = new Dictionary<string, object>();
@@ -234,6 +234,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IoT.Model.ListTopicRulesResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListTopicRulesRequest request)
+        {
+            return client.ListTopicRules(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

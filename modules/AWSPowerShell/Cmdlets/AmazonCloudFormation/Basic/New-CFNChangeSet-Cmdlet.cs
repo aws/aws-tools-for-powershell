@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateChangeSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Id;
                 output = new CmdletOutput
@@ -366,6 +366,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.CreateChangeSetResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.CreateChangeSetRequest request)
+        {
+            return client.CreateChangeSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                     try
                     {
                         
-                        var response = client.ListArtifacts(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Artifacts;
@@ -177,6 +177,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.ListArtifactsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListArtifactsRequest request)
+        {
+            return client.ListArtifacts(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

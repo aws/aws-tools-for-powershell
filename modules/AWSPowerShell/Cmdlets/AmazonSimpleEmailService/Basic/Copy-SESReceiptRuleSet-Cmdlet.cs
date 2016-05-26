@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CloneReceiptRuleSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -164,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest request)
+        {
+            return client.CloneReceiptRuleSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

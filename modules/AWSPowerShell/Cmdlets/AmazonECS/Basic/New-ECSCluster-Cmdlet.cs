@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateCluster(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Cluster;
                 output = new CmdletOutput
@@ -130,6 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECS.Model.CreateClusterResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.CreateClusterRequest request)
+        {
+            return client.CreateCluster(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

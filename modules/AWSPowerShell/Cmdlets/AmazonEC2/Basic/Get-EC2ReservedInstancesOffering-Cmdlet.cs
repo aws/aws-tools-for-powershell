@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribeReservedInstancesOfferings(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ReservedInstancesOfferings;
                         notes = new Dictionary<string, object>();
@@ -391,6 +391,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeReservedInstancesOfferingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeReservedInstancesOfferingsRequest request)
+        {
+            return client.DescribeReservedInstancesOfferings(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

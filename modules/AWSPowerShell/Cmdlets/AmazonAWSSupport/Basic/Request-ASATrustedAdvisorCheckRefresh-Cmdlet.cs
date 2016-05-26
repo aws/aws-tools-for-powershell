@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RefreshTrustedAdvisorCheck(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Status;
                 output = new CmdletOutput
@@ -136,6 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckRequest request)
+        {
+            return client.RefreshTrustedAdvisorCheck(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

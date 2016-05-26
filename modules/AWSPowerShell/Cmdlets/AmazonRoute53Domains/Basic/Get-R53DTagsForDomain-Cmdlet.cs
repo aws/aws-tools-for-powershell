@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListTagsForDomain(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TagList;
                 output = new CmdletOutput
@@ -116,6 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Route53Domains.Model.ListTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ListTagsForDomainRequest request)
+        {
+            return client.ListTagsForDomain(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

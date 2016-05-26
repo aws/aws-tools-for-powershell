@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribePendingMaintenanceActions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.PendingMaintenanceActions;
                         notes = new Dictionary<string, object>();
@@ -215,6 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribePendingMaintenanceActionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribePendingMaintenanceActionsRequest request)
+        {
+            return client.DescribePendingMaintenanceActions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

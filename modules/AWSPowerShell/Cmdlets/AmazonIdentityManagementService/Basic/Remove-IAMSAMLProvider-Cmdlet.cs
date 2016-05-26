@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteSAMLProvider(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -147,6 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.DeleteSAMLProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteSAMLProviderRequest request)
+        {
+            return client.DeleteSAMLProvider(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

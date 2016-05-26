@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     try
                     {
                         
-                        var response = client.ListUserPoolClients(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.UserPoolClients;
                         notes = new Dictionary<string, object>();
@@ -219,6 +219,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentityProvider.Model.ListUserPoolClientsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListUserPoolClientsRequest request)
+        {
+            return client.ListUserPoolClients(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

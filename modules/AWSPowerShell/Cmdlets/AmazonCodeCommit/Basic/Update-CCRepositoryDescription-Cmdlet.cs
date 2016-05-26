@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateRepositoryDescription(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -161,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeCommit.Model.UpdateRepositoryDescriptionResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryDescriptionRequest request)
+        {
+            return client.UpdateRepositoryDescription(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

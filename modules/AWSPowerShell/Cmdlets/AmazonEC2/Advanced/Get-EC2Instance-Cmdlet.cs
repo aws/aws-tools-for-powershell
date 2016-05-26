@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
+using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -191,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             CmdletOutput output;
             try
             {
-                var response = client.DescribeInstances(request);
+                var response = CallAWSServiceOperation(client, request);
                 output = new CmdletOutput
                 {
                     PipelineOutput = response.Reservations,
@@ -209,9 +210,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstancesRequest request)
+        {
+            return client.DescribeInstances(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public List<string> InstanceIds { get; set; }

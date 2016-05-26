@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.StartPipelineExecution(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.PipelineExecutionId;
                 output = new CmdletOutput
@@ -127,6 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodePipeline.Model.StartPipelineExecutionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.StartPipelineExecutionRequest request)
+        {
+            return client.StartPipelineExecution(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListDeployments(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Deployments;
                 notes = new Dictionary<string, object>();
@@ -222,6 +222,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeDeploy.Model.ListDeploymentsResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.ListDeploymentsRequest request)
+        {
+            return client.ListDeployments(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

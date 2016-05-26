@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteHapg(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Status;
                 output = new CmdletOutput
@@ -126,6 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.DeleteHapgResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.DeleteHapgRequest request)
+        {
+            return client.DeleteHapg(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

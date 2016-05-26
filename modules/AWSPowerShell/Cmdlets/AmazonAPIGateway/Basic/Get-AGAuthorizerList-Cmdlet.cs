@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                     try
                     {
                         
-                        var response = client.GetAuthorizers(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Items;
                         notes = new Dictionary<string, object>();
@@ -189,6 +189,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.APIGateway.Model.GetAuthorizersResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetAuthorizersRequest request)
+        {
+            return client.GetAuthorizers(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

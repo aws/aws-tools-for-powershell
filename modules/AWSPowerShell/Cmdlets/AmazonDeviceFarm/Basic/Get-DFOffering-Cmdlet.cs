@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                     try
                     {
                         
-                        var response = client.ListOfferings(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Offerings;
@@ -150,6 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.ListOfferingsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListOfferingsRequest request)
+        {
+            return client.ListOfferings(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

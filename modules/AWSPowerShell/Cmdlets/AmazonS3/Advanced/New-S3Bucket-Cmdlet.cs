@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CmdletOutput output;
                 try
                 {
-                    var response = client.PutBucket(request);
+                    var response = CallAWSServiceOperation(client, request);
 
                     // since S3 bucket has only a name and a creation date, take a simple route to
                     // emit the instance rather than a ListBuckets/search approach
@@ -168,9 +168,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.PutBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketRequest request)
+        {
+            return client.PutBucket(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String BucketName { get; set; }

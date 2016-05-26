@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                     try
                     {
                         
-                        var response = client.ListSqlInjectionMatchSets(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.SqlInjectionMatchSets;
                         notes = new Dictionary<string, object>();
@@ -211,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WAF.Model.ListSqlInjectionMatchSetsResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.ListSqlInjectionMatchSetsRequest request)
+        {
+            return client.ListSqlInjectionMatchSets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

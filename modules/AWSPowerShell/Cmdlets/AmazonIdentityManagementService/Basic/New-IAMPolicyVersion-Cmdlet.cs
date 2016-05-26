@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreatePolicyVersion(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.PolicyVersion;
                 output = new CmdletOutput
@@ -179,6 +179,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.CreatePolicyVersionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreatePolicyVersionRequest request)
+        {
+            return client.CreatePolicyVersion(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

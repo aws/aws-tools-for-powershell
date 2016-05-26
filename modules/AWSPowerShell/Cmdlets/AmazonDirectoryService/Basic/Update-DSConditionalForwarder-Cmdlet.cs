@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateConditionalForwarder(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -173,6 +173,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectoryService.Model.UpdateConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.UpdateConditionalForwarderRequest request)
+        {
+            return client.UpdateConditionalForwarder(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

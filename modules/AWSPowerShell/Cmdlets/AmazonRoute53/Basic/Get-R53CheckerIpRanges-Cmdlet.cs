@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetCheckerIpRanges(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CheckerIpRanges;
                 output = new CmdletOutput
@@ -99,6 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Route53.Model.GetCheckerIpRangesResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetCheckerIpRangesRequest request)
+        {
+            return client.GetCheckerIpRanges(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

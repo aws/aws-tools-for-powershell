@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateApplicationVersion(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ApplicationVersion;
                 output = new CmdletOutput
@@ -161,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticBeanstalk.Model.UpdateApplicationVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateApplicationVersionRequest request)
+        {
+            return client.UpdateApplicationVersion(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

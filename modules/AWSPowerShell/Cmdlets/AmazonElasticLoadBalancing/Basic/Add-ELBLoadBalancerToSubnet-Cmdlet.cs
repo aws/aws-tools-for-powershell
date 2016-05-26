@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AttachLoadBalancerToSubnets(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Subnets;
                 output = new CmdletOutput
@@ -154,6 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsRequest request)
+        {
+            return client.AttachLoadBalancerToSubnets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

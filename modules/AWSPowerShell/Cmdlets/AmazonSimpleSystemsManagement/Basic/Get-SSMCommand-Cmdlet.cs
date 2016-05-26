@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     try
                     {
                         
-                        var response = client.ListCommands(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Commands;
                         notes = new Dictionary<string, object>();
@@ -254,6 +254,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleSystemsManagement.Model.ListCommandsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListCommandsRequest request)
+        {
+            return client.ListCommands(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

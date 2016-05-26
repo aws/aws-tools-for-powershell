@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeInstanceAttribute(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.InstanceAttribute;
                 output = new CmdletOutput
@@ -131,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeInstanceAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstanceAttributeRequest request)
+        {
+            return client.DescribeInstanceAttribute(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

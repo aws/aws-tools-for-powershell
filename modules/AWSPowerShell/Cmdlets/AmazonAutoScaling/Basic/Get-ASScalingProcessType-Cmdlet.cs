@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeScalingProcessTypes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Processes;
                 output = new CmdletOutput
@@ -95,6 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.DescribeScalingProcessTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeScalingProcessTypesRequest request)
+        {
+            return client.DescribeScalingProcessTypes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

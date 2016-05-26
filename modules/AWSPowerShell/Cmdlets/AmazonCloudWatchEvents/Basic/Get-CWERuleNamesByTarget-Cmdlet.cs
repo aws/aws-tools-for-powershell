@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListRuleNamesByTarget(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.RuleNames;
                 notes = new Dictionary<string, object>();
@@ -150,6 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest request)
+        {
+            return client.ListRuleNamesByTarget(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

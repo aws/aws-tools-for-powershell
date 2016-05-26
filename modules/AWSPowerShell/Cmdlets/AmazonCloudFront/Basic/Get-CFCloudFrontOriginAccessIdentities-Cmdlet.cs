@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListCloudFrontOriginAccessIdentities(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CloudFrontOriginAccessIdentityList;
                 output = new CmdletOutput
@@ -131,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.ListCloudFrontOriginAccessIdentitiesResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListCloudFrontOriginAccessIdentitiesRequest request)
+        {
+            return client.ListCloudFrontOriginAccessIdentities(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

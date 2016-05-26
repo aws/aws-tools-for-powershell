@@ -22,6 +22,7 @@ using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
 using Amazon.EC2.Util;
+using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -260,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
                 try
                 {
-                    var response = client.DescribeImages(request);
+                    var response = CallAWSServiceOperation(client, request);
                     output = new CmdletOutput
                     {
                         ServiceResponse = response
@@ -307,6 +308,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();
+        }
+
+        #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.DescribeImagesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImagesRequest request)
+        {
+            return client.DescribeImages(request);
         }
 
         #endregion

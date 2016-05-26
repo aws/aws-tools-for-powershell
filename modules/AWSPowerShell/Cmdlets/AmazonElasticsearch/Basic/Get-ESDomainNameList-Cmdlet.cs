@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListDomainNames(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DomainNames;
                 output = new CmdletOutput
@@ -95,6 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Elasticsearch.Model.ListDomainNamesResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.ListDomainNamesRequest request)
+        {
+            return client.ListDomainNames(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

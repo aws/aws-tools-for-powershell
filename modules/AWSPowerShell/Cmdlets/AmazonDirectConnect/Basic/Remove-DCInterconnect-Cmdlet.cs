@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteInterconnect(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.InterconnectState;
                 output = new CmdletOutput
@@ -130,6 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectConnect.Model.DeleteInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DeleteInterconnectRequest request)
+        {
+            return client.DeleteInterconnect(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

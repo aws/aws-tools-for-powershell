@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                     try
                     {
                         
-                        var response = client.ListVolumes(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.VolumeInfos;
                         notes = new Dictionary<string, object>();
@@ -202,6 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.ListVolumesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListVolumesRequest request)
+        {
+            return client.ListVolumes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

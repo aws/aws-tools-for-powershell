@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                     try
                     {
                         
-                        var response = client.DescribeScalingPolicies(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ScalingPolicies;
                         notes = new Dictionary<string, object>();
@@ -265,6 +265,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationAutoScaling.Model.DescribeScalingPoliciesResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DescribeScalingPoliciesRequest request)
+        {
+            return client.DescribeScalingPolicies(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

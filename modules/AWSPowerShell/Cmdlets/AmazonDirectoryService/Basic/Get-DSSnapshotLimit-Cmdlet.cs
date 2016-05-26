@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetSnapshotLimits(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.SnapshotLimits;
                 output = new CmdletOutput
@@ -110,6 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectoryService.Model.GetSnapshotLimitsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.GetSnapshotLimitsRequest request)
+        {
+            return client.GetSnapshotLimits(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

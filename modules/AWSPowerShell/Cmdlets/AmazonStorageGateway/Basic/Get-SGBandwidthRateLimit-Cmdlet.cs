@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeBandwidthRateLimit(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -118,6 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeBandwidthRateLimitRequest request)
+        {
+            return client.DescribeBandwidthRateLimit(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                     try
                     {
                         
-                        var response = client.DescribeReservedCacheNodesOfferings(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ReservedCacheNodesOfferings;
                         notes = new Dictionary<string, object>();
@@ -269,6 +269,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.DescribeReservedCacheNodesOfferingsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeReservedCacheNodesOfferingsRequest request)
+        {
+            return client.DescribeReservedCacheNodesOfferings(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

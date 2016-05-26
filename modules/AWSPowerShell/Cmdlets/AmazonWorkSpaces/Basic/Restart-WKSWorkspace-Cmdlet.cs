@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RebootWorkspaces(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.FailedRequests;
                 output = new CmdletOutput
@@ -138,6 +138,14 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WorkSpaces.Model.RebootWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.RebootWorkspacesRequest request)
+        {
+            return client.RebootWorkspaces(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     try
                     {
                         
-                        var response = client.ListChangeSets(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Summaries;
@@ -164,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFormation.Model.ListChangeSetsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListChangeSetsRequest request)
+        {
+            return client.ListChangeSets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

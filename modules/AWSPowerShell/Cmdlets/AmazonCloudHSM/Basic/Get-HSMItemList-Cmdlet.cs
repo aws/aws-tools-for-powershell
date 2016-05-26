@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                     try
                     {
                         
-                        var response = client.ListHsms(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.HsmList;
@@ -154,6 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.ListHsmsResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListHsmsRequest request)
+        {
+            return client.ListHsms(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

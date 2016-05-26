@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateMountTarget(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -243,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticFileSystem.Model.CreateMountTargetResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.CreateMountTargetRequest request)
+        {
+            return client.CreateMountTarget(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

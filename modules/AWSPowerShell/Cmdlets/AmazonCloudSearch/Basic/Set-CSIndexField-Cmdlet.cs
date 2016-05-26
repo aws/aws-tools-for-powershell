@@ -1729,7 +1729,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DefineIndexField(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.IndexField;
                 output = new CmdletOutput
@@ -1754,6 +1754,14 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudSearch.Model.DefineIndexFieldResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DefineIndexFieldRequest request)
+        {
+            return client.DefineIndexField(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                     try
                     {
                         
-                        var response = client.ListWebACLs(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.WebACLs;
                         notes = new Dictionary<string, object>();
@@ -211,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WAF.Model.ListWebACLsResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.ListWebACLsRequest request)
+        {
+            return client.ListWebACLs(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

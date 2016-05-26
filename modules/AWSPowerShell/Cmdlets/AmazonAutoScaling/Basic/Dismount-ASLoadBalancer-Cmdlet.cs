@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DetachLoadBalancers(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -164,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.DetachLoadBalancersResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DetachLoadBalancersRequest request)
+        {
+            return client.DetachLoadBalancers(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -21,6 +21,7 @@ using System.Linq;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.S3.Model;
+using Amazon.S3;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CmdletOutput output;
                 try
                 {
-                    var response = client.ListBuckets(request);
+                    var response = CallAWSServiceOperation(client, request);
 
                     object pipelineOutput;
                     if (string.IsNullOrEmpty(cmdletContext.BucketName))
@@ -108,6 +109,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();
+        }
+
+        #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.ListBucketsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketsRequest request)
+        {
+            return client.ListBuckets(request);
         }
 
         #endregion

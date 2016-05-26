@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetGameSessionLogUrl(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.PreSignedUrl;
                 output = new CmdletOutput
@@ -119,6 +119,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.GameLift.Model.GetGameSessionLogUrlResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetGameSessionLogUrlRequest request)
+        {
+            return client.GetGameSessionLogUrl(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

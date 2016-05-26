@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeTags(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TagList;
                 output = new CmdletOutput
@@ -110,6 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WorkSpaces.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeTagsRequest request)
+        {
+            return client.DescribeTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

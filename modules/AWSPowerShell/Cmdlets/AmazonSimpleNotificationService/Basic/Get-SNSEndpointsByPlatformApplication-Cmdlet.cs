@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                     try
                     {
                         
-                        var response = client.ListEndpointsByPlatformApplication(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Endpoints;
@@ -169,6 +169,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleNotificationService.Model.ListEndpointsByPlatformApplicationResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ListEndpointsByPlatformApplicationRequest request)
+        {
+            return client.ListEndpointsByPlatformApplication(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

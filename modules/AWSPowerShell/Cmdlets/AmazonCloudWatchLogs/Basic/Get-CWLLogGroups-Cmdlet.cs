@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeLogGroups(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.LogGroups;
                 notes = new Dictionary<string, object>();
@@ -158,6 +158,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeLogGroupsRequest request)
+        {
+            return client.DescribeLogGroups(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

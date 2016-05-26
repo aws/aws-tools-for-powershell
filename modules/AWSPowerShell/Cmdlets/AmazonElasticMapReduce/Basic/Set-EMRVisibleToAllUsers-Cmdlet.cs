@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.SetVisibleToAllUsers(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -166,6 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersRequest request)
+        {
+            return client.SetVisibleToAllUsers(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

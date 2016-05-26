@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                     try
                     {
                         
-                        var response = client.DescribeFileSystems(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.FileSystems;
                         notes = new Dictionary<string, object>();
@@ -238,6 +238,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticFileSystem.Model.DescribeFileSystemsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DescribeFileSystemsRequest request)
+        {
+            return client.DescribeFileSystems(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

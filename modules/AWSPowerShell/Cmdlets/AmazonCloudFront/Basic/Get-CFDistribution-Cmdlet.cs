@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetDistribution(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Distribution;
                 notes = new Dictionary<string, object>();
@@ -113,6 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.GetDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.GetDistributionRequest request)
+        {
+            return client.GetDistribution(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

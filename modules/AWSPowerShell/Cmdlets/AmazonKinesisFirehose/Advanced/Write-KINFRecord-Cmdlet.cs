@@ -225,13 +225,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             else
                 request.Record.Data = cmdletContext.Blob;
 
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutRecord(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.RecordId;
                 output = new CmdletOutput
@@ -253,10 +253,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.KinesisFirehose.Model.PutRecordResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.PutRecordRequest request)
+        {
+            return client.PutRecord(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public System.String DeliveryStreamName { get; set; }

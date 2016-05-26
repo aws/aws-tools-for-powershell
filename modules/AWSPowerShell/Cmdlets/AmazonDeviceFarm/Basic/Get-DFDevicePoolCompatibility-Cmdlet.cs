@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetDevicePoolCompatibility(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -141,6 +141,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityRequest request)
+        {
+            return client.GetDevicePoolCompatibility(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                     try
                     {
                         
-                        var response = client.ListServices(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ServiceArns;
                         notes = new Dictionary<string, object>();
@@ -199,6 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECS.Model.ListServicesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListServicesRequest request)
+        {
+            return client.ListServices(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

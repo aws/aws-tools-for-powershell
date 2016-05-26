@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.MeterUsage(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.MeteringRecordId;
                 output = new CmdletOutput
@@ -194,6 +194,14 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest request)
+        {
+            return client.MeterUsage(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

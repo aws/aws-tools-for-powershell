@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                     try
                     {
                         
-                        var response = client.ListClusters(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ClusterArns;
                         notes = new Dictionary<string, object>();
@@ -183,6 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECS.Model.ListClustersResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListClustersRequest request)
+        {
+            return client.ListClusters(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

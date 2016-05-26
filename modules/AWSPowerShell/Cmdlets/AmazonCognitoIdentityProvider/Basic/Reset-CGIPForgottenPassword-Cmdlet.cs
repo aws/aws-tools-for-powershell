@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             var client = Client ?? CreateClient(context.Region);
             try
             {
-                var response = client.ForgotPassword(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CodeDeliveryDetails;
                 output = new CmdletOutput
@@ -157,6 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentityProvider.Model.ForgotPasswordResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ForgotPasswordRequest request)
+        {
+            return client.ForgotPassword(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

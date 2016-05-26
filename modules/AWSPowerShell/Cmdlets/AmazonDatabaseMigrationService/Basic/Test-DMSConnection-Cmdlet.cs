@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.TestConnection(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Connection;
                 output = new CmdletOutput
@@ -127,6 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.TestConnectionResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.TestConnectionRequest request)
+        {
+            return client.TestConnection(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

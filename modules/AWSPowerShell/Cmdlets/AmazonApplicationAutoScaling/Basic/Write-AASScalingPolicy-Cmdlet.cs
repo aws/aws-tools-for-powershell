@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutScalingPolicy(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.PolicyARN;
                 output = new CmdletOutput
@@ -350,6 +350,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.PutScalingPolicyRequest request)
+        {
+            return client.PutScalingPolicy(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

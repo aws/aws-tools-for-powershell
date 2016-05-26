@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateSnapshotSchedule(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.VolumeARN;
                 output = new CmdletOutput
@@ -187,6 +187,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateSnapshotScheduleRequest request)
+        {
+            return client.UpdateSnapshotSchedule(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

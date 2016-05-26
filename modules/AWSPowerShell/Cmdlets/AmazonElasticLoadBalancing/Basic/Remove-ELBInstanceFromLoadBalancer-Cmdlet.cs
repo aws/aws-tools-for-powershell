@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeregisterInstancesFromLoadBalancer(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Instances;
                 output = new CmdletOutput
@@ -155,6 +155,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerRequest request)
+        {
+            return client.DeregisterInstancesFromLoadBalancer(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

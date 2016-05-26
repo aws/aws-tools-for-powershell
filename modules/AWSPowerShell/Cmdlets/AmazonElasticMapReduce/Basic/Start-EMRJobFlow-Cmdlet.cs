@@ -766,7 +766,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RunJobFlow(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.JobFlowId;
                 output = new CmdletOutput
@@ -791,6 +791,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticMapReduce.Model.RunJobFlowResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RunJobFlowRequest request)
+        {
+            return client.RunJobFlow(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

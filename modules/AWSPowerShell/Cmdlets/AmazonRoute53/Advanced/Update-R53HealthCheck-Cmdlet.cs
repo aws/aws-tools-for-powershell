@@ -392,14 +392,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 request.InsufficientDataHealthStatus = cmdletContext.InsufficientDataHealthStatus;
             }
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateHealthCheck(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.HealthCheck;
                 output = new CmdletOutput
@@ -421,10 +421,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.Route53.Model.UpdateHealthCheckResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateHealthCheckRequest request)
+        {
+            return client.UpdateHealthCheck(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public System.String HealthCheckId { get; set; }

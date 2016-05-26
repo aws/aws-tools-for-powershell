@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeLoadBalancers(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.LoadBalancerDescriptions;
                 notes = new Dictionary<string, object>();
@@ -151,6 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersRequest request)
+        {
+            return client.DescribeLoadBalancers(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

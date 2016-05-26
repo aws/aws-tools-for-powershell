@@ -528,7 +528,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateStreamingDistribution(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.StreamingDistribution;
                 notes = new Dictionary<string, object>();
@@ -555,6 +555,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.UpdateStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateStreamingDistributionRequest request)
+        {
+            return client.UpdateStreamingDistribution(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

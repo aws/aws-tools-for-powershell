@@ -19,6 +19,7 @@ using System;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
+using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -126,14 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.EnableDnsHostnames = cmdletContext.EnableDnsHostnames.Value;
             }
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyVpcAttribute(request);
+                var response = CallAWSServiceOperation(client, request);
                 output = new CmdletOutput
                 {
                     ServiceResponse = response
@@ -151,10 +152,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.ModifyVpcAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcAttributeRequest request)
+        {
+            return client.ModifyVpcAttribute(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String VpcId { get; set; }

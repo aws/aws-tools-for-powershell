@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DetachVpnGateway(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -161,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DetachVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVpnGatewayRequest request)
+        {
+            return client.DetachVpnGateway(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

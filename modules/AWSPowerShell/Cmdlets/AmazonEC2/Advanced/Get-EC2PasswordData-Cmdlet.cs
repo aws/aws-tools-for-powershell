@@ -23,7 +23,7 @@ using System.IO;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
 using Amazon.Runtime.Internal.Settings;
-
+using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -106,13 +106,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetPasswordData(request);
+                var response = CallAWSServiceOperation(client, request);
 
                 if (!cmdletContext.Decrypt)
                 {
@@ -233,7 +233,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             return new CmdletContext();
         }
-        
+
+        #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.GetPasswordDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetPasswordDataRequest request)
+        {
+            return client.GetPasswordData(request);
+        }
+
         #endregion
 
         // temp copy of ec2 plugins helper code, until we can (perhaps) get it moved into

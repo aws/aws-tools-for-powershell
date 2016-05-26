@@ -283,14 +283,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             {
                 request.StreamName = cmdletContext.StreamName;
             }
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutRecord(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -312,10 +312,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.Kinesis.Model.PutRecordResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.PutRecordRequest request)
+        {
+            return client.PutRecord(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public System.IO.MemoryStream Blob { get; set; }

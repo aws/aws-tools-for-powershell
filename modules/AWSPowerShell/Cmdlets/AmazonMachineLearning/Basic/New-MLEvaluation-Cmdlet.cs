@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateEvaluation(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.EvaluationId;
                 output = new CmdletOutput
@@ -193,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.MachineLearning.Model.CreateEvaluationResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateEvaluationRequest request)
+        {
+            return client.CreateEvaluation(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

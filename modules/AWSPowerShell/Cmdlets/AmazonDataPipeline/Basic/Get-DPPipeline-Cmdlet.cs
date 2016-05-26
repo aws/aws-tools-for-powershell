@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
                     try
                     {
                         
-                        var response = client.ListPipelines(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.PipelineIdList;
@@ -150,6 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DataPipeline.Model.ListPipelinesResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ListPipelinesRequest request)
+        {
+            return client.ListPipelines(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

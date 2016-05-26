@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeliverConfigSnapshot(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ConfigSnapshotId;
                 output = new CmdletOutput
@@ -132,6 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ConfigService.Model.DeliverConfigSnapshotResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeliverConfigSnapshotRequest request)
+        {
+            return client.DeliverConfigSnapshot(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

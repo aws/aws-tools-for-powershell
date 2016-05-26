@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ConfigureHealthCheck(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.HealthCheck;
                 output = new CmdletOutput
@@ -260,6 +260,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckRequest request)
+        {
+            return client.ConfigureHealthCheck(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

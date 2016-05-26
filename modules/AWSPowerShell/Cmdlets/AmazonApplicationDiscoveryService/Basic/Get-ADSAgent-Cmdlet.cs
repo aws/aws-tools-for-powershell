@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                     try
                     {
                         
-                        var response = client.DescribeAgents(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.AgentsInfo;
                         notes = new Dictionary<string, object>();
@@ -223,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationDiscoveryService.Model.DescribeAgentsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeAgentsRequest request)
+        {
+            return client.DescribeAgents(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

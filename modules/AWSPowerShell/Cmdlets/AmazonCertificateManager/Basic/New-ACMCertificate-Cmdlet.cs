@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RequestCertificate(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.CertificateArn;
                 output = new CmdletOutput
@@ -201,6 +201,14 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CertificateManager.Model.RequestCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.RequestCertificateRequest request)
+        {
+            return client.RequestCertificate(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

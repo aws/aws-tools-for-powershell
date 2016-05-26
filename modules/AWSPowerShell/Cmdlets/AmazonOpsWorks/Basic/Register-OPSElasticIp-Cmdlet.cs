@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RegisterElasticIp(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ElasticIp;
                 output = new CmdletOutput
@@ -151,6 +151,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.OpsWorks.Model.RegisterElasticIpResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterElasticIpRequest request)
+        {
+            return client.RegisterElasticIp(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

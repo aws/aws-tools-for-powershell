@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DecodeAuthorizationMessage(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DecodedMessage;
                 output = new CmdletOutput
@@ -159,6 +159,14 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.DecodeAuthorizationMessageRequest request)
+        {
+            return client.DecodeAuthorizationMessage(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

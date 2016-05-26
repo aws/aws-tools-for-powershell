@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetShardIterator(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ShardIterator;
                 output = new CmdletOutput
@@ -224,6 +224,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Kinesis.Model.GetShardIteratorResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetShardIteratorRequest request)
+        {
+            return client.GetShardIterator(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

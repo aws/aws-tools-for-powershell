@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                     try
                     {
                         
-                        var response = client.ListPresets(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Presets;
@@ -164,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticTranscoder.Model.ListPresetsResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.ListPresetsRequest request)
+        {
+            return client.ListPresets(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

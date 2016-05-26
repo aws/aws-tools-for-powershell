@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeEngineDefaultClusterParameters(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.EngineDefaults;
                 output = new CmdletOutput
@@ -173,6 +173,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribeEngineDefaultClusterParametersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeEngineDefaultClusterParametersRequest request)
+        {
+            return client.DescribeEngineDefaultClusterParameters(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

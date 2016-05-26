@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteMessage(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -172,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SQS.Model.DeleteMessageResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.DeleteMessageRequest request)
+        {
+            return client.DeleteMessage(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

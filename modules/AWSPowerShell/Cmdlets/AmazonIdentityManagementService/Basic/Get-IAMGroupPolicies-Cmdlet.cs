@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     try
                     {
                         
-                        var response = client.ListGroupPolicies(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.PolicyNames;
                         notes = new Dictionary<string, object>();
@@ -211,6 +211,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.ListGroupPoliciesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListGroupPoliciesRequest request)
+        {
+            return client.ListGroupPolicies(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.VerifyDomainIdentity(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.VerificationToken;
                 output = new CmdletOutput
@@ -131,6 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleEmail.Model.VerifyDomainIdentityResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyDomainIdentityRequest request)
+        {
+            return client.VerifyDomainIdentity(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

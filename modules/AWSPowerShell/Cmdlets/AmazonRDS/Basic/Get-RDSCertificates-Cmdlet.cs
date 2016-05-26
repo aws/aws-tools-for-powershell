@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribeCertificates(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Certificates;
                         notes = new Dictionary<string, object>();
@@ -212,6 +212,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.DescribeCertificatesResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeCertificatesRequest request)
+        {
+            return client.DescribeCertificates(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

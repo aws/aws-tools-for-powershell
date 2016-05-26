@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateRepositoryName(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 output = new CmdletOutput
@@ -145,6 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeCommit.Model.UpdateRepositoryNameResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryNameRequest request)
+        {
+            return client.UpdateRepositoryName(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

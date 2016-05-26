@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateAccountPasswordPolicy(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 output = new CmdletOutput
@@ -276,6 +276,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyRequest request)
+        {
+            return client.UpdateAccountPasswordPolicy(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

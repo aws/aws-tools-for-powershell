@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.StopReplicationTask(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ReplicationTask;
                 output = new CmdletOutput
@@ -128,6 +128,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.StopReplicationTaskResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.StopReplicationTaskRequest request)
+        {
+            return client.StopReplicationTask(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

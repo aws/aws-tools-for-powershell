@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                     try
                     {
                         
-                        var response = client.GetRestApis(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Items;
                         notes = new Dictionary<string, object>();
@@ -175,6 +175,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.APIGateway.Model.GetRestApisResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetRestApisRequest request)
+        {
+            return client.GetRestApis(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

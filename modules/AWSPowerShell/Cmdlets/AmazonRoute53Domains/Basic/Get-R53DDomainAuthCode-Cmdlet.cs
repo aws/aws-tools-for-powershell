@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RetrieveDomainAuthCode(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.AuthCode;
                 output = new CmdletOutput
@@ -112,6 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.RetrieveDomainAuthCodeRequest request)
+        {
+            return client.RetrieveDomainAuthCode(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

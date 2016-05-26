@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetDomainDetail(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -111,6 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Route53Domains.Model.GetDomainDetailResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.GetDomainDetailRequest request)
+        {
+            return client.GetDomainDetail(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

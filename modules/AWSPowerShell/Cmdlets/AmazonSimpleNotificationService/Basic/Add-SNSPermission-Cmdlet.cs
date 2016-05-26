@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AddPermission(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -193,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleNotificationService.Model.AddPermissionResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.AddPermissionRequest request)
+        {
+            return client.AddPermission(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyLunaClient(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ClientArn;
                 output = new CmdletOutput
@@ -147,6 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.ModifyLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ModifyLunaClientRequest request)
+        {
+            return client.ModifyLunaClient(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

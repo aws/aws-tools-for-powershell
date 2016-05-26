@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateVTLDeviceType(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 output = new CmdletOutput
@@ -143,6 +143,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateVTLDeviceTypeRequest request)
+        {
+            return client.UpdateVTLDeviceType(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

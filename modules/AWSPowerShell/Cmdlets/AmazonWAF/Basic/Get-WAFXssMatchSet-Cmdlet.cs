@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetXssMatchSet(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.XssMatchSet;
                 output = new CmdletOutput
@@ -111,6 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WAF.Model.GetXssMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetXssMatchSetRequest request)
+        {
+            return client.GetXssMatchSet(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                     try
                     {
                         
-                        var response = client.DescribeLoadBalancers(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.LoadBalancers;
                         notes = new Dictionary<string, object>();
@@ -188,6 +188,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.AutoScaling.Model.DescribeLoadBalancersResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeLoadBalancersRequest request)
+        {
+            return client.DescribeLoadBalancers(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DisableLogging(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -126,6 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DisableLoggingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DisableLoggingRequest request)
+        {
+            return client.DisableLogging(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

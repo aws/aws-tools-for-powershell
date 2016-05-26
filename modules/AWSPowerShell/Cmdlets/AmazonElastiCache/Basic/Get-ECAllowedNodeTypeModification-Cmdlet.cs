@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListAllowedNodeTypeModifications(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ScaleUpModifications;
                 output = new CmdletOutput
@@ -140,6 +140,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsRequest request)
+        {
+            return client.ListAllowedNodeTypeModifications(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

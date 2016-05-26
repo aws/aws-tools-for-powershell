@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RemoveTagsFromResource(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -164,6 +164,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.RDS.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveTagsFromResourceRequest request)
+        {
+            return client.RemoveTagsFromResource(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

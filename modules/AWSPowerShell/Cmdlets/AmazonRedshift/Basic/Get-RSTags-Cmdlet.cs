@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeTags(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.TaggedResources;
                         notes = new Dictionary<string, object>();
@@ -311,6 +311,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeTagsRequest request)
+        {
+            return client.DescribeTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

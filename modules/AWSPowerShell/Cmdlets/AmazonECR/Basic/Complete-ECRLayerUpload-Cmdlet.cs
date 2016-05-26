@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CompleteLayerUpload(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -183,6 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECR.Model.CompleteLayerUploadResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CompleteLayerUploadRequest request)
+        {
+            return client.CompleteLayerUpload(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

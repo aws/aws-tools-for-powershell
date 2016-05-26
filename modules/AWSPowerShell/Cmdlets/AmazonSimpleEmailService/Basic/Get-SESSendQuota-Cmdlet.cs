@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetSendQuota(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -99,6 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleEmail.Model.GetSendQuotaResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.GetSendQuotaRequest request)
+        {
+            return client.GetSendQuota(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

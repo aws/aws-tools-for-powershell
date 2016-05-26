@@ -221,6 +221,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("#endregion");
                     writer.WriteLine();
 
+                    WriteAWSServiceOperationCall(writer);
+
                     writer.WriteLine();
                     WriteContextClass(writer, MethodAnalysis.AnalyzedParameters);
                     writer.WriteLine();
@@ -228,6 +230,31 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.CloseRegion();
             }
             writer.CloseRegion();
+        }
+
+        /// <summary>
+        /// Emits the code to call the service operation mapped to the cmdlet. For desktop PowerShell we
+        /// will call the synchronous SDK method. For CoreCLR platforms, we will call the asynchronous
+        /// method (synchronous is not available) and await the response.
+        /// </summary>
+        /// <param name="writer"></param>
+        private void WriteAWSServiceOperationCall(IndentedTextWriter writer)
+        {
+            writer.WriteLine("#region AWS Service Operation Call");
+            writer.WriteLine();
+
+            writer.WriteLine("private static {0} CallAWSServiceOperation({1} client, {2} request)",
+                             MethodAnalysis.ResponseType,
+                             MethodAnalysis.CurrentModel.ServiceClientInterface,
+                             MethodAnalysis.RequestType);
+            writer.OpenRegion();
+
+            writer.WriteLine("return client.{0}(request);", MethodAnalysis.CurrentOperation.MethodName);
+
+            writer.CloseRegion();
+
+            writer.WriteLine();
+            writer.WriteLine("#endregion");
         }
 
         /// <summary>
@@ -840,6 +867,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 writer.WriteLine();
                 writer.WriteLine("// issue call");
+
                 if (Operation.RequiresAnonymousAuthentication)
                     writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
                 else
@@ -847,7 +875,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                 writer.WriteLine("try");
                 writer.OpenRegion();
-                writer.WriteLine("var response = client.{0}(request);", methodName);
+                writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
                 WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
                 writer.CloseRegion();
                 writer.WriteLine("catch (Exception e)");
@@ -922,7 +950,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
                         writer.WriteLine();
 
-                        writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+                        if (Operation.RequiresAnonymousAuthentication)
+                            writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                        else
+                            writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+
                         writer.WriteLine("CmdletOutput output;");
 
                         writer.WriteLine();
@@ -932,7 +964,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
                             writer.WriteLine();
 
-                            writer.WriteLine("var response = client.{0}(request);", methodName);
+                            writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
                             writer.WriteLine();
 
                             WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
@@ -1116,7 +1148,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine();
                         }
 
-                        writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+                        if (Operation.RequiresAnonymousAuthentication)
+                            writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                        else
+                            writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+
                         writer.WriteLine("CmdletOutput output;");
 
                         writer.WriteLine();
@@ -1126,7 +1162,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
                             writer.WriteLine();
 
-                            writer.WriteLine("var response = client.{0}(request);", methodName);
+                            writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
                             WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
 
                             // most if not all collections are marshalled as List<T>, so assume we have a Count

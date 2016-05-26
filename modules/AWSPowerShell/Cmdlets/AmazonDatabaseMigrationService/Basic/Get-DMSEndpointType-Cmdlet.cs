@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeEndpointTypes(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.SupportedEndpointTypes;
                 notes = new Dictionary<string, object>();
@@ -156,6 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DatabaseMigrationService.Model.DescribeEndpointTypesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeEndpointTypesRequest request)
+        {
+            return client.DescribeEndpointTypes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

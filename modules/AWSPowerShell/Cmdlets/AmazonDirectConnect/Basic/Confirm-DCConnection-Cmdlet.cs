@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ConfirmConnection(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ConnectionState;
                 output = new CmdletOutput
@@ -133,6 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectConnect.Model.ConfirmConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.ConfirmConnectionRequest request)
+        {
+            return client.ConfirmConnection(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

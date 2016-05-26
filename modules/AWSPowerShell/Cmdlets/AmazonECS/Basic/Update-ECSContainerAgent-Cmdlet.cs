@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateContainerAgent(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ContainerInstance;
                 output = new CmdletOutput
@@ -155,6 +155,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ECS.Model.UpdateContainerAgentResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.UpdateContainerAgentRequest request)
+        {
+            return client.UpdateContainerAgent(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

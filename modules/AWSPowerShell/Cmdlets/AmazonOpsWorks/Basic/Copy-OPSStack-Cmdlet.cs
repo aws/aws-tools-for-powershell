@@ -720,7 +720,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CloneStack(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.StackId;
                 output = new CmdletOutput
@@ -745,6 +745,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.OpsWorks.Model.CloneStackResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CloneStackRequest request)
+        {
+            return client.CloneStack(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

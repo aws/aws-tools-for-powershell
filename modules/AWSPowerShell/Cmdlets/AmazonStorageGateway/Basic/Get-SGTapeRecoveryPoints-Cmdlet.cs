@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                     try
                     {
                         
-                        var response = client.DescribeTapeRecoveryPoints(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.TapeRecoveryPointInfos;
                         notes = new Dictionary<string, object>();
@@ -199,6 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.StorageGateway.Model.DescribeTapeRecoveryPointsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeTapeRecoveryPointsRequest request)
+        {
+            return client.DescribeTapeRecoveryPoints(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

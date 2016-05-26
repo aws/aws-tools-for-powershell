@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeEndpoint(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.EndpointAddress;
                 output = new CmdletOutput
@@ -96,6 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IoT.Model.DescribeEndpointResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DescribeEndpointRequest request)
+        {
+            return client.DescribeEndpoint(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

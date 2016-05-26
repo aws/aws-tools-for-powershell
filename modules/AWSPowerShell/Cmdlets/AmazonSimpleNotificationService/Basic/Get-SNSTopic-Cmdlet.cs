@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                     try
                     {
                         
-                        var response = client.ListTopics(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Topics;
@@ -148,6 +148,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleNotificationService.Model.ListTopicsResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ListTopicsRequest request)
+        {
+            return client.ListTopics(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

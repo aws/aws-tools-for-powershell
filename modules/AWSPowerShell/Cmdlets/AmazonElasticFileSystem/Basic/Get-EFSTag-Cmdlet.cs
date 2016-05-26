@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                     try
                     {
                         
-                        var response = client.DescribeTags(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
@@ -200,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticFileSystem.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DescribeTagsRequest request)
+        {
+            return client.DescribeTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

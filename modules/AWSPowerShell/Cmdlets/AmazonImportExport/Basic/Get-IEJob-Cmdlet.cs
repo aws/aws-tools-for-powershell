@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListJobs(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Jobs;
                 notes = new Dictionary<string, object>();
@@ -148,6 +148,14 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ImportExport.Model.ListJobsResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.ListJobsRequest request)
+        {
+            return client.ListJobs(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

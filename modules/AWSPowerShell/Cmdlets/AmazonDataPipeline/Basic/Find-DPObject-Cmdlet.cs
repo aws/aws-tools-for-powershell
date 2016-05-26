@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
                     try
                     {
                         
-                        var response = client.QueryObjects(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Ids;
@@ -233,6 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DataPipeline.Model.QueryObjectsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.QueryObjectsRequest request)
+        {
+            return client.QueryObjects(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

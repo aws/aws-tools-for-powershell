@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                     try
                     {
                         
-                        var response = client.ListBootstrapActions(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.BootstrapActions;
@@ -161,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticMapReduce.Model.ListBootstrapActionsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListBootstrapActionsRequest request)
+        {
+            return client.ListBootstrapActions(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

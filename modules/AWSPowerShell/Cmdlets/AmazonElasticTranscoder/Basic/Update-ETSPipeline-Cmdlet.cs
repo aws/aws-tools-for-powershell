@@ -464,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdatePipeline(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Pipeline;
                 notes = new Dictionary<string, object>();
@@ -491,6 +491,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticTranscoder.Model.UpdatePipelineResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.UpdatePipelineRequest request)
+        {
+            return client.UpdatePipeline(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

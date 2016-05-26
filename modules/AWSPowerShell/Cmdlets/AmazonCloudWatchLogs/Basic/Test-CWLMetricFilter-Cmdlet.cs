@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.TestMetricFilter(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Matches;
                 output = new CmdletOutput
@@ -130,6 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudWatchLogs.Model.TestMetricFilterResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.TestMetricFilterRequest request)
+        {
+            return client.TestMetricFilter(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -371,7 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     try
                     {
                         
-                        var response = client.DescribeScheduledInstanceAvailability(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ScheduledInstanceAvailabilitySet;
                         notes = new Dictionary<string, object>();
@@ -423,6 +423,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeScheduledInstanceAvailabilityResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeScheduledInstanceAvailabilityRequest request)
+        {
+            return client.DescribeScheduledInstanceAvailability(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateAssociationStatus(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.AssociationDescription;
                 output = new CmdletOutput
@@ -236,6 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusRequest request)
+        {
+            return client.UpdateAssociationStatus(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

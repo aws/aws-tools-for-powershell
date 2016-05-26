@@ -91,14 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             // create request
             var request = new GetCredentialReportRequest();
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetCredentialReport(request);
+                var response = CallAWSServiceOperation(client, request);
 
                 output = new CmdletOutput
                 {
@@ -143,10 +143,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.IdentityManagement.Model.GetCredentialReportResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetCredentialReportRequest request)
+        {
+            return client.GetCredentialReport(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public bool AsTextArray { get; set; }

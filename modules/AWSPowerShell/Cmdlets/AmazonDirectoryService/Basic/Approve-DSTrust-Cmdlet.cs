@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.VerifyTrust(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TrustId;
                 output = new CmdletOutput
@@ -134,6 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectoryService.Model.VerifyTrustResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.VerifyTrustRequest request)
+        {
+            return client.VerifyTrust(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

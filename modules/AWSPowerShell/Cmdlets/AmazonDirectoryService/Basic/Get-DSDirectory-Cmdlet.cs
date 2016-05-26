@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeDirectories(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DirectoryDescriptions;
                 notes = new Dictionary<string, object>();
@@ -165,6 +165,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectoryService.Model.DescribeDirectoriesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeDirectoriesRequest request)
+        {
+            return client.DescribeDirectories(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

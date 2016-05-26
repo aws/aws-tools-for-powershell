@@ -428,11 +428,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         private CmdletOutput ImportFromExistingArtifacts(ImportInstanceCmdletContext context)
         {
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             try
             {
                 var conversionTasks = new List<ConversionTask>();
-                var client = Client ?? CreateClient(context.Credentials, context.Region);
                 ImportInstanceResponse response = null; // only output if one manifest file was specified
 
                 foreach (var manifestFileKey in context.ManifestFileKey)
@@ -456,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
                     request.DiskImages.Add(diskImage);
 
-                    response = client.ImportInstance(request);
+                    response = CallAWSServiceOperation(client, request);
                     conversionTasks.Add(response.ConversionTask);
                 }
 
@@ -610,6 +610,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
                 this.FileFormat = ValidateFileFormat(this.ImageFile, this.FileFormat);
             }
+        }
+
+        #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.ImportInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportInstanceRequest request)
+        {
+            return client.ImportInstance(request);
         }
 
         #endregion

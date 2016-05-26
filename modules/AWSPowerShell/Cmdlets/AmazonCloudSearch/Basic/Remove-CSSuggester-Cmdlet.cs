@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteSuggester(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Suggester;
                 output = new CmdletOutput
@@ -142,6 +142,14 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudSearch.Model.DeleteSuggesterResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteSuggesterRequest request)
+        {
+            return client.DeleteSuggester(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

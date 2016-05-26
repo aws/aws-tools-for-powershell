@@ -403,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                     try
                     {
                         
-                        var response = client.ListFindings(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.FindingArns;
                         notes = new Dictionary<string, object>();
@@ -455,6 +455,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Inspector.Model.ListFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListFindingsRequest request)
+        {
+            return client.ListFindings(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

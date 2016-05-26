@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyHapg(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.HapgArn;
                 output = new CmdletOutput
@@ -160,6 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.ModifyHapgResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ModifyHapgRequest request)
+        {
+            return client.ModifyHapg(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

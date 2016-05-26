@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                     try
                     {
                         
-                        var response = client.ListLunaClients(request);
+                        var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ClientList;
@@ -154,6 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudHSM.Model.ListLunaClientsResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListLunaClientsRequest request)
+        {
+            return client.ListLunaClients(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

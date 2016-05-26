@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteScalingPolicy(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -200,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ApplicationAutoScaling.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DeleteScalingPolicyRequest request)
+        {
+            return client.DeleteScalingPolicy(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

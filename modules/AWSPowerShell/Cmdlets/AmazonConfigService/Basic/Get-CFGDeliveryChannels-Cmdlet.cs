@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeDeliveryChannels(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DeliveryChannels;
                 output = new CmdletOutput
@@ -120,6 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeDeliveryChannelsRequest request)
+        {
+            return client.DescribeDeliveryChannels(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

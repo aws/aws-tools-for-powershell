@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateTable(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.TableDescription;
                 output = new CmdletOutput
@@ -307,6 +307,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.DynamoDBv2.Model.UpdateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UpdateTableRequest request)
+        {
+            return client.UpdateTable(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

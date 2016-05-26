@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateTags(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -168,6 +168,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ElasticFileSystem.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.CreateTagsRequest request)
+        {
+            return client.CreateTags(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

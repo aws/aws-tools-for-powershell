@@ -500,7 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var runner = new ProgressRunner(this);
                 var tracker = new UploadTextProgressTracker(runner, handler => request.StreamTransferProgress += handler, cmdletContext.Key);
 
-                output = runner.SafeRun(() => client.PutObject(request), tracker);
+                output = runner.SafeRun(() => CallAWSServiceOperation(client, request), tracker);
             }
 
             return output;
@@ -608,6 +608,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             return output;
         }
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
+        {
+            return client.PutObject(request);
+        }
+
+        #endregion
 
         internal class CmdletContext : ExecutorContext
         {

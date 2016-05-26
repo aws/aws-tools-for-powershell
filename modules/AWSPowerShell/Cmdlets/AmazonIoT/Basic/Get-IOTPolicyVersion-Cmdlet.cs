@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetPolicyVersion(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -124,6 +124,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IoT.Model.GetPolicyVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetPolicyVersionRequest request)
+        {
+            return client.GetPolicyVersion(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

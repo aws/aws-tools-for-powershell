@@ -23,6 +23,7 @@ using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
 using Amazon.EC2.Import;
+using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -311,11 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         private CmdletOutput ImportFromExistingArtifacts(ImportCmdletContextBase context)
         {
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output = null;
             try
             {
                 var conversionTasks = new List<ConversionTask>();
-                var client = Client ?? CreateClient(context.Credentials, context.Region);
                 ImportVolumeResponse response = null; // only output if one manifest file was specified
 
                 foreach (var manifestFileKey in context.ManifestFileKey)
@@ -337,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         Volume = volumeDetail
                     };
 
-                    response = client.ImportVolume(request);
+                    response = CallAWSServiceOperation(client, request);
                     conversionTasks.Add(response.ConversionTask);
                 }
 
@@ -472,5 +473,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         }
 
         #endregion
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.ImportVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportVolumeRequest request)
+        {
+            return client.ImportVolume(request);
+        }
+
+        #endregion
+
     }
 }

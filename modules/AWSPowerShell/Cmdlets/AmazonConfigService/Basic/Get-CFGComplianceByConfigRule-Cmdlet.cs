@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeComplianceByConfigRule(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ComplianceByConfigRules;
                 notes = new Dictionary<string, object>();
@@ -169,6 +169,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ConfigService.Model.DescribeComplianceByConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeComplianceByConfigRuleRequest request)
+        {
+            return client.DescribeComplianceByConfigRule(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

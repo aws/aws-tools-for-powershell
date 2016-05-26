@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 CmdletOutput output;
                 try
                 {
-                    var response = client.PutACL(request);
+                    var response = CallAWSServiceOperation(client, request);
                     output = new CmdletOutput
                     {
                         ServiceResponse = response
@@ -279,10 +279,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.S3.Model.PutACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutACLRequest request)
+        {
+            return client.PutACL(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String BucketName { get; set; }

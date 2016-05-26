@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     try
                     {
                         
-                        var response = client.ListSSHPublicKeys(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.SSHPublicKeys;
                         notes = new Dictionary<string, object>();
@@ -212,6 +212,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.IdentityManagement.Model.ListSSHPublicKeysResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListSSHPublicKeysRequest request)
+        {
+            return client.ListSSHPublicKeys(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

@@ -671,14 +671,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
 
             request.AdditionalInfo = cmdletContext.AdditionalInfo;
-            
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RunInstances(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Reservation;
                 output = new CmdletOutput
@@ -700,10 +700,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             return new CmdletContext();
         }
-        
+
         #endregion
-        
-        
+
+        #region AWS Service Operation Call
+
+        private static Amazon.EC2.Model.RunInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunInstancesRequest request)
+        {
+            return client.RunInstances(request);
+        }
+
+        #endregion
+
         internal class CmdletContext : ExecutorContext
         {
             public String ImageId { get; set; }

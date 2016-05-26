@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteIdentityPool(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -143,6 +143,14 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CognitoIdentity.Model.DeleteIdentityPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.DeleteIdentityPoolRequest request)
+        {
+            return client.DeleteIdentityPool(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

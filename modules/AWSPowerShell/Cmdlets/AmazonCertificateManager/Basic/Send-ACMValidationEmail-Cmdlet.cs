@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ResendValidationEmail(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -183,6 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CertificateManager.Model.ResendValidationEmailResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ResendValidationEmailRequest request)
+        {
+            return client.ResendValidationEmail(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

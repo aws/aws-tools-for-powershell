@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeVpcClassicLink(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Vpcs;
                 output = new CmdletOutput
@@ -141,6 +141,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.EC2.Model.DescribeVpcClassicLinkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVpcClassicLinkRequest request)
+        {
+            return client.DescribeVpcClassicLink(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

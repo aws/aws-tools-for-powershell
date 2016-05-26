@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                     try
                     {
                         
-                        var response = client.DescribeWorkspaces(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Workspaces;
                         notes = new Dictionary<string, object>();
@@ -256,6 +256,14 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.WorkSpaces.Model.DescribeWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesRequest request)
+        {
+            return client.DescribeWorkspaces(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

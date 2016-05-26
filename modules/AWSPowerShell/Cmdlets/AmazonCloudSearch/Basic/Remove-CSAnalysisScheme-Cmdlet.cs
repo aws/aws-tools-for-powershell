@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteAnalysisScheme(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.AnalysisScheme;
                 output = new CmdletOutput
@@ -142,6 +142,14 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteAnalysisSchemeRequest request)
+        {
+            return client.DeleteAnalysisScheme(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

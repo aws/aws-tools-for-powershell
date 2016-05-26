@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeReservedNodes(request);
+                        var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ReservedNodes;
                         notes = new Dictionary<string, object>();
@@ -226,6 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.Redshift.Model.DescribeReservedNodesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeReservedNodesRequest request)
+        {
+            return client.DescribeReservedNodes(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

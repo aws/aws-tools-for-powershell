@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetResourceConfigHistory(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ConfigurationItems;
                 notes = new Dictionary<string, object>();
@@ -228,6 +228,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.ConfigService.Model.GetResourceConfigHistoryResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetResourceConfigHistoryRequest request)
+        {
+            return client.GetResourceConfigHistory(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {

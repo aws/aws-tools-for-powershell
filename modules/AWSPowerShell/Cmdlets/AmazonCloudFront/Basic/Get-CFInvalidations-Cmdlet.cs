@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListInvalidations(request);
+                var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.InvalidationList;
                 output = new CmdletOutput
@@ -148,6 +148,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.ListInvalidationsResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListInvalidationsRequest request)
+        {
+            return client.ListInvalidations(request);
+        }
+        
+        #endregion
         
         internal class CmdletContext : ExecutorContext
         {
