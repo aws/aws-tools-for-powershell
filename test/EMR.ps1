@@ -5,14 +5,18 @@
 }
 function Test.EMR
 {
-	$jobFlows = Get-EMRJobFlow
+	$clusters = Get-EMRClusters
 	Assert $awshistory.LastServiceResponse -IsNotNull
-	if ($jobFlows -ne $null)
+	if ($clusters -ne $null)
 	{
 		Assert $awshistory.LastCommand.EmittedObjectsCount -Gt 0
 	}
-	$jobCount = $awshistory.LastCommand.EmittedObjectsCount
+	$clusterCount = $awshistory.LastCommand.EmittedObjectsCount
 
+    # currently errors claiming 'InstanceProfile' is required.
+    # service api doc mentions JobFlowRole but not that it is required,
+    # as the service will use a default 'EMR_EC2_DefaultRole' but
+    # it must be created.
 	$jfId = Start-EMRJobFlow `
 		-Name "Hive Interactive" `
 		-LogUri "s3://log-bucket" `
@@ -22,17 +26,19 @@ function Test.EMR
 		-Instances_Ec2KeyName "pavel2" `
 		-Instances_KeepJobFlowAliveWhenNoSteps $true `
 		-Instances_HadoopVersion "0.20" 
+
 	Assert $jfId -IsNotNull
 	Assert $awshistory.LastServiceResponse -IsNotNull
 
-	$jobFlows = Get-EMRJobFlow
+	$clusters = Get-EMRClusters
 	Assert $awshistory.LastServiceResponse -IsNotNull
-	if ($jobFlows -ne $null)
+	if ($clusters -ne $null)
 	{
 		Assert $awshistory.LastCommand.EmittedObjectsCount -Gt 0
 	}
-	$newJobCount = $awshistory.LastCommand.EmittedObjectsCount
-	Assert $newJobCount -Eq ($jobCount + 1)
+	$newClusterCount = $awshistory.LastCommand.EmittedObjectsCount
+    # should have at least one new cluster
+	Assert $newClusterCount -Gt $clusterCount
 
 	Stop-EMRJobFlow -JobFlowIds $jfId
 }
