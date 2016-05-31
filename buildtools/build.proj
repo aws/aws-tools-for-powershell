@@ -12,7 +12,7 @@
     <PropertyGroup>
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
-		<Edition Condition="'$(Edition)'==''">Desktop</Edition>
+		<Edition Condition="'$(Edition)'==''">desktop</Edition>
         
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
@@ -62,15 +62,15 @@
 	</Target>
 
 	<Target Name="build-modules">
-		<Message Text="Building Desktop edition module"/>
+		<Message Text="Building desktop edition module"/>
 		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
                  Targets="Clean;Build"
-                 Properties="Configuration=$(Configuration);Edition=Desktop" />		
+                 Properties="Configuration=$(Configuration);Edition=desktop" />		
 
-		<Message Text="Building CoreCLR edition module"/>
+		<Message Text="Building coreclr edition module"/>
 		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
                  Targets="Clean;Build"
-                 Properties="Configuration=$(Configuration);Edition=CoreCLR" />		
+                 Properties="Configuration=$(Configuration);Edition=coreclr" />		
 		
 		<Message Text="Generating custom view formats ps1xml file"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e $(Edition)" />
@@ -121,11 +121,11 @@
 	
 	<Target Name="copy-desktop-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
-			<BuildSourceFolder>bin\Desktop\$(Configuration)</BuildSourceFolder>
-			<DeploymentFolder>$(Deployment)\Desktop\$(Configuration)\</DeploymentFolder>
+			<BuildSourceFolder>bin\$(Configuration)\desktop\</BuildSourceFolder>
+			<DeploymentFolder>$(Deployment)\desktop\</DeploymentFolder>
 		</PropertyGroup>
 		
-		<Message Text="Consolidating Desktop edition artifacts to $(DeploymentFolder)"/>
+		<Message Text="Consolidating desktop edition artifacts to $(DeploymentFolder)"/>
 	
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 
@@ -153,11 +153,11 @@
 
 	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
-			<BuildSourceFolder>bin\CoreCLR\$(Configuration)</BuildSourceFolder>
-			<DeploymentFolder>$(Deployment)\CoreCLR\$(Configuration)\</DeploymentFolder>
+			<BuildSourceFolder>bin\$(Configuration)\coreclr\</BuildSourceFolder>
+			<DeploymentFolder>$(Deployment)\coreclr\</DeploymentFolder>
 		</PropertyGroup>
 		
-		<Message Text="Consolidating CoreCLR edition artifacts to $(DeploymentFolder)"/>
+		<Message Text="Consolidating coreclr edition artifacts to $(DeploymentFolder)"/>
 	
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 

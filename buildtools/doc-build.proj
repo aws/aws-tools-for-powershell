@@ -14,6 +14,8 @@
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
 		
+		<Edition Condition="'$(Edition)'==''">desktop</Edition>
+		
         <!-- path to the root of the repo artifacts; locations for various content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
 		
@@ -39,19 +41,19 @@
 	<Choose>
 		<When Condition="'$(DocBuildReleaseBuild)'=='True' ">
 			<PropertyGroup>
-				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Include\PowerShell</Deployment>
+				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Include\PowerShell\$(Edition)</Deployment>
 			</PropertyGroup>
 		</When>
 		<Otherwise>
 			<PropertyGroup>
-				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
+				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment\$(Edition)</Deployment>
 			</PropertyGroup>
 		</Otherwise>
 	</Choose>
 	
 	<Target Name="doc-build" DependsOnTargets="setup-production-doc-build;build-docgenerator">
 		<Message Text="Generating web cmdlet reference"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp -ml $(Deployment) -dof $(DocOutputRoot)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp -ml $(Deployment) -dof $(DocOutputRoot) -e $(Edition)" />
 
         <CreateSitemapTask
             SourceFolder="$(DocOutputRoot)"

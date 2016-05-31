@@ -138,7 +138,7 @@ namespace AWSPowerShellGenerator
 
             CNNorth1RegionDocsDomain = "docs.amazonaws.cn";
 
-            Edition = "Desktop";
+            Edition = "desktop";
         }
 
         public GeneratorOptions(GeneratorOptions rhs)
