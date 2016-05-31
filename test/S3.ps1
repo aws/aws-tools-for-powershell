@@ -21,6 +21,8 @@ Function Test.S3.Buckets([switch] $Category_Smoke)
 
     Remove-S3Bucket -BucketName $context.BucketName -force
     
+	sleep -Seconds 5
+
     $exists = Test-S3Bucket $context.BucketName
     Assert $exists -eq $False
 }

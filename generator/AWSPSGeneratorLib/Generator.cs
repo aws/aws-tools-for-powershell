@@ -16,17 +16,14 @@ namespace AWSPowerShellGenerator
     {
         private long? _startTimeTicks;
 
-#if DEBUG
-        const string BinSubFolder = @"bin\debug\";
-#else
-        const string BinSubFolder = @"bin\release\";
-#endif
-
         const string ModulesSubFolder = "modules";
         const string DeploymentArtifactsSubFolder = "Deployment";
         const string DocBuildOutputSubFolder = @"DocDeployment\docs";
 
         const string AWSPowerShellModuleName = "AWSPowerShell";
+
+        // Varies depending on editon and configuration
+        internal string BinSubFolder { get; private set; }
 
         /// <summary>
         /// How long the generation tasks took.
@@ -60,11 +57,19 @@ namespace AWSPowerShellGenerator
                 // todo: echo out generator options
             }
 
+#if DEBUG
+            var configuration = "Debug";
+#else
+            var configuration = "Release";
+#endif
+            BinSubFolder = string.Format("bin\\{0}\\{1}\\", options.Edition, configuration);
+
             var fqRootPath = Path.GetFullPath(options.RootPath);
 
             var sdkAssembliesFolder = Path.GetFullPath(options.SDKAssembliesFolder);
             var awsPowerShellSourcePath = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName);
-            var deploymentArtifactsPath = Path.Combine(fqRootPath, DeploymentArtifactsSubFolder);
+
+            var deploymentArtifactsPath = Path.Combine(fqRootPath, DeploymentArtifactsSubFolder, options.Edition, configuration);
 
             if (options.ShouldRunTask(GeneratorTasknames.GenerateCmdlets))
             {

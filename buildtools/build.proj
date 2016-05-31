@@ -12,6 +12,7 @@
     <PropertyGroup>
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+		<Edition Condition="'$(Edition)'==''">Desktop</Edition>
         
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
@@ -23,7 +24,7 @@
         <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
              the get-references (=> get-reference-sdk) target
         -->
-        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies\net35</SDKAssembliesFolder>
+        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies</SDKAssembliesFolder>
         
         <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
         <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
@@ -57,27 +58,34 @@
     
 	<Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
 		<Message Text="Generating cmdlets for all services"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
 	</Target>
 
 	<Target Name="build-modules">
-		<Message Text="Building generated modules"/>
-		<Exec Command="$(devenv2013) /Rebuild Release ..\solutions\AWSPowerShell.sln"/>
+		<Message Text="Building Desktop edition module"/>
+		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
+                 Targets="Clean;Build"
+                 Properties="Configuration=$(Configuration);Edition=Desktop" />		
 
+		<Message Text="Building CoreCLR edition module"/>
+		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
+                 Targets="Clean;Build"
+                 Properties="Configuration=$(Configuration);Edition=CoreCLR" />		
+		
 		<Message Text="Generating custom view formats ps1xml file"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e $(Edition)" />
 	</Target>
     
     <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
     
 	<Target Name="create-pshelp" DependsOnTargets="build-modules">
 		<Message Text="Generating native PowerShell help file"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t pshelp" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t pshelp -e $(Edition)" />
 	</Target>
     
 	<Target Name="create-webhelp" DependsOnTargets="build-modules">
 		<Message Text="Generating web cmdlet reference"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t webhelp -e $(Edition)" />
 
         <CreateSitemapTask
             SourceFolder="$(DocDeployment)\docs"
@@ -108,32 +116,73 @@
     </Target>
     
     <Target Name="copy-artifacts" DependsOnTargets="build-modules">
-		<Message Text="Consolidating build artifacts"/>
-
+		<CallTarget Targets="copy-desktop-artifacts;copy-coreclr-artifacts;" />
+    </Target>
+	
+	<Target Name="copy-desktop-artifacts" DependsOnTargets="build-modules">
+		<PropertyGroup>
+			<BuildSourceFolder>bin\Desktop\$(Configuration)</BuildSourceFolder>
+			<DeploymentFolder>$(Deployment)\Desktop\$(Configuration)\</DeploymentFolder>
+		</PropertyGroup>
+		
+		<Message Text="Consolidating Desktop edition artifacts to $(DeploymentFolder)"/>
+	
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)\*.dll" 
-                           Exclude="$(SDKAssembliesFolder)\*.Glacier.*;$(SDKAssembliesFolder)\*.CognitoSync.*;$(SDKAssembliesFolder)\*.SimpleDB.*"/>
+            <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 
+                           Exclude="$(SDKAssembliesFolder)\net35\*.Glacier.*;$(SDKAssembliesFolder)\net35\*.CognitoSync.*;$(SDKAssembliesFolder)\net35\*.SimpleDB.*"/>
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
-            DestinationFolder="$(Deployment)"/>
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\bin\$(Configuration)\AWSPowerShell.dll"
-            DestinationFolder="$(Deployment)"/>
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.dll"
+            DestinationFolder="$(DeploymentFolder)"/>
 		<!-- the ndoc xml file is needed in separate build process to generate and push web docs to github -->
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\bin\$(Configuration)\AWSPowerShell.xml"
-            DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.xml"
+            DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
-            DestinationFolder="$(Deployment)"/>
+            DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="@(SDKAssemblies)"
-            DestinationFolder="$(Deployment)"/>
+            DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
-            DestinationFolder="$(Deployment)"/>
+            DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
-            DestinationFolder="$(Deployment)"/>
+            DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
-            DestinationFolder="$(Deployment)"/>
+            DestinationFolder="$(DeploymentFolder)"/>
     </Target>
 
+	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
+		<PropertyGroup>
+			<BuildSourceFolder>bin\CoreCLR\$(Configuration)</BuildSourceFolder>
+			<DeploymentFolder>$(Deployment)\CoreCLR\$(Configuration)\</DeploymentFolder>
+		</PropertyGroup>
+		
+		<Message Text="Consolidating CoreCLR edition artifacts to $(DeploymentFolder)"/>
+	
+        <ItemGroup>
+            <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 
+                           Exclude="$(SDKAssembliesFolder)\net35\*.Glacier.*;$(SDKAssembliesFolder)\net35\*.CognitoSync.*;$(SDKAssembliesFolder)\net35\*.SimpleDB.*"/>
+        </ItemGroup>
+        
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.dll"
+            DestinationFolder="$(DeploymentFolder)"/>
+		<!-- the ndoc xml file is needed in separate build process to generate and push web docs to github -->
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.xml"
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="@(SDKAssemblies)"
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
+            DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
+            DestinationFolder="$(DeploymentFolder)"/>
+    </Target>
+	
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
         <!-- grab the logical SDK product version and use the first 3 components,
              appending our own patch number to make the final PowerShell version

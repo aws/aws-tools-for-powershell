@@ -226,6 +226,14 @@ namespace AWSPowerShellGenerator
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.DocOutputFolder = argValue,
                 HelpText = "The folder location that will hold the generated web docs. Used when generating web docs in a separate build process."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "edition",
+                ShortName = "e",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.Edition = argValue,
+                HelpText = "The edition (desktop or coreclr) that we are building additional content (help etc) for. This affects the location where we find the module."
             }
         };
 

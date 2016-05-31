@@ -96,6 +96,13 @@ namespace AWSPowerShellGenerator
         public string DocOutputFolder { get; set; }
 
         /// <summary>
+        /// Used when running generator tasks such as format or help construction to
+        /// help us find the correct AWSPowerShell module to process (desktop or coreclr).
+        /// Defaults to 'desktop' if not supplied.
+        /// </summary>
+        public string Edition { get; set; }
+
+        /// <summary>
         /// Internal helper used by the generator to determine if a given
         /// generation task should be run.
         /// </summary>
@@ -129,7 +136,9 @@ namespace AWSPowerShellGenerator
             RootPath = @"..\..\..\.."; // relative to bin/debug folder of the generator assembly
             SDKAssembliesFolder = Path.Combine(RootPath,  @"include\sdk\assemblies\net35");
 
-            CNNorth1RegionDocsDomain = "docs.amazonaws.cn"; 
+            CNNorth1RegionDocsDomain = "docs.amazonaws.cn";
+
+            Edition = "Desktop";
         }
 
         public GeneratorOptions(GeneratorOptions rhs)
@@ -143,6 +152,7 @@ namespace AWSPowerShellGenerator
             SDKAssembliesFolder = rhs.SDKAssembliesFolder;
             RootPath = rhs.RootPath;
             CNNorth1RegionDocsDomain = rhs.CNNorth1RegionDocsDomain;
+            Edition = rhs.Edition;
         }
     }
 }

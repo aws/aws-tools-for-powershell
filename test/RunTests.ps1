@@ -1,4 +1,4 @@
-Import-Module ..\Deployment\AWSPowerShell.psd1 -WarningAction Stop
+Import-Module ..\Deployment\Desktop\Release\AWSPowerShell.psd1 -WarningAction Stop
 $PSUnitPath = Resolve-Path ..\thirdparty\PSUnit
 
 . ..\thirdparty\PSUnit\Profiles\profile.ps1
