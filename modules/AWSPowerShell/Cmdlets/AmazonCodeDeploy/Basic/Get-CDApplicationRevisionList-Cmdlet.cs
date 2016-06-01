@@ -144,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.CodeDeploy.Model.ListApplicationRevisionsRequest();
             
             if (cmdletContext.ApplicationName != null)
@@ -154,10 +155,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.Deployed != null)
             {
                 request.Deployed = cmdletContext.Deployed;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
             }
             if (cmdletContext.S3Bucket != null)
             {
@@ -176,30 +173,65 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.SortOrder = cmdletContext.SortOrder;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
+            }
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Revisions;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Revisions;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.Revisions.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

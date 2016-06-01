@@ -9,6 +9,8 @@
 
   <PipelineParameter>ApplicationName</PipelineParameter>
 
+  <AutoIterate Start="NextToken" Next="NextToken" Exclusions="ListDeploymentGroups" />
+
   <VerbMappings>
     <Map From="Deregister" To="Unregister" />
   </VerbMappings>
