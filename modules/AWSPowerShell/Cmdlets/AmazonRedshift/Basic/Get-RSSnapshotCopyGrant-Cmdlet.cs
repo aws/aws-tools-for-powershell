@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     ///  For more information about managing snapshot copy grants, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon
     /// Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// 
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSSnapshotCopyGrant")]
     [OutputType("Amazon.Redshift.Model.SnapshotCopyGrant")]

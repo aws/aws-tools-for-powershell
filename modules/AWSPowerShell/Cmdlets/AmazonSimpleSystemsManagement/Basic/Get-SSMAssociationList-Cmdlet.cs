@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the associations for the specified SSM document or instance.
+    /// Lists the associations for the specified SSM document or instance.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Association")]

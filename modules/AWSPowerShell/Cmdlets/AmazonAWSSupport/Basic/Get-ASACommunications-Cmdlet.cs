@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// the pagination of the result set. Set <code>MaxResults</code> to the number of cases
     /// you want displayed on each page, and use <code>NextToken</code> to specify the resumption
     /// of pagination.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASACommunications")]
     [OutputType("Amazon.AWSSupport.Model.Communication")]

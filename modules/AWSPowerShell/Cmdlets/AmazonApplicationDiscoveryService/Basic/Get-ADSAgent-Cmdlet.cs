@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Lists AWS agents by ID or lists all agents associated with your user account if you
-    /// did not specify an agent ID.
+    /// did not specify an agent ID.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSAgent")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentInfo")]

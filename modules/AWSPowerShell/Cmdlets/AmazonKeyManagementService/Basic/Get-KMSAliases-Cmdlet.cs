@@ -28,7 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Lists all of the key aliases in the account.
+    /// Lists all of the key aliases in the account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "KMSAliases")]
     [OutputType("Amazon.KeyManagementService.Model.AliasListEntry")]

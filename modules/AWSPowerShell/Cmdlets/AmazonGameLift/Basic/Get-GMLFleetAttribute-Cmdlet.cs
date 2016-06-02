@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  <note><para>
     /// Some API actions may limit the number of fleet IDs allowed in one request. If a request
     /// exceeds this limit, the request fails and the error message includes the maximum allowed.
-    /// </para></note>
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLFleetAttribute")]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]

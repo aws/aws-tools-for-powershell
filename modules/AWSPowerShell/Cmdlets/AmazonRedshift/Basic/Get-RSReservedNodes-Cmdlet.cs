@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns the descriptions of the reserved nodes.
+    /// Returns the descriptions of the reserved nodes.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSReservedNodes")]
     [OutputType("Amazon.Redshift.Model.ReservedNode")]

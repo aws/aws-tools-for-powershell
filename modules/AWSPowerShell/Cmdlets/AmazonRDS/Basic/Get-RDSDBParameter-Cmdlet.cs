@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns the detailed parameter list for a particular DB parameter group.
+    /// Returns the detailed parameter list for a particular DB parameter group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSDBParameter")]
     [OutputType("Amazon.RDS.Model.Parameter")]

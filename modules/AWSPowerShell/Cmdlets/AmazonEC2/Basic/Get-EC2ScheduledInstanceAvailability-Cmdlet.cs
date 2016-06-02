@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
     /// to purchase Scheduled Instances with that schedule.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2ScheduledInstanceAvailability")]
     [OutputType("Amazon.EC2.Model.ScheduledInstanceAvailability")]

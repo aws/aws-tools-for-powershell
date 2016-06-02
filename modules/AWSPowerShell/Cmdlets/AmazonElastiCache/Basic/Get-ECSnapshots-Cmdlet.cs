@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// The <i>DescribeSnapshots</i> action returns information about cache cluster snapshots.
     /// By default, <i>DescribeSnapshots</i> lists all of your snapshots; it can optionally
     /// describe a single snapshot, or just the snapshots associated with a particular cache
-    /// cluster.
+    /// cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSnapshots")]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]

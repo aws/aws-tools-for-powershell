@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
     /// Queries the specified pipeline for the names of objects that match the specified set
-    /// of conditions.
+    /// of conditions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Find", "DPObject")]
     [OutputType("System.String")]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// Retrieves alarms with the specified names. If no name is specified, all alarms for
     /// the user are returned. Alarms can be retrieved by using only a prefix for the alarm
-    /// name, the alarm state, or a prefix for any action.
+    /// name, the alarm state, or a prefix for any action.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWAlarm")]
     [OutputType("Amazon.CloudWatch.Model.MetricAlarm")]

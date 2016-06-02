@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <para>
     /// A typical use is to list all grants that you are able to retire. To retire a grant,
     /// use <a>RetireGrant</a>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "KMSRetirableGrant")]
     [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]

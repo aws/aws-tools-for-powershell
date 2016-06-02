@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Lists the set of CA certificates provided by Amazon RDS for this AWS account.
+    /// Lists the set of CA certificates provided by Amazon RDS for this AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSCertificates")]
     [OutputType("Amazon.RDS.Model.Certificate")]

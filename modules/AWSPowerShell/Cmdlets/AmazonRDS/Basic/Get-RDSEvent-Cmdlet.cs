@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
     /// groups for the past 14 days. Events specific to a particular DB instance, DB security
     /// group, database snapshot, or DB parameter group can be obtained by providing the name
-    /// as a parameter. By default, the past hour of events are returned.
+    /// as a parameter. By default, the past hour of events are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSEvent")]
     [OutputType("Amazon.RDS.Model.Event")]

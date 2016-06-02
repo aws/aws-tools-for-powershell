@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// If you specify a SubscriptionName, lists the description for that subscription.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSEventSubscriptions")]
     [OutputType("Amazon.RDS.Model.EventSubscription")]

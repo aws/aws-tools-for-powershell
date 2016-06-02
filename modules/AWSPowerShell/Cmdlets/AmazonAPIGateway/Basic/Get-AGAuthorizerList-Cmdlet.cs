@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describe an existing <a>Authorizers</a> resource.
+    /// Describe an existing <a>Authorizers</a> resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGAuthorizerList")]
     [OutputType("Amazon.APIGateway.Model.Authorizer")]

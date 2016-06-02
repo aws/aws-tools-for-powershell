@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     ///  <note><para>
     /// You can list events for stacks that have failed to create or have been deleted by
     /// specifying the unique stack identifier (stack ID).
-    /// </para></note>
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFNStackEvent")]
     [OutputType("Amazon.CloudFormation.Model.StackEvent")]

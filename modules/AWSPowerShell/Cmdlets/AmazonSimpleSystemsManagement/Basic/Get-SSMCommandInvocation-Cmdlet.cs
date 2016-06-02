@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// to one or more instances. A command invocation applies to one instance. For example,
     /// if a user executes SendCommand against three instances, then a command invocation
     /// is created for each requested instance ID. ListCommandInvocations provide status about
-    /// command execution.
+    /// command execution.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.CommandInvocation")]

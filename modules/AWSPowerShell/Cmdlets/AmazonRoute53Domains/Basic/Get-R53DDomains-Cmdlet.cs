@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
     /// This operation returns all the domain names registered with Amazon Route 53 for the
-    /// current AWS account.
+    /// current AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53DDomains")]
     [OutputType("Amazon.Route53Domains.Model.DomainSummary")]

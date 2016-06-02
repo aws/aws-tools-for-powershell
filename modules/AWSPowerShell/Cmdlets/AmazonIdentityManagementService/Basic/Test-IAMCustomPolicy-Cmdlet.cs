@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters
     /// to paginate the results.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Test", "IAMCustomPolicy")]
     [OutputType("Amazon.IdentityManagement.Model.EvaluationResult")]

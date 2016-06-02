@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// Returns a list of the requester's subscriptions. Each call returns a limited list
     ///      of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code>
     /// is also returned. Use the <code>NextToken</code> parameter in a       new <code>ListSubscriptions</code>
-    /// call to get further results.
+    /// call to get further results.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SNSSubscription")]
     [OutputType("Amazon.SimpleNotificationService.Model.Subscription")]

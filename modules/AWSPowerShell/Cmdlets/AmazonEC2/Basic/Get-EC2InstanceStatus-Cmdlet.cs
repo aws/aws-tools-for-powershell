@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para><b>Instance state</b> - You can manage your instances from the moment you launch them
     /// through their termination. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
     /// Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></li></ul>
+    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2InstanceStatus")]
     [OutputType("Amazon.EC2.Model.InstanceStatus")]

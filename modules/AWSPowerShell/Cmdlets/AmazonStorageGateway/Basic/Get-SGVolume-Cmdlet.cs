@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// body to limit the number of volumes in the response. If the number of volumes returned
     /// in the response is truncated, the response includes a Marker field. You can use this
     /// Marker value in your subsequent request to retrieve the next set of volumes.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGVolume")]
     [OutputType("Amazon.StorageGateway.Model.VolumeInfo")]

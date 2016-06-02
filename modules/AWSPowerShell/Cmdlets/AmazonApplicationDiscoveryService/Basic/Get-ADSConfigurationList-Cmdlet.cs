@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Retrieves a list of configurations items according to the criteria you specify in
-    /// a filter. The filter criteria identify relationship requirements.
+    /// a filter. The filter criteria identify relationship requirements.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSConfigurationList")]
     [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]

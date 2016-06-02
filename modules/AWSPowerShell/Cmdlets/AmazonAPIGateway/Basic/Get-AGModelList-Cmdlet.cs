@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.
+    /// Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGModelList")]
     [OutputType("Amazon.APIGateway.Model.Model")]

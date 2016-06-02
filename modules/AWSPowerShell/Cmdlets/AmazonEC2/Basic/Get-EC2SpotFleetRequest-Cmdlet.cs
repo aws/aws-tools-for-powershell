@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes your Spot fleet requests.
+    /// Describes your Spot fleet requests.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetRequest")]
     [OutputType("Amazon.EC2.Model.SpotFleetRequestConfig")]

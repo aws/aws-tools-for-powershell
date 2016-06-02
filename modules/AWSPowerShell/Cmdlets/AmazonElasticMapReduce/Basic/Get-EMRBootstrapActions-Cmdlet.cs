@@ -28,7 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides information about the bootstrap actions associated with a cluster.
+    /// Provides information about the bootstrap actions associated with a cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EMRBootstrapActions")]
     [OutputType("Amazon.ElasticMapReduce.Model.Command")]

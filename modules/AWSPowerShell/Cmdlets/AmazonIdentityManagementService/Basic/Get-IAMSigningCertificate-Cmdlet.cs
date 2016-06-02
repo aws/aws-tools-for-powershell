@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// based on the AWS access key ID used to sign the request for this API. Because this
     /// action works for access keys under the AWS account, you can use this action to manage
     /// root credentials even if the AWS account has no associated users.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMSigningCertificate")]
     [OutputType("Amazon.IdentityManagement.Model.SigningCertificate")]

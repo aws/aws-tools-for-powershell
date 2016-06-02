@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// <summary>
     /// Lists the ARNs of the assessment targets within this AWS account. For more information
     /// about assessment targets, see <a href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">Amazon
-    /// Inspector Assessment Targets</a>.
+    /// Inspector Assessment Targets</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentTargetList")]
     [OutputType("System.String")]

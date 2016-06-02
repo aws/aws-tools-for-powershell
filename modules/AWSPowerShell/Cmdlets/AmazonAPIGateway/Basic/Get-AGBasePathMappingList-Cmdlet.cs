@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Represents a collection of <a>BasePathMapping</a> resources.
+    /// Represents a collection of <a>BasePathMapping</a> resources.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGBasePathMappingList")]
     [OutputType("Amazon.APIGateway.Model.BasePathMapping")]

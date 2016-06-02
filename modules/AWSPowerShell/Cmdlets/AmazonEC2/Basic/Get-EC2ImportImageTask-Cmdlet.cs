@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Displays details about an import virtual machine or import snapshot tasks that are
-    /// already created.
+    /// already created.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2ImportImageTask")]
     [OutputType("Amazon.EC2.Model.ImportImageTask")]

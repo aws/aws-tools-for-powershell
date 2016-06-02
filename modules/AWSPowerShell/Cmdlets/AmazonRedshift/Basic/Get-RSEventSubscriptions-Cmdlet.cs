@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Lists descriptions of all the Amazon Redshift event notifications subscription for
     /// a customer account. If you specify a subscription name, lists the description for
-    /// that subscription.
+    /// that subscription.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSEventSubscriptions")]
     [OutputType("Amazon.Redshift.Model.EventSubscription")]

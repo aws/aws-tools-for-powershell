@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about provisioned RDS instances. This API supports pagination.
+    /// Returns information about provisioned RDS instances. This API supports pagination.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSDBInstance")]
     [OutputType("Amazon.RDS.Model.DBInstance")]

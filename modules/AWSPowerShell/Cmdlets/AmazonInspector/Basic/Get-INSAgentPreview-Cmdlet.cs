@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
     /// Previews the agents installed on the EC2 instances that are part of the specified
-    /// assessment target.
+    /// assessment target.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "INSAgentPreview")]
     [OutputType("Amazon.Inspector.Model.AgentPreview")]

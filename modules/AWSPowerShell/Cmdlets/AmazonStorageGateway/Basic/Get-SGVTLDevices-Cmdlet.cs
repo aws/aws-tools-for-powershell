@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  
     /// <para>
     /// The list of VTL devices must be from one gateway.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGVTLDevices")]
     [OutputType("Amazon.StorageGateway.Model.VTLDevice")]

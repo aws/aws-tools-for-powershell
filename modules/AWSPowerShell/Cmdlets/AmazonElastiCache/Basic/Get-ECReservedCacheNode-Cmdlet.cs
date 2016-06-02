@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// The <i>DescribeReservedCacheNodes</i> action returns information about reserved cache
-    /// nodes for this account, or about a specified reserved cache node.
+    /// nodes for this account, or about a specified reserved cache node.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECReservedCacheNode")]
     [OutputType("Amazon.ElastiCache.Model.ReservedCacheNode")]

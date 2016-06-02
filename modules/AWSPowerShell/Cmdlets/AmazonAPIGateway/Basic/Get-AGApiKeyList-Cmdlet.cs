@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>ApiKeys</a> resource.
+    /// Gets information about the current <a>ApiKeys</a> resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGApiKeyList")]
     [OutputType("Amazon.APIGateway.Model.ApiKey")]

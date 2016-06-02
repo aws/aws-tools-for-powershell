@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// You can also specify multiple filters. The result includes information for a particular
     /// tag only if it matches all the filters. If there's no match, no special message is
     /// returned.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASTag")]
     [OutputType("Amazon.AutoScaling.Model.TagDescription")]

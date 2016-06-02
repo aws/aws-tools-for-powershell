@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><note><para>
     /// To ensure the security of your AWS account, the secret access key is accessible only
     /// during key and user creation.
-    /// </para></note>
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMAccessKey")]
     [OutputType("Amazon.IdentityManagement.Model.AccessKeyMetadata")]

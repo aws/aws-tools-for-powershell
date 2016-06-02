@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// Returns an array of table names associated with the current account and endpoint.
     /// The output from <i>ListTables</i> is paginated, with each page returning a maximum
-    /// of 100 table names.
+    /// of 100 table names.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DDBTables")]
     [OutputType("System.String")]

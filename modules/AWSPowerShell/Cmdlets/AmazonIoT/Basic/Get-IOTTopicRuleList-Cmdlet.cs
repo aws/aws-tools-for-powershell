@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the rules for the specific topic.
+    /// Lists the rules for the specific topic.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTTopicRuleList")]
     [OutputType("Amazon.IoT.Model.TopicRuleListItem")]

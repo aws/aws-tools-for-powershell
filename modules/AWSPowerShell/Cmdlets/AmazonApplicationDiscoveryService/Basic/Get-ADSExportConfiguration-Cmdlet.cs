@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Retrieves the status of a given export process. You can retrieve status from a maximum
-    /// of 100 processes.
+    /// of 100 processes.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfiguration")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]

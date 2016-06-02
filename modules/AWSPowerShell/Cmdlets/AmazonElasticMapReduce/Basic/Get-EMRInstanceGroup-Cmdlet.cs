@@ -28,7 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides all available details about the instance groups in a cluster.
+    /// Provides all available details about the instance groups in a cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EMRInstanceGroup")]
     [OutputType("Amazon.ElasticMapReduce.Model.InstanceGroup")]

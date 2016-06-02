@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// Although each user is limited to a small number of keys, you can still paginate the
     /// results using the <code>MaxItems</code> and <code>Marker</code> parameters.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMSSHPublicKeyList")]
     [OutputType("Amazon.IdentityManagement.Model.SSHPublicKeyMetadata")]

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets a collection of <a>ClientCertificate</a> resources.
+    /// Gets a collection of <a>ClientCertificate</a> resources.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGClientCertificateList")]
     [OutputType("Amazon.APIGateway.Model.ClientCertificate")]

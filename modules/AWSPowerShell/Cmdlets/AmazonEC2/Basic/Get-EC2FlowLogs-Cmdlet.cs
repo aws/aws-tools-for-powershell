@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Describes one or more flow logs. To view the information in your flow logs (the log
     /// streams for the network interfaces), you must use the CloudWatch Logs console or the
-    /// CloudWatch Logs API.
+    /// CloudWatch Logs API.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2FlowLogs")]
     [OutputType("Amazon.EC2.Model.FlowLog")]

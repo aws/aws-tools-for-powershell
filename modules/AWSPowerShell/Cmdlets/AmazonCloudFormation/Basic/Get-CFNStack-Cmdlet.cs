@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns the description for the specified stack; if no stack name was specified, then
-    /// it returns the description for all the stacks created.
+    /// it returns the description for all the stacks created.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFNStack")]
     [OutputType("Amazon.CloudFormation.Model.Stack")]

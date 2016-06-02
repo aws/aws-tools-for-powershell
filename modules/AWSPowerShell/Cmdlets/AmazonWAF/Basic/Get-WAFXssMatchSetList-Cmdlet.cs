@@ -28,7 +28,7 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
-    /// Returns an array of <a>XssMatchSet</a> objects.
+    /// Returns an array of <a>XssMatchSet</a> objects.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WAFXssMatchSetList")]
     [OutputType("Amazon.WAF.Model.XssMatchSetSummary")]

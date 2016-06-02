@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
     /// Lists the pipeline identifiers for all active pipelines that you have permission to
-    /// access.
+    /// access.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DPPipeline")]
     [OutputType("Amazon.DataPipeline.Model.PipelineIdName")]

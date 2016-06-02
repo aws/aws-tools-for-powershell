@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Describes one or more scaling activities for the specified Auto Scaling group. If
     /// you omit the <code>ActivityIds</code>, the call returns all activities from the past
     /// six weeks. Activities are sorted by the start time. Activities still in progress appear
-    /// first on the list.
+    /// first on the list.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASScalingActivity")]
     [OutputType("Amazon.AutoScaling.Model.Activity")]

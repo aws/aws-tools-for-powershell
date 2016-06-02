@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Returns a list of task definitions that are registered to your account. You can filter
     /// the results by family name with the <code>familyPrefix</code> parameter or by status
-    /// with the <code>status</code> parameter.
+    /// with the <code>status</code> parameter.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitions")]
     [OutputType("System.String")]

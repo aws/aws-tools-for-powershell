@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  <note><para>
     /// Aliases are not listed in any particular order.
-    /// </para></note>
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLAlias")]
     [OutputType("Amazon.GameLift.Model.Alias")]

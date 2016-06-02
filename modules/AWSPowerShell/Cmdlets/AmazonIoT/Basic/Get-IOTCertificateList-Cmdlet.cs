@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <para>
     /// The results are paginated with a default page size of 25. You can use the returned
     /// marker to retrieve additional results.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTCertificateList")]
     [OutputType("Amazon.IoT.Model.Certificate")]

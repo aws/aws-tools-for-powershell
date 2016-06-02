@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns a list of orderable DB instance options for the specified engine.
+    /// Returns a list of orderable DB instance options for the specified engine.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSOrderableDBInstanceOption")]
     [OutputType("Amazon.RDS.Model.OrderableDBInstanceOption")]

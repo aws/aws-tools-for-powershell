@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// the cost involved you might want to obtain a list of cluster options in the specific
     /// region and specify values when creating a cluster. For more information about managing
     /// clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
-    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>
+    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSOrderableClusterOptions")]
     [OutputType("Amazon.Redshift.Model.OrderableClusterOption")]

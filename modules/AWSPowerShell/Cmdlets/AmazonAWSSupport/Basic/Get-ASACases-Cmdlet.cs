@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// The response returns the following in JSON format:
     /// </para><ol><li>One or more <a>CaseDetails</a> data types. </li><li>One or more <code>NextToken</code>
     /// values, which specify where to paginate the returned records represented by the <code>CaseDetails</code>
-    /// objects.</li></ol>
+    /// objects.</li></ol><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASACases")]
     [OutputType("Amazon.AWSSupport.Model.CaseDetails")]

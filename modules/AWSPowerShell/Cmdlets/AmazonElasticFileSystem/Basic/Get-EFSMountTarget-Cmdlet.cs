@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// This operation requires permission for the <code>elasticfilesystem:DescribeMountTargets</code>
     /// action, on either the file system id that you specify in <code>FileSystemId</code>,
     /// or on the file system of the mount target that you specify in <code>MountTargetId</code>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EFSMountTarget")]
     [OutputType("Amazon.ElasticFileSystem.Model.MountTargetDescription")]

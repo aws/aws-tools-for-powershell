@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Describes one or more Auto Scaling groups. If a list of names is not provided, the
-    /// call describes all Auto Scaling groups.
+    /// call describes all Auto Scaling groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingGroup")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingGroup")]

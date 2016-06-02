@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// Returns descriptions of the available Amazon Redshift cluster versions. You can call
     /// this operation even before creating any clusters to learn more about the Amazon Redshift
     /// versions. For more information about managing clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
-    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>
+    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSClusterVersions")]
     [OutputType("Amazon.Redshift.Model.ClusterVersion")]

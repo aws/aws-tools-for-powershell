@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// more results are available, the <i>NextToken</i> member of the response contains a
     /// token that you pass in the next call to <a>ListHsms</a> to retrieve the next set of
     /// items.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "HSMItemList")]
     [OutputType("System.String")]

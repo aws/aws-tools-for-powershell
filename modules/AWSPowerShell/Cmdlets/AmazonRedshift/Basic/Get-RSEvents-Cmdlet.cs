@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// Returns events related to clusters, security groups, snapshots, and parameter groups
     /// for the past 14 days. Events specific to a particular cluster, security group, snapshot
     /// or parameter group can be obtained by providing the name as a parameter. By default,
-    /// the past hour of events are returned.
+    /// the past hour of events are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSEvents")]
     [OutputType("Amazon.Redshift.Model.Event")]

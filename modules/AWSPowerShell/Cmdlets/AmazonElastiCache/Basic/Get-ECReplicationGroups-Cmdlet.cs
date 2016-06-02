@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// The <i>DescribeReplicationGroups</i> action returns information about a particular
     /// replication group. If no identifier is specified, <i>DescribeReplicationGroups</i>
-    /// returns information about all replication groups.
+    /// returns information about all replication groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECReplicationGroups")]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]

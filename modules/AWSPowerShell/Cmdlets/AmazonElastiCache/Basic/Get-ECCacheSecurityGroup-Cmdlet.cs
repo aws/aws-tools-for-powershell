@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// The <i>DescribeCacheSecurityGroups</i> action returns a list of cache security group
     /// descriptions. If a cache security group name is specified, the list will contain only
-    /// the description of that group.
+    /// the description of that group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECCacheSecurityGroup")]
     [OutputType("Amazon.ElastiCache.Model.CacheSecurityGroup")]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// that the list begins with. 
     /// 
     ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
-    /// greater than 100, Amazon Route 53 returns only the first 100.</note>
+    /// greater than 100, Amazon Route 53 returns only the first 100.</note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53HealthChecks")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]

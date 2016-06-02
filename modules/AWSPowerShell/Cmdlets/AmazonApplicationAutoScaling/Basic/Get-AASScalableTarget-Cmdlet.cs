@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </para><para>
     /// To create a new scalable target or update an existing one, see <a>RegisterScalableTarget</a>.
     /// If you are no longer using a scalable target, you can deregister it with <a>DeregisterScalableTarget</a>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AASScalableTarget")]
     [OutputType("Amazon.ApplicationAutoScaling.Model.ScalableTarget")]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// Each offering record indicates the recurring price per unit and the frequency for
     /// that offering. The API returns a <code>NotEligible</code> error if the user is not
     /// permitted to invoke the operation. Please contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>
-    /// if you believe that you should be able to invoke this operation.
+    /// if you believe that you should be able to invoke this operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DFOffering")]
     [OutputType("Amazon.DeviceFarm.Model.Offering")]

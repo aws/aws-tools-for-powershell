@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the notification actions associated with the specified Auto Scaling group.
+    /// Describes the notification actions associated with the specified Auto Scaling group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASNotificationConfiguration")]
     [OutputType("Amazon.AutoScaling.Model.NotificationConfiguration")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
 {
     /// <summary>
     /// The ListJobsByStatus operation gets a list of jobs that have a specified status. The
-    /// response body contains one element for each job that satisfies the search criteria.
+    /// response body contains one element for each job that satisfies the search criteria.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ETSJobsByStatus")]
     [OutputType("Amazon.ElasticTranscoder.Model.Job")]

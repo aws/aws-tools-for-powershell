@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists the deployment configurations with the applicable IAM user or AWS account.
+    /// Lists the deployment configurations with the applicable IAM user or AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentConfigList")]
     [OutputType("System.String")]

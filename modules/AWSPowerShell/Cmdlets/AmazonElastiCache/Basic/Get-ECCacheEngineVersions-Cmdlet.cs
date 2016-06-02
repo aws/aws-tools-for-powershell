@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// The <i>DescribeCacheEngineVersions</i> action returns a list of the available cache
-    /// engines and their versions.
+    /// engines and their versions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECCacheEngineVersions")]
     [OutputType("Amazon.ElastiCache.Model.CacheEngineVersion")]

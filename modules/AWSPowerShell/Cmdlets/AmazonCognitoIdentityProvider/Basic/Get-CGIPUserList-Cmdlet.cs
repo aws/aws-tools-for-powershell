@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the users in the Amazon Cognito user pool.
+    /// Lists the users in the Amazon Cognito user pool.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CGIPUserList")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserType")]

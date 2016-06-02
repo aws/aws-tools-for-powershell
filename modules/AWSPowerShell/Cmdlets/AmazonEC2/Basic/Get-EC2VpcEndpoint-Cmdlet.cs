@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your VPC endpoints.
+    /// Describes one or more of your VPC endpoints.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpoint")]
     [OutputType("Amazon.EC2.Model.VpcEndpoint")]

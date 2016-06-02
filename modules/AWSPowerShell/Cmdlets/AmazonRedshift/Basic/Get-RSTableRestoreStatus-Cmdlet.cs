@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// parameter, then <code>DescribeTableRestoreStatus</code> returns the status of all
     /// table restore requests ordered by the date and time of the request in ascending order.
     /// Otherwise <code>DescribeTableRestoreStatus</code> returns the status of the table
-    /// specified by <code>TableRestoreRequestId</code>.
+    /// specified by <code>TableRestoreRequestId</code>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSTableRestoreStatus")]
     [OutputType("Amazon.Redshift.Model.TableRestoreStatus")]

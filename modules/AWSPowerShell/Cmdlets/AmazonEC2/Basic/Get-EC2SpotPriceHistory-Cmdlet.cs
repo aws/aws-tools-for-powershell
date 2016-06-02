@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// types within the time range that you specified and the time when the price changed.
     /// The price is valid within the time period that you specified; the response merely
     /// indicates the last time that the price changed.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2SpotPriceHistory")]
     [OutputType("Amazon.EC2.Model.SpotPrice")]

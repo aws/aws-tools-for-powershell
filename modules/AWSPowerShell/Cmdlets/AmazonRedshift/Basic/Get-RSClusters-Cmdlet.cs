@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </para><para>
     /// If both tag keys and values are omitted from the request, clusters are returned regardless
     /// of whether they have tag keys or values associated with them.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSClusters")]
     [OutputType("Amazon.Redshift.Model.Cluster")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// Lists the deployments in a deployment group for an application registered with the
-    /// applicable IAM user or AWS account.
+    /// applicable IAM user or AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentList")]
     [OutputType("System.String")]

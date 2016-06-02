@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Describes the actions scheduled for your Auto Scaling group that haven't run. To describe
-    /// the actions that have already run, use <a>DescribeScalingActivities</a>.
+    /// the actions that have already run, use <a>DescribeScalingActivities</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASScheduledAction")]
     [OutputType("Amazon.AutoScaling.Model.ScheduledUpdateGroupAction")]

@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists information about revisions for an application.
+    /// Lists information about revisions for an application.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDApplicationRevisionList")]
     [OutputType("Amazon.CodeDeploy.Model.RevisionLocation")]

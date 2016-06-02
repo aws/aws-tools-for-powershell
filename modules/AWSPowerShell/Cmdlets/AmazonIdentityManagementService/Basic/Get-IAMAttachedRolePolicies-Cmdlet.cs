@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// policies to only those matching the specified path prefix. If there are no policies
     /// attached to the specified role (or none that match the specified path prefix), the
     /// action returns an empty list.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IAMAttachedRolePolicies")]
     [OutputType("Amazon.IdentityManagement.Model.AttachedPolicyType")]

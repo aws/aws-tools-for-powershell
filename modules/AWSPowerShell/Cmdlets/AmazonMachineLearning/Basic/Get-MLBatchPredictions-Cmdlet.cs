@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
     /// Returns a list of <code>BatchPrediction</code> operations that match the search criteria
-    /// in the request.
+    /// in the request.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "MLBatchPredictions")]
     [OutputType("Amazon.MachineLearning.Model.BatchPrediction")]

@@ -28,7 +28,7 @@ using Amazon.Inspector.Model;
 namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Lists all available Amazon Inspector rules packages.
+    /// Lists all available Amazon Inspector rules packages.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "INSRulesPackageList")]
     [OutputType("System.String")]

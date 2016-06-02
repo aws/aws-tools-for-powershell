@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about a <a>Deployments</a> collection.
+    /// Gets information about a <a>Deployments</a> collection.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGDeploymentList")]
     [OutputType("Amazon.APIGateway.Model.Deployment")]

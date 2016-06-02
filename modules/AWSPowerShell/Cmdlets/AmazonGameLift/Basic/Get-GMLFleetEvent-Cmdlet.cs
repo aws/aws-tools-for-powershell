@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves entries from the fleet event log. You can specify a time range to limit
     /// the result set. Use the pagination parameters to retrieve results as a set of sequential
-    /// pages. If successful, a collection of event log entries matching the request are returned.
+    /// pages. If successful, a collection of event log entries matching the request are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLFleetEvent")]
     [OutputType("Amazon.GameLift.Model.Event")]

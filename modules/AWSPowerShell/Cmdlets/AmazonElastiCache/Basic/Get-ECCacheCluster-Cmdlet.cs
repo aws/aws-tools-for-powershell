@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </para><para>
     /// If cache nodes are currently being removed from the cache cluster, no endpoint information
     /// for the removed nodes is displayed.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECCacheCluster")]
     [OutputType("Amazon.ElastiCache.Model.CacheCluster")]

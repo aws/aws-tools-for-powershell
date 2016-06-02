@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// The <i>DescribeCacheSubnetGroups</i> action returns a list of cache subnet group descriptions.
     /// If a subnet group name is specified, the list will contain only the description of
-    /// that group.
+    /// that group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECCacheSubnetGroups")]
     [OutputType("Amazon.ElastiCache.Model.CacheSubnetGroup")]

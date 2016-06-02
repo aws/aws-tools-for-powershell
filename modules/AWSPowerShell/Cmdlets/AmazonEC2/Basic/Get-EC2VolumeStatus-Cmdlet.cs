@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Volume status is based on the volume status checks, and does not reflect the volume
     /// state. Therefore, volume status does not indicate volumes in the <code>error</code>
     /// state (for example, when a volume is incapable of accepting I/O.)
-    /// </para></note>
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2VolumeStatus")]
     [OutputType("Amazon.EC2.Model.VolumeStatusItem")]

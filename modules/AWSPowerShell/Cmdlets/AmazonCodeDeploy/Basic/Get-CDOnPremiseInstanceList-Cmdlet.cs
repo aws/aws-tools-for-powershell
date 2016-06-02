@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// Unless otherwise specified, both registered and deregistered on-premises instance
     /// names will be listed. To list only registered or deregistered on-premises instance
     /// names, use the registration status parameter.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDOnPremiseInstanceList")]
     [OutputType("System.String")]

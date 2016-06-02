@@ -64,6 +64,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
             var methodInfo = MethodAnalysis.Method;
             var methodDocumentation = DocumentationUtils.GetMethodDocumentation(methodInfo.DeclaringType, methodInfo.Name, AssemblyDocumentation);
+
+            if (MethodAnalysis.GenerateIterationCode)
+                methodDocumentation += "<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.";
+
             var commentedTypeDocumentation = DocumentationUtils.CommentDocumentation(methodDocumentation);
 
             var requiresSupportsShouldProcess = MethodAnalysis.SupportsShouldProcessInspectionResult != null;

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </para><para>
     ///  This operation requires permission for the <code>elasticfilesystem:DescribeFileSystems</code>
     /// action. 
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EFSFileSystem")]
     [OutputType("Amazon.ElasticFileSystem.Model.FileSystemDescription")]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Returns list of event descriptions matching criteria up to the last 6 weeks.
     /// 
-    ///  <note>This action returns the most recent 1,000 events from the specified <code>NextToken</code>.</note>
+    ///  <note>This action returns the most recent 1,000 events from the specified <code>NextToken</code>.</note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EBEvent")]
     [OutputType("Amazon.ElasticBeanstalk.Model.EventDescription")]

@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Lists available reserved DB instance offerings.
+    /// Lists available reserved DB instance offerings.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSReservedDBInstancesOfferings")]
     [OutputType("Amazon.RDS.Model.ReservedDBInstancesOffering")]

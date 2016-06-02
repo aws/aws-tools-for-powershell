@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// The results describe only the Dedicated hosts in the region you're currently using.
     /// All listed instances consume capacity on your Dedicated host. Dedicated hosts that
     /// have recently been released will be listed with the state <code>released</code>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2Hosts")]
     [OutputType("Amazon.EC2.Model.Host")]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Describes your Elastic IP addresses that are being moved to the EC2-VPC platform,
     /// or that are being restored to the EC2-Classic platform. This request does not return
-    /// information about any other Elastic IP addresses in your account.
+    /// information about any other Elastic IP addresses in your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2MovingAddress")]
     [OutputType("Amazon.EC2.Model.MovingAddressStatus")]

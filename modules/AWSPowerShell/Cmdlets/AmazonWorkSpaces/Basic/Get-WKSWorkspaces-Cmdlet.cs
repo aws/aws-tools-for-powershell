@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// and response parameters. If more results are available, the <code>NextToken</code>
     /// response member contains a token that you pass in the next call to this operation
     /// to retrieve the next set of items.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspaces")]
     [OutputType("Amazon.WorkSpaces.Model.Workspace")]

@@ -28,7 +28,7 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
-    /// Returns an array of <a>IPSetSummary</a> objects in the response.
+    /// Returns an array of <a>IPSetSummary</a> objects in the response.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WAFIPSetList")]
     [OutputType("Amazon.WAF.Model.IPSetSummary")]

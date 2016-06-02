@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CGIIdentityPoolList")]
     [OutputType("Amazon.CognitoIdentity.Model.IdentityPoolShortDescription")]

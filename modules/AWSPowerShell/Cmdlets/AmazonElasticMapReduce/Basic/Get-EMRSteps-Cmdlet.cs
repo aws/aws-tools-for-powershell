@@ -28,7 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides a list of steps for the cluster.
+    /// Provides a list of steps for the cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EMRSteps")]
     [OutputType("Amazon.ElasticMapReduce.Model.StepSummary")]

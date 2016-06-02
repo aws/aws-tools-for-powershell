@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// Provides information about the cluster instances that Amazon EMR provisions on behalf
     /// of a user when it creates the cluster. For example, this operation indicates when
     /// the EC2 instances reach the Ready state, when instances become available to Amazon
-    /// EMR to use for jobs, and the IP addresses for cluster instances, etc.
+    /// EMR to use for jobs, and the IP addresses for cluster instances, etc.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EMRInstances")]
     [OutputType("Amazon.ElasticMapReduce.Model.Instance")]

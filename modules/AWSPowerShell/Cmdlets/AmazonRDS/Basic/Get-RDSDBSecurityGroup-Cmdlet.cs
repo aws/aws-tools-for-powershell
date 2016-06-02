@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code>
     /// is specified, the list will contain only the descriptions of the specified DB security
-    /// group.
+    /// group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSDBSecurityGroup")]
     [OutputType("Amazon.RDS.Model.DBSecurityGroup")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
     /// Gets the object definitions for a set of objects associated with the pipeline. Object
-    /// definitions are composed of a set of fields that define the properties of the object.
+    /// definitions are composed of a set of fields that define the properties of the object.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DPObject")]
     [OutputType("Amazon.DataPipeline.Model.PipelineObject")]

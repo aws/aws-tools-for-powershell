@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Lists your things. You can pass an AttributeName or AttributeValue to filter your
-    /// things (for example, "ListThings where AttributeName=Color and AttributeValue=Red").
+    /// things (for example, "ListThings where AttributeName=Color and AttributeValue=Red").<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTThingList")]
     [OutputType("Amazon.IoT.Model.ThingAttribute")]

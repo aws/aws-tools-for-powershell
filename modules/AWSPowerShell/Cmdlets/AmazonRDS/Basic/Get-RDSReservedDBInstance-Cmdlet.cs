@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns information about reserved DB instances for this account, or about a specified
-    /// reserved DB instance.
+    /// reserved DB instance.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSReservedDBInstance")]
     [OutputType("Amazon.RDS.Model.ReservedDBInstance")]

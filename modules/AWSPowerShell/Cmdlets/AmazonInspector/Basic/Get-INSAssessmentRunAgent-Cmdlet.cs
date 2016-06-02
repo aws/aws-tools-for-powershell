@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
     /// Lists the agents of the assessment runs that are specified by the ARNs of the assessment
-    /// runs.
+    /// runs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentRunAgent")]
     [OutputType("Amazon.Inspector.Model.AssessmentRunAgent")]

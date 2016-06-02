@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
     /// Lists the assessment runs that correspond to the assessment templates that are specified
-    /// by the ARNs of the assessment templates.
+    /// by the ARNs of the assessment templates.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "INSAssessmentRunList")]
     [OutputType("System.String")]

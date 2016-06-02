@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// Scaling activities are triggered by CloudWatch alarms that are associated with scaling
     /// policies. To view the existing scaling policies for a service namespace, see <a>DescribeScalingPolicies</a>.
     /// To create a new scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AASScalingActivity")]
     [OutputType("Amazon.ApplicationAutoScaling.Model.ScalingActivity")]

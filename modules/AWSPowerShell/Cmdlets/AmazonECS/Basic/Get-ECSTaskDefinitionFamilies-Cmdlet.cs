@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// You can filter out task definition families that do not contain any <code>ACTIVE</code>
     /// task definition revisions by setting the <code>status</code> parameter to <code>ACTIVE</code>.
     /// You can also filter the results with the <code>familyPrefix</code> parameter.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitionFamilies")]
     [OutputType("System.String")]

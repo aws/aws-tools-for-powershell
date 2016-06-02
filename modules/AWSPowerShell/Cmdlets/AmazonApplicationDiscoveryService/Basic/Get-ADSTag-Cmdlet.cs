@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
     /// Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves
-    /// a list of all tags assigned to a specific configuration item.
+    /// a list of all tags assigned to a specific configuration item.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSTag")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ConfigurationTag")]

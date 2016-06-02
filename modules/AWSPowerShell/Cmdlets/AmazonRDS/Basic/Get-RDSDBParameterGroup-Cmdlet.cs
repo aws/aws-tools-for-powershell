@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code>
     /// is specified, the list will contain only the description of the specified DB parameter
-    /// group.
+    /// group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSDBParameterGroup")]
     [OutputType("Amazon.RDS.Model.DBParameterGroup")]

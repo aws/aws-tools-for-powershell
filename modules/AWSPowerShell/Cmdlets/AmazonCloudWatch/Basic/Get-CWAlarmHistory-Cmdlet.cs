@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// the owner's alarms. 
     /// 
     ///  <note> Amazon CloudWatch retains the history of an alarm for two weeks, whether or
-    /// not you delete the alarm. </note>
+    /// not you delete the alarm. </note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWAlarmHistory")]
     [OutputType("Amazon.CloudWatch.Model.AlarmHistoryItem")]

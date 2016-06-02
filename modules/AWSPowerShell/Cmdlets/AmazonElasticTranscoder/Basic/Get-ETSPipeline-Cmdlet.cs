@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
 {
     /// <summary>
     /// The ListPipelines operation gets a list of the pipelines associated with the current
-    /// AWS account.
+    /// AWS account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ETSPipeline")]
     [OutputType("Amazon.ElasticTranscoder.Model.Pipeline")]

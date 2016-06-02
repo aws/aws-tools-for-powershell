@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Lists all the image IDs for a given repository.
+    /// Lists all the image IDs for a given repository.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECRImage")]
     [OutputType("Amazon.ECR.Model.ImageIdentifier")]

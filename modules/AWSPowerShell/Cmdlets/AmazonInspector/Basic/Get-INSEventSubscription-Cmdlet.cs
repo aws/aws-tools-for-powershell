@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// <summary>
     /// Lists all the event subscriptions for the assessment template that is specified by
     /// the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a>
-    /// and <a>UnsubscribeFromEvent</a>.
+    /// and <a>UnsubscribeFromEvent</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "INSEventSubscription")]
     [OutputType("Amazon.Inspector.Model.Subscription")]

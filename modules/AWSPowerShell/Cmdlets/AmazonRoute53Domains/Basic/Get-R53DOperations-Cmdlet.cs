@@ -28,7 +28,7 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation returns the operation IDs of operations that are not yet complete.
+    /// This operation returns the operation IDs of operations that are not yet complete.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53DOperations")]
     [OutputType("Amazon.Route53Domains.Model.OperationSummary")]

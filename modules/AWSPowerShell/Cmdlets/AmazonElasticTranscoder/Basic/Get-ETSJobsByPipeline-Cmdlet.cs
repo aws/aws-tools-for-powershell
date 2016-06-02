@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// <para>
     /// Elastic Transcoder returns all of the jobs currently in the specified pipeline. The
     /// response body contains one element for each job that satisfies the search criteria.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ETSJobsByPipeline")]
     [OutputType("Amazon.ElasticTranscoder.Model.Job")]

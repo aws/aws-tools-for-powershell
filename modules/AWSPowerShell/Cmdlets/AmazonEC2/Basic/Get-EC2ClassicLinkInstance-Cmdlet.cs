@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Describes one or more of your linked EC2-Classic instances. This request only returns
     /// information about EC2-Classic instances linked to a VPC through ClassicLink; you cannot
-    /// use this request to return information about other instances.
+    /// use this request to return information about other instances.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2ClassicLinkInstance")]
     [OutputType("Amazon.EC2.Model.ClassicLinkInstance")]

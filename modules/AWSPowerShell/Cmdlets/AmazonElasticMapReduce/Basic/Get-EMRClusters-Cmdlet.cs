@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// the list of clusters based on certain criteria; for example, filtering by cluster
     /// creation date and time or by status. This call returns a maximum of 50 clusters per
     /// call, but returns a marker to track the paging of the cluster list across multiple
-    /// ListClusters calls.
+    /// ListClusters calls.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EMRClusters")]
     [OutputType("Amazon.ElasticMapReduce.Model.ClusterSummary")]

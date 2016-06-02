@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Returns a list of tasks for a specified cluster. You can filter the results by family
     /// name, by a particular container instance, or by the desired status of the task with
     /// the <code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
-    /// parameters.
+    /// parameters.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSTasks")]
     [OutputType("System.String")]

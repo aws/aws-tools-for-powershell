@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// The <i>DescribeCacheParameterGroups</i> action returns a list of cache parameter group
     /// descriptions. If a cache parameter group name is specified, the list will contain
-    /// only the descriptions for that group.
+    /// only the descriptions for that group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECCacheParameterGroup")]
     [OutputType("Amazon.ElastiCache.Model.CacheParameterGroup")]

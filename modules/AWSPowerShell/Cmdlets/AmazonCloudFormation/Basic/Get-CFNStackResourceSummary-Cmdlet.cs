@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <para>
     /// For deleted stacks, ListStackResources returns resource information for up to 90 days
     /// after the stack has been deleted.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFNStackResourceSummary")]
     [OutputType("Amazon.CloudFormation.Model.StackResourceSummary")]

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <para>
     ///  For more information about reserved node offerings, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing
     /// Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSReservedNodeOfferings")]
     [OutputType("Amazon.Redshift.Model.ReservedNodeOffering")]

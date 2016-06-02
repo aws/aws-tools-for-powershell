@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
 {
     /// <summary>
     /// The ListPresets operation gets a list of the default presets included with Elastic
-    /// Transcoder and the presets that you've added in an AWS region.
+    /// Transcoder and the presets that you've added in an AWS region.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ETSPreset")]
     [OutputType("Amazon.ElasticTranscoder.Model.Preset")]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// you specify one or more instance IDs, it returns information for those instances.
     /// If you do not specify instance IDs, it returns information for all your instances.
     /// If you specify an instance ID that is not valid or an instance that you do not own,
-    /// you receive an error.
+    /// you receive an error.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceInformation")]

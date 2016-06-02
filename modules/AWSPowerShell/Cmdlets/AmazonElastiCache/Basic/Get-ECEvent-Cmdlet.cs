@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <para>
     /// By default, only the events occurring within the last hour are returned; however,
     /// you can retrieve up to 14 days' worth of events if necessary.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECEvent")]
     [OutputType("Amazon.ElastiCache.Model.Event")]

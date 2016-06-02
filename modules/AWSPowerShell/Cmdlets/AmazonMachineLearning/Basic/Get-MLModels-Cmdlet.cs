@@ -28,7 +28,7 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns a list of <code>MLModel</code> that match the search criteria in the request.
+    /// Returns a list of <code>MLModel</code> that match the search criteria in the request.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "MLModels")]
     [OutputType("Amazon.MachineLearning.Model.MLModel")]

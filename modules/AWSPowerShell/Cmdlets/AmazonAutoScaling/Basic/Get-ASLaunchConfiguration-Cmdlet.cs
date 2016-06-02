@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Describes one or more launch configurations. If you omit the list of names, then the
-    /// call describes all launch configurations.
+    /// call describes all launch configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASLaunchConfiguration")]
     [OutputType("Amazon.AutoScaling.Model.LaunchConfiguration")]

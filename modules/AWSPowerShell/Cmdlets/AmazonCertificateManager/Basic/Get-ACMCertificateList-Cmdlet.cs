@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// parameter, and you can display up to <code>MaxItems</code> certificates at one time.
     /// If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
     /// marker from the response object in your next call to the <code>ListCertificates</code>
-    /// action to retrieve the next set of certificate ARNs.
+    /// action to retrieve the next set of certificate ARNs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]

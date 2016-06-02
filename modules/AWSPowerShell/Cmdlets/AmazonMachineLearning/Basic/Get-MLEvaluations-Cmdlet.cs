@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
     /// Returns a list of <code>DescribeEvaluations</code> that match the search criteria
-    /// in the request.
+    /// in the request.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "MLEvaluations")]
     [OutputType("Amazon.MachineLearning.Model.Evaluation")]

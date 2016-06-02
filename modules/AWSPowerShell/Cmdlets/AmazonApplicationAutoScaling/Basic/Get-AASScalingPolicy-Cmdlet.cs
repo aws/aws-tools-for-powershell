@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </para><para>
     /// To create a new scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
     /// If you are no longer using a scaling policy, you can delete it with <a>DeleteScalingPolicy</a>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AASScalingPolicy")]
     [OutputType("Amazon.ApplicationAutoScaling.Model.ScalingPolicy")]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// If you have more gateways than are returned in a response (that is, the response returns
     /// only a truncated list of your gateways), the response contains a marker that you can
     /// specify in your next request to fetch the next page of gateways.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGGateway")]
     [OutputType("Amazon.StorageGateway.Model.GatewayInfo")]
