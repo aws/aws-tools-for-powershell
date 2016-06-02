@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Common
             var commonArguments = Parameters as IAWSRegionArguments;
             if (commonArguments != null)
             {
-                var region = commonArguments.GetRegion();
+                var region = commonArguments.GetRegion(true);
                 this.SessionState.PSVariable.Set(SessionKeys.AWSRegionVariableName, region.SystemName);
             }
             else

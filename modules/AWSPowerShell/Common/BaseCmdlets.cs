@@ -536,7 +536,7 @@ namespace Amazon.PowerShell.Common
 
                 RegionEndpoint region;
                 RegionSource regionSource;
-                commonArguments.TryGetRegion(out region, out regionSource);
+                commonArguments.TryGetRegion(string.IsNullOrEmpty(DefaultRegion), out region, out regionSource);
                 Region = region;
 
                 if (Region == null)
@@ -629,7 +629,7 @@ namespace Amazon.PowerShell.Common
             {
                 RegionEndpoint region;
                 RegionSource regionSource;
-                commonArguments.TryGetRegion(out region, out regionSource);
+                commonArguments.TryGetRegion(string.IsNullOrEmpty(DefaultRegion), out region, out regionSource);
                 Region = region;
 
                 if (Region == null)

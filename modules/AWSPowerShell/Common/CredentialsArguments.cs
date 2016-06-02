@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Common
 
     internal static class IAWSRegionArgumentsMethods
     {
-        public static bool TryGetRegion(this IAWSRegionArguments self, out RegionEndpoint region, out RegionSource source)
+        public static bool TryGetRegion(this IAWSRegionArguments self, bool useSDKFallback, out RegionEndpoint region, out RegionSource source)
         {
             if (self == null) throw new ArgumentNullException("self");
 
@@ -428,18 +428,6 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
-            // region set in environment variables?
-            if (region == null)
-            {
-                try
-                {
-                    var environmentRegion = new EnvironmentVariableAWSRegion();
-                    region = environmentRegion.Region;
-                    source = RegionSource.Environment;
-                }
-                catch { }
-            }
-
             // region set in profile store (including legacy key name)?
             if (region == null)
             {
@@ -447,16 +435,31 @@ namespace Amazon.PowerShell.Common
                     TryLoad(SettingsStore.PSLegacyDefaultSettingName, ref region, ref source);
             }
 
-            // last chance, attempt load from EC2 instance metadata
-            if (region == null)
+            if (useSDKFallback)
             {
-                try
+                // region set in environment variables?
+                if (region == null)
                 {
-                    region = EC2InstanceMetadata.Region;
-                    if (region != null)
-                        source = RegionSource.InstanceMetadata;
+                    try
+                    {
+                        var environmentRegion = new EnvironmentVariableAWSRegion();
+                        region = environmentRegion.Region;
+                        source = RegionSource.Environment;
+                    }
+                    catch { }
                 }
-                catch { }
+
+                // last chance, attempt load from EC2 instance metadata
+                if (region == null)
+                {
+                    try
+                    {
+                        region = EC2InstanceMetadata.Region;
+                        if (region != null)
+                            source = RegionSource.InstanceMetadata;
+                    }
+                    catch { }
+                }
             }
 
             return (region != null && source != RegionSource.Unknown);
@@ -475,11 +478,11 @@ namespace Amazon.PowerShell.Common
             return false;
         }
 
-        public static RegionEndpoint GetRegion(this IAWSRegionArguments self)
+        public static RegionEndpoint GetRegion(this IAWSRegionArguments self, bool useSDKFallback)
         {
             RegionEndpoint region;
             RegionSource source;
-            if (!TryGetRegion(self, out region, out source))
+            if (!TryGetRegion(self, useSDKFallback, out region, out source))
                 region = null;
             return region;
         }

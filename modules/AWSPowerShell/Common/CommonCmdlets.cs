@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Common
 
 
                 RegionSource regionSource;
-                if (commonArguments.TryGetRegion(out passedRegion, out regionSource))
+                if (commonArguments.TryGetRegion(true, out passedRegion, out regionSource))
                 {
                     WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell from {2}",
                                                 MyInvocation.MyCommand.Name,
