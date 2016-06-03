@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Common
 
     internal static class IAWSRegionArgumentsMethods
     {
-        public static bool TryGetRegion(this IAWSRegionArguments self, bool useSDKFallback, out RegionEndpoint region, out RegionSource source)
+        public static bool TryGetRegion(this IAWSRegionArguments self, bool useInstanceMetadata, out RegionEndpoint region, out RegionSource source)
         {
             if (self == null) throw new ArgumentNullException("self");
 
@@ -435,31 +435,28 @@ namespace Amazon.PowerShell.Common
                     TryLoad(SettingsStore.PSLegacyDefaultSettingName, ref region, ref source);
             }
 
-            if (useSDKFallback)
+            // region set in environment variables?
+            if (region == null)
             {
-                // region set in environment variables?
-                if (region == null)
+                try
                 {
-                    try
-                    {
-                        var environmentRegion = new EnvironmentVariableAWSRegion();
-                        region = environmentRegion.Region;
-                        source = RegionSource.Environment;
-                    }
-                    catch { }
+                    var environmentRegion = new EnvironmentVariableAWSRegion();
+                    region = environmentRegion.Region;
+                    source = RegionSource.Environment;
                 }
+                catch { }
+            }
 
-                // last chance, attempt load from EC2 instance metadata
-                if (region == null)
+            // last chance, attempt load from EC2 instance metadata if allowed
+            if (region == null && useInstanceMetadata)
+            {
+                try
                 {
-                    try
-                    {
-                        region = EC2InstanceMetadata.Region;
-                        if (region != null)
-                            source = RegionSource.InstanceMetadata;
-                    }
-                    catch { }
+                    region = EC2InstanceMetadata.Region;
+                    if (region != null)
+                        source = RegionSource.InstanceMetadata;
                 }
+                catch { }
             }
 
             return (region != null && source != RegionSource.Unknown);
