@@ -1,3 +1,11 @@
+### 3.1.74.0 (2016-06-03)
+  * AWS CodeDeploy
+    - Added automatic pagination support to the Get-CDApplicationList, Get-CDApplicationRevisionList, Get-CDDeploymentConfigList, Get-CDDeploymentInstanceList, Get-CDDeploymentList and Get-CDOnPremiseInstanceList cmdlets.
+  * Amazon Security Token Service (STS) and Identity and Access Management (IAM) Service
+    - Corrected potential performance issue caused in the previous release by the automatic detection of region from EC2 instance metadata. If no region data was available locally (from parameter, shell variable or environment variable) the cmdlets could attempt to access metadata even when not running on an EC2 instance.
+  * Amazon EC2
+    - API update to the Request-EC2SpotFleet (RequestSpotFleet API) and Get-EC2SpotFleetRequest (DescribeSpotFleetRequests API). The RequestSpotFleet API can now indicate whether a Spot fleet will only 'request' the target capacity or also attempt to 'maintain' it. When you want to 'maintain' a certain target capacity, Spot fleet will place the required bids to meet this target capacity, and enable you to automatically replenish any interrupted instances. When you simply 'request' a certain target capacity, Spot fleet will only place the required bids but will not attempt to replenish Spot instances if capacity is diminished, nor will it submit bids in alternative Spot pools if capacity is not available. By default, the API is set to 'maintain'. The DescribeSpotFleetRequests API now returns two new parameters: the 'fulfilledCapacity' of a Spot fleet to indicate the capacity that has been successfully launched, and the 'type' parameter to indicate whether the fleet is meant to 'request' or 'maintain' capacity.
+
 ### 3.1.73.0 (2016-05-26)
   * Amazon EC2
     - Added a new cmdlet, Remove-EC2Instance (TerminateInstances API) following user suggestion. The existing -Terminate switch is still present on Stop-EC2Instance but is considered deprecated.
