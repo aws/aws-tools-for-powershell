@@ -28,12 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Retrieve a JPG-format screenshot of an instance to help with troubleshooting.
+    /// Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.
     /// 
     ///  
     /// <para>
-    /// For API calls, the returned content is base64-encoded. For command line tools, the
-    /// decoding is performed for you.
+    /// The returned content is base64-encoded.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleScreenshot")]

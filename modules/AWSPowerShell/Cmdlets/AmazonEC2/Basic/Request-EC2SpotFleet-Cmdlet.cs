@@ -94,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_FulfilledCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The number of units fulfilled by this request compared to the set target capacity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Double SpotFleetRequestConfig_FulfilledCapacity { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_IamFleetRole
         /// <summary>
         /// <para>
@@ -150,6 +160,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of request. Indicates whether the fleet will only <code>request</code> the
+        /// target capacity or also attempt to <code>maintain</code> it. When you <code>request</code>
+        /// a certain target capacity, the fleet will only place the required bids. It will not
+        /// attempt to replenish Spot instances if capacity is diminished, nor will it submit
+        /// bids in alternative Spot pools if capacity is not available. When you want to <code>maintain</code>
+        /// a certain target capacity, fleet will place the required bids to meet this target
+        /// capacity. It will also automatically replenish any interrupted instances. Default:
+        /// <code>maintain</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.FleetType")]
+        public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ValidFrom
         /// <summary>
         /// <para>
@@ -202,6 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestConfig_AllocationStrategy = this.SpotFleetRequestConfig_AllocationStrategy;
             context.SpotFleetRequestConfig_ClientToken = this.SpotFleetRequestConfig_ClientToken;
             context.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy = this.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy;
+            if (ParameterWasBound("SpotFleetRequestConfig_FulfilledCapacity"))
+                context.SpotFleetRequestConfig_FulfilledCapacity = this.SpotFleetRequestConfig_FulfilledCapacity;
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
@@ -212,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.SpotFleetRequestConfig_TargetCapacity = this.SpotFleetRequestConfig_TargetCapacity;
             if (ParameterWasBound("SpotFleetRequestConfig_TerminateInstancesWithExpiration"))
                 context.SpotFleetRequestConfig_TerminateInstancesWithExpiration = this.SpotFleetRequestConfig_TerminateInstancesWithExpiration;
+            context.SpotFleetRequestConfig_Type = this.SpotFleetRequestConfig_Type;
             if (ParameterWasBound("SpotFleetRequestConfig_ValidFrom"))
                 context.SpotFleetRequestConfig_ValidFrom = this.SpotFleetRequestConfig_ValidFrom;
             if (ParameterWasBound("SpotFleetRequestConfig_ValidUntil"))
@@ -263,6 +294,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.ExcessCapacityTerminationPolicy = requestSpotFleetRequestConfig_spotFleetRequestConfig_ExcessCapacityTerminationPolicy;
                 requestSpotFleetRequestConfigIsNull = false;
             }
+            System.Double? requestSpotFleetRequestConfig_spotFleetRequestConfig_FulfilledCapacity = null;
+            if (cmdletContext.SpotFleetRequestConfig_FulfilledCapacity != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_FulfilledCapacity = cmdletContext.SpotFleetRequestConfig_FulfilledCapacity.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_FulfilledCapacity != null)
+            {
+                request.SpotFleetRequestConfig.FulfilledCapacity = requestSpotFleetRequestConfig_spotFleetRequestConfig_FulfilledCapacity.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
             System.String requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole = null;
             if (cmdletContext.SpotFleetRequestConfig_IamFleetRole != null)
             {
@@ -311,6 +352,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration != null)
             {
                 request.SpotFleetRequestConfig.TerminateInstancesWithExpiration = requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            Amazon.EC2.FleetType requestSpotFleetRequestConfig_spotFleetRequestConfig_Type = null;
+            if (cmdletContext.SpotFleetRequestConfig_Type != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_Type = cmdletContext.SpotFleetRequestConfig_Type;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_Type != null)
+            {
+                request.SpotFleetRequestConfig.Type = requestSpotFleetRequestConfig_spotFleetRequestConfig_Type;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             System.DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom = null;
@@ -384,11 +435,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
             public System.String SpotFleetRequestConfig_ClientToken { get; set; }
             public Amazon.EC2.ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
+            public System.Double? SpotFleetRequestConfig_FulfilledCapacity { get; set; }
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public List<Amazon.EC2.Model.SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
             public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
+            public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }
             public System.DateTime? SpotFleetRequestConfig_ValidFrom { get; set; }
             public System.DateTime? SpotFleetRequestConfig_ValidUntil { get; set; }
         }
