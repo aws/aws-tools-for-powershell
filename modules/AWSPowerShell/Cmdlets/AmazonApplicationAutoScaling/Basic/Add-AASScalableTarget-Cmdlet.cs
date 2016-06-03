@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
     /// Registers or updates a scalable target. A scalable target is a resource that can be
-    /// scaled up or down with Application Auto Scaling. Once you have registered a scalable
+    /// scaled up or down with Application Auto Scaling. After you have registered a scalable
     /// target, you can use this command to update the minimum and maximum values for your
     /// scalable dimension.
     /// 
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The unique identifier string for the resource to associate with the scalable target.
         /// For Amazon ECS services, this value is the resource type, followed by the cluster
-        /// name, and then the service name, such as <code>service/default/sample-webapp</code>.</para>
+        /// name and service name, such as <code>service/default/sample-webapp</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,9 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The scalable dimension associated with the scalable target. The scalable dimension
-        /// contains the service namespace, the resource type, and the scaling property, such
-        /// as <code>ecs:service:DesiredCount</code> for the desired task count for an Amazon
-        /// ECS service.</para>
+        /// contains the service namespace, resource type, and scaling property, such as <code>ecs:service:DesiredCount</code>
+        /// for the desired task count of an Amazon ECS service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

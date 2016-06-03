@@ -73,17 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// trigger-related scaling activities can influence future scaling events.</para><para>For scale out policies, while <code>Cooldown</code> is in effect, the capacity that
         /// has been added by the previous scale out event that initiated the <code>Cooldown</code>
         /// is calculated as part of the desired capacity for the next scale out. The intention
-        /// is to continuously (but not excessively) scale out. For example, if an alarm triggers
-        /// a step scaling policy to scale out an Amazon ECS service by 2 tasks, and the scaling
-        /// activity complete successfully, and a <code>Cooldown</code> period of 5 minutes starts.
-        /// During the <code>Cooldown</code> period, if the alarm triggers the same policy again
-        /// but at a more aggressive step adjustment to scale out the service by 3 tasks, the
-        /// 2 tasks that were added in the previous scale out event are considered part of that
-        /// capacity and only add 1 additional task is added to the desired count.</para><para>For scale in policies, the <code>Cooldown</code> period is used to block subsequent
+        /// is to continuously (but not excessively) scale out. For example, an alarm triggers
+        /// a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity
+        /// completes successfully, and a <code>Cooldown</code> period of 5 minutes starts. During
+        /// the <code>Cooldown</code> period, if the alarm triggers the same policy again but
+        /// at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks
+        /// that were added in the previous scale out event are considered part of that capacity
+        /// and only 1 additional task is added to the desired count.</para><para>For scale in policies, the <code>Cooldown</code> period is used to block subsequent
         /// scale in requests until it has expired. The intention is to scale in conservatively
-        /// to protect your application's availability. However, if another alarm triggers a scale-out
-        /// policy during the <code>Cooldown</code> period after a scale-in, Application Auto
-        /// Scaling will scale out your scalable target immediately.</para>
+        /// to protect your application's availability. However, if another alarm triggers a scale
+        /// out policy during the <code>Cooldown</code> period after a scale-in, Application Auto
+        /// Scaling scales out your scalable target immediately.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The unique resource identifier string for the scalable target that this scaling policy
         /// applies to. For Amazon ECS services, this value is the resource type, followed by
-        /// the cluster name, and then the service name, such as <code>service/default/sample-webapp</code>.</para>
+        /// the cluster name and service name, such as <code>service/default/sample-webapp</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,9 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The scalable dimension of the scalable target that this scaling policy applies to.
-        /// The scalable dimension contains the service namespace, the resource type, and the
-        /// scaling property, such as <code>ecs:service:DesiredCount</code> for the desired task
-        /// count for an Amazon ECS service.</para>
+        /// The scalable dimension contains the service namespace, resource type, and scaling
+        /// property, such as <code>ecs:service:DesiredCount</code> for the desired task count
+        /// of an Amazon ECS service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
