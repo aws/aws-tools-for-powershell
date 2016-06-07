@@ -28,34 +28,53 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.
+    /// Deletes the specified tags associated with an ML object. After this operation is complete,
+    /// you can't recover deleted tags.
     /// 
     ///  
     /// <para>
-    /// After using the <code>DeleteMLModel</code> operation, you can use the <code>GetMLModel</code>
-    /// operation to verify that the status of the <code>MLModel</code> changed to DELETED.
-    /// </para><para><b>Caution:</b> The result of the <code>DeleteMLModel</code> operation is irreversible.
+    /// If you specify a tag that doesn't exist, Amazon ML ignores it.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "MLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteMLModel operation against Amazon Machine Learning.", Operation = new[] {"DeleteMLModel"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.MachineLearning.Model.DeleteMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "MLTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.MachineLearning.Model.DeleteTagsResponse")]
+    [AWSCmdlet("Invokes the DeleteTags operation against Amazon Machine Learning.", Operation = new[] {"DeleteTags"})]
+    [AWSCmdletOutput("Amazon.MachineLearning.Model.DeleteTagsResponse",
+        "This cmdlet returns a Amazon.MachineLearning.Model.DeleteTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public class RemoveMLTagCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
-        #region Parameter MLModelId
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</para>
+        /// <para>The ID of the tagged ML object. For example, <code>exampleModelId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ModelId")]
-        public System.String MLModelId { get; set; }
+        public System.String ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the tagged ML object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MachineLearning.TaggableResourceType")]
+        public Amazon.MachineLearning.TaggableResourceType ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Force
@@ -72,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("MLModelId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MLModel (DeleteMLModel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MLTag (DeleteTags)"))
             {
                 return;
             }
@@ -84,7 +103,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
-            context.MLModelId = this.MLModelId;
+            context.ResourceId = this.ResourceId;
+            context.ResourceType = this.ResourceType;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<System.String>(this.TagKey);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -96,11 +120,19 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MachineLearning.Model.DeleteMLModelRequest();
+            var request = new Amazon.MachineLearning.Model.DeleteTagsRequest();
             
-            if (cmdletContext.MLModelId != null)
+            if (cmdletContext.ResourceId != null)
             {
-                request.MLModelId = cmdletContext.MLModelId;
+                request.ResourceId = cmdletContext.ResourceId;
+            }
+            if (cmdletContext.ResourceType != null)
+            {
+                request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.TagKeys != null)
+            {
+                request.TagKeys = cmdletContext.TagKeys;
             }
             
             CmdletOutput output;
@@ -111,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.MLModelId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -136,16 +168,18 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.DeleteMLModelResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteMLModelRequest request)
+        private static Amazon.MachineLearning.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteTagsRequest request)
         {
-            return client.DeleteMLModel(request);
+            return client.DeleteTags(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String MLModelId { get; set; }
+            public System.String ResourceId { get; set; }
+            public Amazon.MachineLearning.TaggableResourceType ResourceType { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

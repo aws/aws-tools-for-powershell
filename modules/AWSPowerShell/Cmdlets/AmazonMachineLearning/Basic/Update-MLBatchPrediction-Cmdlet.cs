@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// 
     ///  
     /// <para>
-    /// You can use the <a>GetBatchPrediction</a> operation to view the contents of the updated
-    /// data element.
+    /// You can use the <code>GetBatchPrediction</code> operation to view the contents of
+    /// the updated data element.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "MLBatchPrediction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

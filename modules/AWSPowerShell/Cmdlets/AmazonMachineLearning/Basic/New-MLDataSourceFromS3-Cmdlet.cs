@@ -29,38 +29,36 @@ namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
     /// Creates a <code>DataSource</code> object. A <code>DataSource</code> references data
-    /// that can be used to perform <a>CreateMLModel</a>, <a>CreateEvaluation</a>, or <a>CreateBatchPrediction</a>
-    /// operations.
+    /// that can be used to perform <code>CreateMLModel</code>, <code>CreateEvaluation</code>,
+    /// or <code>CreateBatchPrediction</code> operations.
     /// 
     ///  
     /// <para><code>CreateDataSourceFromS3</code> is an asynchronous operation. In response to <code>CreateDataSourceFromS3</code>,
     /// Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>DataSource</code>
-    /// status to <code>PENDING</code>. After the <code>DataSource</code> is created and ready
-    /// for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>.
-    /// <code>DataSource</code> in <code>COMPLETED</code> or <code>PENDING</code> status can
-    /// only be used to perform <a>CreateMLModel</a>, <a>CreateEvaluation</a> or <a>CreateBatchPrediction</a>
-    /// operations. 
+    /// status to <code>PENDING</code>. After the <code>DataSource</code> has been created
+    /// and is ready for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>.
+    /// <code>DataSource</code> in the <code>COMPLETED</code> or <code>PENDING</code> state
+    /// can be used to perform only <code>CreateMLModel</code>, <code>CreateEvaluation</code>
+    /// or <code>CreateBatchPrediction</code> operations. 
     /// </para><para>
-    ///  If Amazon ML cannot accept the input source, it sets the <code>Status</code> parameter
+    ///  If Amazon ML can't accept the input source, it sets the <code>Status</code> parameter
     /// to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute
-    /// of the <a>GetDataSource</a> operation response. 
+    /// of the <code>GetDataSource</code> operation response. 
     /// </para><para>
     /// The observation data used in a <code>DataSource</code> should be ready to use; that
     /// is, it should have a consistent structure, and missing data values should be kept
-    /// to a minimum. The observation data must reside in one or more CSV files in an Amazon
-    /// Simple Storage Service (Amazon S3) bucket, along with a schema that describes the
+    /// to a minimum. The observation data must reside in one or more .csv files in an Amazon
+    /// Simple Storage Service (Amazon S3) location, along with a schema that describes the
     /// data items by name and type. The same schema must be used for all of the data files
     /// referenced by the <code>DataSource</code>. 
     /// </para><para>
     /// After the <code>DataSource</code> has been created, it's ready to use in evaluations
     /// and batch predictions. If you plan to use the <code>DataSource</code> to train an
-    /// <code>MLModel</code>, the <code>DataSource</code> requires another item: a recipe.
-    /// A recipe describes the observation variables that participate in training an <code>MLModel</code>.
-    /// A recipe describes how each input variable will be used in training. Will the variable
-    /// be included or excluded from training? Will the variable be manipulated, for example,
-    /// combined with another variable, or split apart into word combinations? The recipe
-    /// provides answers to these questions. For more information, see the <a href="http://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
-    /// Machine Learning Developer Guide</a>.
+    /// <code>MLModel</code>, the <code>DataSource</code> also needs a recipe. A recipe describes
+    /// how each input variable will be used in training an <code>MLModel</code>. Will the
+    /// variable be included or excluded from training? Will the variable be manipulated;
+    /// for example, will it be combined with another variable or will it be split apart into
+    /// word combinations? The recipe provides answers to these questions.
     /// </para>
     /// </summary>
     [Cmdlet("New", "MLDataSourceFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
         /// from the observation data referenced by a <code>DataSource</code>. Amazon ML uses
-        /// the statistics internally during an <code>MLModel</code> training. This parameter
-        /// must be set to <code>true</code> if the <code></code>DataSource<code></code> needs
-        /// to be used for <code>MLModel</code> training</para>
+        /// the statistics internally during <code>MLModel</code> training. This parameter must
+        /// be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be
+        /// used for <code>MLModel</code> training.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +101,42 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DataSpec_DataRearrangement
         /// <summary>
         /// <para>
-        /// <para> Describes the splitting requirement of a <code>Datasource</code>.</para>
+        /// <para>A JSON string that represents the splitting and rearrangement processing to be applied
+        /// to a <code>DataSource</code>. If the <code>DataRearrangement</code> parameter is not
+        /// provided, all of the input data is used to create the <code>Datasource</code>.</para><para>There are multiple parameters that control what data is used to create a datasource:</para><ul><li><para><b><code>percentBegin</code></b></para><para>Use <code>percentBegin</code> to indicate the beginning of the range of the data used
+        /// to create the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>,
+        /// Amazon ML includes all of the data when creating the datasource.</para></li><li><para><b><code>percentEnd</code></b></para><para>Use <code>percentEnd</code> to indicate the end of the range of the data used to create
+        /// the Datasource. If you do not include <code>percentBegin</code> and <code>percentEnd</code>,
+        /// Amazon ML includes all of the data when creating the datasource.</para></li><li><para><b><code>complement</code></b></para><para>The <code>complement</code> parameter instructs Amazon ML to use the data that is
+        /// not included in the range of <code>percentBegin</code> to <code>percentEnd</code>
+        /// to create a datasource. The <code>complement</code> parameter is useful if you need
+        /// to create complementary datasources for training and evaluation. To create a complementary
+        /// datasource, use the same values for <code>percentBegin</code> and <code>percentEnd</code>,
+        /// along with the <code>complement</code> parameter.</para><para>For example, the following two datasources do not share any data, and can be used
+        /// to train and evaluate a model. The first datasource has 25 percent of the data, and
+        /// the second one has 75 percent of the data.</para><para>Datasource for evaluation: <code>{"splitting":{"percentBegin":0, "percentEnd":25}}</code></para><para>Datasource for training: <code>{"splitting":{"percentBegin":0, "percentEnd":25, "complement":"true"}}</code></para></li><li><para><b><code>strategy</code></b></para><para>To change how Amazon ML splits the data for a datasource, use the <code>strategy</code>
+        /// parameter.</para><para>The default value for the <code>strategy</code> parameter is <code>sequential</code>,
+        /// meaning that Amazon ML takes all of the data records between the <code>percentBegin</code>
+        /// and <code>percentEnd</code> parameters for the datasource, in the order that the records
+        /// appear in the input data.</para><para>The following two <code>DataRearrangement</code> lines are examples of sequentially
+        /// ordered training and evaluation datasources:</para><para>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100,
+        /// "strategy":"sequential"}}</code></para><para>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100,
+        /// "strategy":"sequential", "complement":"true"}}</code></para><para>To randomly split the input data into the proportions indicated by the percentBegin
+        /// and percentEnd parameters, set the <code>strategy</code> parameter to <code>random</code>
+        /// and provide a string that is used as the seed value for the random data splitting
+        /// (for example, you can use the S3 path to your data as the random seed string). If
+        /// you choose the random split strategy, Amazon ML assigns each row of data a pseudo-random
+        /// number between 0 and 100, and then selects the rows that have an assigned number between
+        /// <code>percentBegin</code> and <code>percentEnd</code>. Pseudo-random numbers are assigned
+        /// using both the input seed string value and the byte offset as a seed, so changing
+        /// the data results in a different split. Any existing ordering is preserved. The random
+        /// splitting strategy ensures that variables in the training and evaluation data are
+        /// distributed similarly. It is useful in the cases where the input data may have an
+        /// implicit sort order, which would otherwise result in training and evaluation datasources
+        /// containing non-similar data records.</para><para>The following two <code>DataRearrangement</code> lines are examples of non-sequentially
+        /// ordered training and evaluation datasources:</para><para>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100,
+        /// "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code></para><para>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100,
+        /// "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>
         /// <para> A JSON string that represents the schema for an Amazon S3 <code>DataSource</code>.
         /// The <code>DataSchema</code> defines the structure of the observation data in the data
-        /// file(s) referenced in the <code>DataSource</code>.</para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
+        /// file(s) referenced in the <code>DataSource</code>.</para><para>You must provide either the <code>DataSchema</code> or the <code>DataSchemaLocationS3</code>.</para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
         /// and <code>excludedVariableNames</code> have an array of key-value pairs for their
         /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para> "recordAnnotationFieldName": "F1",</para><para> "recordWeightFieldName": "F2",</para><para> "targetFieldName": "F3",</para><para> "dataFormat": "CSV",</para><para> "dataFileContainsHeader": true,</para><para> "attributes": [</para><para> { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
         /// }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType":
@@ -131,7 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter DataSpec_DataSchemaLocationS3
         /// <summary>
         /// <para>
-        /// <para>Describes the schema Location in Amazon S3.</para>
+        /// <para>Describes the schema location in Amazon S3. You must provide either the <code>DataSchema</code>
+        /// or the <code>DataSchemaLocationS3</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

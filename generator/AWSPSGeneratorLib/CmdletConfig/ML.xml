@@ -15,6 +15,10 @@
 
   <PipelineParameter>MLModelId</PipelineParameter>
        
+  <NounMappings>
+   <Map From="Tags" To="Tag" />
+  </NounMappings>
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateBatchPrediction">
       <Params>
@@ -98,6 +102,11 @@
         <Param Name="MLModelId" Alias="ModelId" />
       </Params>
     </ServiceOperation>
+	
+	<ServiceOperation MethodName="AddTags" PipelineParameter="ResourceId" Output="Response" />
+	<ServiceOperation MethodName="DescribeTags" PipelineParameter="ResourceId" Output="Response" />
+	<ServiceOperation MethodName="DeleteTags" PipelineParameter="ResourceId" Output="Response" />
+	
   </ServiceOperations>
   
 </ConfigModel>

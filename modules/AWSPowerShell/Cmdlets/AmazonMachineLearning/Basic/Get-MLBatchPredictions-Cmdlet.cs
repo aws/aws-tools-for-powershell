@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <summary>
         /// <para>
         /// <para>The number of pages of information to include in the result. The range of acceptable
-        /// values is 1 through 100. The default value is 100.</para>
+        /// values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

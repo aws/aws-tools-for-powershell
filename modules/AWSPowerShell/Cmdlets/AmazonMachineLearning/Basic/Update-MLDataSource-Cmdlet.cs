@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// 
     ///  
     /// <para>
-    /// You can use the <a>GetDataSource</a> operation to view the contents of the updated
+    /// You can use the <code>GetDataSource</code> operation to view the contents of the updated
     /// data element.
     /// </para>
     /// </summary>

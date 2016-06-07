@@ -28,8 +28,8 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Returns an <code>MLModel</code> that includes detailed metadata, and data source information
-    /// as well as the current status of the <code>MLModel</code>.
+    /// Returns an <code>MLModel</code> that includes detailed metadata, data source information,
+    /// and the current status of the <code>MLModel</code>.
     /// 
     ///  
     /// <para><code>GetMLModel</code> provides results in normal or verbose format. 

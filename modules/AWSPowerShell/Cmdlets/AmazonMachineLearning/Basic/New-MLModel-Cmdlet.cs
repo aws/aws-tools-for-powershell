@@ -28,25 +28,25 @@ using Amazon.MachineLearning.Model;
 namespace Amazon.PowerShell.Cmdlets.ML
 {
     /// <summary>
-    /// Creates a new <code>MLModel</code> using the data files and the recipe as information
-    /// sources. 
+    /// Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe
+    /// as information sources. 
     /// 
     ///  
     /// <para>
-    /// An <code>MLModel</code> is nearly immutable. Users can only update the <code>MLModelName</code>
+    /// An <code>MLModel</code> is nearly immutable. Users can update only the <code>MLModelName</code>
     /// and the <code>ScoreThreshold</code> in an <code>MLModel</code> without creating a
     /// new <code>MLModel</code>. 
     /// </para><para><code>CreateMLModel</code> is an asynchronous operation. In response to <code>CreateMLModel</code>,
     /// Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>MLModel</code>
-    /// status to <code>PENDING</code>. After the <code>MLModel</code> is created and ready
-    /// for use, Amazon ML sets the status to <code>COMPLETED</code>. 
+    /// status to <code>PENDING</code>. After the <code>MLModel</code> has been created and
+    /// ready is for use, Amazon ML sets the status to <code>COMPLETED</code>. 
     /// </para><para>
-    /// You can use the <a>GetMLModel</a> operation to check progress of the <code>MLModel</code>
+    /// You can use the <code>GetMLModel</code> operation to check the progress of the <code>MLModel</code>
     /// during the creation operation.
-    /// </para><para><a>CreateMLModel</a> requires a <code>DataSource</code> with computed statistics,
+    /// </para><para><code>CreateMLModel</code> requires a <code>DataSource</code> with computed statistics,
     /// which can be created by setting <code>ComputeStatistics</code> to <code>true</code>
-    /// in <a>CreateDataSourceFromRDS</a>, <a>CreateDataSourceFromS3</a>, or <a>CreateDataSourceFromRedshift</a>
-    /// operations. 
+    /// in <code>CreateDataSourcceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or
+    /// <code>CreateDataSourceFromRedshift</code> operations. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "MLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -102,21 +102,24 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <summary>
         /// <para>
         /// <para>A list of the training parameters in the <code>MLModel</code>. The list is implemented
-        /// as a map of key/value pairs.</para><para>The following is the current set of training parameters: </para><ul><li><para><code>sgd.l1RegularizationAmount</code> - Coefficient regularization L1 norm. It controls
-        /// overfitting the data by penalizing large coefficients. This tends to drive coefficients
-        /// to zero, resulting in sparse feature set. If you use this parameter, start by specifying
-        /// a small value such as 1.0E-08.</para><para>The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use
-        /// L1 normalization. The parameter cannot be used when <code>L2</code> is specified.
-        /// Use this parameter sparingly.</para></li><li><para><code>sgd.l2RegularizationAmount</code> - Coefficient regularization L2 norm. It controls
-        /// overfitting the data by penalizing large coefficients. This tends to drive coefficients
-        /// to small, nonzero values. If you use this parameter, start by specifying a small value
-        /// such as 1.0E-08.</para><para>The valuseis a double that ranges from 0 to MAX_DOUBLE. The default is not to use
-        /// L2 normalization. This cannot be used when <code>L1</code> is specified. Use this
-        /// parameter sparingly.</para></li><li><para><code>sgd.maxPasses</code> - Number of times that the training process traverses the
-        /// observations to build the <code>MLModel</code>. The value is an integer that ranges
-        /// from 1 to 10000. The default value is 10. </para></li><li><para><code>sgd.maxMLModelSizeInBytes</code> - Maximum allowed size of the model. Depending
-        /// on the input data, the size of the model might affect its performance.</para><para> The value is an integer that ranges from 100000 to 2147483648. The default value
-        /// is 33554432. </para></li></ul>
+        /// as a map of key-value pairs.</para><para>The following is the current set of training parameters: </para><ul><li><para><code>sgd.maxMLModelSizeInBytes</code> - The maximum allowed size of the model. Depending
+        /// on the input data, the size of the model might affect its performance.</para><para> The value is an integer that ranges from <code>100000</code> to <code>2147483648</code>.
+        /// The default value is <code>33554432</code>.</para></li><li><para><code>sgd.maxPasses</code> - The number of times that the training process traverses
+        /// the observations to build the <code>MLModel</code>. The value is an integer that ranges
+        /// from <code>1</code> to <code>10000</code>. The default value is <code>10</code>.</para></li><li><para><code>sgd.shuffleType</code> - Whether Amazon ML shuffles the training data. Shuffling
+        /// the data improves a model's ability to find the optimal solution for a variety of
+        /// data types. The valid values are <code>auto</code> and <code>none</code>. The default
+        /// value is <code>none</code>. We strongly recommend that you shuffle your data.</para></li><li><para><code>sgd.l1RegularizationAmount</code> - The coefficient regularization L1 norm.
+        /// It controls overfitting the data by penalizing large coefficients. This tends to drive
+        /// coefficients to zero, resulting in a sparse feature set. If you use this parameter,
+        /// start by specifying a small value, such as <code>1.0E-08</code>.</para><para>The value is a double that ranges from <code>0</code> to <code>MAX_DOUBLE</code>.
+        /// The default is to not use L1 normalization. This parameter can't be used when <code>L2</code>
+        /// is specified. Use this parameter sparingly.</para></li><li><para><code>sgd.l2RegularizationAmount</code> - The coefficient regularization L2 norm.
+        /// It controls overfitting the data by penalizing large coefficients. This tends to drive
+        /// coefficients to small, nonzero values. If you use this parameter, start by specifying
+        /// a small value, such as <code>1.0E-08</code>.</para><para>The value is a double that ranges from <code>0</code> to <code>MAX_DOUBLE</code>.
+        /// The default is to not use L2 normalization. This parameter can't be used when <code>L1</code>
+        /// is specified. Use this parameter sparingly.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         #region Parameter Recipe
         /// <summary>
         /// <para>
-        /// <para>The data recipe for creating <code>MLModel</code>. You must specify either the recipe
-        /// or its URI. If you don’t specify a recipe or its URI, Amazon ML creates a default.</para>
+        /// <para>The data recipe for creating the <code>MLModel</code>. You must specify either the
+        /// recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>
         /// <para>The Amazon Simple Storage Service (Amazon S3) location and file name that contains
         /// the <code>MLModel</code> recipe. You must specify either the recipe or its URI. If
-        /// you don’t specify a recipe or its URI, Amazon ML creates a default.</para>
+        /// you don't specify a recipe or its URI, Amazon ML creates a default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

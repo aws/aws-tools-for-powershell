@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// 
     ///  
     /// <para>
-    /// You can use the <a>GetMLModel</a> operation to view the contents of the updated data
-    /// element.
+    /// You can use the <code>GetMLModel</code> operation to view the contents of the updated
+    /// data element.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "MLMLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

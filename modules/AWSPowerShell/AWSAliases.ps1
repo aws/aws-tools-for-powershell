@@ -2087,8 +2087,12 @@ Set-Alias -Name LM-UpdateFunctionCode -Value Update-LMFunctionCode
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
 Set-Alias -Name MCA-GenerateDataSet -Value New-MCADataSet
+Set-Alias -Name ML-UpdateBatchPrediction -Value Update-MLBatchPrediction
+Set-Alias -Name ML-UpdateDataSource -Value Update-MLDataSource
 Set-Alias -Name ML-UpdateEvaluation -Value Update-MLEvaluation
 Set-Alias -Name ML-UpdateMLModel -Value Update-MLMLModel
+Set-Alias -Name Add-MLTags -Value Add-MLTag
+Set-Alias -Name ML-AddTags -Value Add-MLTag
 Set-Alias -Name Create-MLBatchPrediction -Value New-MLBatchPrediction
 Set-Alias -Name ML-CreateBatchPrediction -Value New-MLBatchPrediction
 Set-Alias -Name Create-MLDataSourceFromRDS -Value New-MLDataSourceFromRDS
@@ -2113,6 +2117,8 @@ Set-Alias -Name Delete-MLModel -Value Remove-MLModel
 Set-Alias -Name ML-DeleteMLModel -Value Remove-MLModel
 Set-Alias -Name Delete-MLRealtimeEndpoint -Value Remove-MLRealtimeEndpoint
 Set-Alias -Name ML-DeleteRealtimeEndpoint -Value Remove-MLRealtimeEndpoint
+Set-Alias -Name Delete-MLTags -Value Remove-MLTag
+Set-Alias -Name ML-DeleteTags -Value Remove-MLTag
 Set-Alias -Name Describe-MLBatchPredictions -Value Get-MLBatchPredictions
 Set-Alias -Name ML-DescribeBatchPredictions -Value Get-MLBatchPredictions
 Set-Alias -Name Describe-MLDataSources -Value Get-MLDataSources
@@ -2121,13 +2127,13 @@ Set-Alias -Name Describe-MLEvaluations -Value Get-MLEvaluations
 Set-Alias -Name ML-DescribeEvaluations -Value Get-MLEvaluations
 Set-Alias -Name Describe-MLModels -Value Get-MLModels
 Set-Alias -Name ML-DescribeMLModels -Value Get-MLModels
+Set-Alias -Name Describe-MLTags -Value Get-MLTag
+Set-Alias -Name ML-DescribeTags -Value Get-MLTag
 Set-Alias -Name ML-GetBatchPrediction -Value Get-MLBatchPrediction
 Set-Alias -Name ML-GetDataSource -Value Get-MLDataSource
 Set-Alias -Name ML-GetEvaluation -Value Get-MLEvaluation
 Set-Alias -Name ML-GetMLModel -Value Get-MLModel
 Set-Alias -Name ML-Predict -Value Get-MLPrediction
-Set-Alias -Name ML-UpdateBatchPrediction -Value Update-MLBatchPrediction
-Set-Alias -Name ML-UpdateDataSource -Value Update-MLDataSource
 Set-Alias -Name OPS-StartInstance -Value Start-OPSInstance
 Set-Alias -Name OPS-StartStack -Value Start-OPSStack
 Set-Alias -Name OPS-StopInstance -Value Stop-OPSInstance
