@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The new status.</para><para><b>Note:</b> Setting the status to PENDING_TRANSFER will result in an exception being
         /// thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended
-        /// for developer use.</para>
+        /// for developer use.</para><para><b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

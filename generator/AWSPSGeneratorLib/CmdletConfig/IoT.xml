@@ -93,6 +93,10 @@
                       NoPipelineParameter="true">
       <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
     </ServiceOperation>
+	<ServiceOperation MethodName="ListPolicyPrincipals" PipelineParameter="PolicyName" Verb="Get" Noun="PolicyPrincipalsList">
+      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+	</ServiceOperation>
+	
     <ServiceOperation MethodName="ListPolicyVersions"
                       Verb="Get"
                       Noun="PolicyVersionList">

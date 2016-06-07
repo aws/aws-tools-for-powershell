@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the versions of the specified policy, and identifies the default version.
+    /// Lists the versions of the specified policy and identifies the default version.
     /// </summary>
     [Cmdlet("Get", "IOTPolicyVersionList")]
     [OutputType("Amazon.IoT.Model.PolicyVersion")]

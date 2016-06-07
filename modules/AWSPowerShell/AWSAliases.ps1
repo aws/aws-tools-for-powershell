@@ -1911,6 +1911,7 @@ Set-Alias -Name INS-RemoveAttributesFromFindings -Value Remove-INSFindingAttribu
 Set-Alias -Name INS-SetTagsForResource -Value Set-INSResourceTag
 Set-Alias -Name INS-StartAssessmentRun -Value Start-INSAssessmentRun
 Set-Alias -Name INS-StopAssessmentRun -Value Stop-INSAssessmentRun
+Set-Alias -Name IOT-SetLoggingOptions -Value Set-IOTLoggingOptions
 Set-Alias -Name IOT-TransferCertificate -Value Request-IOTCertificateTransfer
 Set-Alias -Name IOT-UpdateCACertificate -Value Update-IOTCACertificate
 Set-Alias -Name IOT-UpdateCertificate -Value Update-IOTCertificate
@@ -1927,6 +1928,7 @@ Set-Alias -Name IOT-ListCACertificates -Value Get-IOTCACertificateList
 Set-Alias -Name IOT-ListCertificates -Value Get-IOTCertificateList
 Set-Alias -Name IOT-ListCertificatesByCA -Value Get-IOTCertificateListByCA
 Set-Alias -Name IOT-ListPolicies -Value Get-IOTPolicyList
+Set-Alias -Name IOT-ListPolicyPrincipals -Value Get-IOTPolicyPrincipalsList
 Set-Alias -Name IOT-ListPolicyVersions -Value Get-IOTPolicyVersionList
 Set-Alias -Name IOT-ListPrincipalPolicies -Value Get-IOTPrincipalPolicyList
 Set-Alias -Name IOT-ListPrincipalThings -Value Get-IOTPrincipalThingList
@@ -1938,7 +1940,6 @@ Set-Alias -Name IOT-RegisterCertificate -Value Register-IOTCertificate
 Set-Alias -Name IOT-RejectCertificateTransfer -Value Deny-IOTCertificateTransfer
 Set-Alias -Name IOT-ReplaceTopicRule -Value Set-IOTTopicRule
 Set-Alias -Name IOT-SetDefaultPolicyVersion -Value Set-IOTDefaultPolicyVersion
-Set-Alias -Name IOT-SetLoggingOptions -Value Set-IOTLoggingOptions
 Set-Alias -Name IOT-AcceptCertificateTransfer -Value Confirm-IOTCertificateTransfer
 Set-Alias -Name IOT-AttachPrincipalPolicy -Value Add-IOTPrincipalPolicy
 Set-Alias -Name IOT-AttachThingPrincipal -Value Add-IOTThingPrincipal

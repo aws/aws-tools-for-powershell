@@ -40,9 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// of CSRs. 
     /// </para><para>
     /// Assuming a set of CSRs are located inside of the directory my-csr-directory:
-    /// </para>
-    /// &gt; 
-    /// <para>
+    /// </para><para>
     /// On Linux and OS X, the command is:
     /// </para><para>
     /// $ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request
