@@ -1,3 +1,9 @@
+### 3.1.75.0 (2016-06-07)
+  * AWS IoT
+    - Added a new cmdlet, Get-IOTPolicyPrincipalsList, to support the new ListPolicyPrincipals API. ListPolicyPrincipals allows you to list all your principals (certificate or other credential, such as Amazon Cognito ID) attached to a given policy.
+  * Amazon Machine Learning
+    - Added support for new tagging APIs with new cmdlets Add-MLTag (AddTags API), Get-MLTag (DescribeTags API) and Remove-MLTag (DeleteTags API). Tags are commonly used for cost allocation and can be applied to Amazon Machine Learning datasources, models, evaluations, and batch predictions.
+
 ### 3.1.74.0 (2016-06-03)
   * AWS CodeDeploy
     - Added automatic pagination support to the Get-CDApplicationList, Get-CDApplicationRevisionList, Get-CDDeploymentConfigList, Get-CDDeploymentInstanceList, Get-CDDeploymentList and Get-CDOnPremiseInstanceList cmdlets.
