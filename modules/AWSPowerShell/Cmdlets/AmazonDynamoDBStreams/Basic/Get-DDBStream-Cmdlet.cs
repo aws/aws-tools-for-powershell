@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// If the <code>SequenceNumberRange</code> has a <code>StartingSequenceNumber</code>
     /// but no <code>EndingSequenceNumber</code>, then the shard is still open (able to receive
     /// more stream records). If both <code>StartingSequenceNumber</code> and <code>EndingSequenceNumber</code>
-    /// are present, the that shared is closed and can no longer receive more data.
+    /// are present, then that shard is closed and can no longer receive more data.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DDBStream")]
