@@ -69,29 +69,36 @@
             docsBase = "http://docs.aws.amazon.com";
         else
             docsBase = window.location.protocol + "//" + window.location.host;
-        var si = jQuery("#sel").attr("selectedIndex");
-        var so = jQuery("#sel").attr("options").item(si).value;
+        var so = jQuery("#sel").val();
         if (so.indexOf("documentation") === 0) {
             var this_doc_product = jQuery("#this_doc_product").val();
             var this_doc_guide = jQuery("#this_doc_guide").val();
             var action = "";
             var facet = "";
-            if (so === "documentation-product" || so === "documentation-guide") {
+            if (so === "documentation-product" || so === "documentation-guide")
+            {
                 action += "?doc_product=" + encodeURIComponent(this_doc_product);
                 facet += "#facet_doc_product=" + encodeURIComponent(this_doc_product);
-                if (so === "documentation-guide") {
+                if (so === "documentation-guide")
+                {
                     action += "&doc_guide=" + encodeURIComponent(this_doc_guide);
                     facet += "&facet_doc_guide=" + encodeURIComponent(this_doc_guide);
                 }
             }
-            if (jQuery.browser.msie) {
-                var sq = jQuery("#sq").val();
+
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE ');
+            var trident = ua.indexOf('Trident/');
+
+            if (msie > 0 || trident > 0)
+            {
+                var sq = jQuery("#search-query").val();
                 action += "&searchPath=" + encodeURIComponent(so);
                 action += "&searchQuery=" + encodeURIComponent(sq);
-                window.location.href = docsBase + "/search/doc-search.html" + action + facet;
+                window.location.href = "/search/doc-search.html" + action + facet;
                 return false;
             } else {
-                formElement.action = docsBase + "/search/doc-search.html" + facet;
+                formElement.action = "/search/doc-search.html" + facet;
             }
         } else {
             formElement.action = "http://aws.amazon.com/search";
