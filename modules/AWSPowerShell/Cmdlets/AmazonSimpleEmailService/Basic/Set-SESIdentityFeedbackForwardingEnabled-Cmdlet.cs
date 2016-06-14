@@ -28,13 +28,15 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Given an identity (email address or domain), enables or disables whether Amazon SES
-    /// forwards bounce and complaint notifications as email. Feedback forwarding can only
-    /// be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified
+    /// Given an identity (an email address or a domain), enables or disables whether Amazon
+    /// SES forwards bounce and complaint notifications as email. Feedback forwarding can
+    /// only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified
     /// for both bounces and complaints.
     /// 
-    ///  <note>Feedback forwarding does not apply to delivery notifications. Delivery notifications
-    /// are only available through Amazon SNS.</note><para>
+    ///  <note><para>
+    /// Feedback forwarding does not apply to delivery notifications. Delivery notifications
+    /// are only available through Amazon SNS.
+    /// </para></note><para>
     /// This action is throttled at one request per second.
     /// </para><para>
     /// For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon

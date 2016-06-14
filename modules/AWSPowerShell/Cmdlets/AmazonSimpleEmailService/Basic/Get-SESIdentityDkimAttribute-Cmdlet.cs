@@ -36,11 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <para>
     /// This action takes a list of identities as input and returns the following information
     /// for each:
-    /// </para><ul><li>Whether Easy DKIM signing is enabled or disabled.</li><li>A set of DKIM
-    /// tokens that represent the identity. If the identity is an email address, the tokens
-    /// represent the domain of that address.</li><li>Whether Amazon SES has successfully
-    /// verified the DKIM tokens published in the domain's DNS. This information is only returned
-    /// for domain name identities, not for email addresses.</li></ul><para>
+    /// </para><ul><li><para>
+    /// Whether Easy DKIM signing is enabled or disabled.
+    /// </para></li><li><para>
+    /// A set of DKIM tokens that represent the identity. If the identity is an email address,
+    /// the tokens represent the domain of that address.
+    /// </para></li><li><para>
+    /// Whether Amazon SES has successfully verified the DKIM tokens published in the domain's
+    /// DNS. This information is only returned for domain name identities, not for email addresses.
+    /// </para></li></ul><para>
     /// This action is throttled at one request per second and can only get DKIM attributes
     /// for up to 100 identities at a time.
     /// </para><para>

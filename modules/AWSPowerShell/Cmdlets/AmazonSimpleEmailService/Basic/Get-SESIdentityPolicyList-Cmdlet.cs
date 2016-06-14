@@ -29,11 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Returns a list of sending authorization policies that are attached to the given identity
-    /// (email address or domain). This API returns only a list. If you want the actual policy
-    /// content, you can use <code>GetIdentityPolicies</code>.
+    /// (an email address or a domain). This API returns only a list. If you want the actual
+    /// policy content, you can use <code>GetIdentityPolicies</code>.
     /// 
-    ///  <note>This API is for the identity owner only. If you have not verified the identity,
-    /// this API will return an error.</note><para>
+    ///  <note><para>
+    /// This API is for the identity owner only. If you have not verified the identity, this
+    /// API will return an error.
+    /// </para></note><para>
     /// Sending authorization is a feature that enables an identity owner to authorize other
     /// senders to use its identities. For information about using sending authorization,
     /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon

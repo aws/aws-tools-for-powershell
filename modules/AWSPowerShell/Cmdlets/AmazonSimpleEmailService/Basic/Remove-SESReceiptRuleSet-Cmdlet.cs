@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <summary>
     /// Deletes the specified receipt rule set and all of the receipt rules it contains.
     /// 
-    ///  <note>The currently active rule set cannot be deleted.</note><para>
+    ///  <note><para>
+    /// The currently active rule set cannot be deleted.
+    /// </para></note><para>
     /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
     /// SES Developer Guide</a>.
     /// </para><para>

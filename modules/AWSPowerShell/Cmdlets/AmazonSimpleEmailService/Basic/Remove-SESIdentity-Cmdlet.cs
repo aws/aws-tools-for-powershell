@@ -28,7 +28,7 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Deletes the specified identity (email address or domain) from the list of verified
+    /// Deletes the specified identity (an email address or a domain) from the list of verified
     /// identities.
     /// 
     ///  

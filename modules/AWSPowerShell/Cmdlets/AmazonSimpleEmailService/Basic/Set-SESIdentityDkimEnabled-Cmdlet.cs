@@ -30,10 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <summary>
     /// Enables or disables Easy DKIM signing of email sent from an identity:
     /// 
-    ///  <ul><li>If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>),
+    ///  <ul><li><para>
+    /// If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>),
     /// then Amazon SES will DKIM-sign all email sent by addresses under that domain name
-    /// (e.g., <code>user@example.com</code>).</li><li>If Easy DKIM signing is enabled for
-    /// an email address, then Amazon SES will DKIM-sign all email sent by that email address.</li></ul><para>
+    /// (e.g., <code>user@example.com</code>).
+    /// </para></li><li><para>
+    /// If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign
+    /// all email sent by that email address.
+    /// </para></li></ul><para>
     /// For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy
     /// DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been
     /// set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.

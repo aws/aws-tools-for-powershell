@@ -29,26 +29,31 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Composes an email message based on input data, and then immediately queues the message
-    /// for sending. 
+    /// for sending.
     /// 
     ///  
     /// <para>
     /// There are several important points to know about <code>SendEmail</code>:
-    /// </para><ul><li>You can only send email from verified email addresses and domains; otherwise,
-    /// you will get an "Email address not verified" error. If your account is still in the
-    /// Amazon SES sandbox, you must also verify every recipient email address except for
-    /// the recipients provided by the Amazon SES mailbox simulator. For more information,
-    /// go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
-    /// SES Developer Guide</a>.</li><li>The total size of the message cannot exceed 10 MB.
-    /// This includes any attachments that are part of the message.</li><li>Amazon SES has
-    /// a limit on the total number of recipients per message. The combined number of To:,
-    /// CC: and BCC: email addresses cannot exceed 50. If you need to send an email message
-    /// to a larger audience, you can divide your recipient list into groups of 50 or fewer,
-    /// and then call Amazon SES repeatedly to send the message to each group.</li><li>For
-    /// every message that you send, the total number of recipients (To:, CC: and BCC:) is
-    /// counted against your sending quota - the maximum number of emails you can send in
-    /// a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon
-    /// SES Developer Guide</a>.</li></ul>
+    /// </para><ul><li><para>
+    /// You can only send email from verified email addresses and domains; otherwise, you
+    /// will get an "Email address not verified" error. If your account is still in the Amazon
+    /// SES sandbox, you must also verify every recipient email address except for the recipients
+    /// provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para></li><li><para>
+    /// The total size of the message cannot exceed 10 MB. This includes any attachments that
+    /// are part of the message.
+    /// </para></li><li><para>
+    /// Amazon SES has a limit on the total number of recipients per message. The combined
+    /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
+    /// an email message to a larger audience, you can divide your recipient list into groups
+    /// of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+    /// </para></li><li><para>
+    /// For every message that you send, the total number of recipients (To:, CC: and BCC:)
+    /// is counted against your sending quota - the maximum number of emails you can send
+    /// in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Send", "SESEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -152,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <summary>
         /// <para>
         /// <para>The reply-to email address(es) for the message. If the recipient replies to the message,
-        /// each reply-to address will receive the reply. </para>
+        /// each reply-to address will receive the reply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

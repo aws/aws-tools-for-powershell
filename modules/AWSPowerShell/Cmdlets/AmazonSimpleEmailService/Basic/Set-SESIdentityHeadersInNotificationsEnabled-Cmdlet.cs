@@ -28,54 +28,67 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Reorders the receipt rules within a receipt rule set.
+    /// Given an identity (an email address or a domain), sets whether Amazon SES includes
+    /// the original email headers in the Amazon Simple Notification Service (Amazon SNS)
+    /// notifications of a specified type.
     /// 
-    ///  <note><para>
-    /// All of the rules in the rule set must be represented in this request. That is, this
-    /// API will return an error if the reorder request doesn't explicitly position all of
-    /// the rules.
-    /// </para></note><para>
-    /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
+    ///  
+    /// <para>
     /// This action is throttled at one request per second.
+    /// </para><para>
+    /// For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// SES Developer Guide</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Set", "SESReceiptRuleSetOrder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Set", "SESIdentityHeadersInNotificationsEnabled", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ReorderReceiptRuleSet operation against Amazon Simple Email Service.", Operation = new[] {"ReorderReceiptRuleSet"})]
+    [AWSCmdlet("Invokes the SetIdentityHeadersInNotificationsEnabled operation against Amazon Simple Email Service.", Operation = new[] {"SetIdentityHeadersInNotificationsEnabled"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSESReceiptRuleSetOrderCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public class SetSESIdentityHeadersInNotificationsEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter RuleName
+        #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>A list of the specified receipt rule set's receipt rules in the order that you want
-        /// to put them.</para>
+        /// <para>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications
+        /// of the specified notification type. A value of <code>true</code> specifies that Amazon
+        /// SES will include headers in notifications, and a value of <code>false</code> specifies
+        /// that Amazon SES will not include headers in notifications.</para><para>This value can only be set when <code>NotificationType</code> is already set to use
+        /// a particular Amazon SNS topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Identity
+        /// <summary>
+        /// <para>
+        /// <para>The identity for which to enable or disable headers in notifications. Examples: <code>user@example.com</code>,
+        /// <code>example.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("RuleNames")]
-        public System.String[] RuleName { get; set; }
+        public System.String Identity { get; set; }
         #endregion
         
-        #region Parameter RuleSetName
+        #region Parameter NotificationType
         /// <summary>
         /// <para>
-        /// <para>The name of the receipt rule set to reorder.</para>
+        /// <para>The notification type for which to enable or disable headers in notifications. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RuleSetName { get; set; }
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleEmail.NotificationType")]
+        public Amazon.SimpleEmail.NotificationType NotificationType { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the RuleName parameter.
+        /// Returns the value passed to the Identity parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RuleName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SESReceiptRuleSetOrder (ReorderReceiptRuleSet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Identity", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SESIdentityHeadersInNotificationsEnabled (SetIdentityHeadersInNotificationsEnabled)"))
             {
                 return;
             }
@@ -108,11 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.RuleName != null)
-            {
-                context.RuleNames = new List<System.String>(this.RuleName);
-            }
-            context.RuleSetName = this.RuleSetName;
+            if (ParameterWasBound("Enabled"))
+                context.Enabled = this.Enabled;
+            context.Identity = this.Identity;
+            context.NotificationType = this.NotificationType;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -124,15 +136,19 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest();
+            var request = new Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledRequest();
             
-            if (cmdletContext.RuleNames != null)
+            if (cmdletContext.Enabled != null)
             {
-                request.RuleNames = cmdletContext.RuleNames;
+                request.Enabled = cmdletContext.Enabled.Value;
             }
-            if (cmdletContext.RuleSetName != null)
+            if (cmdletContext.Identity != null)
             {
-                request.RuleSetName = cmdletContext.RuleSetName;
+                request.Identity = cmdletContext.Identity;
+            }
+            if (cmdletContext.NotificationType != null)
+            {
+                request.NotificationType = cmdletContext.NotificationType;
             }
             
             CmdletOutput output;
@@ -141,11 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
+                var response = client.SetIdentityHeadersInNotificationsEnabled(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RuleName;
+                    pipelineOutput = this.Identity;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,19 +184,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
-        #region AWS Service Operation Call
-        
-        private static Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest request)
-        {
-            return client.ReorderReceiptRuleSet(request);
-        }
-        
-        #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> RuleNames { get; set; }
-            public System.String RuleSetName { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public System.String Identity { get; set; }
+            public Amazon.SimpleEmail.NotificationType NotificationType { get; set; }
         }
         
     }

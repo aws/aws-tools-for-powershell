@@ -75,6 +75,8 @@
     <ServiceOperation MethodName="SetReceiptRulePosition" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
     <ServiceOperation MethodName="UpdateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
     
+	<ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Output="Void" PipelineParameter="Identity" />
+	
   </ServiceOperations>
 
   <PipelineByValueProperties>

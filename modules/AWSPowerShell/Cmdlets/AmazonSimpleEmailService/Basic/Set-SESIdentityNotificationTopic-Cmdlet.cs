@@ -28,13 +28,14 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Given an identity (email address or domain), sets the Amazon Simple Notification Service
-    /// (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery
-    /// notifications for emails sent with that identity as the <code>Source</code>.
+    /// Given an identity (an email address or a domain), sets the Amazon Simple Notification
+    /// Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or
+    /// delivery notifications for emails sent with that identity as the <code>Source</code>.
     /// 
-    ///  <note>Unless feedback forwarding is enabled, you must specify Amazon SNS topics for
-    /// bounce and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>.
-    /// </note><para>
+    ///  <note><para>
+    /// Unless feedback forwarding is enabled, you must specify Amazon SNS topics for bounce
+    /// and complaint notifications. For more information, see <code>SetIdentityFeedbackForwardingEnabled</code>.
+    /// </para></note><para>
     /// This action is throttled at one request per second.
     /// </para><para>
     /// For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon

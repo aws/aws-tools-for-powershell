@@ -28,11 +28,13 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Adds or updates a sending authorization policy for the specified identity (email address
-    /// or domain).
+    /// Adds or updates a sending authorization policy for the specified identity (an email
+    /// address or a domain).
     /// 
-    ///  <note>This API is for the identity owner only. If you have not verified the identity,
-    /// this API will return an error.</note><para>
+    ///  <note><para>
+    /// This API is for the identity owner only. If you have not verified the identity, this
+    /// API will return an error.
+    /// </para></note><para>
     /// Sending authorization is a feature that enables an identity owner to authorize other
     /// senders to use its identities. For information about using sending authorization,
     /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon

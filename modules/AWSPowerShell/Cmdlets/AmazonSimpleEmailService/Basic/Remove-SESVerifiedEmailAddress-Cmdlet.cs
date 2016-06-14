@@ -30,8 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <summary>
     /// Deletes the specified email address from the list of verified addresses.
     /// 
-    ///  <important>The DeleteVerifiedEmailAddress action is deprecated as of the May 15,
-    /// 2012 release of Domain Verification. The DeleteIdentity action is now preferred.</important><para>
+    ///  <important><para>
+    /// The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release
+    /// of Domain Verification. The DeleteIdentity action is now preferred.
+    /// </para></important><para>
     /// This action is throttled at one request per second.
     /// </para>
     /// </summary>

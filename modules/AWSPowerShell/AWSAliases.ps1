@@ -2647,6 +2647,7 @@ Set-Alias -Name SES-SendRawEmail -Value Send-SESRawEmail
 Set-Alias -Name SES-SetActiveReceiptRuleSet -Value Set-SESActiveReceiptRuleSet
 Set-Alias -Name SES-SetIdentityDkimEnabled -Value Set-SESIdentityDkimEnabled
 Set-Alias -Name SES-SetIdentityFeedbackForwardingEnabled -Value Set-SESIdentityFeedbackForwardingEnabled
+Set-Alias -Name SES-SetIdentityHeadersInNotificationsEnabled -Value Set-SESIdentityHeadersInNotificationsEnabled
 Set-Alias -Name SES-SetIdentityMailFromDomain -Value Set-SESIdentityMailFromDomain
 Set-Alias -Name SES-SetIdentityNotificationTopic -Value Set-SESIdentityNotificationTopic
 Set-Alias -Name SES-SetReceiptRulePosition -Value Set-SESReceiptRulePosition

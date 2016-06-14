@@ -28,14 +28,16 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Enables or disables the custom MAIL FROM domain setup for a verified identity (email
-    /// address or domain). 
+    /// Enables or disables the custom MAIL FROM domain setup for a verified identity (an
+    /// email address or a domain).
     /// 
-    ///  <important>To send emails using the specified MAIL FROM domain, you must add an MX
-    /// record to your MAIL FROM domain's DNS settings. If you want your emails to pass Sender
-    /// Policy Framework (SPF) checks, you must also add or update an SPF record. For more
-    /// information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon
-    /// SES Developer Guide</a>.</important><para>
+    ///  <important><para>
+    /// To send emails using the specified MAIL FROM domain, you must add an MX record to
+    /// your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy
+    /// Framework (SPF) checks, you must also add or update an SPF record. For more information,
+    /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para></important><para>
     /// This action is throttled at one request per second.
     /// </para>
     /// </summary>
