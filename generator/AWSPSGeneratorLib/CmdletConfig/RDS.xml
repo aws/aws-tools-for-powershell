@@ -184,6 +184,8 @@
 
     <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" />
     <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Noun="DBClusterSnapshotAttribute" />
+	
+	<ServiceOperation MethodName="PromoteReadReplicaDBCluster" Verb="Convert" Noun="ReadReplicaDBCluster"/>
 
   </ServiceOperations>
 

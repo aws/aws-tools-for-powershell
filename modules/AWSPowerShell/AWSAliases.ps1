@@ -2274,6 +2274,7 @@ Set-Alias -Name RDS-ModifyEventSubscription -Value Edit-RDSEventSubscription
 Set-Alias -Name Modify-RDSOptionGroup -Value Edit-RDSOptionGroup
 Set-Alias -Name RDS-ModifyOptionGroup -Value Edit-RDSOptionGroup
 Set-Alias -Name RDS-PromoteReadReplica -Value Convert-RDSReadReplicaToStandalone
+Set-Alias -Name RDS-PromoteReadReplicaDBCluster -Value Convert-RDSReadReplicaDBCluster
 Set-Alias -Name RDS-PurchaseReservedDBInstancesOffering -Value Get-RDSReservedDBInstancesOffering
 Set-Alias -Name Reboot-RDSDBInstance -Value Restart-RDSDBInstance
 Set-Alias -Name RDS-RebootDBInstance -Value Restart-RDSDBInstance
