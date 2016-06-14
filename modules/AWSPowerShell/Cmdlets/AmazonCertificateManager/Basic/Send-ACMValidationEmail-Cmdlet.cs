@@ -28,8 +28,8 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Resends the email that requests domain ownership validation. The domain owner or
-    /// an authorized representative must approve the ACM Certificate before it can be issued.
+    /// Resends the email that requests domain ownership validation. The domain owner or an
+    /// authorized representative must approve the ACM Certificate before it can be issued.
     /// The certificate can be approved by clicking a link in the mail to navigate to the
     /// Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
     /// validation email can be blocked by spam filters. Therefore, if you do not receive
@@ -50,10 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para> String that contains the ARN of the requested certificate. The certificate ARN is
+        /// <para>String that contains the ARN of the requested certificate. The certificate ARN is
         /// generated and returned by the <a>RequestCertificate</a> action as soon as the request
         /// is made. By default, using this parameter causes email to be sent to all top-level
-        /// domains you specified in the certificate request. </para><para> The ARN must be of the form: </para><para><code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para>
+        /// domains you specified in the certificate request.</para><para>The ARN must be of the form:</para><para><code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The Fully Qualified Domain Name (FQDN) of the certificate that needs to be validated.
-        /// </para>
+        /// <para>The Fully Qualified Domain Name (FQDN) of the certificate that needs to be validated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,12 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter ValidationDomain
         /// <summary>
         /// <para>
-        /// <para> The base validation domain that will act as the suffix of the email addresses that
+        /// <para>The base validation domain that will act as the suffix of the email addresses that
         /// are used to send the emails. This must be the same as the <code>Domain</code> value
         /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
         /// certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
         /// of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical
-        /// contact, and administrative contact in WHOIS and the following five addresses: <ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul></para>
+        /// contact, and administrative contact in WHOIS and the following five addresses:</para><ul><li><para>admin@subdomain.example.com</para></li><li><para>administrator@subdomain.example.com</para></li><li><para>hostmaster@subdomain.example.com</para></li><li><para>postmaster@subdomain.example.com</para></li><li><para>webmaster@subdomain.example.com</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

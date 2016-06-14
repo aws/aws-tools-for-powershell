@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
     /// action. The certificate will not be available for use by other AWS services.
     /// 
-    ///  <note>You cannot delete an ACM Certificate that is being used by another AWS service.
-    /// To delete a certificate that is in use, the certificate association must first be
-    /// removed. </note>
+    ///  <note><para>
+    /// You cannot delete an ACM Certificate that is being used by another AWS service. To
+    /// delete a certificate that is in use, the certificate association must first be removed.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -50,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para> String that contains the ARN of the ACM Certificate to be deleted. This must be of
-        /// the form: </para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para> For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
+        /// <para>String that contains the ARN of the ACM Certificate to be deleted. This must be of
+        /// the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

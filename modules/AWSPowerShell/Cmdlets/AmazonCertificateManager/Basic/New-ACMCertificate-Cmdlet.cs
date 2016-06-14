@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// specify additional FQDNs if users can reach your site by using other names. For each
     /// domain name you specify, email is sent to the domain owner to request approval to
     /// issue the certificate. After receiving approval from the domain owner, the ACM Certificate
-    /// is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
-    /// AWS Certificate Manager User Guide </a>.
+    /// is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">AWS
+    /// Certificate Manager User Guide </a>.
     /// </summary>
     [Cmdlet("New", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> Fully qualified domain name (FQDN), such as www.example.com, of the site you want
+        /// <para>Fully qualified domain name (FQDN), such as www.example.com, of the site you want
         /// to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate
         /// that protects several sites in the same domain. For example, *.example.com protects
-        /// www.example.com, site.example.com, and images.example.com. </para>
+        /// www.example.com, site.example.com, and images.example.com.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,12 +62,12 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainValidationOption
         /// <summary>
         /// <para>
-        /// <para> The base validation domain that will act as the suffix of the email addresses that
+        /// <para>The base validation domain that will act as the suffix of the email addresses that
         /// are used to send the emails. This must be the same as the <code>Domain</code> value
         /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
         /// certificate for <code>test.example.com</code> and specify <b>DomainValidationOptions</b>
         /// of <code>example.com</code>, ACM sends email to the domain registrant, technical contact,
-        /// and administrative contact in WHOIS and the following five addresses: <ul><li><para>admin@example.com</para></li><li><para>administrator@example.com</para></li><li><para>hostmaster@example.com</para></li><li><para>postmaster@example.com</para></li><li><para>webmaster@example.com</para></li></ul></para>
+        /// and administrative contact in WHOIS and the following five addresses:</para><ul><li><para>admin@example.com</para></li><li><para>administrator@example.com</para></li><li><para>hostmaster@example.com</para></li><li><para>postmaster@example.com</para></li><li><para>webmaster@example.com</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,12 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para> Customer chosen string that can be used to distinguish between calls to <code>RequestCertificate</code>.
+        /// <para>Customer chosen string that can be used to distinguish between calls to <code>RequestCertificate</code>.
         /// Idempotency tokens time out after one hour. Therefore, if you call <code>RequestCertificate</code>
         /// multiple times with the same idempotency token within one hour, ACM recognizes that
         /// you are requesting only one certificate and will issue only one. If you change the
-        /// idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
-        /// </para>
+        /// idempotency token for each call, ACM recognizes that you are requesting multiple certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter SubjectAlternativeName
         /// <summary>
         /// <para>
-        /// <para> Additional FQDNs to be included in the Subject Alternative Name extension of the
-        /// ACM Certificate. For example, add the name www.example.net to a certificate for which
+        /// <para>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM
+        /// Certificate. For example, add the name www.example.net to a certificate for which
         /// the <code>DomainName</code> field is www.example.com if users can reach your site
-        /// by using either name. </para>
+        /// by using either name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

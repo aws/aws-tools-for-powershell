@@ -28,12 +28,8 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Retrieves a list of the ACM Certificate ARNs, and the domain name for each ARN, owned
-    /// by the calling account. You can filter the list based on the <code>CertificateStatuses</code>
-    /// parameter, and you can display up to <code>MaxItems</code> certificates at one time.
-    /// If you have more than <code>MaxItems</code> certificates, use the <code>NextToken</code>
-    /// marker from the response object in your next call to the <code>ListCertificates</code>
-    /// action to retrieve the next set of certificate ARNs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list of ACM Certificates and the domain name for each. You can optionally
+    /// filter the list to return only the certificates that match the specified status.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
@@ -49,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateStatus
         /// <summary>
         /// <para>
-        /// <para> Identifies the statuses of the ACM Certificates for which you want to retrieve the
-        /// ARNs. This can be one or more of the following values: <ul><li><para><code>PENDING_VALIDATION</code></para></li><li><para><code>ISSUED</code></para></li><li><para><code>INACTIVE</code></para></li><li><para><code>EXPIRED</code></para></li><li><para><code>VALIDATION_TIMED_OUT</code></para></li><li><para><code>REVOKED</code></para></li><li><para><code>FAILED</code></para></li></ul></para>
+        /// <para>The status or statuses on which to filter the list of ACM Certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -61,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para> Specify this parameter when paginating results to indicate the maximum number of
-        /// ACM Certificates that you want to display for each response. If there are additional
-        /// certificates beyond the maximum you specify, use the <code>NextToken</code> value
-        /// in your next call to the <code>ListCertificates</code> action. </para>
+        /// <para>Use this parameter when paginating results to specify the maximum number of items
+        /// to return in the response. If additional items exist beyond the number you specify,
+        /// the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code>
+        /// value in a subsequent request to retrieve additional items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,11 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> String that contains an opaque marker of the next ACM Certificate ARN to be displayed.
-        /// Use this parameter when paginating results, and only in a subsequent request after
-        /// you've received a response where the results have been truncated. Set it to an empty
-        /// string the first time you call this action, and set it to the value of the <code>NextToken</code>
-        /// element you receive in the response object for subsequent calls. </para>
+        /// <para>Use this parameter only when paginating results and only in a subsequent request after
+        /// you receive a response with truncated results. Set it to the value of <code>NextToken</code>
+        /// from the response you just received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
