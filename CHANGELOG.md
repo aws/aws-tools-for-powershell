@@ -1,4 +1,10 @@
-### 3.1.75.0 (2016-06-07)
+### 3.1.76.0 (2016-06-14)
+  * Amazon Relational Database Service
+    - Added a new cmdlet, Convert-RDSReadReplicaDBCluster, to support the new PromoteReadReplicaDBCluster API.
+  * Amazon Simple Email Service
+    - Added a new cmdlet, Set-SESIdentityHeadersInNotificationsEnable, to support the new SetIdentityHeadersInNotificationsEnabled API.
+
+ ### 3.1.75.0 (2016-06-07)
   * AWS IoT
     - Added a new cmdlet, Get-IOTPolicyPrincipalsList, to support the new ListPolicyPrincipals API. ListPolicyPrincipals allows you to list all your principals (certificate or other credential, such as Amazon Cognito ID) attached to a given policy.
   * Amazon Machine Learning
