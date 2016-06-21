@@ -33,7 +33,7 @@
 	<ServiceOperation MethodName="PutThirdPartyJobFailureResult" Output="Void" PipelineParameter="JobId"/>
 	<ServiceOperation MethodName="PutThirdPartyJobSuccessResult" Output="Void" PipelineParameter="JobId" />
 	<ServiceOperation MethodName="StartPipelineExecution" />
-	<ServiceOperation MethodName="UpdatePipeline" />
+	<ServiceOperation MethodName="RetryStageExecution" Verb="Redo" PipelineParameter="PipelineName"/>
+	<ServiceOperation MethodName="UpdatePipeline"/>
   </ServiceOperations>
-  
 </ConfigModel>

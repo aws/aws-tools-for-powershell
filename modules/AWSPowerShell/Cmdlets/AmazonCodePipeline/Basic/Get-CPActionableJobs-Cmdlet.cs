@@ -51,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>A category defines what kind of action can be taken in the stage, and constrains the
-        /// provider type for the action. Valid categories are limited to one of the values below.
-        /// </para>
+        /// provider type for the action. Valid categories are limited to one of the values below.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ActionTypeId_Version
         /// <summary>
         /// <para>
-        /// <para>A string that identifies the action type. </para>
+        /// <para>A string that identifies the action type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ActionTypeId_Owner
         /// <summary>
         /// <para>
-        /// <para>The creator of the action being called. </para>
+        /// <para>The creator of the action being called.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

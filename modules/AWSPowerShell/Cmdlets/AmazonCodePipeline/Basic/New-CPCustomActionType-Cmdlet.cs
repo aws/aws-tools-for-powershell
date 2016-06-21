@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Category
         /// <summary>
         /// <para>
-        /// <para>The category of the custom action, such as a source action or a build action.</para><note>Although Source is listed as a valid value, it is not currently functional.
-        /// This value is reserved for future use.</note>
+        /// <para>The category of the custom action, such as a source action or a build action.</para><note><para>Although Source is listed as a valid value, it is not currently functional. This value
+        /// is reserved for future use.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,11 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter ConfigurationProperty
         /// <summary>
         /// <para>
-        /// <para>The configuration properties for the custom action.</para><note>You can refer to a name in the configuration properties of the custom action
-        /// within the URL templates by following the format of {Config:<i>name</i>}, as long
-        /// as the configuration property is both required and not secret. For more information,
-        /// see <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create
-        /// a Custom Action for a Pipeline</a>.</note>
+        /// <para>The configuration properties for the custom action.</para><note><para>You can refer to a name in the configuration properties of the custom action within
+        /// the URL templates by following the format of {Config:name}, as long as the configuration
+        /// property is both required and not secret. For more information, see <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html">Create
+        /// a Custom Action for a Pipeline</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The URL of a sign-up page where users can sign up for an external service and perform
-        /// initial configuration of the action provided by that service. </para>
+        /// initial configuration of the action provided by that service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -168,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version number of the custom action. </para>
+        /// <para>The version number of the custom action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

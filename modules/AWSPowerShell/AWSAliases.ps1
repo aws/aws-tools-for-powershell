@@ -599,6 +599,7 @@ Set-Alias -Name CD-ListDeploymentConfigs -Value Get-CDDeploymentConfigList
 Set-Alias -Name CD-ListDeploymentGroups -Value Get-CDDeploymentGroupList
 Set-Alias -Name CD-ListDeploymentInstances -Value Get-CDDeploymentInstanceList
 Set-Alias -Name CD-ListDeployments -Value Get-CDDeploymentList
+Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
 Set-Alias -Name CP-AcknowledgeJob -Value Confirm-CPJob
 Set-Alias -Name CP-AcknowledgeThirdPartyJob -Value Confirm-CPThirdPartyJob
 Set-Alias -Name Create-CPCustomActionType -Value New-CPCustomActionType
@@ -629,8 +630,8 @@ Set-Alias -Name Put-CPThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFai
 Set-Alias -Name CP-PutThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFailureResult
 Set-Alias -Name Put-CPThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
 Set-Alias -Name CP-PutThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
+Set-Alias -Name CP-RetryStageExecution -Value Redo-CPStageExecution
 Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
-Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
 Set-Alias -Name Create-CGIIdentityPool -Value New-CGIIdentityPool
 Set-Alias -Name CGI-CreateIdentityPool -Value New-CGIIdentityPool
 Set-Alias -Name Delete-CGIIdentityPool -Value Remove-CGIIdentityPool

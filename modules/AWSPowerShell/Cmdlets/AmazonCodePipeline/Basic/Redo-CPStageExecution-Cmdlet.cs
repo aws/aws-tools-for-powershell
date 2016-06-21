@@ -28,62 +28,58 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Prevents artifacts in a pipeline from transitioning to the next stage in the pipeline.
+    /// Resumes the pipeline execution by retrying the last failed actions in a stage.
     /// </summary>
-    [Cmdlet("Disable", "CPStageTransition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the DisableStageTransition operation against AWS CodePipeline.", Operation = new[] {"DisableStageTransition"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.CodePipeline.Model.DisableStageTransitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Redo", "CPStageExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the RetryStageExecution operation against AWS CodePipeline.", Operation = new[] {"RetryStageExecution"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CodePipeline.Model.RetryStageExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DisableCPStageTransitionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public class RedoCPStageExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineExecutionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the pipeline execution in the failed stage to be retried. Use the <a>GetPipelineState</a>
+        /// action to retrieve the current pipelineExecutionId of the failed stage</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PipelineExecutionId { get; set; }
+        #endregion
         
         #region Parameter PipelineName
         /// <summary>
         /// <para>
-        /// <para>The name of the pipeline in which you want to disable the flow of artifacts from one
-        /// stage to another.</para>
+        /// <para>The name of the pipeline that contains the failed stage.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PipelineName { get; set; }
         #endregion
         
-        #region Parameter Reason
+        #region Parameter RetryMode
         /// <summary>
         /// <para>
-        /// <para>The reason given to the user why a stage is disabled, such as waiting for manual approval
-        /// or manual tests. This message is displayed in the pipeline console UI.</para>
+        /// <para>The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Reason { get; set; }
+        [AWSConstantClassSource("Amazon.CodePipeline.StageRetryMode")]
+        public Amazon.CodePipeline.StageRetryMode RetryMode { get; set; }
         #endregion
         
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The name of the stage where you want to disable the inbound or outbound transition
-        /// of artifacts.</para>
+        /// <para>The name of the failed stage to be retried.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StageName { get; set; }
-        #endregion
-        
-        #region Parameter TransitionType
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether artifacts will be prevented from transitioning into the stage and
-        /// being processed by the actions in that stage (inbound), or prevented from transitioning
-        /// from the stage after they have been processed by the actions in that stage (outbound).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CodePipeline.StageTransitionType")]
-        public Amazon.CodePipeline.StageTransitionType TransitionType { get; set; }
         #endregion
         
         #region Parameter Force
@@ -101,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PipelineName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-CPStageTransition (DisableStageTransition)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Redo-CPStageExecution (RetryStageExecution)"))
             {
                 return;
             }
@@ -112,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            context.PipelineExecutionId = this.PipelineExecutionId;
             context.PipelineName = this.PipelineName;
-            context.Reason = this.Reason;
+            context.RetryMode = this.RetryMode;
             context.StageName = this.StageName;
-            context.TransitionType = this.TransitionType;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -127,23 +123,23 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodePipeline.Model.DisableStageTransitionRequest();
+            var request = new Amazon.CodePipeline.Model.RetryStageExecutionRequest();
             
+            if (cmdletContext.PipelineExecutionId != null)
+            {
+                request.PipelineExecutionId = cmdletContext.PipelineExecutionId;
+            }
             if (cmdletContext.PipelineName != null)
             {
                 request.PipelineName = cmdletContext.PipelineName;
             }
-            if (cmdletContext.Reason != null)
+            if (cmdletContext.RetryMode != null)
             {
-                request.Reason = cmdletContext.Reason;
+                request.RetryMode = cmdletContext.RetryMode;
             }
             if (cmdletContext.StageName != null)
             {
                 request.StageName = cmdletContext.StageName;
-            }
-            if (cmdletContext.TransitionType != null)
-            {
-                request.TransitionType = cmdletContext.TransitionType;
             }
             
             CmdletOutput output;
@@ -154,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.PipelineExecutionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -179,19 +175,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.DisableStageTransitionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DisableStageTransitionRequest request)
+        private static Amazon.CodePipeline.Model.RetryStageExecutionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.RetryStageExecutionRequest request)
         {
-            return client.DisableStageTransition(request);
+            return client.RetryStageExecution(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String PipelineExecutionId { get; set; }
             public System.String PipelineName { get; set; }
-            public System.String Reason { get; set; }
+            public Amazon.CodePipeline.StageRetryMode RetryMode { get; set; }
             public System.String StageName { get; set; }
-            public Amazon.CodePipeline.StageTransitionType TransitionType { get; set; }
         }
         
     }

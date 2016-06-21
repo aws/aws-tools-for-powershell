@@ -28,8 +28,7 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Returns information about the state of a pipeline, including the stages, actions,
-    /// and details about the last run of the pipeline.
+    /// Returns information about the state of a pipeline, including the stages and actions.
     /// </summary>
     [Cmdlet("Get", "CPPipelineState")]
     [OutputType("Amazon.CodePipeline.Model.GetPipelineStateResponse")]
