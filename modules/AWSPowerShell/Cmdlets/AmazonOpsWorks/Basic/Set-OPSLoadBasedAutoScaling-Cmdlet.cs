@@ -57,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
         /// a list of up to five alarm names, which are case sensitive and must be in the same
-        /// region as the stack.</para><note>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
+        /// region as the stack.</para><note><para>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
         /// You can either have AWS OpsWorks update the role for you when you first use this feature
         /// or you can edit the role manually. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing
-        /// AWS OpsWorks to Act on Your Behalf</a>.</note>
+        /// AWS OpsWorks to Act on Your Behalf</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
         /// a list of up to five alarm names, which are case sensitive and must be in the same
-        /// region as the stack.</para><note>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
+        /// region as the stack.</para><note><para>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
         /// You can either have AWS OpsWorks update the role for you when you first use this feature
         /// or you can edit the role manually. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing
-        /// AWS OpsWorks to Act on Your Behalf</a>.</note>
+        /// AWS OpsWorks to Act on Your Behalf</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

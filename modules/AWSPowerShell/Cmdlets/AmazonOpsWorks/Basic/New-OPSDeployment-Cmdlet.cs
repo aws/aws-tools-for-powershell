@@ -65,13 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The arguments of those commands that take arguments. It should be set to a JSON object
         /// with the following format:</para><para><code>{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2",
-        /// ...], ...}</code></para><para>The <code>update_dependencies</code> command takes two arguments:</para><ul><li><code>upgrade_os_to</code> - Specifies the desired Amazon Linux version
-        /// for instances whose OS you want to upgrade, such as <code>Amazon Linux 2014.09</code>.
-        /// You must also set the <code>allow_reboot</code> argument to true.</li><li><code>allow_reboot</code>
-        /// - Specifies whether to allow AWS OpsWorks to reboot the instances if necessary, after
-        /// installing the updates. This argument can be set to either <code>true</code> or <code>false</code>.
-        /// The default value is <code>false</code>.</li></ul><para>For example, to upgrade an instance to Amazon Linux 2014.09, set <code>Args</code>
-        /// to the following.</para><code> { "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } </code>
+        /// ...], ...}</code></para><para>The <code>update_dependencies</code> command takes two arguments:</para><ul><li><para><code>upgrade_os_to</code> - Specifies the desired Amazon Linux version for instances
+        /// whose OS you want to upgrade, such as <code>Amazon Linux 2014.09</code>. You must
+        /// also set the <code>allow_reboot</code> argument to true.</para></li><li><para><code>allow_reboot</code> - Specifies whether to allow AWS OpsWorks to reboot the
+        /// instances if necessary, after installing the updates. This argument can be set to
+        /// either <code>true</code> or <code>false</code>. The default value is <code>false</code>.</para></li></ul><para>For example, to upgrade an instance to Amazon Linux 2014.09, set <code>Args</code>
+        /// to the following.</para><para><code> { "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } </code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,23 +126,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Command_Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the operation. You can specify only one command.</para><para>For stacks, the following commands are available:</para><ul><li><code>execute_recipes</code>: Execute one or more recipes. To specify the
-        /// recipes, set an <code>Args</code> parameter named <code>recipes</code> to the list
-        /// of recipes to be executed. For example, to execute <code>phpapp::appsetup</code>,
-        /// set <code>Args</code> to <code>{"recipes":["phpapp::appsetup"]}</code>.</li><li><code>install_dependencies</code>:
-        /// Install the stack's dependencies.</li><li><code>update_custom_cookbooks</code>: Update
-        /// the stack's custom cookbooks.</li><li><code>update_dependencies</code>: Update the
-        /// stack's dependencies.</li></ul><note>The update_dependencies and install_dependencies
-        /// commands are supported only for Linux instances. You can run the commands successfully
-        /// on Windows instances, but they do nothing.</note><para>For apps, the following commands are available:</para><ul><li><code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional
-        /// <code>Args</code> parameter named <code>migrate</code>. Set <code>Args</code> to {"migrate":["true"]}
-        /// to migrate the database. The default setting is {"migrate":["false"]}.</li><li><code>rollback</code>
-        /// Roll the app back to the previous version. When you update an app, AWS OpsWorks stores
-        /// the previous version, up to a maximum of five versions. You can use this command to
-        /// roll an app back as many as four versions.</li><li><code>start</code>: Start the
-        /// app's web or application server.</li><li><code>stop</code>: Stop the app's web or
-        /// application server.</li><li><code>restart</code>: Restart the app's web or application
-        /// server.</li><li><code>undeploy</code>: Undeploy the app.</li></ul>
+        /// <para>Specifies the operation. You can specify only one command.</para><para>For stacks, the following commands are available:</para><ul><li><para><code>execute_recipes</code>: Execute one or more recipes. To specify the recipes,
+        /// set an <code>Args</code> parameter named <code>recipes</code> to the list of recipes
+        /// to be executed. For example, to execute <code>phpapp::appsetup</code>, set <code>Args</code>
+        /// to <code>{"recipes":["phpapp::appsetup"]}</code>.</para></li><li><para><code>install_dependencies</code>: Install the stack's dependencies.</para></li><li><para><code>update_custom_cookbooks</code>: Update the stack's custom cookbooks.</para></li><li><para><code>update_dependencies</code>: Update the stack's dependencies.</para></li></ul><note><para>The update_dependencies and install_dependencies commands are supported only for Linux
+        /// instances. You can run the commands successfully on Windows instances, but they do
+        /// nothing.</para></note><para>For apps, the following commands are available:</para><ul><li><para><code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional <code>Args</code>
+        /// parameter named <code>migrate</code>. Set <code>Args</code> to {"migrate":["true"]}
+        /// to migrate the database. The default setting is {"migrate":["false"]}.</para></li><li><para><code>rollback</code> Roll the app back to the previous version. When you update
+        /// an app, AWS OpsWorks stores the previous version, up to a maximum of five versions.
+        /// You can use this command to roll an app back as many as four versions.</para></li><li><para><code>start</code>: Start the app's web or application server.</para></li><li><para><code>stop</code>: Stop the app's web or application server.</para></li><li><para><code>restart</code>: Restart the app's web or application server.</para></li><li><para><code>undeploy</code>: Undeploy the app.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -30,12 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// <summary>
     /// Registers instances with a specified stack that were created outside of AWS OpsWorks.
     /// 
-    ///  <note>We do not recommend using this action to register instances. The complete registration
+    ///  <note><para>
+    /// We do not recommend using this action to register instances. The complete registration
     /// operation has two primary steps, installing the AWS OpsWorks agent on the instance
     /// and registering the instance with the stack. <code>RegisterInstance</code> handles
     /// only the second step. You should instead use the AWS CLI <code>register</code> command,
     /// which performs the entire registration operation. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
-    /// Registering an Instance with an AWS OpsWorks Stack</a>.</note><para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+    /// Registering an Instance with an AWS OpsWorks Stack</a>.
+    /// </para></note><para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
     /// level for the stack or an attached policy that explicitly grants permissions. For
     /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceIdentity_Document
         /// <summary>
         /// <para>
-        /// <para>A JSON document that contains the metadata. </para>
+        /// <para>A JSON document that contains the metadata.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceIdentity_Signature
         /// <summary>
         /// <para>
-        /// <para>A signature that can be used to verify the document's accuracy and authenticity. </para>
+        /// <para>A signature that can be used to verify the document's accuracy and authenticity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

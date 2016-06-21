@@ -269,7 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The layer type. A stack cannot have more than one built-in layer of the same type.
-        /// It can have any number of custom layers.</para>
+        /// It can have any number of custom layers. Built-in layers are not available in Chef
+        /// 12 stacks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

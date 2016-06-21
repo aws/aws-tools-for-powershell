@@ -129,12 +129,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>An array of <code>EnvironmentVariable</code> objects that specify environment variables
         /// to be associated with the app. After you deploy the app, these variables are defined
         /// on the associated app server instance. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
-        /// Environment Variables</a>.</para><para> There is no specific limit on the number of environment variables. However, the size
+        /// Environment Variables</a>.</para><para>There is no specific limit on the number of environment variables. However, the size
         /// of the associated data structure - which includes the variables' names, values, and
         /// protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate
         /// most if not all use cases. Exceeding it will cause an exception with the message,
-        /// "Environment: is too large (maximum is 10KB)." </para><note>This parameter is supported only by Chef 11.10 stacks. If you have specified
-        /// one or more environment variables, you cannot modify the stack's Chef version.</note>
+        /// "Environment: is too large (maximum is 10KB)."</para><note><para>This parameter is supported only by Chef 11.10 stacks. If you have specified one or
+        /// more environment variables, you cannot modify the stack's Chef version.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,9 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Password
         /// <summary>
         /// <para>
-        /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
-        /// secret access key.</li><li>For HTTP bundles and Subversion repositories, set <code>Password</code>
-        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html" />.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
+        /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM secret access
+        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
         /// actual value.</para>
         /// </para>
         /// </summary>
@@ -246,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Url
         /// <summary>
         /// <para>
-        /// <para>The source URL. </para>
+        /// <para>The source URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -256,9 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Username
         /// <summary>
         /// <para>
-        /// <para>This parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM
-        /// access key ID.</li><li>For HTTP bundles, Git repositories, and Subversion repositories,
-        /// set <code>Username</code> to the user name.</li></ul>
+        /// <para>This parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM access key
+        /// ID.</para></li><li><para>For HTTP bundles, Git repositories, and Subversion repositories, set <code>Username</code>
+        /// to the user name.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

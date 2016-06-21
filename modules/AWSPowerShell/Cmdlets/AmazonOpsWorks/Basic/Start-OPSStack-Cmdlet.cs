@@ -28,7 +28,7 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Starts a stack's instances. 
+    /// Starts a stack's instances.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
