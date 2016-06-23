@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// <summary>
     /// Gets the roles for an identity pool.
     /// 
-    ///  
+    /// 
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para>

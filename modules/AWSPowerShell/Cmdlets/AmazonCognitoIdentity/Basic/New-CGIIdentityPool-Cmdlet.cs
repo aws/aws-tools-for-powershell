@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// Creates a new identity pool. The identity pool is a store of user identity information
     /// that is specific to your AWS account. The limit on identity pools is 60 per account.
     /// The keys for <code>SupportedLoginProviders</code> are as follows: <ul><li>Facebook:
-    /// <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li><li>Twitter: <code>api.twitter.com</code></li><li>Digits: <code>www.digits.com</code></li></ul> You must use AWS Developer
-    /// credentials to call this API.
+    /// <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li><li>Twitter: <code>api.twitter.com</code></li><li>Digits: <code>www.digits.com</code></li></ul> You must use AWS Developer credentials
+    /// to call this API.
     /// </summary>
     [Cmdlet("New", "CGIIdentityPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse")]
@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         [System.Management.Automation.Parameter]
         [Alias("AllowUnauthenticatedIdentities")]
         public System.Boolean AllowUnauthenticatedIdentity { get; set; }
+        #endregion
+        
+        #region Parameter CognitoIdentityProvider
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Cognito Identity user pools.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CognitoIdentityProviders")]
+        public Amazon.CognitoIdentity.Model.CognitoIdentityProviderInfo[] CognitoIdentityProvider { get; set; }
         #endregion
         
         #region Parameter DeveloperProviderName
@@ -86,6 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] OpenIdConnectProviderARNs { get; set; }
+        #endregion
+        
+        #region Parameter SamlProviderARNs
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] SamlProviderARNs { get; set; }
         #endregion
         
         #region Parameter SupportedLoginProvider
@@ -127,11 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             
             if (ParameterWasBound("AllowUnauthenticatedIdentity"))
                 context.AllowUnauthenticatedIdentities = this.AllowUnauthenticatedIdentity;
+            if (this.CognitoIdentityProvider != null)
+            {
+                context.CognitoIdentityProviders = new List<Amazon.CognitoIdentity.Model.CognitoIdentityProviderInfo>(this.CognitoIdentityProvider);
+            }
             context.DeveloperProviderName = this.DeveloperProviderName;
             context.IdentityPoolName = this.IdentityPoolName;
             if (this.OpenIdConnectProviderARNs != null)
             {
                 context.OpenIdConnectProviderARNs = new List<System.String>(this.OpenIdConnectProviderARNs);
+            }
+            if (this.SamlProviderARNs != null)
+            {
+                context.SamlProviderARNs = new List<System.String>(this.SamlProviderARNs);
             }
             if (this.SupportedLoginProvider != null)
             {
@@ -158,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             {
                 request.AllowUnauthenticatedIdentities = cmdletContext.AllowUnauthenticatedIdentities.Value;
             }
+            if (cmdletContext.CognitoIdentityProviders != null)
+            {
+                request.CognitoIdentityProviders = cmdletContext.CognitoIdentityProviders;
+            }
             if (cmdletContext.DeveloperProviderName != null)
             {
                 request.DeveloperProviderName = cmdletContext.DeveloperProviderName;
@@ -169,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             if (cmdletContext.OpenIdConnectProviderARNs != null)
             {
                 request.OpenIdConnectProviderARNs = cmdletContext.OpenIdConnectProviderARNs;
+            }
+            if (cmdletContext.SamlProviderARNs != null)
+            {
+                request.SamlProviderARNs = cmdletContext.SamlProviderARNs;
             }
             if (cmdletContext.SupportedLoginProviders != null)
             {
@@ -218,9 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         internal class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowUnauthenticatedIdentities { get; set; }
+            public List<Amazon.CognitoIdentity.Model.CognitoIdentityProviderInfo> CognitoIdentityProviders { get; set; }
             public System.String DeveloperProviderName { get; set; }
             public System.String IdentityPoolName { get; set; }
             public List<System.String> OpenIdConnectProviderARNs { get; set; }
+            public List<System.String> SamlProviderARNs { get; set; }
             public Dictionary<System.String, System.String> SupportedLoginProviders { get; set; }
         }
         

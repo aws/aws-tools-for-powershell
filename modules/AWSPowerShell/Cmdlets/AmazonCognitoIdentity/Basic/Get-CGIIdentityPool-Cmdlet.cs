@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// Gets details about a particular identity pool, including the pool name, ID description,
     /// creation date, and current number of users.
     /// 
-    ///  
+    /// 
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para>

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// <summary>
     /// Lists all of the Cognito identity pools registered for your account.
     /// 
-    ///  
+    /// 
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
