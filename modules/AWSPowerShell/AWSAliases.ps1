@@ -882,10 +882,14 @@ Set-Alias -Name Delete-DCInterconnect -Value Remove-DCInterconnect
 Set-Alias -Name DC-DeleteInterconnect -Value Remove-DCInterconnect
 Set-Alias -Name Delete-DCVirtualInterface -Value Remove-DCVirtualInterface
 Set-Alias -Name DC-DeleteVirtualInterface -Value Remove-DCVirtualInterface
+Set-Alias -Name Describe-DCConnectionLoa -Value Get-DCConnectionLoa
+Set-Alias -Name DC-DescribeConnectionLoa -Value Get-DCConnectionLoa
 Set-Alias -Name Describe-DCConnections -Value Get-DCConnection
 Set-Alias -Name DC-DescribeConnections -Value Get-DCConnection
 Set-Alias -Name Describe-DCConnectionsOnInterconnect -Value Get-DCConnectionsOnInterconnect
 Set-Alias -Name DC-DescribeConnectionsOnInterconnect -Value Get-DCConnectionsOnInterconnect
+Set-Alias -Name Describe-DCInterconnectLoa -Value Get-DCInterconnectLoa
+Set-Alias -Name DC-DescribeInterconnectLoa -Value Get-DCInterconnectLoa
 Set-Alias -Name Describe-DCInterconnects -Value Get-DCInterconnect
 Set-Alias -Name DC-DescribeInterconnects -Value Get-DCInterconnect
 Set-Alias -Name Describe-DCLocations -Value Get-DCLocations

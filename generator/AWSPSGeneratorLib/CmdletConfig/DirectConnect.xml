@@ -30,7 +30,9 @@
     <ServiceOperation MethodName="DeleteVirtualInterface" />
     <ServiceOperation MethodName="DescribeConnections" />
     <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" />
+    <ServiceOperation MethodName="DescribeConnectionLoa" PipelineParameter="ConnectionId"/>
     <ServiceOperation MethodName="DescribeInterconnects" />
+    <ServiceOperation MethodName="DescribeInterconnectLoa" PipelineParameter="InterconnectId"/>
     <ServiceOperation MethodName="DescribeLocations"/>
     <ServiceOperation MethodName="DescribeVirtualGateways"/>
     <ServiceOperation MethodName="DescribeVirtualInterfaces" PipelineParameter="ConnectionId" PositionalParameters="VirtualInterfaceId"/>
