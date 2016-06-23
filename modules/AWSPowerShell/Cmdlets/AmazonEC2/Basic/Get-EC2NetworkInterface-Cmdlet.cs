@@ -50,10 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with the network interface.</para></li><li><para><code>association.association-id</code> - The association ID returned when the network
         /// interface was associated with an IP address.</para></li><li><para><code>association.allocation-id</code> - The allocation ID returned when you allocated
         /// the Elastic IP address for your network interface.</para></li><li><para><code>association.ip-owner-id</code> - The owner of the Elastic IP address associated
-        /// with the network interface.</para></li><li><para><code>association.public-ip</code> - The address of the Elastic IP address bound to
-        /// the network interface.</para></li><li><para><code>association.public-dns-name</code> - The public DNS name for the network interface.</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.attach.time</code> - The time that the network interface was attached
-        /// to an instance.</para></li><li><para><code>attachment.delete-on-termination</code> - Indicates whether the attachment is
-        /// deleted when an instance is terminated.</para></li><li><para><code>attachment.device-index</code> - The device index to which the network interface
+        /// with the network interface.</para></li><li><para><code>association.public-ip</code> - The address of the Elastic IP address bound
+        /// to the network interface.</para></li><li><para><code>association.public-dns-name</code> - The public DNS name for the network interface.</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.attach.time</code> - The time that the network interface was attached
+        /// to an instance.</para></li><li><para><code>attachment.delete-on-termination</code> - Indicates whether the attachment
+        /// is deleted when an instance is terminated.</para></li><li><para><code>attachment.device-index</code> - The device index to which the network interface
         /// is attached.</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance to which the network
         /// interface is attached.</para></li><li><para><code>attachment.instance-owner-id</code> - The owner ID of the instance to which
         /// the network interface is attached.</para></li><li><para><code>attachment.nat-gateway-id</code> - The ID of the NAT gateway to which the network
@@ -70,12 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para></li><li><para><code>status</code> - The status of the network interface. If the network interface
         /// is not attached to an instance, the status is <code>available</code>; if a network
         /// interface is attached to an instance the status is <code>in-use</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet for the network interface.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent
-        /// of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose"
-        /// and the filter "tag-value=X", you get any resources assigned both the tag key Purpose
-        /// (regardless of what the tag's value is), and the tag value X (regardless of what the
-        /// tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i>
-        /// filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
+        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// independent of the <code>tag-value</code> filter. For example, if you use both the
+        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
+        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
+        /// X (regardless of what the tag's key is). If you want to list only resources where
+        /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
         /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the network interface.</para></li></ul>
         /// </para>
         /// </summary>

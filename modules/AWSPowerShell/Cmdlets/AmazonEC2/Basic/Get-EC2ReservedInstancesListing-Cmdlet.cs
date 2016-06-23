@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance
     /// capacity that they no longer need with buyers who want to purchase additional capacity.
     /// Reserved Instances bought and sold through the Reserved Instance Marketplace work
-    /// like any other Reserved Instances. 
+    /// like any other Reserved Instances.
     /// </para><para>
     /// As a seller, you choose to list some or all of your Reserved Instances, and you specify
     /// the upfront price to receive for them. Your Reserved Instances are then listed in
-    /// the Reserved Instance Marketplace and are available for purchase. 
+    /// the Reserved Instance Marketplace and are available for purchase.
     /// </para><para>
     /// As a buyer, you specify the configuration of the Reserved Instance to purchase, and
     /// the Marketplace matches what you're searching for with what's available. The Marketplace

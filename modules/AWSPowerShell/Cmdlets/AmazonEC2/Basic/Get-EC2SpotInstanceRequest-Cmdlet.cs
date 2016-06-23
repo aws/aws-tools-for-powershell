@@ -73,21 +73,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with the network interface.</para></li><li><para><code>network-interface.addresses.primary</code> - Indicates whether the IP address
         /// is the primary private IP address.</para></li><li><para><code>product-description</code> - The product description associated with the instance
         /// (<code>Linux/UNIX</code> | <code>Windows</code>).</para></li><li><para><code>spot-instance-request-id</code> - The Spot instance request ID.</para></li><li><para><code>spot-price</code> - The maximum hourly price for any Spot instance launched
-        /// to fulfill the request.</para></li><li><para><code>state</code> - The state of the Spot instance request (<code>open</code> | <code>active</code>
-        /// | <code>closed</code> | <code>cancelled</code> | <code>failed</code>). Spot bid status
-        /// information can help you track your Amazon EC2 Spot instance requests. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
+        /// to fulfill the request.</para></li><li><para><code>state</code> - The state of the Spot instance request (<code>open</code> |
+        /// <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>).
+        /// Spot bid status information can help you track your Amazon EC2 Spot instance requests.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
         /// Bid Status</a> in the Amazon Elastic Compute Cloud User Guide.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
         /// your Spot instance request.</para></li><li><para><code>status-message</code> - The message explaining the status of the Spot instance
         /// request.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent
-        /// of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose"
-        /// and the filter "tag-value=X", you get any resources assigned both the tag key Purpose
-        /// (regardless of what the tag's value is), and the tag value X (regardless of what the
-        /// tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i>
-        /// filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
-        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>type</code> - The type of Spot instance request (<code>one-time</code> | <code>persistent</code>).</para></li><li><para><code>launched-availability-zone</code> - The Availability Zone in which the bid is
-        /// launched.</para></li><li><para><code>valid-from</code> - The start date of the request.</para></li><li><para><code>valid-until</code> - The end date of the request.</para></li></ul>
+        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// independent of the <code>tag-value</code> filter. For example, if you use both the
+        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
+        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
+        /// X (regardless of what the tag's key is). If you want to list only resources where
+        /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
+        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>type</code> - The type of Spot instance request (<code>one-time</code> | <code>persistent</code>).</para></li><li><para><code>launched-availability-zone</code> - The Availability Zone in which the bid
+        /// is launched.</para></li><li><para><code>valid-from</code> - The start date of the request.</para></li><li><para><code>valid-until</code> - The end date of the request.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

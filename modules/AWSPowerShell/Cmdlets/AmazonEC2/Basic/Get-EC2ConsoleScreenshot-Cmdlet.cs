@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// The returned content is base64-encoded.
+    /// The returned content is Base64-encoded.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleScreenshot")]

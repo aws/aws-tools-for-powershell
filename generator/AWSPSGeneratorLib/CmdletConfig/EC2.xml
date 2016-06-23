@@ -145,7 +145,8 @@
     <ServiceOperation MethodName="DescribeCustomerGateways" PipelineParameter="CustomerGatewayIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeDhcpOptions" PipelineParameter="DhcpOptionsIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeExportTasks" />
-	<ServiceOperation MethodName="DescribeFlowLogs" PipelineParameter="FlowLogIds"/>
+    <ServiceOperation MethodName="DescribeFlowLogs" PipelineParameter="FlowLogIds"/>
+    <ServiceOperation MethodName="DescribeIdentityIdFormat" PipelineParameter="PrincipalArn" PositionalParameters="Resource"/>
     <ServiceOperation MethodName="DescribeImageAttribute" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeImages" PipelineParameter="ImageIds" PositionalParameters="Owners;ExecutableUsers;Filters">
       <Params>
@@ -247,6 +248,7 @@
                       Output="Void"/>
     <ServiceOperation MethodName="ModifySpotFleetRequest" />
 
+    <ServiceOperation MethodName="ModifyIdentityIdFormat" Output="Void" PipelineParameter="PrincipalArn" PositionalParameters="Resource"/>
     <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
     <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
       <Params>

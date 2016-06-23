@@ -37,15 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// This setting applies to the IAM user who makes the request; it does not apply to the
     /// entire AWS account. By default, an IAM user defaults to the same settings as the root
-    /// user. If you're using this action as the root user or as an IAM role that has permission
-    /// to use this action, then these settings apply to the entire account, unless an IAM
-    /// user explicitly overrides these settings for themselves. For more information, see
-    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html#resource-ids-access">Controlling
-    /// Access to Longer ID Settings</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// 
+    /// user. If you're using this action as the root user, then these settings apply to the
+    /// entire account, unless an IAM user explicitly overrides these settings for themselves.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+    /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
     /// </para><para>
-    /// Resources created with longer IDs are visible to all IAM users, regardless of these
-    /// settings and provided that they have permission to use the relevant <code>Describe</code>
+    /// Resources created with longer IDs are visible to all IAM roles and users, regardless
+    /// of these settings and provided that they have permission to use the relevant <code>Describe</code>
     /// command for the resource type.
     /// </para>
     /// </summary>

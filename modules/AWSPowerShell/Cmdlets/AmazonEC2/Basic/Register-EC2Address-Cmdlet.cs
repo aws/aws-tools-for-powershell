@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify
         /// either the instance ID or the network interface ID, but not both. The operation fails
-        /// if you specify an instance ID unless exactly one network interface is attached. </para>
+        /// if you specify an instance ID unless exactly one network interface is attached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

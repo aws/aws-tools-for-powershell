@@ -57,12 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// routes only. Used for devices that do not support Border Gateway Protocol (BGP).</para></li><li><para><code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds
         /// to the subnet used in a customer data center.</para></li><li><para><code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP
         /// device.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent
-        /// of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose"
-        /// and the filter "tag-value=X", you get any resources assigned both the tag key Purpose
-        /// (regardless of what the tag's value is), and the tag value X (regardless of what the
-        /// tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i>
-        /// filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
+        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// independent of the <code>tag-value</code> filter. For example, if you use both the
+        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
+        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
+        /// X (regardless of what the tag's key is). If you want to list only resources where
+        /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
         /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>type</code> - The type of VPN connection. Currently the only supported type
         /// is <code>ipsec.1</code>.</para></li><li><para><code>vpn-connection-id</code> - The ID of the VPN connection.</para></li><li><para><code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with
         /// the VPN connection.</para></li></ul>

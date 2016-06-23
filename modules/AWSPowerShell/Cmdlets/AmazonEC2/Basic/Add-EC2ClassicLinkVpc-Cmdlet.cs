@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// After you've linked an instance, you cannot change the VPC security groups that are
     /// associated with it. To change the security groups, you must first unlink the instance,
-    /// and then link it again. 
+    /// and then link it again.
     /// </para><para>
     /// Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.
     /// </para>

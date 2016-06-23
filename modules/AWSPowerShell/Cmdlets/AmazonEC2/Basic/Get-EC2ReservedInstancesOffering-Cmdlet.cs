@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next page of results. </para>
+        /// <para>The token to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

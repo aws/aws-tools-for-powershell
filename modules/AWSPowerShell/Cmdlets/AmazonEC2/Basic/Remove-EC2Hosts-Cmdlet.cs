@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// When Dedicated hosts are released, it make take some time for them to stop counting
     /// toward your limit and you may receive capacity errors when trying to allocate new
-    /// Dedicated hosts. Try waiting a few minutes, and then try again. 
+    /// Dedicated hosts. Try waiting a few minutes, and then try again.
     /// </para><para>
     /// Released hosts will still appear in a DescribeHosts response.
     /// </para>

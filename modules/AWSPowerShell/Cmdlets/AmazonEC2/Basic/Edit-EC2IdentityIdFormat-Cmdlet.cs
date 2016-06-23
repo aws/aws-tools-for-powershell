@@ -28,71 +28,67 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Adds one or more ingress rules to a security group.
+    /// Modifies the ID format of a resource for the specified IAM user, IAM role, or root
+    /// user. You can specify that resources should receive longer IDs (17-character IDs)
+    /// when they are created. The following resource types support longer IDs: <code>instance</code>
+    /// | <code>reservation</code> | <code>snapshot</code> | <code>volume</code>. For more
+    /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+    /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
     /// 
-    ///  <important><para>
-    /// EC2-Classic: You can have up to 100 rules per group.
+    ///  
+    /// <para>
+    /// This setting applies to the principal specified in the request; it does not apply
+    /// to the principal that makes the request. 
     /// </para><para>
-    /// EC2-VPC: You can have up to 50 rules per group (covering both ingress and egress rules).
-    /// </para></important><para>
-    /// Rule changes are propagated to instances within the security group as quickly as possible.
-    /// However, a small delay might occur.
-    /// </para><para>
-    /// [EC2-Classic] This action gives one or more CIDR IP address ranges permission to access
-    /// a security group in your account, or gives one or more security groups (called the
-    /// <i>source groups</i>) permission to access a security group for your account. A source
-    /// group can be for your own AWS account, or another.
-    /// </para><para>
-    /// [EC2-VPC] This action gives one or more CIDR IP address ranges permission to access
-    /// a security group in your VPC, or gives one or more other security groups (called the
-    /// <i>source groups</i>) permission to access a security group for your VPC. The security
-    /// groups must all be for the same VPC.
+    /// Resources created with longer IDs are visible to all IAM roles and users, regardless
+    /// of these settings and provided that they have permission to use the relevant <code>Describe</code>
+    /// command for the resource type.
     /// </para>
     /// </summary>
-    [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Edit", "EC2IdentityIdFormat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AuthorizeSecurityGroupIngress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AuthorizeSecurityGroupIngress"})]
+    [AWSCmdlet("Invokes the ModifyIdentityIdFormat operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyIdentityIdFormat"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PrincipalArn parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.EC2.Model.ModifyIdentityIdFormatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GrantEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class EditEC2IdentityIdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter GroupId
+        #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group. Required for a nondefault VPC.</para>
+        /// <para>The ARN of the principal, which can be an IAM user, IAM role, or the root user.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GroupId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PrincipalArn { get; set; }
         #endregion
         
-        #region Parameter GroupName
+        #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The name of the security group.</para>
+        /// <para>The type of resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public System.String Resource { get; set; }
+        #endregion
+        
+        #region Parameter UseLongId
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the resource should use longer IDs (17-character IDs)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String GroupName { get; set; }
-        #endregion
-        
-        #region Parameter IpPermission
-        /// <summary>
-        /// <para>
-        /// <para>A set of IP permissions. Can be used to specify multiple rules in a single command.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("IpPermissions")]
-        public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        [Alias("UseLongIds")]
+        public System.Boolean UseLongId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the GroupId parameter.
+        /// Returns the value passed to the PrincipalArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GroupId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Grant-EC2SecurityGroupIngress (AuthorizeSecurityGroupIngress)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PrincipalArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2IdentityIdFormat (ModifyIdentityIdFormat)"))
             {
                 return;
             }
@@ -125,12 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.GroupId = this.GroupId;
-            context.GroupName = this.GroupName;
-            if (this.IpPermission != null)
-            {
-                context.IpPermissions = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
-            }
+            context.PrincipalArn = this.PrincipalArn;
+            context.Resource = this.Resource;
+            if (ParameterWasBound("UseLongId"))
+                context.UseLongIds = this.UseLongId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -142,19 +136,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.AuthorizeSecurityGroupIngressRequest();
+            var request = new Amazon.EC2.Model.ModifyIdentityIdFormatRequest();
             
-            if (cmdletContext.GroupId != null)
+            if (cmdletContext.PrincipalArn != null)
             {
-                request.GroupId = cmdletContext.GroupId;
+                request.PrincipalArn = cmdletContext.PrincipalArn;
             }
-            if (cmdletContext.GroupName != null)
+            if (cmdletContext.Resource != null)
             {
-                request.GroupName = cmdletContext.GroupName;
+                request.Resource = cmdletContext.Resource;
             }
-            if (cmdletContext.IpPermissions != null)
+            if (cmdletContext.UseLongIds != null)
             {
-                request.IpPermissions = cmdletContext.IpPermissions;
+                request.UseLongIds = cmdletContext.UseLongIds.Value;
             }
             
             CmdletOutput output;
@@ -167,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.GroupId;
+                    pipelineOutput = this.PrincipalArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -192,18 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AuthorizeSecurityGroupIngressRequest request)
+        private static Amazon.EC2.Model.ModifyIdentityIdFormatResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIdentityIdFormatRequest request)
         {
-            return client.AuthorizeSecurityGroupIngress(request);
+            return client.ModifyIdentityIdFormat(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String GroupId { get; set; }
-            public System.String GroupName { get; set; }
-            public List<Amazon.EC2.Model.IpPermission> IpPermissions { get; set; }
+            public System.String PrincipalArn { get; set; }
+            public System.String Resource { get; set; }
+            public System.Boolean? UseLongIds { get; set; }
         }
         
     }

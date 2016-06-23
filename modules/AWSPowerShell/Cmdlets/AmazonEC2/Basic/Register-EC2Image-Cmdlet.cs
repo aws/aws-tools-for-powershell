@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Set to <code>simple</code> to enable enhanced networking for the AMI and any instances
-        /// that you launch from the AMI.</para><para>There is no way to disable enhanced networking at this time.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
+        /// that you launch from the AMI.</para><para>There is no way to disable <code>sriovNetSupport</code> at this time.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
         /// make instances launched from the AMI unreachable.</para>
         /// </para>
         /// </summary>

@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>client-token</code> - The idempotency token for the modification request.</para></li><li><para><code>create-date</code> - The time when the modification request was created.</para></li><li><para><code>effective-date</code> - The time when the modification becomes effective.</para></li><li><para><code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances
-        /// created as part of the modification request. This ID is only available when the status
-        /// of the modification is <code>fulfilled</code>.</para></li><li><para><code>modification-result.target-configuration.availability-zone</code> - The Availability
+        /// <para>One or more filters.</para><ul><li><para><code>client-token</code> - The idempotency token for the modification request.</para></li><li><para><code>create-date</code> - The time when the modification request was created.</para></li><li><para><code>effective-date</code> - The time when the modification becomes effective.</para></li><li><para><code>modification-result.reserved-instances-id</code> - The ID for the Reserved
+        /// Instances created as part of the modification request. This ID is only available when
+        /// the status of the modification is <code>fulfilled</code>.</para></li><li><para><code>modification-result.target-configuration.availability-zone</code> - The Availability
         /// Zone for the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-count </code> - The number
         /// of new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-type</code> - The instance
         /// type of the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.platform</code> - The network platform
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next page of results. </para>
+        /// <para>The token to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  <ul><li><para>
     /// Enable/disable communication over the peering connection between an EC2-Classic instance
-    /// that's linked to your VPC (using ClassicLink) and instances in the peer VPC. 
+    /// that's linked to your VPC (using ClassicLink) and instances in the peer VPC.
     /// </para></li><li><para>
     /// Enable/disable communication over the peering connection between instances in your
     /// VPC and an EC2-Classic instance that's linked to the peer VPC.

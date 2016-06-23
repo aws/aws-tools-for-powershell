@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// and BGP ASN parameter values. If you run an identical request more than one time,
     /// the first request creates the customer gateway, and subsequent requests return information
     /// about the existing customer gateway. The subsequent requests do not create new customer
-    /// gateway resources. 
+    /// gateway resources.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "EC2CustomerGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

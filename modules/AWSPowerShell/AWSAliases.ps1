@@ -949,6 +949,10 @@ Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name Replace-EC2NetworkAclEntry -Value Set-EC2NetworkAclEntry
+Set-Alias -Name EC2-ReplaceNetworkAclEntry -Value Set-EC2NetworkAclEntry
+Set-Alias -Name Replace-EC2Route -Value Set-EC2Route
+Set-Alias -Name EC2-ReplaceRoute -Value Set-EC2Route
 Set-Alias -Name Replace-EC2RouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name Report-EC2InstanceStatus -Value Send-EC2InstanceStatus
@@ -970,9 +974,12 @@ Set-Alias -Name EC2-StartInstances -Value Start-EC2Instance
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
 Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
 Set-Alias -Name Modify-EC2Hosts -Value Edit-EC2Hosts
 Set-Alias -Name EC2-ModifyHosts -Value Edit-EC2Hosts
+Set-Alias -Name Modify-EC2IdentityIdFormat -Value Edit-EC2IdentityIdFormat
+Set-Alias -Name EC2-ModifyIdentityIdFormat -Value Edit-EC2IdentityIdFormat
 Set-Alias -Name Modify-EC2IdFormat -Value Edit-EC2IdFormat
 Set-Alias -Name EC2-ModifyIdFormat -Value Edit-EC2IdFormat
 Set-Alias -Name Modify-EC2ImageAttribute -Value Edit-EC2ImageAttribute
@@ -1011,10 +1018,8 @@ Set-Alias -Name Release-EC2Hosts -Value Remove-EC2Hosts
 Set-Alias -Name EC2-ReleaseHosts -Value Remove-EC2Hosts
 Set-Alias -Name Replace-EC2NetworkAclAssociation -Value Set-EC2NetworkAclAssociation
 Set-Alias -Name EC2-ReplaceNetworkAclAssociation -Value Set-EC2NetworkAclAssociation
-Set-Alias -Name Replace-EC2NetworkAclEntry -Value Set-EC2NetworkAclEntry
-Set-Alias -Name EC2-ReplaceNetworkAclEntry -Value Set-EC2NetworkAclEntry
-Set-Alias -Name Replace-EC2Route -Value Set-EC2Route
-Set-Alias -Name EC2-ReplaceRoute -Value Set-EC2Route
+Set-Alias -Name Describe-EC2VpcClassicLink -Value Get-EC2VpcClassicLink
+Set-Alias -Name EC2-DescribeVpcClassicLink -Value Get-EC2VpcClassicLink
 Set-Alias -Name Describe-EC2VpcClassicLinkDnsSupport -Value Get-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name EC2-DescribeVpcClassicLinkDnsSupport -Value Get-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Describe-EC2VpcEndpoint -Value Get-EC2VpcEndpoint
@@ -1053,7 +1058,8 @@ Set-Alias -Name EC2-EnableVpcClassicLinkDnsSupport -Value Enable-EC2VpcClassicLi
 Set-Alias -Name EC2-GetConsoleOutput -Value Get-EC2ConsoleOutput
 Set-Alias -Name EC2-GetConsoleScreenshot -Value Get-EC2ConsoleScreenshot
 Set-Alias -Name EC2-ImportImage -Value Import-EC2Image
-Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
+Set-Alias -Name Describe-EC2ReservedInstances -Value Get-EC2ReservedInstance
+Set-Alias -Name EC2-DescribeReservedInstances -Value Get-EC2ReservedInstance
 Set-Alias -Name Describe-EC2ReservedInstancesListings -Value Get-EC2ReservedInstancesListing
 Set-Alias -Name EC2-DescribeReservedInstancesListings -Value Get-EC2ReservedInstancesListing
 Set-Alias -Name Describe-EC2ReservedInstancesModifications -Value Get-EC2ReservedInstancesModifications
@@ -1100,8 +1106,6 @@ Set-Alias -Name Describe-EC2VolumeStatus -Value Get-EC2VolumeStatus
 Set-Alias -Name EC2-DescribeVolumeStatus -Value Get-EC2VolumeStatus
 Set-Alias -Name Describe-EC2VpcAttribute -Value Get-EC2VpcAttribute
 Set-Alias -Name EC2-DescribeVpcAttribute -Value Get-EC2VpcAttribute
-Set-Alias -Name Describe-EC2VpcClassicLink -Value Get-EC2VpcClassicLink
-Set-Alias -Name EC2-DescribeVpcClassicLink -Value Get-EC2VpcClassicLink
 Set-Alias -Name Describe-EC2CustomerGateways -Value Get-EC2CustomerGateway
 Set-Alias -Name EC2-DescribeCustomerGateways -Value Get-EC2CustomerGateway
 Set-Alias -Name Describe-EC2DhcpOptions -Value Get-EC2DhcpOption
@@ -1112,6 +1116,8 @@ Set-Alias -Name Describe-EC2FlowLogs -Value Get-EC2FlowLogs
 Set-Alias -Name EC2-DescribeFlowLogs -Value Get-EC2FlowLogs
 Set-Alias -Name Describe-EC2Hosts -Value Get-EC2Hosts
 Set-Alias -Name EC2-DescribeHosts -Value Get-EC2Hosts
+Set-Alias -Name Describe-EC2IdentityIdFormat -Value Get-EC2IdentityIdFormat
+Set-Alias -Name EC2-DescribeIdentityIdFormat -Value Get-EC2IdentityIdFormat
 Set-Alias -Name Describe-EC2IdFormat -Value Get-EC2IdFormat
 Set-Alias -Name EC2-DescribeIdFormat -Value Get-EC2IdFormat
 Set-Alias -Name Describe-EC2ImageAttribute -Value Get-EC2ImageAttribute
@@ -1146,8 +1152,6 @@ Set-Alias -Name Describe-EC2PrefixList -Value Get-EC2PrefixList
 Set-Alias -Name EC2-DescribePrefixLists -Value Get-EC2PrefixList
 Set-Alias -Name Describe-EC2Regions -Value Get-EC2Region
 Set-Alias -Name EC2-DescribeRegions -Value Get-EC2Region
-Set-Alias -Name Describe-EC2ReservedInstances -Value Get-EC2ReservedInstance
-Set-Alias -Name EC2-DescribeReservedInstances -Value Get-EC2ReservedInstance
 Set-Alias -Name Delete-EC2KeyPair -Value Remove-EC2KeyPair
 Set-Alias -Name EC2-DeleteKeyPair -Value Remove-EC2KeyPair
 Set-Alias -Name Delete-EC2NatGateway -Value Remove-EC2NatGateway

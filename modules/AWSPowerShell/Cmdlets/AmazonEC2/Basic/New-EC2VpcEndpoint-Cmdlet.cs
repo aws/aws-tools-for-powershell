@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>A policy to attach to the endpoint that controls access to the service. The policy
         /// must be in valid JSON format. If this parameter is not specified, we attach a default
-        /// policy that allows full access to the service. </para>
+        /// policy that allows full access to the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The AWS service name, in the form <code>com.amazonaws.<i>region</i>.<i>service</i></code>.
-        /// To get a list of available services, use the <a>DescribeVpcEndpointServices</a> request.</para>
+        /// <para>The AWS service name, in the form <code>com.amazonaws.<i>region</i>.<i>service</i></code>. To get a list of available services, use the <a>DescribeVpcEndpointServices</a>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

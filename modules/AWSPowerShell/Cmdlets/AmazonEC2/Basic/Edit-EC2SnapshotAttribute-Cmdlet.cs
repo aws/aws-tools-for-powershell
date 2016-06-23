@@ -33,13 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// you cannot do both in a single API call. If you need to both add and remove account
     /// IDs for a snapshot, you must use multiple API calls.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made
+    /// public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
+    /// </para></note><para>
     /// For more information on modifying snapshot permissions, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing
     /// Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para><note><para>
-    /// Snapshots with AWS Marketplace product codes cannot be made public.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2SnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

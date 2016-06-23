@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type size that the Dedicated host is configured
         /// to support.</para></li><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
         /// | <code>off</code>).</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation associated with this
-        /// host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched the
-        /// instance</para></li><li><para><code>state</code>- The allocation state of the Dedicated host (<code>available</code>
+        /// host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
+        /// the instance</para></li><li><para><code>state</code>- The allocation state of the Dedicated host (<code>available</code>
         /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
         /// | <code>released-permanent-failure</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li></ul>
         /// </para>

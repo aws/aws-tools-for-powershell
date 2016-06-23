@@ -53,10 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// specify a snapshot ID for which you do not have access, it is not included in the
     /// returned results.
     /// </para><para>
-    /// If you specify one or more snapshot owners, only snapshots from the specified owners
-    /// and for which you have access are returned. The results can include the AWS account
-    /// IDs of the specified owners, <code>amazon</code> for snapshots owned by Amazon, or
-    /// <code>self</code> for snapshots that you own.
+    /// If you specify one or more snapshot owners using the <code>OwnerIds</code> option,
+    /// only snapshots from the specified owners and for which you have access are returned.
+    /// The results can include the AWS account IDs of the specified owners, <code>amazon</code>
+    /// for snapshots owned by Amazon, or <code>self</code> for snapshots that you own.
     /// </para><para>
     /// If you specify a list of restorable users, only snapshots with create snapshot permissions
     /// for those users are returned. You can specify AWS account IDs (if you own the snapshots),
@@ -92,12 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// that owns the snapshot.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the snapshot.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
         /// 80%).</para></li><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>start-time</code> - The time stamp when the snapshot was initiated.</para></li><li><para><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code>
         /// | <code>error</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent
-        /// of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose"
-        /// and the filter "tag-value=X", you get any resources assigned both the tag key Purpose
-        /// (regardless of what the tag's value is), and the tag value X (regardless of what the
-        /// tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i>
-        /// filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
+        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// independent of the <code>tag-value</code> filter. For example, if you use both the
+        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
+        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
+        /// X (regardless of what the tag's key is). If you want to list only resources where
+        /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
         /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>volume-id</code> - The ID of the volume the snapshot is for.</para></li><li><para><code>volume-size</code> - The size of the volume, in GiB.</para></li></ul>
         /// </para>
         /// </summary>

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// terminate) for your instances related to hardware issues, software updates, or system
     /// maintenance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled
     /// Events for Your Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></li><li><para><b>Instance state</b> - You can manage your instances from the moment you launch them
-    /// through their termination. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
+    /// </para></li><li><para><b>Instance state</b> - You can manage your instances from the moment you launch
+    /// them through their termination. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
     /// Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// byte is set based on the state represented. The valid values are 0 (pending), 16 (running),
         /// 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).</para></li><li><para><code>instance-state-name</code> - The state of the instance (<code>pending</code>
         /// | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code>
-        /// | <code>stopped</code>).</para></li><li><para><code>instance-status.reachability</code> - Filters on instance status where the name
-        /// is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code>
+        /// | <code>stopped</code>).</para></li><li><para><code>instance-status.reachability</code> - Filters on instance status where the
+        /// name is <code>reachability</code> (<code>passed</code> | <code>failed</code> | <code>initializing</code>
         /// | <code>insufficient-data</code>).</para></li><li><para><code>instance-status.status</code> - The status of the instance (<code>ok</code>
         /// | <code>impaired</code> | <code>initializing</code> | <code>insufficient-data</code>
         /// | <code>not-applicable</code>).</para></li><li><para><code>system-status.reachability</code> - Filters on system status where the name

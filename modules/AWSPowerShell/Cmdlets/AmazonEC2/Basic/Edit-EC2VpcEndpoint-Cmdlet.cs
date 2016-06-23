@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>A policy document to attach to the endpoint. The policy must be in valid JSON format.
-        /// </para>
+        /// <para>A policy document to attach to the endpoint. The policy must be in valid JSON format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

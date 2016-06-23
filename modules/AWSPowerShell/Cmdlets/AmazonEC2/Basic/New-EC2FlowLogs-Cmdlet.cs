@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Logs. If you specify a VPC or subnet in the request, a log stream is created in CloudWatch
     /// Logs for each network interface in the subnet or VPC. Log streams can include information
     /// about accepted and rejected traffic to a network interface. You can view the data
-    /// in your log streams using Amazon CloudWatch Logs. 
+    /// in your log streams using Amazon CloudWatch Logs.
     /// 
     ///  
     /// <para>
