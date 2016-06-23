@@ -355,9 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies if the DB instance is a Multi-AZ deployment. You cannot set the AvailabilityZone
-        /// parameter if the MultiAZ parameter is set to true. Do not set this value if you want
-        /// a Multi-AZ deployment for a SQL Server DB instance. Multi-AZ for SQL Server is set
-        /// using the Mirroring option in an option group.</para>
+        /// parameter if the MultiAZ parameter is set to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
