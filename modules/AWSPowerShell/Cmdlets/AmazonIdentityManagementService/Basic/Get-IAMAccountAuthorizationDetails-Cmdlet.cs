@@ -51,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A list of entity types (user, group, role, local managed policy, or AWS managed policy)
-        /// for filtering the results.</para><para>The format for this parameter is a comma-separated (if more than one) list of strings.
+        /// <para>A list of entity types used to filter the results. Only the entities that match the
+        /// types you specify are included in the output. Use the value <code>LocalManagedPolicy</code>
+        /// to include customer managed policies.</para><para>The format for this parameter is a comma-separated (if more than one) list of strings.
         /// Each string value in the list must be one of the valid values listed below.</para>
         /// </para>
         /// </summary>
