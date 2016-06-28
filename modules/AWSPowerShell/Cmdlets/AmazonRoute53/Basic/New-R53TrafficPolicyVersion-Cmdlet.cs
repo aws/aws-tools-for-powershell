@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The definition of a new traffic policy version, in JSON format. You must specify the
         /// full definition of the new traffic policy. You cannot specify just the differences
-        /// between the new version and a previous version.</para>
+        /// between the new version and a previous version. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic
+        /// Policy Document Format</a> in the <i>Amazon Route 53 API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

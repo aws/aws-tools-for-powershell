@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// sets in an alias, weighted alias, latency alias, geolocation alias, or failover alias
         /// resource record set, and you specify health check IDs for all of the resource record
         /// sets that are referenced by the alias resource record sets. For more information about
-        /// this configuration, see <a>EvaluateTargetHealth</a>.</para><para>Amazon Route 53 doesn't check the health of the endpoint specified in the resource
+        /// this configuration, see <code>EvaluateTargetHealth</code>.</para><para>Amazon Route 53 doesn't check the health of the endpoint specified in the resource
         /// record set, for example, the endpoint specified by the IP address in the <code>Value</code>
         /// element. When you add a <code>HealthCheckId</code> element to a resource record set,
         /// Amazon Route 53 checks the health of the endpoint that you specified in the health

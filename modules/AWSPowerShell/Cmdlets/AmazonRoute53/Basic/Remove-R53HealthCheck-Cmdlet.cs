@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// health check, you must disassociate them before you can delete your health check.
     /// If you try to delete a health check that is associated with resource record sets,
     /// Amazon Route 53 will deny your request with a <code>HealthCheckInUse</code> error.
-    /// For information about disassociating the records from your health check, see <a>ChangeResourceRecordSets</a>.</important>
+    /// For information about disassociating the records from your health check, see <code>ChangeResourceRecordSets</code>.</important>
     /// </summary>
     [Cmdlet("Remove", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

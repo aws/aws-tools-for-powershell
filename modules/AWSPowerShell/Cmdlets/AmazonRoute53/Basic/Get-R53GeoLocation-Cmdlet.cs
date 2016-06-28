@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>The code for a continent geo location. Note: only continent locations have a continent
         /// code.</para><para>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code>
         /// | <code>OC</code> | <code>NA</code> | <code>SA</code></para><para>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code>
-        /// or <code>SubdivisionCode</code> returns an <a>InvalidInput</a> error.</para>
+        /// or <code>SubdivisionCode</code> returns an <code>InvalidInput</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The code for a country's subdivision (e.g., a province of Canada). A subdivision code
         /// is only valid with the appropriate country code.</para><para>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code>
-        /// returns an <a>InvalidInput</a> error.</para>
+        /// returns an <code>InvalidInput</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

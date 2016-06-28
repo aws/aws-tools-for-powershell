@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The definition of this traffic policy in JSON format.</para>
+        /// <para>The definition of this traffic policy in JSON format. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic
+        /// Policy Document Format</a> in the <i>Amazon Route 53 API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

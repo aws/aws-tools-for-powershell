@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// the <code>ListGeoLocations</code> request to list. For non-continent geo locations,
         /// this should be null.</para><para>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code>
         /// | <code>OC</code> | <code>NA</code> | <code>SA</code></para><para>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code>
-        /// or <code>SubdivisionCode</code> returns an <a>InvalidInput</a> error.</para>
+        /// or <code>SubdivisionCode</code> returns an <code>InvalidInput</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The first subdivision code in the lexicographic ordering of geo locations that you
         /// want the <code>ListGeoLocations</code> request to list.</para><para>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code>
-        /// returns an <a>InvalidInput</a> error.</para>
+        /// returns an <code>InvalidInput</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

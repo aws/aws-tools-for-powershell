@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para><note>After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code>
     /// request, there's a brief delay while Amazon Route 53 creates the resource record sets
     /// that are specified in the traffic policy definition. For more information, see the
-    /// <a>State</a> response element. </note>
+    /// <code>State</code> response element.</note>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstance")]
     [OutputType("Amazon.Route53.Model.TrafficPolicyInstance")]

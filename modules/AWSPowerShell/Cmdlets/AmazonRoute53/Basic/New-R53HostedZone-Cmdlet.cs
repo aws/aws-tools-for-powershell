@@ -117,7 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneConfig_PrivateZone
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para><code>GetHostedZone</code> and <code>ListHostedZone</code> responses: A Boolean value
+        /// that indicates whether a hosted zone is private.</para><para><code>CreateHostedZone</code> requests: When you're creating a private hosted zone
+        /// (when you specify values for VPCId and VPCRegion), you can optionally specify true
+        /// for PrivateZone. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
