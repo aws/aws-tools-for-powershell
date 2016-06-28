@@ -28,28 +28,33 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Retrieves the endpoint attributes for a device on one of the supported push notification
-    /// services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>.
+    /// Returns the settings for sending SMS messages from your account.
+    /// 
+    ///  
+    /// <para>
+    /// These settings are set with the <code>SetSMSAttributes</code> action.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "SNSEndpointAttributes")]
+    [Cmdlet("Get", "SNSSMSAttributes")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetEndpointAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetEndpointAttributes"})]
+    [AWSCmdlet("Invokes the GetSMSAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetSMSAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.GetSMSAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public class GetSNSSMSAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>EndpointArn for GetEndpointAttributes input.</para>
+        /// <para>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>,
+        /// for which you want values.</para><para>For all attribute names, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</para><para>If you don't use this parameter, Amazon SNS returns all SMS attributes.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String EndpointArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("Attributes")]
+        public System.String[] Attribute { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -62,7 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
-            context.EndpointArn = this.EndpointArn;
+            if (this.Attribute != null)
+            {
+                context.Attributes = new List<System.String>(this.Attribute);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -74,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest();
+            var request = new Amazon.SimpleNotificationService.Model.GetSMSAttributesRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.Attributes != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
+                request.Attributes = cmdletContext.Attributes;
             }
             
             CmdletOutput output;
@@ -114,16 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest request)
+        private static Amazon.SimpleNotificationService.Model.GetSMSAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetSMSAttributesRequest request)
         {
-            return client.GetEndpointAttributes(request);
+            return client.GetSMSAttributes(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
+            public List<System.String> Attributes { get; set; }
         }
         
     }

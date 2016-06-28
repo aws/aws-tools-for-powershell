@@ -28,10 +28,10 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Verifies an endpoint owner's intent to receive messages by validating      the token
-    /// sent to the endpoint by an earlier <code>Subscribe</code> action. If the      token
-    /// is valid, the action creates a new subscription and returns its      Amazon Resource
-    /// Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code>
+    /// Verifies an endpoint owner's intent to receive messages by validating the token sent
+    /// to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid,
+    /// the action creates a new subscription and returns its Amazon Resource Name (ARN).
+    /// This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code>
     /// flag is set to "true".
     /// </summary>
     [Cmdlet("Confirm", "SNSSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter AuthenticateOnUnsubscribe
         /// <summary>
         /// <para>
-        /// <para>Disallows unauthenticated unsubscribes of the subscription.     If the value of this
-        /// parameter is <code>true</code> and the request has an AWS signature, then only the
-        /// topic owner    and the subscription owner can unsubscribe the endpoint.  The unsubscribe
-        ///    action requires AWS authentication. </para>
+        /// <para>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter
+        /// is <code>true</code> and the request has an AWS signature, then only the topic owner
+        /// and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires
+        /// AWS authentication. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

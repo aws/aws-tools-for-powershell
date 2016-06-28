@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Returns a list of the requester's topics. Each call returns a limited list of topics,
-    /// up to 100. If      there are more topics, a <code>NextToken</code> is also returned.
-    /// Use the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to
-    /// get      further results.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use
+    /// the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
+    /// further results.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SNSTopic")]
     [OutputType("Amazon.SimpleNotificationService.Model.Topic")]

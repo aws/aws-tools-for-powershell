@@ -28,28 +28,34 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Retrieves the endpoint attributes for a device on one of the supported push notification
-    /// services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>.
+    /// Accepts a phone number and indicates whether the phone holder has opted out of receiving
+    /// SMS messages from your account. You cannot send SMS messages to a number that is opted
+    /// out.
+    /// 
+    ///  
+    /// <para>
+    /// To resume sending messages, you can opt in the number by using the <code>OptInPhoneNumber</code>
+    /// action.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "SNSEndpointAttributes")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetEndpointAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetEndpointAttributes"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "SNSIfPhoneNumberIsOptedOut")]
+    [OutputType("System.Boolean")]
+    [AWSCmdlet("Invokes the CheckIfPhoneNumberIsOptedOut operation against Amazon Simple Notification Service.", Operation = new[] {"CheckIfPhoneNumberIsOptedOut"})]
+    [AWSCmdletOutput("System.Boolean",
+        "This cmdlet returns a Boolean object.",
+        "The service call response (type Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public class TestSNSIfPhoneNumberIsOptedOutCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>EndpointArn for GetEndpointAttributes input.</para>
+        /// <para>The phone number for which you want to check the opt out status.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String EndpointArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PhoneNumber { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
-            context.EndpointArn = this.EndpointArn;
+            context.PhoneNumber = this.PhoneNumber;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -74,11 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest();
+            var request = new Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.PhoneNumber != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
+                request.PhoneNumber = cmdletContext.PhoneNumber;
             }
             
             CmdletOutput output;
@@ -89,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Attributes;
+                object pipelineOutput = response.IsOptedOut;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -114,16 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest request)
+        private static Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutRequest request)
         {
-            return client.GetEndpointAttributes(request);
+            return client.CheckIfPhoneNumberIsOptedOut(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
+            public System.String PhoneNumber { get; set; }
         }
         
     }

@@ -28,10 +28,10 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Creates a topic to which notifications can be published. Users can create     at most
-    /// 3000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>.
-    ///      This action is idempotent, so if the requester already owns a topic with the
-    /// specified name, that topic's ARN is      returned without creating a new topic.
+    /// Creates a topic to which notifications can be published. Users can create at most
+    /// 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>.
+    /// This action is idempotent, so if the requester already owns a topic with the specified
+    /// name, that topic's ARN is returned without creating a new topic.
     /// </summary>
     [Cmdlet("New", "SNSTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the topic you want to create.</para><para>Constraints: Topic names must be made up of     only uppercase and lowercase ASCII
-        /// letters, numbers, underscores, and hyphens, and must be     between 1 and 256 characters
-        /// long. </para>
+        /// <para>The name of the topic you want to create.</para><para>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters,
+        /// numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

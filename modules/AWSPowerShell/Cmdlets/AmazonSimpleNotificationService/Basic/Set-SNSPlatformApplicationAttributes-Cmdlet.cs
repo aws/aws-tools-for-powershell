@@ -29,8 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Sets the attributes of the platform application object for the supported push notification
-    /// services,       such as APNS and GCM.      For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>.
+    /// services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes
+    /// for message delivery status, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using
+    /// Amazon SNS Application Attributes for Message Delivery Status</a>.
     /// </summary>
     [Cmdlet("Set", "SNSPlatformApplicationAttributes", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -45,18 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><code>PlatformCredential</code> -- The credential received
-        /// from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is "private
-        /// key".         For GCM, PlatformCredential is "API key". For ADM, PlatformCredential
-        /// is "client secret".</li><li><code>PlatformPrincipal</code> -- The principal
-        /// received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is
-        /// "SSL certificate".         For GCM, PlatformPrincipal is not applicable. For ADM,
-        /// PlatformPrincipal is "client id".</li><li><code>EventEndpointCreated</code>
-        /// -- Topic ARN to which EndpointCreated event notifications should be sent.</li><li><code>EventEndpointDeleted</code> -- Topic ARN to which EndpointDeleted event
-        /// notifications should be sent.</li><li><code>EventEndpointUpdated</code> -- Topic
-        /// ARN to which EndpointUpdate event notifications should be sent.</li><li><code>EventDeliveryFailure</code>
-        /// -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct
-        /// Publish delivery failure (permanent) to one of the application's endpoints.</li></ul>
+        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> -- The credential received from the notification service.
+        /// For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential
+        /// is "API key". For ADM, PlatformCredential is "client secret".</para></li><li><para><code>PlatformPrincipal</code> -- The principal received from the notification service.
+        /// For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal
+        /// is not applicable. For ADM, PlatformPrincipal is "client id".</para></li><li><para><code>EventEndpointCreated</code> -- Topic ARN to which EndpointCreated event notifications
+        /// should be sent.</para></li><li><para><code>EventEndpointDeleted</code> -- Topic ARN to which EndpointDeleted event notifications
+        /// should be sent.</para></li><li><para><code>EventEndpointUpdated</code> -- Topic ARN to which EndpointUpdate event notifications
+        /// should be sent.</para></li><li><para><code>EventDeliveryFailure</code> -- Topic ARN to which DeliveryFailure event notifications
+        /// should be sent upon Direct Publish delivery failure (permanent) to one of the application's
+        /// endpoints.</para></li><li><para><code>SuccessFeedbackRoleArn</code> -- IAM role ARN used to give Amazon SNS write
+        /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>FailureFeedbackRoleArn</code> -- IAM role ARN used to give Amazon SNS write
+        /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>SuccessFeedbackSampleRate</code> -- Sample rate percentage (0-100) of successfully
+        /// delivered messages.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

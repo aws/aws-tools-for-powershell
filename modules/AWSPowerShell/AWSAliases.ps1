@@ -2728,6 +2728,10 @@ Set-Alias -Name SES-ListVerifiedEmailAddresses -Value Get-SESVerifiedEmailAddres
 Set-Alias -Name Put-SESIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-PutIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-ReorderReceiptRuleSet -Value Set-SESReceiptRuleSetOrder
+Set-Alias -Name SNS-RemovePermission -Value Remove-SNSPermission
+Set-Alias -Name SNS-SetEndpointAttributes -Value Set-SNSEndpointAttributes
+Set-Alias -Name SNS-SetPlatformApplicationAttributes -Value Set-SNSPlatformApplicationAttributes
+Set-Alias -Name SNS-SetSMSAttributes -Value Set-SNSSMSAttributes
 Set-Alias -Name Set-SNSSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
 Set-Alias -Name SNS-SetSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
 Set-Alias -Name Set-SNSTopicAttributes -Value Set-SNSTopicAttribute
@@ -2735,6 +2739,7 @@ Set-Alias -Name SNS-SetTopicAttributes -Value Set-SNSTopicAttribute
 Set-Alias -Name SNS-Subscribe -Value Connect-SNSNotification
 Set-Alias -Name SNS-Unsubscribe -Value Disconnect-SNSNotification
 Set-Alias -Name SNS-AddPermission -Value Add-SNSPermission
+Set-Alias -Name SNS-CheckIfPhoneNumberIsOptedOut -Value Test-SNSIfPhoneNumberIsOptedOut
 Set-Alias -Name SNS-ConfirmSubscription -Value Confirm-SNSSubscription
 Set-Alias -Name Create-SNSPlatformApplication -Value New-SNSPlatformApplication
 Set-Alias -Name SNS-CreatePlatformApplication -Value New-SNSPlatformApplication
@@ -2750,12 +2755,15 @@ Set-Alias -Name Delete-SNSTopic -Value Remove-SNSTopic
 Set-Alias -Name SNS-DeleteTopic -Value Remove-SNSTopic
 Set-Alias -Name SNS-GetEndpointAttributes -Value Get-SNSEndpointAttributes
 Set-Alias -Name SNS-GetPlatformApplicationAttributes -Value Get-SNSPlatformApplicationAttributes
+Set-Alias -Name SNS-GetSMSAttributes -Value Get-SNSSMSAttributes
 Set-Alias -Name Get-SNSSubscriptionAttributes -Value Get-SNSSubscriptionAttribute
 Set-Alias -Name SNS-GetSubscriptionAttributes -Value Get-SNSSubscriptionAttribute
 Set-Alias -Name Get-SNSTopicAttributes -Value Get-SNSTopicAttribute
 Set-Alias -Name SNS-GetTopicAttributes -Value Get-SNSTopicAttribute
 Set-Alias -Name List-SNSEndpointsByPlatformApplication -Value Get-SNSEndpointsByPlatformApplication
 Set-Alias -Name SNS-ListEndpointsByPlatformApplication -Value Get-SNSEndpointsByPlatformApplication
+Set-Alias -Name List-SNSPhoneNumbersOptedOut -Value Get-SNSPhoneNumbersOptedOut
+Set-Alias -Name SNS-ListPhoneNumbersOptedOut -Value Get-SNSPhoneNumbersOptedOut
 Set-Alias -Name List-SNSPlatformApplications -Value Get-SNSPlatformApplications
 Set-Alias -Name SNS-ListPlatformApplications -Value Get-SNSPlatformApplications
 Set-Alias -Name List-SNSSubscriptions -Value Get-SNSSubscription
@@ -2764,10 +2772,8 @@ Set-Alias -Name List-SNSSubscriptionsByTopic -Value Get-SNSSubscriptionByTopic
 Set-Alias -Name SNS-ListSubscriptionsByTopic -Value Get-SNSSubscriptionByTopic
 Set-Alias -Name List-SNSTopics -Value Get-SNSTopic
 Set-Alias -Name SNS-ListTopics -Value Get-SNSTopic
+Set-Alias -Name SNS-OptInPhoneNumber -Value Enable-SNSPhoneNumber
 Set-Alias -Name SNS-Publish -Value Publish-SNSMessage
-Set-Alias -Name SNS-RemovePermission -Value Remove-SNSPermission
-Set-Alias -Name SNS-SetEndpointAttributes -Value Set-SNSEndpointAttributes
-Set-Alias -Name SNS-SetPlatformApplicationAttributes -Value Set-SNSPlatformApplicationAttributes
 Set-Alias -Name SQS-AddPermission -Value Add-SQSPermission
 Set-Alias -Name Change-SQSMessageVisibility -Value Edit-SQSMessageVisibility
 Set-Alias -Name SQS-ChangeMessageVisibility -Value Edit-SQSMessageVisibility

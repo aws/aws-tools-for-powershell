@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The AWS account IDs of the users (principals) who will be given access to the specified
-        ///    actions. The users must have AWS accounts, but do not need to be signed up    
-        /// for this service. </para>
+        /// actions. The users must have AWS accounts, but do not need to be signed up for this
+        /// service. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

@@ -28,36 +28,35 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Returns a list of the subscriptions to a specific topic. Each call returns a limited
-    /// list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code>
-    /// is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptionsByTopic</code>
-    /// call to get further results.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages
+    /// to them.
+    /// 
+    ///  
+    /// <para>
+    /// The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
+    /// returns up to 100 phone numbers. If additional phone numbers are available after the
+    /// first page of results, then a <code>NextToken</code> string will be returned. To receive
+    /// the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code>
+    /// string received from the previous call. When there are no more records to return,
+    /// <code>NextToken</code> will be null.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SNSSubscriptionByTopic")]
-    [OutputType("Amazon.SimpleNotificationService.Model.Subscription")]
-    [AWSCmdlet("Invokes the ListSubscriptionsByTopic operation against Amazon Simple Notification Service.", Operation = new[] {"ListSubscriptionsByTopic"})]
-    [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.Subscription",
-        "This cmdlet returns a collection of Subscription objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.ListSubscriptionsByTopicResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SNSPhoneNumbersOptedOut")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListPhoneNumbersOptedOut operation against Amazon Simple Notification Service.", Operation = new[] {"ListPhoneNumbersOptedOut"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.SimpleNotificationService.Model.ListPhoneNumbersOptedOutResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetSNSSubscriptionByTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public class GetSNSPhoneNumbersOptedOutCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
-        
-        #region Parameter TopicArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the topic for which you wish to find subscriptions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TopicArn { get; set; }
-        #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</para>
+        /// <para>A <code>NextToken</code> string is used when you call the <code>ListPhoneNumbersOptedOut</code>
+        /// action to retrieve additional records that are available after the first page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -75,7 +74,6 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             };
             
             context.NextToken = this.NextToken;
-            context.TopicArn = this.TopicArn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -88,12 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleNotificationService.Model.ListSubscriptionsByTopicRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ListPhoneNumbersOptedOutRequest();
             
-            if (cmdletContext.TopicArn != null)
-            {
-                request.TopicArn = cmdletContext.TopicArn;
-            }
             
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
@@ -119,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Subscriptions;
+                        object pipelineOutput = response.PhoneNumbers;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -130,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Subscriptions.Count;
+                            int _receivedThisCall = response.PhoneNumbers.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -165,9 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.ListSubscriptionsByTopicResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ListSubscriptionsByTopicRequest request)
+        private static Amazon.SimpleNotificationService.Model.ListPhoneNumbersOptedOutResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ListPhoneNumbersOptedOutRequest request)
         {
-            return client.ListSubscriptionsByTopic(request);
+            return client.ListPhoneNumbersOptedOut(request);
         }
         
         #endregion
@@ -175,7 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         internal class CmdletContext : ExecutorContext
         {
             public System.String NextToken { get; set; }
-            public System.String TopicArn { get; set; }
         }
         
     }

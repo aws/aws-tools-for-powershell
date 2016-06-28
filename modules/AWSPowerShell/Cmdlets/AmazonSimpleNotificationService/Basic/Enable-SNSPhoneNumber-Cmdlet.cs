@@ -28,33 +28,37 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages
-    /// previously sent to the topic from being delivered to subscribers. This action is idempotent,
-    /// so deleting a topic that does not exist does not result in an error.
+    /// Use this request to opt in a phone number that is opted out, which enables you to
+    /// resume sending SMS messages to the number.
+    /// 
+    ///  
+    /// <para>
+    /// You can opt in a phone number only once every 30 days.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "SNSTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Enable", "SNSPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTopic operation against Amazon Simple Notification Service.", Operation = new[] {"DeleteTopic"})]
+    [AWSCmdlet("Invokes the OptInPhoneNumber operation against Amazon Simple Notification Service.", Operation = new[] {"OptInPhoneNumber"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleNotificationService.Model.DeleteTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PhoneNumber parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleNotificationService.Model.OptInPhoneNumberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveSNSTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public class EnableSNSPhoneNumberCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter TopicArn
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
-        /// <para>The ARN of the topic you want to delete.</para>
+        /// <para>The phone number to opt in.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String TopicArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PhoneNumber { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the TopicArn parameter.
+        /// Returns the value passed to the PhoneNumber parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TopicArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SNSTopic (DeleteTopic)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PhoneNumber", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-SNSPhoneNumber (OptInPhoneNumber)"))
             {
                 return;
             }
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
-            context.TopicArn = this.TopicArn;
+            context.PhoneNumber = this.PhoneNumber;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,11 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.DeleteTopicRequest();
+            var request = new Amazon.SimpleNotificationService.Model.OptInPhoneNumberRequest();
             
-            if (cmdletContext.TopicArn != null)
+            if (cmdletContext.PhoneNumber != null)
             {
-                request.TopicArn = cmdletContext.TopicArn;
+                request.PhoneNumber = cmdletContext.PhoneNumber;
             }
             
             CmdletOutput output;
@@ -116,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.TopicArn;
+                    pipelineOutput = this.PhoneNumber;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -141,16 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.DeleteTopicResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.DeleteTopicRequest request)
+        private static Amazon.SimpleNotificationService.Model.OptInPhoneNumberResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.OptInPhoneNumberRequest request)
         {
-            return client.DeleteTopic(request);
+            return client.OptInPhoneNumber(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String TopicArn { get; set; }
+            public System.String PhoneNumber { get; set; }
         }
         
     }

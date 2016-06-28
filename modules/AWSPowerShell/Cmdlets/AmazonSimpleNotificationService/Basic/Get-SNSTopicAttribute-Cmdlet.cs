@@ -28,8 +28,8 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Returns all of the properties of a topic.     Topic properties returned might differ
-    /// based on the authorization of the user.
+    /// Returns all of the properties of a topic. Topic properties returned might differ based
+    /// on the authorization of the user.
     /// </summary>
     [Cmdlet("Get", "SNSTopicAttribute")]
     [OutputType("System.String")]
