@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The instance attribute.</para>
+        /// <para>The instance attribute.</para><para>Note: The <code>enaSupport</code> attribute is not supported at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

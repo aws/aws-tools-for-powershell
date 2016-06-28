@@ -104,6 +104,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EnaSupport
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any
+        /// instances that you launch from the AMI.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
+        /// make instances launched from the AMI unreachable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnaSupport { get; set; }
+        #endregion
+        
         #region Parameter ImageLocation
         /// <summary>
         /// <para>
@@ -159,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>simple</code> to enable enhanced networking for the AMI and any instances
-        /// that you launch from the AMI.</para><para>There is no way to disable <code>sriovNetSupport</code> at this time.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
+        /// <para>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
+        /// Function interface for the AMI and any instances that you launch from the AMI.</para><para>There is no way to disable <code>sriovNetSupport</code> at this time.</para><para>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can
         /// make instances launched from the AMI unreachable.</para>
         /// </para>
         /// </summary>
@@ -210,6 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.BlockDeviceMappings = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
             context.Description = this.Description;
+            if (ParameterWasBound("EnaSupport"))
+                context.EnaSupport = this.EnaSupport;
             context.ImageLocation = this.ImageLocation;
             context.KernelId = this.KernelId;
             context.Name = this.Name;
@@ -241,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnaSupport != null)
+            {
+                request.EnaSupport = cmdletContext.EnaSupport.Value;
             }
             if (cmdletContext.ImageLocation != null)
             {
@@ -316,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.ArchitectureValues Architecture { get; set; }
             public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? EnaSupport { get; set; }
             public System.String ImageLocation { get; set; }
             public System.String KernelId { get; set; }
             public System.String Name { get; set; }

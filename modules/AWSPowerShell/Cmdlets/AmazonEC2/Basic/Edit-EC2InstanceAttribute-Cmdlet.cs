@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean EbsOptimized { get; set; }
         #endregion
         
+        #region Parameter EnaSupport
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to enable enhanced networking with ENA for the instance.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
+        /// instance can make it unreachable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnaSupport { get; set; }
+        #endregion
+        
         #region Parameter Group
         /// <summary>
         /// <para>
@@ -182,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
-        /// <para>Set to <code>simple</code> to enable enhanced networking for the instance.</para><para>There is no way to disable enhanced networking at this time.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
+        /// <para>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
+        /// Function interface for the instance.</para><para>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
+        /// interface at this time.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
         /// instance can make it unreachable.</para>
         /// </para>
         /// </summary>
@@ -258,6 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.DisableApiTermination = this.DisableApiTermination;
             if (ParameterWasBound("EbsOptimized"))
                 context.EbsOptimized = this.EbsOptimized;
+            if (ParameterWasBound("EnaSupport"))
+                context.EnaSupport = this.EnaSupport;
             if (this.Group != null)
             {
                 context.Groups = new List<System.String>(this.Group);
@@ -300,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.EbsOptimized != null)
             {
                 request.EbsOptimized = cmdletContext.EbsOptimized.Value;
+            }
+            if (cmdletContext.EnaSupport != null)
+            {
+                request.EnaSupport = cmdletContext.EnaSupport.Value;
             }
             if (cmdletContext.Groups != null)
             {
@@ -390,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification> BlockDeviceMappings { get; set; }
             public System.Boolean? DisableApiTermination { get; set; }
             public System.Boolean? EbsOptimized { get; set; }
+            public System.Boolean? EnaSupport { get; set; }
             public List<System.String> Groups { get; set; }
             public System.String InstanceId { get; set; }
             public System.String InstanceInitiatedShutdownBehavior { get; set; }
