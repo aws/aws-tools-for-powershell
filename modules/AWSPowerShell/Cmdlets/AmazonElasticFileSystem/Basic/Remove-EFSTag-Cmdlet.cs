@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
-    /// includes a tag key that does not exist, Amazon EFS ignores it; it is not an error.
-    /// For more information about tags and related restrictions, go to <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
+    /// includes a tag key that does not exist, Amazon EFS ignores it and doesn't cause an
+    /// error. For more information about tags and related restrictions, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag
     /// Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// This operation requires permission for the <code>elasticfilesystem:DeleteTags</code>
+    /// This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
     /// action.
     /// </para>
     /// </summary>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>String. The ID of the file system whose tags you want to delete.</para>
+        /// <para>ID of the file system whose tags you want to delete (String).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to delete.</para>
+        /// <para>List of tag keys to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

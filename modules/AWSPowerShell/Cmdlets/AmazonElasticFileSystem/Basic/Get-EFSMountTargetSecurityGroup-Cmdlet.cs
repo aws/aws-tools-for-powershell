@@ -29,15 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Returns the security groups currently in effect for a mount target. This operation
-    /// requires that the network interface of the mount target has been created and the life
-    /// cycle state of the mount target is not "deleted".
+    /// requires that the network interface of the mount target has been created and the lifecycle
+    /// state of the mount target is not <code>deleted</code>.
     /// 
     ///  
     /// <para>
     /// This operation requires permissions for the following actions:
-    /// </para><ul><li><code>elasticfilesystem:DescribeMountTargetSecurityGroups</code> action
-    /// on the mount target's file system. </li><li><code>ec2:DescribeNetworkInterfaceAttribute</code>
-    /// action on the mount target's network interface. </li></ul>
+    /// </para><ul><li><para><code>elasticfilesystem:DescribeMountTargetSecurityGroups</code> action on the mount
+    /// target's file system. 
+    /// </para></li><li><para><code>ec2:DescribeNetworkInterfaceAttribute</code> action on the mount target's network
+    /// interface. 
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "EFSMountTargetSecurityGroup")]
     [OutputType("System.String")]
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the mount target whose security groups you want to retrieve.</para>
+        /// <para>ID of the mount target whose security groups you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

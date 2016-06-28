@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Returns the description of a specific Amazon EFS file system if either the file system
-    /// <code>CreationToken</code> or the <code>FileSystemId</code> is provided; otherwise,
-    /// returns descriptions of all file systems owned by the caller's AWS account in the
-    /// AWS region of the endpoint that you're calling.
+    /// <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise,
+    /// it returns descriptions of all file systems owned by the caller's AWS account in the
+    /// AWS Region of the endpoint that you're calling.
     /// 
     ///  
     /// <para>
@@ -41,20 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// In this case, you should send a subsequent request with the <code>Marker</code> request
     /// parameter set to the value of <code>NextMarker</code>. 
     /// </para><para>
-    ///  So to retrieve a list of your file system descriptions, the expected usage of this
-    /// API is an iterative process of first calling <code>DescribeFileSystems</code> without
-    /// the <code>Marker</code> and then continuing to call it with the <code>Marker</code>
+    /// To retrieve a list of your file system descriptions, this operation is used in an
+    /// iterative process, where <code>DescribeFileSystems</code> is called first without
+    /// the <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
     /// parameter set to the value of the <code>NextMarker</code> from the previous response
     /// until the response has no <code>NextMarker</code>. 
     /// </para><para>
-    ///  Note that the implementation may return fewer than <code>MaxItems</code> file system
-    /// descriptions while still including a <code>NextMarker</code> value. 
+    /// The implementation may return fewer than <code>MaxItems</code> file system descriptions
+    /// while still including a <code>NextMarker</code> value. 
     /// </para><para>
     ///  The order of file systems returned in the response of one <code>DescribeFileSystems</code>
-    /// call, and the order of file systems returned across the responses of a multi-call
-    /// iteration, is unspecified. 
+    /// call and the order of file systems returned across the responses of a multi-call iteration
+    /// is unspecified. 
     /// </para><para>
-    ///  This operation requires permission for the <code>elasticfilesystem:DescribeFileSystems</code>
+    ///  This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystems</code>
     /// action. 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter CreationToken
         /// <summary>
         /// <para>
-        /// <para> Optional string. Restricts the list to the file system with this creation token (you
-        /// specify a creation token at the time of creating an Amazon EFS file system). </para>
+        /// <para>(Optional) Restricts the list to the file system with this creation token (String).
+        /// You specify a creation token when you create an Amazon EFS file system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>Optional string. File system ID whose description you want to retrieve. </para>
+        /// <para>(Optional) ID of the file system whose description you want to retrieve (String).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> Optional string. Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
-        /// operation. If present, specifies to continue the list from where the returning call
-        /// had left off. </para>
+        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
+        /// operation (String). If present, specifies to continue the list from where the returning
+        /// call had left off. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional integer. Specifies the maximum number of file systems to return in the response.
-        /// This parameter value must be greater than 0. The number of items Amazon EFS returns
-        /// will be the minimum of the <code>MaxItems</code> parameter specified in the request
-        /// and the service's internal maximum number of items per page. </para>
+        /// <para>(Optional) Specifies the maximum number of file systems to return in the response
+        /// (integer). This parameter value must be greater than 0. The number of items that Amazon
+        /// EFS returns is the minimum of the <code>MaxItems</code> parameter specified in the
+        /// request and the service's internal maximum number of items per page. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

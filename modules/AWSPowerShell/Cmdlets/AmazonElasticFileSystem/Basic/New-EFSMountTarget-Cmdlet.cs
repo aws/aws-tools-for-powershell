@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Creates a mount target for a file system. You can then mount the file system on EC2
-    /// instances via the mount target. 
+    /// instances via the mount target.
     /// 
     ///  
     /// <para>
@@ -41,12 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// it Works</a>. 
     /// </para><para>
     /// In the request, you also specify a file system ID for which you are creating the mount
-    /// target and the file system's lifecycle state must be "available" (see <a>DescribeFileSystems</a>).
+    /// target and the file system's lifecycle state must be <code>available</code>. For more
+    /// information, see <a>DescribeFileSystems</a>.
     /// </para><para>
-    ///  In the request, you also provide a subnet ID, which serves several purposes:
-    /// </para><ul><li>It determines the VPC in which Amazon EFS creates the mount target.</li><li>It determines the Availability Zone in which Amazon EFS creates the mount target.
-    /// </li><li>It determines the IP address range from which Amazon EFS selects the IP
-    /// address of the mount target if you don't specify an IP address in the request. </li></ul><para>
+    /// In the request, you also provide a subnet ID, which determines the following:
+    /// </para><ul><li><para>
+    /// VPC in which Amazon EFS creates the mount target
+    /// </para></li><li><para>
+    /// Availability Zone in which Amazon EFS creates the mount target
+    /// </para></li><li><para>
+    /// IP address range from which Amazon EFS selects the IP address of the mount target
+    /// (if you don't specify an IP address in the request)
+    /// </para></li></ul><para>
     /// After creating the mount target, Amazon EFS returns a response that includes, a <code>MountTargetId</code>
     /// and an <code>IpAddress</code>. You use this IP address when mounting the file system
     /// in an EC2 instance. You can also use the mount target's DNS name when mounting the
@@ -55,48 +61,59 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation">How
     /// it Works: Implementation Overview</a>. 
     /// </para><para>
-    ///  Note that you can create mount targets for a file system in only one VPC, and there
+    /// Note that you can create mount targets for a file system in only one VPC, and there
     /// can be only one mount target per Availability Zone. That is, if the file system already
-    /// has one or more mount targets created for it, the request to add another mount target
-    /// must meet the following requirements: 
+    /// has one or more mount targets created for it, the subnet specified in the request
+    /// to add another mount target must meet the following requirements:
     /// </para><ul><li><para>
-    /// The subnet specified in the request must belong to the same VPC as the subnets of
-    /// the existing mount targets.
-    /// </para></li><li>The subnet specified in the request must not be in the same Availability
-    /// Zone as any of the subnets of the existing mount targets.</li></ul><para>
+    /// Must belong to the same VPC as the subnets of the existing mount targets
+    /// </para></li><li><para>
+    /// Must not be in the same Availability Zone as any of the subnets of the existing mount
+    /// targets
+    /// </para></li></ul><para>
     /// If the request satisfies the requirements, Amazon EFS does the following:
-    /// </para><ul><li>Creates a new mount target in the specified subnet. </li><li>Also creates
-    /// a new network interface in the subnet as follows: <ul><li>If the request provides
-    /// an <code>IpAddress</code>, Amazon EFS assigns that IP address to the network interface.
-    /// Otherwise, Amazon EFS assigns a free address in the subnet (in the same way that the
-    /// Amazon EC2 <code>CreateNetworkInterface</code> call does when a request does not specify
-    /// a primary private IP address).</li><li>If the request provides <code>SecurityGroups</code>,
-    /// this network interface is associated with those security groups. Otherwise, it belongs
-    /// to the default security group for the subnet's VPC.</li><li>Assigns the description
-    /// <code>"Mount target <i>fsmt-id</i> for file system <i>fs-id</i>"</code> where <code><i>fsmt-id</i></code>
-    /// is the mount target ID, and <code><i>fs-id</i></code> is the <code>FileSystemId</code>.</li><li>Sets the <code>requesterManaged</code> property of the network interface to "true",
-    /// and the <code>requesterId</code> value to "EFS".</li></ul><para>
+    /// </para><ul><li><para>
+    /// Creates a new mount target in the specified subnet.
+    /// </para></li><li><para>
+    /// Also creates a new network interface in the subnet as follows:
+    /// </para><ul><li><para>
+    /// If the request provides an <code>IpAddress</code>, Amazon EFS assigns that IP address
+    /// to the network interface. Otherwise, Amazon EFS assigns a free address in the subnet
+    /// (in the same way that the Amazon EC2 <code>CreateNetworkInterface</code> call does
+    /// when a request does not specify a primary private IP address).
+    /// </para></li><li><para>
+    /// If the request provides <code>SecurityGroups</code>, this network interface is associated
+    /// with those security groups. Otherwise, it belongs to the default security group for
+    /// the subnet's VPC.
+    /// </para></li><li><para>
+    /// Assigns the description <code>Mount target <i>fsmt-id</i> for file system <i>fs-id</i></code> where <code><i>fsmt-id</i></code> is the mount target ID, and <code><i>fs-id</i></code> is the <code>FileSystemId</code>.
+    /// </para></li><li><para>
+    /// Sets the <code>requesterManaged</code> property of the network interface to <code>true</code>,
+    /// and the <code>requesterId</code> value to <code>EFS</code>.
+    /// </para></li></ul><para>
     /// Each Amazon EFS mount target has one corresponding requestor-managed EC2 network interface.
     /// After the network interface is created, Amazon EFS sets the <code>NetworkInterfaceId</code>
     /// field in the mount target's description to the network interface ID, and the <code>IpAddress</code>
     /// field to its address. If network interface creation fails, the entire <code>CreateMountTarget</code>
     /// operation fails.
-    /// </para></li></ul><note>The <code>CreateMountTarget</code> call returns only after creating
-    /// the network interface, but while the mount target state is still "creating". You can
-    /// check the mount target creation status by calling the <a>DescribeFileSystems</a> API,
-    /// which among other things returns the mount target state.</note><para>
+    /// </para></li></ul><note><para>
+    /// The <code>CreateMountTarget</code> call returns only after creating the network interface,
+    /// but while the mount target state is still <code>creating</code>. You can check the
+    /// mount target creation status by calling the <a>DescribeFileSystems</a> operation,
+    /// which among other things returns the mount target state.
+    /// </para></note><para>
     /// We recommend you create a mount target in each of the Availability Zones. There are
     /// cost considerations for using a file system in an Availability Zone through a mount
-    /// target created in another Availability Zone. For more information, go to <a href="http://aws.amazon.com/efs/">Amazon
-    /// EFS</a> product detail page. In addition, by always using a mount target local to
-    /// the instance's Availability Zone, you eliminate a partial failure scenario; if the
-    /// Availability Zone in which your mount target is created goes down, then you won't
-    /// be able to access your file system through that mount target. 
+    /// target created in another Availability Zone. For more information, see <a href="http://aws.amazon.com/efs/">Amazon
+    /// EFS</a>. In addition, by always using a mount target local to the instance's Availability
+    /// Zone, you eliminate a partial failure scenario. If the Availability Zone in which
+    /// your mount target is created goes down, then you won't be able to access your file
+    /// system through that mount target. 
     /// </para><para>
-    /// This operation requires permission for the following action on the file system:
-    /// </para><ul><li><code>elasticfilesystem:CreateMountTarget</code></li></ul><para>
-    /// This operation also requires permission for the following Amazon EC2 actions:
-    /// </para><ul><li><code>ec2:DescribeSubnets</code></li><li><code>ec2:DescribeNetworkInterfaces</code></li><li><code>ec2:CreateNetworkInterface</code></li></ul>
+    /// This operation requires permissions for the following action on the file system:
+    /// </para><ul><li><para><code>elasticfilesystem:CreateMountTarget</code></para></li></ul><para>
+    /// This operation also requires permissions for the following Amazon EC2 actions:
+    /// </para><ul><li><para><code>ec2:DescribeSubnets</code></para></li><li><para><code>ec2:DescribeNetworkInterfaces</code></para></li><li><para><code>ec2:CreateNetworkInterface</code></para></li></ul>
     /// </summary>
     [Cmdlet("New", "EFSMountTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticFileSystem.Model.CreateMountTargetResponse")]
@@ -110,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system for which to create the mount target.</para>
+        /// <para>ID of the file system for which to create the mount target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -120,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>A valid IPv4 address within the address range of the specified subnet.</para>
+        /// <para>Valid IPv4 address within the address range of the specified subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para> Up to 5 VPC security group IDs, of the form "sg-xxxxxxxx". These must be for the
-        /// same VPC as subnet specified. </para>
+        /// <para>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must
+        /// be for the same VPC as subnet specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -142,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet to add the mount target in.</para>
+        /// <para>ID of the subnet to add the mount target in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

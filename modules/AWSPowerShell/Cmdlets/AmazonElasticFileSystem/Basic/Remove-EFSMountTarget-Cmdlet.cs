@@ -28,27 +28,28 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Deletes the specified mount target. 
+    /// Deletes the specified mount target.
     /// 
     ///  
     /// <para>
-    ///  This operation forcibly breaks any mounts of the file system via the mount target
-    /// being deleted, which might disrupt instances or applications using those mounts. To
-    /// avoid applications getting cut off abruptly, you might consider unmounting any mounts
-    /// of the mount target, if feasible. The operation also deletes the associated network
-    /// interface. Uncommitted writes may be lost, but breaking a mount target using this
-    /// operation does not corrupt the file system itself. The file system you created remains.
-    /// You can mount an EC2 instance in your VPC using another mount target. 
+    /// This operation forcibly breaks any mounts of the file system via the mount target
+    /// that is being deleted, which might disrupt instances or applications using those mounts.
+    /// To avoid applications getting cut off abruptly, you might consider unmounting any
+    /// mounts of the mount target, if feasible. The operation also deletes the associated
+    /// network interface. Uncommitted writes may be lost, but breaking a mount target using
+    /// this operation does not corrupt the file system itself. The file system you created
+    /// remains. You can mount an EC2 instance in your VPC via another mount target.
     /// </para><para>
-    ///  This operation requires permission for the following action on the file system: 
-    /// </para><ul><li><code>elasticfilesystem:DeleteMountTarget</code></li></ul><note>The
-    /// <code>DeleteMountTarget</code> call returns while the mount target state is still
-    /// "deleting". You can check the mount target deletion by calling the <a>DescribeMountTargets</a>
-    /// API, which returns a list of mount target descriptions for the given file system.
-    /// </note><para>
-    /// The operation also requires permission for the following Amazon EC2 action on the
+    /// This operation requires permissions for the following action on the file system:
+    /// </para><ul><li><para><code>elasticfilesystem:DeleteMountTarget</code></para></li></ul><note><para>
+    /// The <code>DeleteMountTarget</code> call returns while the mount target state is still
+    /// <code>deleting</code>. You can check the mount target deletion by calling the <a>DescribeMountTargets</a>
+    /// operation, which returns a list of mount target descriptions for the given file system.
+    /// 
+    /// </para></note><para>
+    /// The operation also requires permissions for the following Amazon EC2 action on the
     /// mount target's network interface:
-    /// </para><ul><li><code>ec2:DeleteNetworkInterface</code></li></ul>
+    /// </para><ul><li><para><code>ec2:DeleteNetworkInterface</code></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "EFSMountTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>String. The ID of the mount target to delete.</para>
+        /// <para>ID of the mount target to delete (String).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// This operation requires permission for the <code>elasticfilesystem:DescribeMountTargets</code>
-    /// action, on either the file system id that you specify in <code>FileSystemId</code>,
+    /// This operation requires permissions for the <code>elasticfilesystem:DescribeMountTargets</code>
+    /// action, on either the file system ID that you specify in <code>FileSystemId</code>,
     /// or on the file system of the mount target that you specify in <code>MountTargetId</code>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>Optional. String. The ID of the file system whose mount targets you want to list.
-        /// It must be included in your request if <code>MountTargetId</code> is not included.</para>
+        /// <para>(Optional) ID of the file system whose mount targets you want to list (String). It
+        /// must be included in your request if <code>MountTargetId</code> is not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>Optional. String. The ID of the mount target that you want to have described. It must
+        /// <para>(Optional) ID of the mount target that you want to have described (String). It must
         /// be included in your request if <code>FileSystemId</code> is not included.</para>
         /// </para>
         /// </summary>
@@ -75,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Optional. String. Opaque pagination token returned from a previous <code>DescribeMountTargets</code>
-        /// operation. If present, it specifies to continue the list from where the previous returning
-        /// call left off.</para>
+        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeMountTargets</code>
+        /// operation (String). If present, it specifies to continue the list from where the previous
+        /// returning call left off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional. Maximum number of mount targets to return in the response. It must be an
+        /// <para>(Optional) Maximum number of mount targets to return in the response. It must be an
         /// integer with a value greater than zero.</para>
         /// </para>
         /// </summary>

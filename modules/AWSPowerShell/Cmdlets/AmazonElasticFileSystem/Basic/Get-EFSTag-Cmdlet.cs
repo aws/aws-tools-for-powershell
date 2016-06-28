@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
     /// Returns the tags associated with a file system. The order of tags returned in the
-    /// response of one <code>DescribeTags</code> call, and the order of tags returned across
-    /// the responses of a multi-call iteration (when using pagination), is unspecified. 
+    /// response of one <code>DescribeTags</code> call and the order of tags returned across
+    /// the responses of a multi-call iteration (when using pagination) is unspecified. 
     /// 
     ///  
     /// <para>
-    ///  This operation requires permission for the <code>elasticfilesystem:DescribeTags</code>
+    ///  This operation requires permissions for the <code>elasticfilesystem:DescribeTags</code>
     /// action. 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system whose tag set you want to retrieve.</para>
+        /// <para>ID of the file system whose tag set you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Optional. String. Opaque pagination token returned from a previous <code>DescribeTags</code>
-        /// operation. If present, it specifies to continue the list from where the previous call
-        /// left off.</para>
+        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeTags</code>
+        /// operation (String). If present, it specifies to continue the list from where the previous
+        /// call left off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional. Maximum number of file system tags to return in the response. It must be
+        /// <para>(Optional) Maximum number of file system tags to return in the response. It must be
         /// an integer with a value greater than zero.</para>
         /// </para>
         /// </summary>

@@ -28,21 +28,23 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Deletes a file system, permanently severing access to its contents. Upon return,
-    /// the file system no longer exists and you will not be able to access any contents of
-    /// the deleted file system. 
+    /// Deletes a file system, permanently severing access to its contents. Upon return, the
+    /// file system no longer exists and you can't access any contents of the deleted file
+    /// system.
     /// 
     ///  
     /// <para>
-    ///  You cannot delete a file system that is in use. That is, if the file system has any
+    ///  You can't delete a file system that is in use. That is, if the file system has any
     /// mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a>
     /// and <a>DeleteMountTarget</a>. 
-    /// </para><note>The <code>DeleteFileSystem</code> call returns while the file system state
-    /// is still "deleting". You can check the file system deletion status by calling the
-    /// <a>DescribeFileSystems</a> API, which returns a list of file systems in your account.
-    /// If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a>
-    /// will return a 404 "FileSystemNotFound" error.</note><para>
-    /// This operation requires permission for the <code>elasticfilesystem:DeleteFileSystem</code>
+    /// </para><note><para>
+    /// The <code>DeleteFileSystem</code> call returns while the file system state is still
+    /// <code>deleting</code>. You can check the file system deletion status by calling the
+    /// <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
+    /// account. If you pass file system ID or creation token for the deleted file system,
+    /// the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code> error.
+    /// </para></note><para>
+    /// This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystem</code>
     /// action.
     /// </para>
     /// </summary>
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>The ID of the file system you want to delete.</para>
+        /// <para>ID of the file system you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

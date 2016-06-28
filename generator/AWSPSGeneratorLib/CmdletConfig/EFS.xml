@@ -19,7 +19,7 @@
   </NounMappings>
   
   <ServiceOperations>
-    <ServiceOperation MethodName="CreateFileSystem" Output="Response"/>
+    <ServiceOperation MethodName="CreateFileSystem" Output="Response" IgnoreSupportsShouldProcess="true"/>
     <ServiceOperation MethodName="CreateMountTarget" Output="Response"/>
     <ServiceOperation MethodName="CreateTags" PipelineParameter="Tags" Output="Void"/>
 

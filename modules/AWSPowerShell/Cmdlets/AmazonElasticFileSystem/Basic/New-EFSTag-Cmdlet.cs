@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// Creates or overwrites tags associated with a file system. Each tag is a key-value
     /// pair. If a tag key specified in the request already exists on the file system, this
     /// operation overwrites its value with the value provided in the request. If you add
-    /// the "Name" tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a>
-    /// API. 
+    /// the <code>Name</code> tag to your file system, Amazon EFS returns it in the response
+    /// to the <a>DescribeFileSystems</a> operation. 
     /// 
     ///  
     /// <para>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>String. The ID of the file system whose tags you want to modify. This operation modifies
-        /// only the tags and not the file system.</para>
+        /// <para>ID of the file system whose tags you want to modify (String). This operation modifies
+        /// the tags only, not the file system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
+        /// <para>Array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
         /// pair. </para>
         /// </para>
         /// </summary>

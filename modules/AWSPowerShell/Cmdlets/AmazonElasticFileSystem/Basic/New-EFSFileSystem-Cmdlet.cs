@@ -28,40 +28,56 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Creates a new, empty file system. The operation requires a creation token in the
-    /// request that Amazon EFS uses to ensure idempotent creation (calling the operation
-    /// with same creation token has no effect). If a file system does not currently exist
-    /// that is owned by the caller's AWS account with the specified creation token, this
-    /// operation does the following: 
+    /// Creates a new, empty file system. The operation requires a creation token in the request
+    /// that Amazon EFS uses to ensure idempotent creation (calling the operation with same
+    /// creation token has no effect). If a file system does not currently exist that is owned
+    /// by the caller's AWS account with the specified creation token, this operation does
+    /// the following:
     /// 
-    ///  <ul><li>Creates a new, empty file system. The file system will have an Amazon EFS
-    /// assigned ID, and an initial lifecycle state "creating". </li><li> Returns with the
-    /// description of the created file system. </li></ul><para>
+    ///  <ul><li><para>
+    /// Creates a new, empty file system. The file system will have an Amazon EFS assigned
+    /// ID, and an initial lifecycle state <code>creating</code>.
+    /// </para></li><li><para>
+    /// Returns with the description of the created file system.
+    /// </para></li></ul><para>
     /// Otherwise, this operation returns a <code>FileSystemAlreadyExists</code> error with
     /// the ID of the existing file system.
-    /// </para><note>For basic use cases, you can use a randomly generated UUID for the creation
-    /// token.</note><para>
+    /// </para><note><para>
+    /// For basic use cases, you can use a randomly generated UUID for the creation token.
+    /// </para></note><para>
     ///  The idempotent operation allows you to retry a <code>CreateFileSystem</code> call
     /// without risk of creating an extra file system. This can happen when an initial call
     /// fails in a way that leaves it uncertain whether or not a file system was actually
     /// created. An example might be that a transport level timeout occurred or your connection
     /// was reset. As long as you use the same creation token, if the initial call had succeeded
     /// in creating a file system, the client can learn of its existence from the <code>FileSystemAlreadyExists</code>
-    /// error. 
-    /// </para><note>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
-    /// state is still "creating". You can check the file system creation status by calling
-    /// the <a>DescribeFileSystems</a> API, which among other things returns the file system
-    /// state.</note><para>
-    ///  After the file system is fully created, Amazon EFS sets its lifecycle state to "available",
-    /// at which point you can create one or more mount targets for the file system (<a>CreateMountTarget</a>)
-    /// in your VPC. You mount your Amazon EFS file system on an EC2 instances in your VPC
-    /// via the mount target. For more information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon
-    /// EFS: How it Works</a></para><para>
-    ///  This operation requires permission for the <code>elasticfilesystem:CreateFileSystem</code>
+    /// error.
+    /// </para><note><para>
+    /// The <code>CreateFileSystem</code> call returns while the file system's lifecycle state
+    /// is still <code>creating</code>. You can check the file system creation status by calling
+    /// the <a>DescribeFileSystems</a> operation, which among other things returns the file
+    /// system state.
+    /// </para></note><para>
+    /// This operation also takes an optional <code>PerformanceMode</code> parameter that
+    /// you choose for your file system. We recommend <code>generalPurpose</code> performance
+    /// mode for most file systems. File systems using the <code>maxIO</code> performance
+    /// mode can scale to higher levels of aggregate throughput than general purpose mode
+    /// file systems, with a tradeoff of slightly higher latencies for most file operations.
+    /// For more information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
+    /// EFS: Performance Modes</a>.
+    /// </para><para>
+    /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
+    /// at which point you can create one or more mount targets for the file system in your
+    /// VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS
+    /// file system on an EC2 instances in your VPC via the mount target. For more information,
+    /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
+    /// How it Works</a>. 
+    /// </para><para>
+    ///  This operation requires permissions for the <code>elasticfilesystem:CreateFileSystem</code>
     /// action. 
     /// </para>
     /// </summary>
-    [Cmdlet("New", "EFSFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "EFSFileSystem")]
     [OutputType("Amazon.ElasticFileSystem.Model.CreateFileSystemResponse")]
     [AWSCmdlet("Invokes the CreateFileSystem operation against Amazon Elastic File System.", Operation = new[] {"CreateFileSystem"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateFileSystemResponse",
@@ -76,29 +92,27 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String CreationToken { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter PerformanceMode
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>The <code>PerformanceMode</code> of the file system. We recommend <code>generalPurpose</code>
+        /// performance mode for most file systems. File systems using the <code>maxIO</code>
+        /// performance mode can scale to higher levels of aggregate throughput than general purpose
+        /// mode file systems, with a tradeoff of slightly higher latencies for most file operations.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [AWSConstantClassSource("Amazon.ElasticFileSystem.PerformanceMode")]
+        public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CreationToken", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EFSFileSystem (CreateFileSystem)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -107,6 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             };
             
             context.CreationToken = this.CreationToken;
+            context.PerformanceMode = this.PerformanceMode;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -123,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             if (cmdletContext.CreationToken != null)
             {
                 request.CreationToken = cmdletContext.CreationToken;
+            }
+            if (cmdletContext.PerformanceMode != null)
+            {
+                request.PerformanceMode = cmdletContext.PerformanceMode;
             }
             
             CmdletOutput output;
@@ -168,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         internal class CmdletContext : ExecutorContext
         {
             public System.String CreationToken { get; set; }
+            public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }
         }
         
     }
