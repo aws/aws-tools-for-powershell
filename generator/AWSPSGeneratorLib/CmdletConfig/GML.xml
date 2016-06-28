@@ -18,7 +18,7 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="CreateAlias" ShouldProcessTarget="Name"/>
-    <ServiceOperation MethodName="CreateBuild" Output="Response"/>
+    <ServiceOperation MethodName="CreateBuild" Output="Response" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreateFleet" ShouldProcessTarget="Name" />
     <ServiceOperation MethodName="CreateGameSession" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreatePlayerSessions"
@@ -27,6 +27,7 @@
     <ServiceOperation MethodName="DeleteAlias" Output="Void"/>
     <ServiceOperation MethodName="DeleteBuild" Output="Void"/>
     <ServiceOperation MethodName="DeleteFleet" Output="Void"/>
+    <ServiceOperation MethodName="DeleteScalingPolicy" PipelineParameter="FleetId" Output="Void"/>
     <ServiceOperation MethodName="DescribeAlias" Noun="AliasDetail"/>
     <ServiceOperation MethodName="DescribeBuild" Noun="BuildDetail"/>
     <ServiceOperation MethodName="DescribeEC2InstanceLimits" Noun="EC2InstanceLimit"/>
@@ -36,11 +37,15 @@
     <ServiceOperation MethodName="DescribeFleetPortSettings" Noun="FleetPortSetting"/>
     <ServiceOperation MethodName="DescribeFleetUtilization"/>
     <ServiceOperation MethodName="DescribeGameSessions" Noun="GameSession"/>
+    <ServiceOperation MethodName="DescribeGameSessionDetails" Noun="GameSessionDetail" PipelineParameter="GameSessionId"/>
     <ServiceOperation MethodName="DescribePlayerSessions" Noun="PlayerSession"/>
+    <ServiceOperation MethodName="DescribeRuntimeConfiguration"/>
+    <ServiceOperation MethodName="DescribeScalingPolicies" Noun="ScalingPolicy" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="GetGameSessionLogUrl"/>
     <ServiceOperation MethodName="ListAliases" Noun="Alias"/>
     <ServiceOperation MethodName="ListBuilds" Noun="Build"/>
     <ServiceOperation MethodName="ListFleets" Noun="Fleet"/>
+    <ServiceOperation MethodName="PutScalingPolicy" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="RequestUploadCredentials" Output="Response" Noun="UploadCredential" />
     <ServiceOperation MethodName="ResolveAlias"/>
     <ServiceOperation MethodName="UpdateAlias" ShouldProcessTarget="AliasId"/>
@@ -49,6 +54,7 @@
     <ServiceOperation MethodName="UpdateFleetCapacity" />
     <ServiceOperation MethodName="UpdateFleetPortSettings" Noun="FleetPortSetting"/>
     <ServiceOperation MethodName="UpdateGameSession" ShouldProcessTarget="GameSessionId"/>
+    <ServiceOperation MethodName="UpdateRuntimeConfiguration" PipelineParameter="FleetId" />
 
     <!-- NEWP! -->
     <ServiceOperation MethodName="CreatePlayerSession" ShouldProcessTarget="PlayerId" Exclude="true" />

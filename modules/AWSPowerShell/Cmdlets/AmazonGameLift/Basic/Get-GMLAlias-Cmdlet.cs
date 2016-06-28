@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with this alias. Alias names do not need to be unique.</para>
+        /// <para>Descriptive label associated with an alias. Alias names do not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,11 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Type of routing to filter results on. Use this parameter to retrieve only aliases
         /// of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing
-        /// types include: <ul><li>SIMPLE: The alias resolves to one specific fleet. Use this
-        /// type when routing to active fleets.</li><li>TERMINAL: The alias does not resolve to
-        /// a fleet but instead can be used to display a message to the user. A terminal alias
-        /// throws a TerminalRoutingStrategyException with the <a>RoutingStrategy</a> message
-        /// embedded.</li></ul></para>
+        /// types include the following: <ul><li><b>SIMPLE</b> – The alias resolves to one specific
+        /// fleet. Use this type when routing to active fleets.</li><li><b>TERMINAL</b> – The
+        /// alias does not resolve to a fleet but instead can be used to display a message to
+        /// the user. A terminal alias throws a TerminalRoutingStrategyException with the <a>RoutingStrategy</a>
+        /// message embedded.</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. You can use this parameter with <i>NextToken</i>
+        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>

@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves properties for one or more game sessions. This action can be used in several
-    /// ways: (1) provide a <i>GameSessionId</i> parameter to request properties for a specific
-    /// game session; (2) provide a <i>FleetId</i> or <i>AliasId</i> parameter to request
+    /// ways: (1) provide a <code>GameSessionId</code> to request properties for a specific
+    /// game session; (2) provide a <code>FleetId</code> or an <code>AliasId</code> to request
     /// properties for all game sessions running on a fleet. 
     /// 
     ///  
     /// <para>
-    /// To get game session record(s), specify only one of the following: game session ID,
+    /// To get game session record(s), specify just one of the following: game session ID,
     /// fleet ID, or alias ID. You can filter this request by game session status. Use the
     /// pagination parameters to retrieve results as a set of sequential pages. If successful,
     /// a <a>GameSession</a> object is returned for each session matching the request.
@@ -88,8 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Game session status to filter results on. Possible game session states include ACTIVE,
-        /// TERMINATED, ACTIVATING and TERMINATING (the last two are transitory). </para>
+        /// <para>Game session status to filter results on. Possible game session states include <code>ACTIVE</code>,
+        /// <code>TERMINATED</code>, <code>ACTIVATING</code>, and <code>TERMINATING</code> (the
+        /// last two are transitory). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. You can use this parameter with <i>NextToken</i>
+        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>

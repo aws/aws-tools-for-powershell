@@ -33,15 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to Amazon S3.
     /// 
     ///  <important><para>
-    /// Call this action only if you need credentials for a build created with <a>CreateBuild</a>.
+    /// Call this action only if you need credentials for a build created with <code><a>CreateBuild</a></code>.
     /// This is a rare situation; in most cases, builds are created using the CLI command
     /// <code>upload-build</code>, which creates a build record and also uploads build files.
     /// 
     /// </para></important><para>
     /// Upload credentials are returned when you create the build, but they have a limited
     /// lifespan. You can get fresh credentials and use them to re-upload game files until
-    /// the state of that build changes to READY. Once this happens, you must create a brand
-    /// new build.
+    /// the state of that build changes to <code>READY</code>. Once this happens, you must
+    /// create a brand new build.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "GMLUploadCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

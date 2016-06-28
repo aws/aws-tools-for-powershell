@@ -28,11 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates game session properties. This includes the session name, maximum player count
-    /// and the player session creation policy, which either allows or denies new players
-    /// from joining the session. To update a game session, specify the game session ID and
-    /// the values you want to change. If successful, an updated <a>GameSession</a> object
-    /// is returned.
+    /// Updates game session properties. This includes the session name, maximum player count,
+    /// protection policy, which controls whether or not an active game session can be terminated
+    /// during a scale-down event, and the player session creation policy, which controls
+    /// whether or not new players can join the session. To update a game session, specify
+    /// the game session ID and the values you want to change. If successful, an updated <a>GameSession</a>
+    /// object is returned.
     /// </summary>
     [Cmdlet("Update", "GMLGameSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSession")]
@@ -68,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with this game session. Session names do not need to
-        /// be unique.</para>
+        /// <para>Descriptive label associated with a game session. Session names do not need to be
+        /// unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,6 +86,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.GameLift.PlayerSessionCreationPolicy")]
         public Amazon.GameLift.PlayerSessionCreationPolicy PlayerSessionCreationPolicy { get; set; }
+        #endregion
+        
+        #region Parameter ProtectionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Game session protection policy to apply to this game session only. <ul><li><b>NoProtection</b>
+        /// – The game session can be terminated during a scale-down event.</li><li><b>FullProtection</b>
+        /// – If the game session is in an <code>ACTIVE</code> status, it cannot be terminated
+        /// during a scale-down event.</li></ul></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.GameLift.ProtectionPolicy")]
+        public Amazon.GameLift.ProtectionPolicy ProtectionPolicy { get; set; }
         #endregion
         
         #region Parameter Force
@@ -118,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.MaximumPlayerSessionCount = this.MaximumPlayerSessionCount;
             context.Name = this.Name;
             context.PlayerSessionCreationPolicy = this.PlayerSessionCreationPolicy;
+            context.ProtectionPolicy = this.ProtectionPolicy;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -146,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.PlayerSessionCreationPolicy != null)
             {
                 request.PlayerSessionCreationPolicy = cmdletContext.PlayerSessionCreationPolicy;
+            }
+            if (cmdletContext.ProtectionPolicy != null)
+            {
+                request.ProtectionPolicy = cmdletContext.ProtectionPolicy;
             }
             
             CmdletOutput output;
@@ -194,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.Int32? MaximumPlayerSessionCount { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.PlayerSessionCreationPolicy PlayerSessionCreationPolicy { get; set; }
+            public Amazon.GameLift.ProtectionPolicy ProtectionPolicy { get; set; }
         }
         
     }

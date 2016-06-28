@@ -29,18 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Updates capacity settings for a fleet. Use this action to specify the number of EC2
-    /// instances (hosts) you want this fleet to contain. Before calling this action, you
-    /// may want to call <a>DescribeEC2InstanceLimits</a> to get the maximum capacity based
-    /// on the fleet's EC2 instance type.
+    /// instances (hosts) that you want this fleet to contain. Before calling this action,
+    /// you may want to call <a>DescribeEC2InstanceLimits</a> to get the maximum capacity
+    /// based on the fleet's EC2 instance type.
     /// 
     ///  
     /// <para>
-    /// To update fleet capacity, specify the fleet ID and the desired number of instances.
-    /// If successful, Amazon GameLift starts or terminates instances so that the fleet's
-    /// active instance count matches the desired instance count. You can view a fleet's current
-    /// capacity information by calling <a>DescribeFleetCapacity</a>. If the desired instance
-    /// count is higher than the instance type's limit, the "Limit Exceeded" exception will
-    /// occur.
+    /// If you're using autoscaling (see <a>PutScalingPolicy</a>), you may want to specify
+    /// a minimum and/or maximum capacity. If you don't provide these, autoscaling can set
+    /// capacity anywhere between zero and the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">service
+    /// limits</a>.
+    /// </para><para>
+    /// To update fleet capacity, specify the fleet ID and the number of instances you want
+    /// the fleet to host. If successful, Amazon GameLift starts or terminates instances so
+    /// that the fleet's active instance count matches the desired instance count. You can
+    /// view a fleet's current capacity information by calling <a>DescribeFleetCapacity</a>.
+    /// If the desired instance count is higher than the instance type's limit, the "Limit
+    /// Exceeded" exception occurs.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GMLFleetCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,6 +79,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String FleetId { get; set; }
         #endregion
         
+        #region Parameter MaxSize
+        /// <summary>
+        /// <para>
+        /// <para>Maximum value allowed for the fleet's instance count. Default if not set is 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MaxSize { get; set; }
+        #endregion
+        
+        #region Parameter MinSize
+        /// <summary>
+        /// <para>
+        /// <para>Minimum value allowed for the fleet's instance count. Default if not set is 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MinSize { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (ParameterWasBound("DesiredInstance"))
                 context.DesiredInstances = this.DesiredInstance;
             context.FleetId = this.FleetId;
+            if (ParameterWasBound("MaxSize"))
+                context.MaxSize = this.MaxSize;
+            if (ParameterWasBound("MinSize"))
+                context.MinSize = this.MinSize;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -123,6 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.MaxSize != null)
+            {
+                request.MaxSize = cmdletContext.MaxSize.Value;
+            }
+            if (cmdletContext.MinSize != null)
+            {
+                request.MinSize = cmdletContext.MinSize.Value;
             }
             
             CmdletOutput output;
@@ -169,6 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public System.Int32? DesiredInstances { get; set; }
             public System.String FleetId { get; set; }
+            public System.Int32? MaxSize { get; set; }
+            public System.Int32? MinSize { get; set; }
         }
         
     }

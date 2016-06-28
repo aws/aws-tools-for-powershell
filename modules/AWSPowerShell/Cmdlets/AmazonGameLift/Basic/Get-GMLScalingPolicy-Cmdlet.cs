@@ -28,55 +28,51 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves entries from the specified fleet's event log. You can specify a time range
-    /// to limit the result set. Use the pagination parameters to retrieve results as a set
-    /// of sequential pages. If successful, a collection of event log entries matching the
-    /// request are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves all scaling policies applied to a fleet. 
+    /// 
+    ///  
+    /// <para>
+    /// To get a fleet's scaling policies, specify the fleet ID. You can filter this request
+    /// by policy status, such as to retrieve only active scaling policies. Use the pagination
+    /// parameters to retrieve results as a set of sequential pages. If successful, set of
+    /// <a>ScalingPolicy</a> objects is returned for the fleet.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLFleetEvent")]
-    [OutputType("Amazon.GameLift.Model.Event")]
-    [AWSCmdlet("Invokes the DescribeFleetEvents operation against Amazon GameLift Service.", Operation = new[] {"DescribeFleetEvents"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Event",
-        "This cmdlet returns a collection of Event objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeFleetEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "GMLScalingPolicy")]
+    [OutputType("Amazon.GameLift.Model.ScalingPolicy")]
+    [AWSCmdlet("Invokes the DescribeScalingPolicies operation against Amazon GameLift Service.", Operation = new[] {"DescribeScalingPolicies"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.ScalingPolicy",
+        "This cmdlet returns a collection of ScalingPolicy objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeScalingPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetGMLFleetEventCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public class GetGMLScalingPolicyCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>Most recent date to retrieve event logs for. If no end time is specified, this call
-        /// returns entries from the specified start time up to the present. Format is an integer
-        /// representing the number of seconds since the Unix epoch (Unix time).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime EndTime { get; set; }
-        #endregion
         
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet to get event logs for. </para>
+        /// <para>Unique identifier for a fleet. Specify the fleet to retrieve scaling policies for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FleetId { get; set; }
         #endregion
         
-        #region Parameter StartTime
+        #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Earliest date to retrieve event logs for. If no start time is specified, this call
-        /// returns entries starting from when the fleet was created to the specified end time.
-        /// Format is an integer representing the number of seconds since the Unix epoch (Unix
-        /// time).</para>
+        /// <para>Game session status to filter results on. A scaling policy is only in force when in
+        /// an Active state. <ul><li><b>ACTIVE</b> – The scaling policy is currently in force.</li><li><b>UPDATEREQUESTED</b> – A request to update the scaling policy has been received.</li><li><b>UPDATING</b> – A change is being made to the scaling policy.</li><li><b>DELETEREQUESTED</b>
+        /// – A request to delete the scaling policy has been received.</li><li><b>DELETING</b>
+        /// – The scaling policy is being deleted.</li><li><b>DELETED</b> – The scaling policy
+        /// has been deleted.</li><li><b>ERROR</b> – An error occurred in creating the policy.
+        /// It should be removed and recreated.</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
+        [AWSConstantClassSource("Amazon.GameLift.ScalingStatusType")]
+        public Amazon.GameLift.ScalingStatusType StatusFilter { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -113,14 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
             context.FleetId = this.FleetId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            if (ParameterWasBound("StartTime"))
-                context.StartTime = this.StartTime;
+            context.StatusFilter = this.StatusFilter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -133,18 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.DescribeFleetEventsRequest();
-            if (cmdletContext.EndTime != null)
-            {
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
+            var request = new Amazon.GameLift.Model.DescribeScalingPoliciesRequest();
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
             }
-            if (cmdletContext.StartTime != null)
+            if (cmdletContext.StatusFilter != null)
             {
-                request.StartTime = cmdletContext.StartTime.Value;
+                request.StatusFilter = cmdletContext.StatusFilter;
             }
             
             // Initialize loop variants and commence piping
@@ -180,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Events;
+                        object pipelineOutput = response.ScalingPolicies;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -189,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Events.Count;
+                        int _receivedThisCall = response.ScalingPolicies.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -232,20 +221,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DescribeFleetEventsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeFleetEventsRequest request)
+        private static Amazon.GameLift.Model.DescribeScalingPoliciesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeScalingPoliciesRequest request)
         {
-            return client.DescribeFleetEvents(request);
+            return client.DescribeScalingPolicies(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTime { get; set; }
             public System.String FleetId { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public System.DateTime? StartTime { get; set; }
+            public Amazon.GameLift.ScalingStatusType StatusFilter { get; set; }
         }
         
     }

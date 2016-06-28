@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves fleet properties, including metadata, status, and configuration, for one
     /// or more fleets. You can request attributes for all fleets, or specify a list of one
-    /// or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve
-    /// results as a set of sequential pages. If successful, a <a>FleetAttributes</a> object
-    /// is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute
-    /// objects are returned only for fleets that currently exist. 
+    /// or more fleet IDs. When requesting multiple fleets, use the pagination parameters
+    /// to retrieve results as a set of sequential pages. If successful, a <a>FleetAttributes</a>
+    /// object is returned for each requested fleet ID. When specifying a list of fleet IDs,
+    /// attribute objects are returned only for fleets that currently exist. 
     /// 
     ///  <note><para>
     /// Some API actions may limit the number of fleet IDs allowed in one request. If a request
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifiers for the fleet(s) that you want to retrieve attributes for. Leave
-        /// this parameter empty to retrieve attributes for all fleets.</para>
+        /// <para>Unique identifiers for the fleet(s) that you want to retrieve attributes for. To request
+        /// attributes for all fleets, leave this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. You can use this parameter with <i>NextToken</i>
+        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages. This parameter is ignored when the request
         /// specifies one or a list of fleet IDs.</para>
         /// </para>

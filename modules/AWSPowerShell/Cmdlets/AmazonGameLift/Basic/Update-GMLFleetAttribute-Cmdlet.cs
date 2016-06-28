@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Human-readable description of the fleet.</para>
+        /// <para>Human-readable description of a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,11 +65,27 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with this fleet. Fleet names do not need to be unique.</para>
+        /// <para>Descriptive label associated with a fleet. Fleet names do not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NewGameSessionProtectionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Game session protection policy to apply to all new instances created in this fleet.
+        /// Instances that already exist are not affected. You can set protection for individual
+        /// instances using <a>UpdateGameSession</a>. <ul><li><b>NoProtection</b> – The game session
+        /// can be terminated during a scale-down event.</li><li><b>FullProtection</b> – If the
+        /// game session is in an <code>ACTIVE</code> status, it cannot be terminated during a
+        /// scale-down event.</li></ul></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.GameLift.ProtectionPolicy")]
+        public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
         #endregion
         
         #region Parameter Force
@@ -101,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.Description = this.Description;
             context.FleetId = this.FleetId;
             context.Name = this.Name;
+            context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -125,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NewGameSessionProtectionPolicy != null)
+            {
+                request.NewGameSessionProtectionPolicy = cmdletContext.NewGameSessionProtectionPolicy;
             }
             
             CmdletOutput output;
@@ -172,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String Description { get; set; }
             public System.String FleetId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
         }
         
     }

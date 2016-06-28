@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the build you want to retrieve properties for. </para>
+        /// <para>Unique identifier of the build that you want to retrieve properties for. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

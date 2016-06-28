@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Human-readable description of the alias.</para>
+        /// <para>Human-readable description of an alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with this alias. Alias names do not need to be unique.</para>
+        /// <para>Descriptive label associated with an alias. Alias names do not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_Type
         /// <summary>
         /// <para>
-        /// <para>Type of routing strategy. Possible routing types include: <ul><li>SIMPLE: The alias
-        /// resolves to one specific fleet. Use this type when routing to active fleets.</li><li>TERMINAL:
-        /// The alias does not resolve to a fleet but instead can be used to display a message
+        /// <para>Type of routing strategy. Possible routing types include the following: <ul><li><b>SIMPLE</b>
+        /// – The alias resolves to one specific fleet. Use this type when routing to active fleets.</li><li><b>TERMINAL</b>
+        /// – The alias does not resolve to a fleet but instead can be used to display a message
         /// to the user. A terminal alias throws a TerminalRoutingStrategyException with the <a>RoutingStrategy</a>
         /// message embedded.</li></ul></para>
         /// </para>

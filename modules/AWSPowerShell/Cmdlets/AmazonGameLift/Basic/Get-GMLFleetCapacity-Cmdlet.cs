@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves the current status of fleet capacity for one or more fleets. This information
     /// includes the number of instances that have been requested for the fleet and the number
     /// currently active. You can request capacity for all fleets, or specify a list of one
-    /// or more fleet IDs. When requesting all fleets, use the pagination parameters to retrieve
-    /// results as a set of sequential pages. If successful, a <a>FleetCapacity</a> object
-    /// is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute
-    /// objects are returned only for fleets that currently exist. 
+    /// or more fleet IDs. When requesting multiple fleets, use the pagination parameters
+    /// to retrieve results as a set of sequential pages. If successful, a <a>FleetCapacity</a>
+    /// object is returned for each requested fleet ID. When specifying a list of fleet IDs,
+    /// attribute objects are returned only for fleets that currently exist. 
     /// 
     ///  <note><para>
     /// Some API actions may limit the number of fleet IDs allowed in one request. If a request
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Unique identifier for the fleet(s) you want to retrieve capacity information for.
-        /// </para>
+        /// To request capacity information for all fleets, leave this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. You can use this parameter with <i>NextToken</i>
+        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages. This parameter is ignored when the request
         /// specifies one or a list of fleet IDs.</para>
         /// </para>

@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// To delete a build, specify its ID. Deleting a build does not affect the status of
-    /// any active fleets, but you can no longer create new fleets for the deleted build.
+    /// any active fleets using the build, but you can no longer create new fleets with the
+    /// deleted build.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

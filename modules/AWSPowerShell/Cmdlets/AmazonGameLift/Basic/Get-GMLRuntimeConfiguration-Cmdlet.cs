@@ -28,58 +28,32 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes an alias. This action removes all record of the alias; game clients attempting
-    /// to access a server process using the deleted alias receive an error. To delete an
-    /// alias, specify the alias ID to be deleted.
+    /// Retrieves the current runtime configuration for the specified fleet. The runtime configuration
+    /// tells GameLift how to launch server processes on instances in the fleet.
     /// </summary>
-    [Cmdlet("Remove", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteAlias operation against Amazon GameLift Service.", Operation = new[] {"DeleteAlias"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AliasId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.GameLift.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GMLRuntimeConfiguration")]
+    [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]
+    [AWSCmdlet("Invokes the DescribeRuntimeConfiguration operation against Amazon GameLift Service.", Operation = new[] {"DescribeRuntimeConfiguration"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.RuntimeConfiguration",
+        "This cmdlet returns a RuntimeConfiguration object.",
+        "The service call response (type Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveGMLAliasCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public class GetGMLRuntimeConfigurationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter AliasId
+        #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet alias. Specify the alias you want to delete. </para>
+        /// <para>Unique identifier of the fleet to get the runtime configuration for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String AliasId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the AliasId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String FleetId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AliasId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLAlias (DeleteAlias)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -87,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
-            context.AliasId = this.AliasId;
+            context.FleetId = this.FleetId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,11 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteAliasRequest();
+            var request = new Amazon.GameLift.Model.DescribeRuntimeConfigurationRequest();
             
-            if (cmdletContext.AliasId != null)
+            if (cmdletContext.FleetId != null)
             {
-                request.AliasId = cmdletContext.AliasId;
+                request.FleetId = cmdletContext.FleetId;
             }
             
             CmdletOutput output;
@@ -114,9 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.AliasId;
+                object pipelineOutput = response.RuntimeConfiguration;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -141,16 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DeleteAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteAliasRequest request)
+        private static Amazon.GameLift.Model.DescribeRuntimeConfigurationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeRuntimeConfigurationRequest request)
         {
-            return client.DeleteAlias(request);
+            return client.DescribeRuntimeConfiguration(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AliasId { get; set; }
+            public System.String FleetId { get; set; }
         }
         
     }

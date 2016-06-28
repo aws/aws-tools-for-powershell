@@ -1,0 +1,196 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.GameLift;
+using Amazon.GameLift.Model;
+
+namespace Amazon.PowerShell.Cmdlets.GML
+{
+    /// <summary>
+    /// Updates the current runtime configuration for the specified fleet, which tells GameLift
+    /// how to launch server processes on instances in the fleet. You can update a fleet's
+    /// runtime configuration at any time after the fleet is created; it does not need to
+    /// be in an <code>ACTIVE</code> state.
+    /// 
+    ///  
+    /// <para>
+    /// To update runtime configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code>
+    /// object with the updated collection of server process configurations.
+    /// </para><para>
+    /// Each instance in a GameLift fleet checks regularly for an updated runtime configuration
+    /// and changes how it launches server processes to comply with the latest version. Existing
+    /// server processes are not affected by the update; they continue to run until they end,
+    /// while GameLift simply adds new server processes to fit the current runtime configuration.
+    /// As a result, the runtime configuration changes are applied gradually as existing processes
+    /// shut down and new processes are launched in GameLift's normal process recycling activity.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Update", "GMLRuntimeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]
+    [AWSCmdlet("Invokes the UpdateRuntimeConfiguration operation against Amazon GameLift Service.", Operation = new[] {"UpdateRuntimeConfiguration"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.RuntimeConfiguration",
+        "This cmdlet returns a RuntimeConfiguration object.",
+        "The service call response (type Amazon.GameLift.Model.UpdateRuntimeConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class UpdateGMLRuntimeConfigurationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    {
+        
+        #region Parameter FleetId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier of the fleet to update runtime configuration for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String FleetId { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeConfiguration_ServerProcess
+        /// <summary>
+        /// <para>
+        /// <para>Collection of server process configurations describing what server processes to run
+        /// on each instance in a fleet </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RuntimeConfiguration_ServerProcesses")]
+        public Amazon.GameLift.Model.ServerProcess[] RuntimeConfiguration_ServerProcess { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GMLRuntimeConfiguration (UpdateRuntimeConfiguration)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.FleetId = this.FleetId;
+            if (this.RuntimeConfiguration_ServerProcess != null)
+            {
+                context.RuntimeConfiguration_ServerProcesses = new List<Amazon.GameLift.Model.ServerProcess>(this.RuntimeConfiguration_ServerProcess);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.GameLift.Model.UpdateRuntimeConfigurationRequest();
+            
+            if (cmdletContext.FleetId != null)
+            {
+                request.FleetId = cmdletContext.FleetId;
+            }
+            
+             // populate RuntimeConfiguration
+            bool requestRuntimeConfigurationIsNull = true;
+            request.RuntimeConfiguration = new Amazon.GameLift.Model.RuntimeConfiguration();
+            List<Amazon.GameLift.Model.ServerProcess> requestRuntimeConfiguration_runtimeConfiguration_ServerProcess = null;
+            if (cmdletContext.RuntimeConfiguration_ServerProcesses != null)
+            {
+                requestRuntimeConfiguration_runtimeConfiguration_ServerProcess = cmdletContext.RuntimeConfiguration_ServerProcesses;
+            }
+            if (requestRuntimeConfiguration_runtimeConfiguration_ServerProcess != null)
+            {
+                request.RuntimeConfiguration.ServerProcesses = requestRuntimeConfiguration_runtimeConfiguration_ServerProcess;
+                requestRuntimeConfigurationIsNull = false;
+            }
+             // determine if request.RuntimeConfiguration should be set to null
+            if (requestRuntimeConfigurationIsNull)
+            {
+                request.RuntimeConfiguration = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.RuntimeConfiguration;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.GameLift.Model.UpdateRuntimeConfigurationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateRuntimeConfigurationRequest request)
+        {
+            return client.UpdateRuntimeConfiguration(request);
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String FleetId { get; set; }
+            public List<Amazon.GameLift.Model.ServerProcess> RuntimeConfiguration_ServerProcesses { get; set; }
+        }
+        
+    }
+}

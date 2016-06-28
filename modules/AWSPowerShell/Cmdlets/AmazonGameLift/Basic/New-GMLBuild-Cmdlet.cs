@@ -29,20 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Initializes a new build record and generates information required to upload a game
-    /// build to Amazon GameLift. Once the build record has been created and is in an INITIALIZED
+    /// build to Amazon GameLift. Once the build record has been created and is in an <code>INITIALIZED</code>
     /// state, you can upload your game build.
     /// 
     ///  <important><para>
-    /// To create a build, use the CLI command <code>upload-build</code>, which creates a
-    /// new build record and uploads the build files in one step. (See the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/">Amazon
+    /// Do not use this API action unless you are using your own Amazon Simple Storage Service
+    /// (Amazon S3) client and need to manually upload your build files. Instead, to create
+    /// a build, use the CLI command <code>upload-build</code>, which creates a new build
+    /// record and uploads the build files in one step. (See the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/">Amazon
     /// GameLift Developer Guide</a> for more details on the CLI and the upload process.)
-    /// Call the <code>CreateBuild</code> action only if you have your own Amazon Simple Storage
-    /// Service (Amazon S3) client and need to manually upload your build files.
+    /// 
     /// </para></important><para>
     /// To create a new build, optionally specify a build name and version. This metadata
     /// is stored with other properties in the build record and is displayed in the GameLift
-    /// console (but not visible to players). If successful, this action returns the newly
-    /// created build record along with an Amazon S3 storage location and AWS account credentials.
+    /// console (it is not visible to players). If successful, this action returns the newly
+    /// created build record along with the Amazon S3 storage location and AWS account credentials.
     /// Use the location and credentials to upload your game build.
     /// </para>
     /// </summary>
@@ -55,22 +56,53 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public class NewGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        #region Parameter StorageLocation_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>Amazon S3 bucket identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StorageLocation_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter StorageLocation_Key
+        /// <summary>
+        /// <para>
+        /// <para>Amazon S3 bucket key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StorageLocation_Key { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with this build. Build names do not need to be unique.
-        /// A build name can be changed later using <a>UpdateBuild</a>.</para>
+        /// <para>Descriptive label associated with a build. Build names do not need to be unique. A
+        /// build name can be changed later using <code><a>UpdateBuild</a></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter StorageLocation_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon resource number for the cross-account access role that allows GameLift access
+        /// to the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StorageLocation_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>Version associated with this build. Version strings do not need to be unique to a
-        /// build. A build version can be changed later using <a>UpdateBuild</a>.</para>
+        /// build. A build version can be changed later using <code><a>UpdateBuild</a></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,6 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
             };
             
             context.Name = this.Name;
+            context.StorageLocation_Bucket = this.StorageLocation_Bucket;
+            context.StorageLocation_Key = this.StorageLocation_Key;
+            context.StorageLocation_RoleArn = this.StorageLocation_RoleArn;
             context.Version = this.Version;
             
             var output = Execute(context) as CmdletOutput;
@@ -121,6 +156,45 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate StorageLocation
+            bool requestStorageLocationIsNull = true;
+            request.StorageLocation = new Amazon.GameLift.Model.S3Location();
+            System.String requestStorageLocation_storageLocation_Bucket = null;
+            if (cmdletContext.StorageLocation_Bucket != null)
+            {
+                requestStorageLocation_storageLocation_Bucket = cmdletContext.StorageLocation_Bucket;
+            }
+            if (requestStorageLocation_storageLocation_Bucket != null)
+            {
+                request.StorageLocation.Bucket = requestStorageLocation_storageLocation_Bucket;
+                requestStorageLocationIsNull = false;
+            }
+            System.String requestStorageLocation_storageLocation_Key = null;
+            if (cmdletContext.StorageLocation_Key != null)
+            {
+                requestStorageLocation_storageLocation_Key = cmdletContext.StorageLocation_Key;
+            }
+            if (requestStorageLocation_storageLocation_Key != null)
+            {
+                request.StorageLocation.Key = requestStorageLocation_storageLocation_Key;
+                requestStorageLocationIsNull = false;
+            }
+            System.String requestStorageLocation_storageLocation_RoleArn = null;
+            if (cmdletContext.StorageLocation_RoleArn != null)
+            {
+                requestStorageLocation_storageLocation_RoleArn = cmdletContext.StorageLocation_RoleArn;
+            }
+            if (requestStorageLocation_storageLocation_RoleArn != null)
+            {
+                request.StorageLocation.RoleArn = requestStorageLocation_storageLocation_RoleArn;
+                requestStorageLocationIsNull = false;
+            }
+             // determine if request.StorageLocation should be set to null
+            if (requestStorageLocationIsNull)
+            {
+                request.StorageLocation = null;
             }
             if (cmdletContext.Version != null)
             {
@@ -170,6 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public System.String StorageLocation_Bucket { get; set; }
+            public System.String StorageLocation_Key { get; set; }
+            public System.String StorageLocation_RoleArn { get; set; }
             public System.String Version { get; set; }
         }
         

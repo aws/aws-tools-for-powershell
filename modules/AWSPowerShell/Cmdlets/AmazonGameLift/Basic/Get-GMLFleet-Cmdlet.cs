@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. You can use this parameter with <i>NextToken</i>
+        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>

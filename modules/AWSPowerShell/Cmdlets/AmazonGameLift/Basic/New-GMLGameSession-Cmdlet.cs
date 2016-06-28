@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Creates a multiplayer game session for players. This action creates a game session
-    /// record and assigns the new session to an instance in the specified fleet, which activates
-    /// the server initialization process in your game server. A fleet must be in an ACTIVE
-    /// state before a game session can be created for it.
+    /// record and assigns the new session to an instance in the specified fleet, which initializes
+    /// a new server process to host the game session. A fleet must be in an <code>ACTIVE</code>
+    /// state before a game session can be created in it.
     /// 
     ///  
     /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Set of properties used to administer a game session. These properties are passed to
-        /// your game server.</para>
+        /// the server process hosting it. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with this game session. Session names do not need to
-        /// be unique.</para>
+        /// <para>Descriptive label associated with a game session. Session names do not need to be
+        /// unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

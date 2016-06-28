@@ -28,55 +28,74 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves entries from the specified fleet's event log. You can specify a time range
-    /// to limit the result set. Use the pagination parameters to retrieve results as a set
-    /// of sequential pages. If successful, a collection of event log entries matching the
-    /// request are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves properties, including the protection policy in force, for one or more game
+    /// sessions. This action can be used in several ways: (1) provide a <code>GameSessionId</code>
+    /// to request details for a specific game session; (2) provide either a <code>FleetId</code>
+    /// or an <code>AliasId</code> to request properties for all game sessions running on
+    /// a fleet. 
+    /// 
+    ///  
+    /// <para>
+    /// To get game session record(s), specify just one of the following: game session ID,
+    /// fleet ID, or alias ID. You can filter this request by game session status. Use the
+    /// pagination parameters to retrieve results as a set of sequential pages. If successful,
+    /// a <a>GameSessionDetail</a> object is returned for each session matching the request.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLFleetEvent")]
-    [OutputType("Amazon.GameLift.Model.Event")]
-    [AWSCmdlet("Invokes the DescribeFleetEvents operation against Amazon GameLift Service.", Operation = new[] {"DescribeFleetEvents"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Event",
-        "This cmdlet returns a collection of Event objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeFleetEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "GMLGameSessionDetail")]
+    [OutputType("Amazon.GameLift.Model.GameSessionDetail")]
+    [AWSCmdlet("Invokes the DescribeGameSessionDetails operation against Amazon GameLift Service.", Operation = new[] {"DescribeGameSessionDetails"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionDetail",
+        "This cmdlet returns a collection of GameSessionDetail objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeGameSessionDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetGMLFleetEventCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public class GetGMLGameSessionDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter EndTime
+        #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Most recent date to retrieve event logs for. If no end time is specified, this call
-        /// returns entries from the specified start time up to the present. Format is an integer
-        /// representing the number of seconds since the Unix epoch (Unix time).</para>
+        /// <para>Unique identifier for a fleet alias. Specify an alias to retrieve information on all
+        /// game sessions active on the fleet.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime EndTime { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AliasId { get; set; }
         #endregion
         
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet to get event logs for. </para>
+        /// <para>Unique identifier for a fleet. Specify a fleet to retrieve information on all game
+        /// sessions active on the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FleetId { get; set; }
         #endregion
         
-        #region Parameter StartTime
+        #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Earliest date to retrieve event logs for. If no start time is specified, this call
-        /// returns entries starting from when the fleet was created to the specified end time.
-        /// Format is an integer representing the number of seconds since the Unix epoch (Unix
-        /// time).</para>
+        /// <para>Unique identifier for a game session. Specify the game session to retrieve information
+        /// on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String GameSessionId { get; set; }
+        #endregion
+        
+        #region Parameter StatusFilter
+        /// <summary>
+        /// <para>
+        /// <para>Game session status to filter results on. Possible game session states include ACTIVE,
+        /// <code>TERMINATED</code>, <code>ACTIVATING</code> and <code>TERMINATING</code> (the
+        /// last two are transitory). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
+        public System.String StatusFilter { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -113,14 +132,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
+            context.AliasId = this.AliasId;
             context.FleetId = this.FleetId;
+            context.GameSessionId = this.GameSessionId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            if (ParameterWasBound("StartTime"))
-                context.StartTime = this.StartTime;
+            context.StatusFilter = this.StatusFilter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -133,18 +151,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.DescribeFleetEventsRequest();
-            if (cmdletContext.EndTime != null)
+            var request = new Amazon.GameLift.Model.DescribeGameSessionDetailsRequest();
+            if (cmdletContext.AliasId != null)
             {
-                request.EndTime = cmdletContext.EndTime.Value;
+                request.AliasId = cmdletContext.AliasId;
             }
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
             }
-            if (cmdletContext.StartTime != null)
+            if (cmdletContext.GameSessionId != null)
             {
-                request.StartTime = cmdletContext.StartTime.Value;
+                request.GameSessionId = cmdletContext.GameSessionId;
+            }
+            if (cmdletContext.StatusFilter != null)
+            {
+                request.StatusFilter = cmdletContext.StatusFilter;
             }
             
             // Initialize loop variants and commence piping
@@ -180,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Events;
+                        object pipelineOutput = response.GameSessionDetails;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -189,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Events.Count;
+                        int _receivedThisCall = response.GameSessionDetails.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -232,20 +254,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DescribeFleetEventsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeFleetEventsRequest request)
+        private static Amazon.GameLift.Model.DescribeGameSessionDetailsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeGameSessionDetailsRequest request)
         {
-            return client.DescribeFleetEvents(request);
+            return client.DescribeGameSessionDetails(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTime { get; set; }
+            public System.String AliasId { get; set; }
             public System.String FleetId { get; set; }
+            public System.String GameSessionId { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public System.DateTime? StartTime { get; set; }
+            public System.String StatusFilter { get; set; }
         }
         
     }
