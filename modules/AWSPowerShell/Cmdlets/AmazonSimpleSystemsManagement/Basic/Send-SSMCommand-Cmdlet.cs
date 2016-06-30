@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>Required. The instance IDs where the command should execute.</para>
+        /// <para>Required. The instance IDs where the command should execute. You can specify a maximum
+        /// of 50 IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,6 +37,15 @@
     <ServiceOperation MethodName="DescribeDocumentPermission" PipelineParameter="Name" />
     <ServiceOperation MethodName="ModifyDocumentPermission" PipelineParameter="Name" Output="Void" />
 	
+	<ServiceOperation MethodName="UpdateManagedInstanceRole" Output="Void" />
+	<ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
+	<ServiceOperation MethodName="CreateActivation" NoPipelineParameter="true" Output="Response" />
+	<ServiceOperation MethodName="DeleteActivation" Output="Void" />
+	<ServiceOperation MethodName="DeregisterManagedInstance" Verb="Unregister" Output="Void" />
+	<ServiceOperation MethodName="DescribeActivations" Noun="Activation" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
+	<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
+	
   </ServiceOperations>
 
   <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
