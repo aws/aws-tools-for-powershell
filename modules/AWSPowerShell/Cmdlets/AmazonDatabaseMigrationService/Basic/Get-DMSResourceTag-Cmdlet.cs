@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Lists all tags for an AWS DMS resource.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSResourceTag")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Tag")]

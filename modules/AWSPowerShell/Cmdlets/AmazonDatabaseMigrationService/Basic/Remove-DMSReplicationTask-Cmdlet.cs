@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Deletes the specified replication task.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Remove", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]

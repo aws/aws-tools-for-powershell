@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates an endpoint using the provided settings.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("New", "DMSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.Endpoint")]
@@ -79,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES,
-        /// MARIADB, AURORA, SQLSERVER.</para>
+        /// MARIADB, AURORA, REDSHIFT, and SQLSERVER.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS key identifier that will be used to encrypt the connection parameters. If
+        /// <para>The KMS key identifier that will be used to encrypt the connection parameters. If
         /// you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your
         /// default encryption key. AWS KMS creates the default encryption key for your AWS account.
-        /// Your AWS account has a different default encryption key for each AWS region. </para>
+        /// Your AWS account has a different default encryption key for each AWS region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

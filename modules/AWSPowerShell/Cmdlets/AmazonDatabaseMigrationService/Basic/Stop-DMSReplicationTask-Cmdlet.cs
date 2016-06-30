@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Stops the replication task.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Stop", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]

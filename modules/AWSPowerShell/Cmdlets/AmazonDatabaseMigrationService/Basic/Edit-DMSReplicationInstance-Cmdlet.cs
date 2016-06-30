@@ -31,7 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// Modifies the replication instance to apply new settings. You can change one or more
     /// parameters by specifying these parameters and the new values in the request.
     /// 
-    ///  <note>Some settings are applied during the maintenance window.</note>
+    ///  
+    /// <para>
+    /// Some settings are applied during the maintenance window.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "DMSReplicationInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]
@@ -46,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para> The amount of storage (in gigabytes) to be allocated for the replication instance.
-        /// </para>
+        /// <para>The amount of storage (in gigabytes) to be allocated for the replication instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,9 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> Indicates that major version upgrades are allowed. Changing this parameter does not
-        /// result in an outage and the change is asynchronously applied as soon as possible.
-        /// </para><para>Constraints: This parameter must be set to true when specifying a value for the <code>EngineVersion</code>
+        /// <para>Indicates that major version upgrades are allowed. Changing this parameter does not
+        /// result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints: This parameter must be set to true when specifying a value for the <code>EngineVersion</code>
         /// parameter that is a different major version than the replication instance's current
         /// version.</para>
         /// </para>
@@ -71,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
-        /// <para> Indicates whether the changes should be applied immediately or during the next maintenance
-        /// window. </para>
+        /// <para>Indicates whether the changes should be applied immediately or during the next maintenance
+        /// window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para> The engine version number of the replication instance. </para>
+        /// <para>The engine version number of the replication instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The weekly time range (in UTC) during which system maintenance can occur, which might
+        /// <para>The weekly time range (in UTC) during which system maintenance can occur, which might
         /// result in an outage. Changing this parameter does not result in an outage, except
         /// in the following situation, and the change is asynchronously applied as soon as possible.
         /// If moving this window to the current time, there must be at least 30 minutes between
-        /// the current time and end of the window to ensure pending changes are applied. </para><para>Default: Uses existing setting</para><para>Format: ddd:hh24:mi-ddd:hh24:mi</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Must be at least 30 minutes</para>
+        /// the current time and end of the window to ensure pending changes are applied.</para><para>Default: Uses existing setting</para><para>Format: ddd:hh24:mi-ddd:hh24:mi</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Must be at least 30 minutes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceClass
         /// <summary>
         /// <para>
-        /// <para> The compute and memory capacity of the replication instance. </para><para> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+        /// <para>The compute and memory capacity of the replication instance.</para><para> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
         /// dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code></para>
         /// </para>
         /// </summary>
@@ -147,6 +148,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReplicationInstanceIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter VpcSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the VPC security group to be used with the replication instance. The VPC
+        /// security group must work with the VPC containing the replication instance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -188,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.ReplicationInstanceArn = this.ReplicationInstanceArn;
             context.ReplicationInstanceClass = this.ReplicationInstanceClass;
             context.ReplicationInstanceIdentifier = this.ReplicationInstanceIdentifier;
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -236,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ReplicationInstanceIdentifier != null)
             {
                 request.ReplicationInstanceIdentifier = cmdletContext.ReplicationInstanceIdentifier;
+            }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
             }
             
             CmdletOutput output;
@@ -289,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ReplicationInstanceArn { get; set; }
             public System.String ReplicationInstanceClass { get; set; }
             public System.String ReplicationInstanceIdentifier { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

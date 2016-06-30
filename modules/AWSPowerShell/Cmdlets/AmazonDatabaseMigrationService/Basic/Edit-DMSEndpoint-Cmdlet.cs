@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Modifies the specified endpoint.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Edit", "DMSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.Endpoint")]
@@ -67,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The database endpoint identifier. Identifiers must begin with a letter; must contain
         /// only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain
-        /// two consecutive hyphens. </para>
+        /// two consecutive hyphens.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para>The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES.</para>
+        /// <para>The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES,
+        /// MARIADB, AURORA, REDSHIFT, and SQLSERVER.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

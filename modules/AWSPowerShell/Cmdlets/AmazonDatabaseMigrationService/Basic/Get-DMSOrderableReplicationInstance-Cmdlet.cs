@@ -30,8 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Returns information about the replication instance types that can be created in the
     /// specified region.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSOrderableReplicationInstance")]
     [OutputType("Amazon.DatabaseMigrationService.Model.OrderableReplicationInstance")]

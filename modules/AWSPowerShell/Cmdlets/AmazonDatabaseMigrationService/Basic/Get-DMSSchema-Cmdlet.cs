@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns information about the schema for the specified endpoint.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSSchema")]
     [OutputType("System.String")]

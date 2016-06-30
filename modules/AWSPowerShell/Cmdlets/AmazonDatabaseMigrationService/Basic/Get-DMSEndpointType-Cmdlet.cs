@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns information about the type of endpoints available.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSEndpointType")]
     [OutputType("Amazon.DatabaseMigrationService.Model.SupportedEndpointType")]

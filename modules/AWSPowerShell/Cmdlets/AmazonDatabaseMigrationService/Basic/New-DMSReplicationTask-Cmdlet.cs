@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates a replication task using the specified parameters.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("New", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]
@@ -76,9 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>The replication task identifier.</para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
-        /// character must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens.</li></ul>
+        /// <para>The replication task identifier.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

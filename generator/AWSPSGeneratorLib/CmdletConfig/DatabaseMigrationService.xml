@@ -38,7 +38,8 @@
                       Output="Void" 
                       PipelineParameter="ResourceArn" />
 	  <ServiceOperation MethodName="CreateEndpoint" PipelineParameter="EndpointIdentifier" ShouldProcessTarget="EndpointIdentifier"/>
-	  <ServiceOperation MethodName="CreateReplicationInstance" 
+	  <ServiceOperation MethodName="CreateReplicationInstance"
+                      ShouldProcessTarget="ReplicationInstanceIdentifier"
                       PipelineParameter="ReplicationInstanceIdentifier" />
 	  <ServiceOperation MethodName="CreateReplicationSubnetGroup" 
                       PipelineParameter="ReplicationSubnetGroupIdentifier" />

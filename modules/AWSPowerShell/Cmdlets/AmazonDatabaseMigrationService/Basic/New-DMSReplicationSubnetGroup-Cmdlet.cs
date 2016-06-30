@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates a replication subnet group given a list of the subnet IDs in a VPC.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("New", "DMSReplicationSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup")]
@@ -45,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationSubnetGroupDescription
         /// <summary>
         /// <para>
-        /// <para> The description for the subnet group. </para>
+        /// <para>The description for the subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationSubnetGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para> The name for the replication subnet group. This value is stored as a lowercase string.
-        /// </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces,
+        /// <para>The name for the replication subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces,
         /// underscores, or hyphens. Must not be "default".</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -67,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para> The EC2 subnet IDs for the subnet group. </para>
+        /// <para>The EC2 subnet IDs for the subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

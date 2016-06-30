@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates the replication instance using the specified parameters.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("New", "DMSReplicationInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]
@@ -45,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para> The amount of storage (in gigabytes) to be initially allocated for the replication
-        /// instance. </para>
+        /// <para>The amount of storage (in gigabytes) to be initially allocated for the replication
+        /// instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> Indicates that minor engine upgrades will be applied automatically to the replication
-        /// instance during the maintenance window. </para><para>Default: <code>true</code></para>
+        /// <para>Indicates that minor engine upgrades will be applied automatically to the replication
+        /// instance during the maintenance window.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The EC2 Availability Zone that the replication instance will be created in. </para><para> Default: A random, system-chosen Availability Zone in the endpoint's region. </para><para> Example: <code>us-east-1d</code></para>
+        /// <para>The EC2 Availability Zone that the replication instance will be created in.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's region.</para><para> Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para> The engine version number of the replication instance. </para>
+        /// <para>The engine version number of the replication instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS key identifier that will be used to encrypt the content on the replication
+        /// <para>The KMS key identifier that will be used to encrypt the content on the replication
         /// instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will
         /// use your default encryption key. AWS KMS creates the default encryption key for your
         /// AWS account. Your AWS account has a different default encryption key for each AWS
-        /// region. </para>
+        /// region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC). </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
-        /// occurring on a random day of the week. </para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
+        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per region,
+        /// occurring on a random day of the week.</para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceClass
         /// <summary>
         /// <para>
-        /// <para> The compute and memory capacity of the replication instance as specified by the replication
-        /// instance class. </para><para> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
+        /// <para>The compute and memory capacity of the replication instance as specified by the replication
+        /// instance class.</para><para> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
         /// dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code></para>
         /// </para>
         /// </summary>
@@ -137,9 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
-        /// character must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens.</li></ul><para>Example: <code>myrepinstance</code></para>
+        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>myrepinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -149,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationSubnetGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para> A subnet group to associate with the replication instance. </para>
+        /// <para>A subnet group to associate with the replication instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,6 +163,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter VpcSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the VPC security group to be used with the replication instance. The VPC
+        /// security group must work with the VPC containing the replication instance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -181,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("KmsKeyId", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReplicationInstanceIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DMSReplicationInstance (CreateReplicationInstance)"))
             {
                 return;
@@ -209,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
+            }
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -267,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.Tags = cmdletContext.Tags;
             }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
+            }
             
             CmdletOutput output;
             
@@ -321,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ReplicationInstanceIdentifier { get; set; }
             public System.String ReplicationSubnetGroupIdentifier { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tags { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

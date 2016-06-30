@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Modifies the settings for the specified replication subnet group.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Edit", "DMSReplicationSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup")]

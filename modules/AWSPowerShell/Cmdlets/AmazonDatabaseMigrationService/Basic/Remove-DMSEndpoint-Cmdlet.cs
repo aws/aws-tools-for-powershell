@@ -28,10 +28,11 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Deletes the specified endpoint. 
+    /// Deletes the specified endpoint.
     /// 
-    ///  <note>All tasks associated with the endpoint must be deleted before you can delete
-    /// the endpoint.</note>
+    ///  <note><para>
+    /// All tasks associated with the endpoint must be deleted before you can delete the endpoint.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "DMSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DatabaseMigrationService.Model.Endpoint")]

@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns information about replication tasks for your account in the current region.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSReplicationTask")]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]
@@ -47,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Filters applied to the describe action.</para><para>Valid filter names: replication-task-arn | replication-task-id | migration-type |
-        /// endpoint-arn | replication-instance-arn </para>
+        /// endpoint-arn | replication-instance-arn</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

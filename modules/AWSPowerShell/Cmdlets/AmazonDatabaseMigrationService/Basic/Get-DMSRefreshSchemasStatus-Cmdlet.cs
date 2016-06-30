@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns the status of the RefreshSchemas operation.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSRefreshSchemasStatus")]
     [OutputType("Amazon.DatabaseMigrationService.Model.RefreshSchemasStatus")]

@@ -30,8 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Describes the status of the connections that have been made between the replication
     /// instance and an endpoint. Connections are created when you test an endpoint.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSConnection")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]
@@ -47,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters applied to the connection.</para><para>Valid filter names: endpoint-arn | replication-instance-arn </para>
+        /// <para>The filters applied to the connection.</para><para>Valid filter names: endpoint-arn | replication-instance-arn</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

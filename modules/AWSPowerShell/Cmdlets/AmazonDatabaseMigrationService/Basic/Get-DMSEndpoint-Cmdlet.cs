@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns information about the endpoints for your account in the current region.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSEndpoint")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Endpoint")]
@@ -46,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the describe action.</para><para>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name </para>
+        /// <para>Filters applied to the describe action.</para><para>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

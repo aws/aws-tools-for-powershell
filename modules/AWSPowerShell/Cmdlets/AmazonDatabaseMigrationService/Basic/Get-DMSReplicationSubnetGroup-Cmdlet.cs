@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns information about the replication subnet groups.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSReplicationSubnetGroup")]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup")]

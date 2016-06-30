@@ -30,8 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Returns table statistics on the database migration task, including table name, rows
     /// inserted, rows updated, and rows deleted.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSTableStatistic")]
     [OutputType("Amazon.DatabaseMigrationService.Model.DescribeTableStatisticsResponse")]

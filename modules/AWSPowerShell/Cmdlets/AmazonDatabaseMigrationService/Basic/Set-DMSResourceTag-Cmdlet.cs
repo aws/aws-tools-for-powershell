@@ -32,8 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// group, and migration task. These tags can also be used with cost allocation reporting
     /// to track cost associated with DMS resources, or used in a Condition statement in an
     /// IAM policy for DMS.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Set", "DMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

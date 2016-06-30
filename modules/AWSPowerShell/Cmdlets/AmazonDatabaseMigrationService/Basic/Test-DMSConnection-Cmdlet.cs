@@ -28,9 +28,7 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Tests the connection between the replication instance and the endpoint. 
-    /// 
-    ///  <note />
+    /// Tests the connection between the replication instance and the endpoint.
     /// </summary>
     [Cmdlet("Test", "DMSConnection")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]

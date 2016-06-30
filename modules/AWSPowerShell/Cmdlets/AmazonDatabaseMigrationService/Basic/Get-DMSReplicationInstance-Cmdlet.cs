@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Returns information about replication instances for your account in the current region.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Get", "DMSReplicationInstance")]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]
@@ -47,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Filters applied to the describe action.</para><para>Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class
-        /// | engine-version </para>
+        /// | engine-version</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

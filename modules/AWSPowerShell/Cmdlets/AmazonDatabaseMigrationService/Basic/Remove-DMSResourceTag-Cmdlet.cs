@@ -29,8 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Removes metadata tags from a DMS resource.
-    /// 
-    ///  <note />
     /// </summary>
     [Cmdlet("Remove", "DMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -45,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>&gt;The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed from.</para>
+        /// <para>&gt;The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be removed
+        /// from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
