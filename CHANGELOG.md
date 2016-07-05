@@ -1,3 +1,40 @@
+### 3.1.82.0 (2016-07-05)
+  * AWS CodePipeline
+    - Added support for manual approvals with a new cmdlet, Write-CPApprovalResult (PutApprovalResult API).
+
+### 3.1.81.0 (2016-06-30)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * AWS Database Migration Service
+    - Added support to enable VpcSecurityGroupId to be specified for the replication instance.
+  * Amazon Simple Systems Management
+    - Added support for using Amazon SSM with any instance or virtual machine outside of AWS, including your own data centers or other clouds with cmdlets: Add-SSMResourceTag (AddTagsToResource API), Get-SSMActivation (DescribeActivations API), Get-SSMResourceTag (ListTagsForResource API), New-SSMActivation (CreateActivation API), Remove-SSMActivation (DeleteActivation API), Remove-SSMResourceTag (RemoveTagsFromResource API), Unregister-SSMManagedInstance (DeregisterManagedInstance API), Update-SSMManagedInstanceRole (UpdateManagedInstanceRole API).
+
+### 3.1.80.0 (2016-06-28)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * Amazon EC2
+    - Updated the Edit-EC2InstanceAttribute and Register-EC2Image cmdlets with new parameter -EnaSupport for specifying enhanced networking.
+  * Amazon Elastic File System
+    - Added new parameter -PerformanceMode to the New-EFSFileSystem cmdlet (CreateFileSystem API).
+  * Amazon Gamelift
+    - Added new cmdlets for multi-process support. The new cmdlets are Get-GMLGameSessionDetail (DescribeGameSessionDetails API), Get-GMLRuntimeConfiguration (DescribeRuntimeConfiguration API), Get-GMLScalingPolicy (DescribeScalingPolicies API), Remove-GMLScalingPolicy (DeleteScalingPolicy API), Update-GMLRuntimeConfiguration (UpdateRuntimeConfiguration API) and Write-GMLScalingPolicy (PutScalingPolicy API).
+
+### 3.1.79.0 (2016-06-28)
+  * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
+
+### 3.1.78.0 (2016-06-23)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * Amazon Cognito Identity
+    - Added -CognitoIdentityProvider and -SamlProviderARN parameters to the New-CGIIdentityPool and Update-CGIIdentityPool cmdlets to support role customization.
+  * AWS Direct Connect
+    - Added two new cmdlets, Get-DCConnectionLoa (DescribeConnectionLoa API) and Get-DCInterconnectLoa (DescribeInterconnectLoa API).
+  * Amazon EC2
+    - Added support for IdentityId Format with new cmdlets Edit-EC2IdentityIdFormat (ModifyIdentityIdFormat API) and Get-EC2IdentityIdFormat (DescribeIdentityIdFormat API).
+
+### 3.1.77.0 (2016-06-21)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * AWS CodePipeline
+    - Added a new cmdlet, Redo-CPStageExecution, to support the new RetryStageExecution API.
+
 ### 3.1.76.0 (2016-06-14)
   * Amazon Relational Database Service
     - Added a new cmdlet, Convert-RDSReadReplicaDBCluster, to support the new PromoteReadReplicaDBCluster API.
