@@ -31,8 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Retrieves information about the specified version of the specified managed policy,
     /// including the policy document.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Policies returned by this API are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
+    /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
+    /// text. For example, if you use Java, you can use the <code>decode</code> method of
+    /// the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages
+    /// and SDKs provide similar functionality.
+    /// </para></note><para>
     /// To list the available versions for a policy, use <a>ListPolicyVersions</a>.
     /// </para><para>
     /// This API retrieves information about managed policies. To retrieve information about

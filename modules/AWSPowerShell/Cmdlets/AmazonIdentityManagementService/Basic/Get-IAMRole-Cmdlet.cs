@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// and the role's trust policy that grants permission to assume the role. For more information
     /// about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
     /// with Roles</a>.
+    /// 
+    ///  <note><para>
+    /// Policies returned by this API are URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC
+    /// 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON
+    /// text. For example, if you use Java, you can use the <code>decode</code> method of
+    /// the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages
+    /// and SDKs provide similar functionality.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IAMRole")]
     [OutputType("Amazon.IdentityManagement.Model.Role")]
