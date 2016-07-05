@@ -622,6 +622,8 @@ Set-Alias -Name CP-PollForJobs -Value Get-CPActionableJobs
 Set-Alias -Name CP-PollForThirdPartyJobs -Value Get-CPActionableThirdPartyJobs
 Set-Alias -Name Put-CPActionRevision -Value Write-CPActionRevision
 Set-Alias -Name CP-PutActionRevision -Value Write-CPActionRevision
+Set-Alias -Name Put-CPApprovalResult -Value Write-CPApprovalResult
+Set-Alias -Name CP-PutApprovalResult -Value Write-CPApprovalResult
 Set-Alias -Name Put-CPJobFailureResult -Value Write-CPJobFailureResult
 Set-Alias -Name CP-PutJobFailureResult -Value Write-CPJobFailureResult
 Set-Alias -Name Put-CPJobSuccessResult -Value Write-CPJobSuccessResult

@@ -28,6 +28,7 @@
 	<ServiceOperation MethodName="PollForJobs" Verb="Get" Noun="ActionableJobs" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="PollForThirdPartyJobs" Verb="Get" Noun="ActionableThirdPartyJobs" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="PutActionRevision" Output="Response" PipelineParameter="PipelineName" ShouldProcessTarget="ActionName"/>
+	<ServiceOperation MethodName="PutApprovalResult" PipelineParameter="PipelineName" ShouldProcessTarget="ActionName"/>
 	<ServiceOperation MethodName="PutJobFailureResult" Output="Void" PipelineParameter="JobId"/>
 	<ServiceOperation MethodName="PutJobSuccessResult" Output="Void" PipelineParameter="JobId"/>
 	<ServiceOperation MethodName="PutThirdPartyJobFailureResult" Output="Void" PipelineParameter="JobId"/>
