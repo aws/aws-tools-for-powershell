@@ -37,13 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para>
     /// Enable/disable communication over the peering connection between instances in your
     /// VPC and an EC2-Classic instance that's linked to the peer VPC.
+    /// </para></li><li><para>
+    /// Enable/disable a local VPC to resolve public DNS hostnames to private IP addresses
+    /// when queried from instances in the peer VPC.
     /// </para></li></ul><para>
     /// If the peered VPCs are in different accounts, each owner must initiate a separate
-    /// request to enable or disable communication in either direction, depending on whether
-    /// their VPC was the requester or accepter for the VPC peering connection. If the peered
-    /// VPCs are in the same account, you can modify the requester and accepter options in
-    /// the same request. To confirm which VPC is the accepter and requester for a VPC peering
-    /// connection, use the <a>DescribeVpcPeeringConnections</a> command.
+    /// request to modify the peering connection options, depending on whether their VPC was
+    /// the requester or accepter for the VPC peering connection. If the peered VPCs are in
+    /// the same account, you can modify the requester and accepter options in the same request.
+    /// To confirm which VPC is the accepter and requester for a VPC peering connection, use
+    /// the <a>DescribeVpcPeeringConnections</a> command.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpcPeeringConnectionOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
+        /// when queried from instances in the peer VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If true, enables a local VPC to resolve public DNS hostnames to private IP addresses
+        /// when queried from instances in the peer VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
