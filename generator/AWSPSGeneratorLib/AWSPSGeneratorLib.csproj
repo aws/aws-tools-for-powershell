@@ -149,7 +149,9 @@
     <None Include="CmdletConfig\MCA.xml" />
     <None Include="CmdletConfig\ML.xml" />
     <None Include="CmdletConfig\OpsWorks.xml" />
-    <None Include="CmdletConfig\RDS.xml" />
+    <None Include="CmdletConfig\RDS.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\RedShift.xml" />
     <None Include="CmdletConfig\Route53.xml" />
     <None Include="CmdletConfig\Route53Domains.xml" />
