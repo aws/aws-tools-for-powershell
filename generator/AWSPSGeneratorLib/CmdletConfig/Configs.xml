@@ -59,6 +59,7 @@
     <Path>Route53.xml</Path>
     <Path>Route53Domains.xml</Path>
     <Path>S3.xml</Path>
+	<Path>ServiceCatalog.xml</Path>
     <Path>SES.xml</Path>
     <Path>SNS.xml</Path>
     <Path>SSM.xml</Path>

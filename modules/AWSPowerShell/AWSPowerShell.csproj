@@ -210,6 +210,9 @@
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ServiceCatalog">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ServiceCatalog.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>

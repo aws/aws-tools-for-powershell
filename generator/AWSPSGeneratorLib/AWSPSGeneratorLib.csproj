@@ -156,6 +156,7 @@
     <None Include="CmdletConfig\Route53.xml" />
     <None Include="CmdletConfig\Route53Domains.xml" />
     <None Include="CmdletConfig\S3.xml" />
+    <None Include="CmdletConfig\ServiceCatalog.xml" />
     <None Include="CmdletConfig\SES.xml" />
     <None Include="CmdletConfig\SNS.xml" />
     <None Include="CmdletConfig\SQS.xml" />
