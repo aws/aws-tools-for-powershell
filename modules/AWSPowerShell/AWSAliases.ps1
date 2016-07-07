@@ -689,6 +689,8 @@ Set-Alias -Name CGIP-ResendConfirmationCode -Value Send-CGIPConfirmationCode
 Set-Alias -Name CGIP-SetUserSettings -Value Set-CGIPUserSetting
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
+Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder
+Set-Alias -Name CFG-DeleteConfigurationRecorder -Value Remove-CFGConfigurationRecorder
 Set-Alias -Name Delete-CFGDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name CFG-DeleteDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name CFG-DeliverConfigSnapshot -Value Submit-CFGConfigSnapshotDelivery

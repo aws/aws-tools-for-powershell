@@ -28,37 +28,44 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the delivery channel.
+    /// Deletes the configuration recorder.
     /// 
     ///  
     /// <para>
-    /// Before you can delete the delivery channel, you must stop the configuration recorder
-    /// by using the <a>StopConfigurationRecorder</a> action.
+    /// After the configuration recorder is deleted, AWS Config will not record resource configuration
+    /// changes until you create a new configuration recorder.
+    /// </para><para>
+    /// This action does not delete the configuration information that was previously recorded.
+    /// You will be able to access the previously recorded information by using the <code>GetResourceConfigHistory</code>
+    /// action, but you will not be able to access this information in the AWS Config console
+    /// until you create a new configuration recorder.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDeliveryChannel operation against AWS Config.", Operation = new[] {"DeleteDeliveryChannel"})]
+    [AWSCmdlet("Invokes the DeleteConfigurationRecorder operation against AWS Config.", Operation = new[] {"DeleteConfigurationRecorder"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryChannelName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.ConfigService.Model.DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationRecorderName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public class RemoveCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DeliveryChannelName
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery channel to delete.</para>
+        /// <para>The name of the configuration recorder to be deleted. You can retrieve the name of
+        /// your configuration recorder by using the <code>DescribeConfigurationRecorders</code>
+        /// action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DeliveryChannelName { get; set; }
+        public System.String ConfigurationRecorderName { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the DeliveryChannelName parameter.
+        /// Returns the value passed to the ConfigurationRecorderName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DeliveryChannelName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGDeliveryChannel (DeleteDeliveryChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConfigurationRecorderName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGConfigurationRecorder (DeleteConfigurationRecorder)"))
             {
                 return;
             }
@@ -91,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
-            context.DeliveryChannelName = this.DeliveryChannelName;
+            context.ConfigurationRecorderName = this.ConfigurationRecorderName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -103,11 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConfigService.Model.DeleteDeliveryChannelRequest();
+            var request = new Amazon.ConfigService.Model.DeleteConfigurationRecorderRequest();
             
-            if (cmdletContext.DeliveryChannelName != null)
+            if (cmdletContext.ConfigurationRecorderName != null)
             {
-                request.DeliveryChannelName = cmdletContext.DeliveryChannelName;
+                request.ConfigurationRecorderName = cmdletContext.ConfigurationRecorderName;
             }
             
             CmdletOutput output;
@@ -120,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.DeliveryChannelName;
+                    pipelineOutput = this.ConfigurationRecorderName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -145,16 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DeleteDeliveryChannelResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteDeliveryChannelRequest request)
+        private static Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteConfigurationRecorderRequest request)
         {
-            return client.DeleteDeliveryChannel(request);
+            return client.DeleteConfigurationRecorder(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DeliveryChannelName { get; set; }
+            public System.String ConfigurationRecorderName { get; set; }
         }
         
     }

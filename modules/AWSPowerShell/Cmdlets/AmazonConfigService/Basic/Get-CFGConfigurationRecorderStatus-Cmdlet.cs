@@ -32,7 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// recorder is not specified, this action returns the status of all configuration recorder
     /// associated with the account.
     /// 
-    ///  <note>Currently, you can specify only one configuration recorder per account.</note>
+    ///  <note><para>
+    /// Currently, you can specify only one configuration recorder per account.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorderStatus")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationRecorderStatus")]

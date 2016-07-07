@@ -16,6 +16,7 @@
     <ServiceOperation MethodName="DeleteConfigRule" Output="Void" />
     <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" />
     <ServiceOperation MethodName="DeliverConfigSnapshot" Verb="Submit" Noun="ConfigSnapshotDelivery" />
+	<ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" />
     <ServiceOperation MethodName="DescribeComplianceByConfigRule"/>
     <ServiceOperation MethodName="DescribeComplianceByResource"/>
     <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus"/>
