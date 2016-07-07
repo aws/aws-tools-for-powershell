@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// you specify a different operating system when you create the instance. You can specify
         /// one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
         /// Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
-        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
+        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
         /// R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>,
         /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
         /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when
