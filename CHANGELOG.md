@@ -1,3 +1,11 @@
+### 3.1.83.0 (2016-07-07)
+  * AWS Service Catalog
+    - Added cmdlets to support the new AWS Service Catalog service. AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS. The cmdlets for this service have the prefix 'SC' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "Service Catalog"'.
+  * AWS Config
+    - Added a new cmdlet, Remove-CFGConfigurationRecorder, to support the new DeleteConfigurationRecorder API.
+  * AWS Directory Service
+    - Added new cmdlets to support resource tagging: Add-DSResourceTag (AddTagsToResource API), Get-DSResourceTag (ListTagsForResource API) and Remove-DSResourceTag (RemoveTagsFromResource API). Additionally, automatic pagination has been enabled for cmdlets in this service where the response data contains a single logical field that can be enumerated to the pipeline (Get-DSDirectory, Get-DSSnapshot and Get-DSTrust).
+
 ### 3.1.82.0 (2016-07-05)
   * AWS CodePipeline
     - Added support for manual approvals with a new cmdlet, Write-CPApprovalResult (PutApprovalResult API).
