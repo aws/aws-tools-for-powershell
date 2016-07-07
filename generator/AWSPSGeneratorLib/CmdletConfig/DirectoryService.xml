@@ -9,6 +9,8 @@
 
   <AdditionalNamespaces />
 
+  <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" />
+
   <ServiceOperations>
 
 	<ServiceOperation MethodName="ConnectDirectory"
@@ -45,9 +47,7 @@
 		Noun="ConditionalForwarder"
 		PipelineParameter="DirectoryId"/>    
     
-	<ServiceOperation MethodName="DescribeDirectories"
-		Noun="Directory"
-		PipelineParameter="DirectoryIds"/>
+	<ServiceOperation MethodName="DescribeDirectories" Noun="Directory" />
 
 	<ServiceOperation MethodName="DescribeSnapshots"
 		Noun="Snapshot"
@@ -106,6 +106,10 @@
     <ServiceOperation MethodName="DescribeEventTopics" Noun="EventTopic" PipelineParameter="TopicName" />
     <ServiceOperation MethodName="RegisterEventTopic" PipelineParameter="TopicName" Output="Void" />
 
+	<ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
+	<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
+	<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
+	
   </ServiceOperations>
 
 </ConfigModel>

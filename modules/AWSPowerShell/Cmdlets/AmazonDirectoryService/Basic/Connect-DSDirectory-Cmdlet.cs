@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <summary>
         /// <para>
         /// <para>The username of an account in the on-premises directory that is used to connect to
-        /// the directory. This account must have the following privileges:</para><ul><li>Read users and groups</li><li>Create computer objects</li><li>Join computers
-        /// to the domain</li></ul>
+        /// the directory. This account must have the following privileges:</para><ul><li><para>Read users and groups</para></li><li><para>Create computer objects</para></li><li><para>Join computers to the domain</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

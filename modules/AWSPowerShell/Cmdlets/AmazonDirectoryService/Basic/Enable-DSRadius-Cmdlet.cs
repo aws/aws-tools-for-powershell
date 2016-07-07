@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RadiusSettings_RadiusRetry
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times that communication with the RADIUS server is attempted.
-        /// </para>
+        /// <para>The maximum number of times that communication with the RADIUS server is attempted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
