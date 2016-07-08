@@ -37,15 +37,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// if any of these resources do not comply. 
     /// </para><para>
     /// If AWS Config has no current evaluation results for the rule, it returns <code>INSUFFICIENT_DATA</code>.
-    /// This result might indicate one of the following conditions: <ul><li>AWS Config has
-    /// never invoked an evaluation for the rule. To check whether it has, use the <code>DescribeConfigRuleEvaluationStatus</code>
-    /// action to get the <code>LastSuccessfulInvocationTime</code> and <code>LastFailedInvocationTime</code>.</li><li>The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
+    /// This result might indicate one of the following conditions:
+    /// </para><ul><li>AWS Config has never invoked an evaluation for the rule. To check whether
+    /// it has, use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the
+    /// <code>LastSuccessfulInvocationTime</code> and <code>LastFailedInvocationTime</code>.</li><li>The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
     /// Verify that the role that you assigned to your configuration recorder includes the
     /// <code>config:PutEvaluations</code> permission. If the rule is a customer managed rule,
     /// verify that the AWS Lambda execution role includes the <code>config:PutEvaluations</code>
     /// permission.</li><li>The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code>
     /// for all evaluation results. This can occur if the resources were deleted or removed
-    /// from the rule's scope.</li></ul></para>
+    /// from the rule's scope.</li></ul>
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByConfigRule")]

@@ -28,42 +28,46 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates an alias for a directory and assigns the alias to the directory. The alias
-    /// is used to construct the access URL for the directory, such as <code>http://&lt;alias&gt;.awsapps.com</code>.
-    /// 
-    ///  <important><para>
-    /// After an alias has been created, it cannot be deleted or reused, so this operation
-    /// should only be used when absolutely necessary.
-    /// </para></important>
+    /// Removes tags from an Amazon Directory Services directory.
     /// </summary>
-    [Cmdlet("New", "DSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectoryService.Model.CreateAliasResponse")]
-    [AWSCmdlet("Invokes the CreateAlias operation against AWS Directory Service.", Operation = new[] {"CreateAlias"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResponse",
-        "This cmdlet returns a Amazon.DirectoryService.Model.CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against AWS Directory Service.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DirectoryService.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class RemoveDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter Alias
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation throws an <code>EntityAlreadyExistsException</code>
-        /// error if the alias already exists.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Alias { get; set; }
-        #endregion
-        
-        #region Parameter DirectoryId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the directory for which to create the alias.</para>
+        /// <para>The ID of the directory from which to remove the tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryId { get; set; }
+        public System.String ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag key (name) of the tag to be removed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ResourceId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -80,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSAlias (CreateAlias)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSResourceTag (RemoveTagsFromResource)"))
             {
                 return;
             }
@@ -92,8 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            context.Alias = this.Alias;
-            context.DirectoryId = this.DirectoryId;
+            context.ResourceId = this.ResourceId;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<System.String>(this.TagKey);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -105,15 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.CreateAliasRequest();
+            var request = new Amazon.DirectoryService.Model.RemoveTagsFromResourceRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.ResourceId != null)
             {
-                request.Alias = cmdletContext.Alias;
+                request.ResourceId = cmdletContext.ResourceId;
             }
-            if (cmdletContext.DirectoryId != null)
+            if (cmdletContext.TagKeys != null)
             {
-                request.DirectoryId = cmdletContext.DirectoryId;
+                request.TagKeys = cmdletContext.TagKeys;
             }
             
             CmdletOutput output;
@@ -124,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ResourceId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,17 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateAliasResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateAliasRequest request)
+        private static Amazon.DirectoryService.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveTagsFromResourceRequest request)
         {
-            return client.CreateAlias(request);
+            return client.RemoveTagsFromResource(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Alias { get; set; }
-            public System.String DirectoryId { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

@@ -32,7 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// is not specified, this action returns the current status of all delivery channels
     /// associated with the account. 
     /// 
-    ///  <note>Currently, you can specify only one delivery channel per account.</note>
+    ///  <note><para>
+    /// Currently, you can specify only one delivery channel per account.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGDeliveryChannelStatus")]
     [OutputType("Amazon.ConfigService.Model.DeliveryChannelStatus")]

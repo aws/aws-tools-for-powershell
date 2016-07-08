@@ -22,48 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectoryService;
-using Amazon.DirectoryService.Model;
+using Amazon.ConfigService;
+using Amazon.ConfigService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DS
+namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Creates an alias for a directory and assigns the alias to the directory. The alias
-    /// is used to construct the access URL for the directory, such as <code>http://&lt;alias&gt;.awsapps.com</code>.
+    /// Deletes the configuration recorder.
     /// 
-    ///  <important><para>
-    /// After an alias has been created, it cannot be deleted or reused, so this operation
-    /// should only be used when absolutely necessary.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// After the configuration recorder is deleted, AWS Config will not record resource configuration
+    /// changes until you create a new configuration recorder.
+    /// </para><para>
+    /// This action does not delete the configuration information that was previously recorded.
+    /// You will be able to access the previously recorded information by using the <code>GetResourceConfigHistory</code>
+    /// action, but you will not be able to access this information in the AWS Config console
+    /// until you create a new configuration recorder.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "DSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectoryService.Model.CreateAliasResponse")]
-    [AWSCmdlet("Invokes the CreateAlias operation against AWS Directory Service.", Operation = new[] {"CreateAlias"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResponse",
-        "This cmdlet returns a Amazon.DirectoryService.Model.CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteConfigurationRecorder operation against AWS Config.", Operation = new[] {"DeleteConfigurationRecorder"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationRecorderName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class RemoveCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter Alias
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation throws an <code>EntityAlreadyExistsException</code>
-        /// error if the alias already exists.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Alias { get; set; }
-        #endregion
-        
-        #region Parameter DirectoryId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the directory for which to create the alias.</para>
+        /// <para>The name of the configuration recorder to be deleted. You can retrieve the name of
+        /// your configuration recorder by using the <code>DescribeConfigurationRecorders</code>
+        /// action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryId { get; set; }
+        public System.String ConfigurationRecorderName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ConfigurationRecorderName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -80,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSAlias (CreateAlias)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConfigurationRecorderName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFGConfigurationRecorder (DeleteConfigurationRecorder)"))
             {
                 return;
             }
@@ -92,8 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            context.Alias = this.Alias;
-            context.DirectoryId = this.DirectoryId;
+            context.ConfigurationRecorderName = this.ConfigurationRecorderName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -105,15 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.CreateAliasRequest();
+            var request = new Amazon.ConfigService.Model.DeleteConfigurationRecorderRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.ConfigurationRecorderName != null)
             {
-                request.Alias = cmdletContext.Alias;
-            }
-            if (cmdletContext.DirectoryId != null)
-            {
-                request.DirectoryId = cmdletContext.DirectoryId;
+                request.ConfigurationRecorderName = cmdletContext.ConfigurationRecorderName;
             }
             
             CmdletOutput output;
@@ -124,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ConfigurationRecorderName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,17 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateAliasResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateAliasRequest request)
+        private static Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteConfigurationRecorderRequest request)
         {
-            return client.CreateAlias(request);
+            return client.DeleteConfigurationRecorder(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Alias { get; set; }
-            public System.String DirectoryId { get; set; }
+            public System.String ConfigurationRecorderName { get; set; }
         }
         
     }

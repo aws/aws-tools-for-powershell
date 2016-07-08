@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// AWS Directory Service for Microsoft Active Directory allows you to configure and verify
-    /// trust relationships. 
+    /// trust relationships.
     /// 
-    /// 
+    ///  
     /// <para>
     /// This action verifies a trust relationship between your Microsoft AD in the AWS cloud
     /// and an external domain.
@@ -50,8 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustId
         /// <summary>
         /// <para>
-        /// The unique Trust ID of the trust relationship
-        /// to verify.
+        /// <para>The unique Trust ID of the trust relationship to verify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

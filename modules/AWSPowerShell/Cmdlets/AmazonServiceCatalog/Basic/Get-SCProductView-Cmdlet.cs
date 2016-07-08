@@ -22,69 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectoryService;
-using Amazon.DirectoryService.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DS
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates an alias for a directory and assigns the alias to the directory. The alias
-    /// is used to construct the access URL for the directory, such as <code>http://&lt;alias&gt;.awsapps.com</code>.
+    /// Retrieves information about a specified product.
     /// 
-    ///  <important><para>
-    /// After an alias has been created, it cannot be deleted or reused, so this operation
-    /// should only be used when absolutely necessary.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// This operation is functionally identical to <a>DescribeProduct</a> except that it
+    /// takes as input <code>ProductViewId</code> instead of <code>ProductId</code>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "DSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectoryService.Model.CreateAliasResponse")]
-    [AWSCmdlet("Invokes the CreateAlias operation against AWS Directory Service.", Operation = new[] {"CreateAlias"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResponse",
-        "This cmdlet returns a Amazon.DirectoryService.Model.CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SCProductView")]
+    [OutputType("Amazon.ServiceCatalog.Model.DescribeProductViewResponse")]
+    [AWSCmdlet("Invokes the DescribeProductView operation against AWS Service Catalog.", Operation = new[] {"DescribeProductView"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProductViewResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProductViewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class GetSCProductViewCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter Alias
+        #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation throws an <code>EntityAlreadyExistsException</code>
-        /// error if the alias already exists.</para>
+        /// <para>Optional language code. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Alias { get; set; }
+        public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter DirectoryId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory for which to create the alias.</para>
+        /// <para>The <code>ProductViewId</code> of the product to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryId { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [Alias("ProductId")]
+        public System.String Id { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSAlias (CreateAlias)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -92,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            context.Alias = this.Alias;
-            context.DirectoryId = this.DirectoryId;
+            context.AcceptLanguage = this.AcceptLanguage;
+            context.Id = this.Id;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -105,15 +89,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.CreateAliasRequest();
+            var request = new Amazon.ServiceCatalog.Model.DescribeProductViewRequest();
             
-            if (cmdletContext.Alias != null)
+            if (cmdletContext.AcceptLanguage != null)
             {
-                request.Alias = cmdletContext.Alias;
+                request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.DirectoryId != null)
+            if (cmdletContext.Id != null)
             {
-                request.DirectoryId = cmdletContext.DirectoryId;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -149,17 +133,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateAliasResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateAliasRequest request)
+        private static Amazon.ServiceCatalog.Model.DescribeProductViewResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProductViewRequest request)
         {
-            return client.CreateAlias(request);
+            return client.DescribeProductView(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Alias { get; set; }
-            public System.String DirectoryId { get; set; }
+            public System.String AcceptLanguage { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

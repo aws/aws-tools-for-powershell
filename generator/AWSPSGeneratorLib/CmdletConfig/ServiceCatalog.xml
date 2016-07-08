@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>SC</ServiceNounPrefix>
+  <ServiceName>AWS Service Catalog</ServiceName>
+  <ServiceClientInterface>IAmazonServiceCatalog</ServiceClientInterface>
+  <ServiceClient>AmazonServiceCatalogClient</ServiceClient>
+  <ServiceNamespace>Amazon.ServiceCatalog</ServiceNamespace>
+
+  <PipelineParameter>Id</PipelineParameter>
+
+  <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="NextPageToken" Exclusions="DescribeRecord;SearchProducts" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="DescribeProduct" Output="Response" />
+    <ServiceOperation MethodName="DescribeProductView" Output="Response">
+      <Params>
+        <Param Name="Id" Alias="ProductId" />
+      </Params>
+	</ServiceOperation>
+    <ServiceOperation MethodName="DescribeProvisioningParameters" PipelineParameter="ProductId" Noun="ProvisioningParameter" Output="Response" />
+    <ServiceOperation MethodName="DescribeRecord" Output="Response" />
+    <ServiceOperation MethodName="ListLaunchPaths" Noun="LaunchPath" PipelineParameter="ProductId" />
+    <ServiceOperation MethodName="ListRecordHistory" />
+    <ServiceOperation MethodName="ProvisionProduct" Verb="New" Noun="Product" PipelineParameter="ProvisionedProductName" />
+    <ServiceOperation MethodName="ScanProvisionedProducts" Verb="Get" Noun="ProvisionedProduct" />
+    <ServiceOperation MethodName="SearchProducts" Verb="Find" Noun="Product" Output="Response" />
+    <ServiceOperation MethodName="TerminateProvisionedProduct" Verb="Remove" PipelineParameter="ProvisionedProductId" />
+    <ServiceOperation MethodName="UpdateProvisionedProduct" PipelineParameter="ProvisionedProductId" />
+  </ServiceOperations>
+
+  <VerbMappings>
+	<Map From="List" To="Get" />
+  </VerbMappings>
+  
+  <PipelineByValueProperties />
+  
+</ConfigModel>

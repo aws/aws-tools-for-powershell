@@ -28,13 +28,12 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Deletes the specified delivery channel.
+    /// Deletes the delivery channel.
     /// 
     ///  
     /// <para>
-    /// The delivery channel cannot be deleted if it is the only delivery channel and the
-    /// configuration recorder is still running. To delete the delivery channel, stop the
-    /// running configuration recorder using the <a>StopConfigurationRecorder</a> action.
+    /// Before you can delete the delivery channel, you must stop the configuration recorder
+    /// by using the <a>StopConfigurationRecorder</a> action.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

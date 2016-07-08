@@ -28,56 +28,33 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Obtains information about the directory snapshots that belong to this account.
-    /// 
-    ///  
-    /// <para>
-    /// This operation supports pagination with the use of the <i>NextToken</i> request and
-    /// response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>
-    /// member contains a token that you pass in the next call to <a>DescribeSnapshots</a>
-    /// to retrieve the next set of items.
-    /// </para><para>
-    /// You can also specify a maximum number of return results with the <i>Limit</i> parameter.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all tags on an Amazon Directory Services directory.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "DSSnapshot")]
-    [OutputType("Amazon.DirectoryService.Model.Snapshot")]
-    [AWSCmdlet("Invokes the DescribeSnapshots operation against AWS Directory Service.", Operation = new[] {"DescribeSnapshots"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.Snapshot",
-        "This cmdlet returns a collection of Snapshot objects.",
-        "The service call response (type Amazon.DirectoryService.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DSResourceTag")]
+    [OutputType("Amazon.DirectoryService.Model.Tag")]
+    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Directory Service.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.Tag",
+        "This cmdlet returns a collection of Tag objects.",
+        "The service call response (type Amazon.DirectoryService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class GetDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DirectoryId
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory for which to retrieve snapshot information.</para>
+        /// <para>The ID of the directory for which you want to retrieve tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryId { get; set; }
-        #endregion
-        
-        #region Parameter SnapshotId
-        /// <summary>
-        /// <para>
-        /// <para>A list of identifiers of the snapshots to obtain the information for. If this member
-        /// is null or empty, all snapshots are returned using the <i>Limit</i> and <i>NextToken</i>
-        /// members.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("SnapshotIds")]
-        public System.String[] SnapshotId { get; set; }
+        public System.String ResourceId { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects to return.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to <a>DescribeSnapshots</a>.
-        /// Pass null if this is the first call.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,14 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            context.DirectoryId = this.DirectoryId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            if (this.SnapshotId != null)
-            {
-                context.SnapshotIds = new List<System.String>(this.SnapshotId);
-            }
+            context.ResourceId = this.ResourceId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -126,14 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.DirectoryService.Model.DescribeSnapshotsRequest();
-            if (cmdletContext.DirectoryId != null)
+            var request = new Amazon.DirectoryService.Model.ListTagsForResourceRequest();
+            if (cmdletContext.ResourceId != null)
             {
-                request.DirectoryId = cmdletContext.DirectoryId;
-            }
-            if (cmdletContext.SnapshotIds != null)
-            {
-                request.SnapshotIds = cmdletContext.SnapshotIds;
+                request.ResourceId = cmdletContext.ResourceId;
             }
             
             // Initialize loop variants and commence piping
@@ -169,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Snapshots;
+                        object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -178,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Snapshots.Count;
+                        int _receivedThisCall = response.Tags.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -221,19 +189,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DescribeSnapshotsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeSnapshotsRequest request)
+        private static Amazon.DirectoryService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListTagsForResourceRequest request)
         {
-            return client.DescribeSnapshots(request);
+            return client.ListTagsForResource(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DirectoryId { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> SnapshotIds { get; set; }
+            public System.String ResourceId { get; set; }
         }
         
     }

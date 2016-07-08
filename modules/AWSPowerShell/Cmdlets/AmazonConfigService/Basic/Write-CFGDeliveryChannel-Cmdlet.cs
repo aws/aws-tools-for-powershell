@@ -28,18 +28,20 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Creates a new delivery channel object to deliver the configuration information to
-    /// an Amazon S3 bucket, and to an Amazon SNS topic. 
+    /// Creates a delivery channel object to deliver configuration information to an Amazon
+    /// S3 bucket and Amazon SNS topic.
     /// 
     ///  
     /// <para>
+    /// Before you can create a delivery channel, you must create a configuration recorder.
+    /// </para><para>
     /// You can use this action to change the Amazon S3 bucket or an Amazon SNS topic of the
     /// existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS topic,
     /// call this action and specify the changed values for the S3 bucket and the SNS topic.
     /// If you specify a different value for either the S3 bucket or the SNS topic, this action
-    /// will keep the existing value for the parameter that is not changed. 
+    /// will keep the existing value for the parameter that is not changed.
     /// </para><note><para>
-    /// Currently, you can specify only one delivery channel per account.
+    /// You can have only one delivery channel per AWS account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigSnapshotDeliveryProperties_DeliveryFrequency
         /// <summary>
         /// <para>
-        /// <para>The frequency with which a AWS Config recurringly delivers configuration snapshots.</para>
+        /// <para>The frequency with which AWS Config recurringly delivers configuration snapshots.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,9 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery channel. By default, AWS Config automatically assigns the
-        /// name "default" when creating the delivery channel. You cannot change the
-        /// assigned name. </para>
+        /// <para>The name of the delivery channel. By default, AWS Config assigns the name "default"
+        /// when creating the delivery channel. To change the delivery channel name, you must
+        /// use the DeleteDeliveryChannel action to delete your current delivery channel, and
+        /// then you must use the PutDeliveryChannel command to create a delivery channel that
+        /// has the desired name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -80,8 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannel_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket used to store configuration history for the delivery
-        /// channel.</para>
+        /// <para>The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots
+        /// and configuration history files.</para><para>If you specify a bucket that belongs to another AWS account, that bucket must have
+        /// policies that grant access permissions to AWS Config. For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions
+        /// for the Amazon S3 Bucket</a> in the AWS Config Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannel_SnsTopicARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers notifications
-        /// to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications
+        /// about configuration changes.</para><para>If you choose a topic from another account, the topic must have policies that grant
+        /// access permissions to AWS Config. For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions
+        /// for the Amazon SNS Topic</a> in the AWS Config Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

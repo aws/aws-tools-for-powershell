@@ -22,72 +22,59 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectoryService;
-using Amazon.DirectoryService.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DS
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Obtains information about the directories that belong to this account.
-    /// 
-    ///  
-    /// <para>
-    /// You can retrieve information about specific directories by passing the directory identifiers
-    /// in the <i>DirectoryIds</i> parameter. Otherwise, all directories that belong to the
-    /// current account are returned.
-    /// </para><para>
-    /// This operation supports pagination with the use of the <i>NextToken</i> request and
-    /// response parameters. If more results are available, the <i>DescribeDirectoriesResult.NextToken</i>
-    /// member contains a token that you pass in the next call to <a>DescribeDirectories</a>
-    /// to retrieve the next set of items.
-    /// </para><para>
-    /// You can also specify a maximum number of return results with the <i>Limit</i> parameter.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a paginated list of all the ProvisionedProduct objects that are currently
+    /// available (not terminated).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "DSDirectory")]
-    [OutputType("Amazon.DirectoryService.Model.DirectoryDescription")]
-    [AWSCmdlet("Invokes the DescribeDirectories operation against AWS Directory Service.", Operation = new[] {"DescribeDirectories"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.DirectoryDescription",
-        "This cmdlet returns a collection of DirectoryDescription objects.",
-        "The service call response (type Amazon.DirectoryService.Model.DescribeDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [Cmdlet("Get", "SCProvisionedProduct")]
+    [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductDetail")]
+    [AWSCmdlet("Invokes the ScanProvisionedProducts operation against AWS Service Catalog.", Operation = new[] {"ScanProvisionedProducts"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProvisionedProductDetail",
+        "This cmdlet returns a collection of ProvisionedProductDetail objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public class GetDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class GetSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter DirectoryId
+        #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>A list of identifiers of the directories for which to obtain the information. If this
-        /// member is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// <para>Optional language code. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("DirectoryIds")]
-        public System.String[] DirectoryId { get; set; }
+        public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Limit
+        #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return. If this value is zero, the maximum number of
-        /// items is specified by the limitations of the operation.</para>
+        /// <para>The maximum number of items to return in the results. If more results exist than fit
+        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
+        /// the response is non-null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public int PageSize { get; set; }
         #endregion
         
-        #region Parameter NextToken
+        #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The <i>DescribeDirectoriesResult.NextToken</i> value from a previous call to <a>DescribeDirectories</a>.
-        /// Pass null if this is the first call.</para>
+        /// <para>The page token of the first page retrieve. If null, this retrieves the first page
+        /// of size <code>PageSize</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
+        [Alias("NextToken")]
+        public System.String PageToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -100,13 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.DirectoryId != null)
-            {
-                context.DirectoryIds = new List<System.String>(this.DirectoryId);
-            }
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
-            context.NextToken = this.NextToken;
+            context.AcceptLanguage = this.AcceptLanguage;
+            if (ParameterWasBound("PageSize"))
+                context.PageSize = this.PageSize;
+            context.PageToken = this.PageToken;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,35 +103,35 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.DirectoryService.Model.DescribeDirectoriesRequest();
-            if (cmdletContext.DirectoryIds != null)
+            var request = new Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest();
+            if (cmdletContext.AcceptLanguage != null)
             {
-                request.DirectoryIds = cmdletContext.DirectoryIds;
+                request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (AutoIterationHelpers.HasValue(cmdletContext.PageToken))
             {
-                _nextMarker = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.PageToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (AutoIterationHelpers.HasValue(cmdletContext.PageSize))
             {
-                _emitLimit = cmdletContext.Limit;
+                _emitLimit = cmdletContext.PageSize;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.PageToken) || AutoIterationHelpers.HasValue(cmdletContext.PageSize);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.NextToken = _nextMarker;
+                    request.PageToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.PageSize = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -158,22 +142,22 @@ namespace Amazon.PowerShell.Cmdlets.DS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.DirectoryDescriptions;
+                        object pipelineOutput = response.ProvisionedProducts;
                         notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
+                        notes["NextPageToken"] = response.NextPageToken;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.DirectoryDescriptions.Count;
+                        int _receivedThisCall = response.ProvisionedProducts.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
                         }
                         
-                        _nextMarker = response.NextToken;
+                        _nextMarker = response.NextPageToken;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -210,18 +194,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DescribeDirectoriesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeDirectoriesRequest request)
+        private static Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest request)
         {
-            return client.DescribeDirectories(request);
+            return client.ScanProvisionedProducts(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> DirectoryIds { get; set; }
-            public int? Limit { get; set; }
-            public System.String NextToken { get; set; }
+            public System.String AcceptLanguage { get; set; }
+            public int? PageSize { get; set; }
+            public System.String PageToken { get; set; }
         }
         
     }

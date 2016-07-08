@@ -108,6 +108,7 @@ RequiredAssemblies = @(
   "AWSSDK.Route53Domains.dll",
   "AWSSDK.S3.dll",
   "AWSSDK.SecurityToken.dll",
+  "AWSSDK.ServiceCatalog.dll",
   "AWSSDK.SimpleEmail.dll",
   "AWSSDK.SimpleNotificationService.dll",
   "AWSSDK.SimpleSystemsManagement.dll",

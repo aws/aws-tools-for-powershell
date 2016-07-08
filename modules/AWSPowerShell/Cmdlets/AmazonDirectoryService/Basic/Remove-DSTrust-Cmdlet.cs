@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DeleteAssociatedConditionalForwarder
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Delete a conditional forwarder as part of a DeleteTrustRequest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustId
         /// <summary>
         /// <para>
-        /// The Trust ID of the trust relationship to be deleted.
+        /// <para>The Trust ID of the trust relationship to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

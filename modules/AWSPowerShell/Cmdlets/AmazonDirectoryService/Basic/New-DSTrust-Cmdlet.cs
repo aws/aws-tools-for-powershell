@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// allow you to provide users and groups access to resources in either domain, with a
     /// single set of credentials.
     /// 
-    /// 
+    ///  
     /// <para>
     /// This action initiates the creation of the AWS side of a trust relationship between
     /// a Microsoft AD in the AWS cloud and an external domain.
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ConditionalForwarderIpAddr
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The IP addresses of the remote DNS server associated with RemoteDomainName.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// The Directory ID of the Microsoft AD in the
-        /// AWS cloud for which to establish the trust relationship.
+        /// <para>The Directory ID of the Microsoft AD in the AWS cloud for which to establish the trust
+        /// relationship.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RemoteDomainName
         /// <summary>
         /// <para>
-        /// The Fully Qualified Domain Name (FQDN)
-        /// of the external domain for which to create the trust relationship.
+        /// <para>The Fully Qualified Domain Name (FQDN) of the external domain for which to create
+        /// the trust relationship.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustDirection
         /// <summary>
         /// <para>
-        /// The direction of the trust relationship.
+        /// <para>The direction of the trust relationship.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustPassword
         /// <summary>
         /// <para>
-        /// The trust password. The must be the same
-        /// password that was used when creating the trust relationship on the external domain.
+        /// <para>The trust password. The must be the same password that was used when creating the
+        /// trust relationship on the external domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustType
         /// <summary>
         /// <para>
-        /// The trust relationship type.
+        /// <para>The trust relationship type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

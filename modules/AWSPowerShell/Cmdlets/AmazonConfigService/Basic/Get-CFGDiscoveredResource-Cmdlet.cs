@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// including those that AWS Config is not currently recording. You can narrow the results
     /// to include only resources that have specific resource IDs or a resource name.
     /// 
-    ///  <note>You can specify either resource IDs or a resource name but not both in the
-    /// same request.</note><para>
+    ///  <note><para>
+    /// You can specify either resource IDs or a resource name but not both in the same request.
+    /// </para></note><para>
     /// The response is paginated, and by default AWS Config lists 100 resource identifiers
     /// on each page. You can customize this number with the <code>limit</code> parameter.
     /// The response includes a <code>nextToken</code> string, and to get the next page of
