@@ -67,11 +67,6 @@
                  Targets="Clean;Build"
                  Properties="Configuration=$(Configuration);Edition=desktop" />		
 
-		<Message Text="Building coreclr edition module"/>
-		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
-                 Targets="Clean;Build"
-                 Properties="Configuration=$(Configuration);Edition=coreclr" />		
-		
 		<Message Text="Generating custom view formats ps1xml file"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e $(Edition)" />
 	</Target>
@@ -116,10 +111,6 @@
     </Target>
     
     <Target Name="copy-artifacts" DependsOnTargets="build-modules">
-		<CallTarget Targets="copy-desktop-artifacts;copy-coreclr-artifacts;" />
-    </Target>
-	
-	<Target Name="copy-desktop-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<BuildSourceFolder>bin\$(Configuration)\desktop\</BuildSourceFolder>
 			<DeploymentFolder>$(Deployment)\desktop\</DeploymentFolder>
@@ -151,38 +142,6 @@
             DestinationFolder="$(DeploymentFolder)"/>
     </Target>
 
-	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
-		<PropertyGroup>
-			<BuildSourceFolder>bin\$(Configuration)\coreclr\</BuildSourceFolder>
-			<DeploymentFolder>$(Deployment)\coreclr\</DeploymentFolder>
-		</PropertyGroup>
-		
-		<Message Text="Consolidating coreclr edition artifacts to $(DeploymentFolder)"/>
-	
-        <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 
-                           Exclude="$(SDKAssembliesFolder)\net35\*.Glacier.*;$(SDKAssembliesFolder)\net35\*.CognitoSync.*;$(SDKAssembliesFolder)\net35\*.SimpleDB.*"/>
-        </ItemGroup>
-        
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
-            DestinationFolder="$(DeploymentFolder)"/>
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.dll"
-            DestinationFolder="$(DeploymentFolder)"/>
-		<!-- the ndoc xml file is needed in separate build process to generate and push web docs to github -->
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.xml"
-            DestinationFolder="$(DeploymentFolder)"/>
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
-            DestinationFolder="$(DeploymentFolder)"/>
-        <Copy SourceFiles="@(SDKAssemblies)"
-            DestinationFolder="$(DeploymentFolder)"/>
-        <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
-            DestinationFolder="$(DeploymentFolder)"/>
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
-            DestinationFolder="$(DeploymentFolder)"/>
-        <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
-            DestinationFolder="$(DeploymentFolder)"/>
-    </Target>
-	
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
         <!-- grab the logical SDK product version and use the first 3 components,
              appending our own patch number to make the final PowerShell version
