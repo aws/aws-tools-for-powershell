@@ -55,26 +55,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public class EditEC2VpcPeeringConnectionOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
-        #endregion
-        
-        #region Parameter RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
-        #endregion
-        
         #region Parameter AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc
         /// <summary>
         /// <para>
@@ -155,14 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc"))
-                context.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             if (ParameterWasBound("AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc"))
                 context.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = this.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc;
             if (ParameterWasBound("AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink"))
                 context.AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink = this.AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink;
-            if (ParameterWasBound("RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc"))
-                context.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             if (ParameterWasBound("RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc"))
                 context.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = this.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc;
             if (ParameterWasBound("RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink"))
@@ -185,16 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate AccepterPeeringConnectionOptions
             bool requestAccepterPeeringConnectionOptionsIsNull = true;
             request.AccepterPeeringConnectionOptions = new Amazon.EC2.Model.PeeringConnectionOptionsRequest();
-            System.Boolean? requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = null;
-            if (cmdletContext.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc != null)
-            {
-                requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = cmdletContext.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc.Value;
-            }
-            if (requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc != null)
-            {
-                request.AccepterPeeringConnectionOptions.AllowDnsResolutionFromRemoteVpc = requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc.Value;
-                requestAccepterPeeringConnectionOptionsIsNull = false;
-            }
             System.Boolean? requestAccepterPeeringConnectionOptions_accepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = null;
             if (cmdletContext.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc != null)
             {
@@ -224,16 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate RequesterPeeringConnectionOptions
             bool requestRequesterPeeringConnectionOptionsIsNull = true;
             request.RequesterPeeringConnectionOptions = new Amazon.EC2.Model.PeeringConnectionOptionsRequest();
-            System.Boolean? requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = null;
-            if (cmdletContext.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc != null)
-            {
-                requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = cmdletContext.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc.Value;
-            }
-            if (requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc != null)
-            {
-                request.RequesterPeeringConnectionOptions.AllowDnsResolutionFromRemoteVpc = requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc.Value;
-                requestRequesterPeeringConnectionOptionsIsNull = false;
-            }
             System.Boolean? requestRequesterPeeringConnectionOptions_requesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = null;
             if (cmdletContext.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc != null)
             {
@@ -306,10 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
             public System.Boolean? AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc { get; set; }
             public System.Boolean? AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
-            public System.Boolean? RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
             public System.String VpcPeeringConnectionId { get; set; }
