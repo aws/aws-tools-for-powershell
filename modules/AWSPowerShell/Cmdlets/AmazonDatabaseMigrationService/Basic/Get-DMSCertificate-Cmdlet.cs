@@ -28,27 +28,26 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Returns information about replication tasks for your account in the current region.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Provides a description of the certificate.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "DMSReplicationTask")]
-    [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]
-    [AWSCmdlet("Invokes the DescribeReplicationTasks operation against AWS Database Migration Service.", Operation = new[] {"DescribeReplicationTasks"})]
-    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationTask",
-        "This cmdlet returns a collection of ReplicationTask objects.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeReplicationTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DMSCertificate")]
+    [OutputType("Amazon.DatabaseMigrationService.Model.Certificate")]
+    [AWSCmdlet("Invokes the DescribeCertificates operation against AWS Database Migration Service.", Operation = new[] {"DescribeCertificates"})]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Certificate",
+        "This cmdlet returns a collection of Certificate objects.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public class GetDMSCertificateCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the describe action.</para><para>Valid filter names: replication-task-arn | replication-task-id | migration-type |
-        /// endpoint-arn | replication-instance-arn</para>
+        /// <para>Filters applied to the certificate described in the form of key-value pairs.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Filters")]
         public Amazon.DatabaseMigrationService.Model.Filter[] Filter { get; set; }
         #endregion
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 10</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.DatabaseMigrationService.Model.DescribeReplicationTasksRequest();
+            var request = new Amazon.DatabaseMigrationService.Model.DescribeCertificatesRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -168,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ReplicationTasks;
+                        object pipelineOutput = response.Certificates;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -177,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ReplicationTasks.Count;
+                        int _receivedThisCall = response.Certificates.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -229,9 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.DescribeReplicationTasksResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeReplicationTasksRequest request)
+        private static Amazon.DatabaseMigrationService.Model.DescribeCertificatesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeCertificatesRequest request)
         {
-            return client.DescribeReplicationTasks(request);
+            return client.DescribeCertificates(request);
         }
         
         #endregion

@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public class NewDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Number (ARN) for the certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -138,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ServerName { get; set; }
         #endregion
         
+        #region Parameter SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode to use for the SSL connection.</para><para>SSL mode can be one of four values: none, require, verify-ca, verify-full. </para><para>The default value is none.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -185,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            context.CertificateArn = this.CertificateArn;
             context.DatabaseName = this.DatabaseName;
             context.EndpointIdentifier = this.EndpointIdentifier;
             context.EndpointType = this.EndpointType;
@@ -195,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.ServerName = this.ServerName;
+            context.SslMode = this.SslMode;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
@@ -213,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // create request
             var request = new Amazon.DatabaseMigrationService.Model.CreateEndpointRequest();
             
+            if (cmdletContext.CertificateArn != null)
+            {
+                request.CertificateArn = cmdletContext.CertificateArn;
+            }
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
@@ -248,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ServerName != null)
             {
                 request.ServerName = cmdletContext.ServerName;
+            }
+            if (cmdletContext.SslMode != null)
+            {
+                request.SslMode = cmdletContext.SslMode;
             }
             if (cmdletContext.Tags != null)
             {
@@ -300,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String CertificateArn { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String EndpointIdentifier { get; set; }
             public Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue EndpointType { get; set; }
@@ -309,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
             public System.String ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tags { get; set; }
             public System.String Username { get; set; }
         }

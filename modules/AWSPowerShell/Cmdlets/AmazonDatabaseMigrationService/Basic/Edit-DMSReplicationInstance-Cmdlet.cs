@@ -105,6 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter MultiAZ
+        /// <summary>
+        /// <para>
+        /// <para> Specifies if the replication instance is a Multi-AZ deployment. You cannot set the
+        /// <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean MultiAZ { get; set; }
+        #endregion
+        
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
@@ -197,6 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
                 context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.EngineVersion = this.EngineVersion;
+            if (ParameterWasBound("MultiAZ"))
+                context.MultiAZ = this.MultiAZ;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.ReplicationInstanceArn = this.ReplicationInstanceArn;
             context.ReplicationInstanceClass = this.ReplicationInstanceClass;
@@ -237,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.MultiAZ != null)
+            {
+                request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -306,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.String ReplicationInstanceArn { get; set; }
             public System.String ReplicationInstanceClass { get; set; }

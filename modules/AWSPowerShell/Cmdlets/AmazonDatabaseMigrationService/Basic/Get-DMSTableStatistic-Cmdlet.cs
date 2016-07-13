@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxRecords")]
+        [Alias("MaxItems","MaxRecords")]
         public System.Int32 MaxRecord { get; set; }
         #endregion
         

@@ -726,6 +726,9 @@ Set-Alias -Name Put-CFGEvaluations -Value Write-CFGEvaluations
 Set-Alias -Name CFG-PutEvaluations -Value Write-CFGEvaluations
 Set-Alias -Name CFG-StartConfigurationRecorder -Value Start-CFGConfigurationRecorder
 Set-Alias -Name CFG-StopConfigurationRecorder -Value Stop-CFGConfigurationRecorder
+Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
+Set-Alias -Name DMS-StopReplicationTask -Value Stop-DMSReplicationTask
+Set-Alias -Name DMS-TestConnection -Value Test-DMSConnection
 Set-Alias -Name DMS-AddTagsToResource -Value Set-DMSResourceTag
 Set-Alias -Name Create-DMSEndpoint -Value New-DMSEndpoint
 Set-Alias -Name DMS-CreateEndpoint -Value New-DMSEndpoint
@@ -735,6 +738,8 @@ Set-Alias -Name Create-DMSReplicationSubnetGroup -Value New-DMSReplicationSubnet
 Set-Alias -Name DMS-CreateReplicationSubnetGroup -Value New-DMSReplicationSubnetGroup
 Set-Alias -Name Create-DMSReplicationTask -Value New-DMSReplicationTask
 Set-Alias -Name DMS-CreateReplicationTask -Value New-DMSReplicationTask
+Set-Alias -Name Delete-DMSCertificate -Value Remove-DMSCertificate
+Set-Alias -Name DMS-DeleteCertificate -Value Remove-DMSCertificate
 Set-Alias -Name Delete-DMSEndpoint -Value Remove-DMSEndpoint
 Set-Alias -Name DMS-DeleteEndpoint -Value Remove-DMSEndpoint
 Set-Alias -Name Delete-DMSReplicationInstance -Value Remove-DMSReplicationInstance
@@ -745,6 +750,8 @@ Set-Alias -Name Delete-DMSReplicationTask -Value Remove-DMSReplicationTask
 Set-Alias -Name DMS-DeleteReplicationTask -Value Remove-DMSReplicationTask
 Set-Alias -Name Describe-DMSAccountAttribute -Value Get-DMSAccountAttribute
 Set-Alias -Name DMS-DescribeAccountAttributes -Value Get-DMSAccountAttribute
+Set-Alias -Name Describe-DMSCertificates -Value Get-DMSCertificate
+Set-Alias -Name DMS-DescribeCertificates -Value Get-DMSCertificate
 Set-Alias -Name Describe-DMSConnection -Value Get-DMSConnection
 Set-Alias -Name DMS-DescribeConnections -Value Get-DMSConnection
 Set-Alias -Name Describe-DMSEndpoint -Value Get-DMSEndpoint
@@ -765,6 +772,7 @@ Set-Alias -Name Describe-DMSSchema -Value Get-DMSSchema
 Set-Alias -Name DMS-DescribeSchemas -Value Get-DMSSchema
 Set-Alias -Name Describe-DMSTableStatistic -Value Get-DMSTableStatistic
 Set-Alias -Name DMS-DescribeTableStatistics -Value Get-DMSTableStatistic
+Set-Alias -Name DMS-ImportCertificate -Value Import-DMSCertificate
 Set-Alias -Name DMS-ListTagsForResource -Value Get-DMSResourceTag
 Set-Alias -Name Modify-DMSEndpoint -Value Edit-DMSEndpoint
 Set-Alias -Name DMS-ModifyEndpoint -Value Edit-DMSEndpoint
@@ -774,9 +782,6 @@ Set-Alias -Name Modify-DMSReplicationSubnetGroup -Value Edit-DMSReplicationSubne
 Set-Alias -Name DMS-ModifyReplicationSubnetGroup -Value Edit-DMSReplicationSubnetGroup
 Set-Alias -Name DMS-RefreshSchemas -Value Invoke-DMSSchemaRefresh
 Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
-Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
-Set-Alias -Name DMS-StopReplicationTask -Value Stop-DMSReplicationTask
-Set-Alias -Name DMS-TestConnection -Value Test-DMSConnection
 Set-Alias -Name Activate-DPPipeline -Value Enable-DPPipeline
 Set-Alias -Name DP-ActivatePipeline -Value Enable-DPPipeline
 Set-Alias -Name DP-AddTags -Value Add-DPTags
