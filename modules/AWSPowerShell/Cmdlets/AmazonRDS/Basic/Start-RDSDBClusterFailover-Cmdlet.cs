@@ -60,8 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A DB cluster identifier to force a failover for. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter TargetDBInstanceIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The name of the instance to promote to the primary instance.</para><para>You must specify the instance identifier for an Aurora Replica in the DB cluster.
+        /// For example, <code>mydbcluster-replica1</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TargetDBInstanceIdentifier { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,6 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             };
             
             context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.TargetDBInstanceIdentifier = this.TargetDBInstanceIdentifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -107,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.TargetDBInstanceIdentifier != null)
+            {
+                request.TargetDBInstanceIdentifier = cmdletContext.TargetDBInstanceIdentifier;
             }
             
             CmdletOutput output;
@@ -152,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal class CmdletContext : ExecutorContext
         {
             public System.String DBClusterIdentifier { get; set; }
+            public System.String TargetDBInstanceIdentifier { get; set; }
         }
         
     }

@@ -2276,6 +2276,9 @@ Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
+Set-Alias -Name RDS-RevokeDBSecurityGroupIngress -Value Revoke-RDSDBSecurityGroupIngress
+Set-Alias -Name Describe-RDSOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
+Set-Alias -Name RDS-DescribeOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
 Set-Alias -Name Describe-RDSPendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
 Set-Alias -Name RDS-DescribePendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
 Set-Alias -Name Describe-RDSReservedDBInstances -Value Get-RDSReservedDBInstance
@@ -2319,7 +2322,8 @@ Set-Alias -Name RDS-RestoreDBClusterFromSnapshot -Value Restore-RDSDBClusterFrom
 Set-Alias -Name RDS-RestoreDBClusterToPointInTime -Value Restore-RDSDBClusterToPointInTime
 Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot
 Set-Alias -Name RDS-RestoreDBInstanceToPointInTime -Value Restore-RDSDBInstanceToPointInTime
-Set-Alias -Name RDS-RevokeDBSecurityGroupIngress -Value Revoke-RDSDBSecurityGroupIngress
+Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
+Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name Describe-RDSAccountAttributes -Value Get-RDSAccountAttributes
 Set-Alias -Name RDS-DescribeAccountAttributes -Value Get-RDSAccountAttributes
 Set-Alias -Name Describe-RDSCertificates -Value Get-RDSCertificates
@@ -2366,12 +2370,11 @@ Set-Alias -Name Describe-RDSOptionGroupOptions -Value Get-RDSOptionGroupOption
 Set-Alias -Name RDS-DescribeOptionGroupOptions -Value Get-RDSOptionGroupOption
 Set-Alias -Name Describe-RDSOptionGroups -Value Get-RDSOptionGroup
 Set-Alias -Name RDS-DescribeOptionGroups -Value Get-RDSOptionGroup
-Set-Alias -Name Describe-RDSOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
-Set-Alias -Name RDS-DescribeOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
 Set-Alias -Name RDS-AddSourceIdentifierToSubscription -Value Add-RDSSourceIdentifierToSubscription
 Set-Alias -Name RDS-AddTagsToResource -Value Add-RDSTagsToResource
 Set-Alias -Name RDS-ApplyPendingMaintenanceAction -Value Submit-RDSPendingMaintenanceAction
 Set-Alias -Name RDS-AuthorizeDBSecurityGroupIngress -Value Enable-RDSDBSecurityGroupIngress
+Set-Alias -Name RDS-CopyDBClusterParameterGroup -Value Copy-RDSDBClusterParameterGroup
 Set-Alias -Name RDS-CopyDBClusterSnapshot -Value Copy-RDSDBClusterSnapshot
 Set-Alias -Name RDS-CopyDBParameterGroup -Value Copy-RDSDBParameterGroup
 Set-Alias -Name RDS-CopyDBSnapshot -Value Copy-RDSDBSnapshot
@@ -2416,8 +2419,6 @@ Set-Alias -Name Delete-RDSDBSubnetGroup -Value Remove-RDSDBSubnetGroup
 Set-Alias -Name RDS-DeleteDBSubnetGroup -Value Remove-RDSDBSubnetGroup
 Set-Alias -Name Delete-RDSEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name RDS-DeleteEventSubscription -Value Remove-RDSEventSubscription
-Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
-Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name RS-ModifyEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name Modify-RSSnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
