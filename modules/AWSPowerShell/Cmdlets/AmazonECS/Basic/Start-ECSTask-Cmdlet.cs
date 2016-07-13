@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String TaskDefinition { get; set; }
         #endregion
         
+        #region Parameter Overrides_TaskRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
+        /// All containers in this task are granted the permissions that are specified in this
+        /// role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Overrides_TaskRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -142,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
+            context.Overrides_TaskRoleArn = this.Overrides_TaskRoleArn;
             context.StartedBy = this.StartedBy;
             context.TaskDefinition = this.TaskDefinition;
             
@@ -177,6 +190,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestOverrides_overrides_ContainerOverride != null)
             {
                 request.Overrides.ContainerOverrides = requestOverrides_overrides_ContainerOverride;
+                requestOverridesIsNull = false;
+            }
+            System.String requestOverrides_overrides_TaskRoleArn = null;
+            if (cmdletContext.Overrides_TaskRoleArn != null)
+            {
+                requestOverrides_overrides_TaskRoleArn = cmdletContext.Overrides_TaskRoleArn;
+            }
+            if (requestOverrides_overrides_TaskRoleArn != null)
+            {
+                request.Overrides.TaskRoleArn = requestOverrides_overrides_TaskRoleArn;
                 requestOverridesIsNull = false;
             }
              // determine if request.Overrides should be set to null
@@ -238,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cluster { get; set; }
             public List<System.String> ContainerInstances { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
+            public System.String Overrides_TaskRoleArn { get; set; }
             public System.String StartedBy { get; set; }
             public System.String TaskDefinition { get; set; }
         }
