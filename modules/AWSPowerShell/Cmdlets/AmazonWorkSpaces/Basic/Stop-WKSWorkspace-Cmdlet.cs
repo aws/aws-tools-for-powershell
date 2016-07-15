@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </para><para>
     /// You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.
     /// </para><note><para>
-    /// This operation is asynchronous and will return before the WorkSpaces have been completely
+    /// This operation is asynchronous and returns before the WorkSpaces have been completely
     /// terminated.
     /// </para></note>
     /// </summary>

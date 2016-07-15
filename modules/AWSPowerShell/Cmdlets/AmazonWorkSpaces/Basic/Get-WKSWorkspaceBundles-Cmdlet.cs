@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The owner of the bundles to retrieve. This parameter cannot be combined with any other
-        /// filter parameter.</para><para>This contains one of the following values:</para><ul><li>null - Retrieves the bundles that belong to the account making the call.</li><li><code>AMAZON</code> - Retrieves the bundles that are provided by AWS.</li></ul>
+        /// filter parameter.</para><para>This contains one of the following values:</para><ul><li><para>null- Retrieves the bundles that belong to the account making the call.</para></li><li><para><code>AMAZON</code>- Retrieves the bundles that are provided by AWS.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

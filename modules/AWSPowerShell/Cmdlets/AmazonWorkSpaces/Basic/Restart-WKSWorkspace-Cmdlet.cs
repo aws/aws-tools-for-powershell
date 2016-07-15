@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// To be able to reboot a WorkSpace, the WorkSpace must have a <b>State</b> of <code>AVAILABLE</code>,
     /// <code>IMPAIRED</code>, or <code>INOPERABLE</code>.
     /// </para><note><para>
-    /// This operation is asynchronous and will return before the WorkSpaces have rebooted.
+    /// This operation is asynchronous and returns before the WorkSpaces have rebooted.
     /// </para></note>
     /// </summary>
     [Cmdlet("Restart", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
