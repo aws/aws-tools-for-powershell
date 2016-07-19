@@ -1,3 +1,9 @@
+### 3.1.85.0 (2016-07-19)
+  * AWS Device Farm
+    - Added support for new APIs for managing remote access sessions. This update adds the cmdlets Get-DFRemoteAccessSession (GetRemoteAccessSession API), Get-DFRemoteAccessSessions (ListRemoteAccessSessions API), Install-DFToRemoteAccessSession (InstallToRemoteAccessSession API), New-DFRemoteAccessSession (CreateRemoteAccessSession API), Remove-DFRemoteAccessSession (DeleteRemoteAccessSession API) and Stop-DFRemoteAccessSession (StopRemoteAccessSession API).
+  * Amazon Simple Systems Management
+    - Updated the Send-SSMCommand cmdlet with new parameters enabling notifications to be sent when a command terminates.
+
 ### 3.1.84.0 (2016-07-13)
   * Amazon RDS
     - Updated the Start-RDSDBClusterFailover (FailoverDBCluster API) cmdlet with a new parameter TargetDBInstanceIdentifier. Added a new cmdlet, Copy-RDSDBClusterParameterGroup, to support the new CopyDBClusterParameterGroup API.
