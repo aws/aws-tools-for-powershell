@@ -49,7 +49,8 @@
     <ServiceOperation MethodName="ListOfferings" Noun="Offering"/>
     <ServiceOperation MethodName="ListOfferingTransactions" Noun="OfferingTransaction"/>
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
-    <ServiceOperation MethodName="ListRemoteAccessSessions" />
+    <ServiceOperation MethodName="ListRemoteAccessSessions"
+                      Noun="RemoteAccessSessionList"	/>
     <ServiceOperation MethodName="ListRuns" Noun="RunList"/>
     <ServiceOperation MethodName="ListSamples" Noun="SampleList"/>
     <ServiceOperation MethodName="ListSuites" Noun="SuiteList"/>

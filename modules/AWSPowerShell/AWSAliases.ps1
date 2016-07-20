@@ -822,8 +822,8 @@ Set-Alias -Name List-DFOfferingTransaction -Value Get-DFOfferingTransaction
 Set-Alias -Name DF-ListOfferingTransactions -Value Get-DFOfferingTransaction
 Set-Alias -Name List-DFProjectList -Value Get-DFProjectList
 Set-Alias -Name DF-ListProjects -Value Get-DFProjectList
-Set-Alias -Name List-DFRemoteAccessSessions -Value Get-DFRemoteAccessSessions
-Set-Alias -Name DF-ListRemoteAccessSessions -Value Get-DFRemoteAccessSessions
+Set-Alias -Name List-DFRemoteAccessSessionList -Value Get-DFRemoteAccessSessionList
+Set-Alias -Name DF-ListRemoteAccessSessions -Value Get-DFRemoteAccessSessionList
 Set-Alias -Name List-DFRunList -Value Get-DFRunList
 Set-Alias -Name DF-ListRuns -Value Get-DFRunList
 Set-Alias -Name List-DFSampleList -Value Get-DFSampleList

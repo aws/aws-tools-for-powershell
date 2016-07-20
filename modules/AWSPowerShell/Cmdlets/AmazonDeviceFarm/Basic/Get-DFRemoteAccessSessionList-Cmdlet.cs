@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// <summary>
     /// Returns a list of all currently running remote access sessions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "DFRemoteAccessSessions")]
+    [Cmdlet("Get", "DFRemoteAccessSessionList")]
     [OutputType("Amazon.DeviceFarm.Model.RemoteAccessSession")]
     [AWSCmdlet("Invokes the ListRemoteAccessSessions operation against AWS Device Farm.", Operation = new[] {"ListRemoteAccessSessions"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.RemoteAccessSession",
@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         "The service call response (type Amazon.DeviceFarm.Model.ListRemoteAccessSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetDFRemoteAccessSessionsCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public class GetDFRemoteAccessSessionListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
         #region Parameter Arn
