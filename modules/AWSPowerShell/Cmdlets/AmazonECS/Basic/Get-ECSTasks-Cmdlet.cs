@@ -31,7 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Returns a list of tasks for a specified cluster. You can filter the results by family
     /// name, by a particular container instance, or by the desired status of the task with
     /// the <code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
-    /// parameters.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// parameters.
+    /// 
+    ///  
+    /// <para>
+    /// Recently-stopped tasks might appear in the returned results. Currently, stopped tasks
+    /// appear in the returned results for at least one hour. 
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSTasks")]
     [OutputType("System.String")]
@@ -73,7 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The task status with which to filter the <code>ListTasks</code> results. Specifying
         /// a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to tasks that
         /// are in the <code>STOPPED</code> status, which can be useful for debugging tasks that
-        /// are not starting properly or have died or finished. The default status filter is <code>RUNNING</code>.</para>
+        /// are not starting properly or have died or finished. The default status filter is status
+        /// filter is <code>RUNNING</code>, which shows tasks that ECS has set the desired status
+        /// to <code>RUNNING</code>.</para><note><para>Although you can filter results based on a desired status of <code>PENDING</code>,
+        /// this will not return any results because ECS never sets the desired status of a task
+        /// to that value (only a task's <code>lastStatus</code> may have a value of <code>PENDING</code>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

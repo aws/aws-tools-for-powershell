@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TableMapping
         /// <summary>
         /// <para>
-        /// <para>The path of the JSON file that contains the table mappings.</para>
+        /// <para>The path of the JSON file that contains the table mappings. Preceed the path with
+        /// "file://".</para><para>For example, --table-mappings file://mappingfile.json</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

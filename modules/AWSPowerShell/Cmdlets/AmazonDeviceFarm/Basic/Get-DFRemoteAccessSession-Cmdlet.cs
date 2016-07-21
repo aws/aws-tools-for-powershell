@@ -22,42 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DatabaseMigrationService;
-using Amazon.DatabaseMigrationService.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DMS
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Tests the connection between the replication instance and the endpoint.
+    /// Returns a link to a currently running remote access session.
     /// </summary>
-    [Cmdlet("Test", "DMSConnection")]
-    [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]
-    [AWSCmdlet("Invokes the TestConnection operation against AWS Database Migration Service.", Operation = new[] {"TestConnection"})]
-    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Connection",
-        "This cmdlet returns a Connection object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.TestConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DFRemoteAccessSession")]
+    [OutputType("Amazon.DeviceFarm.Model.RemoteAccessSession")]
+    [AWSCmdlet("Invokes the GetRemoteAccessSession operation against AWS Device Farm.", Operation = new[] {"GetRemoteAccessSession"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.RemoteAccessSession",
+        "This cmdlet returns a RemoteAccessSession object.",
+        "The service call response (type Amazon.DeviceFarm.Model.GetRemoteAccessSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestDMSConnectionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public class GetDFRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</para>
+        /// <para>The Amazon Resource Name (ARN) of the remote access session about which you want to
+        /// get session information.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EndpointArn { get; set; }
-        #endregion
-        
-        #region Parameter ReplicationInstanceArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReplicationInstanceArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Arn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -70,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
-            context.EndpointArn = this.EndpointArn;
-            context.ReplicationInstanceArn = this.ReplicationInstanceArn;
+            context.Arn = this.Arn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -83,15 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DatabaseMigrationService.Model.TestConnectionRequest();
+            var request = new Amazon.DeviceFarm.Model.GetRemoteAccessSessionRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.Arn != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
-            }
-            if (cmdletContext.ReplicationInstanceArn != null)
-            {
-                request.ReplicationInstanceArn = cmdletContext.ReplicationInstanceArn;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -102,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Connection;
+                object pipelineOutput = response.RemoteAccessSession;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -127,17 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.TestConnectionResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.TestConnectionRequest request)
+        private static Amazon.DeviceFarm.Model.GetRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetRemoteAccessSessionRequest request)
         {
-            return client.TestConnection(request);
+            return client.GetRemoteAccessSession(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
-            public System.String ReplicationInstanceArn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

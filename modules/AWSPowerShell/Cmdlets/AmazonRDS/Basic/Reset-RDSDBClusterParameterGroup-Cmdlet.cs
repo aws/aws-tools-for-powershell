@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The name of the DB cluster parameter group to reset.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterParameterGroupName { get; set; }
         #endregion
         

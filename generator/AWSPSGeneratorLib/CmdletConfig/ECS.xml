@@ -36,8 +36,8 @@
     
     <ServiceOperation MethodName="RegisterTaskDefinition" ShouldProcessTarget="Family"/>
     
-    <ServiceOperation MethodName="RunTask" Output="Response"/>
-    <ServiceOperation MethodName="StartTask" Output="Response"/>
+    <ServiceOperation MethodName="RunTask" Output="Response" ShouldProcessTarget="Cluster" />
+    <ServiceOperation MethodName="StartTask" Output="Response" ShouldProcessTarget="Cluster" />
     <ServiceOperation MethodName="StopTask"/>
 
     <ServiceOperation MethodName="UpdateContainerAgent" />

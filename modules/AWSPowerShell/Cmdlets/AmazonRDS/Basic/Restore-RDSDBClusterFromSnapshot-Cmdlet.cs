@@ -115,15 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
-        /// DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from a DB cluster
+        /// snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// will occur:</para><ul><li><para>If the DB cluster snapshot is encrypted, then the restored DB cluster is encrypted
-        /// using the KMS key that was used to encrypt the DB cluster snapshot.</para></li><li><para>If the DB cluster snapshot is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>SnapshotIdentifier</code> refers to a DB cluster snapshot that is not encrypted,
-        /// and you specify a value for the <code>KmsKeyId</code> parameter, then the restore
-        /// request is rejected.</para>
+        /// using the KMS key that was used to encrypt the DB cluster snapshot.</para></li><li><para>If the DB cluster snapshot is not encrypted, then the restored DB cluster is encrypted
+        /// using the specified encryption key.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

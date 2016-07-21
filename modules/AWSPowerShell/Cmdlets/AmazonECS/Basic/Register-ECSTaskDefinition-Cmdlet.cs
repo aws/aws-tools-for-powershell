@@ -33,6 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// parameter. For more information about task definition parameters and defaults, see
     /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
     /// ECS Task Definitions</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// You may also specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
+    /// When you specify an IAM role for a task, its containers can then use the latest versions
+    /// of the AWS CLI or SDKs to make API requests to the AWS services that are specified
+    /// in the IAM policy associated with the role. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+    /// Roles for Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.TaskDefinition")]
@@ -67,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Family { get; set; }
+        #endregion
+        
+        #region Parameter TaskRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
+        /// All containers in this task are granted the permissions that are specified in this
+        /// role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TaskRoleArn { get; set; }
         #endregion
         
         #region Parameter Volume
@@ -111,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.ContainerDefinitions = new List<Amazon.ECS.Model.ContainerDefinition>(this.ContainerDefinition);
             }
             context.Family = this.Family;
+            context.TaskRoleArn = this.TaskRoleArn;
             if (this.Volume != null)
             {
                 context.Volumes = new List<Amazon.ECS.Model.Volume>(this.Volume);
@@ -135,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Family != null)
             {
                 request.Family = cmdletContext.Family;
+            }
+            if (cmdletContext.TaskRoleArn != null)
+            {
+                request.TaskRoleArn = cmdletContext.TaskRoleArn;
             }
             if (cmdletContext.Volumes != null)
             {
@@ -185,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinitions { get; set; }
             public System.String Family { get; set; }
+            public System.String TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.Volume> Volumes { get; set; }
         }
         

@@ -8,14 +8,11 @@
   <ServiceClient>AmazonDeviceFarmClient</ServiceClient>
   <ServiceNamespace>Amazon.DeviceFarm</ServiceNamespace>
 
-
   <AutoIterate Start="NextToken" Next="NextToken" Exclusions="GetOfferingStatus"/>
 
   <PipelineParameter>Arn</PipelineParameter>
 
-  <NounMappings>
-
-  </NounMappings>
+  <NounMappings />
   
   <VerbMappings>
     <Map From="List" To="Get" />
@@ -25,9 +22,11 @@
   <ServiceOperations>
     <ServiceOperation MethodName="CreateDevicePool" PipelineParameter="Rules" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreateProject"/>    
+    <ServiceOperation MethodName="CreateRemoteAccessSession" PipelineParameter="DeviceArn" />
     <ServiceOperation MethodName="CreateUpload" PipelineParameter="Name" PositionalParameters="ProjectArn;Type;ContentType"/>
     <ServiceOperation MethodName="DeleteDevicePool" Output="Void"/>
     <ServiceOperation MethodName="DeleteProject" Output="Void"/>
+    <ServiceOperation MethodName="DeleteRemoteAccessSession" Output="Void" />
     <ServiceOperation MethodName="DeleteRun" Output="Void"/>
     <ServiceOperation MethodName="DeleteUpload" Output="Void"/>
     <ServiceOperation MethodName="GetDevice"/>
@@ -36,11 +35,13 @@
     <ServiceOperation MethodName="GetJob"/>    
     <ServiceOperation MethodName="GetOfferingStatus" Output="Response"/>
     <ServiceOperation MethodName="GetProject"/>
+    <ServiceOperation MethodName="GetRemoteAccessSession" />
     <ServiceOperation MethodName="GetRun"/>
     <ServiceOperation MethodName="GetSuite"/>
     <ServiceOperation MethodName="GetTest"/>
     <ServiceOperation MethodName="GetUpload"/>
     <ServiceOperation MethodName="GetAccountSettings" Noun="AccountSettingList"/>
+    <ServiceOperation MethodName="InstallToRemoteAccessSession" PipelineParameter="AppArn" />
     <ServiceOperation MethodName="ListArtifacts" Noun="ArtifactList"/>
     <ServiceOperation MethodName="ListDevicePools" Noun="DevicePoolList"/>
     <ServiceOperation MethodName="ListDevices" Noun="DeviceList"/>
@@ -48,6 +49,8 @@
     <ServiceOperation MethodName="ListOfferings" Noun="Offering"/>
     <ServiceOperation MethodName="ListOfferingTransactions" Noun="OfferingTransaction"/>
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
+    <ServiceOperation MethodName="ListRemoteAccessSessions"
+                      Noun="RemoteAccessSessionList"	/>
     <ServiceOperation MethodName="ListRuns" Noun="RunList"/>
     <ServiceOperation MethodName="ListSamples" Noun="SampleList"/>
     <ServiceOperation MethodName="ListSuites" Noun="SuiteList"/>
@@ -57,6 +60,7 @@
     <ServiceOperation MethodName="PurchaseOffering" Noun="OfferingPurchase" Verb="New" PipelineParameter="OfferingIdentifier" ShouldProcessTarget="OfferingIdentifier"/>
     <ServiceOperation MethodName="RenewOffering" Noun="OfferingRenewal" Verb="New" PipelineParameter="OfferingIdentifier" ShouldProcessTarget="OfferingIdentifier"/>
     <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />    
+    <ServiceOperation MethodName="StopRemoteAccessSession" />
     <ServiceOperation MethodName="StopRun" ShouldProcessTarget="Arn"/>
     <ServiceOperation MethodName="UpdateDevicePool"/>
     <ServiceOperation MethodName="UpdateProject"/>

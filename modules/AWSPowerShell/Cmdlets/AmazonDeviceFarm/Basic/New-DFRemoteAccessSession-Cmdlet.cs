@@ -28,58 +28,59 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Uploads an app or test scripts.
+    /// Specifies and starts a remote access session.
     /// </summary>
-    [Cmdlet("New", "DFUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DeviceFarm.Model.Upload")]
-    [AWSCmdlet("Invokes the CreateUpload operation against AWS Device Farm.", Operation = new[] {"CreateUpload"})]
-    [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload",
-        "This cmdlet returns a Upload object.",
-        "The service call response (type Amazon.DeviceFarm.Model.CreateUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "DFRemoteAccessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DeviceFarm.Model.RemoteAccessSession")]
+    [AWSCmdlet("Invokes the CreateRemoteAccessSession operation against AWS Device Farm.", Operation = new[] {"CreateRemoteAccessSession"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.RemoteAccessSession",
+        "This cmdlet returns a RemoteAccessSession object.",
+        "The service call response (type Amazon.DeviceFarm.Model.CreateRemoteAccessSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public class NewDFRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter ContentType
+        #region Parameter Configuration_BillingMethod
         /// <summary>
         /// <para>
-        /// <para>The upload's content type (for example, "application/octet-stream").</para>
+        /// <para>Returns the billing method for purposes of configuring a remote access session.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
-        public System.String ContentType { get; set; }
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DeviceFarm.BillingMethod")]
+        public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+        #endregion
+        
+        #region Parameter DeviceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the device for which you want to create a remote
+        /// access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DeviceArn { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The upload's file name. The name should not contain the '/' character.</para>
+        /// <para>The name of the remote access session that you wish to create.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
         #endregion
         
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the project for the upload.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project for which you want to create a remote
+        /// access session.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
+        [System.Management.Automation.Parameter]
         public System.String ProjectArn { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The upload's upload type.</para><para>Must be one of the following values:</para><ul><li><para>ANDROID_APP: An Android upload.</para></li><li><para>IOS_APP: An iOS upload.</para></li><li><para>WEB_APP: A web appliction upload.</para></li><li><para>EXTERNAL_DATA: An external data upload.</para></li><li><para>APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.</para></li><li><para>APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.</para></li><li><para>APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.</para></li><li><para>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.</para></li><li><para>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.</para></li><li><para>APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload.</para></li><li><para>CALABASH_TEST_PACKAGE: A Calabash test package upload.</para></li><li><para>INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.</para></li><li><para>UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.</para></li><li><para>UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.</para></li><li><para>XCTEST_TEST_PACKAGE: An XCode test package upload.</para></li><li><para>XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.</para></li></ul><para><b>Note</b> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified,
-        /// AWS Device Farm throws an <code>ArgumentException</code> error.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        [AWSConstantClassSource("Amazon.DeviceFarm.UploadType")]
-        public Amazon.DeviceFarm.UploadType Type { get; set; }
         #endregion
         
         #region Parameter Force
@@ -96,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DFUpload (CreateUpload)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DeviceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DFRemoteAccessSession (CreateRemoteAccessSession)"))
             {
                 return;
             }
@@ -108,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 Credentials = this.CurrentCredentials
             };
             
-            context.ContentType = this.ContentType;
+            context.Configuration_BillingMethod = this.Configuration_BillingMethod;
+            context.DeviceArn = this.DeviceArn;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
-            context.Type = this.Type;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -123,11 +124,30 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DeviceFarm.Model.CreateUploadRequest();
+            var request = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest();
             
-            if (cmdletContext.ContentType != null)
+            
+             // populate Configuration
+            bool requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionConfiguration();
+            Amazon.DeviceFarm.BillingMethod requestConfiguration_configuration_BillingMethod = null;
+            if (cmdletContext.Configuration_BillingMethod != null)
             {
-                request.ContentType = cmdletContext.ContentType;
+                requestConfiguration_configuration_BillingMethod = cmdletContext.Configuration_BillingMethod;
+            }
+            if (requestConfiguration_configuration_BillingMethod != null)
+            {
+                request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
+            }
+            if (cmdletContext.DeviceArn != null)
+            {
+                request.DeviceArn = cmdletContext.DeviceArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -136,10 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.ProjectArn != null)
             {
                 request.ProjectArn = cmdletContext.ProjectArn;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -150,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Upload;
+                object pipelineOutput = response.RemoteAccessSession;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,19 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.CreateUploadResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateUploadRequest request)
+        private static Amazon.DeviceFarm.Model.CreateRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest request)
         {
-            return client.CreateUpload(request);
+            return client.CreateRemoteAccessSession(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ContentType { get; set; }
+            public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+            public System.String DeviceArn { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
-            public Amazon.DeviceFarm.UploadType Type { get; set; }
         }
         
     }

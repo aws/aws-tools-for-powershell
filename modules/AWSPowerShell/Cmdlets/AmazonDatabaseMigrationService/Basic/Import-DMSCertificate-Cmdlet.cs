@@ -28,41 +28,57 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Tests the connection between the replication instance and the endpoint.
+    /// Uploads the specified certificate.
     /// </summary>
-    [Cmdlet("Test", "DMSConnection")]
-    [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]
-    [AWSCmdlet("Invokes the TestConnection operation against AWS Database Migration Service.", Operation = new[] {"TestConnection"})]
-    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Connection",
-        "This cmdlet returns a Connection object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.TestConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Import", "DMSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DatabaseMigrationService.Model.Certificate")]
+    [AWSCmdlet("Invokes the ImportCertificate operation against AWS Database Migration Service.", Operation = new[] {"ImportCertificate"})]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Certificate",
+        "This cmdlet returns a Certificate object.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.ImportCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestDMSConnectionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public class ImportDMSCertificateCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter CertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</para>
+        /// <para>The customer-assigned name of the certificate. Valid characters are [A-z_0-9].</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EndpointArn { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String CertificateIdentifier { get; set; }
         #endregion
         
-        #region Parameter ReplicationInstanceArn
+        #region Parameter CertificatePem
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
+        /// <para>The contents of the .pem X.509 certificate file.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReplicationInstanceArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String CertificatePem { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificatePem", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-DMSCertificate (ImportCertificate)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -70,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
-            context.EndpointArn = this.EndpointArn;
-            context.ReplicationInstanceArn = this.ReplicationInstanceArn;
+            context.CertificateIdentifier = this.CertificateIdentifier;
+            context.CertificatePem = this.CertificatePem;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -83,15 +99,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DatabaseMigrationService.Model.TestConnectionRequest();
+            var request = new Amazon.DatabaseMigrationService.Model.ImportCertificateRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.CertificateIdentifier != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
+                request.CertificateIdentifier = cmdletContext.CertificateIdentifier;
             }
-            if (cmdletContext.ReplicationInstanceArn != null)
+            if (cmdletContext.CertificatePem != null)
             {
-                request.ReplicationInstanceArn = cmdletContext.ReplicationInstanceArn;
+                request.CertificatePem = cmdletContext.CertificatePem;
             }
             
             CmdletOutput output;
@@ -102,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Connection;
+                object pipelineOutput = response.Certificate;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -127,17 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.TestConnectionResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.TestConnectionRequest request)
+        private static Amazon.DatabaseMigrationService.Model.ImportCertificateResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ImportCertificateRequest request)
         {
-            return client.TestConnection(request);
+            return client.ImportCertificate(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
-            public System.String ReplicationInstanceArn { get; set; }
+            public System.String CertificateIdentifier { get; set; }
+            public System.String CertificatePem { get; set; }
         }
         
     }

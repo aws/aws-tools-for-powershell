@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MultiAZ
+        /// <summary>
+        /// <para>
+        /// <para> Specifies if the replication instance is a Multi-AZ deployment. You cannot set the
+        /// <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean MultiAZ { get; set; }
+        #endregion
+        
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
@@ -208,6 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.AvailabilityZone = this.AvailabilityZone;
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
+            if (ParameterWasBound("MultiAZ"))
+                context.MultiAZ = this.MultiAZ;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
@@ -254,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MultiAZ != null)
+            {
+                request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -331,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String AvailabilityZone { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String ReplicationInstanceClass { get; set; }

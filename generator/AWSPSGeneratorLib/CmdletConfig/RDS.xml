@@ -47,6 +47,7 @@
     <ServiceOperation MethodName="ApplyPendingMaintenanceAction" PipelineParameter="ResourceIdentifier" Verb="Submit"/>
     <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" Verb="Enable" Noun="DBSecurityGroupIngress"
                        PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
+    <ServiceOperation MethodName="CopyDBClusterParameterGroup" PipelineParameter="SourceDBClusterParameterGroupIdentifier" />
     <ServiceOperation MethodName="CopyDBParameterGroup" PipelineParameter="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription"/>
     <ServiceOperation MethodName="CopyDBSnapshot" PipelineParameter="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier"/>
     <ServiceOperation MethodName="CopyOptionGroup" PipelineParameter="SourceOptionGroupIdentifier" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription"/>
@@ -136,15 +137,15 @@
 
     <!-- Aurora APIs -->
 
-    <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" />
+    <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" />
     <ServiceOperation MethodName="ModifyDBCluster" ShouldProcessTarget="DBClusterIdentifier"	/>
 
     <ServiceOperation MethodName="ModifyDBClusterParameterGroup"
-      PipelineParamater="DBClusterParameterGroupName"
+      PipelineParameter="DBClusterParameterGroupName"
       PositionalParameters="Parameters"/>
 
     <ServiceOperation MethodName="ResetDBClusterParameterGroup"
-      PipelineParamater="DBClusterParameterGroupName"
+      PipelineParameter="DBClusterParameterGroupName"
       PositionalParameters="Parameters"/> />
 
     <ServiceOperation MethodName="RestoreDBClusterFromSnapshot"

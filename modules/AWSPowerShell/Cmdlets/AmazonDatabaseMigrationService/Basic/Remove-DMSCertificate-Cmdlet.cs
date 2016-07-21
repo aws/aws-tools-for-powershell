@@ -28,41 +28,47 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Tests the connection between the replication instance and the endpoint.
+    /// Deletes the specified certificate.
     /// </summary>
-    [Cmdlet("Test", "DMSConnection")]
-    [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]
-    [AWSCmdlet("Invokes the TestConnection operation against AWS Database Migration Service.", Operation = new[] {"TestConnection"})]
-    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Connection",
-        "This cmdlet returns a Connection object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.TestConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DMSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.DatabaseMigrationService.Model.Certificate")]
+    [AWSCmdlet("Invokes the DeleteCertificate operation against AWS Database Migration Service.", Operation = new[] {"DeleteCertificate"})]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Certificate",
+        "This cmdlet returns a Certificate object.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestDMSConnectionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public class RemoveDMSCertificateCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</para>
+        /// <para>the Amazon Resource Name (ARN) of the deleted certificate.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EndpointArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String CertificateArn { get; set; }
         #endregion
         
-        #region Parameter ReplicationInstanceArn
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReplicationInstanceArn { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DMSCertificate (DeleteCertificate)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -70,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
-            context.EndpointArn = this.EndpointArn;
-            context.ReplicationInstanceArn = this.ReplicationInstanceArn;
+            context.CertificateArn = this.CertificateArn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -83,15 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DatabaseMigrationService.Model.TestConnectionRequest();
+            var request = new Amazon.DatabaseMigrationService.Model.DeleteCertificateRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.CertificateArn != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
-            }
-            if (cmdletContext.ReplicationInstanceArn != null)
-            {
-                request.ReplicationInstanceArn = cmdletContext.ReplicationInstanceArn;
+                request.CertificateArn = cmdletContext.CertificateArn;
             }
             
             CmdletOutput output;
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Connection;
+                object pipelineOutput = response.Certificate;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -127,17 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.TestConnectionResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.TestConnectionRequest request)
+        private static Amazon.DatabaseMigrationService.Model.DeleteCertificateResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DeleteCertificateRequest request)
         {
-            return client.TestConnection(request);
+            return client.DeleteCertificate(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
-            public System.String ReplicationInstanceArn { get; set; }
+            public System.String CertificateArn { get; set; }
         }
         
     }

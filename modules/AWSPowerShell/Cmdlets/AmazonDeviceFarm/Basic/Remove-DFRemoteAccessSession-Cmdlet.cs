@@ -22,47 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DatabaseMigrationService;
-using Amazon.DatabaseMigrationService.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DMS
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Tests the connection between the replication instance and the endpoint.
+    /// Deletes a completed remote access session and its results.
     /// </summary>
-    [Cmdlet("Test", "DMSConnection")]
-    [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]
-    [AWSCmdlet("Invokes the TestConnection operation against AWS Database Migration Service.", Operation = new[] {"TestConnection"})]
-    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Connection",
-        "This cmdlet returns a Connection object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.TestConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DFRemoteAccessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteRemoteAccessSession operation against AWS Device Farm.", Operation = new[] {"DeleteRemoteAccessSession"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Arn parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestDMSConnectionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public class RemoveDFRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</para>
+        /// <para>The Amazon Resource Name (ARN) of the sesssion for which you want to delete remote
+        /// access.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EndpointArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter ReplicationInstanceArn
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
-        /// </para>
+        /// Returns the value passed to the Arn parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReplicationInstanceArn { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Arn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DFRemoteAccessSession (DeleteRemoteAccessSession)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -70,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
-            context.EndpointArn = this.EndpointArn;
-            context.ReplicationInstanceArn = this.ReplicationInstanceArn;
+            context.Arn = this.Arn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -83,15 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DatabaseMigrationService.Model.TestConnectionRequest();
+            var request = new Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.Arn != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
-            }
-            if (cmdletContext.ReplicationInstanceArn != null)
-            {
-                request.ReplicationInstanceArn = cmdletContext.ReplicationInstanceArn;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -102,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Connection;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.Arn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -127,17 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.TestConnectionResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.TestConnectionRequest request)
+        private static Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionRequest request)
         {
-            return client.TestConnection(request);
+            return client.DeleteRemoteAccessSession(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
-            public System.String ReplicationInstanceArn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>A space-separated list of cluster names or full cluster Amazon Resource Name (ARN)
-        /// entries. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// <para>A space-separated list of up to 100 cluster names or full cluster Amazon Resource
+        /// Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
