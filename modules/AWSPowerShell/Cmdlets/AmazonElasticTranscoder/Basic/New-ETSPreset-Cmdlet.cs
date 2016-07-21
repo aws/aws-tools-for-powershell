@@ -94,43 +94,43 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// specify an <code>Audio:AudioPackingMode</code>, Elastic Transcoder uses <code>SingleTrack</code>.</para><para>The following values are valid:</para><para><code>SingleTrack</code>, <code>OneChannelPerTrack</code>, and <code>OneChannelPerTrackWithMosTo8Tracks</code></para><para>When you specify <code>SingleTrack</code>, Elastic Transcoder creates a single track
         /// for your output. The track can have up to eight channels. Use <code>SingleTrack</code>
         /// for all non-<code>mxf</code> containers.</para><para>The outputs of <code>SingleTrack</code> for a specific channel value and inputs are
-        /// as follows:</para><ul><li><code>0</code><b> channels with any input:</b> Audio omitted from the
-        /// output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b>
-        /// Audio omitted from the output</li><li><code>1 </code><b>channel with any input
-        /// with audio:</b> One track with one channel, downmixed if necessary</li><li><code>2
-        /// </code><b>channels with one track with one channel:</b> One track with two identical
-        /// channels</li><li><code>2 or auto </code><b>channels with two tracks with one channel
-        /// each:</b> One track with two channels</li><li><code>2 or auto </code><b>channels
-        /// with one track with two channels:</b> One track with two channels</li><li><code>2
-        /// </code><b>channels with one track with multiple channels:</b> One track with two
-        /// channels</li><li><code>auto </code><b>channels with one track with one channel:</b>
-        /// One track with one channel</li><li><code>auto </code><b>channels with one track
-        /// with multiple channels:</b> One track with multiple channels</li></ul><para>When you specify <code>OneChannelPerTrack</code>, Elastic Transcoder creates a new
+        /// as follows:</para><ul><li><code>0</code><b> channels with any input:</b> Audio omitted from the output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted
+        /// from the output</li><li><code>1 </code><b>channel with any input with audio:</b>
+        /// One track with one channel, downmixed if necessary</li><li><code>2 </code><b>channels
+        /// with one track with one channel:</b> One track with two identical channels</li><li><code>2
+        /// or auto </code><b>channels with two tracks with one channel each:</b> One track with
+        /// two channels</li><li><code>2 or auto </code><b>channels with one track with two
+        /// channels:</b> One track with two channels</li><li><code>2 </code><b>channels with
+        /// one track with multiple channels:</b> One track with two channels</li><li><code>auto
+        /// </code><b>channels with one track with one channel:</b> One track with one channel</li><li><code>auto </code><b>channels with one track with multiple channels:</b> One
+        /// track with multiple channels</li></ul><para>When you specify <code>OneChannelPerTrack</code>, Elastic Transcoder creates a new
         /// track for every channel in your output. Your output can have up to eight single-channel
         /// tracks.</para><para>The outputs of <code>OneChannelPerTrack</code> for a specific channel value and inputs
-        /// are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the
-        /// output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b>
-        /// Audio omitted from the output</li><li><code>1 </code><b>channel with any input
-        /// with audio:</b> One track with one channel, downmixed if necessary</li><li><code>2
-        /// </code><b>channels with one track with one channel:</b> Two tracks with one identical
-        /// channel each</li><li><code>2 or auto </code><b>channels with two tracks with one
-        /// channel each:</b> Two tracks with one channel each</li><li><code>2 or auto </code><b>channels with one track with two channels:</b> Two tracks with one channel each</li><li><code>2 </code><b>channels with one track with multiple channels:</b> Two tracks
-        /// with one channel each</li><li><code>auto </code><b>channels with one track with
-        /// one channel:</b> One track with one channel</li><li><code>auto </code><b>channels
-        /// with one track with multiple channels:</b> Up to eight tracks with one channel each</li></ul><para>When you specify <code>OneChannelPerTrackWithMosTo8Tracks</code>, Elastic Transcoder
+        /// are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted
+        /// from the output</li><li><code>1 </code><b>channel with any input with audio:</b>
+        /// One track with one channel, downmixed if necessary</li><li><code>2 </code><b>channels
+        /// with one track with one channel:</b> Two tracks with one identical channel each</li><li><code>2 or auto </code><b>channels with two tracks with one channel each:</b>
+        /// Two tracks with one channel each</li><li><code>2 or auto </code><b>channels with
+        /// one track with two channels:</b> Two tracks with one channel each</li><li><code>2
+        /// </code><b>channels with one track with multiple channels:</b> Two tracks with one
+        /// channel each</li><li><code>auto </code><b>channels with one track with one channel:</b>
+        /// One track with one channel</li><li><code>auto </code><b>channels with one track
+        /// with multiple channels:</b> Up to eight tracks with one channel each</li></ul><para>When you specify <code>OneChannelPerTrackWithMosTo8Tracks</code>, Elastic Transcoder
         /// creates eight single-channel tracks for your output. All tracks that do not contain
         /// audio data from an input channel are MOS, or Mit Out Sound, tracks.</para><para>The outputs of <code>OneChannelPerTrackWithMosTo8Tracks</code> for a specific channel
-        /// value and inputs are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the
-        /// output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b>
-        /// Audio omitted from the output</li><li><code>1 </code><b>channel with any input
-        /// with audio:</b> One track with one channel, downmixed if necessary, plus six MOS tracks</li><li><code>2 </code><b>channels with one track with one channel:</b> Two tracks with
-        /// one identical channel each, plus six MOS tracks</li><li><code>2 or auto </code><b>channels with two tracks with one channel each:</b> Two tracks with one channel
-        /// each, plus six MOS tracks</li><li><code>2 or auto </code><b>channels with one track
-        /// with two channels:</b> Two tracks with one channel each, plus six MOS tracks</li><li><code>2 </code><b>channels with one track with multiple channels:</b> Two tracks
-        /// with one channel each, plus six MOS tracks</li><li><code>auto </code><b>channels
-        /// with one track with one channel:</b> One track with one channel, plus seven MOS tracks</li><li><code>auto </code><b>channels with one track with multiple channels:</b> Up
-        /// to eight tracks with one channel each, plus MOS tracks until there are eight tracks
-        /// in all</li></ul>
+        /// value and inputs are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted
+        /// from the output</li><li><code>1 </code><b>channel with any input with audio:</b>
+        /// One track with one channel, downmixed if necessary, plus six MOS tracks</li><li><code>2
+        /// </code><b>channels with one track with one channel:</b> Two tracks with one identical
+        /// channel each, plus six MOS tracks</li><li><code>2 or auto </code><b>channels with
+        /// two tracks with one channel each:</b> Two tracks with one channel each, plus six MOS
+        /// tracks</li><li><code>2 or auto </code><b>channels with one track with two channels:</b>
+        /// Two tracks with one channel each, plus six MOS tracks</li><li><code>2 </code><b>channels
+        /// with one track with multiple channels:</b> Two tracks with one channel each, plus
+        /// six MOS tracks</li><li><code>auto </code><b>channels with one track with one channel:</b>
+        /// One track with one channel, plus seven MOS tracks</li><li><code>auto </code><b>channels
+        /// with one track with multiple channels:</b> Up to eight tracks with one channel each,
+        /// plus MOS tracks until there are eight tracks in all</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -278,9 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <code>25</code>, <code>29.97</code>, <code>50</code>, or <code>60</code>, your <code>SegmentDuration</code>
         /// is null, and you are using one of the resolution changes from the list below, Elastic
         /// Transcoder applies the following color space conversions:</para><ul><li><i>Standard to HD, 720x480 to 1920x1080</i> - Elastic Transcoder applies
-        /// <code>Bt601ToBt709</code></li><li><i>Standard to HD, 720x576 to 1920x1080</i> -
-        /// Elastic Transcoder applies <code>Bt601ToBt709</code></li><li><i>HD to Standard,
-        /// 1920x1080 to 720x480</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></li><li><i>HD to Standard, 1920x1080 to 720x576</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></li></ul><note>Elastic Transcoder may change the behavior of the <code>ColorspaceConversionMode</code><code>Auto</code> mode in the future. All outputs in a playlist must use the same
+        /// <code>Bt601ToBt709</code></li><li><i>Standard to HD, 720x576 to 1920x1080</i> - Elastic
+        /// Transcoder applies <code>Bt601ToBt709</code></li><li><i>HD to Standard, 1920x1080
+        /// to 720x480</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></li><li><i>HD
+        /// to Standard, 1920x1080 to 720x576</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></li></ul><note>Elastic Transcoder may change the behavior of the <code>ColorspaceConversionMode</code><code>Auto</code> mode in the future. All outputs in a playlist must use the same
         /// <code>ColorSpaceConversionMode</code>.</note><para>If you do not specify a <code>ColorSpaceConversionMode</code>, Elastic Transcoder
         /// does not change the color space of a file. If you are unsure what <code>ColorSpaceConversionMode</code>
         /// was applied to your output file, you can check the <code>AppliedColorSpaceConversion</code>
@@ -509,10 +510,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</para><para>Specify the AAC profile for the output file. Elastic Transcoder supports the following
         /// profiles:</para><ul><li><code>auto</code>: If you specify <code>auto</code>, Elastic Transcoder
-        /// will select the profile based on the bit rate selected for the output file.</li><li><code>AAC-LC</code>: The most common AAC profile. Use for bit rates larger than 64
-        /// kbps.</li><li><code>HE-AAC</code>: Not supported on some older players and devices.
-        /// Use for bit rates between 40 and 80 kbps.</li><li><code>HE-AACv2</code>: Not supported
-        /// on some players and devices. Use for bit rates less than 48 kbps.</li></ul><para>All outputs in a <code>Smooth</code> playlist must have the same value for <code>Profile</code>.</para><note><para>If you created any presets before AAC profiles were added, Elastic Transcoder automatically
+        /// will select the profile based on the bit rate selected for the output file.</li><li><code>AAC-LC</code>:
+        /// The most common AAC profile. Use for bit rates larger than 64 kbps.</li><li><code>HE-AAC</code>:
+        /// Not supported on some older players and devices. Use for bit rates between 40 and
+        /// 80 kbps.</li><li><code>HE-AACv2</code>: Not supported on some players and devices.
+        /// Use for bit rates less than 48 kbps.</li></ul><para>All outputs in a <code>Smooth</code> playlist must have the same value for <code>Profile</code>.</para><note><para>If you created any presets before AAC profiles were added, Elastic Transcoder automatically
         /// updated your presets to use AAC-LC. You can change the value as required.</para></note>
         /// </para>
         /// </summary>
@@ -596,12 +598,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// in thumbnails and then crops in the dimension (if any) that exceeds the maximum value.</li><li><code>Stretch</code>: Elastic Transcoder stretches thumbnails to match the values
         /// that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code>
         /// settings. If the relative proportions of the input video and thumbnails are different,
-        /// the thumbnails will be distorted.</li><li><code>Keep</code>: Elastic Transcoder
-        /// does not scale thumbnails. If either dimension of the input video exceeds the values
-        /// that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code>
-        /// settings, Elastic Transcoder crops the thumbnails.</li><li><code>ShrinkToFit</code>:
-        /// Elastic Transcoder scales thumbnails down so that their dimensions match the values
-        /// that you specified for at least one of thumbnail <code>MaxWidth</code> and <code>MaxHeight</code>
+        /// the thumbnails will be distorted.</li><li><code>Keep</code>: Elastic Transcoder does
+        /// not scale thumbnails. If either dimension of the input video exceeds the values that
+        /// you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings,
+        /// Elastic Transcoder crops the thumbnails.</li><li><code>ShrinkToFit</code>: Elastic
+        /// Transcoder scales thumbnails down so that their dimensions match the values that you
+        /// specified for at least one of thumbnail <code>MaxWidth</code> and <code>MaxHeight</code>
         /// without exceeding either value. If you specify this option, Elastic Transcoder does
         /// not scale thumbnails up.</li><li><code>ShrinkToFill</code>: Elastic Transcoder scales
         /// thumbnails down so that their dimensions match the values that you specified for at
