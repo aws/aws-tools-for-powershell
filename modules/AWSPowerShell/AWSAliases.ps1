@@ -693,6 +693,8 @@ Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRe
 Set-Alias -Name CFG-DeleteConfigurationRecorder -Value Remove-CFGConfigurationRecorder
 Set-Alias -Name Delete-CFGDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name CFG-DeleteDeliveryChannel -Value Remove-CFGDeliveryChannel
+Set-Alias -Name Delete-CFGEvaluationResult -Value Remove-CFGEvaluationResult
+Set-Alias -Name CFG-DeleteEvaluationResults -Value Remove-CFGEvaluationResult
 Set-Alias -Name CFG-DeliverConfigSnapshot -Value Submit-CFGConfigSnapshotDelivery
 Set-Alias -Name Describe-CFGComplianceByConfigRule -Value Get-CFGComplianceByConfigRule
 Set-Alias -Name CFG-DescribeComplianceByConfigRule -Value Get-CFGComplianceByConfigRule
@@ -724,6 +726,7 @@ Set-Alias -Name Put-CFGDeliveryChannel -Value Write-CFGDeliveryChannel
 Set-Alias -Name CFG-PutDeliveryChannel -Value Write-CFGDeliveryChannel
 Set-Alias -Name Put-CFGEvaluations -Value Write-CFGEvaluations
 Set-Alias -Name CFG-PutEvaluations -Value Write-CFGEvaluations
+Set-Alias -Name CFG-StartConfigRulesEvaluation -Value Start-CFGConfigRulesEvaluation
 Set-Alias -Name CFG-StartConfigurationRecorder -Value Start-CFGConfigurationRecorder
 Set-Alias -Name CFG-StopConfigurationRecorder -Value Stop-CFGConfigurationRecorder
 Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
