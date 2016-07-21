@@ -133,8 +133,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
         #region Parameter Runtime
         /// <summary>
-        /// The runtime environment for the Lambda function you are uploading. Currently, Lambda
-        /// supports "java" and "nodejs" as the runtime.
+		/// <para>
+		/// The runtime environment for the Lambda function you are uploading. 
+		/// </para>
+		/// <para>
+		/// To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier 
+		/// runtime (v0.10.42), set the value to "nodejs".
+		/// </para>
+		/// <para>
+		/// Valid Values: nodejs | nodejs4.3 | java8 | python2.7
+		/// </para>
         /// </summary>
         [Parameter(Position = 3)]
         [AWSConstantClassSource("Amazon.Lambda.Runtime")]
