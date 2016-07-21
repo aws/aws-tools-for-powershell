@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes
-        /// your function. </para>
+        /// your function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Runtime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The runtime environment for the Lambda function.</para><para>To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime
+        /// (v0.10.42), set the value to "nodejs".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -152,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>The function execution time at which AWS Lambda should terminate the function. Because
         /// the execution time has cost implications, we recommend you set this value based on
-        /// your expected execution time. The default is 3 seconds. </para>
+        /// your expected execution time. The default is 3 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
