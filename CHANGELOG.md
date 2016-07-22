@@ -1,3 +1,9 @@
+### 3.1.86.0 (2016-07-21)
+  * AWS Config
+    - Added new cmdlets Start-CFGConfigRulesEvaluation (StartConfigRulesEvaluation API) and Remove-CFGEvaluationResult (DeleteEvaluationResults API). For more information on rule evaluation see the release note at https://aws.amazon.com/about-aws/whats-new/2016/07/now-use-aws-config-to-record-changes-to-rds-and-acm-resources-and-write-config-rules-to-evaluate-their-state/.
+  * AWS Certificate Manager
+    - The output object (type Amazon.CertificateManager.Model.CertificateDetail) of the Get-CMCertificateDetail cmdlet (DescribeCertificate API) has been extended with a new field, FailureReason, indicating the reason why a certificate request failed.
+
 ### 3.1.85.1 (2016-07-19)
   * AWS Device Farm
     - Corrected a cmdlet name in the previous update. The cmdlet for the GetRemoteAccessSessions API should have been named Get-DFRemoteAccessSessionList.
