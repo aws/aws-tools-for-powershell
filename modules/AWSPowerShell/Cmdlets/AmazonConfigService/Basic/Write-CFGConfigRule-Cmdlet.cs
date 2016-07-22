@@ -33,17 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// You can use this action for customer managed Config rules and AWS managed Config rules.
-    /// A customer managed Config rule is a custom rule that you develop and maintain. An
-    /// AWS managed Config rule is a customizable, predefined rule that is provided by AWS
-    /// Config.
+    /// You can use this action for custom Config rules and AWS managed Config rules. A custom
+    /// Config rule is a rule that you develop and maintain. An AWS managed Config rule is
+    /// a customizable, predefined rule that AWS Config provides.
     /// </para><para>
-    /// If you are adding a new customer managed Config rule, you must first create the AWS
-    /// Lambda function that the rule invokes to evaluate your resources. When you use the
-    /// <code>PutConfigRule</code> action to add the rule to AWS Config, you must specify
-    /// the Amazon Resource Name (ARN) that AWS Lambda assigns to the function. Specify the
-    /// ARN for the <code>SourceIdentifier</code> key. This key is part of the <code>Source</code>
-    /// object, which is part of the <code>ConfigRule</code> object. 
+    /// If you are adding a new custom Config rule, you must first create the AWS Lambda function
+    /// that the rule invokes to evaluate your resources. When you use the <code>PutConfigRule</code>
+    /// action to add the rule to AWS Config, you must specify the Amazon Resource Name (ARN)
+    /// that AWS Lambda assigns to the function. Specify the ARN for the <code>SourceIdentifier</code>
+    /// key. This key is part of the <code>Source</code> object, which is part of the <code>ConfigRule</code>
+    /// object. 
     /// </para><para>
     /// If you are adding a new AWS managed Config rule, specify the rule's identifier for
     /// the <code>SourceIdentifier</code> key. To reference AWS managed Config rule identifiers,
@@ -133,12 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRule_ConfigRuleState
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the AWS Config rule is active or currently being deleted by AWS
-        /// Config.</para><para>AWS Config sets the state of a rule to <code>DELETING</code> temporarily after you
+        /// <para>Indicates whether the AWS Config rule is active or is currently being deleted by AWS
+        /// Config. It can also indicate the evaluation status for the Config rule.</para><para>AWS Config sets the state of the rule to <code>EVALUATING</code> temporarily after
+        /// you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources
+        /// against the Config rule.</para><para>AWS Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily
+        /// after you use the <code>DeleteEvaluationResults</code> request to delete the current
+        /// evaluation results for the Config rule.</para><para>AWS Config sets the state of a rule to <code>DELETING</code> temporarily after you
         /// use the <code>DeleteConfigRule</code> request to delete the rule. After AWS Config
-        /// finishes deleting a rule, the rule and all of its evaluations are erased and no longer
-        /// available.</para><para>You cannot add a rule to AWS Config that has the state set to <code>DELETING</code>.
-        /// If you want to delete a rule, you must use the <code>DeleteConfigRule</code> request.</para>
+        /// deletes the rule, the rule and all of its evaluations are erased and are no longer
+        /// available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -170,13 +172,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRule_MaximumExecutionFrequency
         /// <summary>
         /// <para>
-        /// <para>The maximum frequency at which the AWS Config rule runs evaluations.</para><para>If your rule is periodic, meaning it runs an evaluation when AWS Config delivers a
-        /// configuration snapshot, then it cannot run evaluations more frequently than AWS Config
-        /// delivers the snapshots. For periodic rules, set the value of the <code>MaximumExecutionFrequency</code>
-        /// key to be equal to or greater than the value of the <code>deliveryFrequency</code>
-        /// key, which is part of <code>ConfigSnapshotDeliveryProperties</code>. To update the
-        /// frequency with which AWS Config delivers your snapshots, use the <code>PutDeliveryChannel</code>
-        /// action.</para>
+        /// <para>If you want to create a rule that evaluates at a frequency that is independent of
+        /// the configuration snapshot delivery, use the <code>MaximumExecutionFrequency</code>
+        /// parameter in the <a>SourceDetail</a> object.</para><note><para>If you want to create a rule that triggers evaluations for your resources when AWS
+        /// Config delivers the configuration snapshot, see the following:</para></note><para>A rule that runs an evaluation when AWS Config delivers a configuration snapshot cannot
+        /// run evaluations more frequently than AWS Config delivers the snapshots. Set the value
+        /// of the <code>MaximumExecutionFrequency</code> to be equal to or greater than the value
+        /// of the <code>deliveryFrequency</code> key, which is part of <code>ConfigSnapshotDeliveryProperties</code>.</para><para>For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -201,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>For AWS managed Config rules, a pre-defined identifier from a list. To reference the
         /// list, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
-        /// AWS Managed Config Rules</a>.</para><para>For customer managed Config rules, the identifier is the Amazon Resource Name (ARN)
-        /// of the rule's AWS Lambda function.</para>
+        /// AWS Managed Config Rules</a>.</para><para>For custom Config rules, the identifier is the Amazon Resource Name (ARN) of the rule's
+        /// AWS Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
