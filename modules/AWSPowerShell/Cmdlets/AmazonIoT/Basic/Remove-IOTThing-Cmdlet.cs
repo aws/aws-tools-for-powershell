@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified thing from the Thing Registry.
+    /// Deletes the specified thing.
     /// </summary>
     [Cmdlet("Remove", "IOTThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -40,10 +40,22 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public class RemoveIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter ExpectedVersion
+        /// <summary>
+        /// <para>
+        /// <para>The expected version of the thing record in the registry. If the version of the record
+        /// in the registry does not match the expected version specified in the request, the
+        /// <code>DeleteThing</code> request is rejected with a <code>VersionConflictException</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 ExpectedVersion { get; set; }
+        #endregion
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>
-        /// <para>The thing name.</para>
+        /// <para>The name of the thing to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -85,6 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("ExpectedVersion"))
+                context.ExpectedVersion = this.ExpectedVersion;
             context.ThingName = this.ThingName;
             
             var output = Execute(context) as CmdletOutput;
@@ -99,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.DeleteThingRequest();
             
+            if (cmdletContext.ExpectedVersion != null)
+            {
+                request.ExpectedVersion = cmdletContext.ExpectedVersion.Value;
+            }
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
@@ -148,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Int64? ExpectedVersion { get; set; }
             public System.String ThingName { get; set; }
         }
         

@@ -28,8 +28,10 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists your things. You can pass an AttributeName or AttributeValue to filter your
-    /// things (for example, "ListThings where AttributeName=Color and AttributeValue=Red").<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters
+    /// to filter your things. For example, calling <code>ListThings</code> with attributeName=Color
+    /// and attributeValue=Red retrieves all things in the registry that contain an attribute
+    /// <b>Color</b> with the value <b>Red</b>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTThingList")]
     [OutputType("Amazon.IoT.Model.ThingAttribute")]
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The attribute name.</para>
+        /// <para>The attribute name used to search for things.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,17 +57,27 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AttributeValue
         /// <summary>
         /// <para>
-        /// <para>The attribute value.</para>
+        /// <para>The attribute value used to search for things.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttributeValue { get; set; }
         #endregion
         
+        #region Parameter ThingTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the thing type used to search for things.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ThingTypeName { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The token for the next value.</para>
+        /// <para>The token for the next set of results, or <b>null</b> if there are no additional results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results.</para>
+        /// <para>The maximum number of results to return in this operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,6 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
+            context.ThingTypeName = this.ThingTypeName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.AttributeValue != null)
             {
                 request.AttributeValue = cmdletContext.AttributeValue;
+            }
+            if (cmdletContext.ThingTypeName != null)
+            {
+                request.ThingTypeName = cmdletContext.ThingTypeName;
             }
             
             // Initialize loop variants and commence piping
@@ -249,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String AttributeValue { get; set; }
             public System.String Marker { get; set; }
             public int? MaxResults { get; set; }
+            public System.String ThingTypeName { get; set; }
         }
         
     }

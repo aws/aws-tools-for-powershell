@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principal.</para><para>If the principal is a certificate, specify the certificate ARN. If the principal is
-        /// an Amazon Cognito identity, specify the identity ID.</para>
+        /// <para>If the principal is a certificate, this value must be ARN of the certificate. If the
+        /// principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito
+        /// identity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

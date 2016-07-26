@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>A token used to retrieve the next value.</para>
+        /// <para>The token for the next set of results, or <b>null</b> if there are no additional results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of principals to return.</para>
+        /// <para>The maximum number of results to return in this operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

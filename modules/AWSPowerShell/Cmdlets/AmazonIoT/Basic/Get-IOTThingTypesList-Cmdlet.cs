@@ -28,66 +28,53 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Attaches the specified principal to the specified thing.
+    /// Lists the existing thing types.
     /// </summary>
-    [Cmdlet("Add", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachThingPrincipal operation against AWS IoT.", Operation = new[] {"AttachThingPrincipal"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.AttachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTThingTypesList")]
+    [OutputType("Amazon.IoT.Model.ThingTypeDefinition")]
+    [AWSCmdlet("Invokes the ListThingTypes operation against AWS IoT.", Operation = new[] {"ListThingTypes"})]
+    [AWSCmdletOutput("Amazon.IoT.Model.ThingTypeDefinition",
+        "This cmdlet returns a collection of ThingTypeDefinition objects.",
+        "The service call response (type Amazon.IoT.Model.ListThingTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class AddIOTThingPrincipalCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class GetIOTThingTypesListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter Principal
+        #region Parameter ThingTypeName
         /// <summary>
         /// <para>
-        /// <para>The principal, such as a certificate or other credential.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Principal { get; set; }
-        #endregion
-        
-        #region Parameter ThingName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the thing.</para>
+        /// <para>The name of the thing type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ThingName { get; set; }
+        public System.String ThingTypeName { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter MaxResult
         /// <summary>
-        /// Returns the value passed to the ThingName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The maximum number of results to return in this operation.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter NextToken
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>The token for the next set of results, or <b>null</b> if there are no additional results.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ThingName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-IOTThingPrincipal (AttachThingPrincipal)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -95,8 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
-            context.Principal = this.Principal;
-            context.ThingName = this.ThingName;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.ThingTypeName = this.ThingTypeName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -108,15 +97,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.AttachThingPrincipalRequest();
+            var request = new Amazon.IoT.Model.ListThingTypesRequest();
             
-            if (cmdletContext.Principal != null)
+            if (cmdletContext.MaxResults != null)
             {
-                request.Principal = cmdletContext.Principal;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResults.Value);
             }
-            if (cmdletContext.ThingName != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.ThingName = cmdletContext.ThingName;
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ThingTypeName != null)
+            {
+                request.ThingTypeName = cmdletContext.ThingTypeName;
             }
             
             CmdletOutput output;
@@ -127,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ThingName;
+                object pipelineOutput = response.ThingTypes;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,17 +147,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.AttachThingPrincipalResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.AttachThingPrincipalRequest request)
+        private static Amazon.IoT.Model.ListThingTypesResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListThingTypesRequest request)
         {
-            return client.AttachThingPrincipal(request);
+            return client.ListThingTypes(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Principal { get; set; }
-            public System.String ThingName { get; set; }
+            public int? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ThingTypeName { get; set; }
         }
         
     }

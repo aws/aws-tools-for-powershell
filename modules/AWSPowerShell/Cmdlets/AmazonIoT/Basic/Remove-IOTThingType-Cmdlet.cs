@@ -28,41 +28,35 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Attaches the specified principal to the specified thing.
+    /// Deletes the specified thing type . You cannot delete a thing type if it has things
+    /// associated with it. To delete a thing type, first mark it as deprecated by calling
+    /// <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a>
+    /// to change the thing type on any associated thing, and finally use <a>DeleteThingType</a>
+    /// to delete the thing type.
     /// </summary>
-    [Cmdlet("Add", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "IOTThingType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachThingPrincipal operation against AWS IoT.", Operation = new[] {"AttachThingPrincipal"})]
+    [AWSCmdlet("Invokes the DeleteThingType operation against AWS IoT.", Operation = new[] {"DeleteThingType"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.AttachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingTypeName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IoT.Model.DeleteThingTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddIOTThingPrincipalCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class RemoveIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter Principal
+        #region Parameter ThingTypeName
         /// <summary>
         /// <para>
-        /// <para>The principal, such as a certificate or other credential.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Principal { get; set; }
-        #endregion
-        
-        #region Parameter ThingName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the thing.</para>
+        /// <para>The name of the thing type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ThingName { get; set; }
+        public System.String ThingTypeName { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ThingName parameter.
+        /// Returns the value passed to the ThingTypeName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ThingName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-IOTThingPrincipal (AttachThingPrincipal)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ThingTypeName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTThingType (DeleteThingType)"))
             {
                 return;
             }
@@ -95,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
-            context.Principal = this.Principal;
-            context.ThingName = this.ThingName;
+            context.ThingTypeName = this.ThingTypeName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -108,15 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.AttachThingPrincipalRequest();
+            var request = new Amazon.IoT.Model.DeleteThingTypeRequest();
             
-            if (cmdletContext.Principal != null)
+            if (cmdletContext.ThingTypeName != null)
             {
-                request.Principal = cmdletContext.Principal;
-            }
-            if (cmdletContext.ThingName != null)
-            {
-                request.ThingName = cmdletContext.ThingName;
+                request.ThingTypeName = cmdletContext.ThingTypeName;
             }
             
             CmdletOutput output;
@@ -129,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ThingName;
+                    pipelineOutput = this.ThingTypeName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,17 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.AttachThingPrincipalResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.AttachThingPrincipalRequest request)
+        private static Amazon.IoT.Model.DeleteThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteThingTypeRequest request)
         {
-            return client.AttachThingPrincipal(request);
+            return client.DeleteThingType(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Principal { get; set; }
-            public System.String ThingName { get; set; }
+            public System.String ThingTypeName { get; set; }
         }
         
     }

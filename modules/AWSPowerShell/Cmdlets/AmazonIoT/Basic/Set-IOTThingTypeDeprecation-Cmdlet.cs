@@ -28,41 +28,42 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Attaches the specified principal to the specified thing.
+    /// Deprecates a thing type. You can not associate new things with deprecated thing type.
     /// </summary>
-    [Cmdlet("Add", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Set", "IOTThingTypeDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachThingPrincipal operation against AWS IoT.", Operation = new[] {"AttachThingPrincipal"})]
+    [AWSCmdlet("Invokes the DeprecateThingType operation against AWS IoT.", Operation = new[] {"DeprecateThingType"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.AttachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingTypeName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IoT.Model.DeprecateThingTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddIOTThingPrincipalCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class SetIOTThingTypeDeprecationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter Principal
+        #region Parameter ThingTypeName
         /// <summary>
         /// <para>
-        /// <para>The principal, such as a certificate or other credential.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Principal { get; set; }
-        #endregion
-        
-        #region Parameter ThingName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the thing.</para>
+        /// <para>The name of the thing type to deprecate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ThingName { get; set; }
+        public System.String ThingTypeName { get; set; }
+        #endregion
+        
+        #region Parameter UndoDeprecate
+        /// <summary>
+        /// <para>
+        /// <para>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will
+        /// not be deprecated anymore and you can associate it with things.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean UndoDeprecate { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ThingName parameter.
+        /// Returns the value passed to the ThingTypeName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ThingName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-IOTThingPrincipal (AttachThingPrincipal)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ThingTypeName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-IOTThingTypeDeprecation (DeprecateThingType)"))
             {
                 return;
             }
@@ -95,8 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
-            context.Principal = this.Principal;
-            context.ThingName = this.ThingName;
+            context.ThingTypeName = this.ThingTypeName;
+            if (ParameterWasBound("UndoDeprecate"))
+                context.UndoDeprecate = this.UndoDeprecate;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -108,15 +110,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.AttachThingPrincipalRequest();
+            var request = new Amazon.IoT.Model.DeprecateThingTypeRequest();
             
-            if (cmdletContext.Principal != null)
+            if (cmdletContext.ThingTypeName != null)
             {
-                request.Principal = cmdletContext.Principal;
+                request.ThingTypeName = cmdletContext.ThingTypeName;
             }
-            if (cmdletContext.ThingName != null)
+            if (cmdletContext.UndoDeprecate != null)
             {
-                request.ThingName = cmdletContext.ThingName;
+                request.UndoDeprecate = cmdletContext.UndoDeprecate.Value;
             }
             
             CmdletOutput output;
@@ -129,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ThingName;
+                    pipelineOutput = this.ThingTypeName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,17 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.AttachThingPrincipalResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.AttachThingPrincipalRequest request)
+        private static Amazon.IoT.Model.DeprecateThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeprecateThingTypeRequest request)
         {
-            return client.AttachThingPrincipal(request);
+            return client.DeprecateThingType(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Principal { get; set; }
-            public System.String ThingName { get; set; }
+            public System.String ThingTypeName { get; set; }
+            public System.Boolean? UndoDeprecate { get; set; }
         }
         
     }
