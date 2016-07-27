@@ -1,3 +1,7 @@
+### 3.1.87.0 (2016-07-26)
+  * AWS IoT
+    - This update adds support for thing types. Thing types are entities that store a description of common features of Things that are of the same logical type. The new cmdlets to support Thing types are: Get-IOTThingType (DescribeThingType API), Get-IOTThingTypesList (ListThingTypes API), New-IOTThingType (CreateThingType API), Remove-IOTThingType (DeleteThingType API) and Set-IOTThingTypeDeprecation (DeprecateThingType API).
+
 ### 3.1.86.0 (2016-07-21)
   * AWS Config
     - Added new cmdlets Start-CFGConfigRulesEvaluation (StartConfigRulesEvaluation API) and Remove-CFGEvaluationResult (DeleteEvaluationResults API). For more information on rule evaluation see the release note at https://aws.amazon.com/about-aws/whats-new/2016/07/now-use-aws-config-to-record-changes-to-rds-and-acm-resources-and-write-config-rules-to-evaluate-their-state/.
