@@ -31,6 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {        
         protected override void CustomizeClientConfig(ClientConfig config)
         {
+            base.CustomizeClientConfig(config);
+
             var s3Config = (AmazonS3Config)config;
             if (this.ParameterWasBound("UseAccelerateEndpoint"))
             {

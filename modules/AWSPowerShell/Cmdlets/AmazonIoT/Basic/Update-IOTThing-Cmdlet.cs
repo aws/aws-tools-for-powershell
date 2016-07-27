@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AttributePayload_Attribute
         /// <summary>
         /// <para>
-        /// <para>A JSON string containing up to three key-value pair in JSON format (for example, {\"attributes\":{\"string1\":\"string2\"}}).</para>
+        /// <para>A JSON string containing up to three key-value pair in JSON format. For example:</para><para><code>{\"attributes\":{\"string1\":\"string2\"}})</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -51,14 +51,57 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Collections.Hashtable AttributePayload_Attribute { get; set; }
         #endregion
         
+        #region Parameter ExpectedVersion
+        /// <summary>
+        /// <para>
+        /// <para>The expected version of the thing record in the registry. If the version of the record
+        /// in the registry does not match the expected version specified in the request, the
+        /// <code>UpdateThing</code> request is rejected with a <code>VersionConflictException</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 ExpectedVersion { get; set; }
+        #endregion
+        
+        #region Parameter AttributePayload_Merge
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the list of attributes provided in the <code>AttributePayload</code>
+        /// is merged with the attributes stored in the registry, instead of overwriting them.</para><para>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</para><note><para>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AttributePayload_Merge { get; set; }
+        #endregion
+        
+        #region Parameter RemoveThingType
+        /// <summary>
+        /// <para>
+        /// <para>Remove a thing type association. If <b>true</b>, the assocation is removed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean RemoveThingType { get; set; }
+        #endregion
+        
         #region Parameter ThingName
         /// <summary>
         /// <para>
-        /// <para>The thing name.</para>
+        /// <para>The name of the thing to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ThingName { get; set; }
+        #endregion
+        
+        #region Parameter ThingTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the thing type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ThingTypeName { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -104,7 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     context.AttributePayload_Attributes.Add((String)hashKey, (String)(this.AttributePayload_Attribute[hashKey]));
                 }
             }
+            if (ParameterWasBound("AttributePayload_Merge"))
+                context.AttributePayload_Merge = this.AttributePayload_Merge;
+            if (ParameterWasBound("ExpectedVersion"))
+                context.ExpectedVersion = this.ExpectedVersion;
+            if (ParameterWasBound("RemoveThingType"))
+                context.RemoveThingType = this.RemoveThingType;
             context.ThingName = this.ThingName;
+            context.ThingTypeName = this.ThingTypeName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -132,14 +182,36 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.AttributePayload.Attributes = requestAttributePayload_attributePayload_Attribute;
                 requestAttributePayloadIsNull = false;
             }
+            System.Boolean? requestAttributePayload_attributePayload_Merge = null;
+            if (cmdletContext.AttributePayload_Merge != null)
+            {
+                requestAttributePayload_attributePayload_Merge = cmdletContext.AttributePayload_Merge.Value;
+            }
+            if (requestAttributePayload_attributePayload_Merge != null)
+            {
+                request.AttributePayload.Merge = requestAttributePayload_attributePayload_Merge.Value;
+                requestAttributePayloadIsNull = false;
+            }
              // determine if request.AttributePayload should be set to null
             if (requestAttributePayloadIsNull)
             {
                 request.AttributePayload = null;
             }
+            if (cmdletContext.ExpectedVersion != null)
+            {
+                request.ExpectedVersion = cmdletContext.ExpectedVersion.Value;
+            }
+            if (cmdletContext.RemoveThingType != null)
+            {
+                request.RemoveThingType = cmdletContext.RemoveThingType.Value;
+            }
             if (cmdletContext.ThingName != null)
             {
                 request.ThingName = cmdletContext.ThingName;
+            }
+            if (cmdletContext.ThingTypeName != null)
+            {
+                request.ThingTypeName = cmdletContext.ThingTypeName;
             }
             
             CmdletOutput output;
@@ -187,7 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AttributePayload_Attributes { get; set; }
+            public System.Boolean? AttributePayload_Merge { get; set; }
+            public System.Int64? ExpectedVersion { get; set; }
+            public System.Boolean? RemoveThingType { get; set; }
             public System.String ThingName { get; set; }
+            public System.String ThingTypeName { get; set; }
         }
         
     }
