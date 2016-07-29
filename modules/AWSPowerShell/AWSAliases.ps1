@@ -919,10 +919,14 @@ Set-Alias -Name Describe-DCVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name DC-DescribeVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name Describe-DCVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name DC-DescribeVirtualInterfaces -Value Get-DCVirtualInterface
+Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
+Set-Alias -Name DS-RemoveIpRoutes -Value Remove-DSIpRoutes
+Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
+Set-Alias -Name DS-AddIpRoutes -Value Add-DSIpRoutes
 Set-Alias -Name DS-AddTagsToResource -Value Add-DSResourceTag
 Set-Alias -Name DS-ConnectDirectory -Value Connect-DSDirectory
 Set-Alias -Name Create-DSAlias -Value New-DSAlias
@@ -963,9 +967,8 @@ Set-Alias -Name DS-EnableRadius -Value Enable-DSRadius
 Set-Alias -Name DS-EnableSso -Value Enable-DSSso
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
+Set-Alias -Name DS-ListIpRoutes -Value Get-DSIpRoutes
 Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
-Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
-Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit

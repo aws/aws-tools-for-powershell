@@ -28,42 +28,42 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Removes tags from an Amazon Directory Services directory.
+    /// Removes IP address blocks from a directory.
     /// </summary>
-    [Cmdlet("Remove", "DSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "DSIpRoutes", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against AWS Directory Service.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdlet("Invokes the RemoveIpRoutes operation against AWS Directory Service.", Operation = new[] {"RemoveIpRoutes"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.DirectoryService.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DirectoryService.Model.RemoveIpRoutesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class RemoveDSIpRoutesCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter CidrIp
         /// <summary>
         /// <para>
-        /// <para>Identifier (ID) of the directory from which to remove the tag.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The tag key (name) of the tag to be removed.</para>
+        /// <para>IP address blocks that you want to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("CidrIps")]
+        public System.String[] CidrIp { get; set; }
+        #endregion
+        
+        #region Parameter DirectoryId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier (ID) of the directory from which you want to remove the IP addresses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DirectoryId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ResourceId parameter.
+        /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSResourceTag (RemoveTagsFromResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSIpRoutes (RemoveIpRoutes)"))
             {
                 return;
             }
@@ -96,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
-            context.ResourceId = this.ResourceId;
-            if (this.TagKey != null)
+            if (this.CidrIp != null)
             {
-                context.TagKeys = new List<System.String>(this.TagKey);
+                context.CidrIps = new List<System.String>(this.CidrIp);
             }
+            context.DirectoryId = this.DirectoryId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -112,15 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.RemoveTagsFromResourceRequest();
+            var request = new Amazon.DirectoryService.Model.RemoveIpRoutesRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.CidrIps != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.CidrIps = cmdletContext.CidrIps;
             }
-            if (cmdletContext.TagKeys != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.TagKeys = cmdletContext.TagKeys;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
             
             CmdletOutput output;
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ResourceId;
+                    pipelineOutput = this.DirectoryId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -158,17 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveTagsFromResourceRequest request)
+        private static Amazon.DirectoryService.Model.RemoveIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveIpRoutesRequest request)
         {
-            return client.RemoveTagsFromResource(request);
+            return client.RemoveIpRoutes(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public List<System.String> TagKeys { get; set; }
+            public List<System.String> CidrIps { get; set; }
+            public System.String DirectoryId { get; set; }
         }
         
     }
