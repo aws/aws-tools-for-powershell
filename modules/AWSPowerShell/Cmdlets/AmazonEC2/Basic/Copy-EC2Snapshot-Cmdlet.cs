@@ -43,6 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><note><para>
     /// To copy an encrypted snapshot that has been shared from another account, you must
     /// have permissions for the CMK used to encrypt the snapshot.
+    /// </para></note><note><para>
+    /// Snapshots created by the CopySnapshot action have an arbitrary volume ID that should
+    /// not be used for any purpose.
     /// </para></note><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
     /// an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
