@@ -124,7 +124,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, of the role session. The value can range from 900 seconds
-        /// (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.</para>
+        /// (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.</para><note><para>This is separate from the duration of a console session that you might request using
+        /// the returned credentials. The request to the federation endpoint for a console sign-in
+        /// token takes a <code>SessionDuration</code> parameter that specifies the maximum length
+        /// of the console session, separately from the <code>DurationSeconds</code> parameter
+        /// on this API. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html">Creating
+        /// a URL that Enables Federated Users to Access the AWS Management Console</a> in the
+        /// <i>IAM User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -145,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// to Use an External ID When Granting Access to Your AWS Resources to a Third Party</a>
         /// in the <i>IAM User Guide</i>.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
         /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include any of the following characters: =,.@:\/-</para>
+        /// also include underscores or any of the following characters: =,.@:\/-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -196,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// means that subsequent cross-account API requests using the temporary security credentials
         /// will expose the role session name to the external account in their CloudTrail logs.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
         /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include any of the following characters: =,.@-</para>
+        /// also include underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -212,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// value is either the serial number for a hardware device (such as <code>GAHT12345678</code>)
         /// or an Amazon Resource Name (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
         /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include any of the following characters: =,.@-</para>
+        /// also include underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

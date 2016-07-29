@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// You can find the device for an IAM user by going to the AWS Management Console and
         /// viewing the user's security credentials. </para><para>The format for this parameter, as described by its regex pattern, is a string of characters
         /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include any of the following characters: =,.@-</para>
+        /// also include underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
