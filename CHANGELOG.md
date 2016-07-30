@@ -1,3 +1,11 @@
+### 3.1.88.0 (2016-07-30)
+  * Amazon API Gateway
+    - Updating the New-AGAuthorizer cmdlet to add support for Cognito User Pools Auth.
+  * AWS Directory Service
+    - Added support for new apis to manage routing with Microsoft AD. The new cmdlets are Add-DSIpRoutes (AddIpRoutes API), Get-DSIpRoutes (ListIpRoutes API) and Remove-DSIpRoutes (RemoveIpRoutes API).
+  * Amazon Elasticsearch
+    - Added a new parameter, -ElasticsearchVersion, to the New-ESDomain cmdlet to support selection of a new api version. Amazon Elasticsearch Version 2.3 offers improved performance, memory management, and security. It also offers several new features including: pipeline aggregations to perform advanced analytics like moving averages and derivatives, and enhancements to geospatial queries.
+
 ### 3.1.87.0 (2016-07-26)
   * AWS IoT
     - This update adds support for thing types. Thing types are entities that store a description of common features of Things that are of the same logical type. The new cmdlets to support Thing types are: Get-IOTThingType (DescribeThingType API), Get-IOTThingTypesList (ListThingTypes API), New-IOTThingType (CreateThingType API), Remove-IOTThingType (DeleteThingType API) and Set-IOTThingTypeDeprecation (DeprecateThingType API).
