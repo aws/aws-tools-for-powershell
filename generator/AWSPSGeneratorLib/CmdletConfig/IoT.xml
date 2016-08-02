@@ -99,6 +99,12 @@
                       NoPipelineParameter="true">
       <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
     </ServiceOperation>
+    <ServiceOperation MethodName="ListOutgoingCertificates"
+                      Verb="Get"
+                      Noun="OutgoingCertificate"
+                      NoPipelineParameter="true">
+      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+    </ServiceOperation>
     <ServiceOperation MethodName="ListPolicies"
                       Verb="Get"
                       Noun="PolicyList"

@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String CertificateId { get; set; }
         #endregion
         
+        #region Parameter NewAutoRegistrationStatus
+        /// <summary>
+        /// <para>
+        /// <para>The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IoT.AutoRegistrationStatus")]
+        public Amazon.IoT.AutoRegistrationStatus NewAutoRegistrationStatus { get; set; }
+        #endregion
+        
         #region Parameter NewStatus
         /// <summary>
         /// <para>
@@ -88,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             };
             
             context.CertificateId = this.CertificateId;
+            context.NewAutoRegistrationStatus = this.NewAutoRegistrationStatus;
             context.NewStatus = this.NewStatus;
             
             var output = Execute(context) as CmdletOutput;
@@ -105,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.CertificateId != null)
             {
                 request.CertificateId = cmdletContext.CertificateId;
+            }
+            if (cmdletContext.NewAutoRegistrationStatus != null)
+            {
+                request.NewAutoRegistrationStatus = cmdletContext.NewAutoRegistrationStatus;
             }
             if (cmdletContext.NewStatus != null)
             {
@@ -154,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal class CmdletContext : ExecutorContext
         {
             public System.String CertificateId { get; set; }
+            public Amazon.IoT.AutoRegistrationStatus NewAutoRegistrationStatus { get; set; }
             public Amazon.IoT.CACertificateStatus NewStatus { get; set; }
         }
         
