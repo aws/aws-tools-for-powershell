@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Returns all the log groups that are associated with the AWS account making the request.
-    /// The list returned in the response is ASCII-sorted by log group name. 
+    /// The list returned in the response is ASCII-sorted by log group name.
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns up to 50 log groups. If there are more log groups
-    /// to list, the response would contain a <code class="code">nextToken</code> value in
-    /// the response body. You can also limit the number of log groups returned in the response
-    /// by specifying the <code class="code">limit</code> parameter in the request. 
+    /// By default, this operation returns up to 50 log groups. If there are more log groups
+    /// to list, the response would contain a <code>nextToken</code> value in the response
+    /// body. You can also limit the number of log groups returned in the response by specifying
+    /// the <code>limit</code> parameter in the request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogGroups")]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items returned in the response. If you don't specify a value,
-        /// the request would return up to 50 items. </para>
+        /// <para>The maximum number of items returned in the response. If you don't specify a value,
+        /// the request would return up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the response of the previous <code class="code">DescribeLogGroups</code>
-        /// request. </para>
+        /// <para>A string token used for pagination that points to the next page of results. It must
+        /// be a value obtained from the response of the previous <code>DescribeLogGroups</code>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

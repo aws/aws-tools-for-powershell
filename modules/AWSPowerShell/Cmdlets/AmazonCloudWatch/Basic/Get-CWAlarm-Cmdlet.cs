@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ActionPrefix
         /// <summary>
         /// <para>
-        /// <para> The action name prefix. </para>
+        /// <para>The action name prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmNamePrefix
         /// <summary>
         /// <para>
-        /// <para> The alarm name prefix. <code>AlarmNames</code> cannot be specified if this parameter
-        /// is specified. </para>
+        /// <para>The alarm name prefix. <code>AlarmNames</code> cannot be specified if this parameter
+        /// is specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para> A list of alarm names to retrieve information for. </para>
+        /// <para>A list of alarm names to retrieve information for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StateValue
         /// <summary>
         /// <para>
-        /// <para> The state value to be used in matching alarms. </para>
+        /// <para>The state value to be used in matching alarms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of alarm descriptions to retrieve. </para>
+        /// <para>The maximum number of alarm descriptions to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,8 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token returned by a previous call to indicate that there is more data available.
-        /// </para>
+        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

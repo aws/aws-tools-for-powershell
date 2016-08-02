@@ -28,21 +28,32 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Uploads a batch of log events to the specified log stream. 
+    /// Uploads a batch of log events to the specified log stream.
     /// 
     ///  
     /// <para>
-    ///  Every PutLogEvents request must include the <code class="code">sequenceToken</code>
-    /// obtained from the response of the previous request. An upload in a newly created log
-    /// stream does not require a <code class="code">sequenceToken</code>. 
+    /// Every PutLogEvents request must include the <code>sequenceToken</code> obtained from
+    /// the response of the previous request. An upload in a newly created log stream does
+    /// not require a <code>sequenceToken</code>. You can also get the <code>sequenceToken</code>
+    /// using <a>DescribeLogStreams</a>.
     /// </para><para>
-    ///  The batch of events must satisfy the following constraints: <ul><li>The maximum
-    /// batch size is 1,048,576 bytes, and this size is calculated as the sum of all event
-    /// messages in UTF-8, plus 26 bytes for each log event.</li><li>None of the log events
-    /// in the batch can be more than 2 hours in the future.</li><li>None of the log events
-    /// in the batch can be older than 14 days or the retention period of the log group.</li><li>The log events in the batch must be in chronological ordered by their <code class="code">timestamp</code>.</li><li>The maximum number of log events in a batch is 10,000.</li><li>A batch of log
-    /// events in a single PutLogEvents request cannot span more than 24 hours. Otherwise,
-    /// the PutLogEvents operation will fail.</li></ul></para>
+    /// The batch of events must satisfy the following constraints:
+    /// </para><ul><li><para>
+    /// The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum
+    /// of all event messages in UTF-8, plus 26 bytes for each log event.
+    /// </para></li><li><para>
+    /// None of the log events in the batch can be more than 2 hours in the future.
+    /// </para></li><li><para>
+    /// None of the log events in the batch can be older than 14 days or the retention period
+    /// of the log group.
+    /// </para></li><li><para>
+    /// The log events in the batch must be in chronological ordered by their <code>timestamp</code>.
+    /// </para></li><li><para>
+    /// The maximum number of log events in a batch is 10,000.
+    /// </para></li><li><para>
+    /// A batch of log events in a single PutLogEvents request cannot span more than 24 hours.
+    /// Otherwise, the PutLogEvents operation will fail.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Write", "CWLLogEvents", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -89,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter SequenceToken
         /// <summary>
         /// <para>
-        /// <para> A string token that must be obtained from the response of the previous <code class="code">PutLogEvents</code>
-        /// request. </para>
+        /// <para>A string token that must be obtained from the response of the previous <code>PutLogEvents</code>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

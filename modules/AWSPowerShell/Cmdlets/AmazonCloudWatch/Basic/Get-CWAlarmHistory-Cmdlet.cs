@@ -30,10 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// Retrieves history for the specified alarm. Filter alarms by date range or item type.
     /// If an alarm name is not specified, Amazon CloudWatch returns histories for all of
-    /// the owner's alarms. 
+    /// the owner's alarms.
     /// 
-    ///  <note> Amazon CloudWatch retains the history of an alarm for two weeks, whether or
-    /// not you delete the alarm. </note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    ///  <note><para>
+    /// Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you
+    /// delete the alarm.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWAlarmHistory")]
     [OutputType("Amazon.CloudWatch.Model.AlarmHistoryItem")]
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para> The name of the alarm. </para>
+        /// <para>The name of the alarm.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndDate
         /// <summary>
         /// <para>
-        /// <para> The ending date to retrieve alarm history. </para>
+        /// <para>The ending date to retrieve alarm history.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -69,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter HistoryItemType
         /// <summary>
         /// <para>
-        /// <para> The type of alarm histories to retrieve. </para>
+        /// <para>The type of alarm histories to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -80,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para> The starting date to retrieve alarm history. </para>
+        /// <para>The starting date to retrieve alarm history.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -90,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of alarm history records to retrieve. </para>
+        /// <para>The maximum number of alarm history records to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token returned by a previous call to indicate that there is more data available.
-        /// </para>
+        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

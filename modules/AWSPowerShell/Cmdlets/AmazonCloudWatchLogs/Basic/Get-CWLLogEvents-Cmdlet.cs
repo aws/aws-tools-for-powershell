@@ -29,17 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Retrieves log events from the specified log stream. You can provide an optional time
-    /// range to filter the results on the event <code class="code">timestamp</code>. 
+    /// range to filter the results on the event <code>timestamp</code>.
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns as much log events as can fit in a response size
-    /// of 1MB, up to 10,000 log events. The response will always include a <code class="code">nextForwardToken</code>
-    /// and a <code class="code">nextBackwardToken</code> in the response body. You can use
-    /// any of these tokens in subsequent <code class="code">GetLogEvents</code> requests
-    /// to paginate through events in either forward or backward direction. You can also limit
-    /// the number of log events returned in the response by specifying the <code class="code">limit</code>
-    /// parameter in the request. 
+    /// By default, this operation returns as much log events as can fit in a response size
+    /// of 1MB, up to 10,000 log events. The response will always include a <code>nextForwardToken</code>
+    /// and a <code>nextBackwardToken</code> in the response body. You can use any of these
+    /// tokens in subsequent <code>GetLogEvents</code> requests to paginate through events
+    /// in either forward or backward direction. You can also limit the number of log events
+    /// returned in the response by specifying the <code>limit</code> parameter in the request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvents")]
@@ -105,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para> The maximum number of log events returned in the response. If you don't specify a
+        /// <para>The maximum number of log events returned in the response. If you don't specify a
         /// value, the request would return as many log events as can fit in a response size of
-        /// 1MB, up to 10,000 log events. </para>
+        /// 1MB, up to 10,000 log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,10 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the <code class="code">nextForwardToken</code> or <code class="code">nextBackwardToken</code>
-        /// fields in the response of the previous <code class="code">GetLogEvents</code> request.
-        /// </para>
+        /// <para>A string token used for pagination that points to the next page of results. It must
+        /// be a value obtained from the <code>nextForwardToken</code> or <code>nextBackwardToken</code>
+        /// fields in the response of the previous <code>GetLogEvents</code> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
