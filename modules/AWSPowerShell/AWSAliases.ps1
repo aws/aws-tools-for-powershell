@@ -2629,11 +2629,13 @@ Set-Alias -Name R53D-EnableDomainAutoRenew -Value Enable-R53DDomainAutoRenew
 Set-Alias -Name R53D-EnableDomainTransferLock -Value Enable-R53DDomainTransferLock
 Set-Alias -Name R53D-GetContactReachabilityStatus -Value Get-R53DContactReachabilityStatus
 Set-Alias -Name R53D-GetDomainDetail -Value Get-R53DDomainDetail
+Set-Alias -Name R53D-GetDomainSuggestions -Value Get-R53DDomainSuggestion
 Set-Alias -Name R53D-GetOperationDetail -Value Get-R53DOperationDetail
 Set-Alias -Name R53D-ListDomains -Value Get-R53DDomains
 Set-Alias -Name R53D-ListOperations -Value Get-R53DOperations
 Set-Alias -Name R53D-ListTagsForDomain -Value Get-R53DTagsForDomain
 Set-Alias -Name R53D-RegisterDomain -Value Register-R53DDomain
+Set-Alias -Name R53D-RenewDomain -Value Update-R53DDomainRenewal
 Set-Alias -Name R53D-ResendContactReachabilityEmail -Value Send-R53DContactReachabilityEmail
 Set-Alias -Name R53D-RetrieveDomainAuthCode -Value Get-R53DDomainAuthCode
 Set-Alias -Name R53D-TransferDomain -Value Invoke-R53DDomainTransfer
@@ -2641,6 +2643,7 @@ Set-Alias -Name R53D-UpdateDomainContact -Value Update-R53DDomainContact
 Set-Alias -Name R53D-UpdateDomainContactPrivacy -Value Update-R53DDomainContactPrivacy
 Set-Alias -Name R53D-UpdateDomainNameservers -Value Update-R53DDomainNameservers
 Set-Alias -Name R53D-UpdateTagsForDomain -Value Update-R53DTagsForDomain
+Set-Alias -Name R53D-ViewBilling -Value Get-R53DBillingRecord
 Set-Alias -Name Put-S3BucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name S3-PutBucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name Put-S3BucketTagging -Value Write-S3BucketTagging

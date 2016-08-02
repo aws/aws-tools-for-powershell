@@ -28,17 +28,27 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation disables automatic renewal of domain registration for the specified
-    /// domain.
+    /// The GetDomainSuggestions operation returns a list of suggested domain names given
+    /// a string, which can either be a domain name or simply a word or phrase (without spaces).
+    /// 
+    ///  
+    /// <para>
+    ///  Parameters: <ul><li>DomainName (string): The basis for your domain suggestion search,
+    /// a string with (or without) top-level domain specified.</li><li>SuggestionCount (int):
+    /// The number of domain suggestions to be returned, maximum 50, minimum 1.</li><li>OnlyAvailable
+    /// (bool): If true, availability check will be performed on suggestion results, and only
+    /// available domains will be returned. If false, suggestions will be returned without
+    /// checking whether the domain is actually available, and caller will have to call checkDomainAvailability
+    /// for each suggestion to determine availability for registration.</li></ul></para>
     /// </summary>
-    [Cmdlet("Disable", "R53DDomainAutoRenew", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisableDomainAutoRenew operation against Amazon Route 53 Domains.", Operation = new[] {"DisableDomainAutoRenew"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "R53DDomainSuggestion")]
+    [OutputType("Amazon.Route53Domains.Model.DomainSuggestion")]
+    [AWSCmdlet("Invokes the GetDomainSuggestions operation against Amazon Route 53 Domains.", Operation = new[] {"GetDomainSuggestions"})]
+    [AWSCmdletOutput("Amazon.Route53Domains.Model.DomainSuggestion",
+        "This cmdlet returns a collection of DomainSuggestion objects.",
+        "The service call response (type Amazon.Route53Domains.Model.GetDomainSuggestionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DisableR53DDomainAutoRenewCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public class GetR53DDomainSuggestionCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -51,34 +61,29 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter OnlyAvailable
         /// <summary>
-        /// Returns the value passed to the DomainName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.Boolean OnlyAvailable { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter SuggestionCount
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.Int32 SuggestionCount { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DomainName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-R53DDomainAutoRenew (DisableDomainAutoRenew)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -87,6 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             };
             
             context.DomainName = this.DomainName;
+            if (ParameterWasBound("OnlyAvailable"))
+                context.OnlyAvailable = this.OnlyAvailable;
+            if (ParameterWasBound("SuggestionCount"))
+                context.SuggestionCount = this.SuggestionCount;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -98,11 +107,19 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.DisableDomainAutoRenewRequest();
+            var request = new Amazon.Route53Domains.Model.GetDomainSuggestionsRequest();
             
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.OnlyAvailable != null)
+            {
+                request.OnlyAvailable = cmdletContext.OnlyAvailable.Value;
+            }
+            if (cmdletContext.SuggestionCount != null)
+            {
+                request.SuggestionCount = cmdletContext.SuggestionCount.Value;
             }
             
             CmdletOutput output;
@@ -113,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.DomainName;
+                object pipelineOutput = response.SuggestionsList;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -140,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.DisableDomainAutoRenewRequest request)
+        private static Amazon.Route53Domains.Model.GetDomainSuggestionsResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.GetDomainSuggestionsRequest request)
         {
-            return client.DisableDomainAutoRenew(request);
+            return client.GetDomainSuggestions(request);
         }
         
         #endregion
@@ -150,6 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         internal class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
+            public System.Boolean? OnlyAvailable { get; set; }
+            public System.Int32? SuggestionCount { get; set; }
         }
         
     }
