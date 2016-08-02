@@ -287,6 +287,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32 Iops { get; set; }
         #endregion
         
+        #region Parameter LicenseModel
+        /// <summary>
+        /// <para>
+        /// <para>The license model for the DB instance.</para><para>Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
+        /// | <code>general-public-license</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LicenseModel { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -533,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
+            context.LicenseModel = this.LicenseModel;
             context.MasterUserPassword = this.MasterUserPassword;
             if (ParameterWasBound("MonitoringInterval"))
                 context.MonitoringInterval = this.MonitoringInterval;
@@ -630,6 +642,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Iops != null)
             {
                 request.Iops = cmdletContext.Iops.Value;
+            }
+            if (cmdletContext.LicenseModel != null)
+            {
+                request.LicenseModel = cmdletContext.LicenseModel;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -746,6 +762,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DomainIAMRoleName { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
+            public System.String LicenseModel { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
