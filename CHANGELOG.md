@@ -1,3 +1,11 @@
+### 3.1.89.0 (2016-08-3)
+  * Amazon Route53 Domains
+    - Added new cmdlets to support new APIs: Update-R53DDomainRenewal (RenewDomain API, renew domains for a specified duration), Get-R53DDomainSuggestion (GetDomainSuggestions API) and Get-R53DBillingRecord (ViewBilling API).
+  * Amazon Relation Database Service
+    - Updated the Edit-RDSDBInstance cmdlet to support specifying license model. You can also now specify versioning of option groups.
+  * AWS IoT
+    - Added a new cmdlet Get-IOTOutgoingCertificate to support the new ListOutgoingCertificates API. Register-IOTCACertificate and Update-IOTCACertificate cmdlets were updated to support a new AllowAutoRegistration parameter.
+
 ### 3.1.88.0 (2016-07-30)
   * Amazon API Gateway
     - Updating the New-AGAuthorizer cmdlet to add support for Cognito User Pools Auth.
