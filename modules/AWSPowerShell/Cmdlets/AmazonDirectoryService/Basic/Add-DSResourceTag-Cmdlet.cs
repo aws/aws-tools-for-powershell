@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// <summary>
     /// Adds or overwrites one or more tags for the specified Amazon Directory Services directory.
     /// Each directory can have a maximum of 10 tags. Each tag consists of a key and optional
-    /// value. Tag keys must be unique per resource.
+    /// value. Tag keys must be unique to each resource.
     /// </summary>
     [Cmdlet("Add", "DSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the directory to which to add the tag.</para>
+        /// <para>Identifier (ID) for the directory to which to add the tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

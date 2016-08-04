@@ -22,38 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatch;
-using Amazon.CloudWatch.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CW
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Enables actions for the specified alarms.
+    /// Removes IP address blocks from a directory.
     /// </summary>
-    [Cmdlet("Enable", "CWAlarmAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "DSIpRoutes", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the EnableAlarmActions operation against Amazon CloudWatch.", Operation = new[] {"EnableAlarmActions"})]
+    [AWSCmdlet("Invokes the RemoveIpRoutes operation against AWS Directory Service.", Operation = new[] {"RemoveIpRoutes"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudWatch.Model.EnableAlarmActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DirectoryService.Model.RemoveIpRoutesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableCWAlarmActionCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
+    public class RemoveDSIpRoutesCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter AlarmName
+        #region Parameter CidrIp
         /// <summary>
         /// <para>
-        /// <para>The names of the alarms to enable actions for.</para>
+        /// <para>IP address blocks that you want to remove.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("AlarmNames")]
-        public System.String[] AlarmName { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("CidrIps")]
+        public System.String[] CidrIp { get; set; }
+        #endregion
+        
+        #region Parameter DirectoryId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier (ID) of the directory from which you want to remove the IP addresses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DirectoryId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the AlarmName parameter.
+        /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AlarmName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-CWAlarmAction (EnableAlarmActions)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSIpRoutes (RemoveIpRoutes)"))
             {
                 return;
             }
@@ -86,10 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.AlarmName != null)
+            if (this.CidrIp != null)
             {
-                context.AlarmNames = new List<System.String>(this.AlarmName);
+                context.CidrIps = new List<System.String>(this.CidrIp);
             }
+            context.DirectoryId = this.DirectoryId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -101,11 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatch.Model.EnableAlarmActionsRequest();
+            var request = new Amazon.DirectoryService.Model.RemoveIpRoutesRequest();
             
-            if (cmdletContext.AlarmNames != null)
+            if (cmdletContext.CidrIps != null)
             {
-                request.AlarmNames = cmdletContext.AlarmNames;
+                request.CidrIps = cmdletContext.CidrIps;
+            }
+            if (cmdletContext.DirectoryId != null)
+            {
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
             
             CmdletOutput output;
@@ -118,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.AlarmName;
+                    pipelineOutput = this.DirectoryId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -143,16 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatch.Model.EnableAlarmActionsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.EnableAlarmActionsRequest request)
+        private static Amazon.DirectoryService.Model.RemoveIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveIpRoutesRequest request)
         {
-            return client.EnableAlarmActions(request);
+            return client.RemoveIpRoutes(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> AlarmNames { get; set; }
+            public List<System.String> CidrIps { get; set; }
+            public System.String DirectoryId { get; set; }
         }
         
     }

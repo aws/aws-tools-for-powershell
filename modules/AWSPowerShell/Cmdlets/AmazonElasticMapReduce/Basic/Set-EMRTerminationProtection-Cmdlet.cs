@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// 
     ///  
     /// <para>
-    ///  SetTerminationProtection is used to prevent accidental termination of a job flow
-    /// and to ensure that in the event of an error, the instances will persist so you can
-    /// recover any data stored in their ephemeral instance storage.
+    /// SetTerminationProtection is used to prevent accidental termination of a job flow and
+    /// to ensure that in the event of an error, the instances will persist so you can recover
+    /// any data stored in their ephemeral instance storage.
     /// </para><para>
     ///  To terminate a job flow that has been locked by setting SetTerminationProtection
     /// to <code>true</code>, you must first unlock the job flow by a subsequent call to SetTerminationProtection
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter TerminationProtected
         /// <summary>
         /// <para>
-        /// <para> A Boolean that indicates whether to protect the job flow and prevent the Amazon EC2
+        /// <para>A Boolean that indicates whether to protect the job flow and prevent the Amazon EC2
         /// instances in the cluster from shutting down due to API calls, user intervention, or
-        /// job-flow error. </para>
+        /// job-flow error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

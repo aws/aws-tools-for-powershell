@@ -29,16 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Returns all the log streams that are associated with the specified log group. The
-    /// list returned in the response is ASCII-sorted by log stream name. 
+    /// list returned in the response is ASCII-sorted by log stream name.
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns up to 50 log streams. If there are more log streams
-    /// to list, the response would contain a <code class="code">nextToken</code> value in
-    /// the response body. You can also limit the number of log streams returned in the response
-    /// by specifying the <code class="code">limit</code> parameter in the request. This operation
-    /// has a limit of five transactions per second, after which transactions are throttled.
-    /// 
+    /// By default, this operation returns up to 50 log streams. If there are more log streams
+    /// to list, the response would contain a <code>nextToken</code> value in the response
+    /// body. You can also limit the number of log streams returned in the response by specifying
+    /// the <code>limit</code> parameter in the request. This operation has a limit of five
+    /// transactions per second, after which transactions are throttled.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogStreams")]
@@ -55,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Descending
         /// <summary>
         /// <para>
-        /// <para> If set to true, results are returned in descending order. If you don't specify a
-        /// value or set it to false, results are returned in ascending order. </para>
+        /// <para>If set to true, results are returned in descending order. If you don't specify a value
+        /// or set it to false, results are returned in ascending order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamNamePrefix
         /// <summary>
         /// <para>
-        /// <para> Will only return log streams that match the provided logStreamNamePrefix. If you
-        /// don't specify a value, no prefix filter is applied. </para>
+        /// <para>Will only return log streams that match the provided logStreamNamePrefix. If you don't
+        /// specify a value, no prefix filter is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,10 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter OrderBy
         /// <summary>
         /// <para>
-        /// <para> Specifies what to order the returned log streams by. Valid arguments are 'LogStreamName'
+        /// <para>Specifies what to order the returned log streams by. Valid arguments are 'LogStreamName'
         /// or 'LastEventTime'. If you don't specify a value, results are ordered by LogStreamName.
-        /// If 'LastEventTime' is chosen, the request cannot also contain a logStreamNamePrefix.
-        /// </para>
+        /// If 'LastEventTime' is chosen, the request cannot also contain a logStreamNamePrefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items returned in the response. If you don't specify a value,
-        /// the request would return up to 50 items. </para>
+        /// <para>The maximum number of items returned in the response. If you don't specify a value,
+        /// the request would return up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the response of the previous <code class="code">DescribeLogStreams</code>
-        /// request. </para>
+        /// <para>A string token used for pagination that points to the next page of results. It must
+        /// be a value obtained from the response of the previous <code>DescribeLogStreams</code>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

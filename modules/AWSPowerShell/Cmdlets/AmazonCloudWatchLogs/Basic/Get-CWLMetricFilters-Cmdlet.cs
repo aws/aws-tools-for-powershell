@@ -29,15 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Returns all the metrics filters associated with the specified log group. The list
-    /// returned in the response is ASCII-sorted by filter name. 
+    /// returned in the response is ASCII-sorted by filter name.
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns up to 50 metric filters. If there are more metric
-    /// filters to list, the response would contain a <code class="code">nextToken</code>
-    /// value in the response body. You can also limit the number of metric filters returned
-    /// in the response by specifying the <code class="code">limit</code> parameter in the
-    /// request. 
+    /// By default, this operation returns up to 50 metric filters. If there are more metric
+    /// filters to list, the response would contain a <code>nextToken</code> value in the
+    /// response body. You can also limit the number of metric filters returned in the response
+    /// by specifying the <code>limit</code> parameter in the request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLMetricFilters")]
@@ -75,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items returned in the response. If you don't specify a value,
-        /// the request would return up to 50 items. </para>
+        /// <para>The maximum number of items returned in the response. If you don't specify a value,
+        /// the request would return up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the response of the previous <code class="code">DescribeMetricFilters</code>
-        /// request. </para>
+        /// <para>A string token used for pagination that points to the next page of results. It must
+        /// be a value obtained from the response of the previous <code>DescribeMetricFilters</code>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

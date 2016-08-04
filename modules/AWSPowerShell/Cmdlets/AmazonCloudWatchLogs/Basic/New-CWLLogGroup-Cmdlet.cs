@@ -30,13 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates a new log group with the specified name. The name of the log group must be
     /// unique within a region for an AWS account. You can create up to 500 log groups per
-    /// account. 
+    /// account.
     /// 
     ///  
     /// <para>
-    ///  You must use the following guidelines when naming a log group: <ul><li>Log group
-    /// names can be between 1 and 512 characters long.</li><li>Allowed characters are a-z,
-    /// A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</li></ul></para>
+    /// You must use the following guidelines when naming a log group:
+    /// </para><ul><li><para>
+    /// Log group names can be between 1 and 512 characters long.
+    /// </para></li><li><para>
+    /// Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward
+    /// slash), and '.' (period).
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "CWLLogGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

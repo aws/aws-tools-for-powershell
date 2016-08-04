@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// security credentials (such as <code>Bob</code>). For example, you can reference the
         /// federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
         /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include any of the following characters: =,.@-</para>
+        /// also include underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

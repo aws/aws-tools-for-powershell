@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProviderARNs
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] ProviderARNs { get; set; }
+        #endregion
+        
         #region Parameter RestApiId
         /// <summary>
         /// <para>
@@ -167,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.IdentitySource = this.IdentitySource;
             context.IdentityValidationExpression = this.IdentityValidationExpression;
             context.Name = this.Name;
+            if (this.ProviderARNs != null)
+            {
+                context.ProviderARNs = new List<System.String>(this.ProviderARNs);
+            }
             context.RestApiId = this.RestApiId;
             context.Type = this.Type;
             
@@ -209,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProviderARNs != null)
+            {
+                request.ProviderARNs = cmdletContext.ProviderARNs;
             }
             if (cmdletContext.RestApiId != null)
             {
@@ -268,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String IdentitySource { get; set; }
             public System.String IdentityValidationExpression { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> ProviderARNs { get; set; }
             public System.String RestApiId { get; set; }
             public Amazon.APIGateway.AuthorizerType Type { get; set; }
         }

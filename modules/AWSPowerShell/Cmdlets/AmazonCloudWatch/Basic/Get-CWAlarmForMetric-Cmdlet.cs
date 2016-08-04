@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para> The list of dimensions associated with the metric. If the metric has any associated
-        /// dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.
-        /// </para>
+        /// <para>The list of dimensions associated with the metric. If the metric has any associated
+        /// dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para> The name of the metric. </para>
+        /// <para>The name of the metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para> The namespace of the metric. </para>
+        /// <para>The namespace of the metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para> The period in seconds over which the statistic is applied. </para>
+        /// <para>The period in seconds over which the statistic is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para> The statistic for the metric. </para>
+        /// <para>The statistic for the metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -98,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Unit
         /// <summary>
         /// <para>
-        /// <para> The unit for the metric. </para>
+        /// <para>The unit for the metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

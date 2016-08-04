@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter RadiusSettings_SharedSecret
         /// <summary>
         /// <para>
-        /// <para>The shared secret code that was specified when your RADIUS endpoints were created.</para>
+        /// <para>Not currently used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

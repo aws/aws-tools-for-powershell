@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterState
         /// <summary>
         /// <para>
-        /// <para>The cluster state filters to apply when listing clusters. </para>
+        /// <para>The cluster state filters to apply when listing clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The pagination token that indicates the next set of results to retrieve. </para>
+        /// <para>The pagination token that indicates the next set of results to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

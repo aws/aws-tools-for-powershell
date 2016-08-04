@@ -28,33 +28,34 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Lists all tags on an Amazon Directory Services directory.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the address blocks that you have added to a directory.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "DSResourceTag")]
-    [OutputType("Amazon.DirectoryService.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Directory Service.", Operation = new[] {"ListTagsForResource"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.Tag",
-        "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type Amazon.DirectoryService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DSIpRoutes")]
+    [OutputType("Amazon.DirectoryService.Model.IpRouteInfo")]
+    [AWSCmdlet("Invokes the ListIpRoutes operation against AWS Directory Service.", Operation = new[] {"ListIpRoutes"})]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.IpRouteInfo",
+        "This cmdlet returns a collection of IpRouteInfo objects.",
+        "The service call response (type Amazon.DirectoryService.Model.ListIpRoutesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class GetDSIpRoutesCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Identifier (ID) of the directory for which you want to retrieve tags.</para>
+        /// <para>Identifier (ID) of the directory for which you want to retrieve the IP addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceId { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Maximum number of items to return. If this value is zero, the maximum number of items
+        /// is specified by the limitations of the operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The <i>ListIpRoutes.NextToken</i> value from a previous call to <a>ListIpRoutes</a>.
+        /// Pass null if this is the first call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            context.DirectoryId = this.DirectoryId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            context.ResourceId = this.ResourceId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -98,10 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.DirectoryService.Model.ListTagsForResourceRequest();
-            if (cmdletContext.ResourceId != null)
+            var request = new Amazon.DirectoryService.Model.ListIpRoutesRequest();
+            if (cmdletContext.DirectoryId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
             
             // Initialize loop variants and commence piping
@@ -137,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Tags;
+                        object pipelineOutput = response.IpRoutesInfo;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -146,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Tags.Count;
+                        int _receivedThisCall = response.IpRoutesInfo.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -189,18 +191,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListTagsForResourceRequest request)
+        private static Amazon.DirectoryService.Model.ListIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListIpRoutesRequest request)
         {
-            return client.ListTagsForResource(request);
+            return client.ListIpRoutes(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String DirectoryId { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceId { get; set; }
         }
         
     }

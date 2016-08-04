@@ -29,27 +29,32 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Creates or updates an alarm and associates it with the specified Amazon CloudWatch
-    /// metric. Optionally, this operation can associate one or more Amazon Simple Notification
-    /// Service resources with the alarm. 
+    /// metric. Optionally, this operation can associate one or more Amazon SNS resources
+    /// with the alarm.
     /// 
     ///  
     /// <para>
     ///  When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>.
     /// The alarm is evaluated and its <code>StateValue</code> is set appropriately. Any actions
-    /// associated with the <code>StateValue</code> is then executed. 
-    /// </para><note> When updating an existing alarm, its <code>StateValue</code> is left unchanged.
-    /// </note><note> If you are using an AWS Identity and Access Management (IAM) account
-    /// to create or modify an alarm, you must have the following Amazon EC2 permissions:
-    /// <ul><li><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code>
-    /// for all alarms on Amazon EC2 instance status metrics.</li><li><code>ec2:StopInstances</code>
-    /// for alarms with stop actions.</li><li><code>ec2:TerminateInstances</code> for alarms
-    /// with terminate actions.</li><li><code>ec2:DescribeInstanceRecoveryAttribute</code>,
-    /// and <code>ec2:RecoverInstances</code> for alarms with recover actions.</li></ul><para>
+    /// associated with the <code>StateValue</code> are then executed. 
+    /// </para><note><para>
+    /// When updating an existing alarm, its <code>StateValue</code> is left unchanged, but
+    /// it completely overwrites the alarm's previous configuration.
+    /// </para></note><note><para>
+    /// If you are using an AWS Identity and Access Management (IAM) account to create or
+    /// modify an alarm, you must have the following Amazon EC2 permissions:
+    /// </para><ul><li><para><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code> for
+    /// all alarms on Amazon EC2 instance status metrics.
+    /// </para></li><li><para><code>ec2:StopInstances</code> for alarms with stop actions.
+    /// </para></li><li><para><code>ec2:TerminateInstances</code> for alarms with terminate actions.
+    /// </para></li><li><para><code>ec2:DescribeInstanceRecoveryAttribute</code>, and <code>ec2:RecoverInstances</code>
+    /// for alarms with recover actions.
+    /// </para></li></ul><para>
     /// If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you
     /// can still create an alarm but the stop or terminate actions won't be performed on
     /// the Amazon EC2 instance. However, if you are later granted permission to use the associated
     /// Amazon EC2 APIs, the alarm actions you created earlier will be performed. For more
-    /// information about IAM permissions, see <a href="http://docs.aws.amazon.com//IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
+    /// information about IAM permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions
     /// and Policies</a> in <i>Using IAM</i>.
     /// </para><para>
     /// If you are using an IAM role (e.g., an Amazon EC2 instance profile), you cannot stop
@@ -75,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ActionsEnabled
         /// <summary>
         /// <para>
-        /// <para> Indicates whether or not actions should be executed during any changes to the alarm's
-        /// state. </para>
+        /// <para>Indicates whether or not actions should be executed during any changes to the alarm's
+        /// state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,10 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para><para>Valid Values: arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:stop | arn:aws:automate:<i>region
         /// (e.g., us-east-1)</i>:ec2:terminate | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:recover</para><para>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
         /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para><para><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using the
-        /// Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role for
-        /// the first time. After this IAM role is created, you can create stop, terminate, or
-        /// reboot alarms using the CLI.</para>
+        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para><para><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using
+        /// the Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role
+        /// for the first time. After this IAM role is created, you can create stop, terminate,
+        /// or reboot alarms using the CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmDescription
         /// <summary>
         /// <para>
-        /// <para> The description for the alarm. </para>
+        /// <para>The description for the alarm.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -115,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para> The descriptive name for the alarm. This name must be unique within the user's AWS
-        /// account </para>
+        /// <para>The descriptive name for the alarm. This name must be unique within the user's AWS
+        /// account</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -139,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para> The dimensions for the alarm's associated metric. </para>
+        /// <para>The dimensions for the alarm's associated metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EvaluationPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of periods over which data is compared to the specified threshold. </para>
+        /// <para>The number of periods over which data is compared to the specified threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -166,10 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para><para>Valid Values: arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:stop | arn:aws:automate:<i>region
         /// (e.g., us-east-1)</i>:ec2:terminate | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:recover</para><para>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
         /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para><para><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using the
-        /// Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role for
-        /// the first time. After this IAM role is created, you can create stop, terminate, or
-        /// reboot alarms using the CLI.</para>
+        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para><para><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using
+        /// the Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role
+        /// for the first time. After this IAM role is created, you can create stop, terminate,
+        /// or reboot alarms using the CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -180,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para> The name for the alarm's associated metric. </para>
+        /// <para>The name for the alarm's associated metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para> The namespace for the alarm's associated metric. </para>
+        /// <para>The namespace for the alarm's associated metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,10 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para><para>Valid Values: arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:stop | arn:aws:automate:<i>region
         /// (e.g., us-east-1)</i>:ec2:terminate | arn:aws:automate:<i>region (e.g., us-east-1)</i>:ec2:recover</para><para>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
         /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para><para><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using the
-        /// Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role for
-        /// the first time. After this IAM role is created, you can create stop, terminate, or
-        /// reboot alarms using the CLI.</para>
+        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para><para><b>Note:</b> You must create at least one stop, terminate, or reboot alarm using
+        /// the Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role
+        /// for the first time. After this IAM role is created, you can create stop, terminate,
+        /// or reboot alarms using the CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -219,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para> The period in seconds over which the specified statistic is applied. </para>
+        /// <para>The period in seconds over which the specified statistic is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -229,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para> The statistic to apply to the alarm's associated metric. </para>
+        /// <para>The statistic to apply to the alarm's associated metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -240,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Threshold
         /// <summary>
         /// <para>
-        /// <para> The value against which the specified statistic is compared. </para>
+        /// <para>The value against which the specified statistic is compared.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -250,11 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Unit
         /// <summary>
         /// <para>
-        /// <para> The statistic's unit of measure. For example, the units for the Amazon EC2 NetworkIn
+        /// <para>The statistic's unit of measure. For example, the units for the Amazon EC2 NetworkIn
         /// metric are Bytes because NetworkIn tracks the number of bytes that an instance receives
         /// on all network interfaces. You can also specify a unit when you create a custom metric.
         /// Units help provide conceptual meaning to your data. Metric data points that specify
-        /// a unit of measure, such as Percent, are aggregated separately. </para><para><b>Note:</b> If you specify a unit, you must use a unit that is appropriate for the
+        /// a unit of measure, such as Percent, are aggregated separately.</para><para><b>Note:</b> If you specify a unit, you must use a unit that is appropriate for the
         /// metric. Otherwise, this can cause an Amazon CloudWatch alarm to get stuck in the INSUFFICIENT
         /// DATA state. </para>
         /// </para>

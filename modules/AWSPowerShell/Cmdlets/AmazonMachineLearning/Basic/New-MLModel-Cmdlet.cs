@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// during the creation operation.
     /// </para><para><code>CreateMLModel</code> requires a <code>DataSource</code> with computed statistics,
     /// which can be created by setting <code>ComputeStatistics</code> to <code>true</code>
-    /// in <code>CreateDataSourcceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or
-    /// <code>CreateDataSourceFromRedshift</code> operations. 
+    /// in <code>CreateDataSourceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or <code>CreateDataSourceFromRedshift</code>
+    /// operations. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "MLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

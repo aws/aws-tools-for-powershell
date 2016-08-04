@@ -919,10 +919,14 @@ Set-Alias -Name Describe-DCVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name DC-DescribeVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name Describe-DCVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name DC-DescribeVirtualInterfaces -Value Get-DCVirtualInterface
+Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
+Set-Alias -Name DS-RemoveIpRoutes -Value Remove-DSIpRoutes
+Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
+Set-Alias -Name DS-AddIpRoutes -Value Add-DSIpRoutes
 Set-Alias -Name DS-AddTagsToResource -Value Add-DSResourceTag
 Set-Alias -Name DS-ConnectDirectory -Value Connect-DSDirectory
 Set-Alias -Name Create-DSAlias -Value New-DSAlias
@@ -963,9 +967,8 @@ Set-Alias -Name DS-EnableRadius -Value Enable-DSRadius
 Set-Alias -Name DS-EnableSso -Value Enable-DSSso
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
+Set-Alias -Name DS-ListIpRoutes -Value Get-DSIpRoutes
 Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
-Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
-Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
@@ -1955,6 +1958,7 @@ Set-Alias -Name INS-RemoveAttributesFromFindings -Value Remove-INSFindingAttribu
 Set-Alias -Name INS-SetTagsForResource -Value Set-INSResourceTag
 Set-Alias -Name INS-StartAssessmentRun -Value Start-INSAssessmentRun
 Set-Alias -Name INS-StopAssessmentRun -Value Stop-INSAssessmentRun
+Set-Alias -Name IOT-RegisterCACertificate -Value Register-IOTCACertificate
 Set-Alias -Name IOT-RegisterCertificate -Value Register-IOTCertificate
 Set-Alias -Name IOT-RejectCertificateTransfer -Value Deny-IOTCertificateTransfer
 Set-Alias -Name IOT-ReplaceTopicRule -Value Set-IOTTopicRule
@@ -1980,6 +1984,7 @@ Set-Alias -Name IOT-GetTopicRule -Value Get-IOTTopicRule
 Set-Alias -Name IOT-ListCACertificates -Value Get-IOTCACertificateList
 Set-Alias -Name IOT-ListCertificates -Value Get-IOTCertificateList
 Set-Alias -Name IOT-ListCertificatesByCA -Value Get-IOTCertificateListByCA
+Set-Alias -Name IOT-ListOutgoingCertificates -Value Get-IOTOutgoingCertificate
 Set-Alias -Name IOT-ListPolicies -Value Get-IOTPolicyList
 Set-Alias -Name IOT-ListPolicyPrincipals -Value Get-IOTPolicyPrincipalsList
 Set-Alias -Name IOT-ListPolicyVersions -Value Get-IOTPolicyVersionList
@@ -1989,7 +1994,6 @@ Set-Alias -Name IOT-ListThingPrincipals -Value Get-IOTThingPrincipalList
 Set-Alias -Name IOT-ListThings -Value Get-IOTThingList
 Set-Alias -Name IOT-ListThingTypes -Value Get-IOTThingTypesList
 Set-Alias -Name IOT-ListTopicRules -Value Get-IOTTopicRuleList
-Set-Alias -Name IOT-RegisterCACertificate -Value Register-IOTCACertificate
 Set-Alias -Name IOT-AcceptCertificateTransfer -Value Confirm-IOTCertificateTransfer
 Set-Alias -Name IOT-AttachPrincipalPolicy -Value Add-IOTPrincipalPolicy
 Set-Alias -Name IOT-AttachThingPrincipal -Value Add-IOTThingPrincipal
@@ -2626,11 +2630,13 @@ Set-Alias -Name R53D-EnableDomainAutoRenew -Value Enable-R53DDomainAutoRenew
 Set-Alias -Name R53D-EnableDomainTransferLock -Value Enable-R53DDomainTransferLock
 Set-Alias -Name R53D-GetContactReachabilityStatus -Value Get-R53DContactReachabilityStatus
 Set-Alias -Name R53D-GetDomainDetail -Value Get-R53DDomainDetail
+Set-Alias -Name R53D-GetDomainSuggestions -Value Get-R53DDomainSuggestion
 Set-Alias -Name R53D-GetOperationDetail -Value Get-R53DOperationDetail
 Set-Alias -Name R53D-ListDomains -Value Get-R53DDomains
 Set-Alias -Name R53D-ListOperations -Value Get-R53DOperations
 Set-Alias -Name R53D-ListTagsForDomain -Value Get-R53DTagsForDomain
 Set-Alias -Name R53D-RegisterDomain -Value Register-R53DDomain
+Set-Alias -Name R53D-RenewDomain -Value Update-R53DDomainRenewal
 Set-Alias -Name R53D-ResendContactReachabilityEmail -Value Send-R53DContactReachabilityEmail
 Set-Alias -Name R53D-RetrieveDomainAuthCode -Value Get-R53DDomainAuthCode
 Set-Alias -Name R53D-TransferDomain -Value Invoke-R53DDomainTransfer
@@ -2638,6 +2644,7 @@ Set-Alias -Name R53D-UpdateDomainContact -Value Update-R53DDomainContact
 Set-Alias -Name R53D-UpdateDomainContactPrivacy -Value Update-R53DDomainContactPrivacy
 Set-Alias -Name R53D-UpdateDomainNameservers -Value Update-R53DDomainNameservers
 Set-Alias -Name R53D-UpdateTagsForDomain -Value Update-R53DTagsForDomain
+Set-Alias -Name R53D-ViewBilling -Value Get-R53DBillingRecord
 Set-Alias -Name Put-S3BucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name S3-PutBucketRequestPayment -Value Write-S3BucketRequestPayment
 Set-Alias -Name Put-S3BucketTagging -Value Write-S3BucketTagging

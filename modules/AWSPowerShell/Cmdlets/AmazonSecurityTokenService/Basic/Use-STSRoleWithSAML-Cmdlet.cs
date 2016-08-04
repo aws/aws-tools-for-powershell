@@ -57,12 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// to pass a policy, the temporary security credentials that are returned by the operation
     /// have the permissions that are defined in the access policy of the role that is being
     /// assumed. If you pass a policy to this operation, the temporary security credentials
-    /// that are returned by the operation have the permissions that are allowed by both the
-    /// access policy of the role that is being assumed, <i><b>and</b></i> the policy that
-    /// you pass. This gives you a way to further restrict the permissions for the resulting
-    /// temporary security credentials. You cannot use the passed policy to grant permissions
-    /// that are in excess of those allowed by the access policy of the role that is being
-    /// assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
+    /// that are returned by the operation have the permissions that are allowed by the intersection
+    /// of both the access policy of the role that is being assumed, <i><b>and</b></i> the
+    /// policy that you pass. This means that both policies must grant the permission for
+    /// the action to be allowed. This gives you a way to further restrict the permissions
+    /// for the resulting temporary security credentials. You cannot use the passed policy
+    /// to grant permissions that are in excess of those allowed by the access policy of the
+    /// role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
     /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>IAM
     /// User Guide</i>.
     /// </para><para>
@@ -108,8 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <para>The duration, in seconds, of the role session. The value can range from 900 seconds
         /// (15 minutes) to 3600 seconds (1 hour). By default, the value is set to 3600 seconds.
         /// An expiration can also be specified in the SAML authentication response's <code>SessionNotOnOrAfter</code>
-        /// value. The actual expiration time is whichever value is shorter. </para><note><para>The maximum duration for a session is 1 hour, and the minimum duration is 15 minutes,
-        /// even if values outside this range are specified.</para></note>
+        /// value. The actual expiration time is whichever value is shorter. </para><note><para>This is separate from the duration of a console session that you might request using
+        /// the returned credentials. The request to the federation endpoint for a console sign-in
+        /// token takes a <code>SessionDuration</code> parameter that specifies the maximum length
+        /// of the console session, separately from the <code>DurationSeconds</code> parameter
+        /// on this API. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling
+        /// SAML 2.0 Federated Users to Access the AWS Management Console</a> in the <i>IAM User
+        /// Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

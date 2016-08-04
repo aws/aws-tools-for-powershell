@@ -28,18 +28,38 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation disables automatic renewal of domain registration for the specified
-    /// domain.
+    /// This operation renews a domain for the specified number of years. The cost of renewing
+    /// your domain is billed to your AWS account.
+    /// 
+    ///  
+    /// <para>
+    /// We recommend that you renew your domain several weeks before the expiration date.
+    /// Some TLD registries delete domains before the expiration date if you haven't renewed
+    /// far enough in advance. For more information about renewing domain registration, see
+    /// <a href="http://docs.aws.amazon.com/console/route53/domain-renew">Renewing Registration
+    /// for a Domain</a> in the Amazon Route 53 documentation.
+    /// </para>
     /// </summary>
-    [Cmdlet("Disable", "R53DDomainAutoRenew", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisableDomainAutoRenew operation against Amazon Route 53 Domains.", Operation = new[] {"DisableDomainAutoRenew"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "R53DDomainRenewal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the RenewDomain operation against Amazon Route 53 Domains.", Operation = new[] {"RenewDomain"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.Route53Domains.Model.RenewDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DisableR53DDomainAutoRenewCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public class UpdateR53DDomainRenewalCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter CurrentExpiryYear
+        /// <summary>
+        /// <para>
+        /// <para>The year when the registration for the domain is set to expire. This value must match
+        /// the current expiration date for the domain.</para><para>Type: Integer</para><para>Default: None</para><para>Valid values: Integer</para><para>Required: Yes</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 CurrentExpiryYear { get; set; }
+        #endregion
         
         #region Parameter DomainName
         /// <summary>
@@ -51,13 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String DomainName { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter DurationInYear
         /// <summary>
-        /// Returns the value passed to the DomainName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The number of years that you want to renew the domain for. The maximum number of years
+        /// depends on the top-level domain. For the range of valid values for your domain, see
+        /// <a href="http://docs.aws.amazon.com/console/route53/domain-tld-list">Domains that
+        /// You Can Register with Amazon Route 53</a> in the Amazon Route 53 documentation.</para><para>Type: Integer</para><para>Default: 1</para><para>Valid values: Integer from 1 to 10</para><para>Required: No</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("DurationInYears")]
+        public System.Int32 DurationInYear { get; set; }
         #endregion
         
         #region Parameter Force
@@ -75,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DomainName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-R53DDomainAutoRenew (DisableDomainAutoRenew)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-R53DDomainRenewal (RenewDomain)"))
             {
                 return;
             }
@@ -86,7 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("CurrentExpiryYear"))
+                context.CurrentExpiryYear = this.CurrentExpiryYear;
             context.DomainName = this.DomainName;
+            if (ParameterWasBound("DurationInYear"))
+                context.DurationInYears = this.DurationInYear;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -98,11 +127,19 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.DisableDomainAutoRenewRequest();
+            var request = new Amazon.Route53Domains.Model.RenewDomainRequest();
             
+            if (cmdletContext.CurrentExpiryYear != null)
+            {
+                request.CurrentExpiryYear = cmdletContext.CurrentExpiryYear.Value;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.DurationInYears != null)
+            {
+                request.DurationInYears = cmdletContext.DurationInYears.Value;
             }
             
             CmdletOutput output;
@@ -113,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.DomainName;
+                object pipelineOutput = response.OperationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -140,16 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.DisableDomainAutoRenewRequest request)
+        private static Amazon.Route53Domains.Model.RenewDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.RenewDomainRequest request)
         {
-            return client.DisableDomainAutoRenew(request);
+            return client.RenewDomain(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Int32? CurrentExpiryYear { get; set; }
             public System.String DomainName { get; set; }
+            public System.Int32? DurationInYears { get; set; }
         }
         
     }

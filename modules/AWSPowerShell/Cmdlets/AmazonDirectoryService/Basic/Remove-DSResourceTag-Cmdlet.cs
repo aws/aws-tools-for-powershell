@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the directory from which to remove the tag.</para>
+        /// <para>Identifier (ID) of the directory from which to remove the tag.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

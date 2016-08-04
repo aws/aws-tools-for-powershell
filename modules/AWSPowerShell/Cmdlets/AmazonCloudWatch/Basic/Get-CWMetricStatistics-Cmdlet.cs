@@ -28,7 +28,7 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Gets statistics for the specified metric. 
+    /// Gets statistics for the specified metric.
     /// 
     ///  
     /// <para>
@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// number of data points returned from a single <code>GetMetricStatistics</code> request
     /// is 1,440. If you make a request that generates more than 1,440 data points, Amazon
     /// CloudWatch returns an error. In such a case, you can alter the request by narrowing
-    /// the specified time range or increasing the specified period. Alternatively, you can
-    /// make multiple requests across adjacent time ranges. <code>GetMetricStatistics</code>
+    /// the specified time range or increasing the specified period. A period can be as short
+    /// as one minute (60 seconds) or as long as one day (86,400 seconds). Alternatively,
+    /// you can make multiple requests across adjacent time ranges. <code>GetMetricStatistics</code>
     /// does not return the data in chronological order. 
     /// </para><para>
     ///  Amazon CloudWatch aggregates data points based on the length of the <code>period</code>
@@ -49,9 +50,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
     ///  The following examples show various statistics allowed by the data point query maximum
     /// of 50,850 when you call <code>GetMetricStatistics</code> on Amazon EC2 instances with
     /// detailed (one-minute) monitoring enabled: 
-    /// </para><ul><li>Statistics for up to 400 instances for a span of one hour</li><li>Statistics
-    /// for up to 35 instances over a span of 24 hours</li><li>Statistics for up to 2 instances
-    /// over a span of 2 weeks</li></ul><para>
+    /// </para><ul><li><para>
+    /// Statistics for up to 400 instances for a span of one hour
+    /// </para></li><li><para>
+    /// Statistics for up to 35 instances over a span of 24 hours
+    /// </para></li><li><para>
+    /// Statistics for up to 2 instances over a span of 2 weeks
+    /// </para></li></ul><para>
     ///  For information about the namespace, metric names, and dimensions that other Amazon
     /// Web Services products use to send metrics to CloudWatch, go to <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html">Amazon
     /// CloudWatch Metrics, Namespaces, and Dimensions Reference</a> in the <i>Amazon CloudWatch
@@ -70,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para> A list of dimensions describing qualities of the metric. </para>
+        /// <para>A list of dimensions describing qualities of the metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -81,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para> The time stamp to use for determining the last datapoint to return. The value specified
+        /// <para>The time stamp to use for determining the last datapoint to return. The value specified
         /// is exclusive; results will include datapoints up to the time stamp specified. The
-        /// time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </para>
+        /// time stamp must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para> The name of the metric, with or without spaces. </para>
+        /// <para>The name of the metric, with or without spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -103,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para> The namespace of the metric, with or without spaces. </para>
+        /// <para>The namespace of the metric, with or without spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -113,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para> The granularity, in seconds, of the returned datapoints. <code>Period</code> must
-        /// be at least 60 seconds and must be a multiple of 60. The default value is 60. </para>
+        /// <para> The granularity, in seconds, of the returned datapoints. A <code>Period</code> can
+        /// be as short as one minute (60 seconds) or as long as one day (86,400 seconds), and
+        /// must be a multiple of 60. The default value is 60. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -124,13 +130,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para> The time stamp to use for determining the first datapoint to return. The value specified
+        /// <para>The time stamp to use for determining the first datapoint to return. The value specified
         /// is inclusive; results include datapoints with the time stamp specified. The time stamp
-        /// must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z). </para><note> The specified start time is rounded down to the nearest value. Datapoints
-        /// are returned for start times up to two weeks in the past. Specified start times that
-        /// are more than two weeks in the past will not return datapoints for metrics that are
-        /// older than two weeks. 
-        /// <para>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours
+        /// must be in ISO 8601 UTC format (e.g., 2014-09-03T23:00:00Z).</para><note><para>The specified start time is rounded down to the nearest value. Datapoints are returned
+        /// for start times up to two weeks in the past. Specified start times that are more than
+        /// two weeks in the past will not return datapoints for metrics that are older than two
+        /// weeks.</para><para>Data that is timestamped 24 hours or more in the past may take in excess of 48 hours
         /// to become available from submission time using <code>GetMetricStatistics</code>.</para></note>
         /// </para>
         /// </summary>
@@ -154,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Unit
         /// <summary>
         /// <para>
-        /// <para> The unit for the metric. </para>
+        /// <para>The specific unit for a given metric. Metrics may be reported in multiple units. Not
+        /// supplying a unit results in all units being returned. If the metric only ever reports
+        /// one unit, specifying a unit will have no effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
