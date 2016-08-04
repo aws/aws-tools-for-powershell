@@ -60,6 +60,38 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String ClientName { get; set; }
         #endregion
         
+        #region Parameter ExplicitAuthFlow
+        /// <summary>
+        /// <para>
+        /// <para>Explicit authentication flows.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ExplicitAuthFlows")]
+        public System.String[] ExplicitAuthFlow { get; set; }
+        #endregion
+        
+        #region Parameter ReadAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The read-only attributes of the user pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ReadAttributes")]
+        public System.String[] ReadAttribute { get; set; }
+        #endregion
+        
+        #region Parameter RefreshTokenValidity
+        /// <summary>
+        /// <para>
+        /// <para>The validity of the refresh token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 RefreshTokenValidity { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -68,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserPoolId { get; set; }
+        #endregion
+        
+        #region Parameter WriteAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The writeable attributes of the user pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteAttributes")]
+        public System.String[] WriteAttribute { get; set; }
         #endregion
         
         #region Parameter Force
@@ -98,7 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             
             context.ClientId = this.ClientId;
             context.ClientName = this.ClientName;
+            if (this.ExplicitAuthFlow != null)
+            {
+                context.ExplicitAuthFlows = new List<System.String>(this.ExplicitAuthFlow);
+            }
+            if (this.ReadAttribute != null)
+            {
+                context.ReadAttributes = new List<System.String>(this.ReadAttribute);
+            }
+            if (ParameterWasBound("RefreshTokenValidity"))
+                context.RefreshTokenValidity = this.RefreshTokenValidity;
             context.UserPoolId = this.UserPoolId;
+            if (this.WriteAttribute != null)
+            {
+                context.WriteAttributes = new List<System.String>(this.WriteAttribute);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -120,9 +177,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.ClientName = cmdletContext.ClientName;
             }
+            if (cmdletContext.ExplicitAuthFlows != null)
+            {
+                request.ExplicitAuthFlows = cmdletContext.ExplicitAuthFlows;
+            }
+            if (cmdletContext.ReadAttributes != null)
+            {
+                request.ReadAttributes = cmdletContext.ReadAttributes;
+            }
+            if (cmdletContext.RefreshTokenValidity != null)
+            {
+                request.RefreshTokenValidity = cmdletContext.RefreshTokenValidity.Value;
+            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            if (cmdletContext.WriteAttributes != null)
+            {
+                request.WriteAttributes = cmdletContext.WriteAttributes;
             }
             
             CmdletOutput output;
@@ -169,7 +242,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public System.String ClientId { get; set; }
             public System.String ClientName { get; set; }
+            public List<System.String> ExplicitAuthFlows { get; set; }
+            public List<System.String> ReadAttributes { get; set; }
+            public System.Int32? RefreshTokenValidity { get; set; }
             public System.String UserPoolId { get; set; }
+            public List<System.String> WriteAttributes { get; set; }
         }
         
     }

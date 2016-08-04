@@ -52,6 +52,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] AutoVerifiedAttribute { get; set; }
         #endregion
         
+        #region Parameter DeviceConfiguration_ChallengeRequiredOnNewDevice
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a challenge is required on a new device. Only applicable to a new
+        /// device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
+        #endregion
+        
+        #region Parameter LambdaConfig_CreateAuthChallenge
+        /// <summary>
+        /// <para>
+        /// <para>Creates an authentication challenge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LambdaConfig_CreateAuthChallenge { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig_CustomMessage
         /// <summary>
         /// <para>
@@ -60,6 +81,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LambdaConfig_CustomMessage { get; set; }
+        #endregion
+        
+        #region Parameter LambdaConfig_DefineAuthChallenge
+        /// <summary>
+        /// <para>
+        /// <para>Defines the authentication challenge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LambdaConfig_DefineAuthChallenge { get; set; }
+        #endregion
+        
+        #region Parameter DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt
+        /// <summary>
+        /// <para>
+        /// <para>If true, a device is only remembered on user prompt.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }
         #endregion
         
         #region Parameter EmailVerificationMessage
@@ -80,6 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EmailVerificationSubject { get; set; }
+        #endregion
+        
+        #region Parameter SmsConfiguration_ExternalId
+        /// <summary>
+        /// <para>
+        /// <para>The external ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SmsConfiguration_ExternalId { get; set; }
         #endregion
         
         #region Parameter MfaConfiguration
@@ -146,6 +197,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LambdaConfig_PreSignUp { get; set; }
+        #endregion
+        
+        #region Parameter EmailConfiguration_ReplyToEmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The REPLY-TO email address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EmailConfiguration_ReplyToEmailAddress { get; set; }
         #endregion
         
         #region Parameter PasswordPolicy_RequireLowercase
@@ -216,6 +277,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String SmsVerificationMessage { get; set; }
         #endregion
         
+        #region Parameter SmsConfiguration_SnsCallerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SmsConfiguration_SnsCallerArn { get; set; }
+        #endregion
+        
+        #region Parameter EmailConfiguration_SourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the email source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EmailConfiguration_SourceArn { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -224,6 +305,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserPoolId { get; set; }
+        #endregion
+        
+        #region Parameter LambdaConfig_VerifyAuthChallengeResponse
+        /// <summary>
+        /// <para>
+        /// <para>Verifies the authentication challenge response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LambdaConfig_VerifyAuthChallengeResponse { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -265,13 +356,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AutoVerifiedAttributes = new List<System.String>(this.AutoVerifiedAttribute);
             }
+            if (ParameterWasBound("DeviceConfiguration_ChallengeRequiredOnNewDevice"))
+                context.DeviceConfiguration_ChallengeRequiredOnNewDevice = this.DeviceConfiguration_ChallengeRequiredOnNewDevice;
+            if (ParameterWasBound("DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt"))
+                context.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt = this.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt;
+            context.EmailConfiguration_ReplyToEmailAddress = this.EmailConfiguration_ReplyToEmailAddress;
+            context.EmailConfiguration_SourceArn = this.EmailConfiguration_SourceArn;
             context.EmailVerificationMessage = this.EmailVerificationMessage;
             context.EmailVerificationSubject = this.EmailVerificationSubject;
+            context.LambdaConfig_CreateAuthChallenge = this.LambdaConfig_CreateAuthChallenge;
             context.LambdaConfig_CustomMessage = this.LambdaConfig_CustomMessage;
+            context.LambdaConfig_DefineAuthChallenge = this.LambdaConfig_DefineAuthChallenge;
             context.LambdaConfig_PostAuthentication = this.LambdaConfig_PostAuthentication;
             context.LambdaConfig_PostConfirmation = this.LambdaConfig_PostConfirmation;
             context.LambdaConfig_PreAuthentication = this.LambdaConfig_PreAuthentication;
             context.LambdaConfig_PreSignUp = this.LambdaConfig_PreSignUp;
+            context.LambdaConfig_VerifyAuthChallengeResponse = this.LambdaConfig_VerifyAuthChallengeResponse;
             context.MfaConfiguration = this.MfaConfiguration;
             if (ParameterWasBound("PasswordPolicy_MinimumLength"))
                 context.Policies_PasswordPolicy_MinimumLength = this.PasswordPolicy_MinimumLength;
@@ -284,6 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (ParameterWasBound("PasswordPolicy_RequireUppercase"))
                 context.Policies_PasswordPolicy_RequireUppercase = this.PasswordPolicy_RequireUppercase;
             context.SmsAuthenticationMessage = this.SmsAuthenticationMessage;
+            context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
+            context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
             context.SmsVerificationMessage = this.SmsVerificationMessage;
             context.UserPoolId = this.UserPoolId;
             
@@ -303,6 +405,64 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.AutoVerifiedAttributes = cmdletContext.AutoVerifiedAttributes;
             }
+            
+             // populate DeviceConfiguration
+            bool requestDeviceConfigurationIsNull = true;
+            request.DeviceConfiguration = new Amazon.CognitoIdentityProvider.Model.DeviceConfigurationType();
+            System.Boolean? requestDeviceConfiguration_deviceConfiguration_ChallengeRequiredOnNewDevice = null;
+            if (cmdletContext.DeviceConfiguration_ChallengeRequiredOnNewDevice != null)
+            {
+                requestDeviceConfiguration_deviceConfiguration_ChallengeRequiredOnNewDevice = cmdletContext.DeviceConfiguration_ChallengeRequiredOnNewDevice.Value;
+            }
+            if (requestDeviceConfiguration_deviceConfiguration_ChallengeRequiredOnNewDevice != null)
+            {
+                request.DeviceConfiguration.ChallengeRequiredOnNewDevice = requestDeviceConfiguration_deviceConfiguration_ChallengeRequiredOnNewDevice.Value;
+                requestDeviceConfigurationIsNull = false;
+            }
+            System.Boolean? requestDeviceConfiguration_deviceConfiguration_DeviceOnlyRememberedOnUserPrompt = null;
+            if (cmdletContext.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt != null)
+            {
+                requestDeviceConfiguration_deviceConfiguration_DeviceOnlyRememberedOnUserPrompt = cmdletContext.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt.Value;
+            }
+            if (requestDeviceConfiguration_deviceConfiguration_DeviceOnlyRememberedOnUserPrompt != null)
+            {
+                request.DeviceConfiguration.DeviceOnlyRememberedOnUserPrompt = requestDeviceConfiguration_deviceConfiguration_DeviceOnlyRememberedOnUserPrompt.Value;
+                requestDeviceConfigurationIsNull = false;
+            }
+             // determine if request.DeviceConfiguration should be set to null
+            if (requestDeviceConfigurationIsNull)
+            {
+                request.DeviceConfiguration = null;
+            }
+            
+             // populate EmailConfiguration
+            bool requestEmailConfigurationIsNull = true;
+            request.EmailConfiguration = new Amazon.CognitoIdentityProvider.Model.EmailConfigurationType();
+            System.String requestEmailConfiguration_emailConfiguration_ReplyToEmailAddress = null;
+            if (cmdletContext.EmailConfiguration_ReplyToEmailAddress != null)
+            {
+                requestEmailConfiguration_emailConfiguration_ReplyToEmailAddress = cmdletContext.EmailConfiguration_ReplyToEmailAddress;
+            }
+            if (requestEmailConfiguration_emailConfiguration_ReplyToEmailAddress != null)
+            {
+                request.EmailConfiguration.ReplyToEmailAddress = requestEmailConfiguration_emailConfiguration_ReplyToEmailAddress;
+                requestEmailConfigurationIsNull = false;
+            }
+            System.String requestEmailConfiguration_emailConfiguration_SourceArn = null;
+            if (cmdletContext.EmailConfiguration_SourceArn != null)
+            {
+                requestEmailConfiguration_emailConfiguration_SourceArn = cmdletContext.EmailConfiguration_SourceArn;
+            }
+            if (requestEmailConfiguration_emailConfiguration_SourceArn != null)
+            {
+                request.EmailConfiguration.SourceArn = requestEmailConfiguration_emailConfiguration_SourceArn;
+                requestEmailConfigurationIsNull = false;
+            }
+             // determine if request.EmailConfiguration should be set to null
+            if (requestEmailConfigurationIsNull)
+            {
+                request.EmailConfiguration = null;
+            }
             if (cmdletContext.EmailVerificationMessage != null)
             {
                 request.EmailVerificationMessage = cmdletContext.EmailVerificationMessage;
@@ -315,6 +475,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
              // populate LambdaConfig
             bool requestLambdaConfigIsNull = true;
             request.LambdaConfig = new Amazon.CognitoIdentityProvider.Model.LambdaConfigType();
+            System.String requestLambdaConfig_lambdaConfig_CreateAuthChallenge = null;
+            if (cmdletContext.LambdaConfig_CreateAuthChallenge != null)
+            {
+                requestLambdaConfig_lambdaConfig_CreateAuthChallenge = cmdletContext.LambdaConfig_CreateAuthChallenge;
+            }
+            if (requestLambdaConfig_lambdaConfig_CreateAuthChallenge != null)
+            {
+                request.LambdaConfig.CreateAuthChallenge = requestLambdaConfig_lambdaConfig_CreateAuthChallenge;
+                requestLambdaConfigIsNull = false;
+            }
             System.String requestLambdaConfig_lambdaConfig_CustomMessage = null;
             if (cmdletContext.LambdaConfig_CustomMessage != null)
             {
@@ -323,6 +493,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestLambdaConfig_lambdaConfig_CustomMessage != null)
             {
                 request.LambdaConfig.CustomMessage = requestLambdaConfig_lambdaConfig_CustomMessage;
+                requestLambdaConfigIsNull = false;
+            }
+            System.String requestLambdaConfig_lambdaConfig_DefineAuthChallenge = null;
+            if (cmdletContext.LambdaConfig_DefineAuthChallenge != null)
+            {
+                requestLambdaConfig_lambdaConfig_DefineAuthChallenge = cmdletContext.LambdaConfig_DefineAuthChallenge;
+            }
+            if (requestLambdaConfig_lambdaConfig_DefineAuthChallenge != null)
+            {
+                request.LambdaConfig.DefineAuthChallenge = requestLambdaConfig_lambdaConfig_DefineAuthChallenge;
                 requestLambdaConfigIsNull = false;
             }
             System.String requestLambdaConfig_lambdaConfig_PostAuthentication = null;
@@ -363,6 +543,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestLambdaConfig_lambdaConfig_PreSignUp != null)
             {
                 request.LambdaConfig.PreSignUp = requestLambdaConfig_lambdaConfig_PreSignUp;
+                requestLambdaConfigIsNull = false;
+            }
+            System.String requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse = null;
+            if (cmdletContext.LambdaConfig_VerifyAuthChallengeResponse != null)
+            {
+                requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse = cmdletContext.LambdaConfig_VerifyAuthChallengeResponse;
+            }
+            if (requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse != null)
+            {
+                request.LambdaConfig.VerifyAuthChallengeResponse = requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse;
                 requestLambdaConfigIsNull = false;
             }
              // determine if request.LambdaConfig should be set to null
@@ -452,6 +642,35 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.SmsAuthenticationMessage = cmdletContext.SmsAuthenticationMessage;
             }
+            
+             // populate SmsConfiguration
+            bool requestSmsConfigurationIsNull = true;
+            request.SmsConfiguration = new Amazon.CognitoIdentityProvider.Model.SmsConfigurationType();
+            System.String requestSmsConfiguration_smsConfiguration_ExternalId = null;
+            if (cmdletContext.SmsConfiguration_ExternalId != null)
+            {
+                requestSmsConfiguration_smsConfiguration_ExternalId = cmdletContext.SmsConfiguration_ExternalId;
+            }
+            if (requestSmsConfiguration_smsConfiguration_ExternalId != null)
+            {
+                request.SmsConfiguration.ExternalId = requestSmsConfiguration_smsConfiguration_ExternalId;
+                requestSmsConfigurationIsNull = false;
+            }
+            System.String requestSmsConfiguration_smsConfiguration_SnsCallerArn = null;
+            if (cmdletContext.SmsConfiguration_SnsCallerArn != null)
+            {
+                requestSmsConfiguration_smsConfiguration_SnsCallerArn = cmdletContext.SmsConfiguration_SnsCallerArn;
+            }
+            if (requestSmsConfiguration_smsConfiguration_SnsCallerArn != null)
+            {
+                request.SmsConfiguration.SnsCallerArn = requestSmsConfiguration_smsConfiguration_SnsCallerArn;
+                requestSmsConfigurationIsNull = false;
+            }
+             // determine if request.SmsConfiguration should be set to null
+            if (requestSmsConfigurationIsNull)
+            {
+                request.SmsConfiguration = null;
+            }
             if (cmdletContext.SmsVerificationMessage != null)
             {
                 request.SmsVerificationMessage = cmdletContext.SmsVerificationMessage;
@@ -506,13 +725,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> AutoVerifiedAttributes { get; set; }
+            public System.Boolean? DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
+            public System.Boolean? DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }
+            public System.String EmailConfiguration_ReplyToEmailAddress { get; set; }
+            public System.String EmailConfiguration_SourceArn { get; set; }
             public System.String EmailVerificationMessage { get; set; }
             public System.String EmailVerificationSubject { get; set; }
+            public System.String LambdaConfig_CreateAuthChallenge { get; set; }
             public System.String LambdaConfig_CustomMessage { get; set; }
+            public System.String LambdaConfig_DefineAuthChallenge { get; set; }
             public System.String LambdaConfig_PostAuthentication { get; set; }
             public System.String LambdaConfig_PostConfirmation { get; set; }
             public System.String LambdaConfig_PreAuthentication { get; set; }
             public System.String LambdaConfig_PreSignUp { get; set; }
+            public System.String LambdaConfig_VerifyAuthChallengeResponse { get; set; }
             public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }
             public System.Int32? Policies_PasswordPolicy_MinimumLength { get; set; }
             public System.Boolean? Policies_PasswordPolicy_RequireLowercase { get; set; }
@@ -520,6 +746,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Boolean? Policies_PasswordPolicy_RequireSymbols { get; set; }
             public System.Boolean? Policies_PasswordPolicy_RequireUppercase { get; set; }
             public System.String SmsAuthenticationMessage { get; set; }
+            public System.String SmsConfiguration_ExternalId { get; set; }
+            public System.String SmsConfiguration_SnsCallerArn { get; set; }
             public System.String SmsVerificationMessage { get; set; }
             public System.String UserPoolId { get; set; }
         }

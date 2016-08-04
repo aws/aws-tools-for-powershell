@@ -28,53 +28,43 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the users in the Amazon Cognito user pool.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists devices, as an administrator.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "CGIPUserList")]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.UserType")]
-    [AWSCmdlet("Invokes the ListUsers operation against Amazon Cognito Identity Provider.", Operation = new[] {"ListUsers"})]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserType",
-        "This cmdlet returns a collection of UserType objects.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CGIPDeviceListAdmin")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.DeviceType")]
+    [AWSCmdlet("Invokes the AdminListDevices operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminListDevices"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.DeviceType",
+        "This cmdlet returns a collection of DeviceType objects.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminListDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: PaginationToken (type System.String)"
     )]
-    public class GetCGIPUserListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public class GetCGIPDeviceListAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter AttributesToGet
+        #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The attributes to get from the request to list users.</para>
+        /// <para>The user name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String[] AttributesToGet { get; set; }
-        #endregion
-        
-        #region Parameter Filter
-        /// <summary>
-        /// <para>
-        /// <para>The filter for the list users request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Filter { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Username { get; set; }
         #endregion
         
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for which you want to list users.</para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The limit of the request to list users.</para>
+        /// <para>The limit of the devices request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PaginationToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous call to this operation, which can
-        /// be used to return the next set of items in the list.</para>
+        /// <para>The pagination token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,14 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.AttributesToGet != null)
-            {
-                context.AttributesToGet = new List<System.String>(this.AttributesToGet);
-            }
-            context.Filter = this.Filter;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.PaginationToken = this.PaginationToken;
+            context.Username = this.Username;
             context.UserPoolId = this.UserPoolId;
             
             var output = Execute(context) as CmdletOutput;
@@ -125,14 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CognitoIdentityProvider.Model.ListUsersRequest();
-            if (cmdletContext.AttributesToGet != null)
+            var request = new Amazon.CognitoIdentityProvider.Model.AdminListDevicesRequest();
+            if (cmdletContext.Username != null)
             {
-                request.AttributesToGet = cmdletContext.AttributesToGet;
-            }
-            if (cmdletContext.Filter != null)
-            {
-                request.Filter = cmdletContext.Filter;
+                request.Username = cmdletContext.Username;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -193,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Users;
+                        object pipelineOutput = response.Devices;
                         notes = new Dictionary<string, object>();
                         notes["PaginationToken"] = response.PaginationToken;
                         output = new CmdletOutput
@@ -202,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Users.Count;
+                        int _receivedThisCall = response.Devices.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PaginationToken));
@@ -254,19 +235,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.ListUsersResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListUsersRequest request)
+        private static Amazon.CognitoIdentityProvider.Model.AdminListDevicesResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminListDevicesRequest request)
         {
-            return client.ListUsers(request);
+            return client.AdminListDevices(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> AttributesToGet { get; set; }
-            public System.String Filter { get; set; }
             public int? Limit { get; set; }
             public System.String PaginationToken { get; set; }
+            public System.String Username { get; set; }
             public System.String UserPoolId { get; set; }
         }
         
