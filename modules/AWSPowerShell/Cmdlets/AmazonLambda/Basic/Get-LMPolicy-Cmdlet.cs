@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Function name whose resource policy you want to retrieve. </para><para> You can specify the function name (for example, <code>Thumbnail</code>) or you can
+        /// <para>Function name whose resource policy you want to retrieve.</para><para> You can specify the function name (for example, <code>Thumbnail</code>) or you can
         /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
         /// If you are using versioning, you can also provide a qualified function ARN (ARN that
         /// is qualified with function version or alias name as suffix). AWS Lambda also allows
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>You can specify this optional query parameter to specify a function version or an
         /// alias name in which case this API will return all permissions associated with the
         /// specific qualified ARN. If you don't provide this parameter, the API will return permissions
-        /// that apply to the unqualified function ARN. </para>
+        /// that apply to the unqualified function ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

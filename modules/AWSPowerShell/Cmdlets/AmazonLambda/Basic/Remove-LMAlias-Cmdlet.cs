@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The Lambda function name for which the alias is created. Deleting an alias does not
-        /// delete the function version to which it is pointing. </para>
+        /// delete the function version to which it is pointing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

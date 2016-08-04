@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Kinesis stream.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

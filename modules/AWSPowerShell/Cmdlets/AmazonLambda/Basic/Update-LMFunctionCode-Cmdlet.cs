@@ -31,7 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Updates the code for the specified Lambda function. This operation must only be used
     /// on an existing Lambda function and cannot be used to update the function configuration.
     /// 
-    /// 
     ///  
     /// <para>
     /// If you are using the versioning feature, note this API will always update the $LATEST
@@ -70,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>This boolean parameter can be used to request AWS Lambda to update the Lambda function
-        /// and publish a version as an atomic operation. </para>
+        /// and publish a version as an atomic operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter S3Key
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 object (the deployment package) key name you want to upload. </para>
+        /// <para>The Amazon S3 object (the deployment package) key name you want to upload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,7 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ZipFile
         /// <summary>
         /// <para>
-        /// <para>Based64-encoded .zip file containing your packaged source code.</para>
+        /// <para>The contents of your zip file containing your deployment package. If you are using
+        /// the web API directly, the contents of the zip file must be base64-encoded. If you
+        /// are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you.
+        /// For more information about creating a .zip file, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution
+        /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

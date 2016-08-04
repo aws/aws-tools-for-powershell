@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para> Optional integer. Specifies the maximum number of AWS Lambda function versions to
-        /// return in response. This parameter value must be greater than 0. </para>
+        /// <para>Optional integer. Specifies the maximum number of AWS Lambda function versions to
+        /// return in response. This parameter value must be greater than 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
