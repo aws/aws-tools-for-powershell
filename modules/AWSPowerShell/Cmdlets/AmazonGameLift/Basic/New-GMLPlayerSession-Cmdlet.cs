@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Adds a group of players to a game session. Similar to <a>CreatePlayerSession</a>,
     /// this action allows you to add multiple players in a single call, which is useful for
     /// games that provide party and/or matchmaking features. A game session must be in an
-    /// <code>ACTIVE</code> state, have a creation policy of <code>ALLOW_ALL</code>, and have
-    /// an open player slot before players can be added to the session.
+    /// <code>ACTIVE</code> status, have a creation policy of <code>ALLOW_ALL</code>, and
+    /// have an open player slot before players can be added to the session.
     /// 
     ///  
     /// <para>

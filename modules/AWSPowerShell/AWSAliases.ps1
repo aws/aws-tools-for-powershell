@@ -1642,6 +1642,7 @@ Set-Alias -Name Put-GMLScalingPolicy -Value Write-GMLScalingPolicy
 Set-Alias -Name GML-PutScalingPolicy -Value Write-GMLScalingPolicy
 Set-Alias -Name GML-RequestUploadCredentials -Value Request-GMLUploadCredential
 Set-Alias -Name GML-ResolveAlias -Value Resolve-GMLAlias
+Set-Alias -Name GML-SearchGameSessions -Value Find-GMLGameSession
 Set-Alias -Name GML-UpdateAlias -Value Update-GMLAlias
 Set-Alias -Name GML-UpdateBuild -Value Update-GMLBuild
 Set-Alias -Name GML-UpdateFleetAttributes -Value Update-GMLFleetAttribute

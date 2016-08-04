@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Initializes a new build record and generates information required to upload a game
-    /// build to Amazon GameLift. Once the build record has been created and is in an <code>INITIALIZED</code>
-    /// state, you can upload your game build.
+    /// build to Amazon GameLift. Once the build record has been created and its status is
+    /// <code>INITIALIZED</code>, you can upload your game build.
     /// 
     ///  <important><para>
     /// Do not use this API action unless you are using your own Amazon Simple Storage Service

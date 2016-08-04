@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Most recent date to retrieve event logs for. If no end time is specified, this call
-        /// returns entries from the specified start time up to the present. Format is an integer
-        /// representing the number of seconds since the Unix epoch (Unix time).</para>
+        /// returns entries from the specified start time up to the present. Format is a number
+        /// expressed in Unix time as milliseconds (ex: "1469498468.057".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Earliest date to retrieve event logs for. If no start time is specified, this call
         /// returns entries starting from when the fleet was created to the specified end time.
-        /// Format is an integer representing the number of seconds since the Unix epoch (Unix
-        /// time).</para>
+        /// Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

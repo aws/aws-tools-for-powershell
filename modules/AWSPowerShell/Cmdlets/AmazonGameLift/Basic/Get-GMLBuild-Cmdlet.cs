@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves build records for all builds associated with the AWS account in use. You
-    /// can limit results to builds in a specific state using the <code>Status</code> parameter.
-    /// Use the pagination parameters to retrieve results in a set of sequential pages. 
+    /// can limit results to builds that are in a specific status by using the <code>Status</code>
+    /// parameter. Use the pagination parameters to retrieve results in a set of sequential
+    /// pages. 
     /// 
     ///  <note><para>
     /// Build records are not listed in any particular order.
@@ -50,13 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Build state to filter results by. To retrieve all builds, leave this parameter empty.
-        /// Possible build states include the following: <ul><li><b>INITIALIZED</b> – A new build
-        /// has been defined, but no files have been uploaded. You cannot create fleets for builds
-        /// that are in this state. When a build is successfully created, the build state is set
-        /// to this value. </li><li><b>READY</b> – The game build has been successfully uploaded.
-        /// You can now create new fleets for this build.</li><li><b>FAILED</b> – The game build
-        /// upload failed. You cannot create new fleets for this build. </li></ul></para>
+        /// <para>Build status to filter results by. To retrieve all builds, leave this parameter empty.</para><para>Possible build statuses include the following:</para><ul><li><b>INITIALIZED</b> – A new build has been defined, but no files have been
+        /// uploaded. You cannot create fleets for builds that are in this status. When a build
+        /// is successfully created, the build status is set to this value. </li><li><b>READY</b>
+        /// – The game build has been successfully uploaded. You can now create new fleets for
+        /// this build.</li><li><b>FAILED</b> – The game build upload failed. You cannot create
+        /// new fleets for this build. </li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
