@@ -28,32 +28,26 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new Amazon Aurora DB cluster.
-    /// 
-    ///  
-    /// <para>
-    /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-    /// cluster as a Read Replica of another DB cluster.
-    /// </para><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
-    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon
+    /// RDS must be authorized to access the Amazon S3 bucket and the data must be created
+    /// using the Percona XtraBackup utility as described in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Migrate.html">Migrating
+    /// Data from an External MySQL Database to an Amazon Aurora DB Cluster</a>.
     /// </summary>
-    [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Restore", "RDSDBClusterFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
-    [AWSCmdlet("Invokes the CreateDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBCluster"})]
+    [AWSCmdlet("Invokes the RestoreDBClusterFromS3 operation against Amazon Relational Database Service.", Operation = new[] {"RestoreDBClusterFromS3"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type Amazon.RDS.Model.CreateDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBClusterFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class RestoreRDSDBClusterFromS3Cmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-        /// For information on regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-        /// and Availability Zones</a>. </para>
+        /// <para>A list of EC2 Availability Zones that instances in the restored DB cluster can be
+        /// created in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days for which automated backups are retained. You must specify a minimum
-        /// value of 1.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35</para></li></ul>
+        /// <para>The number of days for which automated backups of the restored DB cluster are retained.
+        /// You must specify a minimum value of 1.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 1 to 35</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CharacterSetName
         /// <summary>
         /// <para>
-        /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// CharacterSet.</para>
+        /// <para>A value that indicates that the restored DB cluster should be associated with the
+        /// specified CharacterSet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name for your database of up to 8 alpha-numeric characters. If you do not provide
-        /// a name, Amazon RDS will not create a database in the DB cluster you are creating.</para>
+        /// <para>The database name for the restored DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// <para>The name of the DB cluster to create from the source data in the S3 bucket. This parameter
+        /// is isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -107,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
-        /// this argument is omitted, <code>default.aurora5.6</code> will be used. </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The name of the DB cluster parameter group to associate with the restored DB cluster.
+        /// If this argument is omitted, <code>default.aurora5.6</code> will be used. </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB cluster.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// <para>A DB subnet group to associate with the restored DB cluster.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -129,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code></para>
+        /// <para>The name of the database engine to be used for the restored DB cluster.</para><para>Valid Values: <code>aurora</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name of the master user for the DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name of the master user for the restored DB cluster.</para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -186,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// option group.</para><para>Permanent options cannot be removed from an option group. The option group cannot
-        /// be removed from a DB cluster once it is associated with a DB cluster.</para>
+        /// <para>A value that indicates that the restored DB cluster should be associated with the
+        /// specified option group.</para><para>Permanent options cannot be removed from an option group. An option group cannot be
+        /// removed from a DB cluster once it is associated with a DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <code>3306</code></para>
+        /// <para>The port number on which the instances in the restored DB cluster accept connections.</para><para> Default: <code>3306</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -231,21 +225,65 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
-        #region Parameter ReplicationSourceIdentifier
+        #region Parameter S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is created
-        /// as a Read Replica.</para>
+        /// <para>The name of the Amazon S3 bucket that contains the data used to create the Amazon
+        /// Aurora DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ReplicationSourceIdentifier { get; set; }
+        public System.String S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter S3IngestionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+        /// that authorizes Amazon RDS to access the Amazon S3 bucket on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String S3IngestionRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter S3Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The prefix for all of the file names that contain the data used to create the Amazon
+        /// Aurora DB cluster. If you do not specify a <b>SourceS3Prefix</b> value, then the Amazon
+        /// Aurora DB cluster is created by using all of the files in the Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String S3Prefix { get; set; }
+        #endregion
+        
+        #region Parameter SourceEngine
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the database engine that was backed up to create the files stored
+        /// in the Amazon S3 bucket. </para><para>Valid values: <code>mysql</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceEngine { get; set; }
+        #endregion
+        
+        #region Parameter SourceEngineVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL version 5.5 and 5.6 are supported. </para><para>Example: <code>5.6.22</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceEngineVersion { get; set; }
         #endregion
         
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the DB cluster is encrypted.</para>
+        /// <para>Specifies whether the restored DB cluster is encrypted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -266,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB cluster.</para>
+        /// <para>A list of EC2 VPC security groups to associate with the restored DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -289,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterIdentifier", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RDSDBCluster (CreateDBCluster)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-RDSDBClusterFromS3 (RestoreDBClusterFromS3)"))
             {
                 return;
             }
@@ -321,7 +359,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
-            context.ReplicationSourceIdentifier = this.ReplicationSourceIdentifier;
+            context.S3BucketName = this.S3BucketName;
+            context.S3IngestionRoleArn = this.S3IngestionRoleArn;
+            context.S3Prefix = this.S3Prefix;
+            context.SourceEngine = this.SourceEngine;
+            context.SourceEngineVersion = this.SourceEngineVersion;
             if (ParameterWasBound("StorageEncrypted"))
                 context.StorageEncrypted = this.StorageEncrypted;
             if (this.Tag != null)
@@ -343,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.CreateDBClusterRequest();
+            var request = new Amazon.RDS.Model.RestoreDBClusterFromS3Request();
             
             if (cmdletContext.AvailabilityZones != null)
             {
@@ -409,9 +451,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
             }
-            if (cmdletContext.ReplicationSourceIdentifier != null)
+            if (cmdletContext.S3BucketName != null)
             {
-                request.ReplicationSourceIdentifier = cmdletContext.ReplicationSourceIdentifier;
+                request.S3BucketName = cmdletContext.S3BucketName;
+            }
+            if (cmdletContext.S3IngestionRoleArn != null)
+            {
+                request.S3IngestionRoleArn = cmdletContext.S3IngestionRoleArn;
+            }
+            if (cmdletContext.S3Prefix != null)
+            {
+                request.S3Prefix = cmdletContext.S3Prefix;
+            }
+            if (cmdletContext.SourceEngine != null)
+            {
+                request.SourceEngine = cmdletContext.SourceEngine;
+            }
+            if (cmdletContext.SourceEngineVersion != null)
+            {
+                request.SourceEngineVersion = cmdletContext.SourceEngineVersion;
             }
             if (cmdletContext.StorageEncrypted != null)
             {
@@ -459,9 +517,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.CreateDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateDBClusterRequest request)
+        private static Amazon.RDS.Model.RestoreDBClusterFromS3Response CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RestoreDBClusterFromS3Request request)
         {
-            return client.CreateDBCluster(request);
+            return client.RestoreDBClusterFromS3(request);
         }
         
         #endregion
@@ -484,7 +542,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
-            public System.String ReplicationSourceIdentifier { get; set; }
+            public System.String S3BucketName { get; set; }
+            public System.String S3IngestionRoleArn { get; set; }
+            public System.String S3Prefix { get; set; }
+            public System.String SourceEngine { get; set; }
+            public System.String SourceEngineVersion { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
