@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] AttributesToGet { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filter for the list users request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Filter { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
@@ -59,20 +69,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserPoolId { get; set; }
-        #endregion
-        
-        #region Parameter UserStatus
-        /// <summary>
-        /// <para>
-        /// <para>The user status. Can be one of the following:</para><ul><li>UNCONFIRMED - User has been created but not confirmed.</li><li>CONFIRMED
-        /// - User has been confirmed.</li><li>ARCHIVED - User is no longer active.</li><li>COMPROMISED
-        /// - User is disabled due to a potential security threat.</li><li>UNKNOWN - User status
-        /// is not known.</li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.UserStatusType")]
-        public Amazon.CognitoIdentityProvider.UserStatusType UserStatus { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -112,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AttributesToGet = new List<System.String>(this.AttributesToGet);
             }
+            context.Filter = this.Filter;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.PaginationToken = this.PaginationToken;
             context.UserPoolId = this.UserPoolId;
-            context.UserStatus = this.UserStatus;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -134,13 +130,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.AttributesToGet = cmdletContext.AttributesToGet;
             }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
-            }
-            if (cmdletContext.UserStatus != null)
-            {
-                request.UserStatus = cmdletContext.UserStatus;
             }
             
             // Initialize loop variants and commence piping
@@ -268,10 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> AttributesToGet { get; set; }
+            public System.String Filter { get; set; }
             public int? Limit { get; set; }
             public System.String PaginationToken { get; set; }
             public System.String UserPoolId { get; set; }
-            public Amazon.CognitoIdentityProvider.UserStatusType UserStatus { get; set; }
         }
         
     }

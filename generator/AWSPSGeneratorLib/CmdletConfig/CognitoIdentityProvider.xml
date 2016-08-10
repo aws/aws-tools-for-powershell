@@ -36,13 +36,39 @@
     <ServiceOperation MethodName="AdminResetUserPassword" Output="Void" Verb="Reset" Noun="UserPasswordAdmin"/>
     <ServiceOperation MethodName="AdminSetUserSettings" Output="Void" Verb="Set" Noun="UserSettingAdmin"/>
     <ServiceOperation MethodName="AdminUpdateUserAttributes" Output="Void" Verb="Update" Noun="UserAttributeAdmin"/>
-    <ServiceOperation MethodName="CreateUserPool" />
+    <ServiceOperation MethodName="CreateUserPool" ShouldProcessTarget="PoolName"/>
     <ServiceOperation MethodName="CreateUserPoolClient" />
     <ServiceOperation MethodName="DeleteUserPool" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPoolClient" Output="Void" PipelineParameter="ClientId"/>
     <ServiceOperation MethodName="DescribeUserPool" />
     <ServiceOperation MethodName="DescribeUserPoolClient" />
     <ServiceOperation MethodName="ListUserPoolClients" Verb="Get" Noun="UserPoolClientList"/>
+    
+    <!-- see opening paragraphs of http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html 
+         as to why I chose 'stop-devicetracking' as a name for ForgetDevice. The pipeline parameters for these cmdlets have
+         been determined by inspecting the model for required parameters (in the complete absence of usable docs)
+    -->
+    <ServiceOperation MethodName="ForgetDevice" Verb="Stop" Noun="DeviceTracking" PipelineParameter="DeviceKey" Output="Void" />
+    <ServiceOperation MethodName="GetDevice" PipelineParameter="DeviceKey" />
+    <ServiceOperation MethodName="InitiateAuth" Verb="Start" Noun="Auth" PipelineParameter="ClientId" Output="Response" />
+    <!-- assuming page size here is same as other inconsistent paging apis in this service -->
+    <ServiceOperation MethodName="ListDevices" Verb="Get" Noun="DeviceList">
+      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
+    </ServiceOperation>
+    <ServiceOperation MethodName="UpdateDeviceStatus" Verb="Edit" Noun="DeviceStatus" PipelineParameter="DeviceKey" Output="Void" />
+    <ServiceOperation MethodName="AdminUpdateDeviceStatus" Verb="Edit" Noun="DeviceStatusAdmin" PipelineParameter="DeviceKey" Output="Void" />
+    <ServiceOperation MethodName="AdminForgetDevice" Verb="Stop" Noun="DeviceTrackingAdmin" PipelineParameter="DeviceKey" Output="Void"/>
+    <ServiceOperation MethodName="AdminGetDevice" Verb="Get" Noun="DeviceAdmin" PipelineParameter="DeviceKey" />
+    <ServiceOperation MethodName="AdminInitiateAuth" Verb="Start" Noun="AuthAdmin" PipelineParameter="ClientId" Output="Response" />
+    <ServiceOperation MethodName="AdminListDevices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username">
+      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ConfirmDevice" Verb="Approve" Noun="Device" PipelineParameter="DeviceKey" />
+    <ServiceOperation MethodName="GlobalSignOut" Verb="Disconnect" Noun="DeviceGlobal" Output="Void"/>
+    <ServiceOperation MethodName="AdminUserGlobalSignOut" Verb="Disconnect" Noun="UserGlobalAdmin" PipelineParameter="Username" Output="Void" />
+
+    <ServiceOperation MethodName="RespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponse" PipelineParameter="ClientId" Output="Response" />
+    <ServiceOperation MethodName="AdminRespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponseAdmin" PipelineParameter="ClientId" Output="Response" />
 
     <ServiceOperation MethodName="ListUsers" Verb="Get" Noun="UserList">
       <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>

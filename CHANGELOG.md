@@ -1,3 +1,11 @@
+### 3.1.90.0 (2016-08-04)
+  * Amazon Cognito Identity Provider
+    - Updates to enable authentication support for Cognito User Pools. This update also added a number of new cmdlets: Approve-CGIPDevice (ConfirmDevice API), Disconnect-CGIPDeviceGlobal (GlobalSignOut API), Disconnect-CGIPUserGlobalAdmin (AdminUserGlobalSignOut API), Edit-CGIPDeviceStatus (UpdateDeviceStatus API), Edit-CGIP-DeviceStatusAdmin (AdminUpdateDeviceStatus API), Get-CGIPDeviceStatus (GetDevice API), Get-CGIPDeviceStatusAdmin (AdminGetDevice API), Get-CGIPDeviceList (ListDevices API), Get-CGIPDeviceListAdmin (AdminListDevices API), Send-CGIPAuthChallengeResponse (RespondToAuthChallenge API), Send-CGIPAuthChallengeResponseAdmin (AdminRespondToAuthChallenge API), Start-CGIPAuth (InitiateAuth API), Start-CGIPAuthAdmin (AdminInitiateAuth API), Stop-CGIPDeviceTracking (ForgetDevice API) and  Stop-CGIPDeviceTrackingAdmin (AdminForgetDevice API).
+  * Amazon Gamelift
+    - Added a new cmdlet, Find-GMLGameSession, to support the new SearchGameSessions API.
+  * Amazon Relation Database Service
+    - Added support for S3 snapshot ingestion with a new cmdlet, Restore-RDSDBClusterFromS3 (RestoreDBClusterFromS3 API). The Edit-RDSDBInstance cmdlet was also updated with a new parameter, -DBSubnetGroupName, to support moving DB instances between VPCs or different subnets within a VPC.
+
 ### 3.1.89.0 (2016-08-3)
   * Amazon Route53 Domains
     - Added new cmdlets to support new APIs: Update-R53DDomainRenewal (RenewDomain API, renew domains for a specified duration), Get-R53DDomainSuggestion (GetDomainSuggestions API) and Get-R53DBillingRecord (ViewBilling API).

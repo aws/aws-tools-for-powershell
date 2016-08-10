@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Game session status to filter results on. Possible game session states include ACTIVE,
+        /// <para>Game session status to filter results on. Possible game session statuses include ACTIVE,
         /// <code>TERMINATED</code>, <code>ACTIVATING</code> and <code>TERMINATING</code> (the
         /// last two are transitory). </para>
         /// </para>

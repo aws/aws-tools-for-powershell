@@ -32,9 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
     /// to AWS Lambda Aliases</a>.
     /// 
-    ///  Alias names are unique for a given function. 
+    ///  
     /// <para>
-    /// This requires permission for the lambda:CreateAlias action.
+    /// Alias names are unique for a given function. This requires permission for the lambda:CreateAlias
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Name of the Lambda function for which you want to create an alias. </para>
+        /// <para>Name of the Lambda function for which you want to create an alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

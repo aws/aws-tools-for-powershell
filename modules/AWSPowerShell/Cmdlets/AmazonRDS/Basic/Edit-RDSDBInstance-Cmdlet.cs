@@ -222,6 +222,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] DBSecurityGroup { get; set; }
         #endregion
         
+        #region Parameter DBSubnetGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The new DB subnet group for the DB instance. You can use this parameter to move your
+        /// DB instance to a different VPC, or to a different subnet group in the same VPC. If
+        /// your DB instance is not in a VPC, you can also use this parameter to move your DB
+        /// instance into a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
+        /// the VPC for a DB Instance</a>. </para><para>Changing the subnet group causes an outage during the change. The change is applied
+        /// during the next maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code>
+        /// parameter. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// spaces, or hyphens.</para><para>Example: <code>mySubnetGroup</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
         #region Parameter Domain
         /// <summary>
         /// <para>
@@ -539,6 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
+            context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             context.EngineVersion = this.EngineVersion;
@@ -626,6 +644,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSecurityGroups != null)
             {
                 request.DBSecurityGroups = cmdletContext.DBSecurityGroups;
+            }
+            if (cmdletContext.DBSubnetGroupName != null)
+            {
+                request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
             }
             if (cmdletContext.Domain != null)
             {
@@ -758,6 +780,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBParameterGroupName { get; set; }
             public System.Int32? DBPortNumber { get; set; }
             public List<System.String> DBSecurityGroups { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public System.String EngineVersion { get; set; }

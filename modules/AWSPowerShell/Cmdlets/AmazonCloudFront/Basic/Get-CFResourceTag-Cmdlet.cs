@@ -1,0 +1,128 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CloudFront;
+using Amazon.CloudFront.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CF
+{
+    /// <summary>
+    /// List tags for a CloudFront resource.
+    /// </summary>
+    [Cmdlet("Get", "CFResourceTag")]
+    [OutputType("Amazon.CloudFront.Model.Tags")]
+    [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon CloudFront.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("Amazon.CloudFront.Model.Tags",
+        "This cmdlet returns a Tags object.",
+        "The service call response (type Amazon.CloudFront.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Resource
+        /// <summary>
+        /// <para>
+        /// An ARN of a CloudFront resource.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Resource { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.Resource = this.Resource;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CloudFront.Model.ListTagsForResourceRequest();
+            
+            if (cmdletContext.Resource != null)
+            {
+                request.Resource = cmdletContext.Resource;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Tags;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.CloudFront.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListTagsForResourceRequest request)
+        {
+            return client.ListTagsForResource(request);
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String Resource { get; set; }
+        }
+        
+    }
+}

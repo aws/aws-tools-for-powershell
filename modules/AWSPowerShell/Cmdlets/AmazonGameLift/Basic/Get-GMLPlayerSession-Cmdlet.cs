@@ -87,13 +87,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerSessionStatusFilter
         /// <summary>
         /// <para>
-        /// <para>Player session status to filter results on. Possible player session states include
-        /// the following: <ul><li><b>RESERVED</b> – The player session request has been received,
-        /// but the player has not yet connected to the server process and/or been validated.
-        /// </li><li><b>ACTIVE</b> – The player has been validated by the server process and is
-        /// currently connected.</li><li><b>COMPLETED</b> – The player connection has been dropped.</li><li><b>TIMEDOUT</b>
-        /// – A player session request was received, but the player did not connect and/or was
-        /// not validated within the time-out limit (60 seconds).</li></ul></para>
+        /// <para>Player session status to filter results on.</para><para>Possible player session statuses include the following:</para><ul><li><b>RESERVED</b> – The player session request has been received, but the player
+        /// has not yet connected to the server process and/or been validated. </li><li><b>ACTIVE</b>
+        /// – The player has been validated by the server process and is currently connected.</li><li><b>COMPLETED</b>
+        /// – The player connection has been dropped.</li><li><b>TIMEDOUT</b> – A player session
+        /// request was received, but the player did not connect and/or was not validated within
+        /// the time-out limit (60 seconds).</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

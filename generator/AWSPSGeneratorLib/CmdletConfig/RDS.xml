@@ -148,6 +148,10 @@
       PipelineParameter="DBClusterParameterGroupName"
       PositionalParameters="Parameters"/> />
 
+    <ServiceOperation MethodName="RestoreDBClusterFromS3"
+      PipelineParameter="DBClusterIdentifier"
+      ShouldProcessTarget="DBClusterIdentifier" />
+
     <ServiceOperation MethodName="RestoreDBClusterFromSnapshot"
       PipelineParameter="DBClusterIdentifier"
       ShouldProcessTarget="DBClusterIdentifier" />

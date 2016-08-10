@@ -48,6 +48,7 @@
     <ServiceOperation MethodName="PutScalingPolicy" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="RequestUploadCredentials" Output="Response" Noun="UploadCredential" />
     <ServiceOperation MethodName="ResolveAlias"/>
+	<ServiceOperation MethodName="SearchGameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" />
     <ServiceOperation MethodName="UpdateAlias" ShouldProcessTarget="AliasId"/>
     <ServiceOperation MethodName="UpdateBuild" ShouldProcessTarget="BuildId"/>
     <ServiceOperation MethodName="UpdateFleetAttributes" ShouldProcessTarget="FleetId" Noun="FleetAttribute"/>
