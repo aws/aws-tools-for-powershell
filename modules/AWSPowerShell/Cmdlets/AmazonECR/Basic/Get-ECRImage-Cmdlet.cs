@@ -28,7 +28,16 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Lists all the image IDs for a given repository.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all the image IDs for a given repository.
+    /// 
+    ///  
+    /// <para>
+    /// You can filter images based on whether or not they are tagged by setting the <code>tagStatus</code>
+    /// parameter to <code>TAGGED</code> or <code>UNTAGGED</code>. For example, you can filter
+    /// your results to return only <code>UNTAGGED</code> images and then pipe that result
+    /// to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your results
+    /// to return only <code>TAGGED</code> images to list all of the tags in your repository.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECRImage")]
     [OutputType("Amazon.ECR.Model.ImageIdentifier")]
@@ -62,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public System.String RepositoryName { get; set; }
         #endregion
         
+        #region Parameter Filter_TagStatus
+        /// <summary>
+        /// <para>
+        /// <para>The tag status with which to filter your <a>ListImages</a> results. You can filter
+        /// results based on whether they are <code>TAGGED</code> or <code>UNTAGGED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECR.TagStatus")]
+        public Amazon.ECR.TagStatus Filter_TagStatus { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -86,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para>
+        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,6 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 Credentials = this.CurrentCredentials
             };
             
+            context.Filter_TagStatus = this.Filter_TagStatus;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -121,6 +144,25 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             
             // create request and set iteration invariants
             var request = new Amazon.ECR.Model.ListImagesRequest();
+            
+             // populate Filter
+            bool requestFilterIsNull = true;
+            request.Filter = new Amazon.ECR.Model.ListImagesFilter();
+            Amazon.ECR.TagStatus requestFilter_filter_TagStatus = null;
+            if (cmdletContext.Filter_TagStatus != null)
+            {
+                requestFilter_filter_TagStatus = cmdletContext.Filter_TagStatus;
+            }
+            if (requestFilter_filter_TagStatus != null)
+            {
+                request.Filter.TagStatus = requestFilter_filter_TagStatus;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.RegistryId != null)
             {
                 request.RegistryId = cmdletContext.RegistryId;
@@ -254,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.ECR.TagStatus Filter_TagStatus { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String RegistryId { get; set; }
