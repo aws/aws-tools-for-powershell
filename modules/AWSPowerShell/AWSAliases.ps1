@@ -2166,6 +2166,7 @@ Set-Alias -Name LM-UpdateFunctionCode -Value Update-LMFunctionCode
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
 Set-Alias -Name MCA-GenerateDataSet -Value New-MCADataSet
+Set-Alias -Name MCA-StartSupportDataExport -Value Start-MCASupportDataExport
 Set-Alias -Name ML-UpdateBatchPrediction -Value Update-MLBatchPrediction
 Set-Alias -Name ML-UpdateDataSource -Value Update-MLDataSource
 Set-Alias -Name ML-UpdateEvaluation -Value Update-MLEvaluation
