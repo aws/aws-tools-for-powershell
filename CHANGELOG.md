@@ -1,3 +1,15 @@
+### 3.1.92.0 (2016-08-11)
+  * Amazon Import/Export Snowball
+    - Added cmdlets to support the new Import/Export Snowball service. The API for this service enables a customer to create and manage Snowball jobs without needing to use the AWS Console. The cmdlets for this service have the prefix 'SNOW' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SNOW"'.
+  * Amazon Kinesis Analytics
+    - Added cmdlets to support the new Amazon Kinesis Analytics service, a fully managed service for continuously querying streaming data using standard SQL. With Kinesis Analytics, you can write standard SQL queries on streaming data and gain actionable insights in real-time, without having to learn any new programming skills. The service allows you to build applications that continuously read data from streaming data sources, process that data using standard SQL, and send the processed data to up to four destinations of your choice. Kinesis Analytics enables you to generate time-series analytics, feed a real-time dashboard, create real-time alarms and notifications, and much more. The cmdlets for this service have the prefix 'KINA' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "KINA"'.
+  * Elastic Load Balancing V2
+    - Added cmdlets to support the new V2 API for Elastic Load Balancing. The cmdlets for this service have the prefix 'ELB2' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "ELB2"'.
+  * Auto Scaling
+    - Added cmdlets to support the launch of the new V2 API for Elastic Load Balancing. The new cmdlets are Add-ASLoadBalancerTargetGroup (AttachLoadBalancerTargetGroups API), Dismount-ASLoadBalancerTargetGroup (DetachLoadBalancerTargetGroups API) and Get-ASLoadBalancerTargetGroup (DescribeLoadBalancerTargetGroups API).
+  * AWS Key Management.
+    - Added new cmdlets to support new import key features. This new support enables you to import keys from your own key management infrastructure to KMS for greater control over generation and storage of keys and meeting compliance requirements of sensitive workloads. The new cmdlets are Import-KMSKeyMaterial (ImportKeyMaterial API), Get-KMSParametersForImport (GetParametersForImport API) and Remove-KMSImportedKeyMaterial (DeleteImportedKeyMaterial API).
+
 ### 3.1.91.0 (2016-08-09)
   * Amazon CloudFront
     - Added cmdlets to support tagging for Web and Streaming distributions. Tags make it easier for you to allocate costs and optimize spending by categorizing and grouping AWS resources. The new cmdlets are Add-CFResourceTag (TagResource API), Get-CFResourceTag (ListTagsForResource API), New-CFDistributionWithTag (CreateDistributionWithTags API), New-CFStreamingDistributionWithTags (CreateStreamingDistributionWithTags API) and Remove-CFResourceTag (UntagResource API).
