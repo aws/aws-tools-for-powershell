@@ -87,10 +87,27 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
         #endregion
         
+        #region Parameter Origin
+        /// <summary>
+        /// <para>
+        /// <para>The source of the CMK's key material.</para><para>The default is <code>AWS_KMS</code>, which means AWS KMS creates the key material.
+        /// When this parameter is set to <code>EXTERNAL</code>, the request creates a CMK without
+        /// key material so that you can import key material from your existing key management
+        /// infrastructure. For more information about importing key material into AWS KMS, see
+        /// <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing
+        /// Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The CMK's <code>Origin</code> is immutable and is set when the CMK is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.KeyManagementService.OriginType")]
+        public Amazon.KeyManagementService.OriginType Origin { get; set; }
+        #endregion
+        
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The key policy to attach to the CMK.</para><para>If you specify a key policy, it must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>CreateKey</code> request to make a subsequent
+        /// <para>The key policy to attach to the CMK.</para><para>If you specify a policy and do not set <code>BypassPolicyLockoutSafetyCheck</code>
+        /// to true, the policy must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>CreateKey</code> request to make a subsequent
         /// <a>PutKeyPolicy</a> request on the CMK. This reduces the likelihood that the CMK becomes
         /// unmanageable. For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
         /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></li><li><para>The principal(s) specified in the key policy must exist and be visible to AWS KMS.
@@ -137,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.BypassPolicyLockoutSafetyCheck = this.BypassPolicyLockoutSafetyCheck;
             context.Description = this.Description;
             context.KeyUsage = this.KeyUsage;
+            context.Origin = this.Origin;
             context.Policy = this.Policy;
             
             var output = Execute(context) as CmdletOutput;
@@ -162,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.KeyUsage != null)
             {
                 request.KeyUsage = cmdletContext.KeyUsage;
+            }
+            if (cmdletContext.Origin != null)
+            {
+                request.Origin = cmdletContext.Origin;
             }
             if (cmdletContext.Policy != null)
             {
@@ -213,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public System.Boolean? BypassPolicyLockoutSafetyCheck { get; set; }
             public System.String Description { get; set; }
             public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
+            public Amazon.KeyManagementService.OriginType Origin { get; set; }
             public System.String Policy { get; set; }
         }
         

@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
     /// Specifies the health check settings to use when evaluating the health state of your
-    /// back-end instances.
+    /// EC2 instances.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html">Configure
-    /// Health Checks</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure
+    /// Health Checks for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBHealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

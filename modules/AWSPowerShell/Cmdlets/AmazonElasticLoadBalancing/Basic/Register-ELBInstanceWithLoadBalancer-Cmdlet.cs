@@ -47,15 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// Zone is added to the load balancer later, any instances registered with the load balancer
     /// move to the <code>InService</code> state.
     /// </para><para>
-    /// If you stop an instance registered with a load balancer and then start it, the IP
-    /// addresses associated with the instance changes. Elastic Load Balancing cannot recognize
-    /// the new IP address, which prevents it from routing traffic to the instances. We recommend
-    /// that you use the following sequence: stop the instance, deregister the instance, start
-    /// the instance, and then register the instance. To deregister instances from a load
-    /// balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.
+    /// To deregister instances from a load balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html">Deregister
-    /// and Register EC2 Instances</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+    /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "ELBInstanceWithLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

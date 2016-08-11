@@ -28,10 +28,10 @@ using Amazon.ElasticLoadBalancing.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
-    /// Replaces the set of policies associated with the specified port on which the back-end
-    /// server is listening with a new set of policies. At this time, only the back-end server
-    /// authentication policy type can be applied to the back-end ports; this policy type
-    /// is composed of multiple public key policies.
+    /// Replaces the set of policies associated with the specified port on which the EC2 instance
+    /// is listening with a new set of policies. At this time, only the back-end server authentication
+    /// policy type can be applied to the instance ports; this policy type is composed of
+    /// multiple public key policies.
     /// 
     ///  
     /// <para>
@@ -40,7 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// want to enable.
     /// </para><para>
     /// You can use <a>DescribeLoadBalancers</a> or <a>DescribeLoadBalancerPolicies</a> to
-    /// verify that the policy is associated with the back-end server.
+    /// verify that the policy is associated with the EC2 instance.
+    /// </para><para>
+    /// For more information about enabling back-end instance authentication, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt">Configure
+    /// Back-end Instance Authentication</a> in the <i>Classic Load Balancers Guide</i>. For
+    /// more information about Proxy Protocol, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure
+    /// Proxy Protocol Support</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBLoadBalancerPolicyForBackendServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter InstancePort
         /// <summary>
         /// <para>
-        /// <para>The port number associated with the back-end server.</para>
+        /// <para>The port number associated with the EC2 instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -77,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <summary>
         /// <para>
         /// <para>The names of the policies. If the list is empty, then all current polices are removed
-        /// from the back-end server.</para>
+        /// from the EC2 instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

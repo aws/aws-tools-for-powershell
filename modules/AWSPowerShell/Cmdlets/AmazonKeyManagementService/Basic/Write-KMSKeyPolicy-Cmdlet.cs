@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The key policy to attach to the CMK.</para><para>The key policy must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>PutKeyPolicy</code> request to make a
+        /// <para>The key policy to attach to the CMK.</para><para>If you do not set <code>BypassPolicyLockoutSafetyCheck</code> to true, the policy
+        /// must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>PutKeyPolicy</code> request to make a
         /// subsequent <code>PutKeyPolicy</code> request on the CMK. This reduces the likelihood
         /// that the CMK becomes unmanageable. For more information, refer to the scenario in
         /// the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default

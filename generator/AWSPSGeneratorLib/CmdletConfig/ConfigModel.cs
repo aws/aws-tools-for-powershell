@@ -489,23 +489,62 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlArrayItem("ParamEmitter")]
         public List<ParamEmitter> ParamEmittersList = new List<ParamEmitter>();
 
-        Dictionary<string, string> _paramEmitters;
+        Dictionary<string, string> _typeSpecificParamEmitters;
         /// <summary>
-        /// Service-specific custom parameter emitters
+        /// Returns the service-specific custom parameter emitters that are tied to a 
+        /// specific type. These parameters are only injected on cmdlets that have a
+        /// parameter matching the specified type.
         /// </summary>
         [XmlIgnore]
-        public Dictionary<string, string> ParamEmitters
+        public Dictionary<string, string> TypeSpecificParamEmitters
         {
             get
             {
-                if (_paramEmitters == null)
-                    _paramEmitters = ParamEmittersList.ToDictionary
-                        (p => (string.IsNullOrEmpty(p.ParamName) 
-                                ? p.ParamType 
-                                : string.Format(ParamEmitterComplexKeyFormat, p.ParamType, p.ParamName)), 
-                         p => p.EmitterType);
+                if (_typeSpecificParamEmitters == null)
+                {
+                    _typeSpecificParamEmitters = new Dictionary<string, string>();
 
-                return _paramEmitters;
+                    foreach (var p in ParamEmittersList)
+                    {
+                        if (p.IsGlobalInjectionEmitter)
+                            continue;
+
+                        var key = !string.IsNullOrEmpty(p.ParamName)
+                                ? string.Format(ParamEmitterComplexKeyFormat, p.ParamType, p.ParamName)
+                                : p.ParamType;
+
+                        _typeSpecificParamEmitters.Add(key, p.EmitterType);
+                    }
+                }
+
+                return _typeSpecificParamEmitters;
+            }
+        }
+
+        List<ParamEmitter> _globalInjectionParamEmitters;
+
+        /// <summary>
+        /// Returns the collection of param emitters that are configured globally
+        /// for a service. These parameters are injected into every cmdlet unless
+        /// the cmdlet is configured in the exclusion list for an emitter.
+        /// </summary>
+        [XmlIgnore]
+        public List<ParamEmitter> GlobalInjectionParamEmitters
+        {
+            get
+            {
+                if (_globalInjectionParamEmitters == null)
+                {
+                    _globalInjectionParamEmitters = new List<ParamEmitter>();
+
+                    foreach (var p in ParamEmittersList)
+                    {
+                        if (p.IsGlobalInjectionEmitter)
+                            _globalInjectionParamEmitters.Add(p);
+                    }
+                }
+
+                return _globalInjectionParamEmitters;
             }
         }
 
@@ -1244,6 +1283,21 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public string EmitterType = string.Empty;
         [XmlAttribute]
         public string Exclude = string.Empty;
+
+        /// <summary>
+        /// Globally injected emitters are used to inject arbitrary parameters that don't map to
+        /// model shape types. S3's UseAcceleratedEndpoint and UseDualstackEndpoint are
+        /// examples of these; both are bools (so the type cannot be used as a key in the
+        /// emitter dictionary) and both get added to multiple cmdlets.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsGlobalInjectionEmitter
+        {
+            get
+            {
+                return string.IsNullOrEmpty(ParamName) && string.IsNullOrEmpty(ParamType);
+            }
+        }
 
         public ParamEmitter() { }
         public ParamEmitter(string paramType, string emitterType) : this(paramType, string.Empty, emitterType) { }

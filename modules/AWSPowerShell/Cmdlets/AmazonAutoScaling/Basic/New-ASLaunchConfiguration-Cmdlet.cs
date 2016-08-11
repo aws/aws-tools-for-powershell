@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// see <a>DescribeAccountLimits</a>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html">Launch
-    /// Configurations</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Configurations</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>Used for groups that launch instances into a virtual private cloud (VPC). Specifies
         /// whether to assign a public IP address to each instance. For more information, see
         /// <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer Guide</i>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
+        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
         /// your group.</para><para>Default: If the instance is launched into a default subnet, the default is <code>true</code>.
         /// If the instance is launched into a nondefault subnet, the default is <code>false</code>.
         /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// available. You can use IAM roles with Auto Scaling to automatically enable applications
         /// running on your EC2 instances to securely access other AWS resources. For more information,
         /// see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html">Launch
-        /// Auto Scaling Instances with an IAM Role</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Auto Scaling Instances with an IAM Role</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -165,8 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The ID of the instance to use to create the launch configuration.</para><para>The new launch configuration derives attributes from the instance, with the exception
         /// of the block device mapping.</para><para>To create a launch configuration with a block device mapping or override any other
         /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html">Create
-        /// a Launch Configuration Using an EC2 Instance</a> in the <i>Auto Scaling Developer
-        /// Guide</i>.</para>
+        /// a Launch Configuration Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para> The instance type of the EC2 instance. For information about available instance types,
+        /// <para>The instance type of the EC2 instance. For information about available instance types,
         /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">
         /// Available Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i></para>
         /// </para>
@@ -188,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter KernelId
         /// <summary>
         /// <para>
-        /// <para> The ID of the kernel associated with the AMI. </para>
+        /// <para>The ID of the kernel associated with the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -225,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy
         /// attribute set to <code>default</code>).</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
         /// your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
+        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter RamdiskId
         /// <summary>
         /// <para>
-        /// <para> The ID of the RAM disk associated with the AMI. </para>
+        /// <para>The ID of the RAM disk associated with the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -264,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
         /// request. Spot Instances are launched when the price you specify exceeds the current
         /// Spot market price. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html">Launching
-        /// Spot Instances in Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Spot Instances in Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

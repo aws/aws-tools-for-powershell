@@ -1449,7 +1449,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         IEnumerable<IParamEmitter> FindGlobalParamEmitters()
         {
             // Global param emitters do not have any mapping to param name or param type
-            var emitters = ServiceConfig.ParamEmittersList.Where(p => string.IsNullOrEmpty(p.ParamName) && string.IsNullOrEmpty(p.ParamType));
+            var emitters = ServiceConfig.GlobalInjectionParamEmitters;
 
             var emitterInstances = new List<IParamEmitter>();
             foreach (var item in emitters)
@@ -1480,24 +1480,24 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // to handle custom emitters for properties like 'string BucketName'); 
             // we do need to drop the assembly info though for types
             string k = ConstructCustomParamEmitterKey(property);
-            if (ServiceConfig.ParamEmitters.ContainsKey(k))
+            if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(k))
             {
-                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[k]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.TypeSpecificParamEmitters[k]);
                 return (IParamEmitter)obj.Unwrap();
             }
 
             // second stage lookup, more generic emitter based on type only (useful
             // for specific type smoothing, eg replace enums with strings etc)
-            if (ServiceConfig.ParamEmitters.ContainsKey(property.PropertyType.FullName))
+            if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(property.PropertyType.FullName))
             {
-                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[property.PropertyType.FullName]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.TypeSpecificParamEmitters[property.PropertyType.FullName]);
                 return (IParamEmitter)obj.Unwrap();
             }
 
             // third stage lookup, useful with List<T> types
-            if (ServiceConfig.ParamEmitters.ContainsKey(property.PropertyTypeName))
+            if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(property.PropertyTypeName))
             {
-                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[property.PropertyTypeName]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.TypeSpecificParamEmitters[property.PropertyTypeName]);
                 return (IParamEmitter)obj.Unwrap();
             }
 

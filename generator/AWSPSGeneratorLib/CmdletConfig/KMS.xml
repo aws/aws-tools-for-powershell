@@ -28,12 +28,21 @@
     
     <ServiceOperation MethodName="CreateKey" AnonymousShouldProcessTarget="true" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="DescribeKey" PipelineParameter="KeyId"/>
+	
+	<ServiceOperation MethodName="DeleteImportedKeyMaterial" Output="Void" />
+	
     <ServiceOperation MethodName="DisableKey" Output="Void" />
     <ServiceOperation MethodName="EnableKey" Output="Void" />
     <ServiceOperation MethodName="UpdateKeyDescription" Output="Void" PipelineParameter="KeyId"/>
     <ServiceOperation MethodName="ListKeys" />
     
+	<ServiceOperation MethodName="GetParametersForImport" PipelineParameter="KeyId" Output="Response" />
+	
     <ServiceOperation MethodName="GetKeyPolicy" PipelineParameter="KeyId" />
+	
+	<!-- has two parameters that are memory streams, so hand maintain -->
+	<ServiceOperation MethodName="ImportKeyMaterial" Exclude="true" />
+	
     <ServiceOperation MethodName="ListKeyPolicies" />
     <ServiceOperation MethodName="PutKeyPolicy" Output="Void" PipelineParameter="KeyId"/>
 

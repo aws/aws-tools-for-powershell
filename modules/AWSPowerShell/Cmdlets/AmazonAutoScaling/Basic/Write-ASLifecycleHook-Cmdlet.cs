@@ -38,19 +38,25 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
-    /// </para><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events
-    /// to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either
+    /// </para><ol><li><para>
+    /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
+    /// your Lambda function when Auto Scaling launches or terminates instances.
+    /// </para></li><li><para>
+    /// (Optional) Create a notification target and an IAM role. The target can be either
     /// an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish
-    /// lifecycle notifications to the target.</li><li><b>Create the lifecycle hook. Specify
-    /// whether the hook is used when the instances launch or terminate.</b></li><li>If you
-    /// need more time, record the lifecycle action heartbeat to keep the instance in a pending
-    /// state.</li><li>If you finish before the timeout period ends, complete the lifecycle
-    /// action.</li></ol><para>
+    /// lifecycle notifications to the target.
+    /// </para></li><li><para><b>Create the lifecycle hook. Specify whether the hook is used when the instances
+    /// launch or terminate.</b></para></li><li><para>
+    /// If you need more time, record the lifecycle action heartbeat to keep the instance
+    /// in a pending state.
+    /// </para></li><li><para>
+    /// If you finish before the timeout period ends, complete the lifecycle action.
+    /// </para></li></ol><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto
-    /// Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
     /// </para><para>
-    /// If you exceed your maximum limit of lifecycle hooks, which by default is 50 per region,
-    /// the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
+    /// If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto
+    /// Scaling group, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
     /// Service Limits</a> in the <i>Amazon Web Services General Reference</i>.
     /// </para>
     /// </summary>
@@ -138,10 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The ARN of the notification target that Auto Scaling will use to notify you when an
         /// instance is in the transition state for the lifecycle hook. This target can be either
         /// an SQS queue or an SNS topic. If you specify an empty string, this overrides the current
-        /// ARN.</para><para>The notification messages sent to the target include the following information:</para><ul><li><b>AutoScalingGroupName</b>. The name of the Auto Scaling group.</li><li><b>AccountId</b>.
-        /// The AWS account ID.</li><li><b>LifecycleTransition</b>. The lifecycle hook type.</li><li><b>LifecycleActionToken</b>. The lifecycle action token.</li><li><b>EC2InstanceId</b>.
-        /// The EC2 instance ID.</li><li><b>LifecycleHookName</b>. The name of the lifecycle
-        /// hook.</li><li><b>NotificationMetadata</b>. User-defined information.</li></ul><para>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
+        /// ARN.</para><para>The notification messages sent to the target include the following information:</para><ul><li><para><b>AutoScalingGroupName</b>. The name of the Auto Scaling group.</para></li><li><para><b>AccountId</b>. The AWS account ID.</para></li><li><para><b>LifecycleTransition</b>. The lifecycle hook type.</para></li><li><para><b>LifecycleActionToken</b>. The lifecycle action token.</para></li><li><para><b>EC2InstanceId</b>. The EC2 instance ID.</para></li><li><para><b>LifecycleHookName</b>. The name of the lifecycle hook.</para></li><li><para><b>NotificationMetadata</b>. User-defined information.</para></li></ul><para>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
         /// and an email key/value pair format when sending notifications to an Amazon SNS topic.</para><para>When you specify a notification target, Auto Scaling sends it a test message. Test
         /// messages contains the following additional key/value pair: <code>"Event": "autoscaling:TEST_NOTIFICATION"</code>.</para>
         /// </para>

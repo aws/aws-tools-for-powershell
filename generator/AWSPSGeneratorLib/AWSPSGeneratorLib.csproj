@@ -57,6 +57,7 @@
     <Compile Include="Generators\CmdletGenerator.cs" />
     <Compile Include="Generators\FormatGenerator.cs" />
     <Compile Include="Generators\ParamEmitters\AmazonEC2\InstanceIdsParamEmitter.cs" />
+    <Compile Include="Generators\ParamEmitters\AmazonS3\DualstackParamEmitter.cs" />
     <Compile Include="Generators\ParamEmitters\AmazonS3\AccelerateParamEmitter.cs" />
     <Compile Include="Generators\PSHelpGenerator.cs" />
     <Compile Include="Generators\HelpGeneratorBase.cs" />
@@ -116,7 +117,9 @@
     <None Include="CmdletConfig\CodeDeploy.xml" />
     <None Include="CmdletConfig\CodePipeline.xml" />
     <None Include="CmdletConfig\CognitoIdentity.xml" />
-    <None Include="CmdletConfig\CognitoIdentityProvider.xml" />
+    <None Include="CmdletConfig\CognitoIdentityProvider.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\Configs.xml" />
     <None Include="CmdletConfig\ConfigService.xml" />
     <None Include="CmdletConfig\DatabaseMigrationService.xml" />

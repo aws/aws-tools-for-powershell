@@ -28,8 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more Auto Scaling groups. If a list of names is not provided, the
-    /// call describes all Auto Scaling groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more Auto Scaling groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingGroup")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingGroup")]
@@ -45,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The group names.</para>
+        /// <para>The group names. If you omit this parameter, all Auto Scaling groups are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

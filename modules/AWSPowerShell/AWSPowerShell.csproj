@@ -156,6 +156,9 @@
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ElasticLoadBalancing.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ElasticLoadBalancingV2">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ElasticMapReduce">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
     </Reference>
@@ -182,6 +185,9 @@
     </Reference>
     <Reference Include="AWSSDK.Kinesis">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Kinesis.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KinesisAnalytics">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.KinesisAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Lambda.dll</HintPath>
@@ -224,6 +230,9 @@
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Snowball">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.SQS.dll</HintPath>

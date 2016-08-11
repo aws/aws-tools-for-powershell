@@ -96,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #endregion
         
+        #region Parameter UseDualstackEndpoint
+        /// <summary>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
+        
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.

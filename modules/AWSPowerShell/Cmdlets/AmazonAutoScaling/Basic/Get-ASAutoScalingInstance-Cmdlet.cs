@@ -28,8 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more Auto Scaling instances. If a list is not provided, the call
-    /// describes all instances.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more Auto Scaling instances.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingInstance")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingInstanceDetails")]
