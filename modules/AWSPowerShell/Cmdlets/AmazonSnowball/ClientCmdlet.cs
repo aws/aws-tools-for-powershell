@@ -27,7 +27,7 @@ using Amazon.Snowball.Model;
 
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
-    [AWSClientCmdlet("Amazon Import/Export Snowball", "SNOW", "2016-06-30")]
+    [AWSClientCmdlet("AWS Import/Export Snowball", "SNOW", "2016-06-30")]
     public abstract partial class AmazonSnowballClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSnowball Client { get; private set; }

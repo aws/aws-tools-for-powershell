@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </summary>
     [Cmdlet("Get", "SNOWAddress")]
     [OutputType("Amazon.Snowball.Model.Address")]
-    [AWSCmdlet("Invokes the DescribeAddress operation against Amazon Import/Export Snowball.", Operation = new[] {"DescribeAddress"})]
+    [AWSCmdlet("Invokes the DescribeAddress operation against AWS Import/Export Snowball.", Operation = new[] {"DescribeAddress"})]
     [AWSCmdletOutput("Amazon.Snowball.Model.Address",
         "This cmdlet returns a Address object.",
         "The service call response (type Amazon.Snowball.Model.DescribeAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

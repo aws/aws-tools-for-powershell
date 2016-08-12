@@ -3,7 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>SNOW</ServiceNounPrefix>
-  <ServiceName>Amazon Import/Export Snowball</ServiceName>
+  <ServiceName>AWS Import/Export Snowball</ServiceName>
   <ServiceNamespace>Amazon.Snowball</ServiceNamespace>
   <ServiceClientInterface>IAmazonSnowball</ServiceClientInterface>
   <ServiceClient>AmazonSnowballClient</ServiceClient>
