@@ -16,6 +16,10 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Amazon.Util.Internal;
+using System.Collections.ObjectModel;
 
 namespace Amazon.PowerShell.Common
 {
@@ -23,7 +27,7 @@ namespace Amazon.PowerShell.Common
     public class AWSCmdletAttribute : Attribute
     {
         public string[] Operation { get; set; }
-        public string Synopsis { get; set; }
+        public string Synopsis { get; private set; }
 
         public AWSCmdletAttribute(string synopsis)
         {
@@ -31,6 +35,57 @@ namespace Amazon.PowerShell.Common
 
             Synopsis = synopsis;
         }
+
+        public static AWSCmdletAttribute GetAttributeInstanceOnType(Type t, bool inherit)
+        {
+            var attributeTypeInfo = TypeFactory.GetTypeInfo(typeof(AWSCmdletAttribute));
+
+            var customAttributes = TypeFactory.GetTypeInfo(t).GetCustomAttributes(attributeTypeInfo, inherit);
+            if (customAttributes.Length != 1)
+                return null;
+
+#if CORECLR
+            return ConstructFromReflectionOnlyContext(customAttributes[0] as CustomAttributeData);
+#else
+            return customAttributes[0] as AWSCmdletAttribute;
+#endif
+        }
+
+#if CORECLR
+        /// <summary>
+        /// Reflection-only contexts (as in coreclr reflection) do not allow us to cast a CustomAttributeData 
+        /// instance to the actual attribute type (whereas full framework environments do). This helper 
+        /// does the work of extracting the values supplied to the constructor and instantiates an instance
+        /// based on those values so outer reflection code can work with the real attribute type.
+        /// </summary>
+        /// <param name="cad"></param>
+        /// <returns></returns>
+        private static AWSCmdletAttribute ConstructFromReflectionOnlyContext(CustomAttributeData cad)
+        {
+            var ctorArgs = cad.ConstructorArguments;
+            var synopsis = ctorArgs[0].Value.ToString();
+
+            List<string> operations = new List<string>();
+            var namedArguments = cad.NamedArguments;
+            foreach (var namedArgument in namedArguments)
+            {
+                if (namedArgument.MemberName.Equals("Operation", StringComparison.Ordinal))
+                {
+                    var tv = namedArgument.TypedValue;
+                    foreach (CustomAttributeTypedArgument v in (ReadOnlyCollection<CustomAttributeTypedArgument>)tv.Value)
+                    {
+                        operations.Add(v.ToString().Trim('"'));
+                    }
+                    break;
+                }
+            }
+
+            return new AWSCmdletAttribute(synopsis)
+            {
+                Operation = operations.ToArray()
+            };
+        }
+#endif
     }
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
@@ -54,9 +109,9 @@ namespace Amazon.PowerShell.Common
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class AWSClientCmdletAttribute : Attribute
     {
-        public string ServiceName { get; set; }
-        public string ServicePrefix { get; set; }
-        public string Version { get; set; }
+        public string ServiceName { get; private set; }
+        public string ServicePrefix { get; private set; }
+        public string Version { get; private set; }
 
         public AWSClientCmdletAttribute(string serviceName, string servicePrefix, string version)
         {
@@ -68,6 +123,42 @@ namespace Amazon.PowerShell.Common
             ServicePrefix = servicePrefix;
             Version = version;
         }
+
+        public static AWSClientCmdletAttribute GetAttributeInstanceOnType(Type t, bool inherit)
+        {
+            var attributeTypeInfo = TypeFactory.GetTypeInfo(typeof(AWSClientCmdletAttribute));
+
+            var customAttributes = TypeFactory.GetTypeInfo(t).GetCustomAttributes(attributeTypeInfo, inherit);
+            if (customAttributes.Length != 1)
+                return null;
+
+#if CORECLR
+            return ConstructFromReflectionOnlyContext(customAttributes[0] as CustomAttributeData);
+#else
+            return customAttributes[0] as AWSClientCmdletAttribute;
+#endif
+        }
+
+#if CORECLR
+        /// <summary>
+        /// Reflection-only contexts (as in coreclr reflection) do not allow us to cast a CustomAttributeData 
+        /// instance to the actual attribute type (whereas full framework environments do). This helper 
+        /// does the work of extracting the values supplied to the constructor and instantiates an instance
+        /// based on those values so outer reflection code can work with the real attribute type.
+        /// </summary>
+        /// <param name="cad"></param>
+        /// <returns></returns>
+        private static AWSClientCmdletAttribute ConstructFromReflectionOnlyContext(CustomAttributeData cad)
+        {
+            var ctorArgs = cad.ConstructorArguments;
+
+            var serviceName = ctorArgs[0].Value.ToString();
+            var servicePrefix = ctorArgs[1].Value.ToString();
+            var version = ctorArgs[2].Value.ToString();
+
+            return new AWSClientCmdletAttribute(serviceName, servicePrefix, version);
+        }
+#endif
     }
 
     /// <summary>

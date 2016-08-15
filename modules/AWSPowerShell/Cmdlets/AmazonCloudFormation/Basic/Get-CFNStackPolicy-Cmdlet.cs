@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.GetStackPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter StackName
@@ -62,7 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.StackName = this.StackName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -116,7 +122,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.GetStackPolicyResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.GetStackPolicyRequest request)
         {
+            #if DESKTOP
             return client.GetStackPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetStackPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

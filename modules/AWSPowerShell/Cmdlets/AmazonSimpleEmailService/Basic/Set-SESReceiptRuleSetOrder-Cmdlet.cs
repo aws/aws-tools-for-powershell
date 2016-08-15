@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSESReceiptRuleSetOrderCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class SetSESReceiptRuleSetOrderCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter RuleName
@@ -108,11 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.RuleName != null)
             {
                 context.RuleNames = new List<System.String>(this.RuleName);
             }
             context.RuleSetName = this.RuleSetName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest request)
         {
+            #if DESKTOP
             return client.ReorderReceiptRuleSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ReorderReceiptRuleSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

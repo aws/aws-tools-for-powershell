@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetEC2ReservedInstancesModificationsCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2ReservedInstancesModificationsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
@@ -99,6 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Filter != null)
             {
                 context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
@@ -108,6 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ReservedInstancesModificationIds = new List<System.String>(this.ReservedInstancesModificationId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeReservedInstancesModificationsRequest request)
         {
+            #if DESKTOP
             return client.DescribeReservedInstancesModifications(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeReservedInstancesModificationsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

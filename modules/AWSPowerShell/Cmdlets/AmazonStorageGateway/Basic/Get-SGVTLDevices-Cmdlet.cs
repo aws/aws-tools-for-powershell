@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "The service call response (type Amazon.StorageGateway.Model.DescribeVTLDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: GatewayARN (type System.String), Marker (type System.String)"
     )]
-    public class GetSGVTLDevicesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetSGVTLDevicesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter VTLDeviceARNs
@@ -102,6 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GatewayARN = this.GatewayARN;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
@@ -110,6 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.VTLDeviceARNs = new List<System.String>(this.VTLDeviceARNs);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -220,7 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.DescribeVTLDevicesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeVTLDevicesRequest request)
         {
+            #if DESKTOP
             return client.DescribeVTLDevices(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeVTLDevicesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

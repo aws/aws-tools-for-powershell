@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartMCASupportDataExportCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
+    public partial class StartMCASupportDataExportCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter CustomerDefinedValue
@@ -149,6 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.CustomerDefinedValue != null)
             {
                 context.CustomerDefinedValues = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -164,6 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
                 context.FromDate = this.FromDate;
             context.RoleNameArn = this.RoleNameArn;
             context.SnsTopicArn = this.SnsTopicArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -241,7 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         private static Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportRequest request)
         {
+            #if DESKTOP
             return client.StartSupportDataExport(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.StartSupportDataExportAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

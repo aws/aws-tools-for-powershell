@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "The service call response (type Amazon.DirectoryService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class GetDSResourceTagCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceId
@@ -82,10 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             context.ResourceId = this.ResourceId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -191,7 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListTagsForResourceRequest request)
         {
+            #if DESKTOP
             return client.ListTagsForResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTagsForResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

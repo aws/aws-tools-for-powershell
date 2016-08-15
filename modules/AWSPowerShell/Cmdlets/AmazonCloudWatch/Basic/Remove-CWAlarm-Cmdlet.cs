@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatch.Model.DeleteAlarmsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCWAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
+    public partial class RemoveCWAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         #region Parameter AlarmName
@@ -86,10 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AlarmName != null)
             {
                 context.AlarmNames = new List<System.String>(this.AlarmName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -145,7 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         private static Amazon.CloudWatch.Model.DeleteAlarmsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DeleteAlarmsRequest request)
         {
+            #if DESKTOP
             return client.DeleteAlarms(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteAlarmsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

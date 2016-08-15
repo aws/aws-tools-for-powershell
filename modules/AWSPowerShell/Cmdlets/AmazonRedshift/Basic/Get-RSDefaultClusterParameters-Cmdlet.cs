@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a DefaultClusterParameters object.",
         "The service call response (type Amazon.Redshift.Model.DescribeDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetRSDefaultClusterParametersCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class GetRSDefaultClusterParametersCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ParameterGroupFamily
@@ -97,10 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.ParameterGroupFamily = this.ParameterGroupFamily;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -162,7 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.DescribeDefaultClusterParametersResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeDefaultClusterParametersRequest request)
         {
+            #if DESKTOP
             return client.DescribeDefaultClusterParameters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeDefaultClusterParametersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

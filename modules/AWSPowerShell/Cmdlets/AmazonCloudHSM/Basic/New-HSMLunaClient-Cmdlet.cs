@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.CreateLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class NewHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         #region Parameter Certificate
@@ -87,8 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Certificate = this.Certificate;
             context.Label = this.Label;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -146,7 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.CreateLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.CreateLunaClientRequest request)
         {
+            #if DESKTOP
             return client.CreateLunaClient(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLunaClientAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

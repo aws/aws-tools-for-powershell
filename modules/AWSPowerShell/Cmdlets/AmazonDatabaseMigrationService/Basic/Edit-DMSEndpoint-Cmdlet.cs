@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         "This cmdlet returns a Endpoint object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class EditDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
@@ -192,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CertificateArn = this.CertificateArn;
             context.DatabaseName = this.DatabaseName;
             context.EndpointArn = this.EndpointArn;
@@ -205,6 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.ServerName = this.ServerName;
             context.SslMode = this.SslMode;
             context.Username = this.Username;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -302,7 +308,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         private static Amazon.DatabaseMigrationService.Model.ModifyEndpointResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ModifyEndpointRequest request)
         {
+            #if DESKTOP
             return client.ModifyEndpoint(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyEndpointAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

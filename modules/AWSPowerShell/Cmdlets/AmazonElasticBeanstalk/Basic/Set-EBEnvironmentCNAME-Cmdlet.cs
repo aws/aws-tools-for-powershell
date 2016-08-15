@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SourceEnvironmentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetEBEnvironmentCNAMECmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class SetEBEnvironmentCNAMECmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter DestinationEnvironmentId
@@ -127,10 +127,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DestinationEnvironmentId = this.DestinationEnvironmentId;
             context.DestinationEnvironmentName = this.DestinationEnvironmentName;
             context.SourceEnvironmentId = this.SourceEnvironmentId;
             context.SourceEnvironmentName = this.SourceEnvironmentName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsRequest request)
         {
+            #if DESKTOP
             return client.SwapEnvironmentCNAMEs(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SwapEnvironmentCNAMEsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

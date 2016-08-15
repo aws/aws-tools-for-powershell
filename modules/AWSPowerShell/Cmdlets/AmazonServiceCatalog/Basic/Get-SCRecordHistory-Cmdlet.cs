@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         "The service call response (type Amazon.ServiceCatalog.Model.ListRecordHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public class GetSCRecordHistoryCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCRecordHistoryCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -107,12 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AcceptLanguage = this.AcceptLanguage;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
             context.SearchFilter_Key = this.SearchFilter_Key;
             context.SearchFilter_Value = this.SearchFilter_Value;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -247,7 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         private static Amazon.ServiceCatalog.Model.ListRecordHistoryResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListRecordHistoryRequest request)
         {
+            #if DESKTOP
             return client.ListRecordHistory(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListRecordHistoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

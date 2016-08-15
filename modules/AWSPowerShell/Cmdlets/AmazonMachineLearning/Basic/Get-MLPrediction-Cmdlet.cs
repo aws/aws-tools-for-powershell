@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         "This cmdlet returns a Prediction object.",
         "The service call response (type Amazon.MachineLearning.Model.PredictResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetMLPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class GetMLPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter MLModelId
@@ -86,6 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.MLModelId = this.MLModelId;
             context.PredictEndpoint = this.PredictEndpoint;
             if (this.Record != null)
@@ -96,6 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
                     context.Record.Add((String)hashKey, (String)(this.Record[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -157,7 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.PredictResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.PredictRequest request)
         {
+            #if DESKTOP
             return client.Predict(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PredictAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

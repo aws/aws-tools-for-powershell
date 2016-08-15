@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "This cmdlet returns a AssociationDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceId
@@ -70,8 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InstanceId = this.InstanceId;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -129,7 +135,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest request)
         {
+            #if DESKTOP
             return client.DescribeAssociation(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAssociationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

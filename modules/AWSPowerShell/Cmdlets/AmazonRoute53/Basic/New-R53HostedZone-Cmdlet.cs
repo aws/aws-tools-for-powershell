@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdletOutput("Amazon.Route53.Model.CreateHostedZoneResponse",
         "This cmdlet returns a Amazon.Route53.Model.CreateHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class NewR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter CallerReference
@@ -174,6 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
             context.VPC_VPCRegion = this.VPC_VPCRegion;
             context.VPC_VPCId = this.VPC_VPCId;
@@ -182,6 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (ParameterWasBound("HostedZoneConfig_PrivateZone"))
                 context.HostedZoneConfig_PrivateZone = this.HostedZoneConfig_PrivateZone;
             context.DelegationSetId = this.DelegationSetId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -301,7 +307,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.CreateHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateHostedZoneRequest request)
         {
+            #if DESKTOP
             return client.CreateHostedZone(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateHostedZoneAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

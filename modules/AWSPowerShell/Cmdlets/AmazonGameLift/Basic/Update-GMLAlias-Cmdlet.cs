@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "This cmdlet returns a Alias object.",
         "The service call response (type Amazon.GameLift.Model.UpdateAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateGMLAliasCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class UpdateGMLAliasCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter AliasId
@@ -134,12 +134,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AliasId = this.AliasId;
             context.Description = this.Description;
             context.Name = this.Name;
             context.RoutingStrategy_FleetId = this.RoutingStrategy_FleetId;
             context.RoutingStrategy_Message = this.RoutingStrategy_Message;
             context.RoutingStrategy_Type = this.RoutingStrategy_Type;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -240,7 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.UpdateAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateAliasRequest request)
         {
+            #if DESKTOP
             return client.UpdateAlias(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateAliasAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

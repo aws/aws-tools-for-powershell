@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class NewDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter NewPublicVirtualInterface_AmazonAddress
@@ -148,6 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ConnectionId = this.ConnectionId;
             context.NewPublicVirtualInterface_AmazonAddress = this.NewPublicVirtualInterface_AmazonAddress;
             if (ParameterWasBound("NewPublicVirtualInterface_Asn"))
@@ -161,6 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPublicVirtualInterface_VirtualInterfaceName = this.NewPublicVirtualInterface_VirtualInterfaceName;
             if (ParameterWasBound("NewPublicVirtualInterface_Vlan"))
                 context.NewPublicVirtualInterface_Vlan = this.NewPublicVirtualInterface_Vlan;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -293,7 +299,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         private static Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceRequest request)
         {
+            #if DESKTOP
             return client.CreatePublicVirtualInterface(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePublicVirtualInterfaceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

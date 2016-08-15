@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.ListConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetADSConfigurationListCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class GetADSConfigurationListCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ConfigurationType
@@ -95,6 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ConfigurationType = this.ConfigurationType;
             if (this.Filter != null)
             {
@@ -103,6 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -242,7 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         private static Amazon.ApplicationDiscoveryService.Model.ListConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.ListConfigurationsRequest request)
         {
+            #if DESKTOP
             return client.ListConfigurations(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListConfigurationsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

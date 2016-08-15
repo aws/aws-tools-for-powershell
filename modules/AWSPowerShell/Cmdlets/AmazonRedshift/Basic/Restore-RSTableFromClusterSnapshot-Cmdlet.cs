@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a TableRestoreStatus object.",
         "The service call response (type Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RestoreRSTableFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class RestoreRSTableFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterIdentifier
@@ -163,6 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.NewTableName = this.NewTableName;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
@@ -171,6 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.SourceTableName = this.SourceTableName;
             context.TargetDatabaseName = this.TargetDatabaseName;
             context.TargetSchemaName = this.TargetSchemaName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -252,7 +258,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RestoreTableFromClusterSnapshotRequest request)
         {
+            #if DESKTOP
             return client.RestoreTableFromClusterSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RestoreTableFromClusterSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

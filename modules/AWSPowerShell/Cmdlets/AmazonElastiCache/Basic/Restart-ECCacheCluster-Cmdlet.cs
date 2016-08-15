@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a CacheCluster object.",
         "The service call response (type Amazon.ElastiCache.Model.RebootCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter CacheClusterId
@@ -99,11 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CacheClusterId = this.CacheClusterId;
             if (this.CacheNodeIdsToReboot != null)
             {
                 context.CacheNodeIdsToReboot = new List<System.String>(this.CacheNodeIdsToReboot);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.RebootCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RebootCacheClusterRequest request)
         {
+            #if DESKTOP
             return client.RebootCacheCluster(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RebootCacheClusterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

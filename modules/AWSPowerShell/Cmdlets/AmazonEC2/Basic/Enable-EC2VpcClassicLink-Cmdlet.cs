@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.EnableVpcClassicLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableEC2VpcClassicLinkCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class EnableEC2VpcClassicLinkCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter VpcId
@@ -82,7 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.VpcId = this.VpcId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -136,7 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.EnableVpcClassicLinkResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableVpcClassicLinkRequest request)
         {
+            #if DESKTOP
             return client.EnableVpcClassicLink(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableVpcClassicLinkAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

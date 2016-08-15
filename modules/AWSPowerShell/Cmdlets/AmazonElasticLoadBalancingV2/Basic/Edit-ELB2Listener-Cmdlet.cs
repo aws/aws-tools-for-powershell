@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "This cmdlet returns a collection of Listener objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyListenerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class EditELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter Certificate
@@ -136,6 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Certificate != null)
             {
                 context.Certificates = new List<Amazon.ElasticLoadBalancingV2.Model.Certificate>(this.Certificate);
@@ -149,6 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 context.Port = this.Port;
             context.Protocol = this.Protocol;
             context.SslPolicy = this.SslPolicy;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -222,7 +228,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.ModifyListenerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyListenerRequest request)
         {
+            #if DESKTOP
             return client.ModifyListener(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyListenerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

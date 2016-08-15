@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         "This cmdlet returns a DeliveryStreamDescription object.",
         "The service call response (type Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
+    public partial class GetKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
         #region Parameter DeliveryStreamName
@@ -84,10 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DeliveryStreamName = this.DeliveryStreamName;
             context.ExclusiveStartDestinationId = this.ExclusiveStartDestinationId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         private static Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.DescribeDeliveryStreamRequest request)
         {
+            #if DESKTOP
             return client.DescribeDeliveryStream(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeDeliveryStreamAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

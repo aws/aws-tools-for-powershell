@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         "This cmdlet returns a TaskDefinition object.",
         "The service call response (type Amazon.ECS.Model.RegisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
         #region Parameter ContainerDefinition
@@ -127,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ContainerDefinition != null)
             {
                 context.ContainerDefinitions = new List<Amazon.ECS.Model.ContainerDefinition>(this.ContainerDefinition);
@@ -137,6 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.Volumes = new List<Amazon.ECS.Model.Volume>(this.Volume);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -202,7 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         private static Amazon.ECS.Model.RegisterTaskDefinitionResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.RegisterTaskDefinitionRequest request)
         {
+            #if DESKTOP
             return client.RegisterTaskDefinition(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterTaskDefinitionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a collection of Deployment objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetOPSDeploymentsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSDeploymentsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter AppId
@@ -93,12 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AppId = this.AppId;
             if (this.DeploymentId != null)
             {
                 context.DeploymentIds = new List<System.String>(this.DeploymentId);
             }
             context.StackId = this.StackId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,7 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DescribeDeploymentsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeDeploymentsRequest request)
         {
+            #if DESKTOP
             return client.DescribeDeployments(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeDeploymentsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

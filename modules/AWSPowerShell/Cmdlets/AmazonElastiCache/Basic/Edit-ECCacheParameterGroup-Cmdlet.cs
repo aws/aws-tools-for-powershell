@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ElastiCache.Model.ModifyCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class EditECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter CacheParameterGroupName
@@ -91,11 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.ParameterNameValue != null)
             {
                 context.ParameterNameValues = new List<Amazon.ElastiCache.Model.ParameterNameValue>(this.ParameterNameValue);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.ModifyCacheParameterGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ModifyCacheParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.ModifyCacheParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyCacheParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

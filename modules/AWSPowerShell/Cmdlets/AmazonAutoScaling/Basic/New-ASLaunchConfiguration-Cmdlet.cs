@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LaunchConfigurationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class NewASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AssociatePublicIpAddress
@@ -317,6 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AssociatePublicIpAddress"))
                 context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             if (this.BlockDeviceMapping != null)
@@ -347,6 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             context.SpotPrice = this.SpotPrice;
             context.UserData = this.UserData;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -485,7 +491,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.CreateLaunchConfigurationRequest request)
         {
+            #if DESKTOP
             return client.CreateLaunchConfiguration(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLaunchConfigurationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

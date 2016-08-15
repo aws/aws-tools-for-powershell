@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class RemoveEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -110,10 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("DeleteSourceBundle"))
                 context.DeleteSourceBundle = this.DeleteSourceBundle;
             context.VersionLabel = this.VersionLabel;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -177,7 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionRequest request)
         {
+            #if DESKTOP
             return client.DeleteApplicationVersion(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteApplicationVersionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

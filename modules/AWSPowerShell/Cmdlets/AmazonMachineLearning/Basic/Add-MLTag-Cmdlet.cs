@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdletOutput("Amazon.MachineLearning.Model.AddTagsResponse",
         "This cmdlet returns a Amazon.MachineLearning.Model.AddTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddMLTagCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class AddMLTagCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceId
@@ -100,12 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceId = this.ResourceId;
             context.ResourceType = this.ResourceType;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.MachineLearning.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -167,7 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.AddTagsResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.AddTagsRequest request)
         {
+            #if DESKTOP
             return client.AddTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

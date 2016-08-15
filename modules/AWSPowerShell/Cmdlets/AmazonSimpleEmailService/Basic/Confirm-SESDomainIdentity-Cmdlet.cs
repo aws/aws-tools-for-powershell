@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleEmail.Model.VerifyDomainIdentityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ConfirmSESDomainIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class ConfirmSESDomainIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Domain
@@ -81,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Domain = this.Domain;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.VerifyDomainIdentityResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyDomainIdentityRequest request)
         {
+            #if DESKTOP
             return client.VerifyDomainIdentity(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.VerifyDomainIdentityAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

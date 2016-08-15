@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "The service call response (type Amazon.CodePipeline.Model.ListActionTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class GetCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ActionOwnerFilter
@@ -73,8 +73,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ActionOwnerFilter = this.ActionOwnerFilter;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -134,7 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.ListActionTypesResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListActionTypesRequest request)
         {
+            #if DESKTOP
             return client.ListActionTypes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListActionTypesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

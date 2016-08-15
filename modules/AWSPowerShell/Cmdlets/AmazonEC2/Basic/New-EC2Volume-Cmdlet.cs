@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a Volume object.",
         "The service call response (type Amazon.EC2.Model.CreateVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter AvailabilityZone
@@ -177,6 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AvailabilityZone = this.AvailabilityZone;
             if (ParameterWasBound("Encrypted"))
                 context.Encrypted = this.Encrypted;
@@ -187,6 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Size = this.Size;
             context.SnapshotId = this.SnapshotId;
             context.VolumeType = this.VolumeType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -264,7 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.CreateVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVolumeRequest request)
         {
+            #if DESKTOP
             return client.CreateVolume(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateVolumeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

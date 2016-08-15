@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.EnableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableASMetricsCollectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class EnableASMetricsCollectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -115,12 +115,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             context.Granularity = this.Granularity;
             if (this.Metric != null)
             {
                 context.Metrics = new List<System.String>(this.Metric);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -184,7 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.EnableMetricsCollectionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.EnableMetricsCollectionRequest request)
         {
+            #if DESKTOP
             return client.EnableMetricsCollection(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableMetricsCollectionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a BundleTask object.",
         "The service call response (type Amazon.EC2.Model.BundleInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEC2InstanceBundleCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2InstanceBundleCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter S3_AWSAccessKeyId
@@ -148,12 +148,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InstanceId = this.InstanceId;
             context.Storage_S3_AWSAccessKeyId = this.S3_AWSAccessKeyId;
             context.Storage_S3_Bucket = this.S3_Bucket;
             context.Storage_S3_Prefix = this.S3_Prefix;
             context.Storage_S3_UploadPolicy = this.S3_UploadPolicy;
             context.Storage_S3_UploadPolicySignature = this.S3_UploadPolicySignature;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -281,7 +287,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.BundleInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.BundleInstanceRequest request)
         {
+            #if DESKTOP
             return client.BundleInstance(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.BundleInstanceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

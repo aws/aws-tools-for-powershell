@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ChangeSetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFormation.Model.ExecuteChangeSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class StartCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter ChangeSetName
@@ -109,8 +109,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ChangeSetName = this.ChangeSetName;
             context.StackName = this.StackName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.ExecuteChangeSetResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ExecuteChangeSetRequest request)
         {
+            #if DESKTOP
             return client.ExecuteChangeSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ExecuteChangeSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

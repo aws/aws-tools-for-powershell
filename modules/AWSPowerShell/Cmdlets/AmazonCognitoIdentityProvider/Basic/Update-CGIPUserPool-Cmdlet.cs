@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserPoolId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.UpdateUserPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateCGIPUserPoolCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class UpdateCGIPUserPoolCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter AutoVerifiedAttribute
@@ -352,6 +352,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AutoVerifiedAttribute != null)
             {
                 context.AutoVerifiedAttributes = new List<System.String>(this.AutoVerifiedAttribute);
@@ -388,6 +391,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
             context.SmsVerificationMessage = this.SmsVerificationMessage;
             context.UserPoolId = this.UserPoolId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -717,7 +723,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.UpdateUserPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateUserPoolRequest request)
         {
+            #if DESKTOP
             return client.UpdateUserPool(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateUserPoolAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

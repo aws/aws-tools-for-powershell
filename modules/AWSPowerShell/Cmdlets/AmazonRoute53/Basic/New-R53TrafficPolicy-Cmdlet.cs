@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdletOutput("Amazon.Route53.Model.CreateTrafficPolicyResponse",
         "This cmdlet returns a Amazon.Route53.Model.CreateTrafficPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class NewR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter Comment
@@ -106,9 +106,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
             context.Document = this.Document;
             context.Comment = this.Comment;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.CreateTrafficPolicyResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateTrafficPolicyRequest request)
         {
+            #if DESKTOP
             return client.CreateTrafficPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTrafficPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

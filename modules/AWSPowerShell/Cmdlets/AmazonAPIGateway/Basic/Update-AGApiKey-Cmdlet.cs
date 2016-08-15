@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateApiKeyResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.UpdateApiKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateAGApiKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateAGApiKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ApiKey
@@ -87,11 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApiKey = this.ApiKey;
             if (this.PatchOperation != null)
             {
                 context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.UpdateApiKeyResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateApiKeyRequest request)
         {
+            #if DESKTOP
             return client.UpdateApiKey(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateApiKeyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.CertificateManager.Model.ListTagsForCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetACMCertificateTagListCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public partial class GetACMCertificateTagListCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
@@ -64,7 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CertificateArn = this.CertificateArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,7 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         private static Amazon.CertificateManager.Model.ListTagsForCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ListTagsForCertificateRequest request)
         {
+            #if DESKTOP
             return client.ListTagsForCertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTagsForCertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdletOutput("Amazon.ElastiCache.Model.DescribeCacheParametersResponse",
         "This cmdlet returns a Amazon.ElastiCache.Model.DescribeCacheParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetECCacheParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class GetECCacheParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter CacheParameterGroupName
@@ -96,11 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.Source = this.Source;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.DescribeCacheParametersResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheParametersRequest request)
         {
+            #if DESKTOP
             return client.DescribeCacheParameters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeCacheParametersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

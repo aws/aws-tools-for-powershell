@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OutputId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationOutputResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveKINAApplicationOutputCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class RemoveKINAApplicationOutputCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -121,10 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("CurrentApplicationVersionId"))
                 context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
             context.OutputId = this.OutputId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -188,7 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         private static Amazon.KinesisAnalytics.Model.DeleteApplicationOutputResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationOutputRequest request)
         {
+            #if DESKTOP
             return client.DeleteApplicationOutput(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteApplicationOutputAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

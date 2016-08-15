@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a ScalingParametersStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.UpdateScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class UpdateCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter ScalingParameters_DesiredInstanceType
@@ -114,12 +114,18 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DomainName = this.DomainName;
             context.ScalingParameters_DesiredInstanceType = this.ScalingParameters_DesiredInstanceType;
             if (ParameterWasBound("ScalingParameters_DesiredPartitionCount"))
                 context.ScalingParameters_DesiredPartitionCount = this.ScalingParameters_DesiredPartitionCount;
             if (ParameterWasBound("ScalingParameters_DesiredReplicationCount"))
                 context.ScalingParameters_DesiredReplicationCount = this.ScalingParameters_DesiredReplicationCount;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -212,7 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.UpdateScalingParametersResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.UpdateScalingParametersRequest request)
         {
+            #if DESKTOP
             return client.UpdateScalingParameters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateScalingParametersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         "This cmdlet returns a Endpoint object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class RemoveDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter EndpointArn
@@ -80,7 +80,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EndpointArn = this.EndpointArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -134,7 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         private static Amazon.DatabaseMigrationService.Model.DeleteEndpointResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DeleteEndpointRequest request)
         {
+            #if DESKTOP
             return client.DeleteEndpoint(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteEndpointAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

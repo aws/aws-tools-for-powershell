@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveWAFSqlInjectionMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class RemoveWAFSqlInjectionMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         #region Parameter ChangeToken
@@ -103,8 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ChangeToken = this.ChangeToken;
             context.SqlInjectionMatchSetId = this.SqlInjectionMatchSetId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -162,7 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteSqlInjectionMatchSetRequest request)
         {
+            #if DESKTOP
             return client.DeleteSqlInjectionMatchSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteSqlInjectionMatchSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -150,7 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
         private static Amazon.Lambda.Model.InvokeAsyncResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.InvokeAsyncRequest request)
         {
+#if DESKTOP
             return client.InvokeAsync(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.InvokeAsyncAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

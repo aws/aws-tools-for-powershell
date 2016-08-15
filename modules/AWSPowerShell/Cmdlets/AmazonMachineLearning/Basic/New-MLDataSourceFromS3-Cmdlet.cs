@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewMLDataSourceFromS3Cmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class NewMLDataSourceFromS3Cmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter ComputeStatistic
@@ -218,6 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("ComputeStatistic"))
                 context.ComputeStatistics = this.ComputeStatistic;
             context.DataSourceId = this.DataSourceId;
@@ -226,6 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
             context.DataSpec_DataRearrangement = this.DataSpec_DataRearrangement;
             context.DataSpec_DataSchema = this.DataSpec_DataSchema;
             context.DataSpec_DataSchemaLocationS3 = this.DataSpec_DataSchemaLocationS3;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -336,7 +342,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.CreateDataSourceFromS3Response CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromS3Request request)
         {
+            #if DESKTOP
             return client.CreateDataSourceFromS3(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateDataSourceFromS3Async(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

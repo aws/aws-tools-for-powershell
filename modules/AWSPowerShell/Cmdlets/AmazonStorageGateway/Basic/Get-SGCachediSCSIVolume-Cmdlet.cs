@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "This cmdlet returns a collection of CachediSCSIVolume objects.",
         "The service call response (type Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter VolumeARNs
@@ -68,10 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.VolumeARNs != null)
             {
                 context.VolumeARNs = new List<System.String>(this.VolumeARNs);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -125,7 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesRequest request)
         {
+            #if DESKTOP
             return client.DescribeCachediSCSIVolumes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeCachediSCSIVolumesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

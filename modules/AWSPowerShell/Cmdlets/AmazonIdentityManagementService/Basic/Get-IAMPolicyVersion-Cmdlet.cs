@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet returns a PolicyVersion object.",
         "The service call response (type Amazon.IdentityManagement.Model.GetPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class GetIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter PolicyArn
@@ -95,8 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.PolicyArn = this.PolicyArn;
             context.VersionId = this.VersionId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -154,7 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.GetPolicyVersionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetPolicyVersionRequest request)
         {
+            #if DESKTOP
             return client.GetPolicyVersion(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetPolicyVersionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

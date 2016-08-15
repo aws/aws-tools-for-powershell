@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.SimpleEmail.Model.CreateReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class NewSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter IpFilter_Cidr
@@ -111,9 +111,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Filter_IpFilter_Cidr = this.IpFilter_Cidr;
             context.Filter_IpFilter_Policy = this.IpFilter_Policy;
             context.Filter_Name = this.Filter_Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -217,7 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.CreateReceiptFilterResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CreateReceiptFilterRequest request)
         {
+            #if DESKTOP
             return client.CreateReceiptFilter(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateReceiptFilterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

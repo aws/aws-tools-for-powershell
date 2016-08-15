@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.SetIdentityMailFromDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSESIdentityMailFromDomainCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class SetSESIdentityMailFromDomainCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter BehaviorOnMXFailure
@@ -129,9 +129,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BehaviorOnMXFailure = this.BehaviorOnMXFailure;
             context.Identity = this.Identity;
             context.MailFromDomain = this.MailFromDomain;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -195,7 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.SetIdentityMailFromDomainResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityMailFromDomainRequest request)
         {
+            #if DESKTOP
             return client.SetIdentityMailFromDomain(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetIdentityMailFromDomainAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

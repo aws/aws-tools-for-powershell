@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdletOutput("Amazon.Route53.Model.CreateReusableDelegationSetResponse",
         "This cmdlet returns a Amazon.Route53.Model.CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter CallerReference
@@ -103,8 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CallerReference = this.CallerReference;
             context.HostedZoneId = this.HostedZoneId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -162,7 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.CreateReusableDelegationSetResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateReusableDelegationSetRequest request)
         {
+            #if DESKTOP
             return client.CreateReusableDelegationSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateReusableDelegationSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "This cmdlet returns a ApplicationDescription object.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class UpdateEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -91,8 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             context.Description = this.Description;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -150,7 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateApplicationRequest request)
         {
+            #if DESKTOP
             return client.UpdateApplication(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateApplicationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "This cmdlet returns a collection of Rule objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetELB2RuleCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class GetELB2RuleCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter ListenerArn
@@ -72,11 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ListenerArn = this.ListenerArn;
             if (this.RuleArn != null)
             {
                 context.RuleArns = new List<System.String>(this.RuleArn);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -134,7 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeRulesRequest request)
         {
+            #if DESKTOP
             return client.DescribeRules(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeRulesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

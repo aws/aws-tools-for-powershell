@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdletOutput("Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse",
         "This cmdlet returns a Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53TrafficPolicyInstancesByHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53TrafficPolicyInstancesByHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter HostedZoneId
@@ -140,10 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.HostedZoneId = this.HostedZoneId;
             context.TrafficPolicyInstanceNameMarker = this.TrafficPolicyInstanceNameMarker;
             context.TrafficPolicyInstanceTypeMarker = this.TrafficPolicyInstanceTypeMarker;
             context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -209,7 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTrafficPolicyInstancesByHostedZoneRequest request)
         {
+            #if DESKTOP
             return client.ListTrafficPolicyInstancesByHostedZone(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTrafficPolicyInstancesByHostedZoneAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

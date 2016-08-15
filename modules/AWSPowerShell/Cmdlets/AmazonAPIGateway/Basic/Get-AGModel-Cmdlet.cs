@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetModelResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.GetModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter Flatten
@@ -79,10 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Flatten"))
                 context.Flatten = this.Flatten;
             context.ModelName = this.ModelName;
             context.RestApiId = this.RestApiId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -144,7 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.GetModelResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetModelRequest request)
         {
+            #if DESKTOP
             return client.GetModel(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetModelAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

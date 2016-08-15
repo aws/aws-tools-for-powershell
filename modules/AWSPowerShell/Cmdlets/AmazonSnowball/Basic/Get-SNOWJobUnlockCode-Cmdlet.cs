@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Snowball.Model.GetJobUnlockCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSNOWJobUnlockCodeCmdlet : AmazonSnowballClientCmdlet, IExecutor
+    public partial class GetSNOWJobUnlockCodeCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
         #region Parameter JobId
@@ -76,7 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.JobId = this.JobId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -130,7 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         private static Amazon.Snowball.Model.GetJobUnlockCodeResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.GetJobUnlockCodeRequest request)
         {
+            #if DESKTOP
             return client.GetJobUnlockCode(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetJobUnlockCodeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

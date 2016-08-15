@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.AddIpRoutesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddDSIpRoutesCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class AddDSIpRoutesCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DirectoryId
@@ -114,6 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DirectoryId = this.DirectoryId;
             if (this.IpRoute != null)
             {
@@ -121,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             }
             if (ParameterWasBound("UpdateSecurityGroupForDirectoryController"))
                 context.UpdateSecurityGroupForDirectoryControllers = this.UpdateSecurityGroupForDirectoryController;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -184,7 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.AddIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.AddIpRoutesRequest request)
         {
+            #if DESKTOP
             return client.AddIpRoutes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddIpRoutesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

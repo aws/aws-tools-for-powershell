@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "This cmdlet returns a collection of StackResource objects.",
         "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFNStackResourcesCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetCFNStackResourcesCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter LogicalResourceId
@@ -107,9 +107,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.LogicalResourceId = this.LogicalResourceId;
             context.PhysicalResourceId = this.PhysicalResourceId;
             context.StackName = this.StackName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.DescribeStackResourcesResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeStackResourcesRequest request)
         {
+            #if DESKTOP
             return client.DescribeStackResources(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeStackResourcesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

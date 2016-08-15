@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateClientCertificateResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.UpdateClientCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateAGClientCertificateCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateAGClientCertificateCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ClientCertificateId
@@ -87,11 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientCertificateId = this.ClientCertificateId;
             if (this.PatchOperation != null)
             {
                 context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.UpdateClientCertificateResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateClientCertificateRequest request)
         {
+            #if DESKTOP
             return client.UpdateClientCertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateClientCertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

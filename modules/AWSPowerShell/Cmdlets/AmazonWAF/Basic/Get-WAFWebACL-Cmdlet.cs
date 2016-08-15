@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         "This cmdlet returns a WebACL object.",
         "The service call response (type Amazon.WAF.Model.GetWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class GetWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         #region Parameter WebACLId
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.WebACLId = this.WebACLId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,7 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.GetWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetWebACLRequest request)
         {
+            #if DESKTOP
             return client.GetWebACL(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetWebACLAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

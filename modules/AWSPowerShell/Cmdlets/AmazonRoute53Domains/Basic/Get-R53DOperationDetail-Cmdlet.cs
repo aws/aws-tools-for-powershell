@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdletOutput("Amazon.Route53Domains.Model.GetOperationDetailResponse",
         "This cmdlet returns a Amazon.Route53Domains.Model.GetOperationDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53DOperationDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class GetR53DOperationDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter OperationId
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.OperationId = this.OperationId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         private static Amazon.Route53Domains.Model.GetOperationDetailResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.GetOperationDetailRequest request)
         {
+            #if DESKTOP
             return client.GetOperationDetail(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetOperationDetailAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

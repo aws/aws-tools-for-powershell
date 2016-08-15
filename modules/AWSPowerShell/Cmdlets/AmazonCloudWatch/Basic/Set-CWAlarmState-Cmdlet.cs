@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatch.Model.SetAlarmStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetCWAlarmStateCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
+    public partial class SetCWAlarmStateCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         #region Parameter AlarmName
@@ -124,10 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AlarmName = this.AlarmName;
             context.StateReason = this.StateReason;
             context.StateReasonData = this.StateReasonData;
             context.StateValue = this.StateValue;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -195,7 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         private static Amazon.CloudWatch.Model.SetAlarmStateResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.SetAlarmStateRequest request)
         {
+            #if DESKTOP
             return client.SetAlarmState(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetAlarmStateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

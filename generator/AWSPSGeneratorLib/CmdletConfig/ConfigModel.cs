@@ -674,9 +674,15 @@ namespace AWSPowerShellGenerator.CmdletConfig
             get { return _createdFiles; }
         }
 
+        [XmlIgnore]
+        public ArgumentCompleterDetails ArgumentCompleters { get; private set; }
+
         #endregion
 
-        public ConfigModel() { }
+        public ConfigModel()
+        {
+            ArgumentCompleters = new ArgumentCompleterDetails();
+        }
     }
 
     /// <summary>
@@ -1350,5 +1356,184 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// suffix to follow other cmdlet standards.
         /// </summary>
         public string Documentation { get; set; }
+    }
+
+    /// <summary>
+    /// Tracks usage of SDK ConstantClass-derived types in parameters so that we
+    /// can generate argument completers for a service.
+    /// </summary>
+    public class ArgumentCompleterDetails
+    {
+        /// <summary>
+        /// Tracks the members of each ConstantClass-derived type
+        /// </summary>
+        private Dictionary<string, IEnumerable<string>> _constantClassMembers = new Dictionary<string, IEnumerable<string>>();
+
+        /// <summary>
+        /// Tracks the cmdlet references, by parameter name, for a given ConstantClass-derived type
+        /// </summary>
+        private Dictionary<string, ConstantClassReferences> _constantClassReferences = new Dictionary<string, ConstantClassReferences>();
+
+        /// <summary>
+        /// Returns true if any parameters in cmdlets referenced ConstantClass-derived types.
+        /// </summary>
+        public bool GenerateCompleters
+        {
+            get { return _constantClassReferences.Any(); }
+        }
+
+        /// <summary>
+        /// Returns the ordered collection of ConstantClass-derived type names that were
+        /// found to be referenced during cmdlet generation or inspection of hand-maintained
+        /// cmdlets.
+        /// </summary>
+        public IEnumerable<string> ReferencedClasses
+        {
+            get
+            {
+                var l = new List<string>(_constantClassReferences.Keys);
+                l.Sort(); // return ordered so codegen'd file gets consistent layout
+                return l;
+            }
+        }
+
+        /// <summary>
+        /// Returns the collection of parameter and cmdlet references for a ConstantClass-derived
+        /// type.
+        /// </summary>
+        /// <param name="constantClassTypename"></param>
+        /// <returns></returns>
+        public ConstantClassReferences GetReferencesFor(string constantClassTypename)
+        {
+            ConstantClassReferences refs;
+            if (_constantClassReferences.TryGetValue(constantClassTypename, out refs) && refs != null)
+                return refs;
+
+            throw new ArgumentException(string.Format("ConstantClass-derived type {0} has not been encountered during generation", constantClassTypename));
+        }
+
+        /// <summary>
+        /// Returns the collection of members for a ConstantClass-derived type.
+        /// </summary>
+        /// <param name="constantClassTypename"></param>
+        /// <returns></returns>
+        public IEnumerable<string> GetConstantClassMembers(string constantClassTypename)
+        {
+            IEnumerable<string> members;
+            if (_constantClassMembers.TryGetValue(constantClassTypename, out members) && members != null)
+                return members;
+
+            throw new ArgumentException(string.Format("ConstantClass-derived type {0} has not been encountered during generation", constantClassTypename));
+        }
+
+        /// <summary>
+        /// Indicates if the members of the ConstantClass-derived type have already been registered.
+        /// </summary>
+        /// <param name="constantClassTypeName"></param>
+        /// <returns></returns>
+        public bool IsConstantClassRegistered(string constantClassTypeName)
+        {
+             return _constantClassMembers.ContainsKey(constantClassTypeName);
+        }
+
+        /// <summary>
+        /// Registers the members of a ConstantClass-derived type so that we can generate
+        /// an argument completer for the type.
+        /// </summary>
+        /// <param name="constantClassTypename"></param>
+        /// <param name="setMembers"></param>
+        public void AddConstantClass(string constantClassTypename, IEnumerable<string> setMembers)
+        {
+            if (_constantClassMembers.ContainsKey(constantClassTypename))
+                return;
+
+            _constantClassMembers.Add(constantClassTypename, setMembers);
+        }
+
+        /// <summary>
+        /// Initializes or adds a new cmdlet parameter reference to a ConstantClass-derived
+        /// SDK 'enum' type.
+        /// </summary>
+        /// <param name="constantClassTypename"></param>
+        /// <param name="parameterName"></param>
+        /// <param name="cmdletName"></param>
+        public void AddConstantClassReference(string constantClassTypename, string parameterName, string cmdletName)
+        {
+            if (_constantClassReferences.ContainsKey(constantClassTypename))
+            {
+                var reference = _constantClassReferences[constantClassTypename];
+                reference.AddReference(parameterName, cmdletName);
+            }
+            else
+            {
+                var reference = new ConstantClassReferences();
+                reference.AddReference(parameterName, cmdletName);
+                _constantClassReferences.Add(constantClassTypename, reference);
+            }
+
+        }
+    }
+
+    /// <summary>
+    /// Tracks the cmdlets that reference an SDK ConstantClass-derived 'enum' type
+    /// via the same-named parameter. Cmdlets that reference the same 'enum' type
+    /// using a different parameter name will trigger a new ConstantClassReference
+    /// instance.
+    /// </summary>
+    public class ConstantClassReferences
+    {
+        private SortedDictionary<string, HashSet<string>> _references = new SortedDictionary<string, HashSet<string>>();
+
+        /// <summary>
+        /// The set of parameter names that have been used to reference the
+        /// ConstantClass-derived type. Ideally across a service their should
+        /// be a consistent (and therefore single) name used, but we can't
+        /// guarantee this.
+        /// </summary>
+        public IEnumerable<string> ParameterNames
+        {
+            get
+            {
+                var l = new List<string>(_references.Keys);
+                l.Sort();
+                return l;
+            }
+        }
+
+        /// <summary>
+        /// The names of the cmdlets that reference the SDK ConstantClass-derived
+        /// type via a parameter of name parameterName. The names are returned in
+        /// sorted order so we generate consistently ordered file contents.
+        /// </summary>
+        public IEnumerable<string> GetCmdletReferences(string parameterName)
+        {
+            if (!_references.ContainsKey(parameterName))
+                throw new ArgumentException("No reference for specified parameter name");
+
+            var refs = _references[parameterName];
+            var ret = new List<string>(refs);
+            ret.Sort();
+            return ret;
+        }
+
+        /// <summary>
+        /// Adds a reference from a cmdlet via the named parameter.
+        /// </summary>
+        /// <param name="parameterName"></param>
+        /// <param name="cmdletName"></param>
+        public void AddReference(string parameterName, string cmdletName)
+        {
+            if (_references.ContainsKey(parameterName))
+            {
+                var r = _references[parameterName];
+                r.Add(cmdletName);
+            }
+            else
+            {
+                var r = new HashSet<string>();
+                r.Add(cmdletName);
+                _references.Add(parameterName, r);
+            }
+        }
     }
 }

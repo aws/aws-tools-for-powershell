@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "Returns the collection of tags that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddRDSTagsToResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class AddRDSTagsToResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceName
@@ -106,11 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceName = this.ResourceName;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddTagsToResourceRequest request)
         {
+            #if DESKTOP
             return client.AddTagsToResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddTagsToResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

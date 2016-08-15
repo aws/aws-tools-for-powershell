@@ -298,7 +298,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 
         private static Amazon.DynamoDBv2.Model.CreateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.CreateTableRequest request)
         {
+#if DESKTOP
             return client.CreateTable(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTableAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

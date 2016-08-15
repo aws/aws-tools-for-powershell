@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.CreateLayerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewOPSLayerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class NewOPSLayerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter Attribute
@@ -336,6 +336,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -396,6 +399,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             {
                 context.VolumeConfigurations = new List<Amazon.OpsWorks.Model.VolumeConfiguration>(this.VolumeConfiguration);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -608,7 +614,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.CreateLayerResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CreateLayerRequest request)
         {
+            #if DESKTOP
             return client.CreateLayer(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLayerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

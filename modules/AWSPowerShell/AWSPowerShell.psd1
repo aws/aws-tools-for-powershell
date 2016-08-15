@@ -114,7 +114,6 @@ RequiredAssemblies = @(
   "AWSSDK.SimpleEmail.dll",
   "AWSSDK.SimpleNotificationService.dll",
   "AWSSDK.SimpleSystemsManagement.dll",
-  "AWSSDK.SimpleWorkflow.dll",
   "AWSSDK.Snowball.dll",
   "AWSSDK.SQS.dll",
   "AWSSDK.StorageGateway.dll",
@@ -132,13 +131,13 @@ TypesToProcess = @('AWSPowerShell.TypeExtensions.ps1xml')
 FormatsToProcess = @('AWSPowerShell.Format.ps1xml')
 
 # Modules to import as nested modules of the module specified in ModuleToProcess
-NestedModules = @()
+NestedModules = @("AWSPowerShellCompleters.psm1")
 
 # Functions to export from this module
-FunctionsToExport = '*'
+FunctionsToExport = ''
 
 # Cmdlets to export from this module
-CmdletsToExport = '*'
+CmdletsToExport = '*-*'
 
 # Variables to export from this module
 VariablesToExport = '*'

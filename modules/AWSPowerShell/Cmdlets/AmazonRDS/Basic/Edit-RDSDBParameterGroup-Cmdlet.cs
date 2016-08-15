@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.RDS.Model.ModifyDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class EditRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBParameterGroupName
@@ -110,11 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBParameterGroupName = this.DBParameterGroupName;
             if (this.Parameter != null)
             {
                 context.Parameters = new List<Amazon.RDS.Model.Parameter>(this.Parameter);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.ModifyDBParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.ModifyDBParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyDBParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

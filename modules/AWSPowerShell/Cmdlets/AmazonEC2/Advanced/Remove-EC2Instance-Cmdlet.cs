@@ -21,7 +21,6 @@ using System.Linq;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
-using Amazon.PowerShell.Properties;
 using Amazon.EC2;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
@@ -117,7 +116,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         private static Amazon.EC2.Model.TerminateInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.TerminateInstancesRequest request)
         {
+#if DESKTOP
             return client.TerminateInstances(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.TerminateInstancesAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

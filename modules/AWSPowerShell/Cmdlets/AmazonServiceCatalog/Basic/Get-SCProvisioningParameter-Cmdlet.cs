@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -94,10 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AcceptLanguage = this.AcceptLanguage;
             context.PathId = this.PathId;
             context.ProductId = this.ProductId;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -163,7 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
         {
+            #if DESKTOP
             return client.DescribeProvisioningParameters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeProvisioningParametersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

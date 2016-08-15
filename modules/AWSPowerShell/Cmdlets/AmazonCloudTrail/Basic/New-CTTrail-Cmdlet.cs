@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdletOutput("Amazon.CloudTrail.Model.CreateTrailResponse",
         "This cmdlet returns a Amazon.CloudTrail.Model.CreateTrailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class NewCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
         #region Parameter CloudWatchLogsLogGroupArn
@@ -188,6 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CloudWatchLogsLogGroupArn = this.CloudWatchLogsLogGroupArn;
             context.CloudWatchLogsRoleArn = this.CloudWatchLogsRoleArn;
             if (ParameterWasBound("EnableLogFileValidation"))
@@ -201,6 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.S3BucketName = this.S3BucketName;
             context.S3KeyPrefix = this.S3KeyPrefix;
             context.SnsTopicName = this.SnsTopicName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -290,7 +296,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         private static Amazon.CloudTrail.Model.CreateTrailResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.CreateTrailRequest request)
         {
+            #if DESKTOP
             return client.CreateTrail(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTrailAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

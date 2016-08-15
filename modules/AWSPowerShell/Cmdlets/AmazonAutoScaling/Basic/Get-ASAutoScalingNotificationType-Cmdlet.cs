@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetASAutoScalingNotificationTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetASAutoScalingNotificationTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -50,6 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,7 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAutoScalingNotificationTypesRequest request)
         {
+            #if DESKTOP
             return client.DescribeAutoScalingNotificationTypes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAutoScalingNotificationTypesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.UpdateAutoScalingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class UpdateASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -249,6 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.AvailabilityZone != null)
             {
@@ -274,6 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.TerminationPolicies = new List<System.String>(this.TerminationPolicy);
             }
             context.VPCZoneIdentifier = this.VPCZoneIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -377,7 +383,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.UpdateAutoScalingGroupResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.UpdateAutoScalingGroupRequest request)
         {
+            #if DESKTOP
             return client.UpdateAutoScalingGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateAutoScalingGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

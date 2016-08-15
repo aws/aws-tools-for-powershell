@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "The service call response (type Amazon.SimpleNotificationService.Model.ListSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class GetSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter NextToken
@@ -64,7 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -152,7 +158,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.ListSubscriptionsResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ListSubscriptionsRequest request)
         {
+            #if DESKTOP
             return client.ListSubscriptions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListSubscriptionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

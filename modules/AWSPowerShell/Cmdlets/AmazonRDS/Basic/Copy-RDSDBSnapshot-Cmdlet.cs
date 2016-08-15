@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a DBSnapshot object.",
         "The service call response (type Amazon.RDS.Model.CopyDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class CopyRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class CopyRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter CopyTag
@@ -138,6 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CopyTag"))
                 context.CopyTags = this.CopyTag;
             context.KmsKeyId = this.KmsKeyId;
@@ -147,6 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBSnapshotIdentifier = this.TargetDBSnapshotIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -216,7 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.CopyDBSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CopyDBSnapshotRequest request)
         {
+            #if DESKTOP
             return client.CopyDBSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CopyDBSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

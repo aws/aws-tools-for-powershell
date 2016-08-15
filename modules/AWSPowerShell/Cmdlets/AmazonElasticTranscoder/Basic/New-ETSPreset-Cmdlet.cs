@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.CreatePresetResponse",
         "This cmdlet returns a Amazon.ElasticTranscoder.Model.CreatePresetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class NewETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter Thumbnails_AspectRatio
@@ -690,6 +690,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Audio_AudioPackingMode = this.Audio_AudioPackingMode;
             context.Audio_BitRate = this.Audio_BitRate;
             context.Audio_Channels = this.Audio_Channel;
@@ -735,6 +738,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             {
                 context.Video_Watermarks = new List<Amazon.ElasticTranscoder.Model.PresetWatermark>(this.Video_Watermark);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -1158,7 +1164,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.CreatePresetResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.CreatePresetRequest request)
         {
+            #if DESKTOP
             return client.CreatePreset(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePresetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

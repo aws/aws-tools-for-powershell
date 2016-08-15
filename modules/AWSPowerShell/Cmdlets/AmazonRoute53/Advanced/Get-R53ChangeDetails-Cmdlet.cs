@@ -118,7 +118,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         private static Amazon.Route53.Model.GetChangeDetailsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetChangeDetailsRequest request)
         {
+#if DESKTOP
             return client.GetChangeDetails(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetChangeDetailsAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

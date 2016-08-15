@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.DescribeLimitsResponse",
         "This cmdlet returns a Amazon.DynamoDBv2.Model.DescribeLimitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDDBProvisionLimitCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class GetDDBProvisionLimitCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -104,6 +104,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         private static Amazon.DynamoDBv2.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeLimitsRequest request)
         {
+            #if DESKTOP
             return client.DescribeLimits(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeLimitsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

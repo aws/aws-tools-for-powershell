@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListAvailableZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetHSMAvailableZonesCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class GetHSMAvailableZonesCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -50,6 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,7 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.ListAvailableZonesResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListAvailableZonesRequest request)
         {
+            #if DESKTOP
             return client.ListAvailableZones(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListAvailableZonesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

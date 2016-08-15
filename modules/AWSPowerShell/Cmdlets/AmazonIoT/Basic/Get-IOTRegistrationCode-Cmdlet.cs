@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.IoT.Model.GetRegistrationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIOTRegistrationCodeCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIOTRegistrationCodeCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -50,6 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,7 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.GetRegistrationCodeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetRegistrationCodeRequest request)
         {
+            #if DESKTOP
             return client.GetRegistrationCode(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetRegistrationCodeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

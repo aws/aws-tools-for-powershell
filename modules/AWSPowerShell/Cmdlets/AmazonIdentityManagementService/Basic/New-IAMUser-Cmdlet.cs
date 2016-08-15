@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet returns a User object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class NewIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Path
@@ -100,8 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Path = this.Path;
             context.UserName = this.UserName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.CreateUserResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateUserRequest request)
         {
+            #if DESKTOP
             return client.CreateUser(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateUserAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -96,11 +96,35 @@ namespace AWSPowerShellGenerator
         public string DocOutputFolder { get; set; }
 
         /// <summary>
+        /// <para>
         /// Used when running generator tasks such as format or help construction to
         /// help us find the correct AWSPowerShell module to process (desktop or coreclr).
-        /// Defaults to 'desktop' if not supplied.
+        /// Defaults to 'desktop' if not supplied. Edition is also used in #ifdef
+        /// statements in cmdlet source code where explicit targetting is required.
+        /// </para>
+        /// <para>
+        /// Edition 'desktop' maps to output folder Deployment\AWSPowerShell.
+        /// Edition 'coreclr' maps to output folder Deployment\AWSPowerShell.NetCore.
+        /// </para> 
         /// </summary>
         public string Edition { get; set; }
+
+        /// <summary>
+        /// Returns the constructed deployment folder path for the edition
+        /// denoted in the Edition property.
+        /// </summary>
+        /// <param name="outputRoot"></param>
+        /// <returns></returns>
+        public string GetEditionOutputFolder(string outputRoot)
+        {
+            if (Edition.Equals("coreclr", StringComparison.OrdinalIgnoreCase))
+                return Path.Combine(outputRoot, "AWSPowerShell.NetCore");
+
+            if (Edition.Equals("desktop", StringComparison.OrdinalIgnoreCase))
+                return Path.Combine(outputRoot, "AWSPowerShell");
+
+            throw new InvalidOperationException("Unknown edition - " + Edition);
+        }
 
         /// <summary>
         /// Internal helper used by the generator to determine if a given

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdletOutput("Amazon.SQS.Model.DeleteMessageBatchResponse",
         "This cmdlet returns a Amazon.SQS.Model.DeleteMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class RemoveSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter Entry
@@ -97,11 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Entry != null)
             {
                 context.Entries = new List<Amazon.SQS.Model.DeleteMessageBatchRequestEntry>(this.Entry);
             }
             context.QueueUrl = this.QueueUrl;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.DeleteMessageBatchResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.DeleteMessageBatchRequest request)
         {
+            #if DESKTOP
             return client.DeleteMessageBatch(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteMessageBatchAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

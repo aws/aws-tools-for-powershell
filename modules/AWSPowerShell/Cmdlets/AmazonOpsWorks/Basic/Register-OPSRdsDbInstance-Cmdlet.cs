@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class RegisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter DbPassword
@@ -122,10 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DbPassword = this.DbPassword;
             context.DbUser = this.DbUser;
             context.RdsDbInstanceArn = this.RdsDbInstanceArn;
             context.StackId = this.StackId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -193,7 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterRdsDbInstanceRequest request)
         {
+            #if DESKTOP
             return client.RegisterRdsDbInstance(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterRdsDbInstanceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

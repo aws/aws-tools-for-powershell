@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
-    public class GetELB2SSLPolicyCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class GetELB2SSLPolicyCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter Name
@@ -90,6 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Marker = this.Marker;
             if (this.Name != null)
             {
@@ -97,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             }
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -202,7 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesRequest request)
         {
+            #if DESKTOP
             return client.DescribeSSLPolicies(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeSSLPoliciesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

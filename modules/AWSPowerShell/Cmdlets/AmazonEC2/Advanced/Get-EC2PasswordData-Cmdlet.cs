@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteVerbose(string.Format("Retrieving keyname from running instance {0}", instanceId));
                 var request = new DescribeInstancesRequest();
                 request.InstanceIds.Add(instanceId);
-                var response = Client.DescribeInstances(request);
+                var response = CallAWSServiceOperation(Client, request);
                 string keyName = response.Reservations[0].Instances[0].KeyName;
 
                 WriteVerbose(string.Format("Retrieved keyname {0}, decrypting password data", keyName));
@@ -194,7 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new ArgumentException("Specified .pem file does not exist");
 
                 string privateKey = null;
-                using (var reader = new StreamReader(pemFile))
+                using (var fs = File.OpenRead(pemFile))
+                using (var reader = new StreamReader(fs))
                 {
                     privateKey = reader.ReadToEnd();
                 }
@@ -240,7 +241,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         private static Amazon.EC2.Model.GetPasswordDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetPasswordDataRequest request)
         {
+#if DESKTOP
             return client.GetPasswordData(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetPasswordDataAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+        }
+
+        private static Amazon.EC2.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstancesRequest request)
+        {
+#if DESKTOP
+            return client.DescribeInstances(request);
+#elif CORECLR
+            var task = client.DescribeInstancesAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion
@@ -264,7 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         return null;
 
                     string encryptedPrivateKey = null;
-                    using (var reader = new StreamReader(fullpath))
+                    using (var fs = File.OpenRead(fullpath))
+                    using (var reader = new StreamReader(fs))
                     {
                         encryptedPrivateKey = reader.ReadToEnd();
                     }

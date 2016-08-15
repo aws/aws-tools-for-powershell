@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminListDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: PaginationToken (type System.String)"
     )]
-    public class GetCGIPDeviceListAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetCGIPDeviceListAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter Username
@@ -93,11 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.PaginationToken = this.PaginationToken;
             context.Username = this.Username;
             context.UserPoolId = this.UserPoolId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -237,7 +243,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.AdminListDevicesResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminListDevicesRequest request)
         {
+            #if DESKTOP
             return client.AdminListDevices(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AdminListDevicesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

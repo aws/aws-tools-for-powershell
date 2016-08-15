@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteGroupPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveIAMGroupPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class RemoveIAMGroupPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter GroupName
@@ -108,8 +108,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GroupName = this.GroupName;
             context.PolicyName = this.PolicyName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -169,7 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.DeleteGroupPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteGroupPolicyRequest request)
         {
+            #if DESKTOP
             return client.DeleteGroupPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteGroupPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

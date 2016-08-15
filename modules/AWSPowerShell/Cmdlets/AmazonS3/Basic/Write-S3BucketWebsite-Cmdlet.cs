@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.S3.Model.PutBucketWebsiteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteS3BucketWebsiteCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class WriteS3BucketWebsiteCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -200,6 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BucketName = this.BucketName;
             context.WebsiteConfiguration_ErrorDocument = this.WebsiteConfiguration_ErrorDocument;
             context.WebsiteConfiguration_IndexDocumentSuffix = this.WebsiteConfiguration_IndexDocumentSuffix;
@@ -212,6 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.WebsiteConfiguration_RoutingRules = new List<Amazon.S3.Model.RoutingRule>(this.WebsiteConfiguration_RoutingRule);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -371,7 +377,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private static Amazon.S3.Model.PutBucketWebsiteResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketWebsiteRequest request)
         {
+            #if DESKTOP
             return client.PutBucketWebsite(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutBucketWebsiteAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

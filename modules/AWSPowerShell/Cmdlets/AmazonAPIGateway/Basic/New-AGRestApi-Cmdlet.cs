@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateRestApiResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter CloneFrom
@@ -95,9 +95,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CloneFrom = this.CloneFrom;
             context.Description = this.Description;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.CreateRestApiResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateRestApiRequest request)
         {
+            #if DESKTOP
             return client.CreateRestApi(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateRestApiAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

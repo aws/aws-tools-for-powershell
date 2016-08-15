@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "This cmdlet returns a DeviceType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminGetDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCGIPDeviceAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetCGIPDeviceAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter DeviceKey
@@ -80,9 +80,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DeviceKey = this.DeviceKey;
             context.Username = this.Username;
             context.UserPoolId = this.UserPoolId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -144,7 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.AdminGetDeviceResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminGetDeviceRequest request)
         {
+            #if DESKTOP
             return client.AdminGetDevice(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AdminGetDeviceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

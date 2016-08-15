@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class GetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter SubscriptionArn
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.SubscriptionArn = this.SubscriptionArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesRequest request)
         {
+            #if DESKTOP
             return client.GetSubscriptionAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetSubscriptionAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

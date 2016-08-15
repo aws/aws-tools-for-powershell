@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SQS.Model.GetQueueUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSQSQueueUrlCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class GetSQSQueueUrlCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter QueueName
@@ -81,8 +81,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.QueueName = this.QueueName;
             context.QueueOwnerAWSAccountId = this.QueueOwnerAWSAccountId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -140,7 +146,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.GetQueueUrlResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.GetQueueUrlRequest request)
         {
+            #if DESKTOP
             return client.GetQueueUrl(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetQueueUrlAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

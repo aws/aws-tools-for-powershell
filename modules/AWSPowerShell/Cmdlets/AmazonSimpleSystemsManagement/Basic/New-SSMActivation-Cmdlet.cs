@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.CreateActivationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSSMActivationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class NewSSMActivationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter DefaultInstanceName
@@ -124,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DefaultInstanceName = this.DefaultInstanceName;
             context.Description = this.Description;
             if (ParameterWasBound("ExpirationDate"))
@@ -131,6 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.IamRole = this.IamRole;
             if (ParameterWasBound("RegistrationLimit"))
                 context.RegistrationLimit = this.RegistrationLimit;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -200,7 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.CreateActivationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateActivationRequest request)
         {
+            #if DESKTOP
             return client.CreateActivation(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateActivationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

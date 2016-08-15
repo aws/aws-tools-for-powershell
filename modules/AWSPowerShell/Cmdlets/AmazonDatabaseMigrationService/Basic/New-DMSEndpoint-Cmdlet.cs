@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         "This cmdlet returns a Endpoint object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.CreateEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class NewDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
@@ -206,6 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CertificateArn = this.CertificateArn;
             context.DatabaseName = this.DatabaseName;
             context.EndpointIdentifier = this.EndpointIdentifier;
@@ -223,6 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
             }
             context.Username = this.Username;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -324,7 +330,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         private static Amazon.DatabaseMigrationService.Model.CreateEndpointResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.CreateEndpointRequest request)
         {
+            #if DESKTOP
             return client.CreateEndpoint(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateEndpointAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     [AWSCmdletOutput("Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse",
         "This cmdlet returns a Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class FindKINAInputSchemaCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class FindKINAInputSchemaCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter InputStartingPositionConfiguration_InputStartingPosition
@@ -99,9 +99,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InputStartingPositionConfiguration_InputStartingPosition = this.InputStartingPositionConfiguration_InputStartingPosition;
             context.ResourceARN = this.ResourceARN;
             context.RoleARN = this.RoleARN;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -178,7 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         private static Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DiscoverInputSchemaRequest request)
         {
+            #if DESKTOP
             return client.DiscoverInputSchema(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DiscoverInputSchemaAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

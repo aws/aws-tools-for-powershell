@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.Redshift.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class RemoveRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterIdentifier
@@ -122,10 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.FinalClusterSnapshotIdentifier = this.FinalClusterSnapshotIdentifier;
             if (ParameterWasBound("SkipFinalClusterSnapshot"))
                 context.SkipFinalClusterSnapshot = this.SkipFinalClusterSnapshot;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -187,7 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.DeleteClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteClusterRequest request)
         {
+            #if DESKTOP
             return client.DeleteCluster(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteClusterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

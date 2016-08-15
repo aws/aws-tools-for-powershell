@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         "The service call response (type Amazon.CloudFront.Model.UpdateDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type System.String)"
     )]
-    public class UpdateCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class UpdateCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter ViewerCertificate_ACMCertificateArn
@@ -760,6 +760,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Aliases_Item != null)
             {
                 context.DistributionConfig_Aliases_Items = new List<System.String>(this.Aliases_Item);
@@ -861,6 +864,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DistributionConfig_WebACLId = this.DistributionConfig_WebACLId;
             context.Id = this.Id;
             context.IfMatch = this.IfMatch;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -1649,7 +1655,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.UpdateDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateDistributionRequest request)
         {
+            #if DESKTOP
             return client.UpdateDistribution(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateDistributionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

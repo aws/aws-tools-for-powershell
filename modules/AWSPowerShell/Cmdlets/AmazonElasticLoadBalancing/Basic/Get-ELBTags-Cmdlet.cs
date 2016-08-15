@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "This cmdlet returns a collection of TagDescription objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class GetELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerName
@@ -61,10 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.LoadBalancerName != null)
             {
                 context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,7 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DescribeTagsRequest request)
         {
+            #if DESKTOP
             return client.DescribeTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

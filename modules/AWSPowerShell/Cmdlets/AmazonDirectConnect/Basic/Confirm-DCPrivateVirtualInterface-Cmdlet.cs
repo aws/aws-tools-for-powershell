@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         "This cmdlet returns a VirtualInterfaceState object.",
         "The service call response (type Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ConfirmDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class ConfirmDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter VirtualGatewayId
@@ -95,8 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.VirtualGatewayId = this.VirtualGatewayId;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -154,7 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         private static Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceRequest request)
         {
+            #if DESKTOP
             return client.ConfirmPrivateVirtualInterface(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ConfirmPrivateVirtualInterfaceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

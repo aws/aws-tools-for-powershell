@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class RemoveSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter Label
@@ -97,8 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Label = this.Label;
             context.QueueUrl = this.QueueUrl;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -158,7 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.RemovePermissionResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.RemovePermissionRequest request)
         {
+            #if DESKTOP
             return client.RemovePermission(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemovePermissionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

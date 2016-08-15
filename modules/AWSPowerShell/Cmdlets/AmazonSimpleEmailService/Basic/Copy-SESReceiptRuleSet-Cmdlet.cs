@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OriginalRuleSetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class CopySESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class CopySESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter OriginalRuleSetName
@@ -106,8 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.OriginalRuleSetName = this.OriginalRuleSetName;
             context.RuleSetName = this.RuleSetName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -167,7 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest request)
         {
+            #if DESKTOP
             return client.CloneReceiptRuleSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CloneReceiptRuleSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

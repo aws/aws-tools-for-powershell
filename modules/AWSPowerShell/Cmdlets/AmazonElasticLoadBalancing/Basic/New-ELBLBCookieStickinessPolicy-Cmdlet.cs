@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewELBLBCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class NewELBLBCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter CookieExpirationPeriod
@@ -128,10 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CookieExpirationPeriod"))
                 context.CookieExpirationPeriod = this.CookieExpirationPeriod;
             context.LoadBalancerName = this.LoadBalancerName;
             context.PolicyName = this.PolicyName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -195,7 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyRequest request)
         {
+            #if DESKTOP
             return client.CreateLBCookieStickinessPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLBCookieStickinessPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

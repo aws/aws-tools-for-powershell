@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "This cmdlet returns a Build object.",
         "The service call response (type Amazon.GameLift.Model.DescribeBuildResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetGMLBuildDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLBuildDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter BuildId
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BuildId = this.BuildId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,7 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.DescribeBuildResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeBuildRequest request)
         {
+            #if DESKTOP
             return client.DescribeBuild(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeBuildAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

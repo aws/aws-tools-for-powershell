@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeFindingsResponse",
         "This cmdlet returns a Amazon.Inspector.Model.DescribeFindingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetINSFindingCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class GetINSFindingCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         #region Parameter FindingArn
@@ -72,11 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.FindingArn != null)
             {
                 context.FindingArns = new List<System.String>(this.FindingArn);
             }
             context.Locale = this.Locale;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -134,7 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.DescribeFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DescribeFindingsRequest request)
         {
+            #if DESKTOP
             return client.DescribeFindings(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeFindingsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

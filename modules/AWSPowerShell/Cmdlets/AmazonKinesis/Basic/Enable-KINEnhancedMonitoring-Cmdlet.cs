@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdletOutput("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class EnableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         #region Parameter ShardLevelMetric
@@ -89,11 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ShardLevelMetric != null)
             {
                 context.ShardLevelMetrics = new List<System.String>(this.ShardLevelMetric);
             }
             context.StreamName = this.StreamName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -151,7 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         private static Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.EnableEnhancedMonitoringRequest request)
         {
+            #if DESKTOP
             return client.EnableEnhancedMonitoring(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableEnhancedMonitoringAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         "The service call response (type Amazon.CloudFront.Model.UpdateStreamingDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type System.String)"
     )]
-    public class UpdateCFStreamingDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class UpdateCFStreamingDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter Logging_Bucket
@@ -264,6 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
             context.IfMatch = this.IfMatch;
             if (this.Aliases_Item != null)
@@ -291,6 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             if (ParameterWasBound("TrustedSigners_Quantity"))
                 context.StreamingDistributionConfig_TrustedSigners_Quantity = this.TrustedSigners_Quantity;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -559,7 +565,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.UpdateStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateStreamingDistributionRequest request)
         {
+            #if DESKTOP
             return client.UpdateStreamingDistribution(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateStreamingDistributionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

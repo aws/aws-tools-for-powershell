@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "This cmdlet returns a collection of TargetGroupAttribute objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTargetGroupAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetELB2TargetGroupAttributeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class GetELB2TargetGroupAttributeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter TargetGroupArn
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.TargetGroupArn = this.TargetGroupArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.DescribeTargetGroupAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeTargetGroupAttributesRequest request)
         {
+            #if DESKTOP
             return client.DescribeTargetGroupAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeTargetGroupAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

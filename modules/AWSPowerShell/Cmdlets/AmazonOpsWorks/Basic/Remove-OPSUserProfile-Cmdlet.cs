@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IamUserArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeleteUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class RemoveOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter IamUserArn
@@ -92,7 +92,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.IamUserArn = this.IamUserArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -148,7 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DeleteUserProfileResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeleteUserProfileRequest request)
         {
+            #if DESKTOP
             return client.DeleteUserProfile(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteUserProfileAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

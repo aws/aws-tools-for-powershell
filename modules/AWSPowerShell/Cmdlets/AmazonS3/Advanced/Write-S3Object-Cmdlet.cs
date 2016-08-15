@@ -391,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder.Trim());
                 context.Recurse = this.Recurse.IsPresent;
                 context.OriginalKeyPrefix = this.KeyPrefix;
-                if (!rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.InvariantCultureIgnoreCase))
+                if (!rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase))
                     context.KeyPrefix = AmazonS3Helper.CleanKey(this.KeyPrefix);
                 if (!string.IsNullOrEmpty(this.SearchPattern))
                     context.SearchPattern = this.SearchPattern;
@@ -624,7 +624,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
         {
+#if DESKTOP
             return client.PutObject(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutObjectAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

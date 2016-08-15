@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdletOutput("Amazon.Redshift.Model.EnableLoggingResponse",
         "This cmdlet returns a Amazon.Redshift.Model.EnableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class EnableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -99,9 +99,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BucketName = this.BucketName;
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.S3KeyPrefix = this.S3KeyPrefix;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -163,7 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.EnableLoggingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.EnableLoggingRequest request)
         {
+            #if DESKTOP
             return client.EnableLogging(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableLoggingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

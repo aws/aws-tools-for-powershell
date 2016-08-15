@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         "The service call response (type Amazon.DataPipeline.Model.DescribeObjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: HasMoreResults (type System.Boolean), Marker (type System.String)"
     )]
-    public class GetDPObjectCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class GetDPObjectCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter EvaluateExpression
@@ -99,6 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("EvaluateExpression"))
                 context.EvaluateExpressions = this.EvaluateExpression;
             context.Marker = this.Marker;
@@ -107,6 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 context.ObjectIds = new List<System.String>(this.ObjectId);
             }
             context.PipelineId = this.PipelineId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -207,7 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.DescribeObjectsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.DescribeObjectsRequest request)
         {
+            #if DESKTOP
             return client.DescribeObjects(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeObjectsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

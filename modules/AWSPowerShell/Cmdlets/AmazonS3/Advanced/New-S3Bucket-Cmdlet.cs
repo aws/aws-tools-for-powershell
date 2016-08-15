@@ -186,7 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.PutBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketRequest request)
         {
+#if DESKTOP
             return client.PutBucket(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutBucketAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

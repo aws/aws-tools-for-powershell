@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdletOutput("Amazon.Redshift.Model.ResetClusterParameterGroupResponse",
         "This cmdlet returns a Amazon.Redshift.Model.ResetClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ResetRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class ResetRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ParameterGroupName
@@ -102,6 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ParameterGroupName = this.ParameterGroupName;
             if (this.Parameter != null)
             {
@@ -109,6 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             if (ParameterWasBound("ResetAllParameter"))
                 context.ResetAllParameters = this.ResetAllParameter;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.ResetClusterParameterGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ResetClusterParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.ResetClusterParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ResetClusterParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

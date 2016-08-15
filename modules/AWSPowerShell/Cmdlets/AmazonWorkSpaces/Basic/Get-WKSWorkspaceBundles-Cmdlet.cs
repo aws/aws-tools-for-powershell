@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetWKSWorkspaceBundlesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetWKSWorkspaceBundlesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         #region Parameter BundleId
@@ -97,12 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.BundleId != null)
             {
                 context.BundleIds = new List<System.String>(this.BundleId);
             }
             context.NextToken = this.NextToken;
             context.Owner = this.Owner;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         private static Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesRequest request)
         {
+            #if DESKTOP
             return client.DescribeWorkspaceBundles(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeWorkspaceBundlesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

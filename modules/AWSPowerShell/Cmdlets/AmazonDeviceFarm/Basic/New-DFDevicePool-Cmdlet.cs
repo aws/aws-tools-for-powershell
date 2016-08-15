@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         "This cmdlet returns a DevicePool object.",
         "The service call response (type Amazon.DeviceFarm.Model.CreateDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public partial class NewDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -107,6 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
@@ -114,6 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 context.Rules = new List<Amazon.DeviceFarm.Model.Rule>(this.Rule);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -179,7 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         private static Amazon.DeviceFarm.Model.CreateDevicePoolResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateDevicePoolRequest request)
         {
+            #if DESKTOP
             return client.CreateDevicePool(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateDevicePoolAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

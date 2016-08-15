@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.Runtime;
 using System.Collections;
+using Amazon.Util.Internal;
 
 namespace Amazon.PowerShell.Common
 {
@@ -186,7 +187,7 @@ namespace Amazon.PowerShell.Common
                 return sb.ToString();
             }
 
-            if (paramValue.GetType().IsValueType) // unlikely but just in case...
+            if (TypeFactory.GetTypeInfo(paramValue.GetType()).IsValueType) // unlikely but just in case...
                 return paramValue.ToString();
 
             // otherwise give up and report the parameter name for x-checking purposes
@@ -225,6 +226,33 @@ namespace Amazon.PowerShell.Common
             return MyInvocation.BoundParameters.ContainsKey(parameterName);
         }
 
+        /// <summary>
+        /// Allows additional parameters to be added (manually)
+        /// to generated cmdlets and to transform the parameter value into
+        /// the equivalent generated parameter prior to populating the
+        /// execution context.
+        /// </summary>
+        /// <param name="context">
+        /// Newly constructed context. On entry to this routine, the Region
+        /// and Credentials members may have been set but no further parameter
+        /// load has occurred.
+        /// </param>
+        protected virtual void PreExecutionContextLoad(ExecutorContext context)
+        {
+        }
+
+        /// <summary>
+        /// Allows further transformation or manipulation of parameter values
+        /// loaded into the context before we commence processing.
+        /// </summary>
+        /// <param name="context">
+        /// The context with all parameters processed and ready for use in
+        /// service calls (or whatever processing the cmdlet performs).
+        /// </param>
+        protected virtual void PostExecutionContextLoad(ExecutorContext context)
+        {
+        }
+
         #region Progress calls
 
         /// <summary>
@@ -251,7 +279,7 @@ namespace Amazon.PowerShell.Common
         private void WriteProgressRecord(int activityId, string activity, string message, int? percentComplete = null, bool isComplete = false)
         {
             var pr = new ProgressRecord(activityId, activity, message)
-        {
+            {
                 RecordType = isComplete ? ProgressRecordType.Completed : ProgressRecordType.Processing
             };
             if (percentComplete != null)
@@ -260,9 +288,9 @@ namespace Amazon.PowerShell.Common
             WriteProgress(pr);
         }
 
-        #endregion
+#endregion
 
-        #region Processing helpers
+#region Processing helpers
 
         public IEnumerable SafeEnumerable(object value)
         {
@@ -366,7 +394,7 @@ namespace Amazon.PowerShell.Common
             }
         }
 
-        #endregion
+#endregion
 
         /// <summary>
         /// Safely emit a diagnostic message indicating where the credentials we are about to use
@@ -556,7 +584,7 @@ namespace Amazon.PowerShell.Common
                 ThrowArgumentError("Unrecognized arguments", this);
         }
 
-        #region IDynamicParameters Members
+#region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
@@ -571,7 +599,7 @@ namespace Amazon.PowerShell.Common
             return Parameters;
         }
 
-        #endregion
+#endregion
 
         private void SetDynamicParameters(object context)
         {
@@ -649,7 +677,7 @@ namespace Amazon.PowerShell.Common
                 ThrowArgumentError("Unrecognized arguments", this);
         }
 
-        #region IDynamicParameters Members
+#region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
@@ -664,7 +692,7 @@ namespace Amazon.PowerShell.Common
             return Parameters;
         }
 
-        #endregion
+#endregion
 
         private void SetDynamicParameters(object context)
         {

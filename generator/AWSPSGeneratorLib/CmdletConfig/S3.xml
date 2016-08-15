@@ -96,12 +96,7 @@
     <ServiceOperation MethodName="GetObject" Exclude="true"/>
     <ServiceOperation MethodName="GetObjectMetadata" Output="Response" PositionalParameters="Key"/>
     <ServiceOperation MethodName="GetObjectTorrent" Exclude="true"/>
-    <ServiceOperation MethodName="GetPreSignedURL" Output="Response" PositionalParameters="Key">
-      <Params>
-        <Param Name="Metadata" Exclude="true" />
-        <Param Name="Headers_" Exclude="true" />
-      </Params>
-    </ServiceOperation>
+    <ServiceOperation MethodName="GetPreSignedURL" Exclude="true" />
     <ServiceOperation MethodName="InitiateMultipartUpload" Exclude="true"/>
     <ServiceOperation MethodName="ListBuckets" Exclude="true"/>
     <ServiceOperation MethodName="ListMultipartUploads" Exclude="true"/>

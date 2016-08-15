@@ -159,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         private static Amazon.EC2.Model.ModifyVpcAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcAttributeRequest request)
         {
+#if DESKTOP
             return client.ModifyVpcAttribute(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyVpcAttributeAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

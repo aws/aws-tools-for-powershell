@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.UpdateByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class UpdateWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         #region Parameter ByteMatchSetId
@@ -126,12 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ByteMatchSetId = this.ByteMatchSetId;
             context.ChangeToken = this.ChangeToken;
             if (this.Update != null)
             {
                 context.Updates = new List<Amazon.WAF.Model.ByteMatchSetUpdate>(this.Update);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -193,7 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.UpdateByteMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateByteMatchSetRequest request)
         {
+            #if DESKTOP
             return client.UpdateByteMatchSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateByteMatchSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

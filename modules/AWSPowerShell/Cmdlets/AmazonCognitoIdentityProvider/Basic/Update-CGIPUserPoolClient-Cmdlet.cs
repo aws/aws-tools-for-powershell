@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "This cmdlet returns a UserPoolClientType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateUserPoolClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class UpdateCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter ClientId
@@ -139,6 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientId = this.ClientId;
             context.ClientName = this.ClientName;
             if (this.ExplicitAuthFlow != null)
@@ -156,6 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.WriteAttributes = new List<System.String>(this.WriteAttribute);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -233,7 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.UpdateUserPoolClientResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateUserPoolClientRequest request)
         {
+            #if DESKTOP
             return client.UpdateUserPoolClient(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateUserPoolClientAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

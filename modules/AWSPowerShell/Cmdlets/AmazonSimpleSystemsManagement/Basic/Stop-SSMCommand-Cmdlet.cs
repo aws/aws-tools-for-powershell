@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.CancelCommandResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class StopSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter CommandId
@@ -89,11 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CommandId = this.CommandId;
             if (this.InstanceId != null)
             {
                 context.InstanceIds = new List<System.String>(this.InstanceId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -151,7 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.CancelCommandResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CancelCommandRequest request)
         {
+            #if DESKTOP
             return client.CancelCommand(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CancelCommandAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

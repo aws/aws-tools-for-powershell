@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFront.Model.DeleteCloudFrontOriginAccessIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class RemoveCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter Id
@@ -96,8 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
             context.IfMatch = this.IfMatch;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -157,7 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.DeleteCloudFrontOriginAccessIdentityResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteCloudFrontOriginAccessIdentityRequest request)
         {
+            #if DESKTOP
             return client.DeleteCloudFrontOriginAccessIdentity(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteCloudFrontOriginAccessIdentityAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

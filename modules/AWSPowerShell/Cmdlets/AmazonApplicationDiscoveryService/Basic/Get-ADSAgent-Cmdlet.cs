@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeAgentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetADSAgentCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class GetADSAgentCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter AgentId
@@ -85,6 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AgentId != null)
             {
                 context.AgentIds = new List<System.String>(this.AgentId);
@@ -92,6 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -227,7 +233,15 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         private static Amazon.ApplicationDiscoveryService.Model.DescribeAgentsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeAgentsRequest request)
         {
+            #if DESKTOP
             return client.DescribeAgents(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAgentsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

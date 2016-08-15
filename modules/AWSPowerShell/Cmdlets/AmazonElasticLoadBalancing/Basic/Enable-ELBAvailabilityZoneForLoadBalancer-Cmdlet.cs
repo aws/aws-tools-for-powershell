@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableELBAvailabilityZoneForLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class EnableELBAvailabilityZoneForLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter AvailabilityZone
@@ -97,11 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
             context.LoadBalancerName = this.LoadBalancerName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerRequest request)
         {
+            #if DESKTOP
             return client.EnableAvailabilityZonesForLoadBalancer(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableAvailabilityZonesForLoadBalancerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

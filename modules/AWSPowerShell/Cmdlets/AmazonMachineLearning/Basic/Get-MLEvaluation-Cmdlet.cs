@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetEvaluationResponse",
         "This cmdlet returns a Amazon.MachineLearning.Model.GetEvaluationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class GetMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter EvaluationId
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EvaluationId = this.EvaluationId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,7 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.GetEvaluationResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.GetEvaluationRequest request)
         {
+            #if DESKTOP
             return client.GetEvaluation(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetEvaluationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

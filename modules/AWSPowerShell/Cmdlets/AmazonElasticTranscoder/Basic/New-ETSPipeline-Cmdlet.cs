@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         "The service call response (type Amazon.ElasticTranscoder.Model.CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Warnings (type List&lt;Amazon.ElasticTranscoder.Model.Warning&gt;)"
     )]
-    public class NewETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class NewETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter AwsKmsKeyArn
@@ -283,6 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AwsKmsKeyArn = this.AwsKmsKeyArn;
             context.ContentConfig_Bucket = this.ContentConfig_Bucket;
             if (this.ContentConfig_Permission != null)
@@ -304,6 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 context.ThumbnailConfig_Permissions = new List<Amazon.ElasticTranscoder.Model.Permission>(this.ThumbnailConfig_Permission);
             }
             context.ThumbnailConfig_StorageClass = this.ThumbnailConfig_StorageClass;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -502,7 +508,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.CreatePipelineResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.CreatePipelineRequest request)
         {
+            #if DESKTOP
             return client.CreatePipeline(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePipelineAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

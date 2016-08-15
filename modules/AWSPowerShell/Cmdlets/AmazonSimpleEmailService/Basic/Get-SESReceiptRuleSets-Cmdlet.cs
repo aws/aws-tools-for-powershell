@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "The service call response (type Amazon.SimpleEmail.Model.ListReceiptRuleSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetSESReceiptRuleSetsCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class GetSESReceiptRuleSetsCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter NextToken
@@ -73,7 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -129,7 +135,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.ListReceiptRuleSetsResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ListReceiptRuleSetsRequest request)
         {
+            #if DESKTOP
             return client.ListReceiptRuleSets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListReceiptRuleSetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

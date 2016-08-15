@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         "This cmdlet returns a Pipeline object.",
         "The service call response (type Amazon.ElasticTranscoder.Model.UpdatePipelineStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateETSPipelineStatusCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class UpdateETSPipelineStatusCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter Id
@@ -96,8 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
             context.Status = this.Status;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -155,7 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.UpdatePipelineStatusResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.UpdatePipelineStatusRequest request)
         {
+            #if DESKTOP
             return client.UpdatePipelineStatus(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdatePipelineStatusAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

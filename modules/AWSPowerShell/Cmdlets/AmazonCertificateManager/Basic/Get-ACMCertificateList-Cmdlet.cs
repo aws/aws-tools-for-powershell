@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         "The service call response (type Amazon.CertificateManager.Model.ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetACMCertificateListCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public partial class GetACMCertificateListCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateStatus
@@ -89,6 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.CertificateStatus != null)
             {
                 context.CertificateStatuses = new List<System.String>(this.CertificateStatus);
@@ -96,6 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -201,7 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         private static Amazon.CertificateManager.Model.ListCertificatesResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ListCertificatesRequest request)
         {
+            #if DESKTOP
             return client.ListCertificates(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListCertificatesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

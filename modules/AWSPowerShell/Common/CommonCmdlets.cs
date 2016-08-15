@@ -24,6 +24,8 @@ using System.Management.Automation.Host;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
+using Amazon.Util.Internal;
 
 namespace Amazon.PowerShell.Common
 {
@@ -322,16 +324,17 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
+            var powershellAssembly = TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly;
+
             using (var sw = new StringWriter())
             {
-                var powershellAssembly = System.Reflection.Assembly.GetExecutingAssembly();
                 var powershellInfo = FileVersionInfo.GetVersionInfo(powershellAssembly.Location);
                 sw.WriteLine();
                 sw.WriteLine(powershellInfo.ProductName);
                 sw.WriteLine("Version {0}", powershellInfo.FileVersion);
                 sw.WriteLine(powershellInfo.LegalCopyright);
 
-                var sdkAssembly = typeof(AWSCredentials).Assembly;
+                var sdkAssembly = TypeFactory.GetTypeInfo(typeof(AWSCredentials)).Assembly;
                 var sdkInfo = FileVersionInfo.GetVersionInfo(sdkAssembly.Location);
                 sw.WriteLine();
                 sw.WriteLine(sdkInfo.ProductName);
@@ -352,15 +355,17 @@ namespace Amazon.PowerShell.Common
 
             if (ListServiceVersionInfo.IsPresent)
             {
-                var clients = System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
-                    .Where(t => t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
+                var clients = powershellAssembly.GetTypes()
+                    .Where(t => TypeFactory.GetTypeInfo(t).IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
                     .OrderBy(t => t.FullName)
                     .ToList();
 
                 var services = new SortedDictionary<string, PSObject>(StringComparer.Ordinal);
+                var awsClientCmdletAttributeTypeInfo = TypeFactory.GetTypeInfo(typeof(AWSClientCmdletAttribute));
+
                 foreach (var client in clients)
                 {
-                    var clientAttribute = client.GetCustomAttributes(typeof(AWSClientCmdletAttribute), false).FirstOrDefault() as AWSClientCmdletAttribute;
+                    var clientAttribute = TypeFactory.GetTypeInfo(client).GetCustomAttributes(awsClientCmdletAttributeTypeInfo, false).FirstOrDefault() as AWSClientCmdletAttribute;
                     if (clientAttribute != null && !services.ContainsKey(clientAttribute.ServiceName))
                     {
                         var o = new PSObject();

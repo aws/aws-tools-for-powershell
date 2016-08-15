@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "Returns the name of the environment that was updated when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveEBEnvironmentConfigurationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class RemoveEBEnvironmentConfigurationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -105,8 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             context.EnvironmentName = this.EnvironmentName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationRequest request)
         {
+            #if DESKTOP
             return client.DeleteEnvironmentConfiguration(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteEnvironmentConfigurationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

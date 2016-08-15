@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateIAMOpenIDConnectProviderThumbprintCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class UpdateIAMOpenIDConnectProviderThumbprintCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter OpenIDConnectProviderArn
@@ -106,11 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.OpenIDConnectProviderArn = this.OpenIDConnectProviderArn;
             if (this.ThumbprintList != null)
             {
                 context.ThumbprintList = new List<System.String>(this.ThumbprintList);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintRequest request)
         {
+            #if DESKTOP
             return client.UpdateOpenIDConnectProviderThumbprint(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateOpenIDConnectProviderThumbprintAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

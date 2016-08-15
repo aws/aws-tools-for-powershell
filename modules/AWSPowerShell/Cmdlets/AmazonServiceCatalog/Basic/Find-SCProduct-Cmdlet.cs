@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.SearchProductsResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.SearchProductsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class FindSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class FindSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -125,6 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AcceptLanguage = this.AcceptLanguage;
             if (this.Filter != null)
             {
@@ -151,6 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             context.PageToken = this.PageToken;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -224,7 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         private static Amazon.ServiceCatalog.Model.SearchProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.SearchProductsRequest request)
         {
+            #if DESKTOP
             return client.SearchProducts(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SearchProductsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

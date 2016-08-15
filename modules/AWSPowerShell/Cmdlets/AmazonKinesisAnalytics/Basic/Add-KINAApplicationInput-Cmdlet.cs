@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.AddApplicationInputResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddKINAApplicationInputCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class AddKINAApplicationInputCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -254,6 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("CurrentApplicationVersionId"))
                 context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
@@ -273,6 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             context.Input_KinesisStreamsInput_ResourceARN = this.KinesisStreamsInput_ResourceARN;
             context.Input_KinesisStreamsInput_RoleARN = this.KinesisStreamsInput_RoleARN;
             context.Input_NamePrefix = this.Input_NamePrefix;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -581,7 +587,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         private static Amazon.KinesisAnalytics.Model.AddApplicationInputResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.AddApplicationInputRequest request)
         {
+            #if DESKTOP
             return client.AddApplicationInput(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddApplicationInputAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

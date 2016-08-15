@@ -128,7 +128,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.ListBucketsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketsRequest request)
         {
+#if DESKTOP
             return client.ListBuckets(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListBucketsAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

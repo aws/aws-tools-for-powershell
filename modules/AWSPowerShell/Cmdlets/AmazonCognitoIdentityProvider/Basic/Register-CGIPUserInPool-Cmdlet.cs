@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.SignUpResponse",
         "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.SignUpResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterCGIPUserInPoolCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class RegisterCGIPUserInPoolCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter ClientId
@@ -127,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Region = this.Region,
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientId = this.ClientId;
             context.Password = this.Password;
             context.SecretHash = this.SecretHash;
@@ -139,6 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.ValidationData = new List<Amazon.CognitoIdentityProvider.Model.AttributeType>(this.ValidationData);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -212,7 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.SignUpResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.SignUpRequest request)
         {
+            #if DESKTOP
             return client.SignUp(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SignUpAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

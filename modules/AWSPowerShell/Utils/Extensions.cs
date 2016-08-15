@@ -22,41 +22,12 @@ using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 using Amazon.Runtime;
+using Amazon.Util.Internal;
 
 namespace Amazon.PowerShell.Utils
 {
     public static class Extensions
     {
-        public static T XmlDeserialize<T>(this string xml)
-        {
-            object data = XmlDeserialize(xml, typeof(T));
-            return (T)data;
-        }
-        public static object XmlDeserialize(this string xml, Type type)
-        {
-            XmlSerializer serializer = new XmlSerializer(type);
-            using (StringReader reader = new StringReader(xml))
-            {
-                return serializer.Deserialize(reader);
-            }
-        }
-
-        public static string XmlSerialize<T>(this T item)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (StringWriter writer = new StringWriter())
-            {
-                serializer.Serialize(writer, item);
-                return writer.ToString();
-            }
-        }
-
-        public static bool IsStatic(this Type type)
-        {
-            if (type == null) throw new ArgumentNullException("type");
-            return (type.IsAbstract && type.IsSealed);
-        }
-
         /// <summary>
         /// Creates an AWSCredentials instance with access and secret keys (and possibly token)
         /// from StoredProfileAWSCredentials. This avoids storing "reference" credentials (credentials

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Resource parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFront.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class RemoveCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter TagKey
@@ -95,11 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Resource = this.Resource;
             if (this.TagKey != null)
             {
                 context.TagKey = new List<System.String>(this.TagKey);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -174,7 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UntagResourceRequest request)
         {
+            #if DESKTOP
             return client.UntagResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UntagResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

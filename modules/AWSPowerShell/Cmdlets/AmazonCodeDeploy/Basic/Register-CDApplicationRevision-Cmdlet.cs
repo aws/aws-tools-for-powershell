@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterCDApplicationRevisionCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class RegisterCDApplicationRevisionCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -192,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             context.Description = this.Description;
             context.Revision_GitHubLocation_CommitId = this.GitHubLocation_CommitId;
@@ -202,6 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.Revision_S3Location_ETag = this.S3Location_ETag;
             context.Revision_S3Location_Key = this.S3Location_Key;
             context.Revision_S3Location_Version = this.S3Location_Version;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -380,7 +386,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.RegisterApplicationRevisionRequest request)
         {
+            #if DESKTOP
             return client.RegisterApplicationRevision(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterApplicationRevisionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

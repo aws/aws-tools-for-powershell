@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         "This cmdlet returns a ApplicationDetail object.",
         "The service call response (type Amazon.KinesisAnalytics.Model.DescribeApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetKINAApplicationCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class GetKINAApplicationCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -70,7 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -124,7 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         private static Amazon.KinesisAnalytics.Model.DescribeApplicationResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DescribeApplicationRequest request)
         {
+            #if DESKTOP
             return client.DescribeApplication(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeApplicationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

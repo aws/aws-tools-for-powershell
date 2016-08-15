@@ -20,7 +20,6 @@ using System.Collections.Generic;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.S3.Model;
-using Amazon.PowerShell.Properties;
 using Amazon.S3;
 
 namespace Amazon.PowerShell.Cmdlets.S3
@@ -355,12 +354,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.DeleteObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectRequest request)
         {
+#if DESKTOP
             return client.DeleteObject(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteObjectAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         private static Amazon.S3.Model.DeleteObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectsRequest request)
         {
+#if DESKTOP
             return client.DeleteObjects(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteObjectsAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

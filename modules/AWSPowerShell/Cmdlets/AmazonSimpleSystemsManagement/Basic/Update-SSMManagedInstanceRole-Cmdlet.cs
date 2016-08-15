@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSSMManagedInstanceRoleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateSSMManagedInstanceRoleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter IamRole
@@ -96,8 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.IamRole = this.IamRole;
             context.InstanceId = this.InstanceId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -157,7 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
         {
+            #if DESKTOP
             return client.UpdateManagedInstanceRole(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateManagedInstanceRoleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CertificateManager.Model.RequestCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public partial class NewACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -129,6 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DomainName = this.DomainName;
             if (this.DomainValidationOption != null)
             {
@@ -139,6 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 context.SubjectAlternativeNames = new List<System.String>(this.SubjectAlternativeName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -204,7 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         private static Amazon.CertificateManager.Model.RequestCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.RequestCertificateRequest request)
         {
+            #if DESKTOP
             return client.RequestCertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RequestCertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

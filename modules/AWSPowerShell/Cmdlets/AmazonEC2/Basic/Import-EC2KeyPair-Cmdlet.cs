@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
         "This cmdlet returns a Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter KeyName
@@ -96,8 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.KeyName = this.KeyName;
             context.PublicKeyMaterial = this.PublicKeyMaterial;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -155,7 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.ImportKeyPairResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportKeyPairRequest request)
         {
+            #if DESKTOP
             return client.ImportKeyPair(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ImportKeyPairAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

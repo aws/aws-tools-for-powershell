@@ -15,12 +15,17 @@
 **/NuGet.exe
 **/logs/
 
-**/.vs/
-
-AWSPowerShell.Src_*.zip
 Deployment/**
 DocDeployment/**
 Include/**
+Packages/**
+
+**/.vs/
+**/project.lock.json
+**/AWSPowerShell.project.lock.json
+
+AWSPowerShell.Src_*.zip
+
 test/results/
 test/temp/**
 

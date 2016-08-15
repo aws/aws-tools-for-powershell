@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdletOutput("Amazon.Redshift.Model.DisableLoggingResponse",
         "This cmdlet returns a Amazon.Redshift.Model.DisableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DisableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class DisableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterIdentifier
@@ -76,7 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterIdentifier = this.ClusterIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -130,7 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.DisableLoggingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DisableLoggingRequest request)
         {
+            #if DESKTOP
             return client.DisableLogging(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DisableLoggingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

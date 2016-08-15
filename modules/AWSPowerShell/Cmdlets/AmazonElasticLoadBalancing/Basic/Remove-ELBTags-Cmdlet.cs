@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class RemoveELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerName
@@ -97,6 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.LoadBalancerName != null)
             {
                 context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
@@ -105,6 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             {
                 context.Tags = new List<Amazon.ElasticLoadBalancing.Model.TagKeyOnly>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -164,7 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.RemoveTagsRequest request)
         {
+            #if DESKTOP
             return client.RemoveTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

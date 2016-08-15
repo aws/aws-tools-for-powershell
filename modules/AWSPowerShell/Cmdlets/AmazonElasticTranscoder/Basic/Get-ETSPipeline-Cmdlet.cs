@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         "The service call response (type Amazon.ElasticTranscoder.Model.ListPipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public class GetETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class GetETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter Ascending
@@ -75,8 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Ascending = this.Ascending;
             context.PageToken = this.PageToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.ListPipelinesResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.ListPipelinesRequest request)
         {
+            #if DESKTOP
             return client.ListPipelines(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListPipelinesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

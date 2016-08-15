@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BatchGetRepositoriesResponse",
         "This cmdlet returns a Amazon.CodeCommit.Model.BatchGetRepositoriesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCCRepositoryBatchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class GetCCRepositoryBatchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         #region Parameter RepositoryName
@@ -68,10 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.RepositoryName != null)
             {
                 context.RepositoryNames = new List<System.String>(this.RepositoryName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -125,7 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         private static Amazon.CodeCommit.Model.BatchGetRepositoriesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.BatchGetRepositoriesRequest request)
         {
+            #if DESKTOP
             return client.BatchGetRepositories(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.BatchGetRepositoriesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

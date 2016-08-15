@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetGroupArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UnregisterELB2TargetCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class UnregisterELB2TargetCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter TargetGroupArn
@@ -97,11 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.TargetGroupArn = this.TargetGroupArn;
             if (this.Target != null)
             {
                 context.Targets = new List<Amazon.ElasticLoadBalancingV2.Model.TargetDescription>(this.Target);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsRequest request)
         {
+            #if DESKTOP
             return client.DeregisterTargets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeregisterTargetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

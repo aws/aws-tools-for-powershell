@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a ExpressionStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DeleteExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class RemoveCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -88,8 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DomainName = this.DomainName;
             context.ExpressionName = this.ExpressionName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -147,7 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.DeleteExpressionResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteExpressionRequest request)
         {
+            #if DESKTOP
             return client.DeleteExpression(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteExpressionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

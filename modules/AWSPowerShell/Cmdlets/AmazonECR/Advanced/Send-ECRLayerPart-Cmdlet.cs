@@ -252,7 +252,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
 
         private static Amazon.ECR.Model.UploadLayerPartResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UploadLayerPartRequest request)
         {
+#if DESKTOP
             return client.UploadLayerPart(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UploadLayerPartAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

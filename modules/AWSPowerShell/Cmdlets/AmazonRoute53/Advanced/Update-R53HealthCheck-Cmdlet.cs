@@ -428,7 +428,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         private static Amazon.Route53.Model.UpdateHealthCheckResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateHealthCheckRequest request)
         {
+#if DESKTOP
             return client.UpdateHealthCheck(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateHealthCheckAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

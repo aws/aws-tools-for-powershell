@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         "The service call response (type Amazon.ImportExport.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean)"
     )]
-    public class GetIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
+    public partial class GetIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
         
         #region Parameter APIVersion
@@ -85,10 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.IE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.APIVersion = this.APIVersion;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxJob"))
                 context.MaxJobs = this.MaxJob;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -152,7 +158,15 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         private static Amazon.ImportExport.Model.ListJobsResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.ListJobsRequest request)
         {
+            #if DESKTOP
             return client.ListJobs(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListJobsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

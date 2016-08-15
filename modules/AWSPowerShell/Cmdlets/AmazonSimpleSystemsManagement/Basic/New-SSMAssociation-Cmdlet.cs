@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "This cmdlet returns a AssociationDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceId
@@ -106,6 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InstanceId = this.InstanceId;
             context.Name = this.Name;
             if (this.Parameter != null)
@@ -128,6 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameters.Add((String)hashKey, valueSet);
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -189,7 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest request)
         {
+            #if DESKTOP
             return client.CreateAssociation(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateAssociationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

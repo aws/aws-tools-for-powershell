@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet returns a Role object.",
         "The service call response (type Amazon.IdentityManagement.Model.GetRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class GetIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter RoleName
@@ -73,7 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.RoleName = this.RoleName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -127,7 +133,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.GetRoleResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetRoleRequest request)
         {
+            #if DESKTOP
             return client.GetRole(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetRoleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBParameterGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.DeleteDBParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RemoveRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBParameterGroupName
@@ -86,7 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBParameterGroupName = this.DBParameterGroupName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -142,7 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.DeleteDBParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.DeleteDBParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteDBParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

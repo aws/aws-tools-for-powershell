@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         "This cmdlet returns a collection of ElasticsearchDomainStatus objects.",
         "The service call response (type Amazon.Elasticsearch.Model.DescribeElasticsearchDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetESDomainListCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
+    public partial class GetESDomainListCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -62,10 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.DomainName != null)
             {
                 context.DomainNames = new List<System.String>(this.DomainName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,7 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private static Amazon.Elasticsearch.Model.DescribeElasticsearchDomainsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeElasticsearchDomainsRequest request)
         {
+            #if DESKTOP
             return client.DescribeElasticsearchDomains(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeElasticsearchDomainsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

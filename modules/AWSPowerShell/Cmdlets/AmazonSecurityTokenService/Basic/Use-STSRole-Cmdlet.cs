@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleResponse",
         "This cmdlet returns a Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
+    public partial class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DurationInSeconds
@@ -265,6 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("DurationInSeconds"))
                 context.DurationInSeconds = this.DurationInSeconds;
             context.ExternalId = this.ExternalId;
@@ -273,6 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
             context.RoleSessionName = this.RoleSessionName;
             context.SerialNumber = this.SerialNumber;
             context.TokenCode = this.TokenCode;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -350,7 +356,15 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private static Amazon.SecurityToken.Model.AssumeRoleResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRoleRequest request)
         {
+            #if DESKTOP
             return client.AssumeRole(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AssumeRoleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

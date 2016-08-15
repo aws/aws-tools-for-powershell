@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceNamespace parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
+    public partial class RemoveAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceId
@@ -121,9 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceId = this.ResourceId;
             context.ScalableDimension = this.ScalableDimension;
             context.ServiceNamespace = this.ServiceNamespace;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -187,7 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         private static Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetRequest request)
         {
+            #if DESKTOP
             return client.DeregisterScalableTarget(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeregisterScalableTargetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionConfigurationResponse",
         "This cmdlet returns a Amazon.Lambda.Model.UpdateFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -186,6 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.FunctionName = this.FunctionName;
             context.Handler = this.Handler;
@@ -203,6 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.VpcConfig_SubnetIds = new List<System.String>(this.VpcConfig_SubnetId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -309,7 +315,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.UpdateFunctionConfigurationResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.UpdateFunctionConfigurationRequest request)
         {
+            #if DESKTOP
             return client.UpdateFunctionConfiguration(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateFunctionConfigurationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

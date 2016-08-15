@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a Snapshot object.",
         "The service call response (type Amazon.ElastiCache.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class RemoveECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter SnapshotName
@@ -78,7 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.SnapshotName = this.SnapshotName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -132,7 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteSnapshotRequest request)
         {
+            #if DESKTOP
             return client.DeleteSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

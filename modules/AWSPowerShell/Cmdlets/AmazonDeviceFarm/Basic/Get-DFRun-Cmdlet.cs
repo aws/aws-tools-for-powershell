@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         "This cmdlet returns a Run object.",
         "The service call response (type Amazon.DeviceFarm.Model.GetRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDFRunCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public partial class GetDFRunCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
         #region Parameter Arn
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Arn = this.Arn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         private static Amazon.DeviceFarm.Model.GetRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetRunRequest request)
         {
+            #if DESKTOP
             return client.GetRun(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetRunAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

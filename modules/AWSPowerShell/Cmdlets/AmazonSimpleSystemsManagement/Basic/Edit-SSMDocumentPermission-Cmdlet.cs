@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditSSMDocumentPermissionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class EditSSMDocumentPermissionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter AccountIdsToAdd
@@ -122,6 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AccountIdsToAdd != null)
             {
                 context.AccountIdsToAdd = new List<System.String>(this.AccountIdsToAdd);
@@ -132,6 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.Name = this.Name;
             context.PermissionType = this.PermissionType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -199,7 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionRequest request)
         {
+            #if DESKTOP
             return client.ModifyDocumentPermission(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyDocumentPermissionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

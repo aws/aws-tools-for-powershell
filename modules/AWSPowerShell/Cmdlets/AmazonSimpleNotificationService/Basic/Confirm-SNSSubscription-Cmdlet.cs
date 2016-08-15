@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter AuthenticateOnUnsubscribe
@@ -103,9 +103,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AuthenticateOnUnsubscribe = this.AuthenticateOnUnsubscribe;
             context.Token = this.Token;
             context.TopicArn = this.TopicArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -167,7 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ConfirmSubscriptionRequest request)
         {
+            #if DESKTOP
             return client.ConfirmSubscription(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ConfirmSubscriptionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

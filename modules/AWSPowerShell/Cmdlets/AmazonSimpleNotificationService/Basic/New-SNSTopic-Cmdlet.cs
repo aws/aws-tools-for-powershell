@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleNotificationService.Model.CreateTopicResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSNSTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class NewSNSTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Name
@@ -81,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.CreateTopicResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreateTopicRequest request)
         {
+            #if DESKTOP
             return client.CreateTopic(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTopicAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

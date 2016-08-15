@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveELB2TagCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class RemoveELB2TagCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceArn
@@ -93,6 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ResourceArn != null)
             {
                 context.ResourceArns = new List<System.String>(this.ResourceArn);
@@ -101,6 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 context.TagKeys = new List<System.String>(this.TagKey);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -158,7 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.RemoveTagsRequest request)
         {
+            #if DESKTOP
             return client.RemoveTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

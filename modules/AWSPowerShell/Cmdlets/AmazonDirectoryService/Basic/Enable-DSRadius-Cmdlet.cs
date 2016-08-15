@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.EnableRadiusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class EnableDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter RadiusSettings_AuthenticationProtocol
@@ -171,6 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DirectoryId = this.DirectoryId;
             context.RadiusSettings_AuthenticationProtocol = this.RadiusSettings_AuthenticationProtocol;
             context.RadiusSettings_DisplayLabel = this.RadiusSettings_DisplayLabel;
@@ -187,6 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.RadiusSettings_SharedSecret = this.RadiusSettings_SharedSecret;
             if (ParameterWasBound("RadiusSettings_UseSameUsername"))
                 context.RadiusSettings_UseSameUsername = this.RadiusSettings_UseSameUsername;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -331,7 +337,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.EnableRadiusResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.EnableRadiusRequest request)
         {
+            #if DESKTOP
             return client.EnableRadius(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableRadiusAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFlowLogsResponse",
         "This cmdlet returns a Amazon.EC2.Model.CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter ClientToken
@@ -141,6 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientToken = this.ClientToken;
             context.DeliverLogsPermissionArn = this.DeliverLogsPermissionArn;
             context.LogGroupName = this.LogGroupName;
@@ -150,6 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.ResourceType = this.ResourceType;
             context.TrafficType = this.TrafficType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -223,7 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.CreateFlowLogsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFlowLogsRequest request)
         {
+            #if DESKTOP
             return client.CreateFlowLogs(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateFlowLogsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         "This cmdlet returns a DelegationSet object.",
         "The service call response (type Amazon.Route53.Model.GetReusableDelegationSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter Id
@@ -62,7 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -116,7 +122,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.GetReusableDelegationSetResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetReusableDelegationSetRequest request)
         {
+            #if DESKTOP
             return client.GetReusableDelegationSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetReusableDelegationSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

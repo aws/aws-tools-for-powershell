@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         "This cmdlet returns a collection of RemoveTargetsResultEntry objects.",
         "The service call response (type Amazon.CloudWatchEvents.Model.RemoveTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCWETargetCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
+    public partial class RemoveCWETargetCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
         #region Parameter Id
@@ -94,11 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Id != null)
             {
                 context.Ids = new List<System.String>(this.Id);
             }
             context.Rule = this.Rule;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -156,7 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         private static Amazon.CloudWatchEvents.Model.RemoveTargetsResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.RemoveTargetsRequest request)
         {
+            #if DESKTOP
             return client.RemoveTargets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTargetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

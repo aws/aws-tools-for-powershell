@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteASLifecycleActionHeartbeatCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class WriteASLifecycleActionHeartbeatCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -140,10 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             context.InstanceId = this.InstanceId;
             context.LifecycleActionToken = this.LifecycleActionToken;
             context.LifecycleHookName = this.LifecycleHookName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -211,7 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatRequest request)
         {
+            #if DESKTOP
             return client.RecordLifecycleActionHeartbeat(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RecordLifecycleActionHeartbeatAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

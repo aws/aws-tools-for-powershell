@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.ReEncryptResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.ReEncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class InvokeKMSReEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class InvokeKMSReEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter CiphertextBlob
@@ -132,6 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CiphertextBlob = this.CiphertextBlob;
             if (this.DestinationEncryptionContext != null)
             {
@@ -154,6 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     context.SourceEncryptionContext.Add((String)hashKey, (String)(this.SourceEncryptionContext[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -223,7 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.ReEncryptResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ReEncryptRequest request)
         {
+            #if DESKTOP
             return client.ReEncrypt(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ReEncryptAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

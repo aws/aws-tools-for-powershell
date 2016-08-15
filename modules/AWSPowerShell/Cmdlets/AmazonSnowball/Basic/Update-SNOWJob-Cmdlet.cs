@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Snowball.Model.UpdateJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
+    public partial class UpdateSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
         #region Parameter AddressId
@@ -188,6 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AddressId = this.AddressId;
             context.Description = this.Description;
             context.JobId = this.JobId;
@@ -205,6 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.RoleARN = this.RoleARN;
             context.ShippingOption = this.ShippingOption;
             context.SnowballCapacityPreference = this.SnowballCapacityPreference;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -338,7 +344,15 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         private static Amazon.Snowball.Model.UpdateJobResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.UpdateJobRequest request)
         {
+            #if DESKTOP
             return client.UpdateJob(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateJobAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

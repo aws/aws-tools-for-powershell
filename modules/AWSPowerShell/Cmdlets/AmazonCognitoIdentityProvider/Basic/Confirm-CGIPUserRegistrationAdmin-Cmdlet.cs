@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserPoolId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.AdminConfirmSignUpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ConfirmCGIPUserRegistrationAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class ConfirmCGIPUserRegistrationAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter Username
@@ -96,8 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Username = this.Username;
             context.UserPoolId = this.UserPoolId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -157,7 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.AdminConfirmSignUpResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminConfirmSignUpRequest request)
         {
+            #if DESKTOP
             return client.AdminConfirmSignUp(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AdminConfirmSignUpAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

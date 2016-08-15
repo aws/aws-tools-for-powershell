@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdletOutput("Amazon.SQS.Model.GetQueueAttributesResponse",
         "This cmdlet returns a Amazon.SQS.Model.GetQueueAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class GetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeName
@@ -93,11 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AttributeName != null)
             {
                 context.AttributeNames = new List<System.String>(this.AttributeName);
             }
             context.QueueUrl = this.QueueUrl;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -155,7 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.GetQueueAttributesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.GetQueueAttributesRequest request)
         {
+            #if DESKTOP
             return client.GetQueueAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetQueueAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

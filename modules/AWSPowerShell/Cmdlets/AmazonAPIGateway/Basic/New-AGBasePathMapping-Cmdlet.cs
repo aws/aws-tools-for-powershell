@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateBasePathMappingResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateBasePathMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class NewAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter BasePath
@@ -110,10 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BasePath = this.BasePath;
             context.DomainName = this.DomainName;
             context.RestApiId = this.RestApiId;
             context.Stage = this.Stage;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -179,7 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.CreateBasePathMappingResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateBasePathMappingRequest request)
         {
+            #if DESKTOP
             return client.CreateBasePathMapping(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateBasePathMappingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

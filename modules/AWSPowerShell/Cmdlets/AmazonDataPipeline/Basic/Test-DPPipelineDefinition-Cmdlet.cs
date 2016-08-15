@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdletOutput("Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse",
         "This cmdlet returns a Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class TestDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ParameterObject
@@ -93,6 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ParameterObject != null)
             {
                 context.ParameterObjects = new List<Amazon.DataPipeline.Model.ParameterObject>(this.ParameterObject);
@@ -106,6 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
             {
                 context.PipelineObjects = new List<Amazon.DataPipeline.Model.PipelineObject>(this.PipelineObject);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ValidatePipelineDefinitionRequest request)
         {
+            #if DESKTOP
             return client.ValidatePipelineDefinition(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ValidatePipelineDefinitionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

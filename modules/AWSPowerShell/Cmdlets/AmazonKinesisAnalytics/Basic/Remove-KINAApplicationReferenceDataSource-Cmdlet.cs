@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ReferenceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveKINAApplicationReferenceDataSourceCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class RemoveKINAApplicationReferenceDataSourceCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -120,10 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("CurrentApplicationVersionId"))
                 context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
             context.ReferenceId = this.ReferenceId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -187,7 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         private static Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceRequest request)
         {
+            #if DESKTOP
             return client.DeleteApplicationReferenceDataSource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteApplicationReferenceDataSourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "This cmdlet returns a collection of Instance objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter Instance
@@ -110,11 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Instance != null)
             {
                 context.Instances = new List<Amazon.ElasticLoadBalancing.Model.Instance>(this.Instance);
             }
             context.LoadBalancerName = this.LoadBalancerName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerRequest request)
         {
+            #if DESKTOP
             return client.RegisterInstancesWithLoadBalancer(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterInstancesWithLoadBalancerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

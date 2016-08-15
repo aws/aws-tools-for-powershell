@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.IdentityManagement.Model.GetContextKeysForCustomPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIAMContextKeysForCustomPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class GetIAMContextKeysForCustomPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter PolicyInputList
@@ -78,10 +78,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.PolicyInputList != null)
             {
                 context.PolicyInputList = new List<System.String>(this.PolicyInputList);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.GetContextKeysForCustomPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetContextKeysForCustomPolicyRequest request)
         {
+            #if DESKTOP
             return client.GetContextKeysForCustomPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetContextKeysForCustomPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

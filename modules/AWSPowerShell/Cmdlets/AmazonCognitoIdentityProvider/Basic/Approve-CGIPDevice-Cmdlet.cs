@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.ConfirmDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ApproveCGIPDeviceCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class ApproveCGIPDeviceCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter AccessToken
@@ -116,11 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AccessToken = this.AccessToken;
             context.DeviceKey = this.DeviceKey;
             context.DeviceName = this.DeviceName;
             context.DeviceSecretVerifierConfig_PasswordVerifier = this.DeviceSecretVerifierConfig_PasswordVerifier;
             context.DeviceSecretVerifierConfig_Salt = this.DeviceSecretVerifierConfig_Salt;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -211,7 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.ConfirmDeviceResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ConfirmDeviceRequest request)
         {
+            #if DESKTOP
             return client.ConfirmDevice(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ConfirmDeviceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

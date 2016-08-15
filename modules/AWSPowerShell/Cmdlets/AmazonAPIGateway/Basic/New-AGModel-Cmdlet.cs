@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateModelResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class NewAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ContentType
@@ -117,11 +117,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ContentType = this.ContentType;
             context.Description = this.Description;
             context.Name = this.Name;
             context.RestApiId = this.RestApiId;
             context.Schema = this.Schema;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -191,7 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.CreateModelResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateModelRequest request)
         {
+            #if DESKTOP
             return client.CreateModel(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateModelAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

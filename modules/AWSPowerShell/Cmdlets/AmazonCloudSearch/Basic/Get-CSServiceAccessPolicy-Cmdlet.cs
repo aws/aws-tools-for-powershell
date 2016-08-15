@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a AccessPoliciesStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCSServiceAccessPolicyCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class GetCSServiceAccessPolicyCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter Deployed
@@ -75,9 +75,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Deployed"))
                 context.Deployed = this.Deployed;
             context.DomainName = this.DomainName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesRequest request)
         {
+            #if DESKTOP
             return client.DescribeServiceAccessPolicies(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeServiceAccessPoliciesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

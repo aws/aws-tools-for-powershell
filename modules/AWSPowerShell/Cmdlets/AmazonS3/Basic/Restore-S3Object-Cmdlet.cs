@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.S3.Model.RestoreObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -137,11 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BucketName = this.BucketName;
             context.Key = this.Key;
             if (ParameterWasBound("CopyLifetimeInDays"))
                 context.CopyLifetimeInDays = this.CopyLifetimeInDays;
             context.VersionId = this.VersionId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -209,7 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private static Amazon.S3.Model.RestoreObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.RestoreObjectRequest request)
         {
+            #if DESKTOP
             return client.RestoreObject(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RestoreObjectAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

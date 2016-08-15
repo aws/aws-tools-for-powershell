@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         "This cmdlet returns a Address object.",
         "The service call response (type Amazon.Snowball.Model.DescribeAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
+    public partial class GetSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
         #region Parameter AddressId
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AddressId = this.AddressId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,7 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         private static Amazon.Snowball.Model.DescribeAddressResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.DescribeAddressRequest request)
         {
+            #if DESKTOP
             return client.DescribeAddress(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAddressAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

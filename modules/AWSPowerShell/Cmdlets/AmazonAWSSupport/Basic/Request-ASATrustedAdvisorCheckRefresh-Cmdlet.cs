@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         "This cmdlet returns a TrustedAdvisorCheckRefreshStatus object.",
         "The service call response (type Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestASATrustedAdvisorCheckRefreshCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
+    public partial class RequestASATrustedAdvisorCheckRefreshCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
         #region Parameter CheckId
@@ -86,7 +86,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CheckId = this.CheckId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -140,7 +146,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         private static Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckRequest request)
         {
+            #if DESKTOP
             return client.RefreshTrustedAdvisorCheck(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RefreshTrustedAdvisorCheckAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

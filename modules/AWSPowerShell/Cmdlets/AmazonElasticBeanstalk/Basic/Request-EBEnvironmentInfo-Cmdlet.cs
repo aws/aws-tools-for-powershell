@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "Returns the id or name of the environment (depending on which parameter was supplied) when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.RequestEnvironmentInfoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestEBEnvironmentInfoCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class RequestEBEnvironmentInfoCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter EnvironmentId
@@ -128,9 +128,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
             context.InfoType = this.InfoType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -194,7 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.RequestEnvironmentInfoResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.RequestEnvironmentInfoRequest request)
         {
+            #if DESKTOP
             return client.RequestEnvironmentInfo(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RequestEnvironmentInfoAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

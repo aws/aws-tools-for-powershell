@@ -258,7 +258,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         private static Amazon.Route53.Model.ListChangeBatchesByHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListChangeBatchesByHostedZoneRequest request)
         {
+#if DESKTOP
             return client.ListChangeBatchesByHostedZone(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListChangeBatchesByHostedZoneAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

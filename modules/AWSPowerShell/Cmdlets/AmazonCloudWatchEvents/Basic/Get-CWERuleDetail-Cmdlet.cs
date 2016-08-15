@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.DescribeRuleResponse",
         "This cmdlet returns a Amazon.CloudWatchEvents.Model.DescribeRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCWERuleDetailCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
+    public partial class GetCWERuleDetailCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
         #region Parameter Name
@@ -59,7 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,7 +119,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         private static Amazon.CloudWatchEvents.Model.DescribeRuleResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.DescribeRuleRequest request)
         {
+            #if DESKTOP
             return client.DescribeRule(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeRuleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

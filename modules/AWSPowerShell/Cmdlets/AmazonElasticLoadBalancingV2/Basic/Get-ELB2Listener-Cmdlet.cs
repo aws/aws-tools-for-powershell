@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeListenersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
-    public class GetELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class GetELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter ListenerArn
@@ -96,6 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ListenerArn != null)
             {
                 context.ListenerArns = new List<System.String>(this.ListenerArn);
@@ -104,6 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.Marker = this.Marker;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -213,7 +219,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.DescribeListenersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeListenersRequest request)
         {
+            #if DESKTOP
             return client.DescribeListeners(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeListenersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

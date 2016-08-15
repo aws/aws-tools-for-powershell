@@ -105,7 +105,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 // the AWSCmdlet* attribs are used for help generation
                 WriteAWSCmdletAttributes(writer);
 
-                writer.WriteLine("public class {0}{1}Cmdlet : {2}Cmdlet, IExecutor",
+                writer.WriteLine("public partial class {0}{1}Cmdlet : {2}Cmdlet, IExecutor",
                                         Operation.SelectedVerb,
                                         Operation.SelectedNoun,
                                         ServiceConfig.GetServiceCmdletClassName(Operation.RequiresAnonymousAuthentication));
@@ -253,7 +253,21 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                              MethodAnalysis.RequestType);
             writer.OpenRegion();
 
+            writer.WriteLine("#if DESKTOP");
+
             writer.WriteLine("return client.{0}(request);", MethodAnalysis.CurrentOperation.MethodName);
+
+            writer.WriteLine("#elif CORECLR");
+
+            writer.WriteLine("// todo: handle AggregateException and extract true service exception for rethrow");
+            writer.WriteLine("var task = client.{0}Async(request);", MethodAnalysis.CurrentOperation.MethodName);
+            writer.WriteLine("return task.Result;");
+            
+            writer.WriteLine("#else");
+            
+            writer.WriteLine("        #error \"Unknown build edition\"");
+            
+            writer.WriteLine("#endif");
 
             writer.CloseRegion();
 
@@ -495,11 +509,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (property.IsConstrainedToSet)
             {
                 // apply our marker attribute so that if the cmdlet ever becomes hand-maintained the
-                // generator can detect and update the set members by simple text parsing
+                // generator can detect and update the argument completer for the set members by simple 
+                // text parsing
                 writer.WriteLine("[{0}(\"{1}\")]", AWSConstantClassSourceAttributeName, property.PropertyTypeName);
-
-                var members = property.ConstrainedSetMembers;
-                AddValidateSetAttribution(writer, members);
             }
 
             if (property.CollectionType == SimplePropertyInfo.PropertyCollectionType.NoCollection || property.GenericCollectionTypes == null)
@@ -705,6 +717,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.CloseRegion("};");
 
             writer.WriteLine();
+            writer.WriteLine("// allow for manipulation of parameters prior to loading into context");
+            writer.WriteLine("PreExecutionContextLoad(context);");
+            writer.WriteLine();
 
             foreach (var property in allProperties)
             {
@@ -814,6 +829,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     customEmitter.WriteContextMembers(writer, "context", property, paramCustomization);
                 }
             }
+
+            writer.WriteLine();
+            writer.WriteLine("// allow further manipulation of loaded context prior to processing");
+            writer.WriteLine("PostExecutionContextLoad(context);");
         }
 
         private void WriteContextClass(IndentedTextWriter writer, IEnumerable<SimplePropertyInfo> properties)

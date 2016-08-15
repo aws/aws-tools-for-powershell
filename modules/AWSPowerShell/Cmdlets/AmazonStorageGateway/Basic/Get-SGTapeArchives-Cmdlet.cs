@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "The service call response (type Amazon.StorageGateway.Model.DescribeTapeArchivesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetSGTapeArchivesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetSGTapeArchivesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter TapeARNs
@@ -91,6 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
@@ -98,6 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.TapeARNs = new List<System.String>(this.TapeARNs);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -203,7 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.DescribeTapeArchivesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeTapeArchivesRequest request)
         {
+            #if DESKTOP
             return client.DescribeTapeArchives(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeTapeArchivesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

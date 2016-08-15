@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UnregisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class UnregisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter VolumeId
@@ -95,7 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.VolumeId = this.VolumeId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -151,7 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DeregisterVolumeResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterVolumeRequest request)
         {
+            #if DESKTOP
             return client.DeregisterVolume(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeregisterVolumeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

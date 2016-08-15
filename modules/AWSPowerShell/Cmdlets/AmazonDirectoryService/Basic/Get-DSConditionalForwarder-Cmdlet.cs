@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a collection of ConditionalForwarder objects.",
         "The service call response (type Amazon.DirectoryService.Model.DescribeConditionalForwardersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDSConditionalForwarderCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class GetDSConditionalForwarderCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DirectoryId
@@ -79,11 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DirectoryId = this.DirectoryId;
             if (this.RemoteDomainName != null)
             {
                 context.RemoteDomainNames = new List<System.String>(this.RemoteDomainName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -141,7 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.DescribeConditionalForwardersResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeConditionalForwardersRequest request)
         {
+            #if DESKTOP
             return client.DescribeConditionalForwarders(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeConditionalForwardersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

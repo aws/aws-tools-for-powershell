@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodePipeline.Model.DeleteCustomActionTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class RemoveCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter Category
@@ -103,9 +103,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Category = this.Category;
             context.Provider = this.Provider;
             context.Version = this.Version;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -167,7 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.DeleteCustomActionTypeResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DeleteCustomActionTypeRequest request)
         {
+            #if DESKTOP
             return client.DeleteCustomActionType(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteCustomActionTypeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

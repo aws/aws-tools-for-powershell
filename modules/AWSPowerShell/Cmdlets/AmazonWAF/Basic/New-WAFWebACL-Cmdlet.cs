@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdletOutput("Amazon.WAF.Model.CreateWebACLResponse",
         "This cmdlet returns a Amazon.WAF.Model.CreateWebACLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class NewWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         #region Parameter ChangeToken
@@ -124,10 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ChangeToken = this.ChangeToken;
             context.DefaultAction_Type = this.DefaultAction_Type;
             context.MetricName = this.MetricName;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -208,7 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.CreateWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateWebACLRequest request)
         {
+            #if DESKTOP
             return client.CreateWebACL(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateWebACLAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

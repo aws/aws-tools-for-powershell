@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssessmentTargetArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Inspector.Model.UpdateAssessmentTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateINSAssessmentTargetCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class UpdateINSAssessmentTargetCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         #region Parameter AssessmentTargetArn
@@ -106,9 +106,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AssessmentTargetArn = this.AssessmentTargetArn;
             context.AssessmentTargetName = this.AssessmentTargetName;
             context.ResourceGroupArn = this.ResourceGroupArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.UpdateAssessmentTargetResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.UpdateAssessmentTargetRequest request)
         {
+            #if DESKTOP
             return client.UpdateAssessmentTarget(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateAssessmentTargetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

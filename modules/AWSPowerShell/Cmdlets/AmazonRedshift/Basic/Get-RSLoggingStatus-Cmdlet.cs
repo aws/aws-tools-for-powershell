@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdletOutput("Amazon.Redshift.Model.DescribeLoggingStatusResponse",
         "This cmdlet returns a Amazon.Redshift.Model.DescribeLoggingStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetRSLoggingStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class GetRSLoggingStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterIdentifier
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterIdentifier = this.ClusterIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.DescribeLoggingStatusResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeLoggingStatusRequest request)
         {
+            #if DESKTOP
             return client.DescribeLoggingStatus(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeLoggingStatusAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

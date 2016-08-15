@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         "This cmdlet returns a collection of Rule objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.CreateRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewELB2RuleCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class NewELB2RuleCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         #region Parameter Action
@@ -120,6 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Action != null)
             {
                 context.Actions = new List<Amazon.ElasticLoadBalancingV2.Model.Action>(this.Action);
@@ -131,6 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.ListenerArn = this.ListenerArn;
             if (ParameterWasBound("Priority"))
                 context.Priority = this.Priority;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -196,7 +202,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         private static Amazon.ElasticLoadBalancingV2.Model.CreateRuleResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.CreateRuleRequest request)
         {
+            #if DESKTOP
             return client.CreateRule(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateRuleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

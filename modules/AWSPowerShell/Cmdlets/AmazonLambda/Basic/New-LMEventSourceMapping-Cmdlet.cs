@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateEventSourceMappingResponse",
         "This cmdlet returns a Amazon.Lambda.Model.CreateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class NewLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter BatchSize
@@ -157,6 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("BatchSize"))
                 context.BatchSize = this.BatchSize;
             if (ParameterWasBound("Enabled"))
@@ -164,6 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.EventSourceArn = this.EventSourceArn;
             context.FunctionName = this.FunctionName;
             context.StartingPosition = this.StartingPosition;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -233,7 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.CreateEventSourceMappingResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.CreateEventSourceMappingRequest request)
         {
+            #if DESKTOP
             return client.CreateEventSourceMapping(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateEventSourceMappingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

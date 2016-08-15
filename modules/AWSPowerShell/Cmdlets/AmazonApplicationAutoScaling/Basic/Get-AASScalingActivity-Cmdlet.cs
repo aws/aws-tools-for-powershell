@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         "The service call response (type Amazon.ApplicationAutoScaling.Model.DescribeScalingActivitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetAASScalingActivityCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
+    public partial class GetAASScalingActivityCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceId
@@ -132,12 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ResourceId = this.ResourceId;
             context.ScalableDimension = this.ScalableDimension;
             context.ServiceNamespace = this.ServiceNamespace;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -251,7 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         private static Amazon.ApplicationAutoScaling.Model.DescribeScalingActivitiesResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DescribeScalingActivitiesRequest request)
         {
+            #if DESKTOP
             return client.DescribeScalingActivities(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeScalingActivitiesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

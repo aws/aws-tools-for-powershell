@@ -150,7 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 
         private static Amazon.IdentityManagement.Model.GetCredentialReportResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetCredentialReportRequest request)
         {
+#if DESKTOP
             return client.GetCredentialReport(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetCredentialReportAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

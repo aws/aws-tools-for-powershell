@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         "The service call response (type Amazon.DynamoDBv2.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: LastEvaluatedTableName (type System.String)"
     )]
-    public class GetDDBTablesCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class GetDDBTablesCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
         #region Parameter ExclusiveStartTableName
@@ -78,9 +78,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ExclusiveStartTableName = this.ExclusiveStartTableName;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -182,7 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         private static Amazon.DynamoDBv2.Model.ListTablesResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.ListTablesRequest request)
         {
+            #if DESKTOP
             return client.ListTables(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTablesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

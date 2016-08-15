@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.RevokeGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RevokeKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class RevokeKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter GrantId
@@ -97,8 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GrantId = this.GrantId;
             context.KeyId = this.KeyId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -158,7 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.RevokeGrantResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.RevokeGrantRequest request)
         {
+            #if DESKTOP
             return client.RevokeGrant(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RevokeGrantAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

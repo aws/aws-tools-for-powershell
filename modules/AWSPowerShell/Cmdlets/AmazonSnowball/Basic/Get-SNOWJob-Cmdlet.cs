@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     [AWSCmdletOutput("Amazon.Snowball.Model.DescribeJobResponse",
         "This cmdlet returns a Amazon.Snowball.Model.DescribeJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
+    public partial class GetSNOWJobCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
         #region Parameter JobId
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.JobId = this.JobId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         private static Amazon.Snowball.Model.DescribeJobResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.DescribeJobRequest request)
         {
+            #if DESKTOP
             return client.DescribeJob(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeJobAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Lambda.Model.AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class AddLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter Action
@@ -192,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Action = this.Action;
             context.EventSourceToken = this.EventSourceToken;
             context.FunctionName = this.FunctionName;
@@ -200,6 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.SourceAccount = this.SourceAccount;
             context.SourceArn = this.SourceArn;
             context.StatementId = this.StatementId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -281,7 +287,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.AddPermissionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.AddPermissionRequest request)
         {
+            #if DESKTOP
             return client.AddPermission(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddPermissionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

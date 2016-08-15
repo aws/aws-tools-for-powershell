@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodeCommit.Model.PutRepositoryTriggersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetCCRepositoryTriggerCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class SetCCRepositoryTriggerCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         #region Parameter RepositoryName
@@ -87,11 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.RepositoryName = this.RepositoryName;
             if (this.Trigger != null)
             {
                 context.Triggers = new List<Amazon.CodeCommit.Model.RepositoryTrigger>(this.Trigger);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         private static Amazon.CodeCommit.Model.PutRepositoryTriggersResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.PutRepositoryTriggersRequest request)
         {
+            #if DESKTOP
             return client.PutRepositoryTriggers(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutRepositoryTriggersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

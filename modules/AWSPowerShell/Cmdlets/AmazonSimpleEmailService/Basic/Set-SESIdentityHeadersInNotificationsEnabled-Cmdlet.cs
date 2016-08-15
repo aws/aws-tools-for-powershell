@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSESIdentityHeadersInNotificationsEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class SetSESIdentityHeadersInNotificationsEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Enabled
@@ -121,10 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Enabled"))
                 context.Enabled = this.Enabled;
             context.Identity = this.Identity;
             context.NotificationType = this.NotificationType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -188,7 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledRequest request)
         {
+            #if DESKTOP
             return client.SetIdentityHeadersInNotificationsEnabled(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetIdentityHeadersInNotificationsEnabledAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

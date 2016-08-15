@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.CloudWatchEvents.Model.TestEventPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestCWEEventPatternCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
+    public partial class TestCWEEventPatternCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
         #region Parameter Event
@@ -77,8 +77,14 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Event = this.Event;
             context.EventPattern = this.EventPattern;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -136,7 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         private static Amazon.CloudWatchEvents.Model.TestEventPatternResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.TestEventPatternRequest request)
         {
+            #if DESKTOP
             return client.TestEventPattern(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.TestEventPatternAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

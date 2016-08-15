@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdletOutput("Amazon.Lambda.Model.GetAliasResponse",
         "This cmdlet returns a Amazon.Lambda.Model.GetAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter FunctionName
@@ -78,8 +78,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FunctionName = this.FunctionName;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -137,7 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.GetAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAliasRequest request)
         {
+            #if DESKTOP
             return client.GetAlias(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetAliasAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

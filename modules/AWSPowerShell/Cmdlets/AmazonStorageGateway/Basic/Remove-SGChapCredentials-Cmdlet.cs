@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.DeleteChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class RemoveSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter InitiatorName
@@ -87,8 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InitiatorName = this.InitiatorName;
             context.TargetARN = this.TargetARN;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -146,7 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.DeleteChapCredentialsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteChapCredentialsRequest request)
         {
+            #if DESKTOP
             return client.DeleteChapCredentials(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteChapCredentialsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

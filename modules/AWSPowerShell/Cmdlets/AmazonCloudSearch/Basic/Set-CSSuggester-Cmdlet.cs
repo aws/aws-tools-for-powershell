@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a SuggesterStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DefineSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class SetCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -134,11 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DomainName = this.DomainName;
             context.Suggester_DocumentSuggesterOptions_FuzzyMatching = this.DocumentSuggesterOptions_FuzzyMatching;
             context.Suggester_DocumentSuggesterOptions_SortExpression = this.DocumentSuggesterOptions_SortExpression;
             context.Suggester_DocumentSuggesterOptions_SourceField = this.DocumentSuggesterOptions_SourceField;
             context.Suggester_SuggesterName = this.Suggester_SuggesterName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -256,7 +262,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.DefineSuggesterResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DefineSuggesterRequest request)
         {
+            #if DESKTOP
             return client.DefineSuggester(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DefineSuggesterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

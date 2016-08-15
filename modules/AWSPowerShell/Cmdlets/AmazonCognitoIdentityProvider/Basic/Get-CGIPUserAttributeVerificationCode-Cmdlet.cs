@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "This cmdlet returns a CodeDeliveryDetailsType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCGIPUserAttributeVerificationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetCGIPUserAttributeVerificationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter AccessToken
@@ -71,8 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Region = this.Region,
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AccessToken = this.AccessToken;
             context.AttributeName = this.AttributeName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -130,7 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeRequest request)
         {
+            #if DESKTOP
             return client.GetUserAttributeVerificationCode(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetUserAttributeVerificationCodeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

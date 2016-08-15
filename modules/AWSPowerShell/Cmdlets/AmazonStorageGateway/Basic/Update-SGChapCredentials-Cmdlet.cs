@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateChapCredentialsResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.UpdateChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class UpdateSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter InitiatorName
@@ -115,10 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InitiatorName = this.InitiatorName;
             context.SecretToAuthenticateInitiator = this.SecretToAuthenticateInitiator;
             context.SecretToAuthenticateTarget = this.SecretToAuthenticateTarget;
             context.TargetARN = this.TargetARN;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -184,7 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.UpdateChapCredentialsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateChapCredentialsRequest request)
         {
+            #if DESKTOP
             return client.UpdateChapCredentials(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateChapCredentialsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

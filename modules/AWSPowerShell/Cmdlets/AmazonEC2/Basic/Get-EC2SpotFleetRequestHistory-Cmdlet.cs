@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse",
         "This cmdlet returns a Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetEC2SpotFleetRequestHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2SpotFleetRequestHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter EventType
@@ -109,6 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EventType = this.EventType;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -116,6 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestId = this.SpotFleetRequestId;
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -185,7 +191,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSpotFleetRequestHistoryRequest request)
         {
+            #if DESKTOP
             return client.DescribeSpotFleetRequestHistory(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeSpotFleetRequestHistoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         "The service call response (type Amazon.DeviceFarm.Model.ListSuitesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetDFSuiteListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public partial class GetDFSuiteListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
         #region Parameter Arn
@@ -72,8 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Arn = this.Arn;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -165,7 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         private static Amazon.DeviceFarm.Model.ListSuitesResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListSuitesRequest request)
         {
+            #if DESKTOP
             return client.ListSuites(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListSuitesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

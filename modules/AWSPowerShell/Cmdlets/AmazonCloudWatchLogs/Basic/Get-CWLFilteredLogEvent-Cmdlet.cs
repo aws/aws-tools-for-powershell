@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse",
         "This cmdlet returns a Amazon.CloudWatchLogs.Model.FilterLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCWLFilteredLogEventCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetCWLFilteredLogEventCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter EndTime
@@ -155,6 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
             context.FilterPattern = this.FilterPattern;
@@ -170,6 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.NextToken = this.NextToken;
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -251,7 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.FilterLogEventsResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.FilterLogEventsRequest request)
         {
+            #if DESKTOP
             return client.FilterLogEvents(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.FilterLogEventsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

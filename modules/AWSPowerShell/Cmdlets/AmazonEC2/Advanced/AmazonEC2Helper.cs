@@ -73,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             string loadedData;
             if (!string.IsNullOrEmpty(userDataFile))
             {
-                using (var reader = new StreamReader(userDataFile))
+                // coreclr StreamReader does not have ctor that takes filename
+                using (var stream = File.OpenRead(userDataFile))
+                using (var reader = new StreamReader(stream))
                 {
                     loadedData = reader.ReadToEnd();
                 }

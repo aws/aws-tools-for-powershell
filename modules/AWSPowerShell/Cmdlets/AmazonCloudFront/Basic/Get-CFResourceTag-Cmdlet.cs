@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         "This cmdlet returns a Tags object.",
         "The service call response (type Amazon.CloudFront.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class GetCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter Resource
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Resource = this.Resource;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListTagsForResourceRequest request)
         {
+            #if DESKTOP
             return client.ListTagsForResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTagsForResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

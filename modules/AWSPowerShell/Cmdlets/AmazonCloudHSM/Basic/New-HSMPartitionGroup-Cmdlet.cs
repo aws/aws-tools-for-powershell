@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.CreateHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class NewHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         #region Parameter Label
@@ -77,7 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Label = this.Label;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -131,7 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.CreateHapgResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.CreateHapgRequest request)
         {
+            #if DESKTOP
             return client.CreateHapg(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateHapgAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

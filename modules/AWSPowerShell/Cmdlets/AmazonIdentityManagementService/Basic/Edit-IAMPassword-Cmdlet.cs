@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OldPassword parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditIAMPasswordCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class EditIAMPasswordCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter NewPassword
@@ -110,8 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NewPassword = this.NewPassword;
             context.OldPassword = this.OldPassword;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.ChangePasswordResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ChangePasswordRequest request)
         {
+            #if DESKTOP
             return client.ChangePassword(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ChangePasswordAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

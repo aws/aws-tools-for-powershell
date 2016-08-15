@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.PutMetricFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class WriteCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter FilterName
@@ -124,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FilterName = this.FilterName;
             context.FilterPattern = this.FilterPattern;
             context.LogGroupName = this.LogGroupName;
@@ -131,6 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 context.MetricTransformations = new List<Amazon.CloudWatchLogs.Model.MetricTransformation>(this.MetricTransformation);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.PutMetricFilterResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutMetricFilterRequest request)
         {
+            #if DESKTOP
             return client.PutMetricFilter(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutMetricFilterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

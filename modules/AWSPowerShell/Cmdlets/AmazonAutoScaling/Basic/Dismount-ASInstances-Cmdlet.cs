@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "This cmdlet returns a collection of Activity objects.",
         "The service call response (type Amazon.AutoScaling.Model.DetachInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DismountASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class DismountASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -114,6 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.InstanceId != null)
             {
@@ -121,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             if (ParameterWasBound("ShouldDecrementDesiredCapacity"))
                 context.ShouldDecrementDesiredCapacity = this.ShouldDecrementDesiredCapacity;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -182,7 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DetachInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DetachInstancesRequest request)
         {
+            #if DESKTOP
             return client.DetachInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DetachInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

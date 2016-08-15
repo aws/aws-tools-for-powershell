@@ -95,7 +95,7 @@ namespace AWSPowerShellGenerator.Analysis
                 OutputType = ResultOutputTypes.SingleProperty;
 
                 var property = NonMetadataProperties.First();
-                SingleResultProperty = operationAnalyzer.CreateSimplePropertyFor(property, null);
+                SingleResultProperty = operationAnalyzer.CreateSimplePropertyFor(property, null, false);
                 // if the output is a collection, extract the inner type so we report that as the cmdlet
                 // output in help, not the List wrapper (grab the full name so we can be explicit in help)
                 if (property.PropertyType.IsGenericType)

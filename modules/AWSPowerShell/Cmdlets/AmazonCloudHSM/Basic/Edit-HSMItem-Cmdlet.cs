@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         #region Parameter EniIp
@@ -136,12 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EniIp = this.EniIp;
             context.ExternalId = this.ExternalId;
             context.HsmArn = this.HsmArn;
             context.IamRoleArn = this.IamRoleArn;
             context.SubnetId = this.SubnetId;
             context.SyslogIp = this.SyslogIp;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -215,7 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.ModifyHsmResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ModifyHsmRequest request)
         {
+            #if DESKTOP
             return client.ModifyHsm(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyHsmAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

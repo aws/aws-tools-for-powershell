@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.StopDeploymentResponse",
         "This cmdlet returns a Amazon.CodeDeploy.Model.StopDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class StopCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentId
@@ -75,7 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DeploymentId = this.DeploymentId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -129,7 +135,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.StopDeploymentResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.StopDeploymentRequest request)
         {
+            #if DESKTOP
             return client.StopDeployment(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.StopDeploymentAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

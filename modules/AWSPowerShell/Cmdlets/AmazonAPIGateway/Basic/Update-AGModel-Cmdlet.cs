@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateModelResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.UpdateModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ModelName
@@ -97,12 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ModelName = this.ModelName;
             if (this.PatchOperation != null)
             {
                 context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
             }
             context.RestApiId = this.RestApiId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -164,7 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.UpdateModelResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateModelRequest request)
         {
+            #if DESKTOP
             return client.UpdateModel(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateModelAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

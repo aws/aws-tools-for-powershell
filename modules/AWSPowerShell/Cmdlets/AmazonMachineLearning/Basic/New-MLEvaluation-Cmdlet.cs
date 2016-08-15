@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MachineLearning.Model.CreateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class NewMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter EvaluationDataSourceId
@@ -128,10 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EvaluationDataSourceId = this.EvaluationDataSourceId;
             context.EvaluationId = this.EvaluationId;
             context.EvaluationName = this.EvaluationName;
             context.MLModelId = this.MLModelId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -197,7 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.CreateEvaluationResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateEvaluationRequest request)
         {
+            #if DESKTOP
             return client.CreateEvaluation(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateEvaluationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
+    public partial class WriteAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter StepScalingPolicyConfiguration_AdjustmentType
@@ -212,6 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.PolicyName = this.PolicyName;
             context.PolicyType = this.PolicyType;
             context.ResourceId = this.ResourceId;
@@ -227,6 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             {
                 context.StepScalingPolicyConfiguration_StepAdjustments = new List<Amazon.ApplicationAutoScaling.Model.StepAdjustment>(this.StepScalingPolicyConfiguration_StepAdjustment);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -355,7 +361,15 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         private static Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.PutScalingPolicyRequest request)
         {
+            #if DESKTOP
             return client.PutScalingPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutScalingPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

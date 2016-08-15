@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.UpdateBandwidthRateLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class UpdateSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter AverageDownloadRateLimitInBitsPerSec
@@ -108,11 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AverageDownloadRateLimitInBitsPerSec"))
                 context.AverageDownloadRateLimitInBitsPerSec = this.AverageDownloadRateLimitInBitsPerSec;
             if (ParameterWasBound("AverageUploadRateLimitInBitsPerSec"))
                 context.AverageUploadRateLimitInBitsPerSec = this.AverageUploadRateLimitInBitsPerSec;
             context.GatewayARN = this.GatewayARN;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -174,7 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.UpdateBandwidthRateLimitResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateBandwidthRateLimitRequest request)
         {
+            #if DESKTOP
             return client.UpdateBandwidthRateLimit(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateBandwidthRateLimitAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

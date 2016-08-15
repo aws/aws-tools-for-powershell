@@ -248,7 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         private static Amazon.Route53.Model.ListTrafficPoliciesResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTrafficPoliciesRequest request)
         {
+#if DESKTOP
             return client.ListTrafficPolicies(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTrafficPoliciesAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OpenIDConnectProviderArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class RemoveIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter OpenIDConnectProviderArn
@@ -97,7 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.OpenIDConnectProviderArn = this.OpenIDConnectProviderArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderRequest request)
         {
+            #if DESKTOP
             return client.DeleteOpenIDConnectProvider(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteOpenIDConnectProviderAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

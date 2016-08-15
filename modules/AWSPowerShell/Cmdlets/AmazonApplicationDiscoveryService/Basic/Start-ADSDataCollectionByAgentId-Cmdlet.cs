@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         "This cmdlet returns a collection of AgentConfigurationStatus objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class StartADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter AgentId
@@ -84,10 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AgentId != null)
             {
                 context.AgentIds = new List<System.String>(this.AgentId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -141,7 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         private static Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest request)
         {
+            #if DESKTOP
             return client.StartDataCollectionByAgentIds(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.StartDataCollectionByAgentIdsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ConfirmCGIPUserRegistrationCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class ConfirmCGIPUserRegistrationCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter ClientId
@@ -120,12 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Region = this.Region,
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientId = this.ClientId;
             context.ConfirmationCode = this.ConfirmationCode;
             if (ParameterWasBound("ForceAliasCreation"))
                 context.ForceAliasCreation = this.ForceAliasCreation;
             context.SecretHash = this.SecretHash;
             context.Username = this.Username;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -195,7 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.ConfirmSignUpResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ConfirmSignUpRequest request)
         {
+            #if DESKTOP
             return client.ConfirmSignUp(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ConfirmSignUpAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

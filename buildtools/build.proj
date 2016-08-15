@@ -4,15 +4,18 @@
 
     <PropertyGroup>
         <InternalBuildTools Condition="'$(InternalBuildTools)'==''">..\..\AWSDotNetBuildTools</InternalBuildTools>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0</VSToolsPath>
     </PropertyGroup>
     
 	<Import Project="$(InternalBuildTools)\references.targets" Condition="Exists('$(InternalBuildTools)\references.targets')" />
 	<Import Project="$(InternalBuildTools)\common.targets" Condition="Exists('$(InternalBuildTools)\common.targets')" />
 
+	<Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
+	<Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.targets" Condition="'$(VSToolsPath)' != ''" />
+	
     <PropertyGroup>
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
-		<Edition Condition="'$(Edition)'==''">desktop</Edition>
         
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
@@ -44,13 +47,29 @@
         
         <UpdateVersions Condition="'$(UpdateVersions)'==''">false</UpdateVersions>
 		<AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
+		
+		<AuthenticodeSignScripts Condition="'$(AuthenticodeSignScripts)'==''">false</AuthenticodeSignScripts>
+		
+		<!-- temp flag allows us to turn off the netcore build output if we're running in master branch,
+		     until netcore sdk is merged back to master
+		-->
+		<BuildNetCoreModule Condition="'$(BuildNetCoreModule)'==''">false</BuildNetCoreModule>
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;build-modules;copy-artifacts;run-tests;create-help;keyscan;save-build">
+            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-artifacts;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
 		<Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
 	</Target>
 
+    <Target Name="restore-nuget" DependsOnTargets="GetSDKToolingInfoTarget">
+        <Message Text="Restore nuget packages"/>
+        <Exec Command="..\solutions\.nuget\NuGet.exe restore ..\modules\AWSPowerShell\AWSPowerShell.csproj"/>
+        
+		<Exec Command="&quot;$(SDKToolingExe)&quot; restore" 
+			WorkingDirectory="..\modules\AWSPowerShell"
+			Condition="'$(BuildNetCoreModule)'" />		
+    </Target>
+	
     <Target Name="build-generator">
 		<Message Text="Building AWS PowerShell generator"/>
 		<Exec Command="$(devenv2013) /Rebuild $(Configuration) ..\solutions\AWSPowerShellGenerator.sln"/>
@@ -61,26 +80,40 @@
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
 	</Target>
 
-	<Target Name="build-modules">
-		<Message Text="Building desktop edition module"/>
+	<Target Name="build-modules" DependsOnTargets="restore-nuget">
+		<Message Text="Building AWSPowerShell module editions"/>
 		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
                  Targets="Clean;Build"
-                 Properties="Configuration=$(Configuration);Edition=desktop" />		
+                 Properties="Configuration=$(Configuration);ResolveNuGetPackages=false" />		
 
 		<Message Text="Generating custom view formats ps1xml file"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e $(Edition)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e desktop" />
+		
+		<!-- clone the generated file for coreclr too -->
+        <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.Format.ps1xml" 
+              DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
+			  Condition="'$(BuildNetCoreModule)'"
+			  />
+		 
 	</Target>
     
     <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
     
 	<Target Name="create-pshelp" DependsOnTargets="build-modules">
 		<Message Text="Generating native PowerShell help file"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t pshelp -e $(Edition)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t pshelp -e desktop" />
+
+		<!-- clone the generated file for coreclr too -->
+        <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.dll-Help.xml" 
+              DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
+			  Condition="'$(BuildNetCoreModule)'"
+			  />
+		 
 	</Target>
     
 	<Target Name="create-webhelp" DependsOnTargets="build-modules">
 		<Message Text="Generating web cmdlet reference"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t webhelp -e $(Edition)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t webhelp -e desktop" />
 
         <CreateSitemapTask
             SourceFolder="$(DocDeployment)\docs"
@@ -113,10 +146,10 @@
     <Target Name="copy-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<BuildSourceFolder>bin\$(Configuration)\desktop\</BuildSourceFolder>
-			<DeploymentFolder>$(Deployment)\desktop\</DeploymentFolder>
+			<DeploymentFolder>$(Deployment)\AWSPowerShell\</DeploymentFolder>
 		</PropertyGroup>
 		
-		<Message Text="Consolidating desktop edition artifacts to $(DeploymentFolder)"/>
+		<Message Text="Consolidating Desktop edition artifacts from $(BuildSourceFolder) to $(DeploymentFolder)"/>
 	
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 
@@ -124,24 +157,65 @@
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.dll"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
 		<!-- the ndoc xml file is needed in separate build process to generate and push web docs to github -->
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.xml"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="@(SDKAssemblies)"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
         <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
-            DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DeploymentFolder)"/>
+
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1"
+              DestinationFolder="$(DeploymentFolder)"/>
+
     </Target>
 
+	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules;" Condition="'$(BuildNetCoreModule)'">
+		<PropertyGroup>
+			<!-- <BuildSourceFolder>bin\$(Configuration)\coreclr\</BuildSourceFolder> -->
+			<BuildSourceFolder>bin\$(Configuration)\coreclr\AWSPowerShell\bin\$(Configuration)\netstandard1.6\</BuildSourceFolder>
+			<DeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</DeploymentFolder>
+		</PropertyGroup>
+		
+		<Message Text="Consolidating CoreCLR edition artifacts from $(BuildSourceFolder) to $(DeploymentFolder)"/>
+	
+        <ItemGroup>
+            <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)\netstandard1.3\*.dll" 
+                           Exclude="$(SDKAssembliesFolder)\netstandard1.3\*.Glacier.*;$(SDKAssembliesFolder)\netstandard1.3\*.CognitoSync.*;$(SDKAssembliesFolder)\netstandard1.3\*.SimpleDB.*"/>
+        </ItemGroup>
+        
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.NetCore.psd1"
+              DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.NetCore.dll"
+              DestinationFolder="$(DeploymentFolder)"/>
+
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
+              DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="@(NetCoreSDKAssemblies)"
+              DestinationFolder="$(DeploymentFolder)"/>
+		<!--
+        <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
+              DestinationFolder="$(DeploymentFolder)"/>
+		-->
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
+              DestinationFolder="$(DeploymentFolder)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
+              DestinationFolder="$(DeploymentFolder)"/>
+              
+		<Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1"
+        	  DestinationFolder="$(DeploymentFolder)"/>
+			
+    </Target>
+	
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
         <!-- grab the logical SDK product version and use the first 3 components,
              appending our own patch number to make the final PowerShell version
@@ -173,6 +247,23 @@
 			/>
 	</Target>
 
+	<Target Name="sign-script-artifacts" Condition="$(AuthenticodeSignScripts)" DependsOnTargets="copy-artifacts">
+		<PropertyGroup>
+			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
+			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
+			<SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\AuthenticodeSign.ps1</SigningScriptArgs>
+		</PropertyGroup>
+		
+		<Message Text="Authenticode signing module and script artifacts for Desktop edition" />
+		<Exec LogStandardErrorAsError="true"
+              Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(DesktopDeploymentFolder)" />
+			  
+		<Message Text="Authenticode signing module and script artifacts for NetCore edition" />
+		<Exec LogStandardErrorAsError="true"
+              Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(NetCoreDeploymentFolder)" 
+			  Condition="'$(BuildNetCoreModule)'"/>
+	</Target>
+	
     <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
         <ItemGroup>
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
@@ -200,6 +291,24 @@
             />
     </Target>
     
+	<!-- Works around a bug in 'dotnet build' where it doesn't obey custom packages
+	     folder (and doesn't support 'packages' property like 'dotnet restore' does).
+		 MS plan to fix in 1.1 release. This bug can lead to us trying to build against
+		 out-of-date sdk nuget packages, even though we've done a fetch of the last
+		 staged sdk build.
+	-->
+	<Target Name="clean-sdkpackages" DependsOnTargets="build-tools">
+		<Message Text="Cleaning SDK packages prior to package restore/module builds" />
+		
+		<CleanCachedSDKPackagesTask />
+
+		<!-- For good measure, I'm also blowing away the local packages folder; it has
+		     little perf impact on the build and ensures we get the correct packages 
+		     from the sdk include feed at all times however we run restore.
+		-->
+		<RemoveDir Directories="$(MSBuildProjectDirectory)\..\packages" />
+	</Target>
+	
 	<Target Name="save-build"  DependsOnTargets="build-tools">		
 		<SaveBuildArtifactTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."

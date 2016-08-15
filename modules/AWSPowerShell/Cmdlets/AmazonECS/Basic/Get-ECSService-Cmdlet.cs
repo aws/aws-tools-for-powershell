@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeServicesResponse",
         "This cmdlet returns a Amazon.ECS.Model.DescribeServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class GetECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
         #region Parameter Cluster
@@ -71,11 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Cluster = this.Cluster;
             if (this.Service != null)
             {
                 context.Services = new List<System.String>(this.Service);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -133,7 +139,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         private static Amazon.ECS.Model.DescribeServicesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DescribeServicesRequest request)
         {
+            #if DESKTOP
             return client.DescribeServices(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeServicesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

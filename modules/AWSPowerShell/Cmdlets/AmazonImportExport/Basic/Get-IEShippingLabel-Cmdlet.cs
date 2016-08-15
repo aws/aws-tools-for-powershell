@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [AWSCmdletOutput("Amazon.ImportExport.Model.GetShippingLabelResponse",
         "This cmdlet returns a Amazon.ImportExport.Model.GetShippingLabelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIEShippingLabelCmdlet : AmazonImportExportClientCmdlet, IExecutor
+    public partial class GetIEShippingLabelCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
         
         #region Parameter APIVersion
@@ -172,6 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.APIVersion = this.APIVersion;
             context.City = this.City;
             context.Company = this.Company;
@@ -187,6 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
             context.Street1 = this.Street1;
             context.Street2 = this.Street2;
             context.Street3 = this.Street3;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -284,7 +290,15 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         private static Amazon.ImportExport.Model.GetShippingLabelResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.GetShippingLabelRequest request)
         {
+            #if DESKTOP
             return client.GetShippingLabel(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetShippingLabelAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

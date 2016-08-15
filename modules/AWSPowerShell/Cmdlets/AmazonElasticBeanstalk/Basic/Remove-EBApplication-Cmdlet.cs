@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class RemoveEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -98,9 +98,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("TerminateEnvByForce"))
                 context.TerminateEnvByForce = this.TerminateEnvByForce;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,7 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.DeleteApplicationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteApplicationRequest request)
         {
+            #if DESKTOP
             return client.DeleteApplication(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteApplicationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

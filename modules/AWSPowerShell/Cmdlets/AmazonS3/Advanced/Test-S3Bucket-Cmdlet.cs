@@ -81,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var client = Client ?? CreateClient(context.Credentials, context.Region))
             {
-                bool exists = AmazonS3Util.DoesS3BucketExist(client, cmdletContext.BucketName);
+#if DESKTOP
+                var exists = AmazonS3Util.DoesS3BucketExist(client, cmdletContext.BucketName);
+#elif CORECLR
+                var exists = AmazonS3Util.DoesS3BucketExistAsync(client, cmdletContext.BucketName).Result;
+#else
+#error "Unknown build edition"
+#endif
                 var output = new CmdletOutput
                 {
                     PipelineOutput = exists

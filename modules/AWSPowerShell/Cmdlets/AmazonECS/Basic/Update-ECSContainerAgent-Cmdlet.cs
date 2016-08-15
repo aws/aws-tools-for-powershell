@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         "This cmdlet returns a ContainerInstance object.",
         "The service call response (type Amazon.ECS.Model.UpdateContainerAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateECSContainerAgentCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class UpdateECSContainerAgentCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
         #region Parameter Cluster
@@ -100,8 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Cluster = this.Cluster;
             context.ContainerInstance = this.ContainerInstance;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         private static Amazon.ECS.Model.UpdateContainerAgentResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.UpdateContainerAgentRequest request)
         {
+            #if DESKTOP
             return client.UpdateContainerAgent(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateContainerAgentAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

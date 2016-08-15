@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetKeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.UpdateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class UpdateKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter AliasName
@@ -113,8 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AliasName = this.AliasName;
             context.TargetKeyId = this.TargetKeyId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -174,7 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.UpdateAliasResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.UpdateAliasRequest request)
         {
+            #if DESKTOP
             return client.UpdateAlias(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateAliasAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

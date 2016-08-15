@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet returns a InstanceProfile object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class NewIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceProfileName
@@ -100,8 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InstanceProfileName = this.InstanceProfileName;
             context.Path = this.Path;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.CreateInstanceProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateInstanceProfileRequest request)
         {
+            #if DESKTOP
             return client.CreateInstanceProfile(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateInstanceProfileAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

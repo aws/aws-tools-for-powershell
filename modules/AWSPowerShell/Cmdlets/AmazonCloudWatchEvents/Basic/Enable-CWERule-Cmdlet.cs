@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchEvents.Model.EnableRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableCWERuleCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
+    public partial class EnableCWERuleCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
         #region Parameter Name
@@ -91,7 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -147,7 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         private static Amazon.CloudWatchEvents.Model.EnableRuleResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.EnableRuleRequest request)
         {
+            #if DESKTOP
             return client.EnableRule(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EnableRuleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

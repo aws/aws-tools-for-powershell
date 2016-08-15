@@ -449,7 +449,18 @@ namespace AWSPowerShellGenerator.Analysis
             LogAnalysisResults();
         }
 
-        public SimplePropertyInfo CreateSimplePropertyFor(PropertyInfo property, SimplePropertyInfo parent)
+        /// <summary>
+        /// Creates a simplified property for the specified request or response field. If the field's 
+        /// type is derived from the SDK's ConstantClass 'enum' type, we will also register to emit
+        /// an argument completer unless the field is a member of the result type.
+        /// </summary>
+        /// <param name="property"></param>
+        /// <param name="parent"></param>
+        /// <param name="isCmdletParameter">
+        /// True if the simplified property will represent a parameter on the cmdlet.
+        /// </param>
+        /// <returns></returns>
+        public SimplePropertyInfo CreateSimplePropertyFor(PropertyInfo property, SimplePropertyInfo parent, bool isCmdletParameter)
         {
             var shouldFlatten = true;
 
@@ -492,6 +503,21 @@ namespace AWSPowerShellGenerator.Analysis
                                                         collectionType,
                                                         genericCollectionTypes,
                                                         IsEmitLimiter(property.Name));
+            if (simpleProperty.IsConstrainedToSet && isCmdletParameter)
+            {
+                // push the set members and a reference from the current cmdlet into the service 
+                // model so that argument completers can be generated later
+                if (!CurrentModel.ArgumentCompleters.IsConstantClassRegistered(propertyTypeName))
+                {
+                    var setMembers = SimplePropertyInfo.GetConstantClassMembers(property.PropertyType);
+                    CurrentModel.ArgumentCompleters.AddConstantClass(propertyTypeName, setMembers);
+                }
+                CurrentModel.ArgumentCompleters.AddConstantClassReference(propertyTypeName, 
+                                                                          simpleProperty.CmdletParameterName, 
+                                                                          string.Format("{0}-{1}", 
+                                                                                        CurrentOperation.SelectedVerb, 
+                                                                                        CurrentOperation.SelectedNoun));
+            }
 
             if (shouldFlatten)
             {
@@ -510,7 +536,7 @@ namespace AWSPowerShellGenerator.Analysis
                 {
                     foreach (var childProperty 
                         in propertyTypeProperties.Select(propertyTypeProperty
-                            => CreateSimplePropertyFor(propertyTypeProperty, simpleProperty)))
+                            => CreateSimplePropertyFor(propertyTypeProperty, simpleProperty, isCmdletParameter)))
                     {
                         simpleProperty.Children.Add(childProperty);
                     }
@@ -1451,7 +1477,7 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 var properties = requestType.GetProperties();
                 simpleProperties = properties
-                    .Select(p => CreateSimplePropertyFor(p, null))
+                    .Select(p => CreateSimplePropertyFor(p, null, true))
                     .Where(sp => sp.IsReadWrite)
                     .ToList();
                 _rootSimplePropertiesCache[requestType] = simpleProperties;

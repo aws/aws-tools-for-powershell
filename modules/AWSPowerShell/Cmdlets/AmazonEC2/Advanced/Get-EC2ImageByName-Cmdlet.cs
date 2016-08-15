@@ -289,7 +289,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         ImageUtilities.ImageDescriptor LookupDescriptorByKey(string key)
         {
+#if DESKTOP
             return ImageUtilities.DescriptorFromKey(key, Client);
+# elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            return ImageUtilities.DescriptorFromKeyAsync(key, Client).Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         ImageUtilities.ImageDescriptor LookupDescriptorByName(string name)
@@ -297,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var keys = ImageUtilities.ImageKeys;
             foreach (var k in keys)
             {
-                var descriptor = ImageUtilities.DescriptorFromKey(k, Client);
+                var descriptor = LookupDescriptorByKey(k);
                 if (descriptor.NamePrefix.Equals(name, StringComparison.OrdinalIgnoreCase))
                     return descriptor;
             }
@@ -310,13 +317,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             return new CmdletContext();
         }
 
-        #endregion
+#endregion
 
         #region AWS Service Operation Call
 
         private static Amazon.EC2.Model.DescribeImagesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImagesRequest request)
         {
+#if DESKTOP
             return client.DescribeImages(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeImagesAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

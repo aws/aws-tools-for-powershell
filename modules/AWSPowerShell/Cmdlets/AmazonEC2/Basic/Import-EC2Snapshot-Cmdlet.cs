@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("Amazon.EC2.Model.ImportSnapshotResponse",
         "This cmdlet returns a Amazon.EC2.Model.ImportSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ImportEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class ImportEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter ClientToken
@@ -188,6 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientData_Comment = this.ClientData_Comment;
             if (ParameterWasBound("ClientData_UploadEnd"))
                 context.ClientData_UploadEnd = this.ClientData_UploadEnd;
@@ -203,6 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DiskContainer_S3Bucket = this.DiskContainer_S3Bucket;
             context.DiskContainer_S3Key = this.DiskContainer_S3Key;
             context.RoleName = this.RoleName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -387,7 +393,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.ImportSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportSnapshotRequest request)
         {
+            #if DESKTOP
             return client.ImportSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ImportSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

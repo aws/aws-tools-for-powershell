@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a OptionGroup object.",
         "The service call response (type Amazon.RDS.Model.ModifyOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class EditRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter ApplyImmediately
@@ -110,6 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("ApplyImmediately"))
                 context.ApplyImmediately = this.ApplyImmediately;
             context.OptionGroupName = this.OptionGroupName;
@@ -121,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.OptionsToRemove = new List<System.String>(this.OptionsToRemove);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -186,7 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.ModifyOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyOptionGroupRequest request)
         {
+            #if DESKTOP
             return client.ModifyOptionGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyOptionGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

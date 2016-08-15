@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "The service call response (type Amazon.RDS.Model.DescribeDBClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetRDSDBClusterParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class GetRDSDBClusterParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBClusterParameterGroupName
@@ -115,6 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (this.Filter != null)
             {
@@ -124,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.Source = this.Source;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -237,7 +243,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.DescribeDBClusterParametersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBClusterParametersRequest request)
         {
+            #if DESKTOP
             return client.DescribeDBClusterParameters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeDBClusterParametersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

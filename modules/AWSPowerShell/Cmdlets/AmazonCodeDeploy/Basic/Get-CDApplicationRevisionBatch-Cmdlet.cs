@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse",
         "This cmdlet returns a Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCDApplicationRevisionBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class GetCDApplicationRevisionBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -70,11 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (this.Revision != null)
             {
                 context.Revisions = new List<Amazon.CodeDeploy.Model.RevisionLocation>(this.Revision);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -132,7 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.BatchGetApplicationRevisionsRequest request)
         {
+            #if DESKTOP
             return client.BatchGetApplicationRevisions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.BatchGetApplicationRevisionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

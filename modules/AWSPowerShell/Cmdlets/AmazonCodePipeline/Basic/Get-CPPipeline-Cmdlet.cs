@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "This cmdlet returns a PipelineDeclaration object.",
         "The service call response (type Amazon.CodePipeline.Model.GetPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter Name
@@ -74,9 +74,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
             if (ParameterWasBound("Version"))
                 context.Version = this.Version;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -134,7 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.GetPipelineResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.GetPipelineRequest request)
         {
+            #if DESKTOP
             return client.GetPipeline(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetPipelineAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

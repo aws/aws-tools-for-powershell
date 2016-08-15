@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewMCADataSetCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
+    public partial class NewMCADataSetCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {
         
         #region Parameter CustomerDefinedValue
@@ -165,6 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.CustomerDefinedValue != null)
             {
                 context.CustomerDefinedValues = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -180,6 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
             context.DestinationS3Prefix = this.DestinationS3Prefix;
             context.RoleNameArn = this.RoleNameArn;
             context.SnsTopicArn = this.SnsTopicArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -257,7 +263,15 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         private static Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetRequest request)
         {
+            #if DESKTOP
             return client.GenerateDataSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GenerateDataSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

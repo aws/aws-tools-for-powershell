@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.CreateConditionalForwarderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSConditionalForwarderCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class NewDSConditionalForwarderCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DirectoryId
@@ -109,12 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DirectoryId = this.DirectoryId;
             if (this.DnsIpAddr != null)
             {
                 context.DnsIpAddrs = new List<System.String>(this.DnsIpAddr);
             }
             context.RemoteDomainName = this.RemoteDomainName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -178,7 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.CreateConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateConditionalForwarderRequest request)
         {
+            #if DESKTOP
             return client.CreateConditionalForwarder(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateConditionalForwarderAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

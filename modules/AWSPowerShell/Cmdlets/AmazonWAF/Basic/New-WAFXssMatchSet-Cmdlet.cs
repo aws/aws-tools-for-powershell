@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdletOutput("Amazon.WAF.Model.CreateXssMatchSetResponse",
         "This cmdlet returns a Amazon.WAF.Model.CreateXssMatchSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewWAFXssMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class NewWAFXssMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         #region Parameter ChangeToken
@@ -102,8 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ChangeToken = this.ChangeToken;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.CreateXssMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateXssMatchSetRequest request)
         {
+            #if DESKTOP
             return client.CreateXssMatchSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateXssMatchSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

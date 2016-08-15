@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         "The service call response (type Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public class GetSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCProvisionedProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -87,10 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AcceptLanguage = this.AcceptLanguage;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -196,7 +202,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         private static Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest request)
         {
+            #if DESKTOP
             return client.ScanProvisionedProducts(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ScanProvisionedProductsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

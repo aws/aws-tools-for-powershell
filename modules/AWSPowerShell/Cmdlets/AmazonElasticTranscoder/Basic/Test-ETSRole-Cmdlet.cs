@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResponse",
         "This cmdlet returns a Amazon.ElasticTranscoder.Model.TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter InputBucket
@@ -103,6 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InputBucket = this.InputBucket;
             context.OutputBucket = this.OutputBucket;
             context.Role = this.Role;
@@ -110,6 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             {
                 context.Topics = new List<System.String>(this.Topic);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -175,7 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.TestRoleResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.TestRoleRequest request)
         {
+            #if DESKTOP
             return client.TestRole(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.TestRoleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

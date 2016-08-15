@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Snowball.Model.CreateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
+    public partial class NewSNOWAddressCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
         #region Parameter Address_AddressId
@@ -203,6 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Address_AddressId = this.Address_AddressId;
             context.Address_City = this.Address_City;
             context.Address_Company = this.Address_Company;
@@ -216,6 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.Address_Street1 = this.Address_Street1;
             context.Address_Street2 = this.Address_Street2;
             context.Address_Street3 = this.Address_Street3;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -404,7 +410,15 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         private static Amazon.Snowball.Model.CreateAddressResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CreateAddressRequest request)
         {
+            #if DESKTOP
             return client.CreateAddress(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateAddressAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

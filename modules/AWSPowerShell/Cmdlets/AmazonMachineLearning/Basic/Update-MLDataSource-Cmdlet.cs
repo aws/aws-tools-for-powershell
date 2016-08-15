@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MachineLearning.Model.UpdateDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class UpdateMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter DataSourceId
@@ -94,8 +94,14 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DataSourceId = this.DataSourceId;
             context.DataSourceName = this.DataSourceName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.UpdateDataSourceResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.UpdateDataSourceRequest request)
         {
+            #if DESKTOP
             return client.UpdateDataSource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateDataSourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

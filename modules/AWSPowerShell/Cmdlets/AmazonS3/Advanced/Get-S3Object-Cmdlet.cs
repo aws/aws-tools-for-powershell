@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             else
             {
-                context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.InvariantCultureIgnoreCase) 
+                context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
                     ? null : AmazonS3Helper.CleanKey(this.KeyPrefix);
             }
             context.Marker = this.Marker;
@@ -275,7 +275,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.ListObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListObjectsRequest request)
         {
+#if DESKTOP
             return client.ListObjects(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListObjectsAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

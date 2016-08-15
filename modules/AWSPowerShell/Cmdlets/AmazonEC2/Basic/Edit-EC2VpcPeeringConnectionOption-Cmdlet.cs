@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse",
         "This cmdlet returns a Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditEC2VpcPeeringConnectionOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class EditEC2VpcPeeringConnectionOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc
@@ -160,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc"))
                 context.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             if (ParameterWasBound("AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc"))
@@ -173,6 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (ParameterWasBound("RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink"))
                 context.RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink = this.RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink;
             context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -304,7 +310,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcPeeringConnectionOptionsRequest request)
         {
+            #if DESKTOP
             return client.ModifyVpcPeeringConnectionOptions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyVpcPeeringConnectionOptionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

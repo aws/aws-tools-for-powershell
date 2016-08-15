@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DataPipeline.Model.CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class NewDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -120,6 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.Name = this.Name;
             if (this.Tag != null)
@@ -127,6 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 context.Tags = new List<Amazon.DataPipeline.Model.Tag>(this.Tag);
             }
             context.UniqueId = this.UniqueId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -192,7 +198,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.CreatePipelineResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.CreatePipelineRequest request)
         {
+            #if DESKTOP
             return client.CreatePipeline(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePipelineAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

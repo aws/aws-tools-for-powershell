@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         "This cmdlet returns a Upload object.",
         "The service call response (type Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class InstallDFToRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public partial class InstallDFToRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
         #region Parameter AppArn
@@ -88,8 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AppArn = this.AppArn;
             context.RemoteAccessSessionArn = this.RemoteAccessSessionArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -147,7 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         private static Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionRequest request)
         {
+            #if DESKTOP
             return client.InstallToRemoteAccessSession(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.InstallToRemoteAccessSessionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

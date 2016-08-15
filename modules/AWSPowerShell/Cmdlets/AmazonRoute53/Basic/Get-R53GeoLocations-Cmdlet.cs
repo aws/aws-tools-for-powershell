@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdletOutput("Amazon.Route53.Model.ListGeoLocationsResponse",
         "This cmdlet returns a Amazon.Route53.Model.ListGeoLocationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53GeoLocationsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53GeoLocationsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter StartContinentCode
@@ -114,11 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.StartContinentCode = this.StartContinentCode;
             context.StartCountryCode = this.StartCountryCode;
             context.StartSubdivisionCode = this.StartSubdivisionCode;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -184,7 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.ListGeoLocationsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListGeoLocationsRequest request)
         {
+            #if DESKTOP
             return client.ListGeoLocations(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListGeoLocationsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

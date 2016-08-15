@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.SetQueueAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class SetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter Attribute
@@ -123,6 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -132,6 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 }
             }
             context.QueueUrl = this.QueueUrl;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -191,7 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.SetQueueAttributesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.SetQueueAttributesRequest request)
         {
+            #if DESKTOP
             return client.SetQueueAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetQueueAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

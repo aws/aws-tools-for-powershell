@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "The service call response (type Amazon.IdentityManagement.Model.ListGroupsForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
-    public class GetIAMGroupForUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class GetIAMGroupForUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter UserName
@@ -99,10 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             context.UserName = this.UserName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -209,7 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.ListGroupsForUserResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListGroupsForUserRequest request)
         {
+            #if DESKTOP
             return client.ListGroupsForUser(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListGroupsForUserAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

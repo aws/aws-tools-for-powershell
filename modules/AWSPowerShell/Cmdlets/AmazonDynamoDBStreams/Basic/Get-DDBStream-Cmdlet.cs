@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         "This cmdlet returns a StreamDescription object.",
         "The service call response (type Amazon.DynamoDBv2.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
+    public partial class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
         
         #region Parameter ExclusiveStartShardId
@@ -93,10 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ExclusiveStartShardId = this.ExclusiveStartShardId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.StreamArn = this.StreamArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -158,7 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         private static Amazon.DynamoDBv2.Model.DescribeStreamResponse CallAWSServiceOperation(IAmazonDynamoDBStreams client, Amazon.DynamoDBv2.Model.DescribeStreamRequest request)
         {
+            #if DESKTOP
             return client.DescribeStream(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeStreamAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

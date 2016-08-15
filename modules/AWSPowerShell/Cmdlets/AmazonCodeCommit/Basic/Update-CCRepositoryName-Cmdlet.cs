@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodeCommit.Model.UpdateRepositoryNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateCCRepositoryNameCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class UpdateCCRepositoryNameCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         #region Parameter NewName
@@ -90,8 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NewName = this.NewName;
             context.OldName = this.OldName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         private static Amazon.CodeCommit.Model.UpdateRepositoryNameResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryNameRequest request)
         {
+            #if DESKTOP
             return client.UpdateRepositoryName(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateRepositoryNameAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

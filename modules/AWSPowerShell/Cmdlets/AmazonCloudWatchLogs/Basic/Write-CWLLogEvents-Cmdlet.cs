@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "The service call response (type Amazon.CloudWatchLogs.Model.PutLogEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: RejectedLogEventsInfo (type Amazon.CloudWatchLogs.Model.RejectedLogEventsInfo)"
     )]
-    public class WriteCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class WriteCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter LogEvent
@@ -134,6 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.LogEvent != null)
             {
                 context.LogEvents = new List<Amazon.CloudWatchLogs.Model.InputLogEvent>(this.LogEvent);
@@ -141,6 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.LogGroupName = this.LogGroupName;
             context.LogStreamName = this.LogStreamName;
             context.SequenceToken = this.SequenceToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -208,7 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.PutLogEventsResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutLogEventsRequest request)
         {
+            #if DESKTOP
             return client.PutLogEvents(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutLogEventsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

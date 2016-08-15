@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "This cmdlet returns a Command object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.SendCommandResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SendSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class SendSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter Comment
@@ -212,6 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Comment = this.Comment;
             context.DocumentHash = this.DocumentHash;
             context.DocumentHashType = this.DocumentHashType;
@@ -251,6 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.ServiceRoleArn = this.ServiceRoleArn;
             if (ParameterWasBound("TimeoutSecond"))
                 context.TimeoutSeconds = this.TimeoutSecond;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -379,7 +385,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.SendCommandResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.SendCommandRequest request)
         {
+            #if DESKTOP
             return client.SendCommand(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SendCommandAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

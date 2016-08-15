@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class RemoveHSMResourceTagCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceArn
@@ -93,11 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceArn = this.ResourceArn;
             if (this.TagKeyList != null)
             {
                 context.TagKeyList = new List<System.String>(this.TagKeyList);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -155,7 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.RemoveTagsFromResourceRequest request)
         {
+            #if DESKTOP
             return client.RemoveTagsFromResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTagsFromResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

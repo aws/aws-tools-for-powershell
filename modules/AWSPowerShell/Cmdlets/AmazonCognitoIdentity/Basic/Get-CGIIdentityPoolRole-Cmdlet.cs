@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse",
         "This cmdlet returns a Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
+    public partial class GetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
         #region Parameter IdentityPoolId
@@ -64,7 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.IdentityPoolId = this.IdentityPoolId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,7 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         private static Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.GetIdentityPoolRolesRequest request)
         {
+            #if DESKTOP
             return client.GetIdentityPoolRoles(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetIdentityPoolRolesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

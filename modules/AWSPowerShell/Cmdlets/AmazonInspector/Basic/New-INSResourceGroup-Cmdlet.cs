@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Inspector.Model.CreateResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class NewINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceGroupTag
@@ -80,10 +80,16 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ResourceGroupTag != null)
             {
                 context.ResourceGroupTags = new List<Amazon.Inspector.Model.ResourceGroupTag>(this.ResourceGroupTag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -137,7 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.CreateResourceGroupResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateResourceGroupRequest request)
         {
+            #if DESKTOP
             return client.CreateResourceGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateResourceGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

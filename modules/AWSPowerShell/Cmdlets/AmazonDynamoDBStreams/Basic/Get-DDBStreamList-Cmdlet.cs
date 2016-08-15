@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ListStreamsResponse",
         "This cmdlet returns a Amazon.DynamoDBv2.Model.ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDDBStreamListCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
+    public partial class GetDDBStreamListCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
         
         #region Parameter ExclusiveStartStreamArn
@@ -88,10 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ExclusiveStartStreamArn = this.ExclusiveStartStreamArn;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.TableName = this.TableName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         private static Amazon.DynamoDBv2.Model.ListStreamsResponse CallAWSServiceOperation(IAmazonDynamoDBStreams client, Amazon.DynamoDBv2.Model.ListStreamsRequest request)
         {
+            #if DESKTOP
             return client.ListStreams(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListStreamsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

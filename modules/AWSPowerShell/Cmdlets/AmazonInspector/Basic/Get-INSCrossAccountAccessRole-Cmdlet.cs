@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse",
         "This cmdlet returns a Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetINSCrossAccountAccessRoleCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class GetINSCrossAccountAccessRoleCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -49,6 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -98,7 +104,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DescribeCrossAccountAccessRoleRequest request)
         {
+            #if DESKTOP
             return client.DescribeCrossAccountAccessRole(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeCrossAccountAccessRoleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

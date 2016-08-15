@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         "This cmdlet returns a collection of AuthorizationData objects.",
         "The service call response (type Amazon.ECR.Model.GetAuthorizationTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetECRAuthorizationTokenCmdlet : AmazonECRClientCmdlet, IExecutor
+    public partial class GetECRAuthorizationTokenCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
         #region Parameter RegistryId
@@ -72,10 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.RegistryId != null)
             {
                 context.RegistryIds = new List<System.String>(this.RegistryId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -129,7 +135,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private static Amazon.ECR.Model.GetAuthorizationTokenResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetAuthorizationTokenRequest request)
         {
+            #if DESKTOP
             return client.GetAuthorizationToken(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetAuthorizationTokenAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

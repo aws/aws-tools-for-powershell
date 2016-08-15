@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GenerateCredentialReportResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GenerateCredentialReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class RequestIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Force
@@ -67,6 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -116,7 +122,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.GenerateCredentialReportResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GenerateCredentialReportRequest request)
         {
+            #if DESKTOP
             return client.GenerateCredentialReport(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GenerateCredentialReportAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

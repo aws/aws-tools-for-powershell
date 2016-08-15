@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsResponse",
         "This cmdlet returns a Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCFStreamingDistributionWithTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class NewCFStreamingDistributionWithTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter Logging_Bucket
@@ -256,6 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Aliases_Item != null)
             {
                 context.StreamingDistributionConfigWithTags_StreamingDistributionConfig_Aliases_Items = new List<System.String>(this.Aliases_Item);
@@ -285,6 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 context.StreamingDistributionConfigWithTags_Tags_Items = new List<Amazon.CloudFront.Model.Tag>(this.Tags_Item);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -583,7 +589,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsRequest request)
         {
+            #if DESKTOP
             return client.CreateStreamingDistributionWithTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateStreamingDistributionWithTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSQSDeadLetterSourceQueuesCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class GetSQSDeadLetterSourceQueuesCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter QueueUrl
@@ -67,7 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.QueueUrl = this.QueueUrl;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -121,7 +127,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest request)
         {
+            #if DESKTOP
             return client.ListDeadLetterSourceQueues(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListDeadLetterSourceQueuesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

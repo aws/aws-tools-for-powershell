@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class AddCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceName
@@ -89,6 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.InstanceName != null)
             {
                 context.InstanceNames = new List<System.String>(this.InstanceName);
@@ -97,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 context.Tags = new List<Amazon.CodeDeploy.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -154,7 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesRequest request)
         {
+            #if DESKTOP
             return client.AddTagsToOnPremisesInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddTagsToOnPremisesInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

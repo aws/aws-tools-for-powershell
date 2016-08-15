@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Attribute parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.SetSMSAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSNSSMSAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class SetSNSSMSAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Attribute
@@ -123,6 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -131,6 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -186,7 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.SetSMSAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.SetSMSAttributesRequest request)
         {
+            #if DESKTOP
             return client.SetSMSAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetSMSAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

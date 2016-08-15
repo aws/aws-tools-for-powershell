@@ -2783,7 +2783,6 @@ Set-Alias -Name Put-S3BucketPolicy -Value Write-S3BucketPolicy
 Set-Alias -Name S3-PutBucketPolicy -Value Write-S3BucketPolicy
 Set-Alias -Name Put-S3BucketReplication -Value Write-S3BucketReplication
 Set-Alias -Name S3-PutBucketReplication -Value Write-S3BucketReplication
-Set-Alias -Name S3-GetPreSignedURL -Value Get-S3PreSignedURL
 Set-Alias -Name Delete-S3BucketPolicy -Value Remove-S3BucketPolicy
 Set-Alias -Name S3-DeleteBucketPolicy -Value Remove-S3BucketPolicy
 Set-Alias -Name Delete-S3BucketReplication -Value Remove-S3BucketReplication

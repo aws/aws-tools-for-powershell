@@ -20,8 +20,6 @@ using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
-
-using Amazon.PowerShell.Properties;
 using Amazon.S3.Transfer;
 
 namespace Amazon.PowerShell.Cmdlets.S3

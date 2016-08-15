@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.CreateLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class NewCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter LogGroupName
@@ -97,7 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.LogGroupName = this.LogGroupName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.CreateLogGroupResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CreateLogGroupRequest request)
         {
+            #if DESKTOP
             return client.CreateLogGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLogGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

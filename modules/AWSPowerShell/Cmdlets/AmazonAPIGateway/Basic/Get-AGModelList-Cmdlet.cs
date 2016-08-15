@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         "The service call response (type Amazon.APIGateway.Model.GetModelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Position (type System.String)"
     )]
-    public class GetAGModelListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGModelListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter RestApiId
@@ -85,10 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Position = this.Position;
             context.RestApiId = this.RestApiId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -194,7 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.GetModelsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetModelsRequest request)
         {
+            #if DESKTOP
             return client.GetModels(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetModelsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

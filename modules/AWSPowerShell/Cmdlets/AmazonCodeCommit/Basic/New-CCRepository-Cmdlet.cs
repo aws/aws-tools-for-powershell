@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         "This cmdlet returns a RepositoryMetadata object.",
         "The service call response (type Amazon.CodeCommit.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class NewCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         #region Parameter RepositoryDescription
@@ -94,8 +94,14 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.RepositoryDescription = this.RepositoryDescription;
             context.RepositoryName = this.RepositoryName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         private static Amazon.CodeCommit.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.CreateRepositoryRequest request)
         {
+            #if DESKTOP
             return client.CreateRepository(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateRepositoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

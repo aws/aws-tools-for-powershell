@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             else
             {
                 context.OriginalKeyPrefix = this.KeyPrefix;
-                context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.InvariantCultureIgnoreCase) 
+                context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
                     ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
                 context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
             }

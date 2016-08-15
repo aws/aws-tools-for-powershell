@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "The service call response (type Amazon.CloudWatchLogs.Model.DescribeSubscriptionFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetCWLSubscriptionFiltersCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetCWLSubscriptionFiltersCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter FilterNamePrefix
@@ -102,11 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FilterNamePrefix = this.FilterNamePrefix;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.LogGroupName = this.LogGroupName;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -174,7 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.DescribeSubscriptionFiltersResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeSubscriptionFiltersRequest request)
         {
+            #if DESKTOP
             return client.DescribeSubscriptionFilters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeSubscriptionFiltersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

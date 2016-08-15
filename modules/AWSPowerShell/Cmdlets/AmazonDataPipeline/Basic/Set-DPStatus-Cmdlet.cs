@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         "Returns the object ids when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DataPipeline.Model.SetStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetDPStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class SetDPStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ObjectId
@@ -113,12 +113,18 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ObjectId != null)
             {
                 context.ObjectIds = new List<System.String>(this.ObjectId);
             }
             context.PipelineId = this.PipelineId;
             context.Status = this.Status;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -182,7 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.SetStatusResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.SetStatusRequest request)
         {
+            #if DESKTOP
             return client.SetStatus(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetStatusAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

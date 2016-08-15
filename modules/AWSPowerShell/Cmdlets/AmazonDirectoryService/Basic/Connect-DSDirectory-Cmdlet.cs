@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.ConnectDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ConnectDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class ConnectDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ConnectSettings_CustomerDnsIp
@@ -161,6 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ConnectSettings_CustomerDnsIp != null)
             {
                 context.ConnectSettings_CustomerDnsIps = new List<System.String>(this.ConnectSettings_CustomerDnsIp);
@@ -176,6 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.Password = this.Password;
             context.ShortName = this.ShortName;
             context.Size = this.Size;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -294,7 +300,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.ConnectDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ConnectDirectoryRequest request)
         {
+            #if DESKTOP
             return client.ConnectDirectory(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ConnectDirectoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

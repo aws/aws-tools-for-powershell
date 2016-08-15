@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         "This cmdlet returns a ChangeInfo object.",
         "The service call response (type Amazon.Route53.Model.ChangeResourceRecordSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class EditR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter ChangeBatch_Change
@@ -123,12 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.HostedZoneId = this.HostedZoneId;
             context.ChangeBatch_Comment = this.ChangeBatch_Comment;
             if (this.ChangeBatch_Change != null)
             {
                 context.ChangeBatch_Changes = new List<Amazon.Route53.Model.Change>(this.ChangeBatch_Change);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -211,7 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.ChangeResourceRecordSetsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ChangeResourceRecordSetsRequest request)
         {
+            #if DESKTOP
             return client.ChangeResourceRecordSets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ChangeResourceRecordSetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion
