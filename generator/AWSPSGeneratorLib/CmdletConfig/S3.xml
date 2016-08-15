@@ -45,6 +45,7 @@
     <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
     <ParamEmitter ParamType="Amazon.S3.Model.Protocol" EmitterType="Generators.ParamEmitters.AmazonS3.ProtocolParamEmitter" />
     <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.AccelerateParamEmitter" Excludes="ListBuckets;PutBucket;DeleteBucket"/>
+    <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.DualstackParamEmitter"/>
   </ParamEmitters>
 
   <ExcludeProperties>

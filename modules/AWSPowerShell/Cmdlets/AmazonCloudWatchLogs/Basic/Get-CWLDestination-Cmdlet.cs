@@ -28,15 +28,15 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns all the destinations that are associated with the AWS account making the
-    /// request. The list returned in the response is ASCII-sorted by destination name. 
+    /// Returns all the destinations that are associated with the AWS account making the request.
+    /// The list returned in the response is ASCII-sorted by destination name.
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns up to 50 destinations. If there are more destinations
-    /// to list, the response would contain a <code class="code">nextToken</code> value in
-    /// the response body. You can also limit the number of destinations returned in the response
-    /// by specifying the <code class="code">limit</code> parameter in the request. 
+    /// By default, this operation returns up to 50 destinations. If there are more destinations
+    /// to list, the response would contain a <code>nextToken</code> value in the response
+    /// body. You can also limit the number of destinations returned in the response by specifying
+    /// the <code>limit</code> parameter in the request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLDestination")]

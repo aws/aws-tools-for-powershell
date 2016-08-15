@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The type of snapshots to be returned. You can specify one of the following values:</para><ul><li><para><code>automated</code> - Return all DB snapshots that have been automatically taken
         /// by Amazon RDS for my AWS account.</para></li><li><para><code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</para></li><li><para><code>shared</code> - Return all manual DB snapshots that have been shared to my
         /// AWS account.</para></li><li><para><code>public</code> - Return all DB snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
-        /// snapshots are returned. You can include shared snapshots with these results by setting
+        /// snapshots are returned. Shared and public DB snapshots are not included in the returned
+        /// results by default. You can include shared snapshots with these results by setting
         /// the <code>IncludeShared</code> parameter to <code>true</code>. You can include public
         /// snapshots with these results by setting the <code>IncludePublic</code> parameter to
         /// <code>true</code>.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply

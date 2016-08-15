@@ -95,6 +95,44 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] InstanceId { get; set; }
         #endregion
         
+        #region Parameter NotificationConfig_NotificationArn
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. SSM pushes
+        /// notifications about command status changes to this topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NotificationConfig_NotificationArn { get; set; }
+        #endregion
+        
+        #region Parameter NotificationConfig_NotificationEvent
+        /// <summary>
+        /// <para>
+        /// <para>The different events for which you can receive notifications. These events include
+        /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
+        /// learn more about these events, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html">Monitoring
+        /// Commands</a> in the <i>Amazon Elastic Compute Cloud User Guide </i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NotificationConfig_NotificationEvents")]
+        public System.String[] NotificationConfig_NotificationEvent { get; set; }
+        #endregion
+        
+        #region Parameter NotificationConfig_NotificationType
+        /// <summary>
+        /// <para>
+        /// <para>Command: Receive notification when the status of a command changes. Invocation: For
+        /// commands sent to multiple instances, receive notification on a per-instance basis
+        /// when the status of a command changes. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.NotificationType")]
+        public Amazon.SimpleSystemsManagement.NotificationType NotificationConfig_NotificationType { get; set; }
+        #endregion
+        
         #region Parameter OutputS3BucketName
         /// <summary>
         /// <para>
@@ -124,6 +162,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role that SSM uses to send notifications. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceRoleArn { get; set; }
         #endregion
         
         #region Parameter TimeoutSecond
@@ -172,6 +220,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.InstanceIds = new List<System.String>(this.InstanceId);
             }
+            context.NotificationConfig_NotificationArn = this.NotificationConfig_NotificationArn;
+            if (this.NotificationConfig_NotificationEvent != null)
+            {
+                context.NotificationConfig_NotificationEvents = new List<System.String>(this.NotificationConfig_NotificationEvent);
+            }
+            context.NotificationConfig_NotificationType = this.NotificationConfig_NotificationType;
             context.OutputS3BucketName = this.OutputS3BucketName;
             context.OutputS3KeyPrefix = this.OutputS3KeyPrefix;
             if (this.Parameter != null)
@@ -194,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameters.Add((String)hashKey, valueSet);
                 }
             }
+            context.ServiceRoleArn = this.ServiceRoleArn;
             if (ParameterWasBound("TimeoutSecond"))
                 context.TimeoutSeconds = this.TimeoutSecond;
             
@@ -229,6 +284,45 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.InstanceIds = cmdletContext.InstanceIds;
             }
+            
+             // populate NotificationConfig
+            bool requestNotificationConfigIsNull = true;
+            request.NotificationConfig = new Amazon.SimpleSystemsManagement.Model.NotificationConfig();
+            System.String requestNotificationConfig_notificationConfig_NotificationArn = null;
+            if (cmdletContext.NotificationConfig_NotificationArn != null)
+            {
+                requestNotificationConfig_notificationConfig_NotificationArn = cmdletContext.NotificationConfig_NotificationArn;
+            }
+            if (requestNotificationConfig_notificationConfig_NotificationArn != null)
+            {
+                request.NotificationConfig.NotificationArn = requestNotificationConfig_notificationConfig_NotificationArn;
+                requestNotificationConfigIsNull = false;
+            }
+            List<System.String> requestNotificationConfig_notificationConfig_NotificationEvent = null;
+            if (cmdletContext.NotificationConfig_NotificationEvents != null)
+            {
+                requestNotificationConfig_notificationConfig_NotificationEvent = cmdletContext.NotificationConfig_NotificationEvents;
+            }
+            if (requestNotificationConfig_notificationConfig_NotificationEvent != null)
+            {
+                request.NotificationConfig.NotificationEvents = requestNotificationConfig_notificationConfig_NotificationEvent;
+                requestNotificationConfigIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.NotificationType requestNotificationConfig_notificationConfig_NotificationType = null;
+            if (cmdletContext.NotificationConfig_NotificationType != null)
+            {
+                requestNotificationConfig_notificationConfig_NotificationType = cmdletContext.NotificationConfig_NotificationType;
+            }
+            if (requestNotificationConfig_notificationConfig_NotificationType != null)
+            {
+                request.NotificationConfig.NotificationType = requestNotificationConfig_notificationConfig_NotificationType;
+                requestNotificationConfigIsNull = false;
+            }
+             // determine if request.NotificationConfig should be set to null
+            if (requestNotificationConfigIsNull)
+            {
+                request.NotificationConfig = null;
+            }
             if (cmdletContext.OutputS3BucketName != null)
             {
                 request.OutputS3BucketName = cmdletContext.OutputS3BucketName;
@@ -240,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.ServiceRoleArn != null)
+            {
+                request.ServiceRoleArn = cmdletContext.ServiceRoleArn;
             }
             if (cmdletContext.TimeoutSeconds != null)
             {
@@ -293,9 +391,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public Amazon.SimpleSystemsManagement.DocumentHashType DocumentHashType { get; set; }
             public System.String DocumentName { get; set; }
             public List<System.String> InstanceIds { get; set; }
+            public System.String NotificationConfig_NotificationArn { get; set; }
+            public List<System.String> NotificationConfig_NotificationEvents { get; set; }
+            public Amazon.SimpleSystemsManagement.NotificationType NotificationConfig_NotificationType { get; set; }
             public System.String OutputS3BucketName { get; set; }
             public System.String OutputS3KeyPrefix { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
+            public System.String ServiceRoleArn { get; set; }
             public System.Int32? TimeoutSeconds { get; set; }
         }
         

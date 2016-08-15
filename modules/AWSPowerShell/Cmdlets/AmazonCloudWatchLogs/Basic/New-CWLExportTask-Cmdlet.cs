@@ -29,18 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates an <code>ExportTask</code> which allows you to efficiently export data from
-    /// a Log Group to your Amazon S3 bucket. 
+    /// a Log Group to your Amazon S3 bucket.
     /// 
     ///  
     /// <para>
-    ///  This is an asynchronous call. If all the required information is provided, this API
+    /// This is an asynchronous call. If all the required information is provided, this API
     /// will initiate an export task and respond with the task Id. Once started, <code>DescribeExportTasks</code>
     /// can be used to get the status of an export task. You can only have one active (<code>RUNNING</code>
-    /// or <code>PENDING</code>) export task at a time, per account. 
+    /// or <code>PENDING</code>) export task at a time, per account.
     /// </para><para>
-    ///  You can export logs from multiple log groups or multiple time ranges to the same
-    /// Amazon S3 bucket. To separate out log data for each export task, you can specify a
-    /// prefix that will be used as the Amazon S3 key prefix for all exported objects. 
+    /// You can export logs from multiple log groups or multiple time ranges to the same Amazon
+    /// S3 bucket. To separate out log data for each export task, you can specify a prefix
+    /// that will be used as the Amazon S3 key prefix for all exported objects.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWLExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

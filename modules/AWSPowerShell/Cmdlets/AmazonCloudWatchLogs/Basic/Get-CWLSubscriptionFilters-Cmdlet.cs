@@ -29,15 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Returns all the subscription filters associated with the specified log group. The
-    /// list returned in the response is ASCII-sorted by filter name. 
+    /// list returned in the response is ASCII-sorted by filter name.
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns up to 50 subscription filters. If there are more
-    /// subscription filters to list, the response would contain a <code class="code">nextToken</code>
+    /// By default, this operation returns up to 50 subscription filters. If there are more
+    /// subscription filters to list, the response would contain a <code>nextToken</code>
     /// value in the response body. You can also limit the number of subscription filters
-    /// returned in the response by specifying the <code class="code">limit</code> parameter
-    /// in the request. 
+    /// returned in the response by specifying the <code>limit</code> parameter in the request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLSubscriptionFilters")]

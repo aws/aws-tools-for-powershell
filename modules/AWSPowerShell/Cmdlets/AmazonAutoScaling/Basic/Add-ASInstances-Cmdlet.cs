@@ -37,8 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// plus the desired capacity of the group exceeds the maximum size of the group, the
     /// operation fails.
     /// </para><para>
+    /// If there is a Classic load balancer attached to your Auto Scaling group, the instances
+    /// are also registered with the load balancer. If there are target groups attached to
+    /// your Auto Scaling group, the instances are also registered with the target groups.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ASInstances", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

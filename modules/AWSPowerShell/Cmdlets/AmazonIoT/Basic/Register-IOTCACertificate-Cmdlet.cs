@@ -44,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public class RegisterIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowAutoRegistration
+        /// <summary>
+        /// <para>
+        /// <para>Allows this CA certificate to be used for auto registration of device certificates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AllowAutoRegistration { get; set; }
+        #endregion
+        
         #region Parameter CaCertificate
         /// <summary>
         /// <para>
@@ -84,6 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("AllowAutoRegistration"))
+                context.AllowAutoRegistration = this.AllowAutoRegistration;
             context.CaCertificate = this.CaCertificate;
             if (ParameterWasBound("SetAsActive"))
                 context.SetAsActive = this.SetAsActive;
@@ -101,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.RegisterCACertificateRequest();
             
+            if (cmdletContext.AllowAutoRegistration != null)
+            {
+                request.AllowAutoRegistration = cmdletContext.AllowAutoRegistration.Value;
+            }
             if (cmdletContext.CaCertificate != null)
             {
                 request.CaCertificate = cmdletContext.CaCertificate;
@@ -156,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowAutoRegistration { get; set; }
             public System.String CaCertificate { get; set; }
             public System.Boolean? SetAsActive { get; set; }
             public System.String VerificationCertificate { get; set; }

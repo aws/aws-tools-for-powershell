@@ -10,6 +10,7 @@
        
   <ServiceOperations>
     <ServiceOperation MethodName="GenerateDataSet" Verb="New" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" PositionalParameters="DestinationS3BucketName;RoleNameArn;SnsTopicArn"/>	
+	<ServiceOperation MethodName="StartSupportDataExport" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" />
   </ServiceOperations>
   
 </ConfigModel>

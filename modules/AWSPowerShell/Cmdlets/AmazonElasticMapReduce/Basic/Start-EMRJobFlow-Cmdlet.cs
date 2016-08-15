@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
         /// ReleaseLabel.</para></note><para>The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
-        /// in the job flow. The following values are valid: </para><ul><li>The version number of the AMI to use, for example, "2.0."</li></ul><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
+        /// in the job flow. The following values are valid:</para><ul><li><para>The version number of the AMI to use, for example, "2.0."</para></li></ul><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
         /// Hadoop 0.18 and 0.20) you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
         /// parameter to modify the version of Hadoop from the defaults shown above.</para><para>For details about the AMI versions currently supported by Amazon Elastic MapReduce,
         /// go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported">AMI
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter BootstrapAction
         /// <summary>
         /// <para>
-        /// <para> A list of bootstrap actions that will be run before Hadoop is started on the cluster
-        /// nodes. </para>
+        /// <para>A list of bootstrap actions that will be run before Hadoop is started on the cluster
+        /// nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,12 +173,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_Ec2SubnetId
         /// <summary>
         /// <para>
-        /// <para> To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter
+        /// <para>To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter
         /// to the identifier of the Amazon VPC subnet where you want the job flow to launch.
         /// If you do not specify this value, the job flow is launched in the normal Amazon Web
-        /// Services cloud, outside of an Amazon VPC. </para><para> Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge)
+        /// Services cloud, outside of an Amazon VPC.</para><para>Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge)
         /// instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job
-        /// flow launched in a Amazon VPC. </para>
+        /// flow launched in a Amazon VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -302,13 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
         /// accepts a user argument list. EMR accepts and forwards the argument list to the corresponding
         /// installation script as bootstrap action arguments. For more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html">Launch
-        /// a Job Flow on the MapR Distribution for Hadoop</a>. Currently supported values are:</para><ul><li>"mapr-m3" - launch the cluster using MapR M3 Edition.</li><li>"mapr-m5"
-        /// - launch the cluster using MapR M5 Edition.</li><li>"mapr" with the user arguments
-        /// specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or
-        /// M5 Edition respectively.</li><li>"mapr-m7" - launch the cluster using MapR M7 Edition.</li><li>"hunk" - launch the cluster with the Hunk Big Data Analtics Platform.</li><li>"hue"-
-        /// launch the cluster with Hue installed.</li><li>"spark" - launch the cluster with
-        /// Apache Spark installed.</li><li>"ganglia" - launch the cluster with the Ganglia Monitoring
-        /// System installed.</li></ul>
+        /// a Job Flow on the MapR Distribution for Hadoop</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
+        /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analtics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -376,8 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
         /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow. For
         /// more information, go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
-        /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li>"mapr-m3" - launch the job flow using MapR M3 Edition.</li><li>"mapr-m5"
-        /// - launch the job flow using MapR M5 Edition.</li></ul>
+        /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

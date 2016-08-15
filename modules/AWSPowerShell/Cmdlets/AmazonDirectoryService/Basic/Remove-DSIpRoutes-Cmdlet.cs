@@ -1,0 +1,175 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
+
+namespace Amazon.PowerShell.Cmdlets.DS
+{
+    /// <summary>
+    /// Removes IP address blocks from a directory.
+    /// </summary>
+    [Cmdlet("Remove", "DSIpRoutes", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the RemoveIpRoutes operation against AWS Directory Service.", Operation = new[] {"RemoveIpRoutes"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DirectoryService.Model.RemoveIpRoutesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RemoveDSIpRoutesCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    {
+        
+        #region Parameter CidrIp
+        /// <summary>
+        /// <para>
+        /// <para>IP address blocks that you want to remove.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CidrIps")]
+        public System.String[] CidrIp { get; set; }
+        #endregion
+        
+        #region Parameter DirectoryId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier (ID) of the directory from which you want to remove the IP addresses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DirectoryId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the DirectoryId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSIpRoutes (RemoveIpRoutes)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.CidrIp != null)
+            {
+                context.CidrIps = new List<System.String>(this.CidrIp);
+            }
+            context.DirectoryId = this.DirectoryId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.DirectoryService.Model.RemoveIpRoutesRequest();
+            
+            if (cmdletContext.CidrIps != null)
+            {
+                request.CidrIps = cmdletContext.CidrIps;
+            }
+            if (cmdletContext.DirectoryId != null)
+            {
+                request.DirectoryId = cmdletContext.DirectoryId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.DirectoryId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.DirectoryService.Model.RemoveIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveIpRoutesRequest request)
+        {
+            return client.RemoveIpRoutes(request);
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public List<System.String> CidrIps { get; set; }
+            public System.String DirectoryId { get; set; }
+        }
+        
+    }
+}

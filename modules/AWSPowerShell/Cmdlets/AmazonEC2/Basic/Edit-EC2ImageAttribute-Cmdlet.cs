@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  <note><para>
     /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
     /// code cannot be made public.
+    /// </para></note><note><para>
+    /// The SriovNetSupport enhanced networking attribute cannot be changed using this command.
+    /// Instead, enable SriovNetSupport on an instance and create an AMI from the instance.
+    /// This will result in an image with SriovNetSupport enabled.
     /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "EC2ImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

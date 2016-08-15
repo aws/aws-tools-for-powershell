@@ -28,8 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more launch configurations. If you omit the list of names, then the
-    /// call describes all launch configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more launch configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASLaunchConfiguration")]
     [OutputType("Amazon.AutoScaling.Model.LaunchConfiguration")]
@@ -45,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The launch configuration names.</para>
+        /// <para>The launch configuration names. If you omit this parameter, all launch configurations
+        /// are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

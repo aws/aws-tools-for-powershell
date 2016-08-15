@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// TerminateJobFlows shuts a list of job flows down. When a job flow is shut down, any
     /// step not yet completed is canceled and the EC2 instances on which the job flow is
     /// running are stopped. Any log files not already saved are uploaded to Amazon S3 if
-    /// a LogUri was specified when the job flow was created. 
+    /// a LogUri was specified when the job flow was created.
     /// 
     ///  
     /// <para>
-    ///  The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows is asynchronous.
+    /// The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows is asynchronous.
     /// Depending on the configuration of the job flow, it may take up to 5-20 minutes for
     /// the job flow to completely terminate and release allocated resources, such as Amazon
-    /// EC2 instances. 
+    /// EC2 instances.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "EMRJobFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>The SHA256 hash of the deployment package you want to publish. This provides validation
         /// on the code you are publishing. If you provide this parameter value must match the
-        /// SHA256 of the $LATEST version for the publication to succeed. </para>
+        /// SHA256 of the $LATEST version for the publication to succeed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description for the version you are publishing. If not provided, AWS Lambda copies
-        /// the description from the $LATEST version. </para>
+        /// <para>The description for the version you are publishing. If not provided, AWS Lambda copies
+        /// the description from the $LATEST version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// For more information about desired capacity, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html">What
-    /// Is Auto Scaling?</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Is Auto Scaling?</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASDesiredCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -30,13 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates a new log stream in the specified log group. The name of the log stream must
     /// be unique within the log group. There is no limit on the number of log streams that
-    /// can exist in a log group. 
+    /// can exist in a log group.
     /// 
     ///  
     /// <para>
-    ///  You must use the following guidelines when naming a log stream: <ul><li>Log stream
-    /// names can be between 1 and 512 characters long.</li><li>The ':' colon character is
-    /// not allowed.</li></ul></para>
+    /// You must use the following guidelines when naming a log stream:
+    /// </para><ul><li><para>
+    /// Log stream names can be between 1 and 512 characters long.
+    /// </para></li><li><para>
+    /// The ':' colon character is not allowed.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "CWLLogStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

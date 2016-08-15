@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Creates a multiplayer game session for players. This action creates a game session
     /// record and assigns the new session to an instance in the specified fleet, which initializes
     /// a new server process to host the game session. A fleet must be in an <code>ACTIVE</code>
-    /// state before a game session can be created in it.
+    /// status before a game session can be created in it.
     /// 
     ///  
     /// <para>

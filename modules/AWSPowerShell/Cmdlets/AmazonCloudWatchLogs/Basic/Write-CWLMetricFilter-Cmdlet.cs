@@ -30,12 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a metric filter and associates it with the specified log group.
     /// Metric filters allow you to configure rules to extract metric data from log events
-    /// ingested through <code class="code">PutLogEvents</code> requests. 
+    /// ingested through <code>PutLogEvents</code> requests.
     /// 
     ///  
     /// <para>
-    ///  The maximum number of metric filters that can be associated with a log group is 100.
-    /// 
+    /// The maximum number of metric filters that can be associated with a log group is 100.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLMetricFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The upload's file name.</para>
+        /// <para>The upload's file name. The name should not contain the '/' character.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

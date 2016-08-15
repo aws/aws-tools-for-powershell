@@ -127,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. This parameter is required if you are creating a new policy.</para>
+        /// <para>The policy type. If you are creating a new policy, this parameter is required. If
+        /// you are updating an existing policy, this parameter is not required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

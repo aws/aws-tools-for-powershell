@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para> The names of the alarms to disable actions for. </para>
+        /// <para>The names of the alarms to disable actions for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

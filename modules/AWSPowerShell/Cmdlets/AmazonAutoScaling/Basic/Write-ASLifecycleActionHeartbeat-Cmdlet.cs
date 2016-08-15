@@ -35,16 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
-    /// </para><ol><li>(Optional) Create a Lambda function and a rule that allows CloudWatch Events
-    /// to invoke your Lambda function when Auto Scaling launches or terminates instances.</li><li>(Optional) Create a notification target and an IAM role. The target can be either
+    /// </para><ol><li><para>
+    /// (Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke
+    /// your Lambda function when Auto Scaling launches or terminates instances.
+    /// </para></li><li><para>
+    /// (Optional) Create a notification target and an IAM role. The target can be either
     /// an Amazon SQS queue or an Amazon SNS topic. The role allows Auto Scaling to publish
-    /// lifecycle notifications to the target.</li><li>Create the lifecycle hook. Specify
-    /// whether the hook is used when the instances launch or terminate.</li><li><b>If you
-    /// need more time, record the lifecycle action heartbeat to keep the instance in a pending
-    /// state.</b></li><li>If you finish before the timeout period ends, complete the lifecycle
-    /// action.</li></ol><para>
+    /// lifecycle notifications to the target.
+    /// </para></li><li><para>
+    /// Create the lifecycle hook. Specify whether the hook is used when the instances launch
+    /// or terminate.
+    /// </para></li><li><para><b>If you need more time, record the lifecycle action heartbeat to keep the instance
+    /// in a pending state.</b></para></li><li><para>
+    /// If you finish before the timeout period ends, complete the lifecycle action.
+    /// </para></li></ol><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto
-    /// Scaling Lifecycle</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASLifecycleActionHeartbeat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

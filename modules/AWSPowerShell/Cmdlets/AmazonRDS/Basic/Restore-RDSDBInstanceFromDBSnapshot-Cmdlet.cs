@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The database name for the restored DB instance.</para><note><para>This parameter doesn't apply to the MySQL or MariaDB engines.</para></note>
+        /// <para>The database name for the restored DB instance.</para><note><para>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

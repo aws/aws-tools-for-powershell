@@ -31,11 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {        
         protected override void CustomizeClientConfig(ClientConfig config)
         {
+            base.CustomizeClientConfig(config);
+
             var s3Config = (AmazonS3Config)config;
-            if (this.ParameterWasBound("UseAccelerateEndpoint"))
-            {
+            var useAccelerateEndpoint = this.ParameterWasBound("UseAccelerateEndpoint");
+            var useDualstackEndpoint = this.ParameterWasBound("UseDualstackEndpoint");
+
+            // let the underlying sdk determine if using these together is allowed
+            if (useAccelerateEndpoint)
                 s3Config.UseAccelerateEndpoint = true;
-            }
+
+            if (useDualstackEndpoint)
+                s3Config.UseDualstackEndpoint = true;
         }
     }
 }

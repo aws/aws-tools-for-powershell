@@ -13,6 +13,8 @@
 
   <ServiceOperations>
 
+	<ServiceOperation MethodName="AddIpRoutes" Output="Void" PipelineParameter="DirectoryId"/>
+
 	<ServiceOperation MethodName="ConnectDirectory"
 		PositionalParameters="Name;Password"
 		ShouldProcessTarget="Name"
@@ -74,6 +76,10 @@
 
 	<ServiceOperation MethodName="GetSnapshotLimits"
 		Noun="SnapshotLimit"/>
+
+	<ServiceOperation MethodName="ListIpRoutes" Verb="Get" Noun="IpRoutes"/>
+
+	<ServiceOperation MethodName="RemoveIpRoutes" Output="Void" PipelineParameter="DirectoryId"/>
 
 	<ServiceOperation MethodName="RestoreFromSnapshot"
 		Output="Void"

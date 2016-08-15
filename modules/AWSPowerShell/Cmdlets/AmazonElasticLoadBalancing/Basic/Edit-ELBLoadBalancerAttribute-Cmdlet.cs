@@ -37,13 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// you can modify the load balancer attribute <code>ConnectionSettings</code> by specifying
     /// an idle connection timeout value for your load balancer.
     /// </para><para>
-    /// For more information, see the following in the <i>Elastic Load Balancing Developer
-    /// Guide</i>:
-    /// </para><ul><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing">Cross-Zone
-    /// Load Balancing</a></li><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain">Connection
-    /// Draining</a></li><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html">Access
-    /// Logs</a></li><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout">Idle
-    /// Connection Timeout</a></li></ul>
+    /// For more information, see the following in the <i>Classic Load Balancers Guide</i>:
+    /// </para><ul><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
+    /// Load Balancing</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
+    /// Draining</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
+    /// Logs</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
+    /// Connection Timeout</a></para></li></ul>
     /// </summary>
     [Cmdlet("Edit", "ELBLoadBalancerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse")]
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter AccessLog_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether access log is enabled for the load balancer.</para>
+        /// <para>Specifies whether access logs are enabled for the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

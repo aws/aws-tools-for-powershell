@@ -130,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Boolean EBSOptions_EBSEnabled { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchVersion
+        /// <summary>
+        /// <para>
+        /// <para>String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or
+        /// "2.3". For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch
+        /// Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchVersion { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchClusterConfig_InstanceCount
         /// <summary>
         /// <para>
@@ -245,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.ElasticsearchClusterConfig_InstanceType = this.ElasticsearchClusterConfig_InstanceType;
             if (ParameterWasBound("ElasticsearchClusterConfig_ZoneAwarenessEnabled"))
                 context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
+            context.ElasticsearchVersion = this.ElasticsearchVersion;
             if (ParameterWasBound("SnapshotOptions_AutomatedSnapshotStartHour"))
                 context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
             
@@ -390,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             {
                 request.ElasticsearchClusterConfig = null;
             }
+            if (cmdletContext.ElasticsearchVersion != null)
+            {
+                request.ElasticsearchVersion = cmdletContext.ElasticsearchVersion;
+            }
             
              // populate SnapshotOptions
             bool requestSnapshotOptionsIsNull = true;
@@ -465,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.Int32? ElasticsearchClusterConfig_InstanceCount { get; set; }
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+            public System.String ElasticsearchVersion { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
         }
         

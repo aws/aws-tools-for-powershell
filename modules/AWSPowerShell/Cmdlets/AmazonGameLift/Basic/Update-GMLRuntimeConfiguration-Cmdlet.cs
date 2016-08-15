@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Updates the current runtime configuration for the specified fleet, which tells GameLift
     /// how to launch server processes on instances in the fleet. You can update a fleet's
     /// runtime configuration at any time after the fleet is created; it does not need to
-    /// be in an <code>ACTIVE</code> state.
+    /// be in an <code>ACTIVE</code> status.
     /// 
     ///  
     /// <para>

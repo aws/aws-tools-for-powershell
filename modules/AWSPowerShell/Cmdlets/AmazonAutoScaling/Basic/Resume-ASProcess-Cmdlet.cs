@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html">Suspending
-    /// and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// and Resuming Auto Scaling Processes</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Resume", "ASProcess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScalingProcess
         /// <summary>
         /// <para>
-        /// <para>One or more of the following processes:</para><ul><li><para><code>Launch</code></para></li><li><para><code>Terminate</code></para></li><li><para><code>HealthCheck</code></para></li><li><para><code>ReplaceUnhealthy</code></para></li><li><para><code>AZRebalance</code></para></li><li><para><code>AlarmNotification</code></para></li><li><para><code>ScheduledActions</code></para></li><li><para><code>AddToLoadBalancer</code></para></li></ul>
+        /// <para>One or more of the following processes. If you omit this parameter, all processes
+        /// are specified.</para><ul><li><para><code>Launch</code></para></li><li><para><code>Terminate</code></para></li><li><para><code>HealthCheck</code></para></li><li><para><code>ReplaceUnhealthy</code></para></li><li><para><code>AZRebalance</code></para></li><li><para><code>AlarmNotification</code></para></li><li><para><code>ScheduledActions</code></para></li><li><para><code>AddToLoadBalancer</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

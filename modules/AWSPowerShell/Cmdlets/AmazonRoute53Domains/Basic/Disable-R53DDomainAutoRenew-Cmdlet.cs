@@ -30,10 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// <summary>
     /// This operation disables automatic renewal of domain registration for the specified
     /// domain.
-    /// 
-    ///  <note>Caution! Amazon Route 53 doesn't have a manual renewal process, so if you disable
-    /// automatic renewal, registration for the domain will not be renewed when the expiration
-    /// date passes, and you will lose control of the domain name.</note>
     /// </summary>
     [Cmdlet("Disable", "R53DDomainAutoRenew", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

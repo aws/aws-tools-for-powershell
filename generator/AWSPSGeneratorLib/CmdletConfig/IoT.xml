@@ -45,6 +45,9 @@
     <ServiceOperation MethodName="CreateThing"
         PipelineParameter="ThingName"
         Output="Response" />
+	<ServiceOperation MethodName="CreateThingType"
+        PipelineParameter="ThingTypeName"
+		Output="Response" />
     <ServiceOperation MethodName="DeleteCertificate"
         Output="Void"/>
     <ServiceOperation MethodName="DeletePolicy"
@@ -54,13 +57,22 @@
         PipelineParameter="PolicyName"
         Output="Void"/>
     <ServiceOperation MethodName="DeleteThing"
+	    PipelineParameter="ThingName"
+        Output="Void"/>
+    <ServiceOperation MethodName="DeleteThingType"
         Output="Void"/>
     <ServiceOperation MethodName="DeleteTopicRule"
         Output="Void"/>
+	<ServiceOperation MethodName="DeprecateThingType"
+		Verb="Set"
+		Noun="ThingTypeDeprecation"
+		PipelineParameter="ThingTypeName"
+		Output="Void"/>
     <ServiceOperation MethodName="DescribeCertificate" />
     <ServiceOperation MethodName="DescribeEndpoint" />
     <ServiceOperation MethodName="DescribeThing"
         Output="Response" />
+	<ServiceOperation MethodName="DescribeThingType" Output="Response" />
     <ServiceOperation MethodName="DetachPrincipalPolicy"
         Verb="Remove"
         PipelineParameter="PrincipalId"
@@ -84,6 +96,12 @@
     <ServiceOperation MethodName="ListCertificates"
                       Verb="Get"
                       Noun="CertificateList"
+                      NoPipelineParameter="true">
+      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListOutgoingCertificates"
+                      Verb="Get"
+                      Noun="OutgoingCertificate"
                       NoPipelineParameter="true">
       <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
     </ServiceOperation>
@@ -122,6 +140,11 @@
                       Noun="ThingList"
                       NoPipelineParameter="true">
     </ServiceOperation>
+	<ServiceOperation MethodName="ListThingTypes"
+                      Verb="Get"
+                      Noun="ThingTypesList"
+					  PipelineParameter="ThingTypeName"
+					  />
     <ServiceOperation MethodName="ListTopicRules"
                       Verb="Get"
                       Noun="TopicRuleList"

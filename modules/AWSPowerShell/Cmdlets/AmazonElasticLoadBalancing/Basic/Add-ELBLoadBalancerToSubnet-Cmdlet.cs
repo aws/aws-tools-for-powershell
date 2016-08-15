@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// The load balancer evenly distributes requests across all registered subnets. For more
-    /// information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html">Add
-    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Elastic Load Balancing
-    /// Developer Guide</i>.
+    /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
+    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Classic Load Balancers
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELBLoadBalancerToSubnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets to add for the load balancer. You can add only one subnet per
-        /// Availability Zone.</para>
+        /// <para>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

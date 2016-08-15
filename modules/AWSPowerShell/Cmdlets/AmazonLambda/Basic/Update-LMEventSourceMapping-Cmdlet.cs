@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// You can update an event source mapping. This is useful if you want to change the parameters
     /// of the existing mapping without losing your position in the stream. You can change
     /// which function will receive the stream records, but to change the stream itself, you
-    /// must create a new mapping. 
+    /// must create a new mapping.
     /// 
     ///  
     /// <para>

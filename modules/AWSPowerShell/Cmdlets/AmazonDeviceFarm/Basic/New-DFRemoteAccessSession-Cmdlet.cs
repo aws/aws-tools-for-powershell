@@ -1,0 +1,210 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
+
+namespace Amazon.PowerShell.Cmdlets.DF
+{
+    /// <summary>
+    /// Specifies and starts a remote access session.
+    /// </summary>
+    [Cmdlet("New", "DFRemoteAccessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DeviceFarm.Model.RemoteAccessSession")]
+    [AWSCmdlet("Invokes the CreateRemoteAccessSession operation against AWS Device Farm.", Operation = new[] {"CreateRemoteAccessSession"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.RemoteAccessSession",
+        "This cmdlet returns a RemoteAccessSession object.",
+        "The service call response (type Amazon.DeviceFarm.Model.CreateRemoteAccessSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewDFRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Configuration_BillingMethod
+        /// <summary>
+        /// <para>
+        /// <para>Returns the billing method for purposes of configuring a remote access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DeviceFarm.BillingMethod")]
+        public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+        #endregion
+        
+        #region Parameter DeviceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the device for which you want to create a remote
+        /// access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DeviceArn { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the remote access session that you wish to create.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProjectArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the project for which you want to create a remote
+        /// access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ProjectArn { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DeviceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DFRemoteAccessSession (CreateRemoteAccessSession)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.Configuration_BillingMethod = this.Configuration_BillingMethod;
+            context.DeviceArn = this.DeviceArn;
+            context.Name = this.Name;
+            context.ProjectArn = this.ProjectArn;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest();
+            
+            
+             // populate Configuration
+            bool requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionConfiguration();
+            Amazon.DeviceFarm.BillingMethod requestConfiguration_configuration_BillingMethod = null;
+            if (cmdletContext.Configuration_BillingMethod != null)
+            {
+                requestConfiguration_configuration_BillingMethod = cmdletContext.Configuration_BillingMethod;
+            }
+            if (requestConfiguration_configuration_BillingMethod != null)
+            {
+                request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
+            }
+            if (cmdletContext.DeviceArn != null)
+            {
+                request.DeviceArn = cmdletContext.DeviceArn;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProjectArn != null)
+            {
+                request.ProjectArn = cmdletContext.ProjectArn;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.RemoteAccessSession;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.DeviceFarm.Model.CreateRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest request)
+        {
+            return client.CreateRemoteAccessSession(request);
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+            public System.String DeviceArn { get; set; }
+            public System.String Name { get; set; }
+            public System.String ProjectArn { get; set; }
+        }
+        
+    }
+}

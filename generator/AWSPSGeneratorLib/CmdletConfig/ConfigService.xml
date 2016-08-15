@@ -15,8 +15,9 @@
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteConfigRule" Output="Void" />
     <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" />
+    <ServiceOperation MethodName="DeleteEvaluationResults" Output="Void" Noun="EvaluationResult" />
     <ServiceOperation MethodName="DeliverConfigSnapshot" Verb="Submit" Noun="ConfigSnapshotDelivery" />
-	<ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" />
+	  <ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" />
     <ServiceOperation MethodName="DescribeComplianceByConfigRule"/>
     <ServiceOperation MethodName="DescribeComplianceByResource"/>
     <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus"/>
@@ -44,6 +45,7 @@
     </ServiceOperation>
     <ServiceOperation MethodName="PutEvaluations" PipelineParameter="Evaluations"/>
     <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
+    <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" />
     <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
   </ServiceOperations>
   

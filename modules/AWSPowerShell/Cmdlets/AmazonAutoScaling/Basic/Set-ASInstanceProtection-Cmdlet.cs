@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection">Instance
-    /// Protection</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Protection</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

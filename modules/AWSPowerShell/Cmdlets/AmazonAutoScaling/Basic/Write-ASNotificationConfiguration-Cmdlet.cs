@@ -29,16 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Configures an Auto Scaling group to send notifications when specified events take
-    /// place. Subscribers to this topic can have messages for events delivered to an endpoint
-    /// such as a web server or email address. 
+    /// place. Subscribers to the specified topic can have messages delivered to an endpoint
+    /// such as a web server or an email address.
     /// 
     ///  
     /// <para>
-    /// For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Getting
-    /// Notifications When Your Auto Scaling Group Changes</a> in the <i>Auto Scaling Developer
-    /// Guide</i>.
+    /// This configuration overwrites any existing configuration.
     /// </para><para>
-    /// This configuration overwrites an existing configuration.
+    /// For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Getting
+    /// SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASNotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TopicARN
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
-        /// </para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -37,6 +37,7 @@
     <Path>EFS.xml</Path>
     <Path>ElastiCache.xml</Path>
     <Path>ELB.xml</Path>
+    <Path>ELB2.xml</Path>
     <Path>EMR.xml</Path>
     <Path>ES.xml</Path>
     <Path>ETS.xml</Path>
@@ -48,6 +49,7 @@
     <Path>Inspector.xml</Path>
     <Path>KMS.xml</Path>
     <Path>Kinesis.xml</Path>
+    <Path>KinesisAnalytics.xml</Path>
     <Path>KinesisFirehose.xml</Path>
     <Path>Lambda.xml</Path>
     <Path>ML.xml</Path>
@@ -61,6 +63,7 @@
     <Path>S3.xml</Path>
 	<Path>ServiceCatalog.xml</Path>
     <Path>SES.xml</Path>
+	<Path>Snowball.xml</Path>
     <Path>SNS.xml</Path>
     <Path>SSM.xml</Path>
     <Path>SQS.xml</Path>

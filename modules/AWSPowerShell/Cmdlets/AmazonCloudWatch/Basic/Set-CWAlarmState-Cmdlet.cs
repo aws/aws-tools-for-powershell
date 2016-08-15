@@ -28,14 +28,13 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Temporarily sets the state of an alarm. When the updated <code>StateValue</code>
+    /// Temporarily sets the state of an alarm for testing purposes. When the updated <code>StateValue</code>
     /// differs from the previous value, the action configured for the appropriate state is
     /// invoked. For example, if your alarm is configured to send an Amazon SNS message when
-    /// an alarm is triggered, temporarily changing the alarm's state to <b>ALARM</b> will
-    /// send an Amazon SNS message. This is not a permanent change. The next periodic alarm
-    /// check (in about a minute) will set the alarm to its actual state. Because the alarm
-    /// state change happens very quickly, it is typically only visibile in the alarm's <b>History</b>
-    /// tab in the Amazon CloudWatch console or through <code>DescribeAlarmHistory</code>.
+    /// an alarm is triggered, temporarily changing the alarm's state to <b>ALARM</b> sends
+    /// an Amazon SNS message. The alarm returns to its actual state (often within seconds).
+    /// Because the alarm state change happens very quickly, it is typically only visible
+    /// in the alarm's <b>History</b> tab in the Amazon CloudWatch console or through <code>DescribeAlarmHistory</code>.
     /// </summary>
     [Cmdlet("Set", "CWAlarmState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -50,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para> The descriptive name for the alarm. This name must be unique within the user's AWS
-        /// account. The maximum length is 255 characters. </para>
+        /// <para>The descriptive name for the alarm. This name must be unique within the user's AWS
+        /// account. The maximum length is 255 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StateReason
         /// <summary>
         /// <para>
-        /// <para> The reason that this alarm is set to this specific state (in human-readable text
-        /// format) </para>
+        /// <para>The reason that this alarm is set to this specific state (in human-readable text format)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -72,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StateReasonData
         /// <summary>
         /// <para>
-        /// <para> The reason that this alarm is set to this specific state (in machine-readable JSON
-        /// format) </para>
+        /// <para>The reason that this alarm is set to this specific state (in machine-readable JSON
+        /// format)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -83,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StateValue
         /// <summary>
         /// <para>
-        /// <para> The value of the state. </para>
+        /// <para>The value of the state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <summary>
     /// Creates or updates a scheduled scaling action for an Auto Scaling group. When updating
     /// a scheduled scaling action, if you leave a parameter unspecified, the corresponding
-    /// value remains unchanged in the affected Auto Scaling group. 
+    /// value remains unchanged in the affected Auto Scaling group.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scheduled
-    /// Scaling</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Scaling</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScheduledUpdateGroupAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para> The number of EC2 instances that should be running in the group. </para>
+        /// <para>The number of EC2 instances that should be running in the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxSize
         /// <summary>
         /// <para>
-        /// <para> The maximum size for the Auto Scaling group. </para>
+        /// <para>The maximum size for the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MinSize
         /// <summary>
         /// <para>
-        /// <para> The minimum size for the Auto Scaling group. </para>
+        /// <para>The minimum size for the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.
-        /// </para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
+        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
         /// they form the boundaries of when the recurring action starts and stops.</para>
         /// </para>
         /// </summary>

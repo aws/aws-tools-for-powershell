@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigSnapshotDeliveryProperties_DeliveryFrequency
         /// <summary>
         /// <para>
-        /// <para>The frequency with which AWS Config recurringly delivers configuration snapshots.</para>
+        /// <para>The frequency with which AWS Config delivers configuration snapshots.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
