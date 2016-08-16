@@ -270,8 +270,8 @@
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMSigningCertificate.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Publish-IAMSigningCertificate.xml" />
-            <PrivateKeyException Include="Deployment\desktop\AWSPowerShell.dll-Help.xml" />
-            <PrivateKeyException Include="Deployment\coreclr\AWSPowerShell.dll-Help.xml" />
+            <PrivateKeyException Include="Deployment\AWSPowerShell\AWSPowerShell.dll-Help.xml" />
+            <PrivateKeyException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.dll-Help.xml" />
             <PrivateKeyException Include="DocDeployment\docs\items\New-EC2KeyPair.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMServerCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
