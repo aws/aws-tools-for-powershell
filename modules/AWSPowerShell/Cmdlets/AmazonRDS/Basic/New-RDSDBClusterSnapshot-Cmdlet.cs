@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a DBClusterSnapshot object.",
         "The service call response (type Amazon.RDS.Model.CreateDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class NewRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBClusterIdentifier
@@ -99,12 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.CreateDBClusterSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateDBClusterSnapshotRequest request)
         {
+            #if DESKTOP
             return client.CreateDBClusterSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateDBClusterSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

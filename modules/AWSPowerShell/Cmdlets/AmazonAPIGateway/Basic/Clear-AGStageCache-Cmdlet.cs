@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RestApiId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.FlushStageCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ClearAGStageCacheCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class ClearAGStageCacheCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter RestApiId
@@ -95,8 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.RestApiId = this.RestApiId;
             context.StageName = this.StageName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -156,7 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.FlushStageCacheResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.FlushStageCacheRequest request)
         {
+            #if DESKTOP
             return client.FlushStageCache(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.FlushStageCacheAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

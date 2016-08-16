@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class NewDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter NewPrivateVirtualInterface_AmazonAddress
@@ -147,6 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ConnectionId = this.ConnectionId;
             context.NewPrivateVirtualInterface_AmazonAddress = this.NewPrivateVirtualInterface_AmazonAddress;
             if (ParameterWasBound("NewPrivateVirtualInterface_Asn"))
@@ -157,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
             context.NewPrivateVirtualInterface_VirtualInterfaceName = this.NewPrivateVirtualInterface_VirtualInterfaceName;
             if (ParameterWasBound("NewPrivateVirtualInterface_Vlan"))
                 context.NewPrivateVirtualInterface_Vlan = this.NewPrivateVirtualInterface_Vlan;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -289,7 +295,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         private static Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceRequest request)
         {
+            #if DESKTOP
             return client.CreatePrivateVirtualInterface(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePrivateVirtualInterfaceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

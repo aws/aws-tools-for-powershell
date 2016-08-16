@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PlatformApplicationArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetSNSPlatformApplicationAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class SetSNSPlatformApplicationAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Attribute
@@ -112,6 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -121,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 }
             }
             context.PlatformApplicationArn = this.PlatformApplicationArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -180,7 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesRequest request)
         {
+            #if DESKTOP
             return client.SetPlatformApplicationAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetPlatformApplicationAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

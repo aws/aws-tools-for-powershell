@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class NewCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter Capability
@@ -257,6 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Capability != null)
             {
                 context.Capabilities = new List<System.String>(this.Capability);
@@ -287,6 +290,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.TemplateURL = this.TemplateURL;
             if (ParameterWasBound("TimeoutInMinutes"))
                 context.TimeoutInMinutes = this.TimeoutInMinutes;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -388,7 +394,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.CreateStackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.CreateStackRequest request)
         {
+            #if DESKTOP
             return client.CreateStack(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateStackAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

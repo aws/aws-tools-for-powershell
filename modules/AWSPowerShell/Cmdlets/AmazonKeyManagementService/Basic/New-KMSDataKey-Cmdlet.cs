@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateDataKeyResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.GenerateDataKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewKMSDataKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class NewKMSDataKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter EncryptionContext
@@ -158,6 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.EncryptionContext != null)
             {
                 context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -174,6 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.KeySpec = this.KeySpec;
             if (ParameterWasBound("NumberOfBytes"))
                 context.NumberOfBytes = this.NumberOfBytes;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -243,7 +249,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.GenerateDataKeyResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateDataKeyRequest request)
         {
+            #if DESKTOP
             return client.GenerateDataKey(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GenerateDataKeyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

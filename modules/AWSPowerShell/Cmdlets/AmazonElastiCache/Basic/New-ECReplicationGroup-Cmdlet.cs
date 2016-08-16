@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a ReplicationGroup object.",
         "The service call response (type Amazon.ElastiCache.Model.CreateReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class NewECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter AutomaticFailoverEnabled
@@ -344,6 +344,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AutomaticFailoverEnabled"))
                 context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
@@ -386,6 +389,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 context.Tags = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -523,7 +529,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.CreateReplicationGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CreateReplicationGroupRequest request)
         {
+            #if DESKTOP
             return client.CreateReplicationGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateReplicationGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// The load balancer evenly distributes requests across all registered subnets. For more
-    /// information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html">Add
-    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Elastic Load Balancing
-    /// Developer Guide</i>.
+    /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add
+    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Classic Load Balancers
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELBLoadBalancerToSubnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddELBLoadBalancerToSubnetCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class AddELBLoadBalancerToSubnetCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerName
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets to add for the load balancer. You can add only one subnet per
-        /// Availability Zone.</para>
+        /// <para>The IDs of the subnets to add. You can add only one subnet per Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -96,11 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.LoadBalancerName = this.LoadBalancerName;
             if (this.Subnet != null)
             {
                 context.Subnets = new List<System.String>(this.Subnet);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -158,7 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsRequest request)
         {
+            #if DESKTOP
             return client.AttachLoadBalancerToSubnets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AttachLoadBalancerToSubnetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

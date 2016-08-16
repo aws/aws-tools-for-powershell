@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.DescribeIdentityPoolResponse",
         "This cmdlet returns a Amazon.CognitoIdentity.Model.DescribeIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
+    public partial class GetCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
         #region Parameter IdentityPoolId
@@ -65,7 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.IdentityPoolId = this.IdentityPoolId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,7 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         private static Amazon.CognitoIdentity.Model.DescribeIdentityPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.DescribeIdentityPoolRequest request)
         {
+            #if DESKTOP
             return client.DescribeIdentityPool(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeIdentityPoolAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

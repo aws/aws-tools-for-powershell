@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse",
         "This cmdlet returns a Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class UpdateEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -125,6 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             context.Description = this.Description;
             if (this.OptionSetting != null)
@@ -136,6 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 context.OptionsToRemove = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.OptionsToRemove);
             }
             context.TemplateName = this.TemplateName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -205,7 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateRequest request)
         {
+            #if DESKTOP
             return client.UpdateConfigurationTemplate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateConfigurationTemplateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

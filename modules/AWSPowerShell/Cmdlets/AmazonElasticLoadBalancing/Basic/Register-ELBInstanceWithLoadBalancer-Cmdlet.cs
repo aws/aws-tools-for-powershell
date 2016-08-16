@@ -47,15 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// Zone is added to the load balancer later, any instances registered with the load balancer
     /// move to the <code>InService</code> state.
     /// </para><para>
-    /// If you stop an instance registered with a load balancer and then start it, the IP
-    /// addresses associated with the instance changes. Elastic Load Balancing cannot recognize
-    /// the new IP address, which prevents it from routing traffic to the instances. We recommend
-    /// that you use the following sequence: stop the instance, deregister the instance, start
-    /// the instance, and then register the instance. To deregister instances from a load
-    /// balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.
+    /// To deregister instances from a load balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html">Deregister
-    /// and Register EC2 Instances</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+    /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "ELBInstanceWithLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "This cmdlet returns a collection of Instance objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter Instance
@@ -115,11 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Instance != null)
             {
                 context.Instances = new List<Amazon.ElasticLoadBalancing.Model.Instance>(this.Instance);
             }
             context.LoadBalancerName = this.LoadBalancerName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -177,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerRequest request)
         {
+            #if DESKTOP
             return client.RegisterInstancesWithLoadBalancer(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterInstancesWithLoadBalancerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

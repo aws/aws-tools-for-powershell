@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.GetTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter StackName
@@ -70,7 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.StackName = this.StackName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -124,7 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.GetTemplateResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.GetTemplateRequest request)
         {
+            #if DESKTOP
             return client.GetTemplate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetTemplateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

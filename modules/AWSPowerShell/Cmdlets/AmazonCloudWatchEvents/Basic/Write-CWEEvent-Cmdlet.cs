@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.PutEventsResponse",
         "This cmdlet returns a Amazon.CloudWatchEvents.Model.PutEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCWEEventCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
+    public partial class WriteCWEEventCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
         #region Parameter Entry
@@ -78,10 +78,16 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Entry != null)
             {
                 context.Entries = new List<Amazon.CloudWatchEvents.Model.PutEventsRequestEntry>(this.Entry);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         private static Amazon.CloudWatchEvents.Model.PutEventsResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.PutEventsRequest request)
         {
+            #if DESKTOP
             return client.PutEvents(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutEventsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

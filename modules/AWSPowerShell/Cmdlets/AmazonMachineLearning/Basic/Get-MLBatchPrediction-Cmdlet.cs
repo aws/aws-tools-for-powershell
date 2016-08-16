@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetBatchPredictionResponse",
         "This cmdlet returns a Amazon.MachineLearning.Model.GetBatchPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class GetMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter BatchPredictionId
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BatchPredictionId = this.BatchPredictionId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.GetBatchPredictionResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.GetBatchPredictionRequest request)
         {
+            #if DESKTOP
             return client.GetBatchPrediction(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetBatchPredictionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

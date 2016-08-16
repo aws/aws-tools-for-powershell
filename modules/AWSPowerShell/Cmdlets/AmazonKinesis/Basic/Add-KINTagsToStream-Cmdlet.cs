@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         #region Parameter StreamName
@@ -103,6 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.StreamName = this.StreamName;
             if (this.Tag != null)
             {
@@ -112,6 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                     context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         private static Amazon.Kinesis.Model.AddTagsToStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.AddTagsToStreamRequest request)
         {
+            #if DESKTOP
             return client.AddTagsToStream(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddTagsToStreamAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

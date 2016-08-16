@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopEBEnvironmentUpdateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class StopEBEnvironmentUpdateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter EnvironmentId
@@ -88,8 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -147,7 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateRequest request)
         {
+            #if DESKTOP
             return client.AbortEnvironmentUpdate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AbortEnvironmentUpdateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

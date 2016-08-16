@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a collection of Command objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeCommandsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetOPSCommandsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSCommandsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter CommandId
@@ -93,12 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.CommandId != null)
             {
                 context.CommandIds = new List<System.String>(this.CommandId);
             }
             context.DeploymentId = this.DeploymentId;
             context.InstanceId = this.InstanceId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,7 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DescribeCommandsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeCommandsRequest request)
         {
+            #if DESKTOP
             return client.DescribeCommands(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeCommandsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

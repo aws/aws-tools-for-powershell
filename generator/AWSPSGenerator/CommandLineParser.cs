@@ -233,7 +233,7 @@ namespace AWSPowerShellGenerator
                 ShortName = "e",
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.Edition = argValue,
-                HelpText = "The edition (desktop or coreclr) that we are building additional content (help etc) for. This affects the location where we find the module."
+                HelpText = "The edition (desktop or coreclr) that we are building additional content (help etc) for. This affects the location where we output the built module as well as #ifdef statements for specific environment targetting in the cmdlet source code."
             }
         };
 

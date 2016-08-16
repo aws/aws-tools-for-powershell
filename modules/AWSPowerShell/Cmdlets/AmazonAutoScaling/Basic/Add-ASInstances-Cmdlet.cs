@@ -37,8 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// plus the desired capacity of the group exceeds the maximum size of the group, the
     /// operation fails.
     /// </para><para>
+    /// If there is a Classic load balancer attached to your Auto Scaling group, the instances
+    /// are also registered with the load balancer. If there are target groups attached to
+    /// your Auto Scaling group, the instances are also registered with the target groups.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach
-    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ASInstances", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class AddASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -107,11 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.InstanceId != null)
             {
                 context.InstanceIds = new List<System.String>(this.InstanceId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,7 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.AttachInstancesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachInstancesRequest request)
         {
+            #if DESKTOP
             return client.AttachInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AttachInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,13 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// you can modify the load balancer attribute <code>ConnectionSettings</code> by specifying
     /// an idle connection timeout value for your load balancer.
     /// </para><para>
-    /// For more information, see the following in the <i>Elastic Load Balancing Developer
-    /// Guide</i>:
-    /// </para><ul><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing">Cross-Zone
-    /// Load Balancing</a></li><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain">Connection
-    /// Draining</a></li><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html">Access
-    /// Logs</a></li><li><a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout">Idle
-    /// Connection Timeout</a></li></ul>
+    /// For more information, see the following in the <i>Classic Load Balancers Guide</i>:
+    /// </para><ul><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
+    /// Load Balancing</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
+    /// Draining</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
+    /// Logs</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
+    /// Connection Timeout</a></para></li></ul>
     /// </summary>
     [Cmdlet("Edit", "ELBLoadBalancerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse")]
@@ -51,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse",
         "This cmdlet returns a Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditELBLoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class EditELBLoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerAttributes_AdditionalAttribute
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter AccessLog_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether access log is enabled for the load balancer.</para>
+        /// <para>Specifies whether access logs are enabled for the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -193,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AccessLog_EmitInterval"))
                 context.LoadBalancerAttributes_AccessLog_EmitInterval = this.AccessLog_EmitInterval;
             if (ParameterWasBound("AccessLog_Enabled"))
@@ -212,6 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (ParameterWasBound("CrossZoneLoadBalancing_Enabled"))
                 context.LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled = this.CrossZoneLoadBalancing_Enabled;
             context.LoadBalancerName = this.LoadBalancerName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -424,7 +429,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesRequest request)
         {
+            #if DESKTOP
             return client.ModifyLoadBalancerAttributes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyLoadBalancerAttributesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

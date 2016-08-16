@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a SuggesterStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DeleteSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class RemoveCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -87,8 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DomainName = this.DomainName;
             context.SuggesterName = this.SuggesterName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -146,7 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.DeleteSuggesterResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteSuggesterRequest request)
         {
+            #if DESKTOP
             return client.DeleteSuggester(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteSuggesterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -94,7 +94,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Valid values are COPY or REPLACE. COPY is the default if not specified.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
-        [AWSConstantClassSource("Amazon.S3.S3MetadataDirective")]
         public Amazon.S3.S3MetadataDirective MetadataDirective { get; set; }
         #endregion
 
@@ -317,6 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        #region Parameter UseDualstackEndpoint
+        /// <summary>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
+
+        #endregion
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -524,7 +534,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
         {
+#if DESKTOP
             return client.CopyObject(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CopyObjectAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

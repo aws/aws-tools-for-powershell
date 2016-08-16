@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         "This cmdlet returns a TaskDefinition object.",
         "The service call response (type Amazon.ECS.Model.DeregisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UnregisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class UnregisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
         #region Parameter TaskDefinition
@@ -90,7 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.TaskDefinition = this.TaskDefinition;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -144,7 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         private static Amazon.ECS.Model.DeregisterTaskDefinitionResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeregisterTaskDefinitionRequest request)
         {
+            #if DESKTOP
             return client.DeregisterTaskDefinition(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeregisterTaskDefinitionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

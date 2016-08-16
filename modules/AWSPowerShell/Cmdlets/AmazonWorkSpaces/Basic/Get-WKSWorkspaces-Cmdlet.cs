@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetWKSWorkspacesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetWKSWorkspacesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         #region Parameter BundleId
@@ -133,6 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BundleId = this.BundleId;
             context.DirectoryId = this.DirectoryId;
             if (ParameterWasBound("Limit"))
@@ -143,6 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 context.WorkspaceIds = new List<System.String>(this.WorkspaceId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -260,7 +266,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         private static Amazon.WorkSpaces.Model.DescribeWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesRequest request)
         {
+            #if DESKTOP
             return client.DescribeWorkspaces(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeWorkspacesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

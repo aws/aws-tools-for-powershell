@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ElasticMapReduce.Model.RunJobFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class StartEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         #region Parameter AdditionalInfo
@@ -442,6 +442,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AdditionalInfo = this.AdditionalInfo;
             context.AmiVersion = this.AmiVersion;
             if (this.Application != null)
@@ -506,6 +509,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             if (ParameterWasBound("VisibleToAllUser"))
                 context.VisibleToAllUsers = this.VisibleToAllUser;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -789,7 +795,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         private static Amazon.ElasticMapReduce.Model.RunJobFlowResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RunJobFlowRequest request)
         {
+            #if DESKTOP
             return client.RunJobFlow(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RunJobFlowAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

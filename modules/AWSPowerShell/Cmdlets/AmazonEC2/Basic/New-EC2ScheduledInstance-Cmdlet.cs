@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.EC2.Model.RunScheduledInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEC2ScheduledInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2ScheduledInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter IamInstanceProfile_Arn
@@ -281,6 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientToken = this.ClientToken;
             if (ParameterWasBound("InstanceCount"))
                 context.InstanceCount = this.InstanceCount;
@@ -312,6 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LaunchSpecification_SubnetId = this.LaunchSpecification_SubnetId;
             context.LaunchSpecification_UserData = this.LaunchSpecification_UserData;
             context.ScheduledInstanceId = this.ScheduledInstanceId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -587,7 +593,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.RunScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunScheduledInstancesRequest request)
         {
+            #if DESKTOP
             return client.RunScheduledInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RunScheduledInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

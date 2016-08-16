@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a OptionGroup object.",
         "The service call response (type Amazon.RDS.Model.CreateOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class NewRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter EngineName
@@ -118,6 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EngineName = this.EngineName;
             context.MajorEngineVersion = this.MajorEngineVersion;
             context.OptionGroupDescription = this.OptionGroupDescription;
@@ -126,6 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -195,7 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.CreateOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateOptionGroupRequest request)
         {
+            #if DESKTOP
             return client.CreateOptionGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateOptionGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

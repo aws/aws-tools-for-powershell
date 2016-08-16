@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter IamUserArn
@@ -86,8 +86,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.IamUserArn = this.IamUserArn;
             context.InstanceName = this.InstanceName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -145,7 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceRequest request)
         {
+            #if DESKTOP
             return client.RegisterOnPremisesInstance(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterOnPremisesInstanceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         "This cmdlet returns a Job object.",
         "The service call response (type Amazon.ElasticTranscoder.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class NewETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter AlbumArt_Artwork
@@ -652,6 +652,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Input_AspectRatio = this.Input_AspectRatio;
             context.Input_Container = this.Input_Container;
             if (ParameterWasBound("DetectedProperties_DurationMilli"))
@@ -724,6 +727,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                     context.UserMetadata.Add((String)hashKey, (String)(this.UserMetadata[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -1251,7 +1257,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.CreateJobResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.CreateJobRequest request)
         {
+            #if DESKTOP
             return client.CreateJob(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateJobAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

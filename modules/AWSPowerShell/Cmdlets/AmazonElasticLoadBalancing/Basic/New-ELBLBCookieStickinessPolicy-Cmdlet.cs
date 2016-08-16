@@ -35,18 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// When a load balancer implements this policy, the load balancer uses a special cookie
-    /// to track the back-end server instance for each request. When the load balancer receives
-    /// a request, it first checks to see if this cookie is present in the request. If so,
-    /// the load balancer sends the request to the application server specified in the cookie.
-    /// If not, the load balancer sends the request to a server that is chosen based on the
-    /// existing load-balancing algorithm.
+    /// to track the instance for each request. When the load balancer receives a request,
+    /// it first checks to see if this cookie is present in the request. If so, the load balancer
+    /// sends the request to the application server specified in the cookie. If not, the load
+    /// balancer sends the request to a server that is chosen based on the existing load-balancing
+    /// algorithm.
     /// </para><para>
     /// A cookie is inserted into the response for binding subsequent requests from the same
     /// user to that server. The validity of the cookie is based on the cookie expiration
     /// time, which is specified in the policy configuration.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
-    /// Session Stickiness</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
+    /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELBLBCookieStickinessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,15 +56,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewELBLBCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class NewELBLBCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter CookieExpirationPeriod
         /// <summary>
         /// <para>
         /// <para>The time period, in seconds, after which the cookie should be considered stale. If
-        /// you do not specify this parameter, the sticky session lasts for the duration of the
-        /// browser session.</para>
+        /// you do not specify this parameter, the default value is 0, which indicates that the
+        /// sticky session should last for the duration of the browser session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -128,10 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CookieExpirationPeriod"))
                 context.CookieExpirationPeriod = this.CookieExpirationPeriod;
             context.LoadBalancerName = this.LoadBalancerName;
             context.PolicyName = this.PolicyName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -195,7 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyRequest request)
         {
+            #if DESKTOP
             return client.CreateLBCookieStickinessPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLBCookieStickinessPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

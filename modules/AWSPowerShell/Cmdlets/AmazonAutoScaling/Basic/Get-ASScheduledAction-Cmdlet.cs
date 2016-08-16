@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "The service call response (type Amazon.AutoScaling.Model.DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScheduledActionName
         /// <summary>
         /// <para>
-        /// <para>Describes one or more scheduled actions. If you omit this list, the call describes
-        /// all scheduled actions. If you specify an unknown scheduled action it is ignored with
+        /// <para>Describes one or more scheduled actions. If you omit this parameter, all scheduled
+        /// actions are described. If you specify an unknown scheduled action, it is ignored with
         /// no error.</para><para>You can describe up to a maximum of 50 instances with a single call. If there are
         /// more items to return, the call returns a token. To get the next set of items, repeat
         /// the call with the returned token.</para>
@@ -121,6 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
@@ -133,6 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -250,7 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DescribeScheduledActionsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeScheduledActionsRequest request)
         {
+            #if DESKTOP
             return client.DescribeScheduledActions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeScheduledActionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

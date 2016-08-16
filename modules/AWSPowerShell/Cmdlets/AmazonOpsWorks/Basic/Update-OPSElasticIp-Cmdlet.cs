@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.OpsWorks.Model.UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class UpdateOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter ElasticIp
@@ -94,8 +94,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ElasticIp = this.ElasticIp;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -153,7 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.UpdateElasticIpResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.UpdateElasticIpRequest request)
         {
+            #if DESKTOP
             return client.UpdateElasticIp(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateElasticIpAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

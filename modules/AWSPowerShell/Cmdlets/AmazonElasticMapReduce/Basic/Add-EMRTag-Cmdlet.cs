@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddEMRTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class AddEMRTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceId
@@ -102,11 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceId = this.ResourceId;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.ElasticMapReduce.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         private static Amazon.ElasticMapReduce.Model.AddTagsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.AddTagsRequest request)
         {
+            #if DESKTOP
             return client.AddTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

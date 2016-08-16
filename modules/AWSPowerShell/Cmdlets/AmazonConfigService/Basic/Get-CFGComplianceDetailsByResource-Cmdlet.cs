@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         "The service call response (type Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetCFGComplianceDetailsByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class GetCFGComplianceDetailsByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ComplianceType
@@ -95,6 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ComplianceType != null)
             {
                 context.ComplianceTypes = new List<System.String>(this.ComplianceType);
@@ -102,6 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.NextToken = this.NextToken;
             context.ResourceId = this.ResourceId;
             context.ResourceType = this.ResourceType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -169,7 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         private static Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetComplianceDetailsByResourceRequest request)
         {
+            #if DESKTOP
             return client.GetComplianceDetailsByResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetComplianceDetailsByResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

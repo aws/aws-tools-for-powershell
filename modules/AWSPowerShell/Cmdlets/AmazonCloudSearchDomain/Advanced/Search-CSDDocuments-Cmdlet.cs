@@ -606,7 +606,15 @@ namespace Amazon.PowerShell.Cmdlets.CSD
 
         private static Amazon.CloudSearchDomain.Model.SearchResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.SearchRequest request)
         {
+#if DESKTOP
             return client.Search(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SearchAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

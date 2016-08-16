@@ -22,6 +22,8 @@ using System.Management.Automation;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
+using Amazon.Util.Internal;
+
 namespace Amazon.PowerShell.Common
 {
     /// <summary>
@@ -48,13 +50,13 @@ namespace Amazon.PowerShell.Common
                 + " that belong to a service identified by one or more words in its name or its cmdlet noun prefix."
         )]
     [OutputType(typeof(PSObject))]
-    [AWSCmdletOutput("PSObject", 
+    [AWSCmdletOutput("PSObject",
                      "A collection of zero or more objects listing cmdlets that implement the specified operation, map to the AWS CLI command"
                      + " or belong to the specified service.")]
     public class GetCmdletNameCmdlet : BaseCmdlet
     {
         public const string ByApiOperationOrServiceParameterSet = "ByApiOperationOrService";
-        public const string ByAwsCliCommandParameterSet     = "ByAwsCliCommand";
+        public const string ByAwsCliCommandParameterSet = "ByAwsCliCommand";
 
         /// <summary>
         /// <para>
@@ -121,7 +123,8 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            AwsPowerShellAssembly = Assembly.GetExecutingAssembly();
+            AwsPowerShellAssembly = TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly;
+
             IEnumerable<PSObject> foundCmdlets = null;
 
             var listAllForService = false;
@@ -182,7 +185,7 @@ namespace Amazon.PowerShell.Common
             var cmdletsToSearch = new List<Type>();
             if (servicePrefixes == null || !servicePrefixes.Any())
             {
-                cmdletsToSearch.AddRange(AllServiceCmdlets);
+                cmdletsToSearch.AddRange(AllServiceCmdletTypes);
             }
             else
             {
@@ -194,7 +197,7 @@ namespace Amazon.PowerShell.Common
 
             foreach (var c in cmdletsToSearch)
             {
-                var awsCmdletAttribute = c.GetCustomAttributes(typeof(AWSCmdletAttribute), false).FirstOrDefault() as AWSCmdletAttribute;
+                var awsCmdletAttribute = AWSCmdletAttribute.GetAttributeInstanceOnType(c, false);
                 if (awsCmdletAttribute == null || awsCmdletAttribute.Operation == null)
                     continue;
 
@@ -205,11 +208,17 @@ namespace Amazon.PowerShell.Common
                     if (!regex.IsMatch(op))
                         continue;
 
-                    var cmdletAttribute = c.GetCustomAttributes(typeof(CmdletAttribute), false).FirstOrDefault() as CmdletAttribute;
-                    var awsClientCmdletAttribute = c.BaseType.GetCustomAttributes(typeof(AWSClientCmdletAttribute), false).FirstOrDefault() as AWSClientCmdletAttribute;
+                    var cmdletAttribute = GetCmdletAttributeInstanceOnType(c, false);
+                    var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(TypeFactory.GetTypeInfo(c).BaseType, false);
+
+                    if (cmdletAttribute == null || awsClientCmdletAttribute == null)
+                        continue;
 
                     var cmdletInfo = new PSObject();
-                    cmdletInfo.Properties.Add(new PSNoteProperty("CmdletName", string.Format("{0}-{1}", cmdletAttribute.VerbName, cmdletAttribute.NounName)));
+                    cmdletInfo.Properties.Add(new PSNoteProperty("CmdletName", 
+                                                                 string.Format("{0}-{1}", 
+                                                                               cmdletAttribute.VerbName, 
+                                                                               cmdletAttribute.NounName)));
                     cmdletInfo.Properties.Add(new PSNoteProperty("ServiceOperation", op));
                     cmdletInfo.Properties.Add(new PSNoteProperty("ServiceName", awsClientCmdletAttribute.ServiceName));
                     cmdletInfo.Properties.Add(new PSNoteProperty("CmdletNounPrefix", awsClientCmdletAttribute.ServicePrefix));
@@ -229,26 +238,30 @@ namespace Amazon.PowerShell.Common
         {
             var foundCmdlets = new List<PSObject>();
             var servicePrefixes = MatchPrefixesOrNames(Service);
+
             foreach (var servicePrefix in servicePrefixes)
             {
-                var serviceCmdlets = DiscoverServiceCmdlets(servicePrefix);
+                var serviceCmdletTypes = DiscoverServiceCmdlets(servicePrefix);
                 var serviceName = string.Empty;
-                foreach (var cmdlet in serviceCmdlets)
+                foreach (var cmdletType in serviceCmdletTypes)
                 {
-                    var cmdletAttribute = cmdlet.GetCustomAttributes(typeof(CmdletAttribute), false).FirstOrDefault() as CmdletAttribute;
-                    var awsCmdletAttribute = cmdlet.GetCustomAttributes(typeof(AWSCmdletAttribute), false).FirstOrDefault() as AWSCmdletAttribute;
+                    var cmdletAttribute = GetCmdletAttributeInstanceOnType(cmdletType, false);
+                    var awsCmdletAttribute = AWSCmdletAttribute.GetAttributeInstanceOnType(cmdletType, false);
                     if (awsCmdletAttribute == null || awsCmdletAttribute.Operation == null)
                         continue;
 
                     var cmdletInfo = new PSObject();
-                    cmdletInfo.Properties.Add(new PSNoteProperty("CmdletName", string.Format("{0}-{1}", cmdletAttribute.VerbName, cmdletAttribute.NounName)));
+                    cmdletInfo.Properties.Add(new PSNoteProperty("CmdletName", 
+                                              string.Format("{0}-{1}", 
+                                              cmdletAttribute.VerbName, 
+                                              cmdletAttribute.NounName)));
 
                     // some cmdlets can implement more than one operation (eg Stop-EC2Instance)
                     cmdletInfo.Properties.Add(new PSNoteProperty("ServiceOperation", string.Join(";", awsCmdletAttribute.Operation)));
 
                     if (string.IsNullOrEmpty(serviceName))
                     {
-                        var awsClientCmdletAttribute = cmdlet.BaseType.GetCustomAttributes(typeof(AWSClientCmdletAttribute), false).FirstOrDefault() as AWSClientCmdletAttribute;
+                        var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(TypeFactory.GetTypeInfo(cmdletType).BaseType, false);
                         serviceName = awsClientCmdletAttribute.ServiceName;
                     }
 
@@ -276,7 +289,7 @@ namespace Amazon.PowerShell.Common
             var servicePrefixes = new HashSet<string>();
 
             var serviceClientTypes = AwsPowerShellAssembly.GetTypes()
-                            .Where(t => t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
+                            .Where(t => TypeFactory.GetTypeInfo(t).IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
                             .OrderBy(t => t.FullName)
                             .ToList();
 
@@ -285,9 +298,9 @@ namespace Amazon.PowerShell.Common
 
             WriteVerbose("...attempting to match cmdlet prefixes or service names against search pattern: " + searchText);
 
-            foreach (var scb in serviceClientTypes)
+            foreach (var sct in serviceClientTypes)
             {
-                var awsClientCmdletAttribute = scb.GetCustomAttributes(typeof(AWSClientCmdletAttribute), true).FirstOrDefault() as AWSClientCmdletAttribute;
+                var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(sct, true);
                 if (awsClientCmdletAttribute == null)
                     continue;
 
@@ -320,14 +333,14 @@ namespace Amazon.PowerShell.Common
             var servicePrefixes = new HashSet<string>();
 
             var serviceClientTypes = AwsPowerShellAssembly.GetTypes()
-                            .Where(t => t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
+                            .Where(t => TypeFactory.GetTypeInfo(t).IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
                             .OrderBy(t => t.FullName)
                             .ToList();
 
             WriteVerbose("...attempting to match cmdlet prefixes against search pattern: " + searchText);
-            foreach (var scb in serviceClientTypes)
+            foreach (var serviceClientType in serviceClientTypes)
             {
-                var awsClientCmdletAttribute = scb.GetCustomAttributes(typeof(AWSClientCmdletAttribute), true).FirstOrDefault() as AWSClientCmdletAttribute;
+                var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(serviceClientType, true);
                 if (awsClientCmdletAttribute == null)
                     continue;
 
@@ -342,9 +355,9 @@ namespace Amazon.PowerShell.Common
                 const RegexOptions options = RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline;
                 var regex = new Regex(searchText, options);
 
-                foreach (var scb in serviceClientTypes)
+                foreach (var serviceClientType in serviceClientTypes)
                 {
-                    var awsClientCmdletAttribute = scb.GetCustomAttributes(typeof(AWSClientCmdletAttribute), true).FirstOrDefault() as AWSClientCmdletAttribute;
+                    var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(serviceClientType, true);
                     if (awsClientCmdletAttribute == null)
                         continue;
 
@@ -401,12 +414,12 @@ namespace Amazon.PowerShell.Common
         /// Returns all of the cmdlets in the toolset that make some form of service call.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Type> AllServiceCmdlets
+        IEnumerable<Type> AllServiceCmdletTypes
         {
             get
             {
                 return AwsPowerShellAssembly.GetTypes()
-                            .Where(t => !t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
+                            .Where(t => !(TypeFactory.GetTypeInfo(t).IsAbstract) && typeof(ServiceCmdlet).IsAssignableFrom(t))
                             .OrderBy(t => t.FullName)
                             .ToList();
             }
@@ -423,15 +436,16 @@ namespace Amazon.PowerShell.Common
 
             // this can all be expressed in Linq but its fairly dense, so opting to retain
             // foreach loop for readability
-            foreach (var c in AllServiceCmdlets)
+            foreach (var cmdletType in AllServiceCmdletTypes)
             {
-                var awsCmdletAttribute = c.GetCustomAttributes(typeof (AWSCmdletAttribute), false).FirstOrDefault() as AWSCmdletAttribute;
+                var awsCmdletAttribute = AWSCmdletAttribute.GetAttributeInstanceOnType(cmdletType, false);
                 if (awsCmdletAttribute == null) // not a cmdlet of interest here
                     continue;
 
-                var awsClientCmdletAttribute = c.BaseType.GetCustomAttributes(typeof (AWSClientCmdletAttribute), true).FirstOrDefault() as AWSClientCmdletAttribute;
+                var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(TypeFactory.GetTypeInfo(cmdletType).BaseType, true);
+
                 if (awsClientCmdletAttribute != null && servicePrefix.Equals(awsClientCmdletAttribute.ServicePrefix, StringComparison.OrdinalIgnoreCase))
-                    cmdletsForService.Add(c);
+                    cmdletsForService.Add(cmdletType);
             }
 
             if (!cmdletsForService.Any())
@@ -439,5 +453,26 @@ namespace Amazon.PowerShell.Common
 
             return cmdletsForService;
         }
+
+        private static CmdletAttribute GetCmdletAttributeInstanceOnType(Type t, bool inherit)
+        {
+            var attributeTypeInfo = TypeFactory.GetTypeInfo(typeof(CmdletAttribute));
+
+            var customAttributes = TypeFactory.GetTypeInfo(t).GetCustomAttributes(attributeTypeInfo, inherit);
+            if (customAttributes.Length != 1)
+                return null;
+
+#if CORECLR
+            var cad = customAttributes[0] as CustomAttributeData;
+            var ctorArgs = cad.ConstructorArguments;
+
+            var verb = ctorArgs[0].Value.ToString();
+            var noun = ctorArgs[1].Value.ToString();
+
+            return new CmdletAttribute(verb, noun);
+#else
+            return customAttributes[0] as CmdletAttribute;
+#endif
     }
+}
 }

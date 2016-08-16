@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFormation.Model.SetStackPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class SetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter StackName
@@ -111,9 +111,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.StackName = this.StackName;
             context.StackPolicyBody = this.StackPolicyBody;
             context.StackPolicyURL = this.StackPolicyURL;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -177,7 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.SetStackPolicyResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.SetStackPolicyRequest request)
         {
+            #if DESKTOP
             return client.SetStackPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetStackPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

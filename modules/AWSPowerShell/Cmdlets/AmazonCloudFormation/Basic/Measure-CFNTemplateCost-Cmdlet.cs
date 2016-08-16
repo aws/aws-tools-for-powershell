@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.EstimateTemplateCostResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class MeasureCFNTemplateCostCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class MeasureCFNTemplateCostCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter Parameter
@@ -105,12 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Parameter != null)
             {
                 context.Parameters = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
             context.TemplateBody = this.TemplateBody;
             context.TemplateURL = this.TemplateURL;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.EstimateTemplateCostResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.EstimateTemplateCostRequest request)
         {
+            #if DESKTOP
             return client.EstimateTemplateCost(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.EstimateTemplateCostAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

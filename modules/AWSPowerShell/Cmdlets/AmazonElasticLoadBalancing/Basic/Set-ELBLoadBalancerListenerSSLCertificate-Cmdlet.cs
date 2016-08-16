@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// 
     ///  
     /// <para>
-    /// For more information about updating your SSL certificate, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html">Updating
-    /// an SSL Certificate for a Load Balancer</a> in the <i>Elastic Load Balancing Developer
-    /// Guide</i>.
+    /// For more information about updating your SSL certificate, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace
+    /// the SSL Certificate for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBLoadBalancerListenerSSLCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetELBLoadBalancerListenerSSLCertificateCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class SetELBLoadBalancerListenerSSLCertificateCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerName
@@ -114,10 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.LoadBalancerName = this.LoadBalancerName;
             if (ParameterWasBound("LoadBalancerPort"))
                 context.LoadBalancerPort = this.LoadBalancerPort;
             context.SSLCertificateId = this.SSLCertificateId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -181,7 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateRequest request)
         {
+            #if DESKTOP
             return client.SetLoadBalancerListenerSSLCertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetLoadBalancerListenerSSLCertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         "The service call response (type Amazon.ElasticMapReduce.Model.ListInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetEMRInstancesCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class GetEMRInstancesCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterId
@@ -107,6 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterId = this.ClusterId;
             context.InstanceGroupId = this.InstanceGroupId;
             if (this.InstanceGroupType != null)
@@ -118,6 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.InstanceStates = new List<System.String>(this.InstanceState);
             }
             context.Marker = this.Marker;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -221,7 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         private static Amazon.ElasticMapReduce.Model.ListInstancesResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListInstancesRequest request)
         {
+            #if DESKTOP
             return client.ListInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

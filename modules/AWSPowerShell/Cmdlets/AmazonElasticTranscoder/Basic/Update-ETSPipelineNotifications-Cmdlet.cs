@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         "This cmdlet returns a Pipeline object.",
         "The service call response (type Amazon.ElasticTranscoder.Model.UpdatePipelineNotificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateETSPipelineNotificationsCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
+    public partial class UpdateETSPipelineNotificationsCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
         
         #region Parameter Notifications_Completed
@@ -128,11 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
             context.Notifications_Completed = this.Notifications_Completed;
             context.Notifications_Error = this.Notifications_Error;
             context.Notifications_Progressing = this.Notifications_Progressing;
             context.Notifications_Warning = this.Notifications_Warning;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -235,7 +241,15 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         private static Amazon.ElasticTranscoder.Model.UpdatePipelineNotificationsResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.UpdatePipelineNotificationsRequest request)
         {
+            #if DESKTOP
             return client.UpdatePipelineNotifications(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdatePipelineNotificationsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

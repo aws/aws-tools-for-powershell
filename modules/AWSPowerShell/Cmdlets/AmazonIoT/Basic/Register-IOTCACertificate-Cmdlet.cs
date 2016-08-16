@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdletOutput("Amazon.IoT.Model.RegisterCACertificateResponse",
         "This cmdlet returns a Amazon.IoT.Model.RegisterCACertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class RegisterIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter AllowAutoRegistration
@@ -94,12 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AllowAutoRegistration"))
                 context.AllowAutoRegistration = this.AllowAutoRegistration;
             context.CaCertificate = this.CaCertificate;
             if (ParameterWasBound("SetAsActive"))
                 context.SetAsActive = this.SetAsActive;
             context.VerificationCertificate = this.VerificationCertificate;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -165,7 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.RegisterCACertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.RegisterCACertificateRequest request)
         {
+            #if DESKTOP
             return client.RegisterCACertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RegisterCACertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

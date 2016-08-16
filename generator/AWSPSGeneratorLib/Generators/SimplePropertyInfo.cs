@@ -12,6 +12,8 @@ namespace AWSPowerShellGenerator.Generators
 {
     public class SimplePropertyInfo
     {
+        const string ConstantClassBaseTypeName = "Amazon.Runtime.ConstantClass";
+
         #region Properties
 
         public enum PropertyCollectionType
@@ -154,29 +156,12 @@ namespace AWSPowerShellGenerator.Generators
 
         /// <summary>
         /// If true the parameter type derives from the SDK's ConstantClass
-        /// enumeration type and ValidSet attribution should be generated
-        /// for the parameter.
+        /// enumeration type and an argument completer should be generated 
+        /// for/referenced by the parameter.
         /// </summary>
         public bool IsConstrainedToSet
         {
             get; private set;
-        }
-
-        public IEnumerable<string> ConstrainedSetMembers
-        {
-            get
-            {
-                if (!IsConstrainedToSet)
-                    throw new InvalidOperationException(string.Format("ConstrainedSetMembers called on parameter ({0}) that is not constrained.", Name));
-
-                if (!ConstrainedMemberSets.ContainsKey(PropertyType.FullName))
-                {
-                    var setMembers = GetValidateSetMembers(PropertyType);
-                    ConstrainedMemberSets.Add(PropertyType.FullName, setMembers);
-                }
-
-                return ConstrainedMemberSets[PropertyType.FullName];
-            }
         }
 
         public bool IsReadWrite { get; private set; }
@@ -271,22 +256,20 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        public static Dictionary<string, IEnumerable<string>> ConstrainedMemberSets
-        {
-            get
-            {
-                return _constrainedMemberSets;
-            }
-        }
-
         /// <summary>
         /// Extracts the field values for a property that is derived from the SDK's ConstantClass
         /// enumeration type.
         /// </summary>
         /// <param name="propertyType">The ConstantClass-derived type to be inspected</param>
         /// <returns>Collection of strings representing the valid values</returns>
-        public static IEnumerable<string> GetValidateSetMembers(Type propertyType)
+        public static IEnumerable<string> GetConstantClassMembers(Type propertyType)
         {
+            if (!propertyType.BaseType.FullName.Equals(ConstantClassBaseTypeName, StringComparison.Ordinal))
+                throw new ArgumentException(string.Format("GetConstantClassMembers: base type of {0} was {1}, expected {2}", 
+                                                          propertyType.FullName, 
+                                                          propertyType.BaseType.FullName,
+                                                          ConstantClassBaseTypeName));
+
             // order the set to help user at command prompt; ignore case since PowerShell is case insensitive and
             // SDK member styling varies
             var memberSet = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -360,17 +343,12 @@ namespace AWSPowerShellGenerator.Generators
             PsParameterAttribute 
                 = propertyInfo.GetCustomAttributes(typeof (ParameterAttribute), false).FirstOrDefault() as ParameterAttribute;
 
-            IsConstrainedToSet = PropertyType.BaseType != null && PropertyType.BaseType.FullName.Equals("Amazon.Runtime.ConstantClass", StringComparison.Ordinal);
+            IsConstrainedToSet = PropertyType.BaseType != null && PropertyType.BaseType.FullName.Equals(ConstantClassBaseTypeName, StringComparison.Ordinal);
         }
 
         #endregion
 
         #region Private members
-
-        // as we can run across repeated use of ConstantClass-derived types when generating cmdlets for a service,
-        // we cache those we come across to avoid repeated inspection, keyed by typename
-        private static Dictionary<string, IEnumerable<string>> _constrainedMemberSets = new Dictionary<string, IEnumerable<string>>();
-
 
         private static bool IsNullableValueType(Type type)
         {

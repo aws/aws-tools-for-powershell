@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a Computer object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateComputerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSComputerCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class NewDSComputerCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ComputerAttribute
@@ -121,6 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ComputerAttribute != null)
             {
                 context.ComputerAttributes = new List<Amazon.DirectoryService.Model.Attribute>(this.ComputerAttribute);
@@ -129,6 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.DirectoryId = this.DirectoryId;
             context.OrganizationalUnitDistinguishedName = this.OrganizationalUnitDistinguishedName;
             context.Password = this.Password;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.CreateComputerResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateComputerRequest request)
         {
+            #if DESKTOP
             return client.CreateComputer(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateComputerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

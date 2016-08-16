@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.PutRestApiResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.PutRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class WriteAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter Body
@@ -123,6 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Body = this.Body;
             if (ParameterWasBound("FailOnWarning"))
                 context.FailOnWarnings = this.FailOnWarning;
@@ -136,6 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 }
             }
             context.RestApiId = this.RestApiId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -205,7 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.PutRestApiResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.PutRestApiRequest request)
         {
+            #if DESKTOP
             return client.PutRestApi(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutRestApiAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

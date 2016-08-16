@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String), RefreshedAt (type System.DateTime)"
     )]
-    public class GetEBInstanceHealthCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class GetEBInstanceHealthCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeName
@@ -95,6 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AttributeName != null)
             {
                 context.AttributeNames = new List<System.String>(this.AttributeName);
@@ -102,6 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthRequest request)
         {
+            #if DESKTOP
             return client.DescribeInstancesHealth(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeInstancesHealthAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

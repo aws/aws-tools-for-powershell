@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSGStorediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class NewSGStorediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter DiskId
@@ -150,6 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DiskId = this.DiskId;
             context.GatewayARN = this.GatewayARN;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
@@ -157,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.PreserveExistingData = this.PreserveExistingData;
             context.SnapshotId = this.SnapshotId;
             context.TargetName = this.TargetName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -230,7 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateStorediSCSIVolumeRequest request)
         {
+            #if DESKTOP
             return client.CreateStorediSCSIVolume(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateStorediSCSIVolumeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

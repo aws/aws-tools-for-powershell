@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
         "This cmdlet returns a Amazon.Lambda.Model.UpdateFunctionCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter FunctionName
@@ -147,6 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FunctionName = this.FunctionName;
             if (ParameterWasBound("Publish"))
                 context.Publish = this.Publish;
@@ -154,6 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.S3Key = this.S3Key;
             context.S3ObjectVersion = this.S3ObjectVersion;
             context.ZipFile = this.ZipFile;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -227,7 +233,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.UpdateFunctionCodeResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.UpdateFunctionCodeRequest request)
         {
+            #if DESKTOP
             return client.UpdateFunctionCode(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateFunctionCodeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

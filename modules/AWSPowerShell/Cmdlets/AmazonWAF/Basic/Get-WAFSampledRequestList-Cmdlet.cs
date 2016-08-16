@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdletOutput("Amazon.WAF.Model.GetSampledRequestsResponse",
         "This cmdlet returns a Amazon.WAF.Model.GetSampledRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetWAFSampledRequestListCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class GetWAFSampledRequestListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         #region Parameter TimeWindow_EndTime
@@ -122,6 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             context.RuleId = this.RuleId;
@@ -130,6 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             if (ParameterWasBound("TimeWindow_StartTime"))
                 context.TimeWindow_StartTime = this.TimeWindow_StartTime;
             context.WebAclId = this.WebAclId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -220,7 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.GetSampledRequestsResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetSampledRequestsRequest request)
         {
+            #if DESKTOP
             return client.GetSampledRequests(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetSampledRequestsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

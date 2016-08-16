@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSNSPlatformEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class NewSNSPlatformEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Attribute
@@ -130,6 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -141,6 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             context.CustomUserData = this.CustomUserData;
             context.PlatformApplicationArn = this.PlatformApplicationArn;
             context.Token = this.Token;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -206,7 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         private static Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreatePlatformEndpointRequest request)
         {
+            #if DESKTOP
             return client.CreatePlatformEndpoint(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePlatformEndpointAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

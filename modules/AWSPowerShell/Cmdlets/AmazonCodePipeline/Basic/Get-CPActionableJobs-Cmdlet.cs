@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "This cmdlet returns a collection of Job objects.",
         "The service call response (type Amazon.CodePipeline.Model.PollForJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCPActionableJobsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class GetCPActionableJobsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ActionTypeId_Category
@@ -125,6 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ActionTypeId_Category = this.ActionTypeId_Category;
             context.ActionTypeId_Owner = this.ActionTypeId_Owner;
             context.ActionTypeId_Provider = this.ActionTypeId_Provider;
@@ -139,6 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
                     context.QueryParam.Add((String)hashKey, (String)(this.QueryParam[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -245,7 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.PollForJobsResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PollForJobsRequest request)
         {
+            #if DESKTOP
             return client.PollForJobs(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PollForJobsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

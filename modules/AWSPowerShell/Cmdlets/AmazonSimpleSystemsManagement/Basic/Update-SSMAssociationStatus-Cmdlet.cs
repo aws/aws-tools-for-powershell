@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "This cmdlet returns a AssociationDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSSMAssociationStatusCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateSSMAssociationStatusCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter AssociationStatus_AdditionalInfo
@@ -127,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AssociationStatus_AdditionalInfo = this.AssociationStatus_AdditionalInfo;
             if (ParameterWasBound("AssociationStatus_Date"))
                 context.AssociationStatus_Date = this.AssociationStatus_Date;
@@ -134,6 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.AssociationStatus_Name = this.AssociationStatus_Name;
             context.InstanceId = this.InstanceId;
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -240,7 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         private static Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusRequest request)
         {
+            #if DESKTOP
             return client.UpdateAssociationStatus(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateAssociationStatusAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

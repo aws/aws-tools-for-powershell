@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class WriteS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter UseAccelerateEndpoint { get; set; }
+        
+        #endregion
+        
+        #region Parameter UseDualstackEndpoint
+        /// <summary>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
         
         #endregion
         
@@ -107,11 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BucketName = this.BucketName;
             if (this.Configuration_Rule != null)
             {
                 context.Configuration_Rules = new List<Amazon.S3.Model.LifecycleRule>(this.Configuration_Rule);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -186,7 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private static Amazon.S3.Model.PutLifecycleConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutLifecycleConfigurationRequest request)
         {
+            #if DESKTOP
             return client.PutLifecycleConfiguration(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutLifecycleConfigurationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

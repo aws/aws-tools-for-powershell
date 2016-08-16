@@ -28,10 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more scaling activities for the specified Auto Scaling group. If
-    /// you omit the <code>ActivityIds</code>, the call returns all activities from the past
-    /// six weeks. Activities are sorted by the start time. Activities still in progress appear
-    /// first on the list.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more scaling activities for the specified Auto Scaling group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASScalingActivity")]
     [OutputType("Amazon.AutoScaling.Model.Activity")]
@@ -41,16 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "The service call response (type Amazon.AutoScaling.Model.DescribeScalingActivitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetASScalingActivityCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetASScalingActivityCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter ActivityId
         /// <summary>
         /// <para>
-        /// <para>The activity IDs of the desired scaling activities. If this list is omitted, all activities
-        /// are described. If you specify an Auto Scaling group, the results are limited to that
-        /// group. The list of requested activities cannot contain more than 50 items. If unknown
-        /// activities are requested, they are ignored with no error.</para>
+        /// <para>The activity IDs of the desired scaling activities. If you omit this parameter, all
+        /// activities for the past six weeks are described. If you specify an Auto Scaling group,
+        /// the results are limited to that group. The list of requested activities cannot contain
+        /// more than 50 items. If unknown activities are requested, they are ignored with no
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -100,6 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ActivityId != null)
             {
                 context.ActivityIds = new List<System.String>(this.ActivityId);
@@ -108,6 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -217,7 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DescribeScalingActivitiesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeScalingActivitiesRequest request)
         {
+            #if DESKTOP
             return client.DescribeScalingActivities(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeScalingActivitiesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

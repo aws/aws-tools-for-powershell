@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "This cmdlet returns a collection of InstanceInfo objects.",
         "The service call response (type Amazon.CodeDeploy.Model.BatchGetOnPremisesInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCDOnPremiseInstanceBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class GetCDOnPremiseInstanceBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceName
@@ -61,10 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.InstanceName != null)
             {
                 context.InstanceNames = new List<System.String>(this.InstanceName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,7 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.BatchGetOnPremisesInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.BatchGetOnPremisesInstancesRequest request)
         {
+            #if DESKTOP
             return client.BatchGetOnPremisesInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.BatchGetOnPremisesInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

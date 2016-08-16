@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdletOutput("Amazon.Lambda.Model.DeleteEventSourceMappingResponse",
         "This cmdlet returns a Amazon.Lambda.Model.DeleteEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter UUID
@@ -82,7 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.UUID = this.UUID;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -136,7 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.DeleteEventSourceMappingResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteEventSourceMappingRequest request)
         {
+            #if DESKTOP
             return client.DeleteEventSourceMapping(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteEventSourceMappingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

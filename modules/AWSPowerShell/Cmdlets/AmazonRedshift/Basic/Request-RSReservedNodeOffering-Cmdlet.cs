@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a ReservedNode object.",
         "The service call response (type Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter NodeCount
@@ -96,9 +96,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("NodeCount"))
                 context.NodeCount = this.NodeCount;
             context.ReservedNodeOfferingId = this.ReservedNodeOfferingId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -156,7 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.PurchaseReservedNodeOfferingRequest request)
         {
+            #if DESKTOP
             return client.PurchaseReservedNodeOffering(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PurchaseReservedNodeOfferingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

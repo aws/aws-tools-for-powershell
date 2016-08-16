@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         "This cmdlet returns a ManagedPolicy object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreatePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class NewIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -129,10 +129,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.Path = this.Path;
             context.PolicyDocument = this.PolicyDocument;
             context.PolicyName = this.PolicyName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         private static Amazon.IdentityManagement.Model.CreatePolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreatePolicyRequest request)
         {
+            #if DESKTOP
             return client.CreatePolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

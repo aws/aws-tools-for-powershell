@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeLunaClientResponse",
         "This cmdlet returns a Amazon.CloudHSM.Model.DescribeLunaClientResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class GetHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateFingerprint
@@ -69,8 +69,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CertificateFingerprint = this.CertificateFingerprint;
             context.ClientArn = this.ClientArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -128,7 +134,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.DescribeLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.DescribeLunaClientRequest request)
         {
+            #if DESKTOP
             return client.DescribeLunaClient(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeLunaClientAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

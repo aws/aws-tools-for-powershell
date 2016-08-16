@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a collection of App objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetOPSAppsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSAppsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter AppId
@@ -82,11 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AppId != null)
             {
                 context.AppIds = new List<System.String>(this.AppId);
             }
             context.StackId = this.StackId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -144,7 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DescribeAppsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeAppsRequest request)
         {
+            #if DESKTOP
             return client.DescribeApps(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAppsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

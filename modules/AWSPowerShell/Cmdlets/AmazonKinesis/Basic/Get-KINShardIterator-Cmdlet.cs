@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Kinesis.Model.GetShardIteratorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetKINShardIteratorCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class GetKINShardIteratorCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         #region Parameter ShardId
@@ -153,12 +153,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ShardId = this.ShardId;
             context.ShardIteratorType = this.ShardIteratorType;
             context.StartingSequenceNumber = this.StartingSequenceNumber;
             context.StreamName = this.StreamName;
             if (ParameterWasBound("Timestamp"))
                 context.Timestamp = this.Timestamp;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -228,7 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         private static Amazon.Kinesis.Model.GetShardIteratorResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetShardIteratorRequest request)
         {
+            #if DESKTOP
             return client.GetShardIterator(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetShardIteratorAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.DeleteTrustResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class RemoveDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DeleteAssociatedConditionalForwarder
@@ -87,9 +87,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("DeleteAssociatedConditionalForwarder"))
                 context.DeleteAssociatedConditionalForwarder = this.DeleteAssociatedConditionalForwarder;
             context.TrustId = this.TrustId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -147,7 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.DeleteTrustResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteTrustRequest request)
         {
+            #if DESKTOP
             return client.DeleteTrust(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteTrustAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

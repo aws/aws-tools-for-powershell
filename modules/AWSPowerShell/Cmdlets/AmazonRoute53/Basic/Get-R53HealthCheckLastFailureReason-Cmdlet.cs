@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         "This cmdlet returns a collection of HealthCheckObservation objects.",
         "The service call response (type Amazon.Route53.Model.GetHealthCheckLastFailureReasonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53HealthCheckLastFailureReasonCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53HealthCheckLastFailureReasonCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter HealthCheckId
@@ -64,7 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.HealthCheckId = this.HealthCheckId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,7 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.GetHealthCheckLastFailureReasonResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetHealthCheckLastFailureReasonRequest request)
         {
+            #if DESKTOP
             return client.GetHealthCheckLastFailureReason(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetHealthCheckLastFailureReasonAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

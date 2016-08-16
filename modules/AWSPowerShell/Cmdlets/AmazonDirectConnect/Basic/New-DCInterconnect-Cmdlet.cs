@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateInterconnectResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.CreateInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class NewDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter Bandwidth
@@ -114,9 +114,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Bandwidth = this.Bandwidth;
             context.InterconnectName = this.InterconnectName;
             context.Location = this.Location;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -178,7 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         private static Amazon.DirectConnect.Model.CreateInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreateInterconnectRequest request)
         {
+            #if DESKTOP
             return client.CreateInterconnect(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateInterconnectAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

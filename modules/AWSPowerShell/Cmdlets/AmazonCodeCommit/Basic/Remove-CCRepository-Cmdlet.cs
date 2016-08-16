@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodeCommit.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class RemoveCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
         #region Parameter RepositoryName
@@ -81,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.RepositoryName = this.RepositoryName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         private static Amazon.CodeCommit.Model.DeleteRepositoryResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.DeleteRepositoryRequest request)
         {
+            #if DESKTOP
             return client.DeleteRepository(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteRepositoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

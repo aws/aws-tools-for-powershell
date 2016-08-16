@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a DBParameterGroup object.",
         "The service call response (type Amazon.RDS.Model.CopyDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class CopyRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class CopyRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter SourceDBParameterGroupIdentifier
@@ -112,6 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.SourceDBParameterGroupIdentifier = this.SourceDBParameterGroupIdentifier;
             if (this.Tag != null)
             {
@@ -119,6 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.TargetDBParameterGroupDescription = this.TargetDBParameterGroupDescription;
             context.TargetDBParameterGroupIdentifier = this.TargetDBParameterGroupIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -184,7 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.CopyDBParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CopyDBParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.CopyDBParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CopyDBParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.ReplaceTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class SetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter TopicRulePayload_Action
@@ -139,6 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.RuleName = this.RuleName;
             if (this.TopicRulePayload_Action != null)
             {
@@ -149,6 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (ParameterWasBound("TopicRulePayload_RuleDisabled"))
                 context.TopicRulePayload_RuleDisabled = this.TopicRulePayload_RuleDisabled;
             context.TopicRulePayload_Sql = this.TopicRulePayload_Sql;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -263,7 +269,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.ReplaceTopicRuleResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ReplaceTopicRuleRequest request)
         {
+            #if DESKTOP
             return client.ReplaceTopicRule(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ReplaceTopicRuleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

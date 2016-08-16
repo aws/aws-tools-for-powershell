@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "The service call response (type Amazon.GameLift.Model.ListFleetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter BuildId
@@ -93,10 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BuildId = this.BuildId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -202,7 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.ListFleetsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListFleetsRequest request)
         {
+            #if DESKTOP
             return client.ListFleets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListFleetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

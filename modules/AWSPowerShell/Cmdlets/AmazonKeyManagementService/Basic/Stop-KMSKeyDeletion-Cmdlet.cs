@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.KeyManagementService.Model.CancelKeyDeletionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopKMSKeyDeletionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class StopKMSKeyDeletionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter KeyId
@@ -84,7 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.KeyId = this.KeyId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -138,7 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.CancelKeyDeletionResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.CancelKeyDeletionRequest request)
         {
+            #if DESKTOP
             return client.CancelKeyDeletion(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CancelKeyDeletionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         "This cmdlet returns a collection of MetricAlarm objects.",
         "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmsForMetricResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCWAlarmForMetricCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
+    public partial class GetCWAlarmForMetricCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         #region Parameter Dimension
@@ -115,6 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Dimension != null)
             {
                 context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
@@ -125,6 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Period = this.Period;
             context.Statistic = this.Statistic;
             context.Unit = this.Unit;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         private static Amazon.CloudWatch.Model.DescribeAlarmsForMetricResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmsForMetricRequest request)
         {
+            #if DESKTOP
             return client.DescribeAlarmsForMetric(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAlarmsForMetricAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

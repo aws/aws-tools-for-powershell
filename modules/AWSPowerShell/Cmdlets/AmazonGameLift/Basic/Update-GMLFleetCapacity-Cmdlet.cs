@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.GameLift.Model.UpdateFleetCapacityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateGMLFleetCapacityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class UpdateGMLFleetCapacityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter DesiredInstance
@@ -125,6 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("DesiredInstance"))
                 context.DesiredInstances = this.DesiredInstance;
             context.FleetId = this.FleetId;
@@ -132,6 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.MaxSize = this.MaxSize;
             if (ParameterWasBound("MinSize"))
                 context.MinSize = this.MinSize;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -197,7 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.UpdateFleetCapacityResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateFleetCapacityRequest request)
         {
+            #if DESKTOP
             return client.UpdateFleetCapacity(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateFleetCapacityAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

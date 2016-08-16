@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeResourceGroupsResponse",
         "This cmdlet returns a Amazon.Inspector.Model.DescribeResourceGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class GetINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceGroupArn
@@ -60,10 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ResourceGroupArn != null)
             {
                 context.ResourceGroupArns = new List<System.String>(this.ResourceGroupArn);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -117,7 +123,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.DescribeResourceGroupsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DescribeResourceGroupsRequest request)
         {
+            #if DESKTOP
             return client.DescribeResourceGroups(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeResourceGroupsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

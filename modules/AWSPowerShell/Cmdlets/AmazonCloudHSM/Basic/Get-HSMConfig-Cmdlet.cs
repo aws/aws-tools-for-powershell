@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdletOutput("Amazon.CloudHSM.Model.GetConfigResponse",
         "This cmdlet returns a Amazon.CloudHSM.Model.GetConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
         #region Parameter ClientArn
@@ -82,12 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientArn = this.ClientArn;
             context.ClientVersion = this.ClientVersion;
             if (this.HapgList != null)
             {
                 context.HapgList = new List<System.String>(this.HapgList);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         private static Amazon.CloudHSM.Model.GetConfigResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.GetConfigRequest request)
         {
+            #if DESKTOP
             return client.GetConfig(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetConfigAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

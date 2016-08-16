@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.S3.Model.GetBucketPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetS3BucketPolicyCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class GetS3BucketPolicyCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #endregion
         
+        #region Parameter UseDualstackEndpoint
+        /// <summary>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
+        
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -70,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.BucketName = this.BucketName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -124,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         private static Amazon.S3.Model.GetBucketPolicyResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketPolicyRequest request)
         {
+            #if DESKTOP
             return client.GetBucketPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetBucketPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

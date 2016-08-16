@@ -28,8 +28,18 @@ using Amazon.ElasticLoadBalancing.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
-    /// Associates, updates, or disables a policy with a listener for the specified load balancer.
-    /// You can associate multiple policies with a listener.
+    /// Replaces the current set of policies for the specified load balancer port with the
+    /// specified set of policies.
+    /// 
+    ///  
+    /// <para>
+    /// To enable back-end server authentication, use <a>SetLoadBalancerPoliciesForBackendServer</a>.
+    /// </para><para>
+    /// For more information about setting policies, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/ssl-config-update.html">Update
+    /// the SSL Negotiation Configuration</a>, <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
+    /// Session Stickiness</a>, and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
+    /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBLoadBalancerPolicyOfListener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -38,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerPoliciesOfListenerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetELBLoadBalancerPolicyOfListenerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class SetELBLoadBalancerPolicyOfListenerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerName
@@ -54,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter LoadBalancerPort
         /// <summary>
         /// <para>
-        /// <para>The external port of the load balancer for the policy.</para>
+        /// <para>The external port of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -64,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The names of the policies. If the list is empty, the current policy is removed from
-        /// the listener.</para>
+        /// <para>The names of the policies. This list must include all policies to be enabled. If you
+        /// omit a policy that is currently enabled, it is disabled. If the list is empty, all
+        /// current policies are disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -108,6 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.LoadBalancerName = this.LoadBalancerName;
             if (ParameterWasBound("LoadBalancerPort"))
                 context.LoadBalancerPort = this.LoadBalancerPort;
@@ -115,6 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             {
                 context.PolicyNames = new List<System.String>(this.PolicyName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -178,7 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.SetLoadBalancerPoliciesOfListenerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.SetLoadBalancerPoliciesOfListenerRequest request)
         {
+            #if DESKTOP
             return client.SetLoadBalancerPoliciesOfListener(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetLoadBalancerPoliciesOfListenerAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

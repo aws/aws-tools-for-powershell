@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         "The service call response (type Amazon.DataPipeline.Model.ListPipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: HasMoreResults (type System.Boolean), Marker (type System.String)"
     )]
-    public class GetDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class GetDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter Marker
@@ -65,7 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Marker = this.Marker;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -154,7 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.ListPipelinesResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ListPipelinesRequest request)
         {
+            #if DESKTOP
             return client.ListPipelines(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListPipelinesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

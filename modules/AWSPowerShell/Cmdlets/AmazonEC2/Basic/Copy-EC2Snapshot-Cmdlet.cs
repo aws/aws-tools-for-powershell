@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.EC2.Model.CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class CopyEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class CopyEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -165,6 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.DestinationRegion = this.DestinationRegion;
             if (ParameterWasBound("Encrypted"))
@@ -172,6 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.KmsKeyId = this.KmsKeyId;
             context.SourceRegion = this.SourceRegion;
             context.SourceSnapshotId = this.SourceSnapshotId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -245,7 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.CopySnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopySnapshotRequest request)
         {
+            #if DESKTOP
             return client.CopySnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CopySnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

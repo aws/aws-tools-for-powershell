@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         "This cmdlet returns a collection of VirtualGateway objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDCVirtualGatewayCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class GetDCVirtualGatewayCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -58,6 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -107,7 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         private static Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeVirtualGatewaysRequest request)
         {
+            #if DESKTOP
             return client.DescribeVirtualGateways(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeVirtualGatewaysAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

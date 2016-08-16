@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.RevokeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RevokeEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RevokeEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter GroupId
@@ -119,12 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GroupId = this.GroupId;
             context.GroupName = this.GroupName;
             if (this.IpPermission != null)
             {
                 context.IpPermissions = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -188,7 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.RevokeSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RevokeSecurityGroupIngressRequest request)
         {
+            #if DESKTOP
             return client.RevokeSecurityGroupIngress(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RevokeSecurityGroupIngressAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

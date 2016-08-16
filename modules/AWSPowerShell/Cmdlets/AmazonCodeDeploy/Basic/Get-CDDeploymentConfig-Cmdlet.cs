@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "This cmdlet returns a DeploymentConfigInfo object.",
         "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
+    public partial class GetCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentConfigName
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DeploymentConfigName = this.DeploymentConfigName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,7 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         private static Amazon.CodeDeploy.Model.GetDeploymentConfigResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.GetDeploymentConfigRequest request)
         {
+            #if DESKTOP
             return client.GetDeploymentConfig(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetDeploymentConfigAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

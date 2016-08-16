@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         "This cmdlet returns a TrafficPolicy object.",
         "The service call response (type Amazon.Route53.Model.UpdateTrafficPolicyCommentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateR53TrafficPolicyCommentCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class UpdateR53TrafficPolicyCommentCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter Comment
@@ -107,10 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
             if (ParameterWasBound("Version"))
                 context.Version = this.Version;
             context.Comment = this.Comment;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.UpdateTrafficPolicyCommentResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateTrafficPolicyCommentRequest request)
         {
+            #if DESKTOP
             return client.UpdateTrafficPolicyComment(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateTrafficPolicyCommentAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

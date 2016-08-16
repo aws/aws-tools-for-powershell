@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.Redshift.Model.RebootClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RestartRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class RestartRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterIdentifier
@@ -81,7 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterIdentifier = this.ClusterIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.RebootClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RebootClusterRequest request)
         {
+            #if DESKTOP
             return client.RebootCluster(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RebootClusterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FileSystemId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticFileSystem.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
         #region Parameter FileSystemId
@@ -105,11 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FileSystemId = this.FileSystemId;
             if (this.TagKey != null)
             {
                 context.TagKeys = new List<System.String>(this.TagKey);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -169,7 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         private static Amazon.ElasticFileSystem.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DeleteTagsRequest request)
         {
+            #if DESKTOP
             return client.DeleteTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

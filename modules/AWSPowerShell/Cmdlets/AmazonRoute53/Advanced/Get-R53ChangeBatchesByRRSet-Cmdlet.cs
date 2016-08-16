@@ -304,7 +304,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         private static Amazon.Route53.Model.ListChangeBatchesByRRSetResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListChangeBatchesByRRSetRequest request)
         {
+#if DESKTOP
             return client.ListChangeBatchesByRRSet(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListChangeBatchesByRRSetAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "Returns the secondary private IP addresses when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.UnassignPrivateIpAddressesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UnregisterEC2PrivateIpAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class UnregisterEC2PrivateIpAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter NetworkInterfaceId
@@ -97,11 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             if (this.PrivateIpAddress != null)
             {
                 context.PrivateIpAddresses = new List<System.String>(this.PrivateIpAddress);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.UnassignPrivateIpAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnassignPrivateIpAddressesRequest request)
         {
+            #if DESKTOP
             return client.UnassignPrivateIpAddresses(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UnassignPrivateIpAddressesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

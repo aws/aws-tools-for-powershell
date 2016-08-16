@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RemoveRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBSubnetGroupName
@@ -90,7 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -146,7 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.DeleteDBSubnetGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBSubnetGroupRequest request)
         {
+            #if DESKTOP
             return client.DeleteDBSubnetGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteDBSubnetGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

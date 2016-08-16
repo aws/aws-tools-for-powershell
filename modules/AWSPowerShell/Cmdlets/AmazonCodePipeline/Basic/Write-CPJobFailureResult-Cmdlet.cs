@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodePipeline.Model.PutJobFailureResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCPJobFailureResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class WriteCPJobFailureResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter FailureDetails_ExternalExecutionId
@@ -118,10 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FailureDetails_ExternalExecutionId = this.FailureDetails_ExternalExecutionId;
             context.FailureDetails_Message = this.FailureDetails_Message;
             context.FailureDetails_Type = this.FailureDetails_Type;
             context.JobId = this.JobId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -216,7 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.PutJobFailureResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutJobFailureResultRequest request)
         {
+            #if DESKTOP
             return client.PutJobFailureResult(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutJobFailureResultAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

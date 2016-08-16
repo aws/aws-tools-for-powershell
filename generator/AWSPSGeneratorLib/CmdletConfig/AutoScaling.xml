@@ -37,6 +37,7 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="AttachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
+    <ServiceOperation MethodName="AttachLoadBalancerTargetGroups" Output="Void" Noun="LoadBalancerTargetGroup" />
     <ServiceOperation MethodName="AttachInstances" Output="Void" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName">
       <PassThru>
         <Expression>cmdletContext.InstanceIds</Expression>
@@ -72,6 +73,7 @@
     <ServiceOperation MethodName="DescribeLaunchConfigurations" />
     <ServiceOperation MethodName="DescribeLifecycleHooks" PositionalParameters="LifecycleHookNames"/>
     <ServiceOperation MethodName="DescribeLifecycleHookTypes"/>
+    <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" Noun="LoadBalancerTargetGroup" />
     <ServiceOperation MethodName="DescribeMetricCollectionTypes" Output="Response"/>
     <ServiceOperation MethodName="DescribeNotificationConfigurations" />
     <ServiceOperation MethodName="DescribePolicies" PositionalParameters="PolicyNames"/>
@@ -81,6 +83,7 @@
     <ServiceOperation MethodName="DescribeTags" />
     <ServiceOperation MethodName="DescribeTerminationPolicyTypes"/>
     <ServiceOperation MethodName="DetachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
+    <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Output="Void" Noun="LoadBalancerTargetGroup" />
     <ServiceOperation MethodName="DetachInstances" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName"/>
     <ServiceOperation MethodName="DisableMetricsCollection" Output="Void" PositionalParameters="Metrics"/>
     <ServiceOperation MethodName="EnterStandby" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName;ShouldDecrementDesiredCapacity"/>

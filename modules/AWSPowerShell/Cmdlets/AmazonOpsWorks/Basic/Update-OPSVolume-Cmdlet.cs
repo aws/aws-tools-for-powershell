@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.UpdateVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class UpdateOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter MountPoint
@@ -113,9 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.MountPoint = this.MountPoint;
             context.Name = this.Name;
             context.VolumeId = this.VolumeId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -179,7 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.UpdateVolumeResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.UpdateVolumeRequest request)
         {
+            #if DESKTOP
             return client.UpdateVolume(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateVolumeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

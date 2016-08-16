@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         "The service call response (type Amazon.ECS.Model.ListTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetECSTasksCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class GetECSTasksCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
         #region Parameter Cluster
@@ -76,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DesiredStatus
         /// <summary>
         /// <para>
-        /// <para>The task status with which to filter the <code>ListTasks</code> results. Specifying
+        /// <para>The task desired status with which to filter the <code>ListTasks</code> results. Specifying
         /// a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to tasks that
-        /// are in the <code>STOPPED</code> status, which can be useful for debugging tasks that
-        /// are not starting properly or have died or finished. The default status filter is status
+        /// ECS has set the desired status to <code>STOPPED</code>, which can be useful for debugging
+        /// tasks that are not starting properly or have died or finished. The default status
         /// filter is <code>RUNNING</code>, which shows tasks that ECS has set the desired status
         /// to <code>RUNNING</code>.</para><note><para>Although you can filter results based on a desired status of <code>PENDING</code>,
         /// this will not return any results because ECS never sets the desired status of a task
@@ -167,6 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Cluster = this.Cluster;
             context.ContainerInstance = this.ContainerInstance;
             context.DesiredStatus = this.DesiredStatus;
@@ -176,6 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.NextToken = this.NextToken;
             context.ServiceName = this.ServiceName;
             context.StartedBy = this.StartedBy;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -301,7 +307,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         private static Amazon.ECS.Model.ListTasksResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListTasksRequest request)
         {
+            #if DESKTOP
             return client.ListTasks(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTasksAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a ReplicationGroup object.",
         "The service call response (type Amazon.ElastiCache.Model.DeleteReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class RemoveECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter FinalSnapshotIdentifier
@@ -109,10 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FinalSnapshotIdentifier = this.FinalSnapshotIdentifier;
             context.ReplicationGroupId = this.ReplicationGroupId;
             if (ParameterWasBound("RetainPrimaryCluster"))
                 context.RetainPrimaryCluster = this.RetainPrimaryCluster;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -174,7 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.DeleteReplicationGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteReplicationGroupRequest request)
         {
+            #if DESKTOP
             return client.DeleteReplicationGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteReplicationGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -1,3 +1,4 @@
+#if DESKTOP
 /*******************************************************************************
  *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
@@ -618,7 +619,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         private static Amazon.EC2.Model.ImportInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportInstanceRequest request)
         {
+#if DESKTOP
             return client.ImportInstance(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ImportInstanceAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion
@@ -657,3 +666,4 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         }
     }
 }
+#endif

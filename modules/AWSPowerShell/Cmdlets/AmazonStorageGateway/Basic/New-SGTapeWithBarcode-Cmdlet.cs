@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSGTapeWithBarcodeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class NewSGTapeWithBarcodeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter GatewayARN
@@ -105,10 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GatewayARN = this.GatewayARN;
             context.TapeBarcode = this.TapeBarcode;
             if (ParameterWasBound("TapeSizeInByte"))
                 context.TapeSizeInBytes = this.TapeSizeInByte;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateTapeWithBarcodeRequest request)
         {
+            #if DESKTOP
             return client.CreateTapeWithBarcode(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTapeWithBarcodeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

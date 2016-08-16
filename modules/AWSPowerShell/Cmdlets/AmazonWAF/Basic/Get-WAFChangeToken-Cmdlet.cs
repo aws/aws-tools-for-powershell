@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.GetChangeTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetWAFChangeTokenCmdlet : AmazonWAFClientCmdlet, IExecutor
+    public partial class GetWAFChangeTokenCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
         
         protected override void ProcessRecord()
@@ -65,6 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         private static Amazon.WAF.Model.GetChangeTokenResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetChangeTokenRequest request)
         {
+            #if DESKTOP
             return client.GetChangeToken(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetChangeTokenAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

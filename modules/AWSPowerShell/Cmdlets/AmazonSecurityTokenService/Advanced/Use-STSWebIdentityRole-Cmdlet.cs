@@ -257,7 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.STS
 
         private static Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityRequest request)
         {
+#if DESKTOP
             return client.AssumeRoleWithWebIdentity(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AssumeRoleWithWebIdentityAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

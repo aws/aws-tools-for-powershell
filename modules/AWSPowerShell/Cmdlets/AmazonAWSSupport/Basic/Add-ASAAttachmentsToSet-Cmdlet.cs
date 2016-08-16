@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdletOutput("Amazon.AWSSupport.Model.AddAttachmentsToSetResponse",
         "This cmdlet returns a Amazon.AWSSupport.Model.AddAttachmentsToSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddASAAttachmentsToSetCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
+    public partial class AddASAAttachmentsToSetCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
         #region Parameter Attachment
@@ -102,11 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Attachment != null)
             {
                 context.Attachments = new List<Amazon.AWSSupport.Model.Attachment>(this.Attachment);
             }
             context.AttachmentSetId = this.AttachmentSetId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -164,7 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         private static Amazon.AWSSupport.Model.AddAttachmentsToSetResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddAttachmentsToSetRequest request)
         {
+            #if DESKTOP
             return client.AddAttachmentsToSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddAttachmentsToSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

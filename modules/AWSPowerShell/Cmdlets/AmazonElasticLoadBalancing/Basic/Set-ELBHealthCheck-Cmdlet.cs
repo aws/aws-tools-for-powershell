@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
     /// Specifies the health check settings to use when evaluating the health state of your
-    /// back-end instances.
+    /// EC2 instances.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html">Configure
-    /// Health Checks</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure
+    /// Health Checks for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBHealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "This cmdlet returns a HealthCheck object.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetELBHealthCheckCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class SetELBHealthCheckCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter HealthCheck_HealthyThreshold
@@ -142,6 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("HealthCheck_HealthyThreshold"))
                 context.HealthCheck_HealthyThreshold = this.HealthCheck_HealthyThreshold;
             if (ParameterWasBound("HealthCheck_Interval"))
@@ -152,6 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             if (ParameterWasBound("HealthCheck_UnhealthyThreshold"))
                 context.HealthCheck_UnhealthyThreshold = this.HealthCheck_UnhealthyThreshold;
             context.LoadBalancerName = this.LoadBalancerName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -264,7 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckRequest request)
         {
+            #if DESKTOP
             return client.ConfigureHealthCheck(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ConfigureHealthCheckAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

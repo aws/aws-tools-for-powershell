@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         "This cmdlet returns a collection of TrustedAdvisorCheckSummary objects.",
         "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetASATrustedAdvisorCheckSummariesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
+    public partial class GetASATrustedAdvisorCheckSummariesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
         #region Parameter CheckId
@@ -67,10 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.CheckId != null)
             {
                 context.CheckIds = new List<System.String>(this.CheckId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -124,7 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         private static Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckSummariesResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckSummariesRequest request)
         {
+            #if DESKTOP
             return client.DescribeTrustedAdvisorCheckSummaries(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeTrustedAdvisorCheckSummariesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

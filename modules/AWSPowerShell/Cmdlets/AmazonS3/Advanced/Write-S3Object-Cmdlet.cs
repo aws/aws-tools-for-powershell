@@ -318,6 +318,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter UseAccelerateEndpoint { get; set; }
         #endregion
 
+        #region Parameter UseDualstackEndpoint
+        /// <summary>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
+
+        #endregion
+
         #endregion
 
         #region TransferUtility Params
@@ -380,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder.Trim());
                 context.Recurse = this.Recurse.IsPresent;
                 context.OriginalKeyPrefix = this.KeyPrefix;
-                if (!rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.InvariantCultureIgnoreCase))
+                if (!rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase))
                     context.KeyPrefix = AmazonS3Helper.CleanKey(this.KeyPrefix);
                 if (!string.IsNullOrEmpty(this.SearchPattern))
                     context.SearchPattern = this.SearchPattern;
@@ -613,7 +624,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private static Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
         {
+#if DESKTOP
             return client.PutObject(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutObjectAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

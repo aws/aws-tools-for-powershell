@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.KinesisFirehose.Model.UpdateDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateKINFDestinationCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
+    public partial class UpdateKINFDestinationCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
         #region Parameter CurrentDeliveryStreamVersionId
@@ -292,6 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CurrentDeliveryStreamVersionId = this.CurrentDeliveryStreamVersionId;
             context.DeliveryStreamName = this.DeliveryStreamName;
             context.DestinationId = this.DestinationId;
@@ -313,6 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.ElasticsearchDestinationUpdate_TypeName = this.ElasticsearchDestinationUpdate_TypeName;
             context.RedshiftDestinationUpdate = this.RedshiftDestinationUpdate;
             context.S3DestinationUpdate = this.S3DestinationUpdate;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -556,7 +562,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         private static Amazon.KinesisFirehose.Model.UpdateDestinationResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.UpdateDestinationRequest request)
         {
+            #if DESKTOP
             return client.UpdateDestination(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateDestinationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

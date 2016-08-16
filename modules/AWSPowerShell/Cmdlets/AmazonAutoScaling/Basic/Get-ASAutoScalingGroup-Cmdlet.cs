@@ -28,8 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more Auto Scaling groups. If a list of names is not provided, the
-    /// call describes all Auto Scaling groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more Auto Scaling groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingGroup")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingGroup")]
@@ -39,13 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The group names.</para>
+        /// <para>The group names. If you omit this parameter, all Auto Scaling groups are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -85,6 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AutoScalingGroupName != null)
             {
                 context.AutoScalingGroupNames = new List<System.String>(this.AutoScalingGroupName);
@@ -92,6 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -197,7 +202,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAutoScalingGroupsRequest request)
         {
+            #if DESKTOP
             return client.DescribeAutoScalingGroups(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAutoScalingGroupsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         "This cmdlet returns a collection of Interconnect objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class GetDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter InterconnectId
@@ -65,7 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InterconnectId = this.InterconnectId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,7 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         private static Amazon.DirectConnect.Model.DescribeInterconnectsResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeInterconnectsRequest request)
         {
+            #if DESKTOP
             return client.DescribeInterconnects(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeInterconnectsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

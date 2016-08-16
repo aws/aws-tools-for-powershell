@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeChangeSetResponse",
         "This cmdlet returns a Amazon.CloudFormation.Model.DescribeChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter ChangeSetName
@@ -83,9 +83,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ChangeSetName = this.ChangeSetName;
             context.NextToken = this.NextToken;
             context.StackName = this.StackName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -147,7 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.DescribeChangeSetResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeChangeSetRequest request)
         {
+            #if DESKTOP
             return client.DescribeChangeSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeChangeSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

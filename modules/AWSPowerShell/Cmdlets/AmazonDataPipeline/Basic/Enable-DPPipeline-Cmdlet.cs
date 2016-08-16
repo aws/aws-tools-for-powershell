@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DataPipeline.Model.ActivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class EnableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ParameterValue
@@ -117,6 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ParameterValue != null)
             {
                 context.ParameterValues = new List<Amazon.DataPipeline.Model.ParameterValue>(this.ParameterValue);
@@ -124,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
             context.PipelineId = this.PipelineId;
             if (ParameterWasBound("StartTimestamp"))
                 context.StartTimestamp = this.StartTimestamp;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -187,7 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.ActivatePipelineResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ActivatePipelineRequest request)
         {
+            #if DESKTOP
             return client.ActivatePipeline(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ActivatePipelineAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

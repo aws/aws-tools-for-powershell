@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a collection of Stack objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetOPSStacksCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSStacksCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter StackId
@@ -69,10 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.StackId != null)
             {
                 context.StackIds = new List<System.String>(this.StackId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -126,7 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DescribeStacksResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeStacksRequest request)
         {
+            #if DESKTOP
             return client.DescribeStacks(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeStacksAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

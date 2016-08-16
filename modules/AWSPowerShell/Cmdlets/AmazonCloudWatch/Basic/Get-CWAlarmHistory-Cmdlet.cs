@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetCWAlarmHistoryCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
+    public partial class GetCWAlarmHistoryCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         #region Parameter AlarmName
@@ -120,6 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AlarmName = this.AlarmName;
             if (ParameterWasBound("EndDate"))
                 context.EndDate = this.EndDate;
@@ -129,6 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.NextToken = this.NextToken;
             if (ParameterWasBound("StartDate"))
                 context.StartDate = this.StartDate;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -246,7 +252,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         private static Amazon.CloudWatch.Model.DescribeAlarmHistoryResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmHistoryRequest request)
         {
+            #if DESKTOP
             return client.DescribeAlarmHistory(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAlarmHistoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

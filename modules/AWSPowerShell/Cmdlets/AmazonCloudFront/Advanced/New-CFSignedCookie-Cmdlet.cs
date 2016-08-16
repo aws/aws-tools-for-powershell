@@ -138,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
 
         private CookiesForCustomPolicy CreateSignedCookiesForCustomPolicy()
         {
-            using (var reader = new StreamReader(PrivateKeyFile))
+            // coreclr StreamReader does not have ctor that takes filename
+            using (var fs = File.OpenRead(PrivateKeyFile))
+            using (var reader = new StreamReader(fs))
             {
                 return AmazonCloudFrontCookieSigner.GetCookiesForCustomPolicy(ResourceUri.ToString(),
                                                                                 reader,

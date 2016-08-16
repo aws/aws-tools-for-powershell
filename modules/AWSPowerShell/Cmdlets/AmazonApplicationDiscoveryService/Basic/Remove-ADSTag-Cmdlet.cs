@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationDiscoveryService.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveADSTagCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class RemoveADSTagCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ConfigurationId
@@ -99,6 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ConfigurationId != null)
             {
                 context.ConfigurationIds = new List<System.String>(this.ConfigurationId);
@@ -107,6 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 context.Tags = new List<Amazon.ApplicationDiscoveryService.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         private static Amazon.ApplicationDiscoveryService.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteTagsRequest request)
         {
+            #if DESKTOP
             return client.DeleteTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

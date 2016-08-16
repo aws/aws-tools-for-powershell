@@ -9,6 +9,7 @@ using AWSPowerShellGenerator.CmdletConfig;
 using AWSPowerShellGenerator.Utils;
 using AWSPowerShellGenerator.Writers;
 using AWSPowerShellGenerator.Writers.SourceCode;
+using System.Text;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -113,10 +114,18 @@ namespace AWSPowerShellGenerator.Generators
         public const string CmdletGeneratorConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig";
 
         public const string CmdletsOutputSubFoldername = "Cmdlets";
+        public const string ArgumentCompletersSubFoldername = "ArgumentCompleters";
+        public const string ArgumentCompleterScriptFileSuffix = "ArgumentCompleters.ps1";
         public const string GeneratedCmdletsFoldername = "Basic";
 
-        public const string AWSPowerShellProjectFilename = "AWSPowerShell.csproj";
-        public const string AWSPowerShellModuleManifestFilename = "AWSPowerShell.psd1";
+        public const string AWSPowerShellDesktopProjectFilename = "AWSPowerShell.csproj";
+        public const string AWSPowerShellNetCoreProjectFilename = "AWSPowerShell.NetCore.csproj";
+
+        public const string AWSPowerShellDesktopModuleManifestFilename = "AWSPowerShell.psd1";
+        public const string AWSPowerShellNetCoreModuleManifestFilename = "AWSPowerShell.NetCore.psd1";
+
+		public const string ArgumentCompleterScriptModuleFilename = "AWSPowerShellCompleters.psm1";
+
         public const string AliasesFilename = "AWSAliases.ps1";
 
         public string Aliases
@@ -138,6 +147,35 @@ namespace AWSPowerShellGenerator.Generators
                 sw.WriteLine("</Types>");
                 return sw.ToString();
             }
+        }
+
+        StringBuilder _argumentCompletionScript = new StringBuilder();
+
+        /// <summary>
+        /// Appends a new block of scripts to the completers. This has been proven to be
+        /// a faster approach than one-file-per-service;
+        /// </summary>
+        /// <param name="serviceName">The name of the 'owning' service; used for a comment delimiter</param>
+        /// <param name="scriptContent">The set of completer functions to be added</param>
+        public void AddArgumentCompletionScript(string serviceName, string scriptContent)
+        {
+            if (_argumentCompletionScript.Length > 0)
+                _argumentCompletionScript.AppendLine();
+
+            _argumentCompletionScript.AppendFormat("# Argument completions for service {0}", serviceName);
+            _argumentCompletionScript.AppendLine();
+
+            _argumentCompletionScript.Append(scriptContent);
+            _argumentCompletionScript.AppendLine();
+        }
+
+        /// <summary>
+        /// Returns the argument completer script ready for persisting into a script file.
+        /// </summary>
+        /// <returns></returns>
+        public string GetArgumentCompletionScriptContent()
+        {
+            return _argumentCompletionScript.ToString();
         }
 
         /// <summary>
@@ -190,6 +228,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             SourceArtifacts = new GenerationSources { SdkAssembliesFolder = this.SdkAssembliesFolder };
             LoadCoreSDKRuntimeMaterials();
+            LoadSpecialServiceAssemblies();
 
             CmdletsOutputPath = Path.Combine(OutputFolder, CmdletsOutputSubFoldername);
             var configurationsFolder = Path.Combine(Options.RootPath, CmdletGeneratorConfigurationsFoldername);
@@ -220,6 +259,10 @@ namespace AWSPowerShellGenerator.Generators
                         Console.WriteLine("    Multi-property result operations: {0}", string.Join(", ", CurrentModel.MultiPropertyResultOperations));
                         Console.WriteLine("    Empty result operations: {0}", string.Join(", ", CurrentModel.EmptyResultOperations));
                     }
+
+                    var completionFunctions = GenerateArgumentCompleterScriptFunctions(CurrentModel);
+                    if (!string.IsNullOrEmpty(completionFunctions))
+                        AddArgumentCompletionScript(CurrentModel.ServiceName, completionFunctions);
                 }
                 else
                 {
@@ -229,11 +272,11 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.Log();
             }
 
-            var awspowershellProjectFile = Path.Combine(OutputFolder, AWSPowerShellProjectFilename);
-            var awspowershellModuleManifestFile = Path.Combine(OutputFolder, AWSPowerShellModuleManifestFilename);
+            SourceArtifacts.UpdateSDKAssemblyReferences(OutputFolder);
 
-            SourceArtifacts.UpdateProjectReferences(awspowershellProjectFile);
-            SourceArtifacts.UpdateManifestRequiredAssemblies(awspowershellProjectFile, awspowershellModuleManifestFile);
+            Console.WriteLine("...updating script completers module");
+            var argumentCompleterScriptModuleFile = Path.Combine(OutputFolder, ArgumentCompleterScriptModuleFilename);
+            SourceArtifacts.WriteCompletionScriptsFile(argumentCompleterScriptModuleFile, GetArgumentCompletionScriptContent());
 
             Console.WriteLine("...updating aliases file");
             var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
@@ -322,18 +365,163 @@ namespace AWSPowerShellGenerator.Generators
             var outputRoot = Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder);
             CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder), outputRoot);
 
-            // if the service contains any hand-maintained cmdlets, scan them to update any
-            // ValidateSet attributes for parameters with types derived from ConstantClass
-            UpdateAdvancedCmdlets(outputRoot);
+            // if the service contains any hand-maintained cmdlets, scan them to update the
+            // argument completers for any use of ConstantClass-derived types 
+            ScanAdvancedCmdlets(outputRoot);
         }
 
         /// <summary>
-        /// Scans for any hand-maintained cmdlets and performs update operations on the
-        /// raw text. Currently this just involves updating ValidateSet attributes on 
-        /// parameters with a type derived from the SDK's ConstantClass 'enum' type.
+        /// If the service's cmdlets made use of any ConstantClass-derived 'enum' types, generate
+        /// argument completers that will display when the user types the parameter name (ISE)
+        /// or presses the tab key (console). This gives us ValidateSet-style intellisense without
+        /// the value validation. If a completer script is generated, the filename for the script
+        /// is returned.
+        /// </summary>
+        /// <param name="configModel"></param>
+        /// <returns>The generated script content, if any</returns>
+        private string GenerateArgumentCompleterScriptFunctions(ConfigModel configModel)
+        {
+            if (!configModel.ArgumentCompleters.GenerateCompleters)
+                return null;
+
+            // Used to re-order the final map that we register, alpha order by parameter name.
+            // We could do this with a second iteration of the registered completers by type,
+            // but we'd still need to reorder by parameter so easier to process as we go.       
+            var param2CmdletsMap = new SortedDictionary<string, List<string>>();
+            string scriptContent = null;
+
+            using (var sw = new StringWriter())
+            {
+                using (var writer = new IndentedTextWriter(sw))
+                {
+                    var functionName = string.Format("${0}_Completers", configModel.ServiceNounPrefix);
+                    writer.WriteLine("{0} = {{", functionName);
+                    writer.IncreaseIndent();
+                    writer.WriteLine("param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)");
+                    writer.WriteLine();
+
+                    writer.WriteLine("switch ($(\"$commandName/$parameterName\"))");
+                    writer.OpenRegion();
+
+                    foreach (var rc in configModel.ArgumentCompleters.ReferencedClasses)
+                    {
+                        writer.WriteLine("# {0}", rc);
+
+                        var usage = configModel.ArgumentCompleters.GetReferencesFor(rc);
+                        var parameterNames = usage.ParameterNames;
+
+                        // a ConstantClass-type can be referenced by multiple cmdlets using multiple
+                        // parameter names. In this scenario we need to wrap the 'case' clause inside
+                        // the switch in an expression.
+                        var matchExpressions = new List<string>();
+
+                        foreach (var p in parameterNames)
+                        {
+                            var cmdlets = usage.GetCmdletReferences(p);
+                            foreach (var c in cmdlets)
+                            {
+                                matchExpressions.Add(string.Format("{0}/{1}", c, p));
+                            }
+
+                            if (param2CmdletsMap.ContainsKey(p))
+                                param2CmdletsMap[p].AddRange(cmdlets);
+                            else
+                            {
+                                var l = new List<string>(cmdlets);
+                                param2CmdletsMap.Add(p, l);
+                            }
+                        }
+
+                        var numExpressions = matchExpressions.Count();
+                        if (numExpressions > 1)
+                        {
+                            var lastExpressionIndex = numExpressions - 1;
+                            writer.OpenRegion();
+                            for (var i = 0; i < numExpressions; i++)
+                            {
+                                writer.WriteLine("($_ -eq \"{0}\"){1}",
+                                                 matchExpressions[i], 
+                                                 i < lastExpressionIndex ? " -Or" : "");
+                            }
+                            writer.CloseRegion();
+                        }
+                        else
+                            writer.WriteLine("\"{0}\"", matchExpressions[0]);
+
+                        writer.OpenRegion();
+
+                        var members = configModel.ArgumentCompleters.GetConstantClassMembers(rc);
+                        var sb = new StringBuilder();
+                        foreach (var m in members)
+                        {
+                            if (sb.Length > 0)
+                                sb.Append(",");
+                            sb.AppendFormat("\"{0}\"", m);
+                        }
+
+                        writer.WriteLine("$v = {0}", sb.ToString());
+                        writer.WriteLine("break");
+                        writer.CloseRegion();
+                        writer.WriteLine();
+                    }
+
+                    writer.CloseRegion();
+
+                    writer.WriteLine();
+
+                    writer.WriteLine("$v |");
+                    writer.IncreaseIndent();
+                    writer.WriteLine("Where-Object { $_ -like \"$wordToComplete*\" } |");
+                    // the single-arg ctor doesn't give us the pop-up list behavior we want, so we have to use the
+                    // 4 item ctor - it in turn doesn't work unless we provide values for all 4 args (giving an empty
+                    // string for tooltip also doesn't seem to work)
+                    writer.WriteLine("ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }");
+
+                    writer.DecreaseIndent();
+                    writer.DecreaseIndent();
+                    writer.WriteLine("}");
+
+                    writer.WriteLine();
+
+                    // output the call to the registration function of all parameter names and
+                    // owning cmdlets that will use this completer, by iterating again over the
+                    // reference data
+                    writer.WriteLine("${0}_map = @{{", configModel.ServiceNounPrefix);
+                    writer.IncreaseIndent();
+                    foreach (var p in param2CmdletsMap.Keys)
+                    {
+                        var cmdlets = param2CmdletsMap[p];
+                        cmdlets.Sort();
+
+                        var sb = new StringBuilder();
+                        foreach (var c in cmdlets)
+                        {
+                            if (sb.Length > 0)
+                                sb.Append(",");
+                            sb.AppendFormat("\"{0}\"", c);
+                        }
+
+                        writer.WriteLine("\"{0}\"=@({1})", p, sb.ToString());
+                    }
+
+                    writer.DecreaseIndent();
+                    writer.WriteLine("}");
+                    writer.WriteLine();
+                    writer.WriteLine("_awsArgumentCompleterRegistration ${0}_Completers ${0}_map", configModel.ServiceNounPrefix);
+                }
+
+                scriptContent = sw.ToString();
+            }
+
+            return scriptContent;
+        }
+
+        /// <summary>
+        /// Scans for any hand-maintained cmdlets. For now this is just to find usage of ConstantClass-derived
+        /// types so that we can add them to the argument completers.
         /// </summary>
         /// <param name="outputRoot">The root output folder for the service being generated.</param>
-        private void UpdateAdvancedCmdlets(string outputRoot)
+        private void ScanAdvancedCmdlets(string outputRoot)
         {
             var advancedCmdletsFolder = Path.Combine(outputRoot, "Advanced");
             if (!Directory.Exists(advancedCmdletsFolder))
@@ -342,8 +530,8 @@ namespace AWSPowerShellGenerator.Generators
             var sourceFiles = Directory.GetFiles(advancedCmdletsFolder, "*.cs");
             foreach (var sourceFile in sourceFiles)
             {
-                var updater = new ValidateSetUpdater(sourceFile, CurrentServiceAssembly, Logger);
-                updater.ParseAndUpdate();
+                var scanner = new AdvancedCmdletScanner(sourceFile, CurrentModel, CurrentServiceAssembly, Logger);
+                scanner.Scan();
             }
         }
 
@@ -638,6 +826,28 @@ namespace AWSPowerShellGenerator.Generators
 
             SourceArtifacts.Load(CoreSDKRuntimeAssemblyName, out coreRuntimeAssembly, out coreRuntimeNDoc);
             SdkBaseRequestType = coreRuntimeAssembly.GetType("Amazon.Runtime.AmazonWebServiceRequest");
+        }
+
+        /// <summary>
+        /// Ensures we know of references to sdk service assemblies that the generator does
+        /// not process cmdlets for, but for which cmdlets exist (as handwritten versions).
+        /// This ensures we take the assemblies into account when updating project and manifest
+        /// files etc.
+        /// </summary>
+        private void LoadSpecialServiceAssemblies()
+        {
+            string[] specialAssemblies = new[]
+            {
+                "AWSSDK.CloudSearchDomain"
+            };
+
+            Assembly assembly;
+            XmlDocument assemblyNDoc;
+
+            foreach (var a in specialAssemblies)
+            {
+                SourceArtifacts.Load(a, out assembly, out assemblyNDoc);
+            }
         }
 
         #endregion

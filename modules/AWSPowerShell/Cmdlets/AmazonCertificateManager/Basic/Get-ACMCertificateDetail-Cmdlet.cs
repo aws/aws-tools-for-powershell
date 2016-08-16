@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         "This cmdlet returns a CertificateDetail object.",
         "The service call response (type Amazon.CertificateManager.Model.DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetACMCertificateDetailCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    public partial class GetACMCertificateDetailCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
         #region Parameter CertificateArn
@@ -65,7 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CertificateArn = this.CertificateArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,7 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         private static Amazon.CertificateManager.Model.DescribeCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.DescribeCertificateRequest request)
         {
+            #if DESKTOP
             return client.DescribeCertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeCertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

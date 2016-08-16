@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a EventSubscription object.",
         "The service call response (type Amazon.Redshift.Model.CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class NewRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter Enabled
@@ -185,6 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Enabled"))
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
@@ -203,6 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -284,7 +290,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.CreateEventSubscriptionResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateEventSubscriptionRequest request)
         {
+            #if DESKTOP
             return client.CreateEventSubscription(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateEventSubscriptionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

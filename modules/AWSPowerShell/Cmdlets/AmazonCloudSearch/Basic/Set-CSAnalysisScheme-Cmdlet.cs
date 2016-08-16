@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a AnalysisSchemeStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DefineAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class SetCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter AnalysisOptions_AlgorithmicStemming
@@ -176,6 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AnalysisScheme_AnalysisOptions_AlgorithmicStemming = this.AnalysisOptions_AlgorithmicStemming;
             context.AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary = this.AnalysisOptions_JapaneseTokenizationDictionary;
             context.AnalysisScheme_AnalysisOptions_StemmingDictionary = this.AnalysisOptions_StemmingDictionary;
@@ -184,6 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
             context.AnalysisScheme_AnalysisSchemeLanguage = this.AnalysisScheme_AnalysisSchemeLanguage;
             context.AnalysisScheme_AnalysisSchemeName = this.AnalysisScheme_AnalysisSchemeName;
             context.DomainName = this.DomainName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -331,7 +337,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.DefineAnalysisSchemeResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DefineAnalysisSchemeRequest request)
         {
+            #if DESKTOP
             return client.DefineAnalysisScheme(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DefineAnalysisSchemeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         "This cmdlet returns a collection of SuggesterStatus objects.",
         "The service call response (type Amazon.CloudSearch.Model.DescribeSuggestersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
+    public partial class GetCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
         
         #region Parameter Deployed
@@ -87,6 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("Deployed"))
                 context.Deployed = this.Deployed;
             context.DomainName = this.DomainName;
@@ -94,6 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
             {
                 context.SuggesterNames = new List<System.String>(this.SuggesterName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -155,7 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         private static Amazon.CloudSearch.Model.DescribeSuggestersResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeSuggestersRequest request)
         {
+            #if DESKTOP
             return client.DescribeSuggesters(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeSuggestersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "This cmdlet returns a collection of PlayerSession objects.",
         "The service call response (type Amazon.GameLift.Model.CreatePlayerSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewGMLPlayerSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class NewGMLPlayerSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter GameSessionId
@@ -98,11 +98,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GameSessionId = this.GameSessionId;
             if (this.PlayerId != null)
             {
                 context.PlayerIds = new List<System.String>(this.PlayerId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,7 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.CreatePlayerSessionsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.CreatePlayerSessionsRequest request)
         {
+            #if DESKTOP
             return client.CreatePlayerSessions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreatePlayerSessionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

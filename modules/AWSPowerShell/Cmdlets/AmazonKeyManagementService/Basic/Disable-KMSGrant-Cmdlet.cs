@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.KeyManagementService.Model.RetireGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter GrantId
@@ -113,9 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GrantId = this.GrantId;
             context.GrantToken = this.GrantToken;
             context.KeyId = this.KeyId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -177,7 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.RetireGrantResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.RetireGrantRequest request)
         {
+            #if DESKTOP
             return client.RetireGrant(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RetireGrantAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

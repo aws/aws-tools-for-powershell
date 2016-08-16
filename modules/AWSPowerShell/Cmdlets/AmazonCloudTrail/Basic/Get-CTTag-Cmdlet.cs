@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         "The service call response (type Amazon.CloudTrail.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class GetCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceIdList
@@ -72,11 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NextToken = this.NextToken;
             if (this.ResourceIdList != null)
             {
                 context.ResourceIdList = new List<System.String>(this.ResourceIdList);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -136,7 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         private static Amazon.CloudTrail.Model.ListTagsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListTagsRequest request)
         {
+            #if DESKTOP
             return client.ListTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         "The service call response (type Amazon.ECR.Model.DescribeRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetECRRepositoryCmdlet : AmazonECRClientCmdlet, IExecutor
+    public partial class GetECRRepositoryCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
         #region Parameter RegistryId
@@ -106,6 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -114,6 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             {
                 context.RepositoryNames = new List<System.String>(this.RepositoryName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -253,7 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         private static Amazon.ECR.Model.DescribeRepositoriesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeRepositoriesRequest request)
         {
+            #if DESKTOP
             return client.DescribeRepositories(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeRepositoriesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

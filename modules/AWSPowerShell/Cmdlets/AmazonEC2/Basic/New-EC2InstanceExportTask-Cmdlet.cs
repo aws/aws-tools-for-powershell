@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a ExportTask object.",
         "The service call response (type Amazon.EC2.Model.CreateInstanceExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEC2InstanceExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2InstanceExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter ExportToS3Task_ContainerFormat
@@ -150,6 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.ExportToS3Task_ContainerFormat = this.ExportToS3Task_ContainerFormat;
             context.ExportToS3Task_DiskImageFormat = this.ExportToS3Task_DiskImageFormat;
@@ -157,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ExportToS3Task_S3Prefix = this.ExportToS3Task_S3Prefix;
             context.InstanceId = this.InstanceId;
             context.TargetEnvironment = this.TargetEnvironment;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -267,7 +273,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.CreateInstanceExportTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateInstanceExportTaskRequest request)
         {
+            #if DESKTOP
             return client.CreateInstanceExportTask(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateInstanceExportTaskAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

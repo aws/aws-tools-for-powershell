@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class NewSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ClientToken
@@ -137,6 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientToken = this.ClientToken;
             context.GatewayARN = this.GatewayARN;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
@@ -144,6 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.TargetName = this.TargetName;
             if (ParameterWasBound("VolumeSizeInBytes"))
                 context.VolumeSizeInBytes = this.VolumeSizeInBytes;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -217,7 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateCachediSCSIVolumeRequest request)
         {
+            #if DESKTOP
             return client.CreateCachediSCSIVolume(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateCachediSCSIVolumeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

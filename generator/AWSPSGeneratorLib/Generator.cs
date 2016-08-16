@@ -69,7 +69,7 @@ namespace AWSPowerShellGenerator
             var sdkAssembliesFolder = Path.GetFullPath(options.SDKAssembliesFolder);
             var awsPowerShellSourcePath = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName);
 
-            var deploymentArtifactsPath = Path.Combine(fqRootPath, DeploymentArtifactsSubFolder, options.Edition);
+            var deploymentArtifactsPath = Path.Combine(fqRootPath, options.GetEditionOutputFolder(DeploymentArtifactsSubFolder));
 
             if (options.ShouldRunTask(GeneratorTasknames.GenerateCmdlets))
             {

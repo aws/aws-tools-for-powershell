@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ReplicationSubnetGroupIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DatabaseMigrationService.Model.DeleteReplicationSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDMSReplicationSubnetGroupCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class RemoveDMSReplicationSubnetGroupCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ReplicationSubnetGroupIdentifier
@@ -85,7 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ReplicationSubnetGroupIdentifier = this.ReplicationSubnetGroupIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -141,7 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         private static Amazon.DatabaseMigrationService.Model.DeleteReplicationSubnetGroupResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DeleteReplicationSubnetGroupRequest request)
         {
+            #if DESKTOP
             return client.DeleteReplicationSubnetGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteReplicationSubnetGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

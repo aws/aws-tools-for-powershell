@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse",
         "This cmdlet returns a Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SubmitEBEnvironmentManagedActionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class SubmitEBEnvironmentManagedActionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ActionId
@@ -97,9 +97,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ActionId = this.ActionId;
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionRequest request)
         {
+            #if DESKTOP
             return client.ApplyEnvironmentManagedAction(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ApplyEnvironmentManagedActionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

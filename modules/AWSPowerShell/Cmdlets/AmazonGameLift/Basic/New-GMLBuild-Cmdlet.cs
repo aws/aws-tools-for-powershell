@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     [AWSCmdletOutput("Amazon.GameLift.Model.CreateBuildResponse",
         "This cmdlet returns a Amazon.GameLift.Model.CreateBuildResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class NewGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter StorageLocation_Bucket
@@ -135,11 +135,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
             context.StorageLocation_Bucket = this.StorageLocation_Bucket;
             context.StorageLocation_Key = this.StorageLocation_Key;
             context.StorageLocation_RoleArn = this.StorageLocation_RoleArn;
             context.Version = this.Version;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -236,7 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.CreateBuildResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.CreateBuildRequest request)
         {
+            #if DESKTOP
             return client.CreateBuild(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateBuildAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

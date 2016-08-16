@@ -29,6 +29,7 @@ using Amazon.Runtime.Internal.Settings;
 using Amazon.PowerShell.Utils;
 using Amazon.Util;
 using ThirdParty.Json.LitJson;
+using Amazon.Util.Internal;
 
 namespace Amazon.PowerShell.Common
 {
@@ -208,6 +209,7 @@ namespace Amazon.PowerShell.Common
 
             if (credentials != null)
             {
+#if DESKTOP
                 // if we have picked up a SAML-based credentials profile, make sure the callback
                 // to authenticate the user is set. The underlying SDK will then call us back
                 // if it needs to (we could skip setting if the profile indicates its for the
@@ -223,6 +225,7 @@ namespace Amazon.PowerShell.Common
 
                     samlCredentials.SetCredentialCallbackData(UserCredentialCallbackHandler, state);
                 }
+#endif
             }
 
             return (credentials != null);
@@ -242,10 +245,12 @@ namespace Amazon.PowerShell.Common
                 source = CredentialsSource.Saved;
                 name = profileName;
             }
+#if DESKTOP
             catch (InvalidCredentialException)
             {
                 throw;
             }
+#endif
             catch (Exception e)
             {
                 if (userSpecifiedProfile)
@@ -268,6 +273,7 @@ namespace Amazon.PowerShell.Common
                                                ref string name,
                                                ref CredentialsSource source)
         {
+#if DESKTOP
             var profileName = userSpecifiedProfile ? self.ProfileName : SettingsStore.PSDefaultSettingName;
             try
             {
@@ -292,8 +298,12 @@ namespace Amazon.PowerShell.Common
                     throw new ArgumentException(message, e);
                 }
             }
+#else
+            throw new InvalidOperationException("SAML-based credential profiles are not supported in this edition.");
+#endif
         }
 
+#if DESKTOP
         private static NetworkCredential UserCredentialCallbackHandler(CredentialRequestCallbackArgs args)
         {
             var callbackContext = args.CustomState as SAMLCredentialCallbackState;
@@ -324,8 +334,10 @@ namespace Amazon.PowerShell.Common
 
             return psCredential != null ? psCredential.GetNetworkCredential() : null;
         }
+#endif
     }
 
+#if DESKTOP
     /// <summary>
     /// Captures the PSHost and executing cmdlet state for use in our credential callback
     /// handler.
@@ -354,11 +366,12 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         public PSCredential ShellNetworkCredentialParameter { get; set; }
     }
+#endif
 
-    #endregion
+#endregion
 
 
-    #region Region arguments
+#region Region arguments
 
     public enum RegionSource
     {
@@ -485,19 +498,19 @@ namespace Amazon.PowerShell.Common
         }
     }
 
-    #endregion
+#endregion
 
 
-    #region Common arguments
+#region Common arguments
 
     internal interface IAWSCommonArguments : IAWSRegionArguments, IAWSCredentialsArguments
     {
     }
 
-    #endregion
+#endregion
 
 
-    #region Concrete classes
+#region Concrete classes
 
     internal class AWSCredentialsArguments : IAWSCredentialsArguments
     {
@@ -704,10 +717,10 @@ namespace Amazon.PowerShell.Common
         }
     }
 
-    #endregion
+#endregion
 
 
-    #region Helper utils
+#region Helper utils
 
     internal static class SettingsStore
     {
@@ -760,15 +773,19 @@ namespace Amazon.PowerShell.Common
 
             AWSCredentials credentials = null;
             string credentialsTypeString = setting[CredentialsTypeField];
-            Type credentialsType = string.IsNullOrEmpty(credentialsTypeString) ? null : typeof(AWSCredentials).Assembly.GetType(credentialsTypeString);
+            Type credentialsType = string.IsNullOrEmpty(credentialsTypeString) 
+                ? null 
+                : TypeFactory.GetTypeInfo(typeof(AWSCredentials)).Assembly.GetType(credentialsTypeString);
             if (credentialsType == typeof(InstanceProfileAWSCredentials))
                 credentials = new InstanceProfileAWSCredentials();
             else
             {
-                 // could be SAML role data or AWS keys
+#if DESKTOP
+                // could be SAML role data or AWS keys
                 if (SAMLRoleProfile.CanCreateFrom(setting))
                     credentials = new StoredProfileFederatedCredentials(name, null);
                 else
+#endif
                     credentials = new BasicAWSCredentials(setting[SettingsConstants.AccessKeyField], setting[SettingsConstants.SecretKeyField]);
             }
 
@@ -910,14 +927,21 @@ namespace Amazon.PowerShell.Common
             if (credentials is BasicAWSCredentials)
                 return credentials.GetCredentials();
 
-            if (credentials is InstanceProfileAWSCredentials || credentials is StoredProfileFederatedCredentials)
+            if (credentials is InstanceProfileAWSCredentials)
                 return null;
+
+#if DESKTOP
+            if (credentials is StoredProfileFederatedCredentials)
+                return null;
+#endif
 
             if (credentials is SessionAWSCredentials)
                 throw new InvalidOperationException("Cannot save session credentials");
+#if DESKTOP
             else if (credentials is EnvironmentAWSCredentials)
                 throw new InvalidOperationException("Cannot save environmental credentials");
             else
+#endif
                 throw new InvalidOperationException("Unrecognized credentials type");
         }
 
@@ -947,5 +971,5 @@ namespace Amazon.PowerShell.Common
         public const string AWSProxyVariableName = "AWSProxy";
     }
 
-    #endregion
+#endregion
 }

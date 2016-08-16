@@ -260,7 +260,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
 
         private static Amazon.KinesisFirehose.Model.PutRecordResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.PutRecordRequest request)
         {
+#if DESKTOP
             return client.PutRecord(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutRecordAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion

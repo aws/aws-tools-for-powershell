@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.RDS.Model.ResetDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ResetRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class ResetRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBParameterGroupName
@@ -111,6 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBParameterGroupName = this.DBParameterGroupName;
             if (this.Parameter != null)
             {
@@ -118,6 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (ParameterWasBound("ResetAllParameter"))
                 context.ResetAllParameters = this.ResetAllParameter;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -179,7 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.ResetDBParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ResetDBParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.ResetDBParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ResetDBParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -28,10 +28,13 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Removes one or more load balancers from the specified Auto Scaling group.
+    /// Detaches one or more Classic load balancers from the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
+    /// Note that this operation detaches only Classic load balancers. If you have Application
+    /// load balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
+    /// </para><para>
     /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
     /// describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances
@@ -45,13 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.DetachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DismountASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class DismountASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group.</para>
+        /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,11 +107,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.LoadBalancerName != null)
             {
                 context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DetachLoadBalancersResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DetachLoadBalancersRequest request)
         {
+            #if DESKTOP
             return client.DetachLoadBalancers(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DetachLoadBalancersAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

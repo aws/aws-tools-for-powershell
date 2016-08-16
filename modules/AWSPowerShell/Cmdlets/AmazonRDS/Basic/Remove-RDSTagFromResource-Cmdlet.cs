@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRDSTagFromResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RemoveRDSTagFromResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceName
@@ -104,11 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceName = this.ResourceName;
             if (this.TagKey != null)
             {
                 context.TagKeys = new List<System.String>(this.TagKey);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveTagsFromResourceRequest request)
         {
+            #if DESKTOP
             return client.RemoveTagsFromResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTagsFromResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

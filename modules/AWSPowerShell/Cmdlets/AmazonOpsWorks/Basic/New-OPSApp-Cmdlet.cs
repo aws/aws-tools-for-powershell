@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class NewOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter Attribute
@@ -290,6 +290,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AppSource_Password = this.AppSource_Password;
             context.AppSource_Revision = this.AppSource_Revision;
             context.AppSource_SshKey = this.AppSource_SshKey;
@@ -326,6 +329,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.SslConfiguration_PrivateKey = this.SslConfiguration_PrivateKey;
             context.StackId = this.StackId;
             context.Type = this.Type;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -523,7 +529,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.CreateAppResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CreateAppRequest request)
         {
+            #if DESKTOP
             return client.CreateApp(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateAppAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

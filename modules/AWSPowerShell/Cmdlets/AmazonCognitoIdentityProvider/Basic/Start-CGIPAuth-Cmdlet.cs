@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse",
         "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartCGIPAuthCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class StartCGIPAuthCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter AuthFlow
@@ -107,6 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AuthFlow = this.AuthFlow;
             if (this.AuthParameter != null)
             {
@@ -125,6 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     context.ClientMetadata.Add((String)hashKey, (String)(this.ClientMetadata[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -190,7 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.InitiateAuthResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.InitiateAuthRequest request)
         {
+            #if DESKTOP
             return client.InitiateAuth(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.InitiateAuthAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

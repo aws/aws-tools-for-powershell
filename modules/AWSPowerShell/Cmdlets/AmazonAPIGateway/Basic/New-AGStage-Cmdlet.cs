@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateStageResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateStageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class NewAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter CacheClusterEnabled
@@ -139,6 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CacheClusterEnabled"))
                 context.CacheClusterEnabled = this.CacheClusterEnabled;
             context.CacheClusterSize = this.CacheClusterSize;
@@ -154,6 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
                     context.Variables.Add((String)hashKey, (String)(this.Variable[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -231,7 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.CreateStageResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateStageRequest request)
         {
+            #if DESKTOP
             return client.CreateStage(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateStageAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

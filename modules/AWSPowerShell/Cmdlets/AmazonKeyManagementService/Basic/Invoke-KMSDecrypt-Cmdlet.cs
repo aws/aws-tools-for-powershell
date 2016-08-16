@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.DecryptResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.DecryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class InvokeKMSDecryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class InvokeKMSDecryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         #region Parameter CiphertextBlob
@@ -96,6 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CiphertextBlob = this.CiphertextBlob;
             if (this.EncryptionContext != null)
             {
@@ -109,6 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 context.GrantTokens = new List<System.String>(this.GrantToken);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.DecryptResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.DecryptRequest request)
         {
+            #if DESKTOP
             return client.Decrypt(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DecryptAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

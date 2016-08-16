@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         "This cmdlet returns a CodeDeliveryDetailsType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SendCGIPConfirmationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class SendCGIPConfirmationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter ClientId
@@ -97,9 +97,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 Region = this.Region,
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientId = this.ClientId;
             context.SecretHash = this.SecretHash;
             context.Username = this.Username;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         private static Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeRequest request)
         {
+            #if DESKTOP
             return client.ResendConfirmationCode(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ResendConfirmationCodeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

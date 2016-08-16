@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// Policies are settings that are saved for your load balancer and that can be applied
-    /// to the front-end listener or the back-end application server, depending on the policy
-    /// type.
+    /// to the listener or the application server, depending on the policy type.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELBLoadBalancerPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewELBLoadBalancerPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class NewELBLoadBalancerPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
         
         #region Parameter LoadBalancerName
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter PolicyAttribute
         /// <summary>
         /// <para>
-        /// <para>The attributes for the policy.</para>
+        /// <para>The policy attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -124,6 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.LoadBalancerName = this.LoadBalancerName;
             if (this.PolicyAttribute != null)
             {
@@ -131,6 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             }
             context.PolicyName = this.PolicyName;
             context.PolicyTypeName = this.PolicyTypeName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         private static Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerPolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerPolicyRequest request)
         {
+            #if DESKTOP
             return client.CreateLoadBalancerPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateLoadBalancerPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

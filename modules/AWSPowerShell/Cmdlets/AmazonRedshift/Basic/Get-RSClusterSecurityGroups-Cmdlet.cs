@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "The service call response (type Amazon.Redshift.Model.DescribeClusterSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetRSClusterSecurityGroupsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class GetRSClusterSecurityGroupsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterSecurityGroupName
@@ -144,6 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterSecurityGroupName = this.ClusterSecurityGroupName;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -156,6 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 context.TagValues = new List<System.String>(this.TagValue);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -299,7 +305,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.DescribeClusterSecurityGroupsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterSecurityGroupsRequest request)
         {
+            #if DESKTOP
             return client.DescribeClusterSecurityGroups(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeClusterSecurityGroupsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

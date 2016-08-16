@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         "This cmdlet returns a collection of Message objects.",
         "The service call response (type Amazon.SQS.Model.ReceiveMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ReceiveSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class ReceiveSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeName
@@ -196,6 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AttributeName != null)
             {
                 context.AttributeNames = new List<System.String>(this.AttributeName);
@@ -211,6 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.VisibilityTimeout = this.VisibilityTimeout;
             if (ParameterWasBound("WaitTimeInSeconds"))
                 context.WaitTimeInSeconds = this.WaitTimeInSeconds;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -284,7 +290,15 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         private static Amazon.SQS.Model.ReceiveMessageResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ReceiveMessageRequest request)
         {
+            #if DESKTOP
             return client.ReceiveMessage(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ReceiveMessageAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

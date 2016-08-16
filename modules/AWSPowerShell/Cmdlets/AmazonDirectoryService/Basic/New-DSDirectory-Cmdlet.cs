@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class NewDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -142,6 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.Name = this.Name;
             context.Password = this.Password;
@@ -152,6 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 context.VpcSettings_SubnetIds = new List<System.String>(this.VpcSettings_SubnetId);
             }
             context.VpcSettings_VpcId = this.VpcSettings_VpcId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -250,7 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.CreateDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateDirectoryRequest request)
         {
+            #if DESKTOP
             return client.CreateDirectory(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateDirectoryAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

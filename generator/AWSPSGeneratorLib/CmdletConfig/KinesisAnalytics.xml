@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>KINA</ServiceNounPrefix>
+  <ServiceName>Amazon Kinesis Analytics</ServiceName>
+  <ServiceNamespace>Amazon.KinesisAnalytics</ServiceNamespace>
+  <ServiceClientInterface>IAmazonKinesisAnalytics</ServiceClientInterface>
+  <ServiceClient>AmazonKinesisAnalyticsClient</ServiceClient>
+
+  <PipelineParameter>ApplicationName</PipelineParameter>
+  
+  <ServiceOperations>
+
+	<ServiceOperation MethodName="AddApplicationInput" Output="Void" />
+	<ServiceOperation MethodName="AddApplicationOutput" Output="Void" />
+	<ServiceOperation MethodName="AddApplicationReferenceDataSource" Output="Void" />
+	<ServiceOperation MethodName="CreateApplication" />
+	<ServiceOperation MethodName="DeleteApplication" Output="Void" />
+	<ServiceOperation MethodName="DeleteApplicationOutput" PipelineParameter="OutputId" Output="Void" />
+	<ServiceOperation MethodName="DeleteApplicationReferenceDataSource" PipelineParameter="ReferenceId" Output="Void" />
+	<ServiceOperation MethodName="DescribeApplication" />
+	<ServiceOperation MethodName="DiscoverInputSchema" Verb="Find" Output="Response" />
+	
+	<!-- list uses an iteration scheme of setting name from last page to retrieve subsequent ones -->
+	<ServiceOperation MethodName="ListApplications" Exclude="true" />
+	
+	<ServiceOperation MethodName="StartApplication" Output="Void" />
+	<ServiceOperation MethodName="StopApplication" Output="Void" />
+	<ServiceOperation MethodName="UpdateApplication" Output="Void" />
+	
+  </ServiceOperations>
+  
+  <PipelineByValueProperties>
+	<Property>CurrentApplicationVersionId</Property>
+	<Property>ApplicationName</Property>
+  </PipelineByValueProperties> 
+</ConfigModel>

@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdletOutput("Amazon.Route53.Model.ListTrafficPolicyInstancesByPolicyResponse",
         "This cmdlet returns a Amazon.Route53.Model.ListTrafficPolicyInstancesByPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53TrafficPolicyInstancesByPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53TrafficPolicyInstancesByPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter HostedZoneIdMarker
@@ -167,6 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.TrafficPolicyId = this.TrafficPolicyId;
             if (ParameterWasBound("TrafficPolicyVersion"))
                 context.TrafficPolicyVersion = this.TrafficPolicyVersion;
@@ -174,6 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.TrafficPolicyInstanceNameMarker = this.TrafficPolicyInstanceNameMarker;
             context.TrafficPolicyInstanceTypeMarker = this.TrafficPolicyInstanceTypeMarker;
             context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -247,7 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.ListTrafficPolicyInstancesByPolicyResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTrafficPolicyInstancesByPolicyRequest request)
         {
+            #if DESKTOP
             return client.ListTrafficPolicyInstancesByPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListTrafficPolicyInstancesByPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

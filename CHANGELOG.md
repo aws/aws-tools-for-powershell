@@ -1,3 +1,25 @@
+### 3.1.92.0 (2016-08-11)
+  * Amazon Import/Export Snowball
+    - Added cmdlets to support the new Import/Export Snowball service. The API for this service enables a customer to create and manage Snowball jobs without needing to use the AWS Console. The cmdlets for this service have the prefix 'SNOW' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SNOW"'.
+  * Amazon Kinesis Analytics
+    - Added cmdlets to support the new Amazon Kinesis Analytics service, a fully managed service for continuously querying streaming data using standard SQL. With Kinesis Analytics, you can write standard SQL queries on streaming data and gain actionable insights in real-time, without having to learn any new programming skills. The service allows you to build applications that continuously read data from streaming data sources, process that data using standard SQL, and send the processed data to up to four destinations of your choice. Kinesis Analytics enables you to generate time-series analytics, feed a real-time dashboard, create real-time alarms and notifications, and much more. The cmdlets for this service have the prefix 'KINA' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "KINA"'.
+  * Elastic Load Balancing V2
+    - Added cmdlets to support the new V2 API for Elastic Load Balancing. The cmdlets for this service have the prefix 'ELB2' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "ELB2"'.
+  * Auto Scaling
+    - Added cmdlets to support the launch of the new V2 API for Elastic Load Balancing. The new cmdlets are Add-ASLoadBalancerTargetGroup (AttachLoadBalancerTargetGroups API), Dismount-ASLoadBalancerTargetGroup (DetachLoadBalancerTargetGroups API) and Get-ASLoadBalancerTargetGroup (DescribeLoadBalancerTargetGroups API).
+  * AWS Key Management.
+    - Added new cmdlets to support new import key features. This new support enables you to import keys from your own key management infrastructure to KMS for greater control over generation and storage of keys and meeting compliance requirements of sensitive workloads. The new cmdlets are Import-KMSKeyMaterial (ImportKeyMaterial API), Get-KMSParametersForImport (GetParametersForImport API) and Remove-KMSImportedKeyMaterial (DeleteImportedKeyMaterial API).
+  * Amazon S3
+    - Added support for dualstack (Ipv6) endpoints. All S3 cmdlets have been extended with a new -UseDualstackEndpoint switch parameter. If set, this parameter will cause the cmdlet to use the dualstack endpoint for the specified region. Note that not all regions support dualstack endpoints. You should consult S3 documentation to verify that a dualstack endpoint is available in the region you wish to use before specifying this switch.
+
+### 3.1.91.0 (2016-08-09)
+  * Amazon CloudFront
+    - Added cmdlets to support tagging for Web and Streaming distributions. Tags make it easier for you to allocate costs and optimize spending by categorizing and grouping AWS resources. The new cmdlets are Add-CFResourceTag (TagResource API), Get-CFResourceTag (ListTagsForResource API), New-CFDistributionWithTag (CreateDistributionWithTags API), New-CFStreamingDistributionWithTags (CreateStreamingDistributionWithTags API) and Remove-CFResourceTag (UntagResource API).
+  * Amazon EC2 Container Registry
+    - Updated the Get-ECRImage cmdlet with a new parameter, -Filter_TagStatus, to support filtering of requests based on whether an image is tagged or untagged.
+  * AWS Marketplace Commerce Analytics
+    - Added a new cmdlet, Start-MCASupportDataExport, to support the new StartSupportDataExport API.
+
 ### 3.1.90.0 (2016-08-04)
   * Amazon Cognito Identity Provider
     - Updates to enable authentication support for Cognito User Pools. This update also added a number of new cmdlets: Approve-CGIPDevice (ConfirmDevice API), Disconnect-CGIPDeviceGlobal (GlobalSignOut API), Disconnect-CGIPUserGlobalAdmin (AdminUserGlobalSignOut API), Edit-CGIPDeviceStatus (UpdateDeviceStatus API), Edit-CGIP-DeviceStatusAdmin (AdminUpdateDeviceStatus API), Get-CGIPDeviceStatus (GetDevice API), Get-CGIPDeviceStatusAdmin (AdminGetDevice API), Get-CGIPDeviceList (ListDevices API), Get-CGIPDeviceListAdmin (AdminListDevices API), Send-CGIPAuthChallengeResponse (RespondToAuthChallenge API), Send-CGIPAuthChallengeResponseAdmin (AdminRespondToAuthChallenge API), Start-CGIPAuth (InitiateAuth API), Start-CGIPAuthAdmin (AdminInitiateAuth API), Stop-CGIPDeviceTracking (ForgetDevice API) and  Stop-CGIPDeviceTrackingAdmin (AdminForgetDevice API).

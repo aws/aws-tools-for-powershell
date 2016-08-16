@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         "The service call response (type Amazon.ElasticFileSystem.Model.DescribeFileSystemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), NextMarker (type System.String)"
     )]
-    public class GetEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class GetEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
         #region Parameter CreationToken
@@ -127,11 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CreationToken = this.CreationToken;
             context.FileSystemId = this.FileSystemId;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -242,7 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         private static Amazon.ElasticFileSystem.Model.DescribeFileSystemsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DescribeFileSystemsRequest request)
         {
+            #if DESKTOP
             return client.DescribeFileSystems(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeFileSystemsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DatabaseMigrationService.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDMSResourceTagCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class RemoveDMSResourceTagCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ResourceArn
@@ -97,11 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ResourceArn = this.ResourceArn;
             if (this.TagKey != null)
             {
                 context.TagKeys = new List<System.String>(this.TagKey);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -161,7 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         private static Amazon.DatabaseMigrationService.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.RemoveTagsFromResourceRequest request)
         {
+            #if DESKTOP
             return client.RemoveTagsFromResource(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTagsFromResourceAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

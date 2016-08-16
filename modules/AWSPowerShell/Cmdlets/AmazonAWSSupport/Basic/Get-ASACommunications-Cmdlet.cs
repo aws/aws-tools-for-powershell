@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         "The service call response (type Amazon.AWSSupport.Model.DescribeCommunicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetASACommunicationsCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
+    public partial class GetASACommunicationsCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
         #region Parameter AfterTime
@@ -119,12 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AfterTime = this.AfterTime;
             context.BeforeTime = this.BeforeTime;
             context.CaseId = this.CaseId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -238,7 +244,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         private static Amazon.AWSSupport.Model.DescribeCommunicationsResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeCommunicationsRequest request)
         {
+            #if DESKTOP
             return client.DescribeCommunications(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeCommunicationsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

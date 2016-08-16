@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         "This cmdlet returns a collection of SpotInstanceRequest objects.",
         "The service call response (type Amazon.EC2.Model.RequestSpotInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestEC2SpotInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RequestEC2SpotInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter LaunchSpecification_AddressingType
@@ -385,6 +385,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AvailabilityZoneGroup = this.AvailabilityZoneGroup;
             if (ParameterWasBound("BlockDurationMinute"))
                 context.BlockDurationMinutes = this.BlockDurationMinute;
@@ -430,6 +433,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.ValidFrom = this.ValidFrom;
             if (ParameterWasBound("ValidUntil"))
                 context.ValidUntil = this.ValidUntil;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -734,7 +740,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         private static Amazon.EC2.Model.RequestSpotInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RequestSpotInstancesRequest request)
         {
+            #if DESKTOP
             return client.RequestSpotInstances(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RequestSpotInstancesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Route53Domains.Model.RenewDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateR53DDomainRenewalCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class UpdateR53DDomainRenewalCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter CurrentExpiryYear
@@ -111,11 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CurrentExpiryYear"))
                 context.CurrentExpiryYear = this.CurrentExpiryYear;
             context.DomainName = this.DomainName;
             if (ParameterWasBound("DurationInYear"))
                 context.DurationInYears = this.DurationInYear;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -177,7 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         private static Amazon.Route53Domains.Model.RenewDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.RenewDomainRequest request)
         {
+            #if DESKTOP
             return client.RenewDomain(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RenewDomainAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

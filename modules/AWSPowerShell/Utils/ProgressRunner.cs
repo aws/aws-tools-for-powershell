@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Utils
             return output;
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -154,13 +154,13 @@ namespace Amazon.PowerShell.Utils
     /// </summary>
     public abstract class ProgressTracker
     {
-        #region Private members/methods
+#region Private members/methods
 
         private ProgressRunner _runner;
 
-        #endregion
+#endregion
 
-        #region Public methods/constructor
+#region Public methods/constructor
 
         /// <summary>
         /// Constructs a tracker to work with a given ProgressRunner.
@@ -173,9 +173,9 @@ namespace Amazon.PowerShell.Utils
             _runner = runner;
         }
 
-        #endregion
+#endregion
 
-        #region Protected members
+#region Protected members
 
         protected void ReportProgress(int done, int total, string message, params object[] args)
         {
@@ -186,16 +186,16 @@ namespace Amazon.PowerShell.Utils
             _runner.Report(Activity, percentComplete, string.Format(message, args));
         }
 
-        #endregion
+#endregion
 
-        #region Public abstract methods
+#region Public abstract methods
 
         /// <summary>
         /// Name of the activity.
         /// </summary>
         public abstract string Activity { get; }
 
-        #endregion
+#endregion
 
     }
 
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Utils
     public abstract class ProgressTracker<T> : ProgressTracker
         where T : EventArgs
     {
-        #region Public methods/constructor
+#region Public methods/constructor
 
         /// <summary>
         /// Constructs a tracker to work with a given ProgressRunner.
@@ -225,9 +225,9 @@ namespace Amazon.PowerShell.Utils
             });
         }
 
-        #endregion
+#endregion
 
-        #region Public abstract methods
+#region Public abstract methods
 
         /// <summary>
         /// Abstract method to process event data. Must be overriden by subclass.
@@ -236,6 +236,6 @@ namespace Amazon.PowerShell.Utils
         /// <param name="args"></param>
         public abstract void ReportProgress(T args);
 
-        #endregion
+#endregion
     }
 }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdletOutput("Amazon.IoT.Model.GetPolicyResponse",
         "This cmdlet returns a Amazon.IoT.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIOTPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIOTPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter PolicyName
@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.PolicyName = this.PolicyName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -114,7 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetPolicyRequest request)
         {
+            #if DESKTOP
             return client.GetPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

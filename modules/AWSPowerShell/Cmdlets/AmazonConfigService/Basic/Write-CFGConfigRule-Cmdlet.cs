@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRule_ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.PutConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class WriteCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Scope_ComplianceResourceId
@@ -284,6 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ConfigRule_ConfigRuleArn = this.ConfigRule_ConfigRuleArn;
             context.ConfigRule_ConfigRuleId = this.ConfigRule_ConfigRuleId;
             context.ConfigRule_ConfigRuleName = this.ConfigRule_ConfigRuleName;
@@ -304,6 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.ConfigRule_Source_SourceDetails = new List<Amazon.ConfigService.Model.SourceDetail>(this.Source_SourceDetail);
             }
             context.ConfigRule_Source_SourceIdentifier = this.Source_SourceIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -534,7 +540,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         private static Amazon.ConfigService.Model.PutConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutConfigRuleRequest request)
         {
+            #if DESKTOP
             return client.PutConfigRule(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutConfigRuleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         "This cmdlet returns a ReplicationTask object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.CreateReplicationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class NewDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter CdcStartTime
@@ -161,6 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CdcStartTime"))
                 context.CdcStartTime = this.CdcStartTime;
             context.MigrationType = this.MigrationType;
@@ -174,6 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
             }
             context.TargetEndpointArn = this.TargetEndpointArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -259,7 +265,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         private static Amazon.DatabaseMigrationService.Model.CreateReplicationTaskResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.CreateReplicationTaskRequest request)
         {
+            #if DESKTOP
             return client.CreateReplicationTask(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateReplicationTaskAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

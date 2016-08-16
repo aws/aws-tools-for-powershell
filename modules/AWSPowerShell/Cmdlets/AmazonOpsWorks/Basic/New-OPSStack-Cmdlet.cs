@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class NewOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter AgentVersion
@@ -416,6 +416,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AgentVersion = this.AgentVersion;
             if (this.Attribute != null)
             {
@@ -452,6 +455,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (ParameterWasBound("UseOpsworksSecurityGroup"))
                 context.UseOpsworksSecurityGroups = this.UseOpsworksSecurityGroup;
             context.VpcId = this.VpcId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -692,7 +698,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.CreateStackResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CreateStackRequest request)
         {
+            #if DESKTOP
             return client.CreateStack(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateStackAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

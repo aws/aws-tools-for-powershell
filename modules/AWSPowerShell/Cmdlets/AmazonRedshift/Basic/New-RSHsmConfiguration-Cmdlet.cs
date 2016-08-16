@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a HsmConfiguration object.",
         "The service call response (type Amazon.Redshift.Model.CreateHsmConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRSHsmConfigurationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class NewRSHsmConfigurationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter Description
@@ -148,6 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Description = this.Description;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             context.HsmIpAddress = this.HsmIpAddress;
@@ -158,6 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -235,7 +241,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.CreateHsmConfigurationResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateHsmConfigurationRequest request)
         {
+            #if DESKTOP
             return client.CreateHsmConfiguration(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateHsmConfigurationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -105,7 +105,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 // the AWSCmdlet* attribs are used for help generation
                 WriteAWSCmdletAttributes(writer);
 
-                writer.WriteLine("public class {0}{1}Cmdlet : {2}Cmdlet, IExecutor",
+                writer.WriteLine("public partial class {0}{1}Cmdlet : {2}Cmdlet, IExecutor",
                                         Operation.SelectedVerb,
                                         Operation.SelectedNoun,
                                         ServiceConfig.GetServiceCmdletClassName(Operation.RequiresAnonymousAuthentication));
@@ -253,7 +253,21 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                              MethodAnalysis.RequestType);
             writer.OpenRegion();
 
+            writer.WriteLine("#if DESKTOP");
+
             writer.WriteLine("return client.{0}(request);", MethodAnalysis.CurrentOperation.MethodName);
+
+            writer.WriteLine("#elif CORECLR");
+
+            writer.WriteLine("// todo: handle AggregateException and extract true service exception for rethrow");
+            writer.WriteLine("var task = client.{0}Async(request);", MethodAnalysis.CurrentOperation.MethodName);
+            writer.WriteLine("return task.Result;");
+            
+            writer.WriteLine("#else");
+            
+            writer.WriteLine("        #error \"Unknown build edition\"");
+            
+            writer.WriteLine("#endif");
 
             writer.CloseRegion();
 
@@ -495,11 +509,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (property.IsConstrainedToSet)
             {
                 // apply our marker attribute so that if the cmdlet ever becomes hand-maintained the
-                // generator can detect and update the set members by simple text parsing
+                // generator can detect and update the argument completer for the set members by simple 
+                // text parsing
                 writer.WriteLine("[{0}(\"{1}\")]", AWSConstantClassSourceAttributeName, property.PropertyTypeName);
-
-                var members = property.ConstrainedSetMembers;
-                AddValidateSetAttribution(writer, members);
             }
 
             if (property.CollectionType == SimplePropertyInfo.PropertyCollectionType.NoCollection || property.GenericCollectionTypes == null)
@@ -705,6 +717,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.CloseRegion("};");
 
             writer.WriteLine();
+            writer.WriteLine("// allow for manipulation of parameters prior to loading into context");
+            writer.WriteLine("PreExecutionContextLoad(context);");
+            writer.WriteLine();
 
             foreach (var property in allProperties)
             {
@@ -814,6 +829,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     customEmitter.WriteContextMembers(writer, "context", property, paramCustomization);
                 }
             }
+
+            writer.WriteLine();
+            writer.WriteLine("// allow further manipulation of loaded context prior to processing");
+            writer.WriteLine("PostExecutionContextLoad(context);");
         }
 
         private void WriteContextClass(IndentedTextWriter writer, IEnumerable<SimplePropertyInfo> properties)
@@ -1449,7 +1468,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         IEnumerable<IParamEmitter> FindGlobalParamEmitters()
         {
             // Global param emitters do not have any mapping to param name or param type
-            var emitters = ServiceConfig.ParamEmittersList.Where(p => string.IsNullOrEmpty(p.ParamName) && string.IsNullOrEmpty(p.ParamType));
+            var emitters = ServiceConfig.GlobalInjectionParamEmitters;
 
             var emitterInstances = new List<IParamEmitter>();
             foreach (var item in emitters)
@@ -1480,24 +1499,24 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // to handle custom emitters for properties like 'string BucketName'); 
             // we do need to drop the assembly info though for types
             string k = ConstructCustomParamEmitterKey(property);
-            if (ServiceConfig.ParamEmitters.ContainsKey(k))
+            if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(k))
             {
-                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[k]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.TypeSpecificParamEmitters[k]);
                 return (IParamEmitter)obj.Unwrap();
             }
 
             // second stage lookup, more generic emitter based on type only (useful
             // for specific type smoothing, eg replace enums with strings etc)
-            if (ServiceConfig.ParamEmitters.ContainsKey(property.PropertyType.FullName))
+            if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(property.PropertyType.FullName))
             {
-                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[property.PropertyType.FullName]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.TypeSpecificParamEmitters[property.PropertyType.FullName]);
                 return (IParamEmitter)obj.Unwrap();
             }
 
             // third stage lookup, useful with List<T> types
-            if (ServiceConfig.ParamEmitters.ContainsKey(property.PropertyTypeName))
+            if (ServiceConfig.TypeSpecificParamEmitters.ContainsKey(property.PropertyTypeName))
             {
-                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[property.PropertyTypeName]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.TypeSpecificParamEmitters[property.PropertyTypeName]);
                 return (IParamEmitter)obj.Unwrap();
             }
 

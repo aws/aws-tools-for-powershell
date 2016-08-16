@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a collection of AgentVersion objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeAgentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetOPSAgentVersionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSAgentVersionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter ConfigurationManager_Name
@@ -83,9 +83,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ConfigurationManager_Name = this.ConfigurationManager_Name;
             context.ConfigurationManager_Version = this.ConfigurationManager_Version;
             context.StackId = this.StackId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DescribeAgentVersionsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeAgentVersionsRequest request)
         {
+            #if DESKTOP
             return client.DescribeAgentVersions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeAgentVersionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

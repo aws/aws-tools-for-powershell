@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.ElasticMapReduce.Model.DescribeClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetEMRClusterCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class GetEMRClusterCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterId
@@ -61,7 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterId = this.ClusterId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,7 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         private static Amazon.ElasticMapReduce.Model.DescribeClusterResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DescribeClusterRequest request)
         {
+            #if DESKTOP
             return client.DescribeCluster(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeClusterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

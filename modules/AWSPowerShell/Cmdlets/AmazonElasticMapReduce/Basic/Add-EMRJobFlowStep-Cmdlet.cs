@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class AddEMRJobFlowStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class AddEMRJobFlowStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         #region Parameter JobFlowId
@@ -112,11 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.JobFlowId = this.JobFlowId;
             if (this.Step != null)
             {
                 context.Steps = new List<Amazon.ElasticMapReduce.Model.StepConfig>(this.Step);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -174,7 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         private static Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.AddJobFlowStepsRequest request)
         {
+            #if DESKTOP
             return client.AddJobFlowSteps(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AddJobFlowStepsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

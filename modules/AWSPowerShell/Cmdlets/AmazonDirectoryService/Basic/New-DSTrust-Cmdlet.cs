@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateTrustResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class NewDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ConditionalForwarderIpAddr
@@ -142,6 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ConditionalForwarderIpAddr != null)
             {
                 context.ConditionalForwarderIpAddrs = new List<System.String>(this.ConditionalForwarderIpAddr);
@@ -151,6 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.TrustDirection = this.TrustDirection;
             context.TrustPassword = this.TrustPassword;
             context.TrustType = this.TrustType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -224,7 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.CreateTrustResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateTrustRequest request)
         {
+            #if DESKTOP
             return client.CreateTrust(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTrustAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

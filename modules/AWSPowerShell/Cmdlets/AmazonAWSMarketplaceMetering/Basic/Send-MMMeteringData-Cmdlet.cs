@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SendMMMeteringDataCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
+    public partial class SendMMMeteringDataCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {
         
         #region Parameter DryRun
@@ -121,6 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("DryRun"))
                 context.DryRun = this.DryRun;
             context.ProductCode = this.ProductCode;
@@ -129,6 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
             context.UsageDimension = this.UsageDimension;
             if (ParameterWasBound("UsageQuantity"))
                 context.UsageQuantity = this.UsageQuantity;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         private static Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest request)
         {
+            #if DESKTOP
             return client.MeterUsage(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.MeterUsageAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

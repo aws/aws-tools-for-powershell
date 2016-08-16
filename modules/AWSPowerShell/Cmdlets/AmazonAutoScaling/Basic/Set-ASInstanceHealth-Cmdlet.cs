@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-    /// Checks</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Checks</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceHealth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,15 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.SetInstanceHealthResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetASInstanceHealthCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class SetASInstanceHealthCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter HealthStatus
         /// <summary>
         /// <para>
-        /// <para> The health status of the instance. Set to <code>Healthy</code> if you want the instance
+        /// <para>The health status of the instance. Set to <code>Healthy</code> if you want the instance
         /// to remain in service. Set to <code>Unhealthy</code> if you want the instance to be
-        /// out of service. Auto Scaling will terminate and replace the unhealthy instance. </para>
+        /// out of service. Auto Scaling will terminate and replace the unhealthy instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -116,10 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.HealthStatus = this.HealthStatus;
             context.InstanceId = this.InstanceId;
             if (ParameterWasBound("ShouldRespectGracePeriod"))
                 context.ShouldRespectGracePeriod = this.ShouldRespectGracePeriod;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -183,7 +189,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.SetInstanceHealthResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SetInstanceHealthRequest request)
         {
+            #if DESKTOP
             return client.SetInstanceHealth(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.SetInstanceHealthAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

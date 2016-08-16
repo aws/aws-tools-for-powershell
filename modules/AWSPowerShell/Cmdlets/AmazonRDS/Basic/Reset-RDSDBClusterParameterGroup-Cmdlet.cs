@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.RDS.Model.ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter DBClusterParameterGroupName
@@ -118,6 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (this.Parameter != null)
             {
@@ -125,6 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (ParameterWasBound("ResetAllParameter"))
                 context.ResetAllParameters = this.ResetAllParameter;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -186,7 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.ResetDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ResetDBClusterParameterGroupRequest request)
         {
+            #if DESKTOP
             return client.ResetDBClusterParameterGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ResetDBClusterParameterGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

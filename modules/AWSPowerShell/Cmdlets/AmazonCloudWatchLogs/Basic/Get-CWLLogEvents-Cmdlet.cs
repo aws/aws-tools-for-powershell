@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.GetLogEventsResponse",
         "This cmdlet returns a Amazon.CloudWatchLogs.Model.GetLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter EndTime
@@ -136,6 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
             if (ParameterWasBound("Limit"))
@@ -147,6 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.StartFromHead = this.StartFromHead;
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -224,7 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.GetLogEventsResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.GetLogEventsRequest request)
         {
+            #if DESKTOP
             return client.GetLogEvents(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetLogEventsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

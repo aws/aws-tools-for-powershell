@@ -126,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
 
         private string CreateSignedUrlForCannedPolicy()
         {
-            using (var reader = new StreamReader(PrivateKeyFile))
+            // coreclr StreamReader does not have ctor that takes filename
+            using (var fs = File.OpenRead(PrivateKeyFile))
+            using (var reader = new StreamReader(fs))
             {
                 var signedUrl = AmazonCloudFrontUrlSigner.GetCannedSignedURL(ResourceUri.ToString(),
                                                                              reader,
@@ -138,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
 
         private string CreateSignedUrlForCustomPolicy()
         {
-            using (var reader = new StreamReader(PrivateKeyFile))
+            // coreclr StreamReader does not have ctor that takes filename
+            using (var fs = File.OpenRead(PrivateKeyFile))
+            using (var reader = new StreamReader(fs))
             {
                 var signedUrl = AmazonCloudFrontUrlSigner.GetCustomSignedURL(ResourceUri.ToString(),
                                                                              reader,

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <a>DescribeAccountLimits</a>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html">Auto
-    /// Scaling Groups</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Scaling Groups</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.CreateAutoScalingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class NewASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
         /// scaling activity can start. The default is 300.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
-        /// Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, that Auto Scaling waits before checking the health
         /// status of an EC2 instance that has come into service. During this time, any health
-        /// check failures for the instance are ignored. The default is 300.</para><para>This parameter is required if you are adding an <code>ELB</code> health check.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-        /// Checks</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// check failures for the instance are ignored. The default is 0.</para><para>This parameter is required if you are adding an <code>ELB</code> health check.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
+        /// Checks</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The service to use for the health checks. The valid values are <code>EC2</code> and
         /// <code>ELB</code>.</para><para>By default, health checks use Amazon EC2 instance status checks to determine the health
         /// of an instance. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-        /// Checks</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Checks</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// specify a launch configuration instead of an EC2 instance.</para><para>When you specify an ID of an instance, Auto Scaling creates a new launch configuration
         /// and associates it with the group. This launch configuration derives its attributes
         /// from the specified instance, with the exception of the block device mapping.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html">Create
-        /// an Auto Scaling Group Using an EC2 Instance</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// an Auto Scaling Group Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>One or more load balancers.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html">Using
-        /// a Load Balancer With an Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// <para>One or more Classic load balancers. To specify an Application load balancer, use <code>TargetGroupARNs</code>
+        /// instead.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html">Using
+        /// a Load Balancer With an Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -206,12 +207,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more tags.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tagging
-        /// Auto Scaling Groups and Instances</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Auto Scaling Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.AutoScaling.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TargetGroupARNs
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARN) of the target groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] TargetGroupARNs { get; set; }
         #endregion
         
         #region Parameter TerminationPolicy
@@ -220,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>One or more termination policies used to select the instance to terminate. These policies
         /// are executed in the order that they are listed.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
         /// Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling
-        /// Developer Guide</i>.</para>
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -233,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>A comma-separated list of subnet identifiers for your virtual private cloud (VPC).</para><para>If you specify subnets and Availability Zones with this call, ensure that the subnets'
         /// Availability Zones match the Availability Zones specified.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -275,6 +286,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.AvailabilityZone != null)
             {
@@ -304,11 +318,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.Tags = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
             }
+            if (this.TargetGroupARNs != null)
+            {
+                context.TargetGroupARNs = new List<System.String>(this.TargetGroupARNs);
+            }
             if (this.TerminationPolicy != null)
             {
                 context.TerminationPolicies = new List<System.String>(this.TerminationPolicy);
             }
             context.VPCZoneIdentifier = this.VPCZoneIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -378,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.Tags = cmdletContext.Tags;
             }
+            if (cmdletContext.TargetGroupARNs != null)
+            {
+                request.TargetGroupARNs = cmdletContext.TargetGroupARNs;
+            }
             if (cmdletContext.TerminationPolicies != null)
             {
                 request.TerminationPolicies = cmdletContext.TerminationPolicies;
@@ -424,7 +449,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.CreateAutoScalingGroupResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.CreateAutoScalingGroupRequest request)
         {
+            #if DESKTOP
             return client.CreateAutoScalingGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateAutoScalingGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion
@@ -445,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
             public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
+            public List<System.String> TargetGroupARNs { get; set; }
             public List<System.String> TerminationPolicies { get; set; }
             public System.String VPCZoneIdentifier { get; set; }
         }

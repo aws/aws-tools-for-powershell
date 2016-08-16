@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Common
                             && shellRegion.Value != null
                             && string.Compare(this.Region, 
                                               shellRegion.Value.ToString(), 
-                                              StringComparison.InvariantCultureIgnoreCase) == 0);
+                                              StringComparison.OrdinalIgnoreCase) == 0);
             }
         }
 

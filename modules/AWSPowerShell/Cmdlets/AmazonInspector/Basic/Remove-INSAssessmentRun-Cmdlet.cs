@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssessmentRunArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Inspector.Model.DeleteAssessmentRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveINSAssessmentRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class RemoveINSAssessmentRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         #region Parameter AssessmentRunArn
@@ -85,7 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AssessmentRunArn = this.AssessmentRunArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -141,7 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.DeleteAssessmentRunResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DeleteAssessmentRunRequest request)
         {
+            #if DESKTOP
             return client.DeleteAssessmentRun(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteAssessmentRunAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

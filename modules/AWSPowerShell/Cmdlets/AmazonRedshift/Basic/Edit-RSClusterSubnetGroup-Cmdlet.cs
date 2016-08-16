@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a ClusterSubnetGroup object.",
         "The service call response (type Amazon.Redshift.Model.ModifyClusterSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class EditRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterSubnetGroupName
@@ -99,12 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
             context.Description = this.Description;
             if (this.SubnetId != null)
             {
                 context.SubnetIds = new List<System.String>(this.SubnetId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.ModifyClusterSubnetGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ModifyClusterSubnetGroupRequest request)
         {
+            #if DESKTOP
             return client.ModifyClusterSubnetGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyClusterSubnetGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Route53Domains.Model.UpdateTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class UpdateR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter DomainName
@@ -108,11 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DomainName = this.DomainName;
             if (this.TagsToUpdate != null)
             {
                 context.TagsToUpdate = new List<Amazon.Route53Domains.Model.Tag>(this.TagsToUpdate);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -172,7 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         private static Amazon.Route53Domains.Model.UpdateTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.UpdateTagsForDomainRequest request)
         {
+            #if DESKTOP
             return client.UpdateTagsForDomain(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateTagsForDomainAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

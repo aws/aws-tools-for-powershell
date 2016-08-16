@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a ReservedCacheNode object.",
         "The service call response (type Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class RequestECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter CacheNodeCount
@@ -99,10 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("CacheNodeCount"))
                 context.CacheNodeCount = this.CacheNodeCount;
             context.ReservedCacheNodeId = this.ReservedCacheNodeId;
             context.ReservedCacheNodesOfferingId = this.ReservedCacheNodesOfferingId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -164,7 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingRequest request)
         {
+            #if DESKTOP
             return client.PurchaseReservedCacheNodesOffering(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PurchaseReservedCacheNodesOfferingAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

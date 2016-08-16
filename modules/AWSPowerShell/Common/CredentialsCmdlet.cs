@@ -26,7 +26,9 @@ using System.Collections.ObjectModel;
 using Amazon.Runtime;
 using Amazon.Util;
 
+#if DESKTOP
 using Amazon.SecurityToken.SAML;
+#endif
 
 namespace Amazon.PowerShell.Common
 {
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Common
                 WriteObject(currentCredentials.Credentials);
         }
 
-        #region IDynamicParameters Members
+#region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Common
             return Parameters;
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -136,6 +138,7 @@ namespace Amazon.PowerShell.Common
 
             if (currentCredentials != null)
             {
+#if DESKTOP
                 var samlCredentials = currentCredentials.Credentials as StoredProfileFederatedCredentials;
                 if (samlCredentials != null)
                 {
@@ -149,7 +152,7 @@ namespace Amazon.PowerShell.Common
                             = commonArguments != null ? commonArguments.NetworkCredential : null;
                     }
                 }
-
+#endif
                 if (string.IsNullOrEmpty(StoreAs))
                     this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
                 else
@@ -157,7 +160,7 @@ namespace Amazon.PowerShell.Common
             }
         }
 
-        #region IDynamicParameters Members
+#region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
@@ -166,7 +169,7 @@ namespace Amazon.PowerShell.Common
             return Parameters;
         }
 
-        #endregion
+#endregion
     }
 
     /// <summary>
@@ -252,6 +255,7 @@ namespace Amazon.PowerShell.Common
         }
     }
 
+#if DESKTOP
     /// <summary>
     /// Creates or updates an endpoint settings definition for use with SAML role profiles. The name of
     /// the endpoint settings is used with the Set-AWSSamlRoleProfile cmdlet to associate one or more
@@ -298,7 +302,9 @@ namespace Amazon.PowerShell.Common
             WriteObject(StoreAs);
         }
     }
+#endif
 
+#if DESKTOP
     /// <summary>
     /// <para>
     /// Creates or updates role profiles for use with a SAML federated identity provider to obtain temporary
@@ -533,4 +539,6 @@ namespace Amazon.PowerShell.Common
             return StoreAs;
         }
     }
+#endif
+
 }

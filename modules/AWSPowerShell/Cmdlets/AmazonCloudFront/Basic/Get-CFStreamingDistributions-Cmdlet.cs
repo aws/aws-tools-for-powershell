@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         "This cmdlet returns a StreamingDistributionList object.",
         "The service call response (type Amazon.CloudFront.Model.ListStreamingDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFStreamingDistributionsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class GetCFStreamingDistributionsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         #region Parameter Marker
@@ -76,8 +76,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Marker = this.Marker;
             context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -135,7 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         private static Amazon.CloudFront.Model.ListStreamingDistributionsResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListStreamingDistributionsRequest request)
         {
+            #if DESKTOP
             return client.ListStreamingDistributions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListStreamingDistributionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

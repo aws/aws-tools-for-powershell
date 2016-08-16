@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdletOutput("Amazon.Kinesis.Model.PutRecordsResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.PutRecordsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteKINMultipleRecordCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class WriteKINMultipleRecordCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         #region Parameter Record
@@ -145,11 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Record != null)
             {
                 context.Records = new List<Amazon.Kinesis.Model.PutRecordsRequestEntry>(this.Record);
             }
             context.StreamName = this.StreamName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -207,7 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         private static Amazon.Kinesis.Model.PutRecordsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.PutRecordsRequest request)
         {
+            #if DESKTOP
             return client.PutRecords(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutRecordsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

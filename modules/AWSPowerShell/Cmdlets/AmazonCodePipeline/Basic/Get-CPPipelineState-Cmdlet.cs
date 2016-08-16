@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdletOutput("Amazon.CodePipeline.Model.GetPipelineStateResponse",
         "This cmdlet returns a Amazon.CodePipeline.Model.GetPipelineStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCPPipelineStateCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class GetCPPipelineStateCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter Name
@@ -59,7 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Name = this.Name;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,7 +119,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.GetPipelineStateResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.GetPipelineStateRequest request)
         {
+            #if DESKTOP
             return client.GetPipelineState(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetPipelineStateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

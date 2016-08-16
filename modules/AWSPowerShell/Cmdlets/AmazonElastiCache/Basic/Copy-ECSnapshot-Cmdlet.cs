@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a Snapshot object.",
         "The service call response (type Amazon.ElastiCache.Model.CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class CopyECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class CopyECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter SourceSnapshotName
@@ -96,9 +96,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.SourceSnapshotName = this.SourceSnapshotName;
             context.TargetBucket = this.TargetBucket;
             context.TargetSnapshotName = this.TargetSnapshotName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,7 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.CopySnapshotResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CopySnapshotRequest request)
         {
+            #if DESKTOP
             return client.CopySnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CopySnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

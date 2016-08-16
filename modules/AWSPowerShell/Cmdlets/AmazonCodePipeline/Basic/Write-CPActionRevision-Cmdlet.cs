@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PutActionRevisionResponse",
         "This cmdlet returns a Amazon.CodePipeline.Model.PutActionRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCPActionRevisionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class WriteCPActionRevisionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ActionName
@@ -127,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ActionName = this.ActionName;
             if (ParameterWasBound("ActionRevision_Created"))
                 context.ActionRevision_Created = this.ActionRevision_Created;
@@ -134,6 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
             context.ActionRevision_RevisionId = this.ActionRevision_RevisionId;
             context.PipelineName = this.PipelineName;
             context.StageName = this.StageName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -234,7 +240,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.PutActionRevisionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutActionRevisionRequest request)
         {
+            #if DESKTOP
             return client.PutActionRevision(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutActionRevisionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

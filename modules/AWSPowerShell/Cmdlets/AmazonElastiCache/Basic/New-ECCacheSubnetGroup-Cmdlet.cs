@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a CacheSubnetGroup object.",
         "The service call response (type Amazon.ElastiCache.Model.CreateCacheSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewECCacheSubnetGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class NewECCacheSubnetGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter CacheSubnetGroupDescription
@@ -103,12 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CacheSubnetGroupDescription = this.CacheSubnetGroupDescription;
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             if (this.SubnetId != null)
             {
                 context.SubnetIds = new List<System.String>(this.SubnetId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -170,7 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.CreateCacheSubnetGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CreateCacheSubnetGroupRequest request)
         {
+            #if DESKTOP
             return client.CreateCacheSubnetGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateCacheSubnetGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

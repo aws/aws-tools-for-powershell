@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodePipeline.Model.PutJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCPJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class WriteCPJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter CurrentRevision_ChangeIdentifier
@@ -153,6 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ContinuationToken = this.ContinuationToken;
             context.CurrentRevision_ChangeIdentifier = this.CurrentRevision_ChangeIdentifier;
             context.CurrentRevision_Revision = this.CurrentRevision_Revision;
@@ -161,6 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 context.ExecutionDetails_PercentComplete = this.ExecutionDetails_PercentComplete;
             context.ExecutionDetails_Summary = this.ExecutionDetails_Summary;
             context.JobId = this.JobId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -288,7 +294,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.PutJobSuccessResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutJobSuccessResultRequest request)
         {
+            #if DESKTOP
             return client.PutJobSuccessResult(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutJobSuccessResultAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

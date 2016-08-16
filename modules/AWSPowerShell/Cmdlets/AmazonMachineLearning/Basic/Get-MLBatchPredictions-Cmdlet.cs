@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         "The service call response (type Amazon.MachineLearning.Model.DescribeBatchPredictionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetMLBatchPredictionsCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    public partial class GetMLBatchPredictionsCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
         
         #region Parameter EQ
@@ -186,6 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.EQ = this.EQ;
             context.FilterVariable = this.FilterVariable;
             context.GE = this.GE;
@@ -198,6 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
             context.NextToken = this.NextToken;
             context.Prefix = this.Prefix;
             context.SortOrder = this.SortOrder;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -365,7 +371,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         private static Amazon.MachineLearning.Model.DescribeBatchPredictionsResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DescribeBatchPredictionsRequest request)
         {
+            #if DESKTOP
             return client.DescribeBatchPredictions(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeBatchPredictionsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

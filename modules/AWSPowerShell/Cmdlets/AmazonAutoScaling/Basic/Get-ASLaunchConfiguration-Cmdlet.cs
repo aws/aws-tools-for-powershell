@@ -28,8 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes one or more launch configurations. If you omit the list of names, then the
-    /// call describes all launch configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more launch configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASLaunchConfiguration")]
     [OutputType("Amazon.AutoScaling.Model.LaunchConfiguration")]
@@ -39,13 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "The service call response (type Amazon.AutoScaling.Model.DescribeLaunchConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The launch configuration names.</para>
+        /// <para>The launch configuration names. If you omit this parameter, all launch configurations
+        /// are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -85,6 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.LaunchConfigurationName != null)
             {
                 context.LaunchConfigurationNames = new List<System.String>(this.LaunchConfigurationName);
@@ -92,6 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.NextToken = this.NextToken;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -197,7 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.DescribeLaunchConfigurationsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeLaunchConfigurationsRequest request)
         {
+            #if DESKTOP
             return client.DescribeLaunchConfigurations(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeLaunchConfigurationsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

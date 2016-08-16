@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetEBEventCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class GetEBEventCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
@@ -175,6 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
@@ -189,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 context.StartTime = this.StartTime;
             context.TemplateName = this.TemplateName;
             context.VersionLabel = this.VersionLabel;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -356,7 +362,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         private static Amazon.ElasticBeanstalk.Model.DescribeEventsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeEventsRequest request)
         {
+            #if DESKTOP
             return client.DescribeEvents(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeEventsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

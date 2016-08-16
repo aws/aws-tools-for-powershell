@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "The service call response (type Amazon.ElastiCache.Model.DescribeReservedCacheNodesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public class GetECReservedCacheNodeCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class GetECReservedCacheNodeCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter CacheNodeType
@@ -152,6 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CacheNodeType = this.CacheNodeType;
             context.Duration = this.Duration;
             context.Marker = this.Marker;
@@ -161,6 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.ProductDescription = this.ProductDescription;
             context.ReservedCacheNodeId = this.ReservedCacheNodeId;
             context.ReservedCacheNodesOfferingId = this.ReservedCacheNodesOfferingId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -286,7 +292,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.DescribeReservedCacheNodesResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeReservedCacheNodesRequest request)
         {
+            #if DESKTOP
             return client.DescribeReservedCacheNodes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeReservedCacheNodesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.CreateWorkspacesResponse",
         "This cmdlet returns a Amazon.WorkSpaces.Model.CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class NewWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         #region Parameter Workspace
@@ -80,10 +80,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Workspace != null)
             {
                 context.Workspaces = new List<Amazon.WorkSpaces.Model.WorkspaceRequest>(this.Workspace);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -137,7 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         private static Amazon.WorkSpaces.Model.CreateWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.CreateWorkspacesRequest request)
         {
+            #if DESKTOP
             return client.CreateWorkspaces(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateWorkspacesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

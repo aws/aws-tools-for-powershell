@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a DBSecurityGroup object.",
         "The service call response (type Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RevokeRDSDBSecurityGroupIngressCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RevokeRDSDBSecurityGroupIngressCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter CIDRIP
@@ -130,11 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.CIDRIP = this.CIDRIP;
             context.DBSecurityGroupName = this.DBSecurityGroupName;
             context.EC2SecurityGroupId = this.EC2SecurityGroupId;
             context.EC2SecurityGroupName = this.EC2SecurityGroupName;
             context.EC2SecurityGroupOwnerId = this.EC2SecurityGroupOwnerId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -204,7 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RevokeDBSecurityGroupIngressRequest request)
         {
+            #if DESKTOP
             return client.RevokeDBSecurityGroupIngress(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RevokeDBSecurityGroupIngressAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

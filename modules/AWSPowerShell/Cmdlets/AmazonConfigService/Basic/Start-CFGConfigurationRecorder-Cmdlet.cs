@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ConfigService.Model.StartConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public partial class StartCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         
         #region Parameter ConfigurationRecorderName
@@ -84,7 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ConfigurationRecorderName = this.ConfigurationRecorderName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -138,7 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         private static Amazon.ConfigService.Model.StartConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.StartConfigurationRecorderRequest request)
         {
+            #if DESKTOP
             return client.StartConfigurationRecorder(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.StartConfigurationRecorderAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

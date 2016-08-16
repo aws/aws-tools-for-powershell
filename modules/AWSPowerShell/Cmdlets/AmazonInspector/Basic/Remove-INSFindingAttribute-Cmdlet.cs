@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Inspector.Model.RemoveAttributesFromFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class RemoveINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeKey
@@ -89,6 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AttributeKey != null)
             {
                 context.AttributeKeys = new List<System.String>(this.AttributeKey);
@@ -97,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
             {
                 context.FindingArns = new List<System.String>(this.FindingArn);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -154,7 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         private static Amazon.Inspector.Model.RemoveAttributesFromFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.RemoveAttributesFromFindingsRequest request)
         {
+            #if DESKTOP
             return client.RemoveAttributesFromFindings(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveAttributesFromFindingsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

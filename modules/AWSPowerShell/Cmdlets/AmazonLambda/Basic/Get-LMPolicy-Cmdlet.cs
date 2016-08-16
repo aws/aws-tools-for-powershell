@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Lambda.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter FunctionName
@@ -92,8 +92,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FunctionName = this.FunctionName;
             context.Qualifier = this.Qualifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -151,7 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private static Amazon.Lambda.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetPolicyRequest request)
         {
+            #if DESKTOP
             return client.GetPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

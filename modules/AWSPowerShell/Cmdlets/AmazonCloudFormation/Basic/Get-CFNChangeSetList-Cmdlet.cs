@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "The service call response (type Amazon.CloudFormation.Model.ListChangeSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetCFNChangeSetListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetCFNChangeSetListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter StackName
@@ -75,8 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NextToken = this.NextToken;
             context.StackName = this.StackName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.ListChangeSetsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListChangeSetsRequest request)
         {
+            #if DESKTOP
             return client.ListChangeSets(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListChangeSetsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         "This cmdlet returns a collection of RaidArray objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeRaidArraysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetOPSRaidArraysCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSRaidArraysCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceId
@@ -92,12 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.InstanceId = this.InstanceId;
             if (this.RaidArrayId != null)
             {
                 context.RaidArrayIds = new List<System.String>(this.RaidArrayId);
             }
             context.StackId = this.StackId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -159,7 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         private static Amazon.OpsWorks.Model.DescribeRaidArraysResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeRaidArraysRequest request)
         {
+            #if DESKTOP
             return client.DescribeRaidArrays(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeRaidArraysAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

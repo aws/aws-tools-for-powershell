@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class RemoveDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         #region Parameter SnapshotId
@@ -76,7 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.SnapshotId = this.SnapshotId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -130,7 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         private static Amazon.DirectoryService.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteSnapshotRequest request)
         {
+            #if DESKTOP
             return client.DeleteSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

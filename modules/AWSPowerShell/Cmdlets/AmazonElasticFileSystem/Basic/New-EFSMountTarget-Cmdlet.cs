@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateMountTargetResponse",
         "This cmdlet returns a Amazon.ElasticFileSystem.Model.CreateMountTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class NewEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
         #region Parameter FileSystemId
@@ -192,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FileSystemId = this.FileSystemId;
             context.IpAddress = this.IpAddress;
             if (this.SecurityGroup != null)
@@ -199,6 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             context.SubnetId = this.SubnetId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -264,7 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         private static Amazon.ElasticFileSystem.Model.CreateMountTargetResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.CreateMountTargetRequest request)
         {
+            #if DESKTOP
             return client.CreateMountTarget(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateMountTargetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

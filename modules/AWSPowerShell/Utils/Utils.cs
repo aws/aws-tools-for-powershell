@@ -22,6 +22,7 @@ using System.Reflection;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.S3;
+using Amazon.Util.Internal;
 
 namespace Amazon.PowerShell.Utils
 {
@@ -30,6 +31,7 @@ namespace Amazon.PowerShell.Utils
 
         public static void PopulateConfig(PSCmdlet cmdlet, ClientConfig clientConfig)
         {
+#if DESKTOP
             var proxySettings = ProxySettings.GetSettings(cmdlet);
             if (proxySettings != null && proxySettings.UseProxy)
             {
@@ -37,13 +39,19 @@ namespace Amazon.PowerShell.Utils
                 clientConfig.ProxyPort = proxySettings.Port;
                 clientConfig.ProxyCredentials = proxySettings.Credentials;
             }
+#endif
         }
 
         public static void SetAWSPowerShellUserAgent(System.Version hostVersion)
         {
-            Util.Internal.InternalSDKUtils.SetUserAgent("AWSPowerShell", 
-                                          Assembly.GetExecutingAssembly().GetName().Version.ToString(),
-                                          string.Format("WindowsPowerShell/{0}.{1}", hostVersion.Major, hostVersion.MajorRevision));
+#if DESKTOP
+            var moduleName = "AWSPowerShell";
+#else
+            var moduleName = "AWSPowerShell.NetCore";
+#endif
+            Util.Internal.InternalSDKUtils.SetUserAgent(moduleName, 
+                                                        TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
+                                                        string.Format("WindowsPowerShell/{0}.{1}", hostVersion.Major, hostVersion.MajorRevision));
         }
 
         public static ServerSideEncryptionMethod Convert(string serverSideEncryption)

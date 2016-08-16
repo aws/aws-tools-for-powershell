@@ -88,6 +88,7 @@ RequiredAssemblies = @(
   "AWSSDK.ElasticBeanstalk.dll",
   "AWSSDK.ElasticFileSystem.dll",
   "AWSSDK.ElasticLoadBalancing.dll",
+  "AWSSDK.ElasticLoadBalancingV2.dll",
   "AWSSDK.ElasticMapReduce.dll",
   "AWSSDK.Elasticsearch.dll",
   "AWSSDK.ElasticTranscoder.dll",
@@ -98,6 +99,7 @@ RequiredAssemblies = @(
   "AWSSDK.IoT.dll",
   "AWSSDK.KeyManagementService.dll",
   "AWSSDK.Kinesis.dll",
+  "AWSSDK.KinesisAnalytics.dll",
   "AWSSDK.KinesisFirehose.dll",
   "AWSSDK.Lambda.dll",
   "AWSSDK.MachineLearning.dll",
@@ -112,7 +114,7 @@ RequiredAssemblies = @(
   "AWSSDK.SimpleEmail.dll",
   "AWSSDK.SimpleNotificationService.dll",
   "AWSSDK.SimpleSystemsManagement.dll",
-  "AWSSDK.SimpleWorkflow.dll",
+  "AWSSDK.Snowball.dll",
   "AWSSDK.SQS.dll",
   "AWSSDK.StorageGateway.dll",
   "AWSSDK.WAF.dll",
@@ -129,13 +131,13 @@ TypesToProcess = @('AWSPowerShell.TypeExtensions.ps1xml')
 FormatsToProcess = @('AWSPowerShell.Format.ps1xml')
 
 # Modules to import as nested modules of the module specified in ModuleToProcess
-NestedModules = @()
+NestedModules = @("AWSPowerShellCompleters.psm1")
 
 # Functions to export from this module
-FunctionsToExport = '*'
+FunctionsToExport = ''
 
 # Cmdlets to export from this module
-CmdletsToExport = '*'
+CmdletsToExport = '*-*'
 
 # Variables to export from this module
 VariablesToExport = '*'

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class UpdateSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
         #region Parameter Rule_Action
@@ -154,6 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Rule_Action != null)
             {
                 context.Rule_Actions = new List<Amazon.SimpleEmail.Model.ReceiptAction>(this.Rule_Action);
@@ -169,6 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 context.Rule_ScanEnabled = this.Rule_ScanEnabled;
             context.Rule_TlsPolicy = this.Rule_TlsPolicy;
             context.RuleSetName = this.RuleSetName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -291,7 +297,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         private static Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.UpdateReceiptRuleRequest request)
         {
+            #if DESKTOP
             return client.UpdateReceiptRule(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateReceiptRuleAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "The service call response (type Amazon.IoT.Model.ListPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
-    public class GetIOTPolicyListCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIOTPolicyListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter PageSize
@@ -84,11 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AscendingOrder"))
                 context.AscendingOrder = this.AscendingOrder;
             context.Marker = this.Marker;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -224,7 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.ListPoliciesResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListPoliciesRequest request)
         {
+            #if DESKTOP
             return client.ListPolicies(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListPoliciesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

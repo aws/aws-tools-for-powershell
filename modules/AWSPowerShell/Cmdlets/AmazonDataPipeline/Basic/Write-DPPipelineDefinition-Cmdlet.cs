@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdletOutput("Amazon.DataPipeline.Model.PutPipelineDefinitionResponse",
         "This cmdlet returns a Amazon.DataPipeline.Model.PutPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
+    public partial class WriteDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ParameterObject
@@ -121,6 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ParameterObject != null)
             {
                 context.ParameterObjects = new List<Amazon.DataPipeline.Model.ParameterObject>(this.ParameterObject);
@@ -134,6 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
             {
                 context.PipelineObjects = new List<Amazon.DataPipeline.Model.PipelineObject>(this.PipelineObject);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -199,7 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         private static Amazon.DataPipeline.Model.PutPipelineDefinitionResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.PutPipelineDefinitionRequest request)
         {
+            #if DESKTOP
             return client.PutPipelineDefinition(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutPipelineDefinitionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

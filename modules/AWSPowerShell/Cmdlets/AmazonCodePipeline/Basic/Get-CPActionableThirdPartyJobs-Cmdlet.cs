@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         "This cmdlet returns a collection of ThirdPartyJob objects.",
         "The service call response (type Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCPActionableThirdPartyJobsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class GetCPActionableThirdPartyJobsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         #region Parameter ActionTypeId_Category
@@ -112,12 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ActionTypeId_Category = this.ActionTypeId_Category;
             context.ActionTypeId_Owner = this.ActionTypeId_Owner;
             context.ActionTypeId_Provider = this.ActionTypeId_Provider;
             context.ActionTypeId_Version = this.ActionTypeId_Version;
             if (ParameterWasBound("MaxBatchSize"))
                 context.MaxBatchSize = this.MaxBatchSize;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -220,7 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         private static Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PollForThirdPartyJobsRequest request)
         {
+            #if DESKTOP
             return client.PollForThirdPartyJobs(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PollForThirdPartyJobsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

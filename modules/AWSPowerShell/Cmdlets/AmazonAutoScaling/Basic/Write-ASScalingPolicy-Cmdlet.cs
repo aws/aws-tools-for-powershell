@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AutoScaling.Model.PutScalingPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AdjustmentType
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The adjustment type. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
         /// and <code>PercentChangeInCapacity</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html">Dynamic
-        /// Scaling</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Scaling</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The amount of time, in seconds, after a scaling activity completes and before the
         /// next scaling activity can start. If this parameter is not specified, the default cooldown
         /// period for the group applies.</para><para>This parameter is not supported unless the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
-        /// Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
+        /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -203,6 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AdjustmentType = this.AdjustmentType;
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (ParameterWasBound("Cooldown"))
@@ -222,6 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.StepAdjustments = new List<Amazon.AutoScaling.Model.StepAdjustment>(this.StepAdjustment);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -315,7 +321,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.PutScalingPolicyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.PutScalingPolicyRequest request)
         {
+            #if DESKTOP
             return client.PutScalingPolicy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutScalingPolicyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

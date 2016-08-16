@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <summary>
     /// Creates or updates a scheduled scaling action for an Auto Scaling group. When updating
     /// a scheduled scaling action, if you leave a parameter unspecified, the corresponding
-    /// value remains unchanged in the affected Auto Scaling group. 
+    /// value remains unchanged in the affected Auto Scaling group.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scheduled
-    /// Scaling</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// Scaling</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScheduledUpdateGroupAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteASScheduledUpdateGroupActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class WriteASScheduledUpdateGroupActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para> The number of EC2 instances that should be running in the group. </para>
+        /// <para>The number of EC2 instances that should be running in the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxSize
         /// <summary>
         /// <para>
-        /// <para> The maximum size for the Auto Scaling group. </para>
+        /// <para>The maximum size for the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MinSize
         /// <summary>
         /// <para>
-        /// <para> The minimum size for the Auto Scaling group. </para>
+        /// <para>The minimum size for the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.
-        /// </para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
+        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
         /// they form the boundaries of when the recurring action starts and stops.</para>
         /// </para>
         /// </summary>
@@ -179,6 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (ParameterWasBound("DesiredCapacity"))
                 context.DesiredCapacity = this.DesiredCapacity;
@@ -194,6 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.StartTime = this.StartTime;
             if (ParameterWasBound("Time"))
                 context.Time = this.Time;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -281,7 +286,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         private static Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionRequest request)
         {
+            #if DESKTOP
             return client.PutScheduledUpdateGroupAction(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutScheduledUpdateGroupActionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

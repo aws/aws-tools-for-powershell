@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingTypeName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.DeleteThingTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class RemoveIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter ThingTypeName
@@ -89,7 +89,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ThingTypeName = this.ThingTypeName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -145,7 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.DeleteThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteThingTypeRequest request)
         {
+            #if DESKTOP
             return client.DeleteThingType(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteThingTypeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

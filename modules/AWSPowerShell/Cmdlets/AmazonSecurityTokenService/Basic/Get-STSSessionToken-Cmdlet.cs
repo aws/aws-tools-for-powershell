@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         "This cmdlet returns a Credentials object.",
         "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSTSSessionTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
+    public partial class GetSTSSessionTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
         
         #region Parameter DurationInSeconds
@@ -145,10 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("DurationInSeconds"))
                 context.DurationInSeconds = this.DurationInSeconds;
             context.SerialNumber = this.SerialNumber;
             context.TokenCode = this.TokenCode;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -210,7 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         private static Amazon.SecurityToken.Model.GetSessionTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetSessionTokenRequest request)
         {
+            #if DESKTOP
             return client.GetSessionToken(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetSessionTokenAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

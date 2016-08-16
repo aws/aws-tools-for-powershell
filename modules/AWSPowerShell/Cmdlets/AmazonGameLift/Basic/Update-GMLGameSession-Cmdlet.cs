@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "This cmdlet returns a GameSession object.",
         "The service call response (type Amazon.GameLift.Model.UpdateGameSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateGMLGameSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class UpdateGMLGameSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter GameSessionId
@@ -127,12 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.GameSessionId = this.GameSessionId;
             if (ParameterWasBound("MaximumPlayerSessionCount"))
                 context.MaximumPlayerSessionCount = this.MaximumPlayerSessionCount;
             context.Name = this.Name;
             context.PlayerSessionCreationPolicy = this.PlayerSessionCreationPolicy;
             context.ProtectionPolicy = this.ProtectionPolicy;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -202,7 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.UpdateGameSessionResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateGameSessionRequest request)
         {
+            #if DESKTOP
             return client.UpdateGameSession(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateGameSessionAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

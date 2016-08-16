@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.GameLift.Model.DeleteFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class RemoveGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         #region Parameter FleetId
@@ -92,7 +92,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FleetId = this.FleetId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -148,7 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         private static Amazon.GameLift.Model.DeleteFleetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteFleetRequest request)
         {
+            #if DESKTOP
             return client.DeleteFleet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteFleetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

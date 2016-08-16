@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         "This cmdlet returns a DBCluster object.",
         "The service call response (type Amazon.RDS.Model.RestoreDBClusterFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
         #region Parameter AvailabilityZone
@@ -207,6 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
@@ -229,6 +232,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -326,7 +332,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         private static Amazon.RDS.Model.RestoreDBClusterFromSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RestoreDBClusterFromSnapshotRequest request)
         {
+            #if DESKTOP
             return client.RestoreDBClusterFromSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RestoreDBClusterFromSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

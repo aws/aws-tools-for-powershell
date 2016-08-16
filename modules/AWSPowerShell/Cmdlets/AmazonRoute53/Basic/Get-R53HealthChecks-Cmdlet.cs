@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         "The service call response (type Amazon.Route53.Model.ListHealthChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
     )]
-    public class GetR53HealthChecksCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53HealthChecksCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
         #region Parameter Marker
@@ -84,9 +84,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -221,7 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         private static Amazon.Route53.Model.ListHealthChecksResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListHealthChecksRequest request)
         {
+            #if DESKTOP
             return client.ListHealthChecks(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListHealthChecksAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

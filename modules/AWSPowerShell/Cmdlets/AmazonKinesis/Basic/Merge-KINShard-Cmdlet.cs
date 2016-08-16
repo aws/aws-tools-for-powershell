@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.MergeShardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class MergeKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class MergeKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         #region Parameter AdjacentShardToMerge
@@ -142,9 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AdjacentShardToMerge = this.AdjacentShardToMerge;
             context.ShardToMerge = this.ShardToMerge;
             context.StreamName = this.StreamName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -208,7 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         private static Amazon.Kinesis.Model.MergeShardsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.MergeShardsRequest request)
         {
+            #if DESKTOP
             return client.MergeShards(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.MergeShardsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagKey parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Elasticsearch.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
+    public partial class RemoveESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
         #region Parameter ARN
@@ -98,11 +98,17 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ARN = this.ARN;
             if (this.TagKey != null)
             {
                 context.TagKeys = new List<System.String>(this.TagKey);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -162,7 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         private static Amazon.Elasticsearch.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.RemoveTagsRequest request)
         {
+            #if DESKTOP
             return client.RemoveTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.RemoveTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

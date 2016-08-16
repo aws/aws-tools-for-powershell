@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "This cmdlet returns a Snapshot object.",
         "The service call response (type Amazon.Redshift.Model.CopyClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class CopyRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class CopyRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter SourceSnapshotClusterIdentifier
@@ -114,9 +114,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.SourceSnapshotClusterIdentifier = this.SourceSnapshotClusterIdentifier;
             context.SourceSnapshotIdentifier = this.SourceSnapshotIdentifier;
             context.TargetSnapshotIdentifier = this.TargetSnapshotIdentifier;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -178,7 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.CopyClusterSnapshotResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CopyClusterSnapshotRequest request)
         {
+            #if DESKTOP
             return client.CopyClusterSnapshot(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CopyClusterSnapshotAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateR53DDomainContactPrivacyCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class UpdateR53DDomainContactPrivacyCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
         #region Parameter AdminPrivacy
@@ -126,6 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AdminPrivacy"))
                 context.AdminPrivacy = this.AdminPrivacy;
             context.DomainName = this.DomainName;
@@ -133,6 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 context.RegistrantPrivacy = this.RegistrantPrivacy;
             if (ParameterWasBound("TechPrivacy"))
                 context.TechPrivacy = this.TechPrivacy;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         private static Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.UpdateDomainContactPrivacyRequest request)
         {
+            #if DESKTOP
             return client.UpdateDomainContactPrivacy(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateDomainContactPrivacyAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

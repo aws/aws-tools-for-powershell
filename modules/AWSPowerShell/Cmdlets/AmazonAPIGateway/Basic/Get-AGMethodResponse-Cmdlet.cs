@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetMethodResponseResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.GetMethodResponseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetAGMethodResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGMethodResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter HttpMethod
@@ -89,10 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.HttpMethod = this.HttpMethod;
             context.ResourceId = this.ResourceId;
             context.RestApiId = this.RestApiId;
             context.StatusCode = this.StatusCode;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -158,7 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.GetMethodResponseResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetMethodResponseRequest request)
         {
+            #if DESKTOP
             return client.GetMethodResponse(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetMethodResponseAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.StorageGateway.Model.CreateTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSGTapesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class NewSGTapesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ClientToken
@@ -127,6 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClientToken = this.ClientToken;
             context.GatewayARN = this.GatewayARN;
             if (ParameterWasBound("NumTapesToCreate"))
@@ -134,6 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.TapeBarcodePrefix = this.TapeBarcodePrefix;
             if (ParameterWasBound("TapeSizeInBytes"))
                 context.TapeSizeInBytes = this.TapeSizeInBytes;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -203,7 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.CreateTapesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateTapesRequest request)
         {
+            #if DESKTOP
             return client.CreateTapes(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateTapesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Redshift.Model.DeleteClusterSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class RemoveRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterSubnetGroupName
@@ -85,7 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -141,7 +147,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         private static Amazon.Redshift.Model.DeleteClusterSubnetGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteClusterSubnetGroupRequest request)
         {
+            #if DESKTOP
             return client.DeleteClusterSubnetGroup(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DeleteClusterSubnetGroupAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

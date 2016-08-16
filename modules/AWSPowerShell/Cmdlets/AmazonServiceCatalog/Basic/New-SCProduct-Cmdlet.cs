@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         "This cmdlet returns a RecordDetail object.",
         "The service call response (type Amazon.ServiceCatalog.Model.ProvisionProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class NewSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -170,6 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.AcceptLanguage = this.AcceptLanguage;
             if (this.NotificationArn != null)
             {
@@ -188,6 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 context.Tags = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -273,7 +279,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         private static Amazon.ServiceCatalog.Model.ProvisionProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ProvisionProductRequest request)
         {
+            #if DESKTOP
             return client.ProvisionProduct(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ProvisionProductAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

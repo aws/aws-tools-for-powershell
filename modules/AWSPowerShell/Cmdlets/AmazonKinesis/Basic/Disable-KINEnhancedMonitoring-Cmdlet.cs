@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdletOutput("Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class DisableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class DisableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         #region Parameter ShardLevelMetric
@@ -89,11 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.ShardLevelMetric != null)
             {
                 context.ShardLevelMetrics = new List<System.String>(this.ShardLevelMetric);
             }
             context.StreamName = this.StreamName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -151,7 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         private static Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DisableEnhancedMonitoringRequest request)
         {
+            #if DESKTOP
             return client.DisableEnhancedMonitoring(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DisableEnhancedMonitoringAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

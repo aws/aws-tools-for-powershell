@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.CreateChangeSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class NewCFNChangeSetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         #region Parameter Capability
@@ -247,6 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (this.Capability != null)
             {
                 context.Capabilities = new List<System.String>(this.Capability);
@@ -275,6 +278,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.TemplateURL = this.TemplateURL;
             if (ParameterWasBound("UsePreviousTemplate"))
                 context.UsePreviousTemplate = this.UsePreviousTemplate;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -372,7 +378,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         private static Amazon.CloudFormation.Model.CreateChangeSetResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.CreateChangeSetRequest request)
         {
+            #if DESKTOP
             return client.CreateChangeSet(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateChangeSetAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

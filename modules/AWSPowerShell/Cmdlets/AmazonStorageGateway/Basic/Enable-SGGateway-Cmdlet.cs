@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.ActivateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EnableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class EnableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter ActivationKey
@@ -161,6 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ActivationKey = this.ActivationKey;
             context.GatewayName = this.GatewayName;
             context.GatewayRegion = this.GatewayRegion;
@@ -168,6 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.GatewayType = this.GatewayType;
             context.MediumChangerType = this.MediumChangerType;
             context.TapeDriveType = this.TapeDriveType;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -245,7 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         private static Amazon.StorageGateway.Model.ActivateGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ActivateGatewayRequest request)
         {
+            #if DESKTOP
             return client.ActivateGateway(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ActivateGatewayAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

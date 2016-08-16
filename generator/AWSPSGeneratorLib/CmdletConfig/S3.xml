@@ -45,6 +45,7 @@
     <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
     <ParamEmitter ParamType="Amazon.S3.Model.Protocol" EmitterType="Generators.ParamEmitters.AmazonS3.ProtocolParamEmitter" />
     <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.AccelerateParamEmitter" Excludes="ListBuckets;PutBucket;DeleteBucket"/>
+    <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.DualstackParamEmitter"/>
   </ParamEmitters>
 
   <ExcludeProperties>
@@ -95,12 +96,7 @@
     <ServiceOperation MethodName="GetObject" Exclude="true"/>
     <ServiceOperation MethodName="GetObjectMetadata" Output="Response" PositionalParameters="Key"/>
     <ServiceOperation MethodName="GetObjectTorrent" Exclude="true"/>
-    <ServiceOperation MethodName="GetPreSignedURL" Output="Response" PositionalParameters="Key">
-      <Params>
-        <Param Name="Metadata" Exclude="true" />
-        <Param Name="Headers_" Exclude="true" />
-      </Params>
-    </ServiceOperation>
+    <ServiceOperation MethodName="GetPreSignedURL" Exclude="true" />
     <ServiceOperation MethodName="InitiateMultipartUpload" Exclude="true"/>
     <ServiceOperation MethodName="ListBuckets" Exclude="true"/>
     <ServiceOperation MethodName="ListMultipartUploads" Exclude="true"/>

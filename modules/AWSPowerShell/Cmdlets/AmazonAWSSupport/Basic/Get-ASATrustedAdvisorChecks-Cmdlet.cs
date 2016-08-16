@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         "This cmdlet returns a collection of TrustedAdvisorCheckDescription objects.",
         "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetASATrustedAdvisorChecksCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
+    public partial class GetASATrustedAdvisorChecksCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
         
         #region Parameter Language
@@ -65,7 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Language = this.Language;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -119,7 +125,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         private static Amazon.AWSSupport.Model.DescribeTrustedAdvisorChecksResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeTrustedAdvisorChecksRequest request)
         {
+            #if DESKTOP
             return client.DescribeTrustedAdvisorChecks(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeTrustedAdvisorChecksAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

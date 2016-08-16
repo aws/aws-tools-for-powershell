@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdletOutput("Amazon.ECS.Model.StartTaskResponse",
         "This cmdlet returns a Amazon.ECS.Model.StartTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class StartECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
         #region Parameter Cluster
@@ -145,6 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Cluster = this.Cluster;
             if (this.ContainerInstance != null)
             {
@@ -157,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Overrides_TaskRoleArn = this.Overrides_TaskRoleArn;
             context.StartedBy = this.StartedBy;
             context.TaskDefinition = this.TaskDefinition;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -251,7 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         private static Amazon.ECS.Model.StartTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.StartTaskRequest request)
         {
+            #if DESKTOP
             return client.StartTask(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.StartTaskAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

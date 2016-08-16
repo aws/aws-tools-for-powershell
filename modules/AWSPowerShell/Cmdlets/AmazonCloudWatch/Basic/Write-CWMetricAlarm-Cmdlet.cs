@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatch.Model.PutMetricAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteCWMetricAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
+    public partial class WriteCWMetricAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
         
         #region Parameter ActionsEnabled
@@ -304,6 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("ActionsEnabled"))
                 context.ActionsEnabled = this.ActionsEnabled;
             if (this.AlarmAction != null)
@@ -335,6 +338,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (ParameterWasBound("Threshold"))
                 context.Threshold = this.Threshold;
             context.Unit = this.Unit;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -446,7 +452,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         private static Amazon.CloudWatch.Model.PutMetricAlarmResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.PutMetricAlarmRequest request)
         {
+            #if DESKTOP
             return client.PutMetricAlarm(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutMetricAlarmAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

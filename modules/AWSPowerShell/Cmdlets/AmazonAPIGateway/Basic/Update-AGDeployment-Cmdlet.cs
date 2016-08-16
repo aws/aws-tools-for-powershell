@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateDeploymentResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.UpdateDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateAGDeploymentCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateAGDeploymentCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentId
@@ -99,12 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.DeploymentId = this.DeploymentId;
             if (this.PatchOperation != null)
             {
                 context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
             }
             context.RestApiId = this.RestApiId;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -166,7 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         private static Amazon.APIGateway.Model.UpdateDeploymentResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateDeploymentRequest request)
         {
+            #if DESKTOP
             return client.UpdateDeployment(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.UpdateDeploymentAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

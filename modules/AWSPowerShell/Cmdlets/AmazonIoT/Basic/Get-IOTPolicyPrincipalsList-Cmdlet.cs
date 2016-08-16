@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         "The service call response (type Amazon.IoT.Model.ListPolicyPrincipalsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
-    public class GetIOTPolicyPrincipalsListCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIOTPolicyPrincipalsListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter PageSize
@@ -94,12 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AscendingOrder"))
                 context.AscendingOrder = this.AscendingOrder;
             context.Marker = this.Marker;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PolicyName = this.PolicyName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -239,7 +245,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.ListPolicyPrincipalsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListPolicyPrincipalsRequest request)
         {
+            #if DESKTOP
             return client.ListPolicyPrincipals(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListPolicyPrincipalsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

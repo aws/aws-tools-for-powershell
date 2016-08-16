@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         "The service call response (type Amazon.ElasticFileSystem.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), NextMarker (type System.String)"
     )]
-    public class GetEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    public partial class GetEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
         #region Parameter FileSystemId
@@ -94,10 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.FileSystemId = this.FileSystemId;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -204,7 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         private static Amazon.ElasticFileSystem.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DescribeTagsRequest request)
         {
+            #if DESKTOP
             return client.DescribeTags(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeTagsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

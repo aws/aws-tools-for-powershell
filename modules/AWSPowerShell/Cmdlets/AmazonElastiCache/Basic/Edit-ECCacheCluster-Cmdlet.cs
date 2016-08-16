@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         "This cmdlet returns a CacheCluster object.",
         "The service call response (type Amazon.ElastiCache.Model.ModifyCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class EditECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
         #region Parameter ApplyImmediately
@@ -314,6 +314,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("ApplyImmediately"))
                 context.ApplyImmediately = this.ApplyImmediately;
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
@@ -347,6 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (ParameterWasBound("SnapshotRetentionLimit"))
                 context.SnapshotRetentionLimit = this.SnapshotRetentionLimit;
             context.SnapshotWindow = this.SnapshotWindow;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -464,7 +470,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         private static Amazon.ElastiCache.Model.ModifyCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ModifyCacheClusterRequest request)
         {
+            #if DESKTOP
             return client.ModifyCacheCluster(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyCacheClusterAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

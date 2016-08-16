@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdletOutput("Amazon.IoT.Model.DescribeThingTypeResponse",
         "This cmdlet returns a Amazon.IoT.Model.DescribeThingTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter ThingTypeName
@@ -59,7 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ThingTypeName = this.ThingTypeName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,7 +119,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.DescribeThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DescribeThingTypeRequest request)
         {
+            #if DESKTOP
             return client.DescribeThingType(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeThingTypeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class NewCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter Destination
@@ -155,6 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Destination = this.Destination;
             context.DestinationPrefix = this.DestinationPrefix;
             if (ParameterWasBound("From"))
@@ -164,6 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.TaskName = this.TaskName;
             if (ParameterWasBound("To"))
                 context.To = this.To;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -241,7 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         private static Amazon.CloudWatchLogs.Model.CreateExportTaskResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CreateExportTaskRequest request)
         {
+            #if DESKTOP
             return client.CreateExportTask(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateExportTaskAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

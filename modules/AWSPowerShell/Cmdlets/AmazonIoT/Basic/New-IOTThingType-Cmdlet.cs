@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdletOutput("Amazon.IoT.Model.CreateThingTypeResponse",
         "This cmdlet returns a Amazon.IoT.Model.CreateThingTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class NewIOTThingTypeCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         #region Parameter ThingTypeProperties_SearchableAttribute
@@ -96,12 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.ThingTypeName = this.ThingTypeName;
             if (this.ThingTypeProperties_SearchableAttribute != null)
             {
                 context.ThingTypeProperties_SearchableAttributes = new List<System.String>(this.ThingTypeProperties_SearchableAttribute);
             }
             context.ThingTypeProperties_ThingTypeDescription = this.ThingTypeProperties_ThingTypeDescription;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -184,7 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         private static Amazon.IoT.Model.CreateThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateThingTypeRequest request)
         {
+            #if DESKTOP
             return client.CreateThingType(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateThingTypeAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

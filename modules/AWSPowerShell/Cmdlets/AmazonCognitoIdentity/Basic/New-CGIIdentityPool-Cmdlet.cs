@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse",
         "This cmdlet returns a Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
+    public partial class NewCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
         #region Parameter AllowUnauthenticatedIdentity
@@ -146,6 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             if (ParameterWasBound("AllowUnauthenticatedIdentity"))
                 context.AllowUnauthenticatedIdentities = this.AllowUnauthenticatedIdentity;
             if (this.CognitoIdentityProvider != null)
@@ -170,6 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                     context.SupportedLoginProviders.Add((String)hashKey, (String)(this.SupportedLoginProvider[hashKey]));
                 }
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -247,7 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         private static Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.CreateIdentityPoolRequest request)
         {
+            #if DESKTOP
             return client.CreateIdentityPool(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateIdentityPoolAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

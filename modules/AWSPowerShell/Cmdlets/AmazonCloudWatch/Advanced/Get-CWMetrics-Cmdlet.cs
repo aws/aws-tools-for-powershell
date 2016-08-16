@@ -194,7 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.CW
 
         private static Amazon.CloudWatch.Model.ListMetricsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.ListMetricsRequest request)
         {
+#if DESKTOP
             return client.ListMetrics(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListMetricsAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
 
         #endregion
