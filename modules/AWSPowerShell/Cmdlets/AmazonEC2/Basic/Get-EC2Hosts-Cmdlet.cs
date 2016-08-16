@@ -28,12 +28,12 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your Dedicated hosts.
+    /// Describes one or more of your Dedicated Hosts.
     /// 
     ///  
     /// <para>
-    /// The results describe only the Dedicated hosts in the region you're currently using.
-    /// All listed instances consume capacity on your Dedicated host. Dedicated hosts that
+    /// The results describe only the Dedicated Hosts in the region you're currently using.
+    /// All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that
     /// have recently been released will be listed with the state <code>released</code>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -51,11 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type size that the Dedicated host is configured
+        /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
         /// to support.</para></li><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
-        /// | <code>off</code>).</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation associated with this
-        /// host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
-        /// the instance</para></li><li><para><code>state</code>- The allocation state of the Dedicated host (<code>available</code>
+        /// | <code>off</code>).</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
+        /// the instance</para></li><li><para><code>state</code>- The allocation state of the Dedicated Host (<code>available</code>
         /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
         /// | <code>released-permanent-failure</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li></ul>
         /// </para>
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Dedicated hosts. The IDs are used for targeted instance launches.</para>
+        /// <para>The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

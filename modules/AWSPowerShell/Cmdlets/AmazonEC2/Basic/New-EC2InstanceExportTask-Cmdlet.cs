@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For information about the supported operating systems, image formats, and known limitations
-    /// for the types of instances you can export, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html">Exporting
-    /// EC2 Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// for the types of instances you can export, see <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting
+    /// an Instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2InstanceExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
