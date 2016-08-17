@@ -88,7 +88,7 @@
 				"define": []
 			},
 			"dependencies": {
-				"System.Management.Automation": "1.0.0-b3816"
+				"System.Management.Automation": "1.0.0-alpha.9.4820"
 			}
 		}
 	}
