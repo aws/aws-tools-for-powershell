@@ -72,7 +72,62 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# begin service completion functions
+$AWS_RegionCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$regionHash = @{ }
+
+    # Similar to Get-AWSRegion
+	$regions = [Amazon.RegionEndpoint]::EnumerableAllRegions
+	foreach ($r in $regions)
+	{
+		$regionHash.Add($r.SystemName, $r.DisplayName)
+	}
+
+	$regionHash.Keys |
+	Sort-Object |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $regionHash[$_]
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_RegionCompleter @{ "Region"=@() }
+
+$AWS_EC2ImageByNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	$keys = [Amazon.EC2.Util.ImageUtilities]::ImageKeys
+
+	$keys |
+	Sort-Object -Descending |
+	Where-Object { $_ -like "$wordToComplete*" } |
+	ForEach-Object {
+		New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_EC2ImageByNameCompleter @{ "Name"=@("Get-EC2ImageByName") }
+
+$AWS_ProfileNameCompleter = {
+	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+	# allow for new user with no profiles set up yet
+	$profiles = Get-AWSCredentials -ListProfiles
+	if ($profiles)
+	{
+		$profiles |
+		Sort-Object |
+		Where-Object { $_ -like "$wordToComplete*" } |
+		ForEach-Object {
+			New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_
+		}
+	}
+}
+
+_awsArgumentCompleterRegistration $AWS_ProfileNameCompleter @{ "ProfileName"=@() }
+
+# begin auto-generated service completers
 # Argument completions for service Amazon API Gateway
 $AG_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -3118,4 +3173,4 @@ $WAF_map = @{
 
 _awsArgumentCompleterRegistration $WAF_Completers $WAF_map
 
-# end service completion functions
+# end auto-generated service completers
