@@ -1613,6 +1613,13 @@ $ECS_Completers = {
             break
         }
         
+        # Amazon.ECS.NetworkMode
+        "Register-ECSTaskDefinition/NetworkMode"
+        {
+            $v = "bridge","host","none"
+            break
+        }
+        
         # Amazon.ECS.SortOrder
         "Get-ECSTaskDefinitions/Sort"
         {
@@ -1643,6 +1650,7 @@ $ECS_Completers = {
 
 $ECS_map = @{
     "DesiredStatus"=@("Get-ECSTasks")
+    "NetworkMode"=@("Register-ECSTaskDefinition")
     "Sort"=@("Get-ECSTaskDefinitions")
     "Status"=@("Get-ECSTaskDefinitionFamilies","Get-ECSTaskDefinitions")
 }
