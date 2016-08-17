@@ -49,11 +49,6 @@
 		<AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
 		
 		<AuthenticodeSignScripts Condition="'$(AuthenticodeSignScripts)'==''">false</AuthenticodeSignScripts>
-		
-		<!-- temp flag allows us to turn off the netcore build output if we're running in master branch,
-		     until netcore sdk is merged back to master
-		-->
-		<BuildNetCoreModule Condition="'$(BuildNetCoreModule)'==''">false</BuildNetCoreModule>
     </PropertyGroup>
     
 	<Target Name="full-build" 
@@ -66,8 +61,8 @@
         <Exec Command="..\solutions\.nuget\NuGet.exe restore ..\modules\AWSPowerShell\AWSPowerShell.csproj"/>
         
 		<Exec Command="&quot;$(SDKToolingExe)&quot; restore" 
-			WorkingDirectory="..\modules\AWSPowerShell"
-			Condition="'$(BuildNetCoreModule)'" />		
+			  WorkingDirectory="..\modules\AWSPowerShell"
+			  />		
     </Target>
 	
     <Target Name="build-generator">
@@ -92,7 +87,6 @@
 		<!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.Format.ps1xml" 
               DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
-			  Condition="'$(BuildNetCoreModule)'"
 			  />
 		 
 	</Target>
@@ -106,7 +100,6 @@
 		<!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.dll-Help.xml" 
               DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
-			  Condition="'$(BuildNetCoreModule)'"
 			  />
 		 
 	</Target>
@@ -179,7 +172,7 @@
 
     </Target>
 
-	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules;" Condition="'$(BuildNetCoreModule)'">
+	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<!-- <BuildSourceFolder>bin\$(Configuration)\coreclr\</BuildSourceFolder> -->
 			<BuildSourceFolder>bin\$(Configuration)\coreclr\AWSPowerShell\bin\$(Configuration)\netstandard1.6\</BuildSourceFolder>
@@ -261,7 +254,7 @@
 		<Message Text="Authenticode signing module and script artifacts for NetCore edition" />
 		<Exec LogStandardErrorAsError="true"
               Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(NetCoreDeploymentFolder)" 
-			  Condition="'$(BuildNetCoreModule)'"/>
+			  />
 	</Target>
 	
     <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
