@@ -41,12 +41,12 @@
 	<Choose>
 		<When Condition="'$(DocBuildReleaseBuild)'=='True' ">
 			<PropertyGroup>
-				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Include\PowerShell\$(Edition)</Deployment>
+				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Include\PowerShell\AWSPowerShell</Deployment>
 			</PropertyGroup>
 		</When>
 		<Otherwise>
 			<PropertyGroup>
-				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment\$(Edition)</Deployment>
+				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment\AWSPowerShell</Deployment>
 			</PropertyGroup>
 		</Otherwise>
 	</Choose>
