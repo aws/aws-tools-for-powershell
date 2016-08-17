@@ -36,11 +36,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// You may also specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
+    /// You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
     /// When you specify an IAM role for a task, its containers can then use the latest versions
     /// of the AWS CLI or SDKs to make API requests to the AWS services that are specified
     /// in the IAM policy associated with the role. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
     /// Roles for Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// </para><para>
+    /// You can specify a Docker networking mode for the containers in your task definition
+    /// with the <code>networkMode</code> parameter. The available network modes correspond
+    /// to those described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
+    /// settings</a> in the Docker run reference.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,6 +81,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Family { get; set; }
+        #endregion
+        
+        #region Parameter NetworkMode
+        /// <summary>
+        /// <para>
+        /// <para>The Docker networking mode to use for the containers in the task. The valid values
+        /// are <code>none</code>, <code>bridge</code>, and <code>host</code>. </para><para>The default Docker network mode is <code>bridge</code>. If the network mode is set
+        /// to <code>none</code>, you cannot specify port mappings in your container definitions,
+        /// and the task's containers do not have external connectivity. The <code>host</code>
+        /// network mode offers the highest networking performance for containers because they
+        /// use the host network stack instead of the virtualized network stack provided by the
+        /// <code>bridge</code> mode; however, exposed container ports are mapped directly to
+        /// the corresponding host port, so you cannot take advantage of dynamic host port mappings
+        /// or run multiple instantiations of the same task on a single container instance if
+        /// port mappings are used.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
+        /// settings</a> in the <i>Docker run reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.NetworkMode")]
+        public Amazon.ECS.NetworkMode NetworkMode { get; set; }
         #endregion
         
         #region Parameter TaskRoleArn
@@ -135,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.ContainerDefinitions = new List<Amazon.ECS.Model.ContainerDefinition>(this.ContainerDefinition);
             }
             context.Family = this.Family;
+            context.NetworkMode = this.NetworkMode;
             context.TaskRoleArn = this.TaskRoleArn;
             if (this.Volume != null)
             {
@@ -163,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Family != null)
             {
                 request.Family = cmdletContext.Family;
+            }
+            if (cmdletContext.NetworkMode != null)
+            {
+                request.NetworkMode = cmdletContext.NetworkMode;
             }
             if (cmdletContext.TaskRoleArn != null)
             {
@@ -225,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinitions { get; set; }
             public System.String Family { get; set; }
+            public Amazon.ECS.NetworkMode NetworkMode { get; set; }
             public System.String TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.Volume> Volumes { get; set; }
         }

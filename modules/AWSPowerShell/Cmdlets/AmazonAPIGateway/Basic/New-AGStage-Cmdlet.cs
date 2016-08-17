@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A map that defines the stage variables for the new <a>Stage</a> resource. Variable
-        /// names can have alphanumeric characters, and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
+        /// names can have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

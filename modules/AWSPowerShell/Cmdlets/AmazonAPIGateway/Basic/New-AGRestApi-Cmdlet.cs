@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CloneFrom
         /// <summary>
         /// <para>
-        /// <para>The Id of the <a>RestApi</a> that you want to clone from.</para>
+        /// <para>The ID of the <a>RestApi</a> that you want to clone from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

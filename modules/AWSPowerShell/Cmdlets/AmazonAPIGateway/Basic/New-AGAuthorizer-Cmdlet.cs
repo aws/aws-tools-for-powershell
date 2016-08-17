@@ -29,6 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
     /// Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.
+    /// 
+    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html">AWS
+    /// CLI</a></div>
     /// </summary>
     [Cmdlet("New", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateAuthorizerResponse")]
@@ -115,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ProviderARNs
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of the Cognito Your User Pool authorizer's provider ARNs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

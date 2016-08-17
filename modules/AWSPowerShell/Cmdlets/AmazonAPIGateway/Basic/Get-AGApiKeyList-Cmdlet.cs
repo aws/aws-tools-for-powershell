@@ -28,18 +28,38 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>ApiKeys</a> resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about the current <a>ApiKeys</a> resource.
     /// </summary>
     [Cmdlet("Get", "AGApiKeyList")]
-    [OutputType("Amazon.APIGateway.Model.ApiKey")]
+    [OutputType("Amazon.APIGateway.Model.GetApiKeysResponse")]
     [AWSCmdlet("Invokes the GetApiKeys operation against Amazon API Gateway.", Operation = new[] {"GetApiKeys"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.ApiKey",
-        "This cmdlet returns a collection of ApiKey objects.",
-        "The service call response (type Amazon.APIGateway.Model.GetApiKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Position (type System.String)"
+    [AWSCmdletOutput("Amazon.APIGateway.Model.GetApiKeysResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.GetApiKeysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetAGApiKeyListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter IncludeValue
+        /// <summary>
+        /// <para>
+        /// <para>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>)
+        /// the result contains key values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IncludeValues")]
+        public System.Boolean IncludeValue { get; set; }
+        #endregion
+        
+        #region Parameter NameQuery
+        /// <summary>
+        /// <para>
+        /// <para>The name of queried API keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NameQuery { get; set; }
+        #endregion
         
         #region Parameter Limit
         /// <summary>
@@ -47,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>The maximum number of <a>ApiKeys</a> to get information about.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         #endregion
         
         #region Parameter Position
@@ -76,8 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("IncludeValue"))
+                context.IncludeValues = this.IncludeValue;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            context.NameQuery = this.NameQuery;
             context.Position = this.Position;
             
             // allow further manipulation of loaded context prior to processing
@@ -92,84 +115,48 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            
-            // create request and set iteration invariants
+            // create request
             var request = new Amazon.APIGateway.Model.GetApiKeysRequest();
             
-            // Initialize loop variants and commence piping
-            System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.Position))
+            if (cmdletContext.IncludeValues != null)
             {
-                _nextMarker = cmdletContext.Position;
+                request.IncludeValues = cmdletContext.IncludeValues.Value;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit != null)
             {
-                _emitLimit = cmdletContext.Limit;
+                request.Limit = cmdletContext.Limit.Value;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Position) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
-            bool _continueIteration = true;
+            if (cmdletContext.NameQuery != null)
+            {
+                request.NameQuery = cmdletContext.NameQuery;
+            }
+            if (cmdletContext.Position != null)
+            {
+                request.Position = cmdletContext.Position;
+            }
             
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
                 {
-                    request.Position = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Items;
-                        notes = new Dictionary<string, object>();
-                        notes["Position"] = response.Position;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        int _receivedThisCall = response.Items.Count;
-                        if (_userControllingPaging)
-                        {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Position));
-                        }
-                        
-                        _nextMarker = response.Position;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -198,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public int? Limit { get; set; }
+            public System.Boolean? IncludeValues { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NameQuery { get; set; }
             public System.String Position { get; set; }
         }
         

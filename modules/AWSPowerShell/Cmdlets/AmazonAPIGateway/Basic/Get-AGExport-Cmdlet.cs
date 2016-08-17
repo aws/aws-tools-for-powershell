@@ -42,9 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Accept
         /// <summary>
         /// <para>
-        /// <para>The content-type of the export, for example 'application/json'. Currently 'application/json'
-        /// and 'application/yaml' are supported for exportType 'swagger'. Should be specifed
-        /// in the 'Accept' header for direct API requests.</para>
+        /// <para>The content-type of the export, for example <code>application/json</code>. Currently
+        /// <code>application/json</code> and <code>application/yaml</code> are supported for
+        /// <code>exportType</code> of <code>swagger</code>. This should be specified in the <code>Accept</code>
+        /// header for direct API requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,10 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A key-value map of query string parameters that specify properties of the export,
-        /// depending on the requested exportType. For exportType 'swagger', any combination of
-        /// the following parameters are supported: 'integrations' will export x-amazon-apigateway-integration
-        /// extensions 'authorizers' will export x-amazon-apigateway-authorizer extensions 'postman'
-        /// will export with Postman extensions, allowing for import to the Postman tool</para>
+        /// depending on the requested <code>exportType</code>. For <code>exportType</code><code>swagger</code>,
+        /// any combination of the following parameters are supported: <code>integrations</code>
+        /// will export the API with x-amazon-apigateway-integration extensions. <code>authorizers</code>
+        /// will export the API with x-amazon-apigateway-authorizer extensions. <code>postman</code>
+        /// will export the API with Postman extensions, allowing for import to the Postman tool</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

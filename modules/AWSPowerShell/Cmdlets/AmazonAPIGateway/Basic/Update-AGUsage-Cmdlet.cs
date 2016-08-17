@@ -28,25 +28,27 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Updates an existing <a>Method</a> resource.
+    /// Grants a temporary extension to the reamining quota of a usage plan associated with
+    /// a specified API key.
     /// </summary>
-    [Cmdlet("Update", "AGMethod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.UpdateMethodResponse")]
-    [AWSCmdlet("Invokes the UpdateMethod operation against Amazon API Gateway.", Operation = new[] {"UpdateMethod"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateMethodResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.UpdateMethodResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AGUsage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.UpdateUsageResponse")]
+    [AWSCmdlet("Invokes the UpdateUsage operation against Amazon API Gateway.", Operation = new[] {"UpdateUsage"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateUsageResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.UpdateUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateAGMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateAGUsageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter HttpMethod
+        #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The HTTP verb of the <a>Method</a> resource.</para>
+        /// <para>The identifier of the API key associated with the usage plan in which a temporary
+        /// extension is granted to the remaining quota.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String HttpMethod { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String KeyId { get; set; }
         #endregion
         
         #region Parameter PatchOperation
@@ -61,24 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
         #endregion
         
-        #region Parameter ResourceId
+        #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>The <a>Resource</a> identifier for the <a>Method</a> resource.</para>
+        /// <para>The Id of the usage plan associated with the usage data.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter RestApiId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>RestApi</a> identifier for the <a>Method</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String UsagePlanId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGMethod (UpdateMethod)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("KeyId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGUsage (UpdateUsage)"))
             {
                 return;
             }
@@ -110,13 +102,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.HttpMethod = this.HttpMethod;
+            context.KeyId = this.KeyId;
             if (this.PatchOperation != null)
             {
                 context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
             }
-            context.ResourceId = this.ResourceId;
-            context.RestApiId = this.RestApiId;
+            context.UsagePlanId = this.UsagePlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,23 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.UpdateMethodRequest();
+            var request = new Amazon.APIGateway.Model.UpdateUsageRequest();
             
-            if (cmdletContext.HttpMethod != null)
+            if (cmdletContext.KeyId != null)
             {
-                request.HttpMethod = cmdletContext.HttpMethod;
+                request.KeyId = cmdletContext.KeyId;
             }
             if (cmdletContext.PatchOperations != null)
             {
                 request.PatchOperations = cmdletContext.PatchOperations;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.UsagePlanId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.RestApiId != null)
-            {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.UsagePlanId = cmdletContext.UsagePlanId;
             }
             
             CmdletOutput output;
@@ -183,13 +170,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateMethodResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateMethodRequest request)
+        private static Amazon.APIGateway.Model.UpdateUsageResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateUsageRequest request)
         {
             #if DESKTOP
-            return client.UpdateMethod(request);
+            return client.UpdateUsage(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateMethodAsync(request);
+            var task = client.UpdateUsageAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,10 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String HttpMethod { get; set; }
+            public System.String KeyId { get; set; }
             public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.String UsagePlanId { get; set; }
         }
         
     }

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTP verb identifier for the parent <a>Method</a> resource.</para>
+        /// <para>The HTTP verb of the <a>Method</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of operations describing the updates to apply to the specified resource. The
-        /// patches are applied in the order specified in the list.</para>
+        /// <para>A list of update operations to be applied to the specified resource and in the order
+        /// specified in this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>The status code identifier for the <a>MethodResponse</a> resource.</para>
+        /// <para>The status code for the <a>MethodResponse</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

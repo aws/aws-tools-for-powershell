@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of operations describing the updates to apply to the specified resource. The
-        /// patches are applied in the order specified in the list.</para>
+        /// <para>A list of update operations to be applied to the specified resource and in the order
+        /// specified in this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

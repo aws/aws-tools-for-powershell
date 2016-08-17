@@ -45,8 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>The identifier of the <a>ApiKey</a> resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String ApiKey { get; set; }
+        #endregion
+        
+        #region Parameter IncludeValue
+        /// <summary>
+        /// <para>
+        /// <para>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>)
+        /// the result contains the key value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludeValue { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -63,6 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             PreExecutionContextLoad(context);
             
             context.ApiKey = this.ApiKey;
+            if (ParameterWasBound("IncludeValue"))
+                context.IncludeValue = this.IncludeValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -82,6 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.ApiKey != null)
             {
                 request.ApiKey = cmdletContext.ApiKey;
+            }
+            if (cmdletContext.IncludeValue != null)
+            {
+                request.IncludeValue = cmdletContext.IncludeValue.Value;
             }
             
             CmdletOutput output;
@@ -135,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApiKey { get; set; }
+            public System.Boolean? IncludeValue { get; set; }
         }
         
     }

@@ -28,57 +28,50 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Updates an existing <a>Method</a> resource.
+    /// Import API keys from an external source, such as a CSV-formatted file.
     /// </summary>
-    [Cmdlet("Update", "AGMethod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.UpdateMethodResponse")]
-    [AWSCmdlet("Invokes the UpdateMethod operation against Amazon API Gateway.", Operation = new[] {"UpdateMethod"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateMethodResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.UpdateMethodResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Import", "AGApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.ImportApiKeysResponse")]
+    [AWSCmdlet("Invokes the ImportApiKeys operation against Amazon API Gateway.", Operation = new[] {"ImportApiKeys"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.ImportApiKeysResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.ImportApiKeysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateAGMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class ImportAGApiKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter HttpMethod
+        #region Parameter Body
         /// <summary>
         /// <para>
-        /// <para>The HTTP verb of the <a>Method</a> resource.</para>
+        /// <para>The payload of the POST request to import API keys. For the payload format, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html">API
+        /// Key File Format</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String HttpMethod { get; set; }
+        public System.IO.MemoryStream Body { get; set; }
         #endregion
         
-        #region Parameter PatchOperation
+        #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>A list of update operations to be applied to the specified resource and in the order
-        /// specified in this list.</para>
+        /// <para>A query parameter to indicate whether to rollback <a>ApiKey</a> importation (<code>true</code>)
+        /// or not (<code>false</code>) when error is encountered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("PatchOperations")]
-        public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        [Alias("FailOnWarnings")]
+        public System.Boolean FailOnWarning { get; set; }
         #endregion
         
-        #region Parameter ResourceId
+        #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para>The <a>Resource</a> identifier for the <a>Method</a> resource.</para>
+        /// <para>A query parameter to specify the input format to imported API keys. Currently, only
+        /// the <code>csv</code> format is supported.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter RestApiId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>RestApi</a> identifier for the <a>Method</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.ApiKeysFormat")]
+        public Amazon.APIGateway.ApiKeysFormat Format { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGMethod (UpdateMethod)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-AGApiKey (ImportApiKeys)"))
             {
                 return;
             }
@@ -110,13 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.HttpMethod = this.HttpMethod;
-            if (this.PatchOperation != null)
-            {
-                context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
-            }
-            context.ResourceId = this.ResourceId;
-            context.RestApiId = this.RestApiId;
+            context.Body = this.Body;
+            if (ParameterWasBound("FailOnWarning"))
+                context.FailOnWarnings = this.FailOnWarning;
+            context.Format = this.Format;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,23 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.UpdateMethodRequest();
+            var request = new Amazon.APIGateway.Model.ImportApiKeysRequest();
             
-            if (cmdletContext.HttpMethod != null)
+            if (cmdletContext.Body != null)
             {
-                request.HttpMethod = cmdletContext.HttpMethod;
+                request.Body = cmdletContext.Body;
             }
-            if (cmdletContext.PatchOperations != null)
+            if (cmdletContext.FailOnWarnings != null)
             {
-                request.PatchOperations = cmdletContext.PatchOperations;
+                request.FailOnWarnings = cmdletContext.FailOnWarnings.Value;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.Format != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.RestApiId != null)
-            {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.Format = cmdletContext.Format;
             }
             
             CmdletOutput output;
@@ -183,13 +169,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateMethodResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateMethodRequest request)
+        private static Amazon.APIGateway.Model.ImportApiKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.ImportApiKeysRequest request)
         {
             #if DESKTOP
-            return client.UpdateMethod(request);
+            return client.ImportApiKeys(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateMethodAsync(request);
+            var task = client.ImportApiKeysAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,10 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String HttpMethod { get; set; }
-            public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.IO.MemoryStream Body { get; set; }
+            public System.Boolean? FailOnWarnings { get; set; }
+            public Amazon.APIGateway.ApiKeysFormat Format { get; set; }
         }
         
     }

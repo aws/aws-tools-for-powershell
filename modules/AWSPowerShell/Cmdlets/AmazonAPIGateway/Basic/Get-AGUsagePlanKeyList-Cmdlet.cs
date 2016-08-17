@@ -28,39 +28,49 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describe an existing <a>Authorizers</a> resource.
-    /// 
-    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS
-    /// CLI</a></div><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets all the usage plan keys representing the API keys added to a specified usage
+    /// plan.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "AGAuthorizerList")]
-    [OutputType("Amazon.APIGateway.Model.Authorizer")]
-    [AWSCmdlet("Invokes the GetAuthorizers operation against Amazon API Gateway.", Operation = new[] {"GetAuthorizers"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.Authorizer",
-        "This cmdlet returns a collection of Authorizer objects.",
-        "The service call response (type Amazon.APIGateway.Model.GetAuthorizersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "AGUsagePlanKeyList")]
+    [OutputType("Amazon.APIGateway.Model.UsagePlanKey")]
+    [AWSCmdlet("Invokes the GetUsagePlanKeys operation against Amazon API Gateway.", Operation = new[] {"GetUsagePlanKeys"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.UsagePlanKey",
+        "This cmdlet returns a collection of UsagePlanKey objects.",
+        "The service call response (type Amazon.APIGateway.Model.GetUsagePlanKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Position (type System.String)"
     )]
-    public partial class GetAGAuthorizerListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGUsagePlanKeyListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter RestApiId
+        #region Parameter NameQuery
         /// <summary>
         /// <para>
-        /// <para>The <a>RestApi</a> identifier for the <a>Authorizers</a> resource.</para>
+        /// <para>A query parameter specifying the name of the to-be-returned usage plan keys.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RestApiId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String NameQuery { get; set; }
+        #endregion
+        
+        #region Parameter UsagePlanId
+        /// <summary>
+        /// <para>
+        /// <para>The Id of the <a>UsagePlan</a> resource representing the usage plan containing the
+        /// to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String UsagePlanId { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Limit the number of <a>Authorizer</a> resources in the response.</para>
+        /// <para>A query parameter specifying the maximum number usage plan keys returned by the GET
+        /// request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion
@@ -68,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>If not all <a>Authorizer</a> resources in the response were present, the position
-        /// will specify where to start the next page of results.</para>
+        /// <para>A query parameter specifying the zero-based index specifying the position of a usage
+        /// plan key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
             
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            context.NameQuery = this.NameQuery;
             context.Position = this.Position;
-            context.RestApiId = this.RestApiId;
+            context.UsagePlanId = this.UsagePlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,10 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.APIGateway.Model.GetAuthorizersRequest();
-            if (cmdletContext.RestApiId != null)
+            var request = new Amazon.APIGateway.Model.GetUsagePlanKeysRequest();
+            if (cmdletContext.NameQuery != null)
             {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.NameQuery = cmdletContext.NameQuery;
+            }
+            if (cmdletContext.UsagePlanId != null)
+            {
+                request.UsagePlanId = cmdletContext.UsagePlanId;
             }
             
             // Initialize loop variants and commence piping
@@ -200,13 +215,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetAuthorizersResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetAuthorizersRequest request)
+        private static Amazon.APIGateway.Model.GetUsagePlanKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetUsagePlanKeysRequest request)
         {
             #if DESKTOP
-            return client.GetAuthorizers(request);
+            return client.GetUsagePlanKeys(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetAuthorizersAsync(request);
+            var task = client.GetUsagePlanKeysAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -218,8 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
+            public System.String NameQuery { get; set; }
             public System.String Position { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.String UsagePlanId { get; set; }
         }
         
     }

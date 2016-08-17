@@ -4,7 +4,7 @@
 	"authors": [""],
 	"sdkdependencies_start_marker": "",
 	"dependencies": {
-		"AWSSDK.APIGateway": "3.1.6.1",
+		"AWSSDK.APIGateway": "3.1.7.0",
 		"AWSSDK.ApplicationAutoScaling": "3.1.0.6",
 		"AWSSDK.ApplicationDiscoveryService": "3.1.1.5",
 		"AWSSDK.AutoScaling": "3.1.4.0",
@@ -36,7 +36,7 @@
 		"AWSSDK.DynamoDBv2": "3.1.5.3",
 		"AWSSDK.EC2": "3.1.19.1",
 		"AWSSDK.ECR": "3.1.2.0",
-		"AWSSDK.ECS": "3.1.7.0",
+		"AWSSDK.ECS": "3.1.8.0",
 		"AWSSDK.ElastiCache": "3.1.3.4",
 		"AWSSDK.ElasticBeanstalk": "3.1.5.5",
 		"AWSSDK.ElasticFileSystem": "3.1.2.3",

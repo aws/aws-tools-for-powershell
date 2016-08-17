@@ -160,7 +160,7 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.1.3.4\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.1.7.0\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.1.8.0\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.1.2.0\lib\net35\AWSSDK.ECR.dll</HintPath>
@@ -256,7 +256,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.1.0.6\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
-      <HintPath>..\..\packages\AWSSDK.APIGateway.3.1.6.1\lib\net35\AWSSDK.APIGateway.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.APIGateway.3.1.7.0\lib\net35\AWSSDK.APIGateway.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

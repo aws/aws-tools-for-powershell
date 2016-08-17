@@ -28,78 +28,82 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Updates an existing <a>Method</a> resource.
+    /// Gets the usage data of a usage plan in a specified time interval.
     /// </summary>
-    [Cmdlet("Update", "AGMethod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.UpdateMethodResponse")]
-    [AWSCmdlet("Invokes the UpdateMethod operation against Amazon API Gateway.", Operation = new[] {"UpdateMethod"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateMethodResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.UpdateMethodResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AGUsage")]
+    [OutputType("Amazon.APIGateway.Model.GetUsageResponse")]
+    [AWSCmdlet("Invokes the GetUsage operation against Amazon API Gateway.", Operation = new[] {"GetUsage"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.GetUsageResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.GetUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateAGMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGUsageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter HttpMethod
+        #region Parameter EndDate
         /// <summary>
         /// <para>
-        /// <para>The HTTP verb of the <a>Method</a> resource.</para>
+        /// <para>The ending date (e.g., 2016-12-31) of the usage data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String HttpMethod { get; set; }
+        public System.String EndDate { get; set; }
         #endregion
         
-        #region Parameter PatchOperation
+        #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A list of update operations to be applied to the specified resource and in the order
-        /// specified in this list.</para>
+        /// <para>The Id of the API key associated with the resultant usage data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("PatchOperations")]
-        public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        public System.String KeyId { get; set; }
         #endregion
         
-        #region Parameter ResourceId
+        #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>The <a>Resource</a> identifier for the <a>Method</a> resource.</para>
+        /// <para>The starting date (e.g., 2016-01-01) of the usage data.</para>
         /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter RestApiId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>RestApi</a> identifier for the <a>Method</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String StartDate { get; set; }
+        #endregion
+        
+        #region Parameter UsagePlanId
+        /// <summary>
+        /// <para>
+        /// <para>The Id of the usage plan associated with the usage data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String UsagePlanId { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public System.Int32 Limit { get; set; }
+        #endregion
+        
+        #region Parameter Position
+        /// <summary>
+        /// <para>
+        /// <para>Position</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String Position { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGMethod (UpdateMethod)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -110,13 +114,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.HttpMethod = this.HttpMethod;
-            if (this.PatchOperation != null)
-            {
-                context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
-            }
-            context.ResourceId = this.ResourceId;
-            context.RestApiId = this.RestApiId;
+            context.EndDate = this.EndDate;
+            context.KeyId = this.KeyId;
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
+            context.Position = this.Position;
+            context.StartDate = this.StartDate;
+            context.UsagePlanId = this.UsagePlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,23 +135,31 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.UpdateMethodRequest();
+            var request = new Amazon.APIGateway.Model.GetUsageRequest();
             
-            if (cmdletContext.HttpMethod != null)
+            if (cmdletContext.EndDate != null)
             {
-                request.HttpMethod = cmdletContext.HttpMethod;
+                request.EndDate = cmdletContext.EndDate;
             }
-            if (cmdletContext.PatchOperations != null)
+            if (cmdletContext.KeyId != null)
             {
-                request.PatchOperations = cmdletContext.PatchOperations;
+                request.KeyId = cmdletContext.KeyId;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.Limit != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.Limit = cmdletContext.Limit.Value;
             }
-            if (cmdletContext.RestApiId != null)
+            if (cmdletContext.Position != null)
             {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.Position = cmdletContext.Position;
+            }
+            if (cmdletContext.StartDate != null)
+            {
+                request.StartDate = cmdletContext.StartDate;
+            }
+            if (cmdletContext.UsagePlanId != null)
+            {
+                request.UsagePlanId = cmdletContext.UsagePlanId;
             }
             
             CmdletOutput output;
@@ -183,13 +195,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateMethodResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateMethodRequest request)
+        private static Amazon.APIGateway.Model.GetUsageResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetUsageRequest request)
         {
             #if DESKTOP
-            return client.UpdateMethod(request);
+            return client.GetUsage(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateMethodAsync(request);
+            var task = client.GetUsageAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,10 +212,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String HttpMethod { get; set; }
-            public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.String EndDate { get; set; }
+            public System.String KeyId { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String Position { get; set; }
+            public System.String StartDate { get; set; }
+            public System.String UsagePlanId { get; set; }
         }
         
     }

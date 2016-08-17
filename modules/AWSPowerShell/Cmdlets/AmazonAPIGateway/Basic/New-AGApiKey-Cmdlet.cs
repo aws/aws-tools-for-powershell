@@ -28,7 +28,10 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Create an <a>ApiKey</a> resource.
+    /// Create an <a>ApiKey</a> resource. 
+    /// 
+    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html">AWS
+    /// CLI</a></div>
     /// </summary>
     [Cmdlet("New", "AGApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateApiKeyResponse")]
@@ -59,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.Boolean Enabled { get; set; }
         #endregion
         
+        #region Parameter GenerateDistinctId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier
+        /// is distinct from the created API key value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean GenerateDistinctId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -72,12 +86,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageKey
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <a>ApiKey</a> can be used by callers.</para>
+        /// <para>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StageKeys")]
         public Amazon.APIGateway.Model.StageKey[] StageKey { get; set; }
+        #endregion
+        
+        #region Parameter Value
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a value of the API key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Value { get; set; }
         #endregion
         
         #region Parameter Force
@@ -94,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Value", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGApiKey (CreateApiKey)"))
             {
                 return;
@@ -112,11 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.Description = this.Description;
             if (ParameterWasBound("Enabled"))
                 context.Enabled = this.Enabled;
+            if (ParameterWasBound("GenerateDistinctId"))
+                context.GenerateDistinctId = this.GenerateDistinctId;
             context.Name = this.Name;
             if (this.StageKey != null)
             {
                 context.StageKeys = new List<Amazon.APIGateway.Model.StageKey>(this.StageKey);
             }
+            context.Value = this.Value;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.Enabled = cmdletContext.Enabled.Value;
             }
+            if (cmdletContext.GenerateDistinctId != null)
+            {
+                request.GenerateDistinctId = cmdletContext.GenerateDistinctId.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -148,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.StageKeys != null)
             {
                 request.StageKeys = cmdletContext.StageKeys;
+            }
+            if (cmdletContext.Value != null)
+            {
+                request.Value = cmdletContext.Value;
             }
             
             CmdletOutput output;
@@ -202,8 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.String Description { get; set; }
             public System.Boolean? Enabled { get; set; }
+            public System.Boolean? GenerateDistinctId { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.APIGateway.Model.StageKey> StageKeys { get; set; }
+            public System.String Value { get; set; }
         }
         
     }

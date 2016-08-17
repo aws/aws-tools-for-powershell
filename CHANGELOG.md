@@ -1,3 +1,10 @@
+### 3.1.93.0 (2016-08-16)
+  * Authenticode signing has now been enabled for the module enabling it to be used in environments that mandate an 'AllSigned' execution policy. The module manifest (.psd1), new argument completion script module (.psm1) and type extension and formats files (.ps1xml) now all contain an Authenticode signature. For more information on execution policies see the Microsoft TechNet article at https://technet.microsoft.com/en-us/library/dd347641.aspx.
+  * Custom argument completers have been added to the module to support service enumeration types in the underlying AWS SDK for .NET. When constructing a command at the console or in the Windows PowerShell ISE (or other PowerShell hosts) you can now access the valid values for an enumeration type using the Tab or Ctrl+Space key sequences. The ISE will automatically display the possible completions. For more information on this enhancement see the blog post "Argument Completion in Windows PowerShell" on the AWS .NET Development Blog, http://blogs.aws.amazon.com/net/.
+  * Amazon API Gateway
+    - Added cmdlets to support the new usage plan APIs. Usage plans allows you to easily manage and monetize your APIs for your API-based business.
+    - [Breaking Change] The response data returned to the Get-AGApiKeyList cmdlet (GetApiKeys API) now contains a collection of warning messages for warnings logged during the import of API keys. This is incompatible with automatic pagination and therefore automatic pagination has been disabled for this cmdlet.
+
 ### 3.1.92.0 (2016-08-11)
   * Amazon Import/Export Snowball
     - Added cmdlets to support the new Import/Export Snowball service. The API for this service enables a customer to create and manage Snowball jobs without needing to use the AWS Console. The cmdlets for this service have the prefix 'SNOW' applied to the noun portion of the cmdlet name. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SNOW"'.

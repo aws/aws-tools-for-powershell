@@ -29,6 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
     /// Updates an existing <a>Authorizer</a> resource.
+    /// 
+    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS
+    /// CLI</a></div>
     /// </summary>
     [Cmdlet("Update", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateAuthorizerResponse")]
@@ -52,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A list of operations describing the updates to apply to the specified resource. The
-        /// patches are applied in the order specified in the list.</para>
+        /// <para>A list of update operations to be applied to the specified resource and in the order
+        /// specified in this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
