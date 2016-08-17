@@ -175,12 +175,12 @@ namespace AWSPowerShellGenerator.Utils
         /// <param name="platformStandard"></param>
         private void UpdateCsprojFormatReferences(string projectFile, string platformStandard)
         {
-            Console.WriteLine("...checking {0} project file for new SDK assembly references", projectFile);
+            Console.WriteLine("...checking {0} project file for updated/new SDK nuget references", projectFile);
             var project = new XmlDocument();
             project.Load(projectFile);
 
             // helps to keep references in some defined order in the project file
-            var newAssemblies = new SortedSet<string>(Assemblies.Keys);
+            var usedSdkAssemblies = new SortedSet<string>(Assemblies.Keys);
 
             var assemblyReferences = project.GetElementsByTagName("Reference");
             foreach (var assemblyReference in assemblyReferences)
@@ -194,20 +194,35 @@ namespace AWSPowerShellGenerator.Utils
                 if (!assemblyName.StartsWith(SDKAssemblyNamePrefix, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (newAssemblies.Contains(assemblyName))
+                if (usedSdkAssemblies.Contains(assemblyName))
                 {
-                    newAssemblies.Remove(assemblyName);
+                    // for simplicy, always update the hintpath of existing assemblies
+                    var version = GetNugetPackageVersionForAssembly(assemblyName);
+                    var children = xn.ChildNodes;
+                    foreach (XmlNode c in children)
+                    {
+                        if (c.Name.Equals("HintPath", StringComparison.OrdinalIgnoreCase))
+                        {
+                            c.InnerText = string.Format(@"..\..\packages\{0}.{1}\lib\{2}\{0}.dll",
+                                                        assemblyName,
+                                                        version,
+                                                        platformStandard);
+                            break;
+                        }
+                    }
+
+                    usedSdkAssemblies.Remove(assemblyName);
                 }
             }
 
-            if (newAssemblies.Any())
+            if (usedSdkAssemblies.Any())
             {
                 Console.WriteLine("......!missing references detected, updating project file");
 
                 // project file needs updating with one or more new service assemblies
                 var parentGroup = assemblyReferences[0].ParentNode;
 
-                foreach (var assembly in newAssemblies)
+                foreach (var assembly in usedSdkAssemblies)
                 {
                     Console.WriteLine(".........adding {0}", assembly);
 
@@ -218,9 +233,9 @@ namespace AWSPowerShellGenerator.Utils
                     var childToInsertAfter = FindInsertionPoint(parentGroup, newIncludeAttribute);
                     parentGroup.InsertAfter(referenceNode, childToInsertAfter);
                 }
-
-                project.Save(projectFile);
             }
+
+            project.Save(projectFile);
         }
 
         private void UpdateProjectJsonFormatReferences(string projectFile, string platformStandard)
