@@ -95,13 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies the pass-through behavior for incoming requests based on the Content-Type
-        /// header in the request, and the available requestTemplates defined on the Integration.
-        /// There are three valid values: <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>,
-        /// and <code>NEVER</code>.</para><para><code>WHEN_NO_MATCH</code> passes the request body for unmapped content types through
-        /// to the Integration backend without transformation.</para><para><code>NEVER</code> rejects unmapped content types with an HTTP 415 'Unsupported Media
-        /// Type' response.</para><para><code>WHEN_NO_TEMPLATES</code> will allow pass-through when the Integration has NO
-        /// content types mapped to templates. However if there is at least one content type defined,
-        /// unmapped content types will be rejected with the same 415 response.</para>
+        /// header in the request, and the available mapping templates specified as the <code>requestTemplates</code>
+        /// property on the Integration resource. There are three valid values: <code>WHEN_NO_MATCH</code>,
+        /// <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>. </para><ul><li><para><code>WHEN_NO_MATCH</code> passes the request body for unmapped content types through
+        /// to the integration back end without transformation.</para></li><li><para><code>NEVER</code> rejects unmapped content types with an HTTP 415 'Unsupported Media
+        /// Type' response.</para></li><li><para><code>WHEN_NO_TEMPLATES</code> allows pass-through when the integration has NO content
+        /// types mapped to templates. However if there is at least one content type defined,
+        /// unmapped content types will be rejected with the same 415 response.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,13 +111,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RequestParameter
         /// <summary>
         /// <para>
-        /// <para>Represents request parameters that are sent with the backend request. Request parameters
-        /// are represented as a key/value map, with a destination as the key and a source as
-        /// the value. A source must match an existing method request parameter, or a static value.
-        /// Static values must be enclosed with single quotes, and be pre-encoded based on their
-        /// destination in the request. The destination must match the pattern <code>integration.request.{location}.{name}</code>,
-        /// where <code>location</code> is either querystring, path, or header. <code>name</code>
-        /// must be a valid, unique parameter name.</para>
+        /// <para>A key-value map specifying request parameters that are passed from the method request
+        /// to the back end. The key is an integration request parameter name and the associated
+        /// value is a method request parameter value or static value that must be enclosed within
+        /// single quotes and pre-encoded as required by the back end. The method request parameter
+        /// value must match the pattern of <code>method.request.{location}.{name}</code>, where
+        /// <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code>
+        /// and <code>name</code> must be a valid and unique method request parameter name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

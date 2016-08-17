@@ -30,6 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers,
     /// parameters, and an incoming request body.
+    /// 
+    ///  <div class="seeAlso"><a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html">Enable
+    /// custom authorizers</a></div>
     /// </summary>
     [Cmdlet("Test", "AGInvokeAuthorizer")]
     [OutputType("Amazon.APIGateway.Model.TestInvokeAuthorizerResponse")]

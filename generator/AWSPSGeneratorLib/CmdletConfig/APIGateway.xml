@@ -9,7 +9,8 @@
 
   <AutoIterate EmitLimit="Limit"
                Start="Position"
-               Next="Position" />
+               Next="Position" 
+			   Exclusions="GetApiKeys;GetUsage" />
 
   <PipelineByValueProperties>
     <Property>ClientCertificateId</Property>
@@ -30,7 +31,7 @@
   </MetadataProperties>
 
   <ServiceOperations>
-    <ServiceOperation MethodName="CreateApiKey" Output="Response"/>
+    <ServiceOperation MethodName="CreateApiKey" Output="Response" ShouldProcessTarget="Value" />
     <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" ShouldProcessTarget="DomainName"/>
     <ServiceOperation MethodName="CreateDeployment" Output="Response" ShouldProcessTarget="StageName"/>
     <ServiceOperation MethodName="CreateDomainName" Output="Response" ShouldProcessTarget="DomainName"/>
@@ -97,6 +98,7 @@
 
     <ServiceOperation MethodName="GetApiKeys"
                       Noun="ApiKeyList"
+					  Output="Response"
                       />
     <ServiceOperation MethodName="GetBasePathMappings"
                       Noun="BasePathMappingList"
@@ -133,6 +135,19 @@
     <ServiceOperation MethodName="ImportRestApi" PipelineParameter="Parameters" Output="Response" />
     <ServiceOperation MethodName="PutRestApi" PipelineParameter="Parameters" Output="Response" />
 
+	<ServiceOperation MethodName="UpdateUsage" Output="Response" PipelineParameter="KeyId" />
+	<ServiceOperation MethodName="UpdateUsagePlan" Output="Response" PipelineParameter="UsagePlanId" />
+	<ServiceOperation MethodName="GetUsage" Output="Response" PipelineParameter="UsagePlanId" />
+	<ServiceOperation MethodName="GetUsagePlan" Output="Response" />
+	<ServiceOperation MethodName="GetUsagePlanKey" Output="Response" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="GetUsagePlanKeys" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" />
+	<ServiceOperation MethodName="GetUsagePlans" Noun="UsagePlanList"  />
+	<ServiceOperation MethodName="ImportApiKeys" Noun="ApiKey" NoPipelineParameter="true" Output="Response" AnonymousShouldProcessTarget="true" />
+	<ServiceOperation MethodName="CreateUsagePlan" NoPipelineParameter="true" Output="Response" />
+	<ServiceOperation MethodName="CreateUsagePlanKey" PipelineParameter="KeyId" Output="Response" />
+	<ServiceOperation MethodName="DeleteUsagePlan" Output="Void" />
+	<ServiceOperation MethodName="DeleteUsagePlanKey" PipelineParameter="UsagePlanId" Output="Void" />
+	
   </ServiceOperations>
 
 </ConfigModel>

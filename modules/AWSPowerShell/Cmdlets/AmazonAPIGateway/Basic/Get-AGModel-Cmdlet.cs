@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Flatten
         /// <summary>
         /// <para>
-        /// <para>Resolves all external model references and returns a flattened model schema.</para>
+        /// <para>A query parameter of a Boolean value to resolve (<code>true</code>) all external model
+        /// references and returns a flattened model schema or not (<code>false</code>) The default
+        /// is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

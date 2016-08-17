@@ -28,45 +28,25 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describe an existing <a>Method</a> resource.
+    /// Gets a usage plan of a given plan identifier.
     /// </summary>
-    [Cmdlet("Get", "AGMethod")]
-    [OutputType("Amazon.APIGateway.Model.GetMethodResponse")]
-    [AWSCmdlet("Invokes the GetMethod operation against Amazon API Gateway.", Operation = new[] {"GetMethod"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.GetMethodResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.GetMethodResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AGUsagePlan")]
+    [OutputType("Amazon.APIGateway.Model.GetUsagePlanResponse")]
+    [AWSCmdlet("Invokes the GetUsagePlan operation against Amazon API Gateway.", Operation = new[] {"GetUsagePlan"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.GetUsagePlanResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.GetUsagePlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAGMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGUsagePlanCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter HttpMethod
+        #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>Specifies the method request's HTTP method type.</para>
+        /// <para>The identifier of the <a>UsagePlan</a> resource to be retrieved.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String HttpMethod { get; set; }
-        #endregion
-        
-        #region Parameter ResourceId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>Resource</a> identifier for the <a>Method</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter RestApiId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>RestApi</a> identifier for the <a>Method</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String UsagePlanId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -82,9 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.HttpMethod = this.HttpMethod;
-            context.ResourceId = this.ResourceId;
-            context.RestApiId = this.RestApiId;
+            context.UsagePlanId = this.UsagePlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,19 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.GetMethodRequest();
+            var request = new Amazon.APIGateway.Model.GetUsagePlanRequest();
             
-            if (cmdletContext.HttpMethod != null)
+            if (cmdletContext.UsagePlanId != null)
             {
-                request.HttpMethod = cmdletContext.HttpMethod;
-            }
-            if (cmdletContext.ResourceId != null)
-            {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.RestApiId != null)
-            {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.UsagePlanId = cmdletContext.UsagePlanId;
             }
             
             CmdletOutput output;
@@ -147,13 +117,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetMethodResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetMethodRequest request)
+        private static Amazon.APIGateway.Model.GetUsagePlanResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetUsagePlanRequest request)
         {
             #if DESKTOP
-            return client.GetMethod(request);
+            return client.GetUsagePlan(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetMethodAsync(request);
+            var task = client.GetUsagePlanAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -164,9 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String HttpMethod { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.String UsagePlanId { get; set; }
         }
         
     }

@@ -79,6 +79,13 @@ $AG_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.APIGateway.ApiKeysFormat
+        "Import-AGApiKey/Format"
+        {
+            $v = "csv"
+            break
+        }
+        
         # Amazon.APIGateway.AuthorizerType
         "New-AGAuthorizer/Type"
         {
@@ -110,6 +117,13 @@ $AG_Completers = {
             break
         }
         
+        # Amazon.APIGateway.QuotaPeriodType
+        "New-AGUsagePlan/Quota_Period"
+        {
+            $v = "DAY","MONTH","WEEK"
+            break
+        }
+        
     }
     
     $v |
@@ -119,7 +133,9 @@ $AG_Completers = {
 
 $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
+    "Format"=@("Import-AGApiKey")
     "Mode"=@("Write-AGRestApi")
+    "Quota_Period"=@("New-AGUsagePlan")
     "Type"=@("New-AGAuthorizer","Write-AGIntegration")
 }
 

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>A <a>ClientCertificate</a> identifier to use in the test invocation. API Gateway will
-        /// use use the certificate when making the HTTPS request to the defined backend endpoint.</para>
+        /// use the certificate when making the HTTPS request to the defined back-end endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

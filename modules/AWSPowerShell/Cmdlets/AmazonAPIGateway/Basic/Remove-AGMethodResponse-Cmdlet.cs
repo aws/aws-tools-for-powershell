@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTP verb identifier for the parent <a>Method</a> resource.</para>
+        /// <para>The HTTP verb of the <a>Method</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

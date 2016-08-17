@@ -28,45 +28,37 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Describe an existing <a>Method</a> resource.
+    /// Gets a usage plan key of a given key identifier.
     /// </summary>
-    [Cmdlet("Get", "AGMethod")]
-    [OutputType("Amazon.APIGateway.Model.GetMethodResponse")]
-    [AWSCmdlet("Invokes the GetMethod operation against Amazon API Gateway.", Operation = new[] {"GetMethod"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.GetMethodResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.GetMethodResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AGUsagePlanKey")]
+    [OutputType("Amazon.APIGateway.Model.GetUsagePlanKeyResponse")]
+    [AWSCmdlet("Invokes the GetUsagePlanKey operation against Amazon API Gateway.", Operation = new[] {"GetUsagePlanKey"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.GetUsagePlanKeyResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.GetUsagePlanKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAGMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGUsagePlanKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter HttpMethod
+        #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Specifies the method request's HTTP method type.</para>
+        /// <para>The key Id of the to-be-retrieved <a>UsagePlanKey</a> resource representing a plan
+        /// customer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String HttpMethod { get; set; }
+        public System.String KeyId { get; set; }
         #endregion
         
-        #region Parameter ResourceId
+        #region Parameter UsagePlanId
         /// <summary>
         /// <para>
-        /// <para>The <a>Resource</a> identifier for the <a>Method</a> resource.</para>
+        /// <para>The Id of the <a>UsagePlan</a> resource representing the usage plan containing the
+        /// to-be-retrieved <a>UsagePlanKey</a> resource representing a plan customer.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter RestApiId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>RestApi</a> identifier for the <a>Method</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String UsagePlanId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -82,9 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.HttpMethod = this.HttpMethod;
-            context.ResourceId = this.ResourceId;
-            context.RestApiId = this.RestApiId;
+            context.KeyId = this.KeyId;
+            context.UsagePlanId = this.UsagePlanId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,19 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.GetMethodRequest();
+            var request = new Amazon.APIGateway.Model.GetUsagePlanKeyRequest();
             
-            if (cmdletContext.HttpMethod != null)
+            if (cmdletContext.KeyId != null)
             {
-                request.HttpMethod = cmdletContext.HttpMethod;
+                request.KeyId = cmdletContext.KeyId;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.UsagePlanId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.RestApiId != null)
-            {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.UsagePlanId = cmdletContext.UsagePlanId;
             }
             
             CmdletOutput output;
@@ -147,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetMethodResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetMethodRequest request)
+        private static Amazon.APIGateway.Model.GetUsagePlanKeyResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetUsagePlanKeyRequest request)
         {
             #if DESKTOP
-            return client.GetMethod(request);
+            return client.GetUsagePlanKey(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetMethodAsync(request);
+            var task = client.GetUsagePlanKeyAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -164,9 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String HttpMethod { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.String KeyId { get; set; }
+            public System.String UsagePlanId { get; set; }
         }
         
     }
