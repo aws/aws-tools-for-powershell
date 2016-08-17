@@ -52,7 +52,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-artifacts;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
+            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
 		<Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
 	</Target>
 
@@ -136,7 +136,7 @@
         <Copy SourceFiles="@(TestResults)" DestinationFolder="$(Deployment)" />
     </Target>
     
-    <Target Name="copy-artifacts" DependsOnTargets="build-modules">
+    <Target Name="copy-desktop-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<BuildSourceFolder>bin\$(Configuration)\desktop\</BuildSourceFolder>
 			<DeploymentFolder>$(Deployment)\AWSPowerShell\</DeploymentFolder>

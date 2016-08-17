@@ -253,11 +253,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         private static Amazon.KeyManagementService.Model.ImportKeyMaterialResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ImportKeyMaterialRequest request)
         {
+#if DESKTOP
             return client.ImportKeyMaterial(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ImportKeyMaterialAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
-        
+
         #endregion
-        
+
         internal class CmdletContext : ExecutorContext
         {
             public byte[] EncryptedKeyMaterial { get; set; }

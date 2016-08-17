@@ -122,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                                                        });
 #elif CORECLR
                 AmazonS3Util.DeleteS3BucketWithObjectsAsync(Client,
-                                                            cmdletContext.BucketName,
-                                                            new S3DeleteBucketWithObjectsOptions
-                                                            {
-                                                                ContinueOnError = false
-                                                            });
+                                                             cmdletContext.BucketName,
+                                                             new S3DeleteBucketWithObjectsOptions
+                                                             {
+                                                                 ContinueOnError = false
+                                                             }).Wait();
 #else
 #error "Unknown build edition"
 #endif

@@ -127,8 +127,8 @@ namespace AWSPowerShellGenerator.Utils
         {
             Console.WriteLine("...checking argument completors module file {0} for any new script content", completorsScriptModuleFile);
 
-            const string completionScriptsStartMarker = "# begin service completion functions";
-            const string completionScriptsEndMarker = "# end service completion functions";
+            const string completionScriptsStartMarker = "# begin auto-generated service completers";
+            const string completionScriptsEndMarker = "# end auto-generated service completers";
 
             var moduleContent = File.ReadAllText(completorsScriptModuleFile);
             var completionScriptsStart = moduleContent.IndexOf(completionScriptsStartMarker, StringComparison.Ordinal);
