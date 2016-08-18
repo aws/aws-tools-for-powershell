@@ -67,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the user to create.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
         /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// with no spaces. You can also include any of the following characters: =,.@-. User
+        /// names are not distinguished by case. For example, you cannot create users named both
+        /// "TESTUSER" and "testuser".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
