@@ -48,12 +48,12 @@
         <UpdateVersions Condition="'$(UpdateVersions)'==''">false</UpdateVersions>
 		<AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
 		
-		<AuthenticodeSignScripts Condition="'$(AuthenticodeSignScripts)'==''">false</AuthenticodeSignScripts>
-		
 		<!-- temp flag allows us to turn off the netcore build output if we're running in master branch,
 		     until netcore sdk is merged back to master
 		-->
 		<BuildNetCoreModule Condition="'$(BuildNetCoreModule)'==''">false</BuildNetCoreModule>
+		
+		<SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
     
 	<Target Name="full-build" 
@@ -247,7 +247,7 @@
 			/>
 	</Target>
 
-	<Target Name="sign-script-artifacts" Condition="$(AuthenticodeSignScripts)" DependsOnTargets="copy-artifacts">
+	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-artifacts">
 		<PropertyGroup>
 			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
 			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
