@@ -23,6 +23,9 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.Util.Internal;
+#if CORECLR
+using System.Runtime.InteropServices;
+#endif
 
 namespace Amazon.PowerShell.Utils
 {
@@ -49,7 +52,7 @@ namespace Amazon.PowerShell.Utils
 #else
             var moduleName = "AWSPowerShell.NetCore";
 #endif
-            Util.Internal.InternalSDKUtils.SetUserAgent(moduleName, 
+            Util.Internal.InternalSDKUtils.SetUserAgent(moduleName,
                                                         TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
                                                         string.Format("WindowsPowerShell/{0}.{1}", hostVersion.Major, hostVersion.MajorRevision));
         }
@@ -81,5 +84,42 @@ namespace Amazon.PowerShell.Utils
             }
         }
 
+        public const string WindowsPlatform = "Windows";
+        public const string LinuxPlatform = "Linux";
+        public const string OSXPlatform = "OSX";
+
+        /// <summary>
+        /// Probes to discover the OS we are running on. Environment.OSVersion is not available
+        /// on CoreCLR. We return a string rather than OSPlatform to avoid the need to expose
+        /// the nuget package to our AWSPowerShell module (plus we only really need the name 
+        /// anyway).
+        /// </summary>
+        /// <returns></returns>
+        public static string QueryOSPlatform()
+        {
+#if CORECLR
+            try
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                    return LinuxPlatform;
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                    return OSXPlatform;
+            }
+            catch
+            {
+            }
+#endif
+
+            return WindowsPlatform;
+        }
+
+        public static bool IsWindowsPlatform
+        {
+            get
+            {
+                return QueryOSPlatform().Equals(WindowsPlatform, StringComparison.OrdinalIgnoreCase);
+            }
+        }
     }
 }

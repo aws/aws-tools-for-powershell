@@ -30,6 +30,7 @@ using Amazon.PowerShell.Utils;
 using Amazon.Util;
 using ThirdParty.Json.LitJson;
 using Amazon.Util.Internal;
+using Amazon.Runtime.Internal.Auth;
 
 namespace Amazon.PowerShell.Common
 {
@@ -820,27 +821,58 @@ namespace Amazon.PowerShell.Common
         /// profile data, this routine erases any pre-existing SAML credential data that may exist in
         /// the updated now-AWS-credentials profile.
         /// </summary>
-        /// <param name="name">The name of the profile to create/update</param>
         /// <param name="credentials">The access and secret key data to store in the profile</param>
+        /// <param name="name">The name of the profile to create/update</param>
+        /// <param name="profilesLocation">
+        /// Optional location to shared credentials file to update. If not specified:
+        /// * if we are running on Windows we update the SDK credential store
+        /// * if we are running on a non-Windows platform we update the default shared credentials file
+        ///   stored in ~/.aws/credentials.
+        /// </param>
         /// <param name="region">Optional region data to also store in the profile</param>
-        internal static void SaveAWSCredentialProfile(string name, AWSCredentials credentials, RegionEndpoint region)
+        internal static void SaveAWSCredentialProfile(AWSCredentials credentials, string name, string profilesLocation, RegionEndpoint region)
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
-            if (credentials == null) throw new ArgumentNullException("credentials");
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException("name");
+            if (credentials == null)
+                throw new ArgumentNullException("credentials");
 
-            var profileExisted = ProfileManager.IsProfileKnown(name);
-            var credentialKeys = ExtractCredentialKeys(credentials);  // throws if incompatible
+            // if we're not on Windows or the user has given us a specific credentials file, honor it
+            string credentialsFileLocation = profilesLocation;
+            if (string.IsNullOrEmpty(credentialsFileLocation) && !Utils.Common.IsWindowsPlatform)
+                credentialsFileLocation = "~/" + StoredProfileCredentials.DefaultSharedCredentialLocation;
 
-            if (credentialKeys != null) // if instance profile, no keys to register
-                ProfileManager.RegisterProfile(name, credentialKeys.AccessKey, credentialKeys.SecretKey);
+            if (string.IsNullOrEmpty(credentialsFileLocation))
+            {
+                var profileExisted = ProfileManager.IsProfileKnown(name);
+                var credentialKeys = ExtractCredentialKeys(credentials);  // throws if incompatible
 
-            if (region != null)
-                SetProfileRegion(name, region.SystemName);
+                if (credentialKeys != null) // if instance profile, no keys to register
+                    ProfileManager.RegisterProfile(name, credentialKeys.AccessKey, credentialKeys.SecretKey);
 
-            // if we just overwrote a SAML credential profile, remove any SAML-related keys that may be
-            // present so we avoid mixed data
-            if (profileExisted)
-                CleanKeys(name, _samlRoleProfileKeys);
+                if (region != null)
+                    SetProfileRegion(name, region.SystemName);
+
+                // if we just overwrote a SAML credential profile, remove any SAML-related keys that may be
+                // present so we avoid mixed data
+                if (profileExisted)
+                    CleanKeys(name, _samlRoleProfileKeys);
+            }
+            else
+            {
+                try
+                {
+                    var credentialsFile = new SharedCredentialsFile(credentialsFileLocation);
+                    var credentialKeys = credentials.GetCredentials();
+                    credentialsFile.AddOrUpdateCredentials(name, credentialKeys.AccessKey, credentialKeys.SecretKey, credentialKeys.Token);
+                    credentialsFile.Persist();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(string.Format("Failed to update credentials file '{0}', exception '{1}'", credentialsFileLocation, e.Message),
+                                        e);
+                }
+            }
         }
 
         /// <summary>

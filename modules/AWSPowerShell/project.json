@@ -88,7 +88,8 @@
 				"define": []
 			},
 			"dependencies": {
-				"System.Management.Automation": "1.0.0-alpha.9.4820"
+        "System.Management.Automation": "1.0.0-alpha.9.4820",
+        "System.Runtime.InteropServices": "4.1.0"
 			}
 		}
 	}
