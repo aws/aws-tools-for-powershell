@@ -3208,6 +3208,5 @@ Set-Alias -Name WKS-ModifyWorkspaceProperties -Value Edit-WKSWorkspaceProperty
 Set-Alias -Name WKS-RebootWorkspaces -Value Restart-WKSWorkspace
 Set-Alias -Name WKS-RebuildWorkspaces -Value Reset-WKSWorkspace
 Set-Alias -Name WKS-StartWorkspaces -Value Start-WKSWorkspace
-Set-Alias -Name WKS-StopWorkspaces -Value Stop-WKSWorkspace
 Set-Alias -Name WKS-TerminateWorkspaces -Value Stop-WKSWorkspace
 

@@ -37,7 +37,7 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="StartWorkspaces" Noun="Workspace" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="StopWorkspaces" Noun="Workspace" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="StopWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true" />
     <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace">
       <Params>
         <Param Name="TerminateWorkspaceRequests" NewName="Request" />
