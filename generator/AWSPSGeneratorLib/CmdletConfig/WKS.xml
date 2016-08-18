@@ -8,8 +8,7 @@
   <ServiceClientInterface>IAmazonWorkSpaces</ServiceClientInterface>
   <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
   
-  <AutoIterate EmitLimit="Limit"
-               Start="NextToken"
+  <AutoIterate Start="NextToken"
                Next="NextToken" />
 
   <NounMappings>
@@ -19,8 +18,14 @@
     <ServiceOperations>
     <ServiceOperation MethodName="CreateWorkspaces" Output="Response" Noun="Workspace"/>
     <ServiceOperation MethodName="DescribeWorkspaceBundles" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeWorkspaceDirectories" />
-    <ServiceOperation MethodName="DescribeWorkspaces" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeWorkspaces" NoPipelineParameter="true">
+        <AutoIterate EmitLimit="Limit"
+               Start="NextToken"
+               Next="NextToken" />
+    </ServiceOperation>          
+    <ServiceOperation MethodName="ModifyWorkspaceProperties" Noun="WorkspaceProperty" Output="Void" PipelineParameter="WorkspaceId" />
     <ServiceOperation MethodName="RebootWorkspaces" Verb="Restart" Noun="Workspace">
       <Params>
         <Param Name="RebootWorkspaceRequests" NewName="Request" />
@@ -31,6 +36,8 @@
         <Param Name="RebuildWorkspaceRequests" NewName="Request" />
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="StartWorkspaces" Noun="Workspace" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="StopWorkspaces" Noun="Workspace" NoPipelineParameter="true" />
     <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace">
       <Params>
         <Param Name="TerminateWorkspaceRequests" NewName="Request" />

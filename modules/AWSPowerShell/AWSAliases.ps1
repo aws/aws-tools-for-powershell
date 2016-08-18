@@ -3201,7 +3201,13 @@ Set-Alias -Name Describe-WKSWorkspaceDirectories -Value Get-WKSWorkspaceDirector
 Set-Alias -Name WKS-DescribeWorkspaceDirectories -Value Get-WKSWorkspaceDirectories
 Set-Alias -Name Describe-WKSWorkspaces -Value Get-WKSWorkspaces
 Set-Alias -Name WKS-DescribeWorkspaces -Value Get-WKSWorkspaces
+Set-Alias -Name Describe-WKSWorkspacesConnectionStatus -Value Get-WKSWorkspacesConnectionStatus
+Set-Alias -Name WKS-DescribeWorkspacesConnectionStatus -Value Get-WKSWorkspacesConnectionStatus
+Set-Alias -Name Modify-WKSWorkspaceProperty -Value Edit-WKSWorkspaceProperty
+Set-Alias -Name WKS-ModifyWorkspaceProperties -Value Edit-WKSWorkspaceProperty
 Set-Alias -Name WKS-RebootWorkspaces -Value Restart-WKSWorkspace
 Set-Alias -Name WKS-RebuildWorkspaces -Value Reset-WKSWorkspace
+Set-Alias -Name WKS-StartWorkspaces -Value Start-WKSWorkspace
+Set-Alias -Name WKS-StopWorkspaces -Value Stop-WKSWorkspace
 Set-Alias -Name WKS-TerminateWorkspaces -Value Stop-WKSWorkspace
 

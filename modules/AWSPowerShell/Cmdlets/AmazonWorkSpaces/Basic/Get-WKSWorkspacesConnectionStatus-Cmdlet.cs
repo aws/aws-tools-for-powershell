@@ -28,63 +28,38 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Obtains information about the WorkSpace bundles that are available to your account
-    /// in the specified region.
-    /// 
-    ///  
-    /// <para>
-    /// You can filter the results with either the <code>BundleIds</code> parameter, or the
-    /// <code>Owner</code> parameter, but not both.
-    /// </para><para>
-    /// This operation supports pagination with the use of the <code>NextToken</code> request
-    /// and response parameters. If more results are available, the <code>NextToken</code>
-    /// response member contains a token that you pass in the next call to this operation
-    /// to retrieve the next set of items.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the connection status of a specified WorkSpace.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "WKSWorkspaceBundles")]
-    [OutputType("Amazon.WorkSpaces.Model.WorkspaceBundle")]
-    [AWSCmdlet("Invokes the DescribeWorkspaceBundles operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaceBundles"})]
-    [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceBundle",
-        "This cmdlet returns a collection of WorkspaceBundle objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "WKSWorkspacesConnectionStatus")]
+    [OutputType("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus")]
+    [AWSCmdlet("Invokes the DescribeWorkspacesConnectionStatus operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspacesConnectionStatus"})]
+    [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus",
+        "This cmdlet returns a collection of WorkspaceConnectionStatus objects.",
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetWKSWorkspaceBundlesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public class GetWKSWorkspacesConnectionStatusCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
-        #region Parameter BundleId
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contains the identifiers of the bundles to retrieve. This
-        /// parameter cannot be combined with any other filter parameter.</para>
+        /// <para>An array of strings that contain the identifiers of the WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("BundleIds")]
-        public System.String[] BundleId { get; set; }
+        [Alias("WorkspaceIds")]
+        public System.String[] WorkspaceId { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
-        /// if this is the first call.</para>
+        /// <para>The next token of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        #endregion
-        
-        #region Parameter Owner
-        /// <summary>
-        /// <para>
-        /// <para>The owner of the bundles to retrieve. This parameter cannot be combined with any other
-        /// filter parameter.</para><para>This contains one of the following values:</para><ul><li><para>null- Retrieves the bundles that belong to the account making the call.</para></li><li><para><code>AMAZON</code>- Retrieves the bundles that are provided by AWS.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Owner { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -97,12 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.BundleId != null)
-            {
-                context.BundleIds = new List<System.String>(this.BundleId);
-            }
             context.NextToken = this.NextToken;
-            context.Owner = this.Owner;
+            if (this.WorkspaceId != null)
+            {
+                context.WorkspaceIds = new List<System.String>(this.WorkspaceId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -115,15 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest();
             
-            if (cmdletContext.BundleIds != null)
+            if (cmdletContext.WorkspaceIds != null)
             {
-                request.BundleIds = cmdletContext.BundleIds;
-            }
-            if (cmdletContext.Owner != null)
-            {
-                request.Owner = cmdletContext.Owner;
+                request.WorkspaceIds = cmdletContext.WorkspaceIds;
             }
             
             // Initialize loop variant and commence piping
@@ -150,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Bundles;
+                        object pipelineOutput = response.WorkspacesConnectionStatus;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -161,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Bundles.Count;
+                            int _receivedThisCall = response.WorkspacesConnectionStatus.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -196,18 +166,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesRequest request)
+        private static Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest request)
         {
-            return client.DescribeWorkspaceBundles(request);
+            return client.DescribeWorkspacesConnectionStatus(request);
         }
         
         #endregion
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> BundleIds { get; set; }
             public System.String NextToken { get; set; }
-            public System.String Owner { get; set; }
+            public List<System.String> WorkspaceIds { get; set; }
         }
         
     }
