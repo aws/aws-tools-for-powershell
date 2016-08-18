@@ -123,7 +123,7 @@
 			OutputFileName="$(DocDeployment)\help.zip" />
     </Target>
     
-    <Target Name="run-tests" DependsOnTargets="copy-artifacts" Condition="'$(RunTests)'">
+    <Target Name="run-tests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
         
         <RemoveDir Directories="$(RootPath)\test\results" />
@@ -240,7 +240,7 @@
 			/>
 	</Target>
 
-	<Target Name="sign-script-artifacts" Condition="$(AuthenticodeSignScripts)" DependsOnTargets="copy-artifacts">
+	<Target Name="sign-script-artifacts" Condition="$(AuthenticodeSignScripts)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
 		<PropertyGroup>
 			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
 			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
