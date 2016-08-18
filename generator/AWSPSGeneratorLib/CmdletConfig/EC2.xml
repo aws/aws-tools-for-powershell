@@ -358,6 +358,14 @@
     <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" />
     <ServiceOperation MethodName="DescribeScheduledInstances" Noun="ScheduledInstance" />
 
+	<ServiceOperation MethodName="PurchaseHostReservation" Verb="New" PipelineParameter="OfferingId" Output="Response" />
+	<ServiceOperation MethodName="GetHostReservationPurchasePreview" PipelineParameter="OfferingId" Output="Response" />
+	<ServiceOperation MethodName="DescribeHostReservationOfferings" 
+	                  Noun="HostReservationOffering" 
+					  PipelineParameter="OfferingId" 
+					  />
+	<ServiceOperation MethodName="DescribeHostReservations" Noun="HostReservation" NoPipelineParameter="true" />
+	
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic

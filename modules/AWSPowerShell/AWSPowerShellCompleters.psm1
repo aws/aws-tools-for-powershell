@@ -1353,7 +1353,10 @@ $EC2_Completers = {
         }
         
         # Amazon.EC2.CurrencyCodeValues
-        "New-EC2ReservedInstance/LimitPrice_CurrencyCode"
+        {
+            ($_ -eq "New-EC2HostReservation/CurrencyCode") -Or
+            ($_ -eq "New-EC2ReservedInstance/LimitPrice_CurrencyCode")
+        }
         {
             $v = "USD"
             break
@@ -1598,6 +1601,7 @@ $EC2_map = @{
     "Architecture"=@("Register-EC2Image")
     "Attribute"=@("Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
     "AutoPlacement"=@("Edit-EC2Hosts","New-EC2Hosts")
+    "CurrencyCode"=@("New-EC2HostReservation")
     "Domain"=@("New-EC2Address")
     "EventType"=@("Get-EC2SpotFleetRequestHistory")
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2SpotFleetRequest")

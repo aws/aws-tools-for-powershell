@@ -1089,6 +1089,7 @@ Set-Alias -Name Modify-EC2VpcPeeringConnectionOption -Value Edit-EC2VpcPeeringCo
 Set-Alias -Name EC2-ModifyVpcPeeringConnectionOptions -Value Edit-EC2VpcPeeringConnectionOption
 Set-Alias -Name EC2-MonitorInstances -Value Start-EC2InstanceMonitoring
 Set-Alias -Name EC2-MoveAddressToVpc -Value Move-EC2AddressToVpc
+Set-Alias -Name EC2-PurchaseHostReservation -Value New-EC2HostReservation
 Set-Alias -Name EC2-PurchaseReservedInstancesOffering -Value New-EC2ReservedInstance
 Set-Alias -Name EC2-PurchaseScheduledInstances -Value New-EC2ScheduledInstancePurchase
 Set-Alias -Name Reboot-EC2Instances -Value Restart-EC2Instance
@@ -1137,6 +1138,7 @@ Set-Alias -Name EC2-EnableVpcClassicLink -Value Enable-EC2VpcClassicLink
 Set-Alias -Name EC2-EnableVpcClassicLinkDnsSupport -Value Enable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name EC2-GetConsoleOutput -Value Get-EC2ConsoleOutput
 Set-Alias -Name EC2-GetConsoleScreenshot -Value Get-EC2ConsoleScreenshot
+Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservationPurchasePreview
 Set-Alias -Name Describe-EC2PrefixList -Value Get-EC2PrefixList
 Set-Alias -Name EC2-DescribePrefixLists -Value Get-EC2PrefixList
 Set-Alias -Name Describe-EC2Regions -Value Get-EC2Region
@@ -1193,6 +1195,10 @@ Set-Alias -Name Describe-EC2ExportTasks -Value Get-EC2ExportTasks
 Set-Alias -Name EC2-DescribeExportTasks -Value Get-EC2ExportTasks
 Set-Alias -Name Describe-EC2FlowLogs -Value Get-EC2FlowLogs
 Set-Alias -Name EC2-DescribeFlowLogs -Value Get-EC2FlowLogs
+Set-Alias -Name Describe-EC2HostReservationOffering -Value Get-EC2HostReservationOffering
+Set-Alias -Name EC2-DescribeHostReservationOfferings -Value Get-EC2HostReservationOffering
+Set-Alias -Name Describe-EC2HostReservation -Value Get-EC2HostReservation
+Set-Alias -Name EC2-DescribeHostReservations -Value Get-EC2HostReservation
 Set-Alias -Name Describe-EC2Hosts -Value Get-EC2Hosts
 Set-Alias -Name EC2-DescribeHosts -Value Get-EC2Hosts
 Set-Alias -Name Describe-EC2IdentityIdFormat -Value Get-EC2IdentityIdFormat
