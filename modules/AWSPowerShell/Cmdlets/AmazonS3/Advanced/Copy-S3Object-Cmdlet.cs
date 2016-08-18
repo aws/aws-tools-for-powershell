@@ -132,6 +132,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter PublicReadWrite { get; set; }
         #endregion
 
+        #region Parameter StorageClass
+
+        // NOTE: This parameter does not use the marker attribute for automated validate set
+        // updating because it would cause GLACIER to be added as a valid value. S3 does not
+        // support use of GLACIER as a storage class on PutObject, it must be handled as a
+        // lifecycle configuration
+        // http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html
+
+        /// <summary>
+        /// Specifies the storage class for the object.
+        /// Please refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> for information on S3 storage classes.
+        /// </summary>
+        [Parameter]
+        public Amazon.S3.S3StorageClass StorageClass { get; set; }
+        #endregion
+
         #region Parameter StandardStorage
         /// <summary>
         /// Specifies the STANDARD storage class, which is the default storage class for S3 objects.
@@ -384,13 +400,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.CannedACL = S3CannedACL.PublicReadWrite;
             }
 
-            if (this.StandardStorage.IsPresent)
+            if (ParameterWasBound("StorageClass"))
+                context.StorageClass = this.StorageClass;
+            else
             {
-                context.StorageClass = S3StorageClass.Standard;
-            }
-            else if (this.ReducedRedundancyStorage.IsPresent)
-            {
-                context.StorageClass = S3StorageClass.ReducedRedundancy;
+                if (this.StandardStorage.IsPresent)
+                    context.StorageClass = S3StorageClass.Standard;
+                else if (this.ReducedRedundancyStorage.IsPresent)
+                    context.StorageClass = S3StorageClass.ReducedRedundancy;
             }
 
             if (!string.IsNullOrEmpty(this.ServerSideEncryption))
