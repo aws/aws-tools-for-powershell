@@ -48,7 +48,7 @@
         <UpdateVersions Condition="'$(UpdateVersions)'==''">false</UpdateVersions>
 		<AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
 		
-		<AuthenticodeSignScripts Condition="'$(AuthenticodeSignScripts)'==''">false</AuthenticodeSignScripts>
+		<SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
     
 	<Target Name="full-build" 
@@ -240,7 +240,7 @@
 			/>
 	</Target>
 
-	<Target Name="sign-script-artifacts" Condition="$(AuthenticodeSignScripts)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
+	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
 		<PropertyGroup>
 			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
 			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
