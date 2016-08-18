@@ -49,12 +49,15 @@ namespace Amazon.PowerShell.Utils
         {
 #if DESKTOP
             var moduleName = "AWSPowerShell";
+            var platform = "WindowsPowerShell";
 #else
             var moduleName = "AWSPowerShell.NetCore";
+            var platform = "PowerShellCore";
 #endif
+
             Util.Internal.InternalSDKUtils.SetUserAgent(moduleName,
-                                                        TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
-                                                        string.Format("WindowsPowerShell/{0}.{1}", hostVersion.Major, hostVersion.MajorRevision));
+                                                    TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
+                                                    string.Format("{0}/{1}.{2}", platform, hostVersion.Major, hostVersion.MajorRevision));
         }
 
         public static ServerSideEncryptionMethod Convert(string serverSideEncryption)
