@@ -437,7 +437,14 @@ namespace Amazon.PowerShell.Common
                 {
                     string domainUser = null;
                     if (networkCredential != null)
-                        domainUser = string.Format(@"{0}\{1}", networkCredential.Domain, networkCredential.UserName);
+                    {
+                        // some credentials are entered in email format, so do not assume a domain
+                        // was present
+                        if (string.IsNullOrEmpty(networkCredential.Domain))
+                            domainUser = networkCredential.UserName;
+                        else
+                            domainUser = string.Format(@"{0}\{1}", networkCredential.Domain, networkCredential.UserName);
+                    }
 
                     var availableRoles = samlAssertion.RoleSet;
                     foreach (var roleName in availableRoles.Keys)
