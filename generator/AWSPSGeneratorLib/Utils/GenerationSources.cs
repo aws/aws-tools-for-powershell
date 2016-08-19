@@ -102,13 +102,14 @@ namespace AWSPowerShellGenerator.Utils
                     ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename),
                     NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.config")
                 },
-                new DotNetPlatformAndArtifacts
-                {
-                    DotNetPlatform = "netstandard1.3",
-                    ProjectFile = Path.Combine(moduleRootFolder, "project.json"),
-                    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellNetCoreModuleManifestFilename),
-                    NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.NetCore.config")
-                }
+                // disable until we merge netcore and master branches
+                //new DotNetPlatformAndArtifacts
+                //{
+                //    DotNetPlatform = "netstandard1.3",
+                //    ProjectFile = Path.Combine(moduleRootFolder, "project.json"),
+                //    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellNetCoreModuleManifestFilename),
+                //    NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.NetCore.config")
+                //}
             };
 
             foreach (var p in projectFiles)
