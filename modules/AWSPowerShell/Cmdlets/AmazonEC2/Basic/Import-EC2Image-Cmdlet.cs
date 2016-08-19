@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
-    /// Image (AMI).
+    /// Image (AMI). For more information, see <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
+    /// a VM as an Image Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
     /// </summary>
     [Cmdlet("Import", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ImportImageResponse")]
@@ -105,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para><b>Note:</b> You may only use BYOL if you have existing licenses with rights to use
-        /// these licenses in a third party cloud like AWS. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html">VM
-        /// Import/Export Prerequisites</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Valid values: <code>AWS</code> | <code>BYOL</code></para>
+        /// these licenses in a third party cloud like AWS. For more information, see <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
+        /// in the VM Import/Export User Guide.</para><para>Valid values: <code>AWS</code> | <code>BYOL</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

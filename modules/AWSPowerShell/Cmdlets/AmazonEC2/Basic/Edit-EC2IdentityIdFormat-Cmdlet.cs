@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The type of resource.</para>
+        /// <para>The type of resource: <code>instance</code> | <code>reservation</code> | <code>snapshot</code>
+        /// | <code>volume</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
