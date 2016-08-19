@@ -837,10 +837,10 @@ namespace Amazon.PowerShell.Common
             if (credentials == null)
                 throw new ArgumentNullException("credentials");
 
-            // if we're not on Windows or the user has given us a specific credentials file, honor it
+            // if we're not on Windows or the user has given us a specific credentials file, honor it.
             string credentialsFileLocation = profilesLocation;
             if (string.IsNullOrEmpty(credentialsFileLocation) && !Utils.Common.IsWindowsPlatform)
-                credentialsFileLocation = "~/" + StoredProfileCredentials.DefaultSharedCredentialLocation;
+                credentialsFileLocation = StoredProfileCredentials.DefaultSharedCredentialLocation;
 
             if (string.IsNullOrEmpty(credentialsFileLocation))
             {
