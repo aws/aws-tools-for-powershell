@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// Instance affinity is disabled by default. When instance affinity is <code>host</code>
-    /// and it is not associated with a specific Dedicated host, the next time it is launched
+    /// and it is not associated with a specific Dedicated Host, the next time it is launched
     /// it will automatically be associated with the host it lands on. This relationship will
     /// persist if the instance is stopped/started, or rebooted.
     /// </para><para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Dedicated host that the instance will have affinity with.</para>
+        /// <para>The ID of the Dedicated Host that the instance will have affinity with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

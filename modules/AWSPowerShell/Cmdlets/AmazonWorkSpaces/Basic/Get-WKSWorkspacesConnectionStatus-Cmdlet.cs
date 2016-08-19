@@ -28,45 +28,34 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Retrieves information about the AWS Directory Service directories in the region that
-    /// are registered with Amazon WorkSpaces and are available to your account.
-    /// 
-    ///  
-    /// <para>
-    /// This operation supports pagination with the use of the <code>NextToken</code> request
-    /// and response parameters. If more results are available, the <code>NextToken</code>
-    /// response member contains a token that you pass in the next call to this operation
-    /// to retrieve the next set of items.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the connection status of a specified WorkSpace.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "WKSWorkspaceDirectories")]
-    [OutputType("Amazon.WorkSpaces.Model.WorkspaceDirectory")]
-    [AWSCmdlet("Invokes the DescribeWorkspaceDirectories operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaceDirectories"})]
-    [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceDirectory",
-        "This cmdlet returns a collection of WorkspaceDirectory objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "WKSWorkspacesConnectionStatus")]
+    [OutputType("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus")]
+    [AWSCmdlet("Invokes the DescribeWorkspacesConnectionStatus operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspacesConnectionStatus"})]
+    [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus",
+        "This cmdlet returns a collection of WorkspaceConnectionStatus objects.",
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetWKSWorkspaceDirectoriesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetWKSWorkspacesConnectionStatusCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
-        #region Parameter DirectoryId
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contains the directory identifiers to retrieve information
-        /// for. If this member is null, all directories are retrieved.</para>
+        /// <para>An array of strings that contain the identifiers of the WorkSpaces.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("DirectoryIds")]
-        public System.String[] DirectoryId { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("WorkspaceIds")]
+        public System.String[] WorkspaceId { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
-        /// if this is the first call.</para>
+        /// <para>The next token of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,11 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.DirectoryId != null)
-            {
-                context.DirectoryIds = new List<System.String>(this.DirectoryId);
-            }
             context.NextToken = this.NextToken;
+            if (this.WorkspaceId != null)
+            {
+                context.WorkspaceIds = new List<System.String>(this.WorkspaceId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,11 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest();
             
-            if (cmdletContext.DirectoryIds != null)
+            if (cmdletContext.WorkspaceIds != null)
             {
-                request.DirectoryIds = cmdletContext.DirectoryIds;
+                request.WorkspaceIds = cmdletContext.WorkspaceIds;
             }
             
             // Initialize loop variant and commence piping
@@ -137,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Directories;
+                        object pipelineOutput = response.WorkspacesConnectionStatus;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -148,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Directories.Count;
+                            int _receivedThisCall = response.WorkspacesConnectionStatus.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -183,13 +172,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesRequest request)
+        private static Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest request)
         {
             #if DESKTOP
-            return client.DescribeWorkspaceDirectories(request);
+            return client.DescribeWorkspacesConnectionStatus(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeWorkspaceDirectoriesAsync(request);
+            var task = client.DescribeWorkspacesConnectionStatusAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> DirectoryIds { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> WorkspaceIds { get; set; }
         }
         
     }

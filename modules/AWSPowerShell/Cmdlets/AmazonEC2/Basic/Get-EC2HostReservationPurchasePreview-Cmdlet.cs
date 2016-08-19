@@ -28,64 +28,47 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
-    /// AWS will place instances that you launch with a tenancy of <code>host</code>, but
-    /// without targeting a specific host ID, onto any available Dedicated Host in your account
-    /// which has auto-placement enabled. When auto-placement is disabled, you need to provide
-    /// a host ID if you want the instance to launch onto a specific host. If no host ID is
-    /// provided, the instance will be launched onto a suitable host which has auto-placement
-    /// enabled.
+    /// Preview a reservation purchase with configurations that match those of your Dedicated
+    /// Host. You must have active Dedicated Hosts in your account before you purchase a reservation.
+    /// 
+    ///  
+    /// <para>
+    /// This is a preview of the <a>PurchaseHostReservation</a> action and does not result
+    /// in the offering being purchased.
+    /// </para>
     /// </summary>
-    [Cmdlet("Edit", "EC2Hosts", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
-    [AWSCmdlet("Invokes the ModifyHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyHosts"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ModifyHostsResponse",
-        "This cmdlet returns a Amazon.EC2.Model.ModifyHostsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2HostReservationPurchasePreview")]
+    [OutputType("Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse")]
+    [AWSCmdlet("Invokes the GetHostReservationPurchasePreview operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetHostReservationPurchasePreview"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse",
+        "This cmdlet returns a Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2HostReservationPurchasePreviewCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoPlacement
+        #region Parameter HostIdSet
         /// <summary>
         /// <para>
-        /// <para>Specify whether to enable or disable auto-placement.</para>
+        /// <para>The ID/s of the Dedicated Host/s that the reservation will be associated with.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        [AWSConstantClassSource("Amazon.EC2.AutoPlacement")]
-        public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String[] HostIdSet { get; set; }
         #endregion
         
-        #region Parameter HostId
+        #region Parameter OfferingId
         /// <summary>
         /// <para>
-        /// <para>The host IDs of the Dedicated Hosts you want to modify.</para>
+        /// <para>The offering ID of the reservation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("HostIds")]
-        public System.String[] HostId { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String OfferingId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2Hosts (ModifyHosts)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -96,11 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoPlacement = this.AutoPlacement;
-            if (this.HostId != null)
+            if (this.HostIdSet != null)
             {
-                context.HostIds = new List<System.String>(this.HostId);
+                context.HostIdSet = new List<System.String>(this.HostIdSet);
             }
+            context.OfferingId = this.OfferingId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,15 +98,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyHostsRequest();
+            var request = new Amazon.EC2.Model.GetHostReservationPurchasePreviewRequest();
             
-            if (cmdletContext.AutoPlacement != null)
+            if (cmdletContext.HostIdSet != null)
             {
-                request.AutoPlacement = cmdletContext.AutoPlacement;
+                request.HostIdSet = cmdletContext.HostIdSet;
             }
-            if (cmdletContext.HostIds != null)
+            if (cmdletContext.OfferingId != null)
             {
-                request.HostIds = cmdletContext.HostIds;
+                request.OfferingId = cmdletContext.OfferingId;
             }
             
             CmdletOutput output;
@@ -159,13 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifyHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyHostsRequest request)
+        private static Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetHostReservationPurchasePreviewRequest request)
         {
             #if DESKTOP
-            return client.ModifyHosts(request);
+            return client.GetHostReservationPurchasePreview(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ModifyHostsAsync(request);
+            var task = client.GetHostReservationPurchasePreviewAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -176,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
-            public List<System.String> HostIds { get; set; }
+            public List<System.String> HostIdSet { get; set; }
+            public System.String OfferingId { get; set; }
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Allocates a Dedicated host to your account. At minimum you need to specify the instance
+    /// Allocates a Dedicated Host to your account. At minimum you need to specify the instance
     /// size type, Availability Zone, and quantity of hosts you want to allocate.
     /// </summary>
     [Cmdlet("New", "EC2Hosts", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>This is enabled by default. This property allows instances to be automatically placed
-        /// onto available Dedicated hosts, when you are launching instances without specifying
+        /// onto available Dedicated Hosts, when you are launching instances without specifying
         /// a host ID.</para><para>Default: Enabled</para>
         /// </para>
         /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone for the Dedicated hosts.</para>
+        /// <para>The Availability Zone for the Dedicated Hosts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Specify the instance type that you want your Dedicated hosts to be configured for.
+        /// <para>Specify the instance type that you want your Dedicated Hosts to be configured for.
         /// When you specify the instance type, that is the only instance type that you can launch
         /// onto that host.</para>
         /// </para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of Dedicated hosts you want to allocate to your account with these parameters.</para>
+        /// <para>The number of Dedicated Hosts you want to allocate to your account with these parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

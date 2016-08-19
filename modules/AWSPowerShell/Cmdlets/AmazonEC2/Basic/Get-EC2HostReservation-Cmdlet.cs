@@ -28,50 +28,40 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your Dedicated Hosts.
-    /// 
-    ///  
-    /// <para>
-    /// The results describe only the Dedicated Hosts in the region you're currently using.
-    /// All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that
-    /// have recently been released will be listed with the state <code>released</code>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes Dedicated Host Reservations which are associated with Dedicated Hosts in
+    /// your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EC2Hosts")]
-    [OutputType("Amazon.EC2.Model.Host")]
-    [AWSCmdlet("Invokes the DescribeHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeHosts"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.Host",
-        "This cmdlet returns a collection of Host objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeHostsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "EC2HostReservation")]
+    [OutputType("Amazon.EC2.Model.HostReservation")]
+    [AWSCmdlet("Invokes the DescribeHostReservations operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeHostReservations"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.HostReservation",
+        "This cmdlet returns a collection of HostReservation objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeHostReservationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2HostReservationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type size that the Dedicated Host is configured
-        /// to support.</para></li><li><para><code>auto-placement</code> - Whether auto-placement is enabled or disabled (<code>on</code>
-        /// | <code>off</code>).</para></li><li><para><code>host-reservation-id</code> - The ID of the reservation assigned to this host.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
-        /// the instance</para></li><li><para><code>state</code>- The allocation state of the Dedicated Host (<code>available</code>
-        /// | <code>under-assessment</code> | <code>permanent-failure</code> | <code>released</code>
-        /// | <code>released-permanent-failure</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the host.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family (e.g., <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>No Upfront</code> | <code>Partial
+        /// Upfront</code> | <code>All Upfront</code>).</para></li><li><para><code>state</code> - The state of the reservation (<code>payment-pending</code> |
+        /// <code>payment-failed</code> | <code>active</code> | <code>retired</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter HostId
+        #region Parameter HostReservationIdSet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.</para>
+        /// <para>One or more host reservation IDs.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("HostIds")]
-        public System.String[] HostId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String[] HostReservationIdSet { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -80,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results can be seen by sending another request with the returned <code>nextToken</code>
         /// value. This value can be between 5 and 500; if <code>maxResults</code> is given a
-        /// larger value than 500, you will receive an error. You cannot specify this parameter
-        /// and the host IDs parameter in the same request.</para>
+        /// larger value than 500, you will receive an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next page of results.</para>
+        /// <para>The token to use to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            if (this.HostId != null)
+            if (this.HostReservationIdSet != null)
             {
-                context.HostIds = new List<System.String>(this.HostId);
+                context.HostReservationIdSet = new List<System.String>(this.HostReservationIdSet);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -138,14 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeHostsRequest();
+            var request = new Amazon.EC2.Model.DescribeHostReservationsRequest();
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
             }
-            if (cmdletContext.HostIds != null)
+            if (cmdletContext.HostReservationIdSet != null)
             {
-                request.HostIds = cmdletContext.HostIds;
+                request.HostReservationIdSet = cmdletContext.HostReservationIdSet;
             }
             
             // Initialize loop variants and commence piping
@@ -181,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Hosts;
+                        object pipelineOutput = response.HostReservationSet;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -190,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Hosts.Count;
+                        int _receivedThisCall = response.HostReservationSet.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -233,13 +222,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeHostsRequest request)
+        private static Amazon.EC2.Model.DescribeHostReservationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeHostReservationsRequest request)
         {
             #if DESKTOP
-            return client.DescribeHosts(request);
+            return client.DescribeHostReservations(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeHostsAsync(request);
+            var task = client.DescribeHostReservationsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -251,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public List<System.String> HostIds { get; set; }
+            public List<System.String> HostReservationIdSet { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

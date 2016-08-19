@@ -22,49 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.WorkSpaces;
+using Amazon.WorkSpaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
-    /// AWS will place instances that you launch with a tenancy of <code>host</code>, but
-    /// without targeting a specific host ID, onto any available Dedicated Host in your account
-    /// which has auto-placement enabled. When auto-placement is disabled, you need to provide
-    /// a host ID if you want the instance to launch onto a specific host. If no host ID is
-    /// provided, the instance will be launched onto a suitable host which has auto-placement
-    /// enabled.
+    /// Starts the specified WorkSpaces. The API only works with WorkSpaces that have RunningMode
+    /// configured as AutoStop and the State set to “STOPPED.”
     /// </summary>
-    [Cmdlet("Edit", "EC2Hosts", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
-    [AWSCmdlet("Invokes the ModifyHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyHosts"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ModifyHostsResponse",
-        "This cmdlet returns a Amazon.EC2.Model.ModifyHostsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest")]
+    [AWSCmdlet("Invokes the StartWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"StartWorkspaces"})]
+    [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest",
+        "This cmdlet returns a collection of FailedWorkspaceChangeRequest objects.",
+        "The service call response (type Amazon.WorkSpaces.Model.StartWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class StartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoPlacement
+        #region Parameter StartWorkspaceRequest
         /// <summary>
         /// <para>
-        /// <para>Specify whether to enable or disable auto-placement.</para>
+        /// <para>The requests.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        [AWSConstantClassSource("Amazon.EC2.AutoPlacement")]
-        public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
-        #endregion
-        
-        #region Parameter HostId
-        /// <summary>
-        /// <para>
-        /// <para>The host IDs of the Dedicated Hosts you want to modify.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("HostIds")]
-        public System.String[] HostId { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("StartWorkspaceRequests")]
+        public Amazon.WorkSpaces.Model.StartRequest[] StartWorkspaceRequest { get; set; }
         #endregion
         
         #region Parameter Force
@@ -81,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2Hosts (ModifyHosts)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StartWorkspaceRequest", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-WKSWorkspace (StartWorkspaces)"))
             {
                 return;
             }
@@ -96,10 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AutoPlacement = this.AutoPlacement;
-            if (this.HostId != null)
+            if (this.StartWorkspaceRequest != null)
             {
-                context.HostIds = new List<System.String>(this.HostId);
+                context.StartWorkspaceRequests = new List<Amazon.WorkSpaces.Model.StartRequest>(this.StartWorkspaceRequest);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -115,15 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyHostsRequest();
+            var request = new Amazon.WorkSpaces.Model.StartWorkspacesRequest();
             
-            if (cmdletContext.AutoPlacement != null)
+            if (cmdletContext.StartWorkspaceRequests != null)
             {
-                request.AutoPlacement = cmdletContext.AutoPlacement;
-            }
-            if (cmdletContext.HostIds != null)
-            {
-                request.HostIds = cmdletContext.HostIds;
+                request.StartWorkspaceRequests = cmdletContext.StartWorkspaceRequests;
             }
             
             CmdletOutput output;
@@ -134,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.FailedRequests;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -159,13 +139,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifyHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyHostsRequest request)
+        private static Amazon.WorkSpaces.Model.StartWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.StartWorkspacesRequest request)
         {
             #if DESKTOP
-            return client.ModifyHosts(request);
+            return client.StartWorkspaces(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ModifyHostsAsync(request);
+            var task = client.StartWorkspacesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -176,8 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
-            public List<System.String> HostIds { get; set; }
+            public List<Amazon.WorkSpaces.Model.StartRequest> StartWorkspaceRequests { get; set; }
         }
         
     }

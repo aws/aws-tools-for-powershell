@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// bids in alternative Spot pools if capacity is not available. When you want to <code>maintain</code>
         /// a certain target capacity, fleet will place the required bids to meet this target
         /// capacity. It will also automatically replenish any interrupted instances. Default:
-        /// <code>maintain</code>. </para>
+        /// <code>maintain</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

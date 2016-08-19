@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Obtains information about the specified WorkSpaces. 
+    /// Obtains information about the specified WorkSpaces.
     /// 
     ///  
     /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>Used with the <code>DirectoryId</code> parameter to specify the directory user for
-        /// which to obtain the WorkSpace.</para>
+        /// whom to obtain the WorkSpace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>An array of strings that contain the identifiers of the WorkSpaces for which to retrieve
-        /// information. This parameter cannot be combined with any other filter parameter.</para><para>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier returned
-        /// by <a>CreateWorkspaces</a> is not immediately available. If you immediately call <a>DescribeWorkspaces</a>
-        /// with this identifier, no information will be returned.</para>
+        /// information. This parameter cannot be combined with any other filter parameter.</para><para>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns
+        /// is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with
+        /// this identifier, no information is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

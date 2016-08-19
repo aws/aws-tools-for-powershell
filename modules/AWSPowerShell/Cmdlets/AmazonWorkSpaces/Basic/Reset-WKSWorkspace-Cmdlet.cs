@@ -34,16 +34,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// <para>
     /// Rebuilding a WorkSpace is a potentially destructive action that can result in the
     /// loss of data. Rebuilding a WorkSpace causes the following to occur:
-    /// </para><ul><li>The system is restored to the image of the bundle that the WorkSpace is
-    /// created from. Any applications that have been installed, or system settings that have
-    /// been made since the WorkSpace was created will be lost.</li><li>The data drive (D
-    /// drive) is re-created from the last automatic snapshot taken of the data drive. The
-    /// current contents of the data drive are overwritten. Automatic snapshots of the data
-    /// drive are taken every 12 hours, so the snapshot can be as much as 12 hours old.</li></ul><para>
+    /// </para><ul><li><para>
+    /// The system is restored to the image of the bundle that the WorkSpace is created from.
+    /// Any applications that have been installed, or system settings that have been made
+    /// since the WorkSpace was created will be lost.
+    /// </para></li><li><para>
+    /// The data drive (D drive) is re-created from the last automatic snapshot taken of the
+    /// data drive. The current contents of the data drive are overwritten. Automatic snapshots
+    /// of the data drive are taken every 12 hours, so the snapshot can be as much as 12 hours
+    /// old.
+    /// </para></li></ul><para>
     /// To be able to rebuild a WorkSpace, the WorkSpace must have a <b>State</b> of <code>AVAILABLE</code>
     /// or <code>ERROR</code>.
     /// </para><note><para>
-    /// This operation is asynchronous and will return before the WorkSpaces have been completely
+    /// This operation is asynchronous and returns before the WorkSpaces have been completely
     /// rebuilt.
     /// </para></note>
     /// </summary>
