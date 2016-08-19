@@ -78,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the role to create.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
         /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// with no spaces. You can also include any of the following characters: =,.@-. Role
+        /// names are not distinguished by case. For example, you cannot create roles named both
+        /// "PRODROLE" and "prodrole".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
