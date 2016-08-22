@@ -411,7 +411,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                Param param,
                                ref int usedPositionalCount)
         {
-            writer.WriteLine(DocumentationUtils.CommentDocumentation(property.MemberDocumentation));
+            var paramDoc = DocumentationUtils.CommentDocumentation(property.MemberDocumentation);
+            if (this.Operation.AutoIterate.IsNextToken(property.Name))
+                paramDoc += "<para>This parameter is only used if you are manually controlling output pagination of the service API call.</para>";
+            writer.WriteLine(paramDoc);
             WriteParamProperty(writer, property, param, ref usedPositionalCount);
         }
 
