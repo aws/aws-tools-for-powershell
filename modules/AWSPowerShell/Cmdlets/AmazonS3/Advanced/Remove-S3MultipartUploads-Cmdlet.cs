@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -25,10 +25,16 @@ using Amazon.S3.Transfer;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Aborts multipart uploads.
+    /// This operation aborts multipart uploads.
+    /// After a multipart upload is aborted, no additional parts can be uploaded using that upload ID. The storage consumed by any previously uploaded parts will be freed.
+    /// If you are uploading large files, Write-S3Object cmdlet will use multipart upload to fulfill the request.
+    /// If a multipart upload is interrupted, Write-S3Object cmdlet will attempt to abort the multipart upload.
+    /// Under certain circumstances (network outage, power failure, etc.), Write-S3Object cmdlet will not be able to abort the multipart upload.
+    /// In this case, in order to stop getting charged for the storage of uploaded parts,
+    /// you should manually invoke the Remove-S3MultipartUploads to abort the incomplete multipart uploads.
     /// </summary>
     [Cmdlet("Remove", "S3MultipartUploads", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High, DefaultParameterSetName = RelativeParameterSetName)]
-    [AWSCmdlet("Aborts the multipart uploads that were initiated before the specified date.")]
+    [AWSCmdlet("Aborts the multipart uploads that were initiated before the specified date.", Operation = new[] { "AbortMultipartUpload" })]
     public class RemoveS3MultipartUploadsCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         private const string AbsoluteParameterSetName = "Absolute";

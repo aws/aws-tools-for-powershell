@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para>
     /// </summary>
     [Cmdlet("Write", "S3Object", DefaultParameterSetName = ParamSet_FromLocalFile, ConfirmImpact = ConfirmImpact.Low, SupportsShouldProcess = true)]
-    [AWSCmdlet("Uploads one or more files from the local file system to an S3 bucket.")]
+    [AWSCmdlet("Uploads one or more files from the local file system to an S3 bucket.", Operation = new[] { "PutObject", "InitiateMultipartUpload", "UploadPart", "CompleteMultipartUpload" })]
     public class WriteS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         const string ParamSet_FromLocalFile = "FromLocalFileParamSet";
