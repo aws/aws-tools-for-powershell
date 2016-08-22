@@ -55,7 +55,7 @@
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
-      <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.1.2.5\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.1.3.0\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAF">
       <HintPath>..\..\packages\AWSSDK.WAF.3.1.2.5\lib\net35\AWSSDK.WAF.dll</HintPath>
@@ -118,7 +118,7 @@
       <HintPath>..\..\packages\AWSSDK.Kinesis.3.1.3.5\lib\net35\AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.1.3.0\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.1.3.1\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>..\..\packages\AWSSDK.IoT.3.1.8.1\lib\net35\AWSSDK.IoT.dll</HintPath>
@@ -130,7 +130,7 @@
       <HintPath>..\..\packages\AWSSDK.ImportExport.3.1.1.8\lib\net35\AWSSDK.ImportExport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
-      <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.1.4.8\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.1.4.9\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
       <HintPath>..\..\packages\AWSSDK.GameLift.3.1.2.1\lib\net35\AWSSDK.GameLift.dll</HintPath>
@@ -166,7 +166,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.1.2.0\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.1.19.1\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.1.20.0\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.1.5.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>

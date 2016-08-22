@@ -115,6 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// the response. You can retrieve the next set of response records by providing the returned
         /// marker value in the <code>Marker</code> parameter and retrying the request. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

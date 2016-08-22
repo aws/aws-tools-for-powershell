@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetWKSWorkspacesConnectionStatusCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetWKSWorkspacesConnectionStatusCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         #region Parameter WorkspaceId
@@ -57,6 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The next token of the request.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
@@ -72,11 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.NextToken = this.NextToken;
             if (this.WorkspaceId != null)
             {
                 context.WorkspaceIds = new List<System.String>(this.WorkspaceId);
             }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -168,7 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         private static Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest request)
         {
+            #if DESKTOP
             return client.DescribeWorkspacesConnectionStatus(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.DescribeWorkspacesConnectionStatusAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

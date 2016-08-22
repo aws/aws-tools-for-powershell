@@ -49,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// should be empty. As long as there are more results, continue to call <code>ListPipelines</code>
         /// with the marker value from the previous call to retrieve the next set of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]

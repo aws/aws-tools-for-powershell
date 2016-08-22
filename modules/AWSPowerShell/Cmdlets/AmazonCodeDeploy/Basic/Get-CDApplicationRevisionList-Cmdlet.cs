@@ -112,6 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>An identifier returned from the previous list application revisions call. It can be
         /// used to return the next set of applications in the list.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

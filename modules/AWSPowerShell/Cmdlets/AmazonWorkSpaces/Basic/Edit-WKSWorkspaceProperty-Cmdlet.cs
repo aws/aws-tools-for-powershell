@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the WorkspaceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkSpaces.Model.ModifyWorkspacePropertiesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditWKSWorkspacePropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class EditWKSWorkspacePropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         #region Parameter WorkspaceProperties_RunningMode
@@ -110,10 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.WorkspaceId = this.WorkspaceId;
             context.WorkspaceProperties_RunningMode = this.WorkspaceProperties_RunningMode;
             if (ParameterWasBound("WorkspaceProperties_RunningModeAutoStopTimeoutInMinute"))
                 context.WorkspaceProperties_RunningModeAutoStopTimeoutInMinutes = this.WorkspaceProperties_RunningModeAutoStopTimeoutInMinute;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -198,7 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         private static Amazon.WorkSpaces.Model.ModifyWorkspacePropertiesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.ModifyWorkspacePropertiesRequest request)
         {
+            #if DESKTOP
             return client.ModifyWorkspaceProperties(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ModifyWorkspacePropertiesAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
         }
         
         #endregion

@@ -3177,4 +3177,31 @@ $WAF_map = @{
 
 _awsArgumentCompleterRegistration $WAF_Completers $WAF_map
 
+
+# Argument completions for service Amazon WorkSpaces
+$WKS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkSpaces.RunningMode
+        "Edit-WKSWorkspaceProperty/WorkspaceProperties_RunningMode"
+        {
+            $v = "ALWAYS_ON","AUTO_STOP"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WKS_map = @{
+    "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
+}
+
+_awsArgumentCompleterRegistration $WKS_Completers $WKS_map
+
 # end auto-generated service completers

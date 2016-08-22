@@ -58,6 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The position of the current domain names to get information about.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

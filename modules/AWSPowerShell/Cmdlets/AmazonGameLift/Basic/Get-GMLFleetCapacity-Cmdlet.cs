@@ -85,6 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// set, do not specify a value. This parameter is ignored when the request specifies
         /// one or a list of fleet IDs.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

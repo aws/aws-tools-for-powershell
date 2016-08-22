@@ -104,6 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <para>
         /// <para>A resumption point for pagination.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

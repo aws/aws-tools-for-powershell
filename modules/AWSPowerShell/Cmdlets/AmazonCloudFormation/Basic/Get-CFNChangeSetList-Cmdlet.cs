@@ -60,6 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>A string (provided by the <a>ListChangeSets</a> response output) that identifies the
         /// next page of change sets that you want to retrieve.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }

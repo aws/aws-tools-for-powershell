@@ -100,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The pagination token provided in the previous request. If this parameter is specified
         /// the response includes only records beyond the marker, up to MaxRecords.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

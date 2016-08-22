@@ -61,6 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>A string that identifies the next page of stacks that you want to retrieve.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

@@ -63,6 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// objects, you have the option of specifying <code>NextToken</code> as the starting
         /// point for your returned list.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

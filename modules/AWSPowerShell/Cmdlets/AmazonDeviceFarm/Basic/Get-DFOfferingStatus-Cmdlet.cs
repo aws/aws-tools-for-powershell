@@ -49,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>An identifier that was returned from the previous call to this operation, which can
         /// be used to return the next set of items in the list.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }

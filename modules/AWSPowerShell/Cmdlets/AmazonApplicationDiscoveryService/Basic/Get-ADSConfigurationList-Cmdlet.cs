@@ -80,6 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>
         /// <para>A token to start the list. Use this token to get the next set of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

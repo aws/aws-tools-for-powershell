@@ -72,6 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// to 10, you will get results in a set of 10. Use the token in the query to get the
         /// next set of 10.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

@@ -59,6 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>The position of the current <a>RestApis</a> resource in the collection to get information
         /// about.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

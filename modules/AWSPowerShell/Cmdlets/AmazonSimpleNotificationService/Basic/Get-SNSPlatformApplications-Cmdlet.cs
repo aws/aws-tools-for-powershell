@@ -54,6 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>NextToken string is used when calling ListPlatformApplications action to retrieve
         /// additional records that are available after the first page results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
