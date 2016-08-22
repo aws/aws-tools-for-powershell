@@ -1192,6 +1192,19 @@ namespace AWSPowerShellGenerator.CmdletConfig
         }
 
         /// <summary>
+        /// Indicates if the specified parameter maps to the declared 'next'
+        /// token field. Used to enable us to emit extra documentation for
+        /// the parameter that it is not needed unless the user is controlling
+        /// pagination.
+        /// </summary>
+        /// <param name="paramName"></param>
+        /// <returns></returns>
+        public bool IsNextToken(string paramName)
+        {
+            return paramName.Equals(this.Next, StringComparison.Ordinal);
+        }
+
+        /// <summary>
         /// Inspects the parameter token declarations to determine which
         /// codegen pattern we should look for.
         /// </summary>
