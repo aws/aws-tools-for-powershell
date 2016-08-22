@@ -1,5 +1,5 @@
 ﻿/*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -27,8 +27,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Test", "S3Bucket")]
     [OutputType(typeof(bool))]
-    [AWSCmdlet("Tests that an S3 bucket exists.")]
-    [AWSCmdletOutput("System.Boolean", "Returns true if the bucket exists, false if it doesn't. Returns true even if the bucket exists but belong to a different account.")]
+    [AWSCmdlet("Tests that an S3 bucket exists.", Operation = new[] { "" })]
+    [AWSCmdletOutput("System.Boolean", "Returns true if the bucket exists, false if it doesn't. Returns true even if the bucket exists but belongs to a different account.")]
     public class TestS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         #region Parameter BucketName
