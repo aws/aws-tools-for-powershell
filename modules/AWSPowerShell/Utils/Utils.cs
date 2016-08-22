@@ -47,17 +47,18 @@ namespace Amazon.PowerShell.Utils
 
         public static void SetAWSPowerShellUserAgent(System.Version hostVersion)
         {
-#if DESKTOP
+            // even though we have a distinct name for the core module, simply
+            // declaring a different platform is enough to identify it
             var moduleName = "AWSPowerShell";
+#if DESKTOP
             var platform = "WindowsPowerShell";
 #else
-            var moduleName = "AWSPowerShell.NetCore";
             var platform = "PowerShellCore";
 #endif
 
-            Util.Internal.InternalSDKUtils.SetUserAgent(moduleName,
-                                                    TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
-                                                    string.Format("{0}/{1}.{2}", platform, hostVersion.Major, hostVersion.MajorRevision));
+            InternalSDKUtils.SetUserAgent(moduleName,
+                                          TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
+                                          string.Format("{0}/{1}.{2}", platform, hostVersion.Major, hostVersion.MajorRevision));
         }
 
         public static ServerSideEncryptionMethod Convert(string serverSideEncryption)
