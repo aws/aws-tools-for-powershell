@@ -2,6 +2,11 @@
   * First release of the AWS Tools for PowerShell Core ("AWSPowerShell.NetCore") module
     - The AWSPowerShell.NetCore module is built on top of the .NET Core version of the AWS SDK for .NET, which is in beta while we finish up testing and port a few more features from the .NET Framework version of the AWS SDK for .NET. Note that updates to this module for new service features may lag a little behind the sister AWS Tools for Windows PowerShell ("AWSPowerShell") module while the .NET Core version of the AWS SDK for .NET is in beta.
     - The services and service APIs supported in this release correspond to the 3.1.94.0 release of the AWSPowerShell module.
+    - Installation Note:
+      Some users are reporting issues with the Install-Module cmdlet built into PowerShell Core with errors related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to resolve the issue currently. To install using this provider run this command, setting an appropriate destination folder (on Linux for example try -Destination ~/.local/share/powershell/Modules):
+
+        Install-Package -Name AWSPowerShell.NetCore -Source https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion -Destination <destination>
+
   * Unsupported cmdlets in this release
     - As noted in the blog post at http://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition there is a high degree of compatibility between the two AWS modules. A small number of cmdlets are not supported in this edition of the tools:
     -- Proxy cmdlets: Set-AWSProxy, Clear-AWSProxy
