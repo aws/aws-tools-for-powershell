@@ -70,6 +70,8 @@ namespace AWSPowerShellGenerator.Generators
                 Directory.CreateDirectory(OutputFolder);
 
             var outputFile = Path.Combine(OutputFolder, Name + ".Format.ps1xml");
+            if (File.Exists(outputFile))
+                File.Delete(outputFile);
 
             using (var stream = File.OpenWrite(outputFile))
             {
