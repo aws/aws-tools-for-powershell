@@ -55,6 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// <para>The <i>NextToken</i> value from a previous call to <a>ListHapgs</a>. Pass null if
         /// this is the first call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }

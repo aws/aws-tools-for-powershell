@@ -125,6 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// parameter and retrying the command. If the <code>marker</code> field is empty, all
         /// response records have been retrieved for the request. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

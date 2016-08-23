@@ -114,6 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para><para> Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter
         /// or the <b>Marker</b> parameter, but not both. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

@@ -68,6 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
         /// if this is the first call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

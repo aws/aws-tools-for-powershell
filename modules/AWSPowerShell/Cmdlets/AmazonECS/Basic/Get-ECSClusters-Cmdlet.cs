@@ -68,6 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

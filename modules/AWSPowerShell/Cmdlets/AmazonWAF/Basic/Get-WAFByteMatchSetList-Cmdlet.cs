@@ -65,6 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// value of <code>NextMarker</code> from the previous response to get information about
         /// another batch of <code>ByteMatchSets</code>.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

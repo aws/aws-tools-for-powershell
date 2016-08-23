@@ -79,6 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A string that indicates the position at which to begin the returned list of tapes.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

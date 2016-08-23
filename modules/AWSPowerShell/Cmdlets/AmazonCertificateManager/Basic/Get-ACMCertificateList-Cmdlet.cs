@@ -74,6 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// you receive a response with truncated results. Set it to the value of <code>NextToken</code>
         /// from the response you just received.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

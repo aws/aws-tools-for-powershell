@@ -96,6 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// is returned with a previous call to this action. To specify the start of the result
         /// set, do not specify a value.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

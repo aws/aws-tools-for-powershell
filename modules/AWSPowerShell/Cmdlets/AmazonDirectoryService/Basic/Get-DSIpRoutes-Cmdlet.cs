@@ -69,6 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <para>The <i>ListIpRoutes.NextToken</i> value from a previous call to <a>ListIpRoutes</a>.
         /// Pass null if this is the first call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

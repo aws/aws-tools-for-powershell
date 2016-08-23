@@ -160,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para> Pagination token. If specified, the events return the next batch of results. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }

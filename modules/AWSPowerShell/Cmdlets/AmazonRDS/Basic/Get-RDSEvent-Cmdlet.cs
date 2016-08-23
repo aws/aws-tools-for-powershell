@@ -134,6 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// parameter is specified, the response includes only records beyond the marker, up to
         /// the value specified by <code>MaxRecords</code>. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

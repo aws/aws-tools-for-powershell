@@ -87,6 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// is specified the response includes only records beyond the marker until the end of
         /// the file or up to NumberOfLines.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

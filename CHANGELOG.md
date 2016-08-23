@@ -1,3 +1,16 @@
+### 3.2.7.0-Beta (2016-08-23)
+  * First release of the AWS Tools for PowerShell Core ("AWSPowerShell.NetCore") module
+    - The AWSPowerShell.NetCore module is built on top of the .NET Core version of the AWS SDK for .NET, which is in beta while we finish up testing and port a few more features from the .NET Framework version of the AWS SDK for .NET. Note that updates to this module for new service features may lag a little behind the sister AWS Tools for Windows PowerShell ("AWSPowerShell") module while the .NET Core version of the AWS SDK for .NET is in beta.
+    - The services and service APIs supported in this release correspond to the 3.1.94.0 release of the AWSPowerShell module.
+  * Unsupported cmdlets in this release
+    - As noted in the blog post at http://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition there is a high degree of compatibility between the two AWS modules. A small number of cmdlets are not supported in this edition of the tools:
+    -- Proxy cmdlets: Set-AWSProxy, Clear-AWSProxy
+    -- Logging cmdlets: Add-AWSLoggingListener, Remove-AWSLoggingListener, Set-AWSResponseLogging, Enable-AWSMetricsLogging, Disable-AWSMetricsLogging
+    -- SAML federated credentials cmdlets: Set-AWSSamlEndpoint, Set-AWSSamlRoleProfile
+    -- Legacy EC2 import cmdlets: Import-EC2Instance, Import-EC2Volume
+  * Known issues in this release
+    - There are no known issues in this release of the tools.
+
 ### 3.1.94.0 (2016-08-18)
   * Amazon WorkSpaces
     - New cmdlets to support the launch and management of WorkSpaces that are paid for and used by the hour. The new cmdlets are Edit-WKSWorkspaceProperty (ModifyWorkspaceProperties API), Get-WKSWorkspacesConnectionStatus (DescribeWorkspacesConnectionStatus API) and Start-WKSWorkspace (StartWorkspaces API). 

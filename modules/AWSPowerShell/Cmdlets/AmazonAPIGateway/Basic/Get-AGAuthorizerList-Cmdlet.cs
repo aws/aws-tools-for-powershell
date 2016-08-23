@@ -71,6 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>If not all <a>Authorizer</a> resources in the response were present, the position
         /// will specify where to start the next page of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

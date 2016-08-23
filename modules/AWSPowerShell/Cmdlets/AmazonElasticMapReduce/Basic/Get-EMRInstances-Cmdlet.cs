@@ -91,6 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>The pagination token that indicates the next set of results to retrieve.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]

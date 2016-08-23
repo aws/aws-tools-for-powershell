@@ -120,6 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// set, do not specify a value. If a player session ID is specified, this parameter is
         /// ignored.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
