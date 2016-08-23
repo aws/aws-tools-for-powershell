@@ -23,7 +23,7 @@ CompanyName = 'Amazon.com, Inc'
 Copyright = 'Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
 # Description of the functionality provided by this module
-Description = 'The AWS Tools for PowerShell Core lets developers and administrators manage their AWS services from the PowerShell Core scripting environment on Windows, Linux and OS X Platforms.'
+Description = 'The AWS Tools for PowerShell Core lets developers and administrators manage their AWS services from the PowerShell Core scripting environment.'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '6.0'
