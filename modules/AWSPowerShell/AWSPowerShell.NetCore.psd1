@@ -26,7 +26,7 @@ Copyright = 'Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights 
 Description = 'The AWS Tools for PowerShell Core lets developers and administrators manage their AWS services from the PowerShell Core scripting environment.'
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '6.0'
+PowerShellVersion = '5.1'
 
 # Name of the PowerShell host required by this module
 PowerShellHostName = ''
