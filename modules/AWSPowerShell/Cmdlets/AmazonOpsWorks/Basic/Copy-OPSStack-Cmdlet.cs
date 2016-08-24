@@ -273,9 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter StackRegion
         /// <summary>
         /// <para>
-        /// <para>The cloned stack AWS region, such as "us-east-1". For more information about AWS regions,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
-        /// Endpoints</a>.</para>
+        /// <para>The cloned stack AWS region, such as "ap-northeast-2". For more information about
+        /// AWS regions, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
+        /// and Endpoints</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
