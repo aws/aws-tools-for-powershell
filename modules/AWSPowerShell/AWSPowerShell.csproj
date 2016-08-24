@@ -97,10 +97,10 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.1.2.5\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.1.15.1\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.1.16.0\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
-      <HintPath>..\..\packages\AWSSDK.OpsWorks.3.1.3.4\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.OpsWorks.3.1.3.5\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MachineLearning">
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.1.3.1\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
