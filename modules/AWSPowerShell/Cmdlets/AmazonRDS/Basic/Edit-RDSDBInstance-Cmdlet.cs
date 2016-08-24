@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Modify settings for a DB instance. You can change one or more database configuration
+    /// Modifies settings for a DB instance. You can change one or more database configuration
     /// parameters by specifying these parameters and the new values in the request.
     /// </summary>
     [Cmdlet("Edit", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
