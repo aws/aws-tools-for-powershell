@@ -1,13 +1,15 @@
-﻿Import-Module ..\Deployment\AWSPowerShell.psd1 -WarningAction Stop
+﻿Describe -Tag "Smoke" "Auto Scaling General Tests" {
 
-Set-AWSCredentials default
-Set-DefaultAWSRegion us-east-1
+    BeforeEach {
+        Set-AWSCredentials default
+        Set-DefaultAWSRegion us-east-1
+    }
 
-Describe "New-ASLaunchConfiguration" {
     Context "Create-Fetch-Delete" {
+    
         $launchConfig = $null
         $launchConfigName = "PShellLaunchConfigTest" + (Get-Date).Ticks
-        
+            
         It "creates a launch configuration" {
             $launchConfigParams = @{
                 "ImageId"=(Get-EC2ImageByName WINDOWS_2012R2_BASE).ImageId
