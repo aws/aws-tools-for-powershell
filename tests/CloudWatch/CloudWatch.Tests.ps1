@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CloudWatch Tests" {
+Describe -Tag "Smoke" "CloudWatch" {
 
     BeforeEach {
         Set-AWSCredentials default
@@ -33,7 +33,7 @@ Describe -Tag "Smoke" "CloudWatch Tests" {
             if ($alarms) {
                 $alarms.Count | Should BeGreaterThan 0
             }
-        }  
+        }
 
         It "Can get alarm by name" {
             $alarms = Get-CWAlarm
@@ -63,7 +63,7 @@ Describe -Tag "Smoke" "CloudWatch Tests" {
             {
                 $manualIter1 += (Get-CWAlarm -MaxRecords $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken | Measure).Count
             }
-    
+
             $manualIter1 | Should Be $allAlarms.Count
         }
 
@@ -76,7 +76,7 @@ Describe -Tag "Smoke" "CloudWatch Tests" {
             {
                 $manualIter2 += (Get-CWAlarm -MaxItems $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken | Measure).Count
             }
-    
+
             $manualIter2 | Should Be $allAlarms.Count
         }
     }

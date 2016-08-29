@@ -1,6 +1,6 @@
 # Note that calling AWS Support requires an account with an AWS Premium Support
 # subscription.
-Describe -Tag "Smoke" "Support Service Tests" {
+Describe -Tag "Smoke" "SupportService" {
 
     BeforeEach {
         Set-AWSCredentials default

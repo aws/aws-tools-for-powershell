@@ -1,4 +1,4 @@
-﻿Describe -Tag "Smoke" "Auto Scaling General Tests" {
+﻿Describe -Tag "Smoke" "AutoScaling" {
 
     BeforeEach {
         Set-AWSCredentials default
@@ -6,18 +6,18 @@
     }
 
     Context "Create-Fetch-Delete" {
-    
+
         $launchConfig = $null
         $launchConfigName = "PShellLaunchConfigTest" + (Get-Date).Ticks
-            
+
         It "creates a launch configuration" {
             $launchConfigParams = @{
                 "ImageId"=(Get-EC2ImageByName WINDOWS_2012R2_BASE).ImageId
                 "InstanceType"="t1.micro"
                 "LaunchConfigurationName"=$launchConfigName
-            } 
+            }
 
-            { New-ASLaunchConfiguration @launchConfigParams } | Should Not Throw 
+            { New-ASLaunchConfiguration @launchConfigParams } | Should Not Throw
         }
 
         It "can get the launch configuration" {

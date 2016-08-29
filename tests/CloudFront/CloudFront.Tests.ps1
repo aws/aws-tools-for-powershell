@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CloudFront Tests" {
+Describe -Tag "Smoke" "CloudFront" {
 
     BeforeEach {
         Set-AWSCredentials default
@@ -39,7 +39,7 @@ Describe -Tag "Smoke" "CloudFront Tests" {
 
 					$invalidations | Should Not Be $null
 				}
-			}		
+			}
 		}
 	}
 }

@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CloudFormation General Tests" {
+Describe -Tag "Smoke" "CloudFormation" {
 
     BeforeEach {
         Set-AWSCredentials default
@@ -10,7 +10,7 @@ Describe -Tag "Smoke" "CloudFormation General Tests" {
         It "Can call Get-CFNStack to get all stacks" {
             $stacks = Get-CFNStack
             if ($stacks) {
-                $stacks.Count | Should BeGreaterThan 0 
+                $stacks.Count | Should BeGreaterThan 0
             }
         }
 

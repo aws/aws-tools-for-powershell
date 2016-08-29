@@ -1,5 +1,5 @@
-Describe -Tag "Smoke" "Code Deploy Tests" {
-    
+Describe -Tag "Smoke" "CodeDeploy" {
+
     BeforeEach {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1

@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CloudSearch Tests" {
+Describe -Tag "Smoke" "CloudSearch" {
 
     BeforeEach {
         Set-AWSCredentials default
@@ -19,12 +19,12 @@ Describe -Tag "Smoke" "CloudSearch Tests" {
             if ($domains) {
                 foreach ($domain in $domains) {
                     $dn = $domain.DomainName
-                     Write-Verbose "Examining domain [$dn]" 
+                     Write-Verbose "Examining domain [$dn]"
 
                      $indexFields = Get-CSIndexField -DomainName $dn
                      if ($indexFields) {
                          $indexFields.Count | Should BeGreaterThan 0
-                     } 
+                     }
 
                 }
             }

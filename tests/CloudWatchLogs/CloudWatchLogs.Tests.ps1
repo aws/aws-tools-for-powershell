@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CloudWatchLogs Tests" {
+Describe -Tag "Smoke" "CloudWatchLogs" {
 
     BeforeEach {
         Set-AWSCredentials default

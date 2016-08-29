@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CodePipeline Tests" {
+Describe -Tag "Smoke" "CodePipeline" {
 
     BeforeEach {
         Set-AWSCredentials default

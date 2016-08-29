@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CloudTrail Tests" {
+Describe -Tag "Smoke" "CloudTrail" {
 
     BeforeEach {
         Set-AWSCredentials default

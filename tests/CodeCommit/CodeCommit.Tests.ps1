@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "CodeCommit Tests" {
+Describe -Tag "Smoke" "CodeCommit" {
 
     BeforeEach {
         Set-AWSCredentials default
