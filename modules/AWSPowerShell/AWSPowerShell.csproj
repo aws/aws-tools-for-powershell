@@ -70,7 +70,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.1.0.0\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.1.4.1\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.1.4.2\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.1.1.2\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -91,7 +91,7 @@
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.1.2.1\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.1.5.2\lib\net35\AWSSDK.Route53.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53.3.1.6.0\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>..\..\packages\AWSSDK.Redshift.3.1.2.5\lib\net35\AWSSDK.Redshift.dll</HintPath>
@@ -187,7 +187,7 @@
       <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.1.2.1\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>..\..\packages\AWSSDK.Core.3.1.10.0\lib\net35\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Core.3.1.11.0\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.1.6.1\lib\net35\AWSSDK.ConfigService.dll</HintPath>
@@ -199,7 +199,7 @@
       <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.1.1.3\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodePipeline">
-      <HintPath>..\..\packages\AWSSDK.CodePipeline.3.1.3.2\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodePipeline.3.1.4.0\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.1.2.6\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
@@ -229,7 +229,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudHSM.3.1.2.5\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
-      <HintPath>..\..\packages\AWSSDK.CloudFront.3.1.5.0\lib\net35\AWSSDK.CloudFront.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFront.3.1.6.0\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.1.6.1\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
@@ -247,7 +247,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.1.3.0\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
-      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.1.4.0\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.1.4.1\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
       <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.1.1.5\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
