@@ -366,6 +366,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String[] Headers_Item { get; set; }
         #endregion
         
+        #region Parameter QueryStringCacheKeys_Item
+        /// <summary>
+        /// <para>
+        /// Optional: A list that contains the query string
+        /// parameters that you want CloudFront to use as a basis for caching for this cache behavior.
+        /// If Quantity is 0, you can omit Items.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items")]
+        public System.String[] QueryStringCacheKeys_Item { get; set; }
+        #endregion
+        
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
@@ -586,6 +599,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Int32 Headers_Quantity { get; set; }
         #endregion
         
+        #region Parameter QueryStringCacheKeys_Quantity
+        /// <summary>
+        /// <para>
+        /// The number of whitelisted query string parameters
+        /// for this cache behavior.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity")]
+        public System.Int32 QueryStringCacheKeys_Quantity { get; set; }
+        #endregion
+        
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
@@ -625,9 +650,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ForwardedValues_QueryString
         /// <summary>
         /// <para>
-        /// Indicates whether you want CloudFront to forward
-        /// query strings to the origin that is associated with this cache behavior. If so, specify
-        /// true; if not, specify false.
+        /// <para>Indicates whether you want CloudFront to forward query strings to the origin that
+        /// is associated with this cache behavior and cache based on the query string parameters.
+        /// CloudFront behavior depends on the value of QueryString and on the values that you
+        /// specify for QueryStringCacheKeys, if any:</para><ul><li>If you specify true for QueryString and you don't specify any values for
+        /// QueryStringCacheKeys, CloudFront forwards all query string parameters to the origin
+        /// and caches based on all query string parameters. Depending on how many query string
+        /// parameters and values you have, this can adversely affect performance because CloudFront
+        /// must forward more requests to the origin.</li><li>If you specify true for QueryString
+        /// and you specify one or more values for QueryStringCacheKeys, CloudFront forwards all
+        /// query string parameters to the origin, but it only caches based on the query string
+        /// parameters that you specify.</li><li>If you specify false for QueryString, CloudFront
+        /// doesn't forward any query string parameters to the origin, and doesn't cache based
+        /// on query string parameters.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -808,6 +843,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity = this.Headers_Quantity;
             if (ParameterWasBound("ForwardedValues_QueryString"))
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString = this.ForwardedValues_QueryString;
+            if (this.QueryStringCacheKeys_Item != null)
+            {
+                context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items = new List<System.String>(this.QueryStringCacheKeys_Item);
+            }
+            if (ParameterWasBound("QueryStringCacheKeys_Quantity"))
+                context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity = this.QueryStringCacheKeys_Quantity;
             if (ParameterWasBound("DefaultCacheBehavior_MaxTTL"))
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MaxTTL = this.DefaultCacheBehavior_MaxTTL;
             if (ParameterWasBound("DefaultCacheBehavior_MinTTL"))
@@ -1455,6 +1496,51 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.AllowedMethods = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            Amazon.CloudFront.Model.TrustedSigners requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = null;
+            
+             // populate TrustedSigners
+            bool requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = new Amazon.CloudFront.Model.TrustedSigners();
+            System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners.Enabled = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
+            }
+            List<System.String> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners.Items = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
+            }
+            System.Int32? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners.Quantity = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.TrustedSigners = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             Amazon.CloudFront.Model.ForwardedValues requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues = null;
             
              // populate ForwardedValues
@@ -1565,6 +1651,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues.Headers = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValuesIsNull = false;
             }
+            Amazon.CloudFront.Model.QueryStringCacheKeys requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys = null;
+            
+             // populate QueryStringCacheKeys
+            bool requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeysIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys = new Amazon.CloudFront.Model.QueryStringCacheKeys();
+            List<System.String> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Item = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Item = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Item != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys.Items = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Item;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeysIsNull = false;
+            }
+            System.Int32? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Quantity = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Quantity = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys.Quantity = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_queryStringCacheKeys_Quantity.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeysIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeysIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues.QueryStringCacheKeys = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValuesIsNull = false;
+            }
              // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues should be set to null
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValuesIsNull)
             {
@@ -1573,51 +1694,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.ForwardedValues = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues;
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
-            }
-            Amazon.CloudFront.Model.TrustedSigners requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = null;
-            
-             // populate TrustedSigners
-            bool requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = true;
-            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = new Amazon.CloudFront.Model.TrustedSigners();
-            System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = null;
-            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled.Value;
-            }
-            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners.Enabled = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled.Value;
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
-            }
-            List<System.String> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = null;
-            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items;
-            }
-            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners.Items = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item;
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
-            }
-            System.Int32? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = null;
-            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity.Value;
-            }
-            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners.Quantity = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity.Value;
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
-            }
-             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners should be set to null
-            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSignersIsNull)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners = null;
-            }
-            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners != null)
-            {
-                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.TrustedSigners = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_TrustedSigners;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
              // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior should be set to null
@@ -1716,6 +1792,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public List<System.String> DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items { get; set; }
             public System.Int32? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString { get; set; }
+            public List<System.String> DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items { get; set; }
+            public System.Int32? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity { get; set; }
             public System.Int64? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MaxTTL { get; set; }
             public System.Int64? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MinTTL { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_SmoothStreaming { get; set; }
