@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public System.String ContinuationToken { get; set; }
         #endregion
         
+        #region Parameter CurrentRevision_Created
+        /// <summary>
+        /// <para>
+        /// <para>The date and time when the most recent revision of the artifact was created, in timestamp
+        /// format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime CurrentRevision_Created { get; set; }
+        #endregion
+        
         #region Parameter ExecutionDetails_ExternalExecutionId
         /// <summary>
         /// <para>
@@ -116,6 +127,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CurrentRevision_Revision { get; set; }
+        #endregion
+        
+        #region Parameter CurrentRevision_RevisionSummary
+        /// <summary>
+        /// <para>
+        /// <para>The summary of the most recent revision of the artifact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CurrentRevision_RevisionSummary { get; set; }
         #endregion
         
         #region Parameter ExecutionDetails_Summary
@@ -169,7 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             context.ClientToken = this.ClientToken;
             context.ContinuationToken = this.ContinuationToken;
             context.CurrentRevision_ChangeIdentifier = this.CurrentRevision_ChangeIdentifier;
+            if (ParameterWasBound("CurrentRevision_Created"))
+                context.CurrentRevision_Created = this.CurrentRevision_Created;
             context.CurrentRevision_Revision = this.CurrentRevision_Revision;
+            context.CurrentRevision_RevisionSummary = this.CurrentRevision_RevisionSummary;
             context.ExecutionDetails_ExternalExecutionId = this.ExecutionDetails_ExternalExecutionId;
             if (ParameterWasBound("ExecutionDetails_PercentComplete"))
                 context.ExecutionDetails_PercentComplete = this.ExecutionDetails_PercentComplete;
@@ -213,6 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.CurrentRevision.ChangeIdentifier = requestCurrentRevision_currentRevision_ChangeIdentifier;
                 requestCurrentRevisionIsNull = false;
             }
+            System.DateTime? requestCurrentRevision_currentRevision_Created = null;
+            if (cmdletContext.CurrentRevision_Created != null)
+            {
+                requestCurrentRevision_currentRevision_Created = cmdletContext.CurrentRevision_Created.Value;
+            }
+            if (requestCurrentRevision_currentRevision_Created != null)
+            {
+                request.CurrentRevision.Created = requestCurrentRevision_currentRevision_Created.Value;
+                requestCurrentRevisionIsNull = false;
+            }
             System.String requestCurrentRevision_currentRevision_Revision = null;
             if (cmdletContext.CurrentRevision_Revision != null)
             {
@@ -221,6 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (requestCurrentRevision_currentRevision_Revision != null)
             {
                 request.CurrentRevision.Revision = requestCurrentRevision_currentRevision_Revision;
+                requestCurrentRevisionIsNull = false;
+            }
+            System.String requestCurrentRevision_currentRevision_RevisionSummary = null;
+            if (cmdletContext.CurrentRevision_RevisionSummary != null)
+            {
+                requestCurrentRevision_currentRevision_RevisionSummary = cmdletContext.CurrentRevision_RevisionSummary;
+            }
+            if (requestCurrentRevision_currentRevision_RevisionSummary != null)
+            {
+                request.CurrentRevision.RevisionSummary = requestCurrentRevision_currentRevision_RevisionSummary;
                 requestCurrentRevisionIsNull = false;
             }
              // determine if request.CurrentRevision should be set to null
@@ -327,7 +371,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
             public System.String ClientToken { get; set; }
             public System.String ContinuationToken { get; set; }
             public System.String CurrentRevision_ChangeIdentifier { get; set; }
+            public System.DateTime? CurrentRevision_Created { get; set; }
             public System.String CurrentRevision_Revision { get; set; }
+            public System.String CurrentRevision_RevisionSummary { get; set; }
             public System.String ExecutionDetails_ExternalExecutionId { get; set; }
             public System.Int32? ExecutionDetails_PercentComplete { get; set; }
             public System.String ExecutionDetails_Summary { get; set; }

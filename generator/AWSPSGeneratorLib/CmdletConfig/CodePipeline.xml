@@ -21,6 +21,7 @@
 	<ServiceOperation MethodName="EnableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName"/>
 	<ServiceOperation MethodName="GetJobDetails" />
 	<ServiceOperation MethodName="GetPipeline" PipelineParameter="Name" />
+	<ServiceOperation MethodName="GetPipelineExecution" PipelineParameter="PipelineName" />
 	<ServiceOperation MethodName="GetPipelineState" Output="Response" />
 	<ServiceOperation MethodName="GetThirdPartyJobDetails" PipelineParameter="JobId"/>
 	<ServiceOperation MethodName="ListActionTypes" Verb="Get" Noun="ActionType" NoPipelineParameter="true"/>
