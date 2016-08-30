@@ -1,3 +1,11 @@
+### 3.1.96.0 (2016-08-30)
+  * Amazon CloudFront
+    - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution cmdlets with parameters to support querystring whitelisting. Customers can now choose to forward certain querystring keys instead of a.) all of them or b.) none of them.
+  * Amazon Route53
+    - Updated cmdlets to add support for new service features: support for the NAPTR DNS record type and support metric-based health check in ap-south-1 region. In addition a new cmdlet, Test-R53DNSAnswer, was added to support the new TestDNSAnswer API which enables customers to send a test query against a specific name server using spoofed delegation nameserver, resolver, and ECS IPs.
+  * AWS CodePipeline
+    - CodePipeline has introduced a new feature to return pipeline execution details. Execution details consists of source revisions that are running in the pipeline. Customers will be able to tell what source revisions that are running through the stages in pipeline by fetching execution details of each stage. This support includes a new cmdlet, Get-CPPipelineExecution (GetPipelineExecution API) and updates to the existing Write-CPJobSuccessResult and Write-CPThirdPartyJobSuccessResult cmdlets.
+
 ### 3.1.95.0 (2016-08-23)
   (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
   * The Get-AWSPublicIpRange cmdlet was updated to return both IPv4 and IPv6 address range details.
