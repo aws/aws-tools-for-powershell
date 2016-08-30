@@ -28,18 +28,21 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action creates a reusable delegationSet.
+    /// Creates a delegation set (a group of four anem servers) that can be reused by multiple
+    /// hosted zones. If a hosted zoned ID is specified, <code>CreateReusableDelegationSet</code>
+    /// marks the delegation set associated with that zone as reusable
     /// 
     ///  
     /// <para>
-    /// To create a new reusable delegationSet, send a <code>POST</code> request to the <code>/<i>Route
-    /// 53 API version</i>/delegationset</code> resource. The request body must include a
-    /// document with a <code>CreateReusableDelegationSetRequest</code> element. The response
-    /// returns the <code>CreateReusableDelegationSetResponse</code> element that contains
-    /// metadata about the delegationSet. 
-    /// </para><para>
-    /// If the optional parameter HostedZoneId is specified, it marks the delegationSet associated
-    /// with that particular hosted zone as reusable. 
+    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/delegationset</code>
+    /// resource. The request body must include an XML document with a <code>CreateReusableDelegationSetRequest</code>
+    /// element.
+    /// </para><note><para>
+    /// A reusable delegation set cannot be associated with a private hosted zone/
+    /// </para></note><para>
+    /// For more information, including a procedure on how to create and configure a reusable
+    /// delegation set (also known as white label name servers), see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring
+    /// White Label Name Servers</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,12 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter CallerReference
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request and that allows failed <code>CreateReusableDelegationSet</code>
-        /// requests to be retried without the risk of executing the operation twice. You must
-        /// use a unique <code>CallerReference</code> string every time you create a reusable
-        /// delegation set. <code>CallerReference</code> can be any unique string; you might choose
-        /// to use a string that identifies your project, such as <code>DNSMigration_01</code>.</para><para>Valid characters are any Unicode code points that are legal in an XML 1.0 document.
-        /// The UTF-8 encoding of the value must be less than 128 bytes.</para>
+        /// <para>A unique string that identifies the request, and that allows you to retry failed <code>CreateReusableDelegationSet</code>
+        /// requests without the risk of executing the operation twice. You must use a unique
+        /// <code>CallerReference</code> string every time you submit a <code>CreateReusableDelegationSet</code>
+        /// request. <code>CallerReference</code> can be any unique string, for example a date/time
+        /// stamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone whose delegation set you want to mark as reusable. It is
-        /// an optional parameter.</para>
+        /// <para>If you want to mark the delegation set for an existing hosted zone as reusable, the
+        /// ID for that hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

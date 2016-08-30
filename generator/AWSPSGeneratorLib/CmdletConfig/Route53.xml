@@ -90,6 +90,8 @@
     <ServiceOperation MethodName="GetChangeDetails" Exclude="true" />
     <ServiceOperation MethodName="ListChangeBatchesByHostedZone" Exclude="true" />
     <ServiceOperation MethodName="ListChangeBatchesByRRSet" Exclude="true" />
+	
+	<ServiceOperation MethodName="TestDNSAnswer" PipelineParameter="HostedZoneId" Output="Response" />
 
   </ServiceOperations>
 

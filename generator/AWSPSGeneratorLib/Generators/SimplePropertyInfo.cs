@@ -582,6 +582,13 @@ Scenario-4  Create            Create       The new create is added to the pendin
                                     sb.AppendFormat("<{0}>", name);
                                 break;
 
+                            case "dl":
+                            case "dt":
+                            case "dd":
+                                if (forWebUse)
+                                    sb.AppendFormat("<{0}>", name);
+                                break;
+
                             default:
                                 if (!HandleElement(sb, reader, name, forWebUse))
                                 {
@@ -623,6 +630,13 @@ Scenario-4  Create            Create       The new create is added to the pendin
                             case "tr":
                             case "td":
                             case "div":
+                                if (forWebUse)
+                                    sb.AppendFormat("</{0}>", name);
+                                break;
+
+                            case "dl":
+                            case "dt":
+                            case "dd":
                                 if (forWebUse)
                                     sb.AppendFormat("</{0}>", name);
                                 break;

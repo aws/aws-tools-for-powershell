@@ -2707,7 +2707,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","sa-east-1","us-east-1","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","sa-east-1","us-east-1","us-west-1","us-west-2"
             break
         }
         
@@ -2730,6 +2730,7 @@ $R53_Completers = {
         
         # Amazon.Route53.RRType
         {
+            ($_ -eq "Test-R53DNSAnswer/RecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
             ($_ -eq "Get-R53TrafficPolicyInstances/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByHostedZone/TrafficPolicyInstanceTypeMarker") -Or
@@ -2737,7 +2738,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53ChangeBatchesByRRSet/Type")
         }
         {
-            $v = "A","AAAA","CNAME","MX","NS","PTR","SOA","SPF","SRV","TXT"
+            $v = "A","AAAA","CNAME","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
             break
         }
         
@@ -2776,6 +2777,7 @@ $R53_map = @{
     "HealthCheckConfig_InsufficientDataHealthStatus"=@("New-R53HealthCheck")
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
+    "RecordType"=@("Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResources")
     "StartRecordType"=@("Get-R53ResourceRecordSet")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstances","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")

@@ -28,16 +28,17 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action deletes a hosted zone. To delete a hosted zone, send a <code>DELETE</code>
-    /// request to the <code>/<i>Route 53 API version</i>/hostedzone/<i>hosted zone ID</i></code>
-    /// resource.
+    /// Deletes a hosted zone. Send a <code>DELETE</code> request to the <code>/<i>Amazon
+    /// Route 53 API version</i>/hostedzone/<i>hosted zone ID</i></code> resource.
     /// 
-    ///  <important>You can delete a hosted zone only if there are no resource record sets
-    /// other than the default SOA record and NS resource record sets. If your hosted zone
-    /// contains other resource record sets, you must delete them before you can delete your
-    /// hosted zone. If you try to delete a hosted zone that contains other resource record
-    /// sets, Amazon Route 53 will deny your request with a <code>HostedZoneNotEmpty</code>
-    /// error. For information about deleting records from your hosted zone, see <code>ChangeResourceRecordSets</code>.</important>
+    ///  <important><para>
+    /// Delete a hosted zone only if there are no resource record sets other than the default
+    /// SOA record and NS resource record sets. If the hosted zone contains other resource
+    /// record sets, delete them before deleting the hosted zone. If you try to delete a hosted
+    /// zone that contains other resource record sets, Amazon Route 53 denies your request
+    /// with a <code>HostedZoneNotEmpty</code> error. For information about deleting records
+    /// from your hosted zone, see <a>ChangeResourceRecordSets</a>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]

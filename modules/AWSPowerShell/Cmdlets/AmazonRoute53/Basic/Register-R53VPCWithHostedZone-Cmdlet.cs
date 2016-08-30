@@ -28,18 +28,23 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action associates a VPC with an hosted zone. 
+    /// Associates an Amazon VPC with a private hosted zone. 
     /// 
-    ///  
-    /// <para>
-    /// To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>/<i>Route
-    /// 53 API version</i>/hostedzone/<i>hosted zone ID</i>/associatevpc</code> resource.
-    /// The request body must include a document with a <code>AssociateVPCWithHostedZoneRequest</code>
-    /// element. The response returns the <code>AssociateVPCWithHostedZoneResponse</code>
-    /// element that contains <code>ChangeInfo</code> for you to track the progress of the
-    /// <code>AssociateVPCWithHostedZoneRequest</code> you made. See <code>GetChange</code>
-    /// operation for how to track the progress of your change.
-    /// </para>
+    ///  <important><para>
+    /// The VPC and the hosted zone must already exist, and you must have created a private
+    /// hosted zone. You cannot convert a public hosted zone into a private hosted zone.
+    /// </para></important><para>
+    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/hostedzone/<i>hosted
+    /// zone ID</i>/associatevpc</code> resource. The request body must include an XML document
+    /// with a <code>AssociateVPCWithHostedZoneRequest</code> element. The response returns
+    /// the <code>AssociateVPCWithHostedZoneResponse</code> element.
+    /// </para><note><para>
+    /// If you used different accounts to create the hosted zone and to create the Amazon
+    /// VPCs that you want to associate with the hosted zone, we need to update account permissions
+    /// for you. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html">Associating
+    /// Amazon VPCs and Private Hosted Zones That You Create with Different AWS Accounts</a>
+    /// in the Amazon Route 53 Developer Guide.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Register", "R53VPCWithHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para><i>Optional:</i> Any comments you want to include about a <code>AssociateVPCWithHostedZoneRequest</code>.</para>
+        /// <para><i>Optional:</i> A comment about the association request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,13 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deletes a traffic policy. To delete a traffic policy, send a <code>DELETE</code> request
-    /// to the <code>/<i>Route 53 API version</i>/trafficpolicy</code> resource.
+    /// Deletes a traffic policy.
+    /// 
+    ///  
+    /// <para>
+    /// Send a <code>DELETE</code> request to the <code>/<i>Amazon Route 53 API version</i>/trafficpolicy</code>
+    /// resource.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

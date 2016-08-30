@@ -28,9 +28,9 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the health check status, send a <code>GET</code> request to the <code>/<i>Route
-    /// 53 API version</i>/healthcheck/<i>health check ID</i>/status</code> resource. You
-    /// can use this call to get a health check's current status.
+    /// Gets status of a specified health check. Send a <code>GET</code> request to the <code>/2013-04-01/healthcheck/<i>health
+    /// check ID</i>/status</code> resource. You can use this call to get a health check's
+    /// current status.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckStatus")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]
@@ -55,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// also considers the resource record set unhealthy.</para><para>The <code>HealthCheckId</code> element is only useful when Amazon Route 53 is choosing
         /// between two or more resource record sets to respond to a DNS query, and you want Amazon
         /// Route 53 to base the choice in part on the status of a health check. Configuring health
-        /// checks only makes sense in the following configurations:</para><ul><li>You're checking the health of the resource record sets in a weighted, latency,
-        /// geolocation, or failover resource record set, and you specify health check IDs for
-        /// all of the resource record sets. If the health check for one resource record set specifies
-        /// an endpoint that is not healthy, Amazon Route 53 stops responding to queries using
-        /// the value for that resource record set.</li><li><para>You set <code>EvaluateTargetHealth</code> to <code>true</code> for the resource record
+        /// checks only makes sense in the following configurations:</para><ul><li><para>You're checking the health of the resource record sets in a weighted, latency, geolocation,
+        /// or failover resource record set, and you specify health check IDs for all of the resource
+        /// record sets. If the health check for one resource record set specifies an endpoint
+        /// that is not healthy, Amazon Route 53 stops responding to queries using the value for
+        /// that resource record set.</para></li><li><para>You set <code>EvaluateTargetHealth</code> to <code>true</code> for the resource record
         /// sets in an alias, weighted alias, latency alias, geolocation alias, or failover alias
         /// resource record set, and you specify health check IDs for all of the resource record
         /// sets that are referenced by the alias resource record sets. For more information about
@@ -79,10 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// check for each HTTP server that is serving content for www.example.com. For the value
         /// of <code>FullyQualifiedDomainName</code>, specify the domain name of the server (such
         /// as <code>us-east-1-www.example.com</code>), not the name of the resource record sets
-        /// (example.com).</para><important>In this configuration, if you create a health check for which the value
-        /// of <code>FullyQualifiedDomainName</code> matches the name of the resource record sets
-        /// and then associate the health check with those resource record sets, health check
-        /// results will be unpredictable.</important>
+        /// (example.com).</para><important><para>In this configuration, if you create a health check for which the value of <code>FullyQualifiedDomainName</code>
+        /// matches the name of the resource record sets and then associate the health check with
+        /// those resource record sets, health check results will be unpredictable.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To delete a traffic policy instance, send a <code>DELETE</code> request to the <code>/<i>Route
-    /// 53 API version</i>/trafficpolicy/<i>traffic policy instance ID</i></code> resource.
-    /// </para><important>When you delete a traffic policy instance, Amazon Route 53 also deletes
-    /// all of the resource record sets that were created when you created the traffic policy
-    /// instance.</important>
+    /// Send a <code>DELETE</code> request to the <code>/<i>Amazon Route 53 API version</i>/trafficpolicy/<i>traffic
+    /// policy instance ID</i></code> resource.
+    /// </para><note><para>
+    /// In the Amazon Route 53 console, traffic policy instances are known as policy records.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "R53TrafficPolicyInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the traffic policy instance that you want to delete. </para><important>When you delete a traffic policy instance, Amazon Route 53 also deletes
-        /// all of the resource record sets that were created when you created the traffic policy
-        /// instance.</important>
+        /// <para>The ID of the traffic policy instance that you want to delete. </para><important><para>When you delete a traffic policy instance, Amazon Route 53 also deletes all of the
+        /// resource record sets that were created when you created the traffic policy instance.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

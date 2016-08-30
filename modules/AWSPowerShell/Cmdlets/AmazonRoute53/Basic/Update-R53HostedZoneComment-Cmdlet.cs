@@ -28,12 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To update the hosted zone comment, send a <code>POST</code> request to the <code>/<i>Route
-    /// 53 API version</i>/hostedzone/<i>hosted zone ID</i></code> resource. The request body
-    /// must include a document with a <code>UpdateHostedZoneCommentRequest</code> element.
-    /// The response to this request includes the modified <code>HostedZone</code> element.
-    /// 
-    ///  <note> The comment can have a maximum length of 256 characters.</note>
+    /// Updates the hosted zone comment. Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted
+    /// zone ID</i></code> resource.
     /// </summary>
     [Cmdlet("Update", "R53HostedZoneComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.HostedZone")]
@@ -48,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>A comment about your hosted zone.</para>
+        /// <para>The new comment for the hosted zone. If you don't specify a value for <code>Comment</code>,
+        /// Amazon Route 53 deletes the existing value of the <code>Comment</code> element, if
+        /// any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone you want to update.</para>
+        /// <para>The ID for the hosted zone for which you want to update the comment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

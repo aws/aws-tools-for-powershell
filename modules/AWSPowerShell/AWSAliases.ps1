@@ -2708,6 +2708,7 @@ Set-Alias -Name List-R53TrafficPolicyInstancesByHostedZone -Value Get-R53Traffic
 Set-Alias -Name R53-ListTrafficPolicyInstancesByHostedZone -Value Get-R53TrafficPolicyInstancesByHostedZone
 Set-Alias -Name List-R53TrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
 Set-Alias -Name R53-ListTrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
+Set-Alias -Name R53-TestDNSAnswer -Value Test-R53DNSAnswer
 Set-Alias -Name R53-UpdateHostedZoneComment -Value Update-R53HostedZoneComment
 Set-Alias -Name R53-UpdateTrafficPolicyComment -Value Update-R53TrafficPolicyComment
 Set-Alias -Name R53-UpdateTrafficPolicyInstance -Value Update-R53TrafficPolicyInstance

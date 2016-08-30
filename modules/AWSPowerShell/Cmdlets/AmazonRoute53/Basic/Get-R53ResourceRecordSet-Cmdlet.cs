@@ -28,37 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// List the resource record sets in a specified hosted zone. Send a GET request to the
-    /// <code>2013-04-01/hostedzone/<i>hosted zone ID</i>/rrset</code> resource.
-    /// 
-    ///  
-    /// <para><code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time
-    /// in ASCII order, beginning at a position specified by the name and type elements. The
-    /// action sorts results first by DNS name with the labels reversed, for example:
-    /// </para><para><code>com.example.www.</code></para><para>
-    /// Note the trailing dot, which can change the sort order in some circumstances. When
-    /// multiple records have the same DNS name, the action sorts results by the record type.
-    /// </para><para>
-    /// You can use the name and type elements to adjust the beginning position of the list
-    /// of resource record sets returned:
-    /// </para><ul><li><b>If you do not specify <code>Name</code> or <code>Type</code></b>: The
-    /// results begin with the first resource record set that the hosted zone contains.</li><li><b>If you specify <code>Name</code> but not <code>Type</code></b>: The results
-    /// begin with the first resource record set in the list whose name is greater than or
-    /// equal to Name.</li><li><b>If you specify <code>Type</code> but not <code>Name</code></b>:
-    /// Amazon Route 53 returns the <code>InvalidInput</code> error.</li><li><b>If you specify
-    /// both <code>Name</code> and <code>Type</code></b>: The results begin with the first
-    /// resource record set in the list whose name is greater than or equal to <code>Name</code>,
-    /// and whose type is greater than or equal to <code>Type</code>.</li></ul><para>
-    /// This action returns the most current version of the records. This includes records
-    /// that are <code>PENDING</code>, and that are not yet available on all Amazon Route
-    /// 53 DNS servers.
-    /// </para><para>
-    /// To ensure that you get an accurate listing of the resource record sets for a hosted
-    /// zone at a point in time, do not submit a <code>ChangeResourceRecordSets</code> request
-    /// while you are paging through the results of a <code>ListResourceRecordSets</code>
-    /// request. If you do, some pages may display results without the latest changes while
-    /// other pages display results with the latest changes.
-    /// </para>
+    
     /// </summary>
     [Cmdlet("Get", "R53ResourceRecordSet")]
     [OutputType("Amazon.Route53.Model.ListResourceRecordSetsResponse")]
@@ -83,9 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartRecordIdentifier
         /// <summary>
         /// <para>
-        /// <para><i>Weighted resource record sets only:</i> If results were truncated for a given DNS
-        /// name and type, specify the value of <code>NextRecordIdentifier</code> from the previous
-        /// response to get the next resource record set that has the current DNS name and type.</para>
+        /// <para><i>Weighted resource record sets only:</i> If results were truncated for a given
+        /// DNS name and type, specify the value of <code>NextRecordIdentifier</code> from the
+        /// previous response to get the next resource record set that has the current DNS name
+        /// and type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartRecordType
         /// <summary>
         /// <para>
-        /// <para>The DNS type at which to begin the listing of resource record sets. </para><para>Valid values: <code>A</code> | <code>AAAA</code> | <code>CNAME</code> | <code>MX</code>
-        /// | <code>NS</code> | <code>PTR</code> | <code>SOA</code> | <code>SPF</code> | <code>SRV</code>
-        /// | <code>TXT</code></para><para>Values for Weighted Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
-        /// | <code>TXT</code></para><para>Values for Regional Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
-        /// | <code>TXT</code></para><para>Values for Alias Resource Record Sets: <code>A</code> | <code>AAAA</code></para><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
+        /// <para>The type of resource record set to begin the record listing from.</para><para>Valid values for basic resource record sets: <code>A</code> | <code>AAAA</code> |
+        /// <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code> | <code>NS</code> | <code>PTR</code>
+        /// | <code>SOA</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for weighted, latency, geo, and failover resource record sets: <code>A</code>
+        /// | <code>AAAA</code> | <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code> |
+        /// <code>PTR</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for alias resource record sets: </para><ul><li><para><b>CloudFront distribution</b>: A</para></li><li><para><b>Elastic Beanstalk environment that has a regionalized subdomain</b>: A</para></li><li><para><b>ELB load balancer</b>: A | AAAA</para></li><li><para><b>Amazon S3 bucket</b>: A</para></li></ul><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
         /// an <code>InvalidInput</code> error.</para>
         /// </para>
         /// </summary>
@@ -122,7 +93,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of records you want in the response body.</para>
+        /// <para>(Optional) The maximum number of resource records sets to include in the response
+        /// body for this request. If the response includes more than <code>maxitems</code> resource
+        /// record sets, the value of the <code>IsTruncated</code> element in the response is
+        /// <code>true</code>, and the values of the <code>NextRecordName</code> and <code>NextRecordType</code>
+        /// elements in the response identify the first resource record set in the next group
+        /// of <code>maxitems</code> resource record sets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

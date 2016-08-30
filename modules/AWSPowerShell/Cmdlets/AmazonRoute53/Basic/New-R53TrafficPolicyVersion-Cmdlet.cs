@@ -30,18 +30,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Creates a new version of an existing traffic policy. When you create a new version
     /// of a traffic policy, you specify the ID of the traffic policy that you want to update
-    /// and a JSON-formatted document that describes the new version.
+    /// and a JSON-formatted document that describes the new version. You use traffic policies
+    /// to create multiple DNS resource record sets for one domain name (such as example.com)
+    /// or one subdomain name (such as www.example.com). You can create a maximum of 1000
+    /// versions of a traffic policy. If you reach the limit and need to create another version,
+    /// you'll need to start a new traffic policy.
     /// 
     ///  
     /// <para>
-    /// You use traffic policies to create multiple DNS resource record sets for one domain
-    /// name (such as example.com) or one subdomain name (such as www.example.com).
-    /// </para><para>
-    /// To create a new version, send a <code>POST</code> request to the <code>/<i>Route 53
-    /// API version</i>/trafficpolicy/</code> resource. The request body includes a document
-    /// with a <code>CreateTrafficPolicyVersionRequest</code> element. The response returns
-    /// the <code>CreateTrafficPolicyVersionResponse</code> element, which contains information
-    /// about the new version of the traffic policy.
+    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 version</i>/trafficpolicy/</code>
+    /// resource. The request body includes a document with a <code>CreateTrafficPolicyVersionRequest</code>
+    /// element. The response returns the <code>CreateTrafficPolicyVersionResponse</code>
+    /// element, which contains information about the new version of the traffic policy.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53TrafficPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>Any comments that you want to include about the new traffic policy version.</para>
+        /// <para>The comment that you specified in the <code>CreateTrafficPolicyVersion</code> request,
+        /// if any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,10 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The definition of a new traffic policy version, in JSON format. You must specify the
-        /// full definition of the new traffic policy. You cannot specify just the differences
-        /// between the new version and a previous version. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic
-        /// Policy Document Format</a> in the <i>Amazon Route 53 API Reference</i>.</para>
+        /// <para>The definition of this version of the traffic policy, in JSON format. You specified
+        /// the JSON in the <code>CreateTrafficPolicyVersion</code> request. For more information
+        /// about the JSON format, see <a>CreateTrafficPolicy</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

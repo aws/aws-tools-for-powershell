@@ -28,18 +28,15 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action returns the current status of a change batch request. The status is one
-    /// of the following values:
+    /// Returns the current status of a change batch request. The status is one of the following
+    /// values:
     /// 
-    ///  
-    /// <para>
-    /// - <code>PENDING</code> indicates that the changes in this request have not replicated
+    ///  <ul><li><para><code>PENDING</code> indicates that the changes in this request have not replicated
     /// to all Amazon Route 53 DNS servers. This is the initial status of all change batch
     /// requests.
-    /// </para><para>
-    /// - <code>INSYNC</code> indicates that the changes have replicated to all Amazon Route
+    /// </para></li><li><para><code>INSYNC</code> indicates that the changes have replicated to all Amazon Route
     /// 53 DNS servers. 
-    /// </para>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "R53Change")]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]

@@ -28,8 +28,10 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the health check, send a <code>GET</code> request to the <code>/<i>Route
-    /// 53 API version</i>/healthcheck/<i>health check ID</i></code> resource.
+    /// Gets information about a specified health check. Send a <code>GET</code> request to
+    /// the <code>/2013-04-01/healthcheck/<i>health check ID</i></code> resource. For more
+    /// information about using the console to perform this operation, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Amazon
+    /// Route 53 Health Checks and DNS Failover</a> in the Amazon Route 53 Developer Guide.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheck")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]
@@ -44,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HealthCheckId
         /// <summary>
         /// <para>
-        /// <para>The ID of the health check to retrieve.</para>
+        /// <para>The identifier that Amazon Route 53 assigned to the health check when you created
+        /// it. When you add or update a resource record set, you use this value to specify which
+        /// health check to use. The value can be up to 64 characters long.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
