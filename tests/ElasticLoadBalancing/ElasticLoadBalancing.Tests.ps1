@@ -22,25 +22,38 @@ Describe -Tag "Smoke" "ElasticLoadBalancing" {
 
     Context "Create and delete" {
 
-        It "Can create and delete a load balancer" {
+        BeforeAll {
             $random = New-Object System.Random
             $testLBName = "ps-test-lb-" + $random.Next()
+            $dnsName = $null
+        }
 
-            try {
-                $listener = New-Object Amazon.ElasticLoadBalancing.Model.Listener
-                $listener.Protocol = "http"
-                $listener.InstancePort = 80
-                $listener.LoadBalancerPort = 80
-                New-ELBLoadBalancer -LoadBalancerName $testLBName -Listeners $listener -AvailabilityZones "us-east-1a"
-        
-                Start-Sleep -Seconds 5
-                $newLB = Get-ELBLoadBalancer -LoadBalancerName $testLBName
-                $newLB | Should Not Be $null
-            }
-            finally {
-                Remove-ELBLoadBalancer -LoadBalancerName $testLBName -Force
+        It "Can create a load balancer" {
+            $listener = New-Object Amazon.ElasticLoadBalancing.Model.Listener
+            $listener.Protocol = "http"
+            $listener.InstancePort = 80
+            $listener.LoadBalancerPort = 80
+            $dnsName = New-ELBLoadBalancer -LoadBalancerName $testLBName -Listeners $listener -AvailabilityZones "us-east-1a"
+            $dnsName | Should Not BeNullOrEmpty
+        }
+
+        It "Can retrieve the new load balancer" {
+            Start-Sleep -Seconds 5
+            $newLB = Get-ELBLoadBalancer -LoadBalancerName $testLBName
+            $newLB | Should Not Be $null
+        }
+
+        It "Can delete the new load balancer" {
+            Remove-ELBLoadBalancer -LoadBalancerName $testLBName -Force
+        }
+
+        AfterAll {
+            if ($dnsName) {
+                try {
+                    Remove-ELBLoadBalancer -LoadBalancerName $testLBName -Force
+                }
+                catch {}
             }
         }
     }
 }
-
