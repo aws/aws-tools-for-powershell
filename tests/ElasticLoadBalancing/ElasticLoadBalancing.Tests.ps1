@@ -25,7 +25,7 @@ Describe -Tag "Smoke" "ElasticLoadBalancing" {
         BeforeAll {
             $random = New-Object System.Random
             $testLBName = "ps-test-lb-" + $random.Next()
-            $dnsName = $null
+            $lbCreated = $false
         }
 
         It "Can create a load balancer" {
@@ -34,6 +34,8 @@ Describe -Tag "Smoke" "ElasticLoadBalancing" {
             $listener.InstancePort = 80
             $listener.LoadBalancerPort = 80
             $dnsName = New-ELBLoadBalancer -LoadBalancerName $testLBName -Listeners $listener -AvailabilityZones "us-east-1a"
+
+            $lbCreated = $true
             $dnsName | Should Not BeNullOrEmpty
         }
 
@@ -45,10 +47,11 @@ Describe -Tag "Smoke" "ElasticLoadBalancing" {
 
         It "Can delete the new load balancer" {
             Remove-ELBLoadBalancer -LoadBalancerName $testLBName -Force
+            $lbCreated = $false
         }
 
         AfterAll {
-            if ($dnsName) {
+            if ($lbCreated) {
                 try {
                     Remove-ELBLoadBalancer -LoadBalancerName $testLBName -Force
                 }
