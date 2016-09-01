@@ -675,6 +675,10 @@ Set-Alias -Name CGI-ListIdentityPools -Value Get-CGIIdentityPoolList
 Set-Alias -Name Set-CGIIdentityPoolRoles -Value Set-CGIIdentityPoolRole
 Set-Alias -Name CGI-SetIdentityPoolRoles -Value Set-CGIIdentityPoolRole
 Set-Alias -Name CGI-UpdateIdentityPool -Value Update-CGIIdentityPool
+Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
+Set-Alias -Name CGIP-DescribeUserPool -Value Get-CGIPUserPool
+Set-Alias -Name Describe-CGIPUserPoolClient -Value Get-CGIPUserPoolClient
+Set-Alias -Name CGIP-DescribeUserPoolClient -Value Get-CGIPUserPoolClient
 Set-Alias -Name CGIP-ForgetDevice -Value Stop-CGIPDeviceTracking
 Set-Alias -Name CGIP-ForgotPassword -Value Reset-CGIPForgottenPassword
 Set-Alias -Name CGIP-GetDevice -Value Get-CGIPDevice
@@ -728,10 +732,6 @@ Set-Alias -Name Delete-CGIPUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name CGIP-DeleteUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name Delete-CGIPUserPoolClient -Value Remove-CGIPUserPoolClient
 Set-Alias -Name CGIP-DeleteUserPoolClient -Value Remove-CGIPUserPoolClient
-Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
-Set-Alias -Name CGIP-DescribeUserPool -Value Get-CGIPUserPool
-Set-Alias -Name Describe-CGIPUserPoolClient -Value Get-CGIPUserPoolClient
-Set-Alias -Name CGIP-DescribeUserPoolClient -Value Get-CGIPUserPoolClient
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder
