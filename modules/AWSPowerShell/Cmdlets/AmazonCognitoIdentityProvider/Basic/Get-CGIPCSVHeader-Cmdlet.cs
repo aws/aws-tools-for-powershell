@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    
+    /// Gets the header information for the .csv file to be used as input for the user import
+    /// job.
     /// </summary>
     [Cmdlet("Get", "CGIPCSVHeader")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The user pool ID for the user pool that the users are to be imported into.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
