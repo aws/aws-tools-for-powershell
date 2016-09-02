@@ -47,12 +47,11 @@ namespace Amazon.PowerShell.Utils
 
         public static void SetAWSPowerShellUserAgent(System.Version hostVersion)
         {
-            // even though we have a distinct name for the core module, simply
-            // declaring a different platform is enough to identify it
-            var moduleName = "AWSPowerShell";
 #if DESKTOP
+            var moduleName = "AWSPowerShell";
             var platform = "WindowsPowerShell";
 #else
+            var moduleName = "AWSPowerShell.NetCore";
             var platform = "PowerShellCore";
 #endif
 
