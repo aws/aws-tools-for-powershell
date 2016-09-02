@@ -1,3 +1,13 @@
+### 3.1.97.0 (2016-09-01)
+  * Amazon Gamelift
+    - Updated the New-GMLBuild cmdlet with a new parameter, -OperatingSystem, enabling customers to now use Linux in addition to Windows EC2 instances.
+  * Amazon Cognito Identity Provider
+    - Added support for bulk import of users with new cmdlets: Get-CGIPCSVHeader (GetCSVHeader API), Get-CGIPUserImportJob (DescribeUserImportJob API), Get-CGIPUserImportJobList (ListUserImportJobs API), New-CGIPUserImportJob (CreateUserImportJob API), Start-CGIPUserImportJob (StartUserImportJob API) and Stop-CGIPUserImportJob (StopUserImportJob API).
+  * AWS Config
+    - Updated the argument completer for parameters of type ResourceType to include support for specifying the application load balancer resource type.
+  * Amazon Relation Database Service
+    - Updates to the model types in the underlying AWS SDK for .NET to enable customers to add options to a RDS option group that are mutually exclusive. To avoid conflict issues while validating the request to add an option to the option group the API response now includes information about options that conflict with each other.
+
 ### 3.1.96.0 (2016-08-30)
   * Amazon CloudFront
     - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution cmdlets with parameters to support querystring whitelisting. Customers can now choose to forward certain querystring keys instead of a.) all of them or b.) none of them.

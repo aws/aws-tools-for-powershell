@@ -97,7 +97,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.1.2.5\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.1.16.0\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.1.17.0\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.1.3.5\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -133,7 +133,7 @@
       <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.1.4.9\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
-      <HintPath>..\..\packages\AWSSDK.GameLift.3.1.2.1\lib\net35\AWSSDK.GameLift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GameLift.3.1.3.0\lib\net35\AWSSDK.GameLift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.1.0.11\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
@@ -190,10 +190,10 @@
       <HintPath>..\..\packages\AWSSDK.Core.3.1.11.0\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.1.6.1\lib\net35\AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ConfigService.3.1.7.0\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.1.1.1\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.1.2.0\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.1.1.3\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
@@ -253,7 +253,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.1.1.5\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
-      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.1.0.6\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.1.1.0\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>..\..\packages\AWSSDK.APIGateway.3.1.7.0\lib\net35\AWSSDK.APIGateway.dll</HintPath>
