@@ -1905,6 +1905,13 @@ $GML_Completers = {
             break
         }
         
+        # Amazon.GameLift.OperatingSystem
+        "New-GMLBuild/OperatingSystem"
+        {
+            $v = "AMAZON_LINUX","WINDOWS_2012"
+            break
+        }
+        
         # Amazon.GameLift.PlayerSessionCreationPolicy
         "Update-GMLGameSession/PlayerSessionCreationPolicy"
         {
@@ -1960,6 +1967,7 @@ $GML_map = @{
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
+    "OperatingSystem"=@("New-GMLBuild")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
