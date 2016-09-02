@@ -29,13 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
     /// Registers or updates a scalable target. A scalable target is a resource that can be
-    /// scaled up or down with Application Auto Scaling. After you have registered a scalable
-    /// target, you can use this command to update the minimum and maximum values for your
+    /// scaled out or in with Application Auto Scaling. After you have registered a scalable
+    /// target, you can use this operation to update the minimum and maximum values for your
     /// scalable dimension.
     /// 
-    ///  <note><para>
-    /// At this time, Application Auto Scaling only supports scaling Amazon ECS services.
-    /// </para></note><para>
+    ///  
+    /// <para>
     /// After you register a scalable target with Application Auto Scaling, you can create
     /// and apply scaling policies to it with <a>PutScalingPolicy</a>. You can view the existing
     /// scaling policies for a service namespace with <a>DescribeScalableTargets</a>. If you
@@ -79,9 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier string for the resource to associate with the scalable target.
-        /// For Amazon ECS services, this value is the resource type, followed by the cluster
-        /// name and service name, such as <code>service/default/sample-webapp</code>.</para>
+        /// <para>The resource type and unique identifier string for the resource to associate with
+        /// the scalable target. For Amazon ECS services, the resource type is <code>services</code>,
+        /// and the identifier is the cluster name and service name; for example, <code>service/default/sample-webapp</code>.
+        /// For Amazon EC2 Spot fleet requests, the resource type is <code>spot-fleet-request</code>,
+        /// and the identifier is the Spot fleet request ID; for example, <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The scalable dimension associated with the scalable target. The scalable dimension
         /// contains the service namespace, resource type, and scaling property, such as <code>ecs:service:DesiredCount</code>
-        /// for the desired task count of an Amazon ECS service.</para>
+        /// for the desired task count of an Amazon ECS service, or <code>ec2:spot-fleet-request:TargetCapacity</code>
+        /// for the target capacity of an Amazon EC2 Spot fleet request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

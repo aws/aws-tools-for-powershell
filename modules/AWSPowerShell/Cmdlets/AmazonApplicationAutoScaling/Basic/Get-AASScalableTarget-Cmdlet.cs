@@ -53,10 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier string for the resource associated with the scalable target.
-        /// For Amazon ECS services, this value is the resource type, followed by the cluster
-        /// name and service name, such as <code>service/default/sample-webapp</code>. If you
-        /// specify a scalable dimension, you must also specify a resource ID.</para>
+        /// <para>The resource type and unique identifier string for the resource associated with the
+        /// scalable target. For Amazon ECS services, the resource type is <code>services</code>,
+        /// and the identifier is the cluster name and service name; for example, <code>service/default/sample-webapp</code>.
+        /// For Amazon EC2 Spot fleet requests, the resource type is <code>spot-fleet-request</code>,
+        /// and the identifier is the Spot fleet request ID; for example, <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.
+        /// If you specify a scalable dimension, you must also specify a resource ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The scalable dimension associated with the scalable target. The scalable dimension
         /// contains the service namespace, resource type, and scaling property, such as <code>ecs:service:DesiredCount</code>
-        /// for the desired task count of an Amazon ECS service. If you specify a scalable dimension,
-        /// you must also specify a resource ID.</para>
+        /// for the desired task count of an Amazon ECS service, or <code>ec2:spot-fleet-request:TargetCapacity</code>
+        /// for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable
+        /// dimension, you must also specify a resource ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
