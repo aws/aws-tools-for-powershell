@@ -172,13 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigRule_MaximumExecutionFrequency
         /// <summary>
         /// <para>
-        /// <para>If you want to create a rule that evaluates at a frequency that is independent of
-        /// the configuration snapshot delivery, use the <code>MaximumExecutionFrequency</code>
-        /// parameter in the <a>SourceDetail</a> object.</para><note><para>If you want to create a rule that triggers evaluations for your resources when AWS
-        /// Config delivers the configuration snapshot, see the following:</para></note><para>A rule that runs an evaluation when AWS Config delivers a configuration snapshot cannot
-        /// run evaluations more frequently than AWS Config delivers the snapshots. Set the value
-        /// of the <code>MaximumExecutionFrequency</code> to be equal to or greater than the value
-        /// of the <code>deliveryFrequency</code> key, which is part of <code>ConfigSnapshotDeliveryProperties</code>.</para><para>For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</para>
+        /// <para>The maximum frequency with which AWS Config runs evaluations for a rule. You can specify
+        /// a value for <code>MaximumExecutionFrequency</code> when: </para><ul><li><para>You are using an AWS managed rule that is triggered at a periodic frequency.</para></li><li><para>Your custom rule is triggered when AWS Config delivers the configuration snapshot.</para></li></ul><para>For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
