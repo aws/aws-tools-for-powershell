@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// To use the <code>Publish</code> action for sending a message to a mobile endpoint,
     /// such as an app on a Kindle device or mobile phone, you must specify the EndpointArn
     /// for the TargetArn parameter. The EndpointArn is returned when making a call with the
-    /// <code>CreatePlatformEndpoint</code> action. The second example below shows a request
-    /// and response for publishing to a mobile endpoint. 
+    /// <code>CreatePlatformEndpoint</code> action. 
     /// </para><para>
     /// For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send
     /// Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. 
@@ -61,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>The message you want to send to the topic.</para><para>If you want to send the same message to all transport protocols, include the text
         /// of the message as a String value.</para><para>If you want to send different messages for each transport protocol, set the value
         /// of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON
-        /// object for the <code>Message</code> parameter. See the Examples section for the format
-        /// of the JSON object. </para><para>Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144
+        /// object for the <code>Message</code> parameter. </para><para>Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size (262144
         /// bytes, not 262144 characters).</para><para>JSON-specific constraints:</para><ul><li><para>Keys in the JSON object that correspond to supported transport protocols must have
-        /// simple JSON string values. </para></li><li><para>The values will be parsed (unescaped) before they are used in outgoing messages.</para></li><li><para>Outbound notifications are JSON encoded (meaning that the characters will be reescaped
+        /// simple JSON string values.</para></li><li><para>The values will be parsed (unescaped) before they are used in outgoing messages.</para></li><li><para>Outbound notifications are JSON encoded (meaning that the characters will be reescaped
         /// for sending).</para></li><li><para>Values have a minimum length of 0 (the empty string, "", is allowed).</para></li><li><para>Values have a maximum length bounded by the overall message size (so, including multiple
         /// protocols may limit message sizes).</para></li><li><para>Non-string values will cause the key to be ignored.</para></li><li><para>Keys that do not correspond to supported transport protocols are ignored.</para></li><li><para>Duplicate keys are not allowed.</para></li><li><para>Failure to parse or validate any key or value in the message will cause the <code>Publish</code>
         /// call to return an error (no partial delivery).</para></li></ul>
@@ -92,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// message for each protocol. For example, using one publish action, you can send a short
         /// message to your SMS subscribers and a longer message to your email subscribers. If
         /// you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code>
-        /// parameter must: </para><ul><li><para>be a syntactically valid JSON object; and</para></li><li><para>contain at least a top-level JSON key of "default" with a value that is a string.</para></li></ul><para> You can define other top-level keys that define the message you want to send to a
-        /// specific transport protocol (e.g., "http"). </para><para>For information about sending different messages for each protocol using the AWS Management
+        /// parameter must: </para><ul><li><para>be a syntactically valid JSON object; and</para></li><li><para>contain at least a top-level JSON key of "default" with a value that is a string.</para></li></ul><para>You can define other top-level keys that define the message you want to send to a
+        /// specific transport protocol (e.g., "http").</para><para>For information about sending different messages for each protocol using the AWS Management
         /// Console, go to <a href="http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol">Create
         /// Different Messages for Each Protocol</a> in the <i>Amazon Simple Notification Service
         /// Getting Started Guide</i>. </para><para>Valid value: <code>json</code></para>

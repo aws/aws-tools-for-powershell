@@ -2437,6 +2437,7 @@ Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
+Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot
 Set-Alias -Name RDS-RestoreDBInstanceToPointInTime -Value Restore-RDSDBInstanceToPointInTime
 Set-Alias -Name RDS-RevokeDBSecurityGroupIngress -Value Revoke-RDSDBSecurityGroupIngress
 Set-Alias -Name Describe-RDSOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
@@ -2447,6 +2448,8 @@ Set-Alias -Name Describe-RDSReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name RDS-DescribeReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
 Set-Alias -Name RDS-DescribeReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
+Set-Alias -Name Describe-RDSSourceRegion -Value Get-RDSSourceRegion
+Set-Alias -Name RDS-DescribeSourceRegions -Value Get-RDSSourceRegion
 Set-Alias -Name Download-RDSDBLogFilePortion -Value Get-RDSDBLogFilePortion
 Set-Alias -Name RDS-DownloadDBLogFilePortion -Value Get-RDSDBLogFilePortion
 Set-Alias -Name RDS-FailoverDBCluster -Value Start-RDSDBClusterFailover
@@ -2483,7 +2486,6 @@ Set-Alias -Name RDS-ResetDBParameterGroup -Value Reset-RDSDBParameterGroup
 Set-Alias -Name RDS-RestoreDBClusterFromS3 -Value Restore-RDSDBClusterFromS3
 Set-Alias -Name RDS-RestoreDBClusterFromSnapshot -Value Restore-RDSDBClusterFromSnapshot
 Set-Alias -Name RDS-RestoreDBClusterToPointInTime -Value Restore-RDSDBClusterToPointInTime
-Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name Describe-RDSAccountAttributes -Value Get-RDSAccountAttributes

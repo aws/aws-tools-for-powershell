@@ -28,15 +28,17 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the ID format of a resource for the specified IAM user, IAM role, or root
-    /// user. You can specify that resources should receive longer IDs (17-character IDs)
-    /// when they are created. The following resource types support longer IDs: <code>instance</code>
-    /// | <code>reservation</code> | <code>snapshot</code> | <code>volume</code>. For more
-    /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
-    /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
+    /// Modifies the ID format of a resource for a specified IAM user, IAM role, or the root
+    /// user for an account; or all IAM users, IAM roles, and the root user for an account.
+    /// You can specify that resources should receive longer IDs (17-character IDs) when they
+    /// are created. 
     /// 
     ///  
     /// <para>
+    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
+    /// | <code>snapshot</code> | <code>volume</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+    /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
+    /// </para><para>
     /// This setting applies to the principal specified in the request; it does not apply
     /// to the principal that makes the request. 
     /// </para><para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the principal, which can be an IAM user, IAM role, or the root user.</para>
+        /// <para>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
+        /// <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root
+        /// user of the account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

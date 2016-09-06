@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The name of the topic you want to create.</para><para>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters,
-        /// numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
-        /// </para>
+        /// numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

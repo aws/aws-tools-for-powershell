@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     ///  
     /// <para>
     /// When you delete an endpoint that is also subscribed to a topic, then you must also
-    /// unsubscribe the endpoint from the topic. 
+    /// unsubscribe the endpoint from the topic.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SNSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
