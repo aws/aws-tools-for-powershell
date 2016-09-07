@@ -73,7 +73,7 @@
       <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.1.4.2\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
-      <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.1.1.2\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.1.2.0\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.1.4.4\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
@@ -97,7 +97,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.1.2.5\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.1.17.0\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.1.18.0\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.1.3.5\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -160,13 +160,13 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.1.3.4\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.1.8.0\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.1.8.1\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
-      <HintPath>..\..\packages\AWSSDK.ECR.3.1.2.0\lib\net35\AWSSDK.ECR.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECR.3.1.2.1\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.1.20.0\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.1.20.1\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.1.5.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -199,7 +199,7 @@
       <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.1.1.3\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodePipeline">
-      <HintPath>..\..\packages\AWSSDK.CodePipeline.3.1.4.0\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodePipeline.3.1.5.0\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.1.2.6\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
