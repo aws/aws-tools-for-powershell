@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CodeCommit" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List repositories" {
+    Context "Repositories" {
 
         It "Can list repositories" {
             # if we have no real repos, we get null response

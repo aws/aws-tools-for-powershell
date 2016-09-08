@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CloudFormation" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List all stacks" {
+    Context "Stacks" {
 
         It "Can call Get-CFNStack to get all stacks" {
             $stacks = Get-CFNStack
@@ -13,10 +13,6 @@ Describe -Tag "Smoke" "CloudFormation" {
                 $stacks.Count | Should BeGreaterThan 0
             }
         }
-
-    }
-
-    Context "Get stack by name" {
 
         It "Can call Get-CFNStack with a stack name" {
             $stacks = Get-CFNStack
@@ -27,9 +23,6 @@ Describe -Tag "Smoke" "CloudFormation" {
                 $stack.StackId | Should Be $stacks[0].StackId
             }
         }
-    }
-
-    Context "Get stack summary" {
 
         It "Can get deleted stacks" {
             $deletedStacks = Get-CFNStackSummary -StackStatusFilter DELETE_COMPLETE

@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "ElasticLoadBalancing" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List and get" {
+    Context "Load Balancers" {
 
         It "Can list and get load balancers" {
             $elblist = Get-ELBLoadBalancer
@@ -18,9 +18,6 @@ Describe -Tag "Smoke" "ElasticLoadBalancing" {
                 $elb.LoadBalancerName | Should Be $elblist[0].LoadBalancerName
             }
         }
-    }
-
-    Context "Create and delete" {
 
         $random = New-Object System.Random
         $script:testLBName = "ps-test-lb-" + $random.Next()

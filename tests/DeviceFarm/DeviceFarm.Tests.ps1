@@ -1,6 +1,6 @@
 Describe -Tag "Smoke" "DeviceFarm" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-west-2
     }

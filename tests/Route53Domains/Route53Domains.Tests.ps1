@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "Route53Domains" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "Domain Availability" {
+    Context "Domains" {
 
         It "Can check domain availability" {
             $response = Get-R53DDomainAvailability -DomainName "amazon.com"

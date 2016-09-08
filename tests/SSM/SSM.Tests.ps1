@@ -1,6 +1,6 @@
 Describe -Tag "Smoke" "SSM" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }

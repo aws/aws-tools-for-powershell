@@ -1,13 +1,13 @@
 Describe -Tag "Smoke" "DataPipeline" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List" {
+    Context "Pipelines" {
 
-        It "Can list pipelines" {
+        It "Can list pipelines and read descriptions" {
             $pipelines = Get-DPPipeline
             if ($pipelines) {
                 $pipelines.Count | Should BeGreaterThan 0

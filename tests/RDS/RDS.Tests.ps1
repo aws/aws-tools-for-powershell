@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "RDS" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "Engine versions" {
+    Context "Engines" {
 
         It "Can get engines" {
             $engines = Get-RDSDBEngineVersion

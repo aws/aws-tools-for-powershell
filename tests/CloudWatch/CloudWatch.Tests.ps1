@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CloudWatch" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "Can list and get metrics" {
+    Context "Metrics" {
 
         It "Can list metrics" {
             $metrics = Get-CWMetrics
@@ -26,7 +26,7 @@ Describe -Tag "Smoke" "CloudWatch" {
         }
     }
 
-    Context "Can list and get alarms" {
+    Context "Alarms" {
 
         It "Can list alarms" {
             $alarms = Get-CWAlarm
@@ -47,7 +47,7 @@ Describe -Tag "Smoke" "CloudWatch" {
         }
     }
 
-    Context "Can manually iterate alarms collection" {
+    Context "Manual Iteration" {
 
         BeforeEach {
             $allAlarms = Get-CWAlarm

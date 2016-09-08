@@ -1,11 +1,11 @@
 Describe -Tag "Smoke","Disabled" "ElasticMapReduce" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "Reading clusters" {
+    Context "Clusters" {
 
         It "Can read clusters" {
             $clusters = Get-EMRClusters
@@ -15,13 +15,11 @@ Describe -Tag "Smoke","Disabled" "ElasticMapReduce" {
         }
     }
 
-    Context "Job flows" {
+    Context "Job Flows" {
 
-        BeforeAll {
-            $random = New-Object System.Random
-            $JFName = "ps-test-jf-" + $random.Next()
-            $flowId = $null
-        }
+        $random = New-Object System.Random
+        $script:JFName = "ps-test-jf-" + $random.Next()
+        $script:flowId = $null
 
         It "Can start a job flow" {
             # currently errors claiming 'InstanceProfile' is required.
@@ -38,23 +36,13 @@ Describe -Tag "Smoke","Disabled" "ElasticMapReduce" {
                 Instances_KeepJobFlowAliveWhenNoSteps = $true
                 Instances_HadoopVersion = "0.20"
             }
-            $flowId = Start-EMRJobFlow @params 
+            $script:flowId = Start-EMRJobFlow @params 
 
-            $flowId | Should Not BeNullOrEmpty
+            $script:flowId | Should Not BeNullOrEmpty
         }
 
         It "Can stop a job flow" {
-        	Stop-EMRJobFlow -JobFlowIds $flowId
-            $flowId = $null # skip cleanup
-        }
-
-        AfterAll {
-            if ($flowId) {
-                try {
-                    Stop-EMRJobFlow -JobFlowId $flowId
-                }
-                catch {}
-            }
+        	Stop-EMRJobFlow -JobFlowIds $script:flowId
         }
     }
 }

@@ -1,6 +1,6 @@
 Describe -Tag "Smoke" "DirectoryService" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
@@ -14,7 +14,7 @@ Describe -Tag "Smoke" "DirectoryService" {
         }
     }
 
-    Context "List and read" {
+    Context "Directories" {
 
         It "Can list and read directories" {
             $dirs = Get-DSDirectory

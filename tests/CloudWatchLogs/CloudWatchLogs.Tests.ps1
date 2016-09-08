@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CloudWatchLogs" {
 
-    BeforeEach {
+    BeforeAll{
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List log groups" {
+    Context "Log Groups" {
 
         It "Can list log groups" {
             $logGroups = Get-CWLLogGroups

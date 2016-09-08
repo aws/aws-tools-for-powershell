@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CloudFront" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-	Context "List distributions" {
+	Context "Distributions" {
 
 		It "Can list distributions" {
 			$distributions = Get-CFDistributions
@@ -13,9 +13,7 @@ Describe -Tag "Smoke" "CloudFront" {
 			$distributions | Should Not Be $null
 			$distributions.Quantity | Should Be $distributions.Items.Count
 		}
-	}
 
-	Context "Read distributions" {
 	    It "Can read distributions" {
 			$distribution = Get-CFDistributions
 
@@ -29,7 +27,7 @@ Describe -Tag "Smoke" "CloudFront" {
 	    }
 	}
 
-	Context "Read invalidations" {
+	Context "Invalidations" {
 		It "Can read invalidations" {
 			$distributions = Get-CFDistributions
 

@@ -1,6 +1,6 @@
 Describe -Tag "Smoke" "CloudSearch" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }

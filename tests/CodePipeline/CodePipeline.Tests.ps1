@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CodePipeline" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List pipelines" {
+    Context "Pipelines" {
 
         It "Can list pipelines" {
             $pipelines = Get-CPPipelineList
@@ -13,9 +13,6 @@ Describe -Tag "Smoke" "CodePipeline" {
                 $pipelines.Count | Should BeGreaterThan 0
             }
         }
-    }
-
-    Context "Read pipeline by name" {
 
         It "Can read a pipeline" {
             $pipelines = Get-CPPipelineList
@@ -27,7 +24,7 @@ Describe -Tag "Smoke" "CodePipeline" {
         }
     }
 
-    Context "List action types" {
+    Context "Action Types" {
 
         It "Can read AWS action owner type" {
 

@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "ElasticFileSystem" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-west-2
     }
 
-    Context "List" {
+    Context "File Systems" {
 
         It "Can list file systems" {
             $allfs = Get-EFSFileSystem

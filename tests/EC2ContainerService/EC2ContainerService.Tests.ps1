@@ -1,6 +1,6 @@
 Describe -Tag "Smoke" "EC2ContainerService" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }

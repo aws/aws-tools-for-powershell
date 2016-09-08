@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "CloudTrail" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List and get trails" {
+    Context "Trails" {
 
         It "Can list trails" {
             $trails = Get-CTTrail

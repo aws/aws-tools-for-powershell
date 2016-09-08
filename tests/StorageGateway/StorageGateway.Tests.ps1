@@ -1,15 +1,13 @@
 Describe -Tag "Smoke" "StorageGateway" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
     Context "Gateways" {
 
-        BeforeAll {
-            $firstActiveGatway = $null
-        }
+        $script:firstActiveGatway = $null
 
         It "Can list and read gateways" {
         	$gateways = Get-SGGateway
@@ -19,7 +17,7 @@ Describe -Tag "Smoke" "StorageGateway" {
                 # gateway has to be operational to query
                 foreach ($g in $gateways) {
                     if ($g.GatewayOperationalState -eq "ACTIVE") {
-                        $firstActiveGatway = $g
+                        $script:firstActiveGatway = $g
                         break
                     }
                 }
@@ -27,10 +25,10 @@ Describe -Tag "Smoke" "StorageGateway" {
         }
 
         It "Can read an active gateway" {
-            if ($firstActiveGatway) {
-                $gateway = Get-SGGatewayInformation -GatewayARN $firstActiveGatway.GatewayARN
+            if ($script:firstActiveGatway) {
+                $gateway = Get-SGGatewayInformation -GatewayARN $script:firstActiveGatway.GatewayARN
                 $gateway | Should Not Be $null
-                $gateway.GatewayId | Should Be $firstActiveGatway.GatewayId
+                $gateway.GatewayId | Should Be $script:firstActiveGatway.GatewayId
             }
         }
     }

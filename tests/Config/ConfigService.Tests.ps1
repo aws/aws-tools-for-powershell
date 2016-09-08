@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "ConfigService" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List Recorders" {
+    Context "Recorders" {
 
         It "Can list recorders" {
             $recorders = Get-CFGConfigurationRecorders
@@ -13,9 +13,6 @@ Describe -Tag "Smoke" "ConfigService" {
                 $recorders.Length | Should BeGreaterThan 0
             }
         }
-    }
-
-    Context "Read Recorder" {
 
         It "Can read a recorder" {
             $recorders = Get-CFGConfigurationRecorders

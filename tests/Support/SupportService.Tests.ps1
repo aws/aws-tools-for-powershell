@@ -2,12 +2,12 @@
 # subscription.
 Describe -Tag "Smoke" "SupportService" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "Can query services" {
+    Context "Services" {
 
         It "Can retrieve services" {
             $services = Get-ASAServices

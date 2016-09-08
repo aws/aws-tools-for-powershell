@@ -1,11 +1,11 @@
 Describe -Tag "Smoke" "KMS" {
 
-    BeforeEach {
+    BeforeAll {
         Set-AWSCredentials default
         Set-DefaultAWSRegion us-east-1
     }
 
-    Context "List and read keys" {
+    Context "Keys" {
 
         It "Can list and read keys" {
             $keys = Get-KMSKeys
