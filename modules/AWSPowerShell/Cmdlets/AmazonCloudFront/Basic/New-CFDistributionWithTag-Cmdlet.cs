@@ -250,6 +250,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
         #endregion
         
+        #region Parameter DistributionConfig_HttpVersion
+        /// <summary>
+        /// <para>
+        /// (Optional) Specify the maximum HTTP version
+        /// that you want viewers to use to communicate with CloudFront. The default value for
+        /// new web distributions is http2. Viewers that don't support HTTP/2 will automatically
+        /// use an earlier version.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_HttpVersion")]
+        [AWSConstantClassSource("Amazon.CloudFront.HttpVersion")]
+        public Amazon.CloudFront.HttpVersion DistributionConfig_HttpVersion { get; set; }
+        #endregion
+        
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
@@ -868,6 +883,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DistributionConfigWithTags_DistributionConfig_DefaultRootObject = this.DistributionConfig_DefaultRootObject;
             if (ParameterWasBound("DistributionConfig_Enabled"))
                 context.DistributionConfigWithTags_DistributionConfig_Enabled = this.DistributionConfig_Enabled;
+            context.DistributionConfigWithTags_DistributionConfig_HttpVersion = this.DistributionConfig_HttpVersion;
             context.DistributionConfigWithTags_DistributionConfig_Logging_Bucket = this.Logging_Bucket;
             if (ParameterWasBound("Logging_Enabled"))
                 context.DistributionConfigWithTags_DistributionConfig_Logging_Enabled = this.Logging_Enabled;
@@ -989,6 +1005,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_Enabled != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.Enabled = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_Enabled.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.HttpVersion requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_HttpVersion = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_HttpVersion != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_HttpVersion = cmdletContext.DistributionConfigWithTags_DistributionConfig_HttpVersion;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_HttpVersion != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.HttpVersion = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_HttpVersion;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             Amazon.CloudFront.PriceClass requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_PriceClass = null;
@@ -1804,6 +1830,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public Amazon.CloudFront.ViewerProtocolPolicy DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
             public System.String DistributionConfigWithTags_DistributionConfig_DefaultRootObject { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_Enabled { get; set; }
+            public Amazon.CloudFront.HttpVersion DistributionConfigWithTags_DistributionConfig_HttpVersion { get; set; }
             public System.String DistributionConfigWithTags_DistributionConfig_Logging_Bucket { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_Logging_Enabled { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_Logging_IncludeCookies { get; set; }

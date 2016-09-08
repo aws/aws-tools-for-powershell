@@ -248,6 +248,20 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
         #endregion
         
+        #region Parameter DistributionConfig_HttpVersion
+        /// <summary>
+        /// <para>
+        /// (Optional) Specify the maximum HTTP version
+        /// that you want viewers to use to communicate with CloudFront. The default value for
+        /// new web distributions is http2. Viewers that don't support HTTP/2 will automatically
+        /// use an earlier version.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudFront.HttpVersion")]
+        public Amazon.CloudFront.HttpVersion DistributionConfig_HttpVersion { get; set; }
+        #endregion
+        
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
@@ -874,6 +888,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DistributionConfig_DefaultRootObject = this.DistributionConfig_DefaultRootObject;
             if (ParameterWasBound("DistributionConfig_Enabled"))
                 context.DistributionConfig_Enabled = this.DistributionConfig_Enabled;
+            context.DistributionConfig_HttpVersion = this.DistributionConfig_HttpVersion;
             context.DistributionConfig_Logging_Bucket = this.Logging_Bucket;
             if (ParameterWasBound("Logging_Enabled"))
                 context.DistributionConfig_Logging_Enabled = this.Logging_Enabled;
@@ -963,6 +978,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfig_distributionConfig_Enabled != null)
             {
                 request.DistributionConfig.Enabled = requestDistributionConfig_distributionConfig_Enabled.Value;
+                requestDistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.HttpVersion requestDistributionConfig_distributionConfig_HttpVersion = null;
+            if (cmdletContext.DistributionConfig_HttpVersion != null)
+            {
+                requestDistributionConfig_distributionConfig_HttpVersion = cmdletContext.DistributionConfig_HttpVersion;
+            }
+            if (requestDistributionConfig_distributionConfig_HttpVersion != null)
+            {
+                request.DistributionConfig.HttpVersion = requestDistributionConfig_distributionConfig_HttpVersion;
                 requestDistributionConfigIsNull = false;
             }
             Amazon.CloudFront.PriceClass requestDistributionConfig_distributionConfig_PriceClass = null;
@@ -1778,6 +1803,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public Amazon.CloudFront.ViewerProtocolPolicy DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
             public System.String DistributionConfig_DefaultRootObject { get; set; }
             public System.Boolean? DistributionConfig_Enabled { get; set; }
+            public Amazon.CloudFront.HttpVersion DistributionConfig_HttpVersion { get; set; }
             public System.String DistributionConfig_Logging_Bucket { get; set; }
             public System.Boolean? DistributionConfig_Logging_Enabled { get; set; }
             public System.Boolean? DistributionConfig_Logging_IncludeCookies { get; set; }
