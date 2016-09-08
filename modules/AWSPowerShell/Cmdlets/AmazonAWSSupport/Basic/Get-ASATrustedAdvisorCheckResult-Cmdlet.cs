@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// <para>
     /// The response contains a <a>TrustedAdvisorCheckResult</a> object, which contains these
     /// three objects:
-    /// </para><ul><li><a>TrustedAdvisorCategorySpecificSummary</a></li><li><a>TrustedAdvisorResourceDetail</a></li><li><a>TrustedAdvisorResourcesSummary</a></li></ul><para>
+    /// </para><ul><li><para><a>TrustedAdvisorCategorySpecificSummary</a></para></li><li><para><a>TrustedAdvisorResourceDetail</a></para></li><li><para><a>TrustedAdvisorResourcesSummary</a></para></li></ul><para>
     /// In addition, the response contains these fields:
-    /// </para><ul><li><b>Status.</b> The alert status of the check: "ok" (green), "warning" (yellow),
-    /// "error" (red), or "not_available".</li><li><b>Timestamp.</b> The time of the last
-    /// refresh of the check.</li><li><b>CheckId.</b> The unique identifier for the check.</li></ul>
+    /// </para><ul><li><para><b>status.</b> The alert status of the check: "ok" (green), "warning" (yellow), "error"
+    /// (red), or "not_available".
+    /// </para></li><li><para><b>timestamp.</b> The time of the last refresh of the check.
+    /// </para></li><li><para><b>checkId.</b> The unique identifier for the check.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheckResult")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckResult")]

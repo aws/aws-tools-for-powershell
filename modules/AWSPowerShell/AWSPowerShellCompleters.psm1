@@ -408,6 +408,17 @@ $CF_Completers = {
             break
         }
         
+        # Amazon.CloudFront.HttpVersion
+        {
+            ($_ -eq "New-CFDistribution/DistributionConfig_HttpVersion") -Or
+            ($_ -eq "Update-CFDistribution/DistributionConfig_HttpVersion") -Or
+            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_HttpVersion")
+        }
+        {
+            $v = "http1.1","http2"
+            break
+        }
+        
         # Amazon.CloudFront.ItemSelection
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward") -Or
@@ -476,6 +487,7 @@ $CF_Completers = {
 $CF_map = @{
     "DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","Update-CFDistribution")
+    "DistributionConfig_HttpVersion"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_PriceClass"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_Restrictions_GeoRestriction_RestrictionType"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistribution","Update-CFDistribution")
@@ -483,6 +495,7 @@ $CF_map = @{
     "DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistributionWithTag")
+    "DistributionConfigWithTags_DistributionConfig_HttpVersion"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_PriceClass"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_RestrictionType"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistributionWithTag")

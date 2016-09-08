@@ -29,18 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
     /// Returns communications (and attachments) for one or more support cases. You can use
-    /// the <code>AfterTime</code> and <code>BeforeTime</code> parameters to filter by date.
-    /// You can use the <code>CaseId</code> parameter to restrict the results to a particular
+    /// the <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date.
+    /// You can use the <code>caseId</code> parameter to restrict the results to a particular
     /// case.
     /// 
     ///  
     /// <para>
     /// Case data is available for 12 months after creation. If a case was created more than
-    /// 12 months ago, a request for data might cause an error. 
+    /// 12 months ago, a request for data might cause an error.
     /// </para><para>
-    /// You can use the <code>MaxResults</code> and <code>NextToken</code> parameters to control
-    /// the pagination of the result set. Set <code>MaxResults</code> to the number of cases
-    /// you want displayed on each page, and use <code>NextToken</code> to specify the resumption
+    /// You can use the <code>maxResults</code> and <code>nextToken</code> parameters to control
+    /// the pagination of the result set. Set <code>maxResults</code> to the number of cases
+    /// you want displayed on each page, and use <code>nextToken</code> to specify the resumption
     /// of pagination.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

@@ -28,16 +28,16 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Adds one or more attachments to an attachment set. If an <code>AttachmentSetId</code>
+    /// Adds one or more attachments to an attachment set. If an <code>attachmentSetId</code>
     /// is not specified, a new attachment set is created, and the ID of the set is returned
-    /// in the response. If an <code>AttachmentSetId</code> is specified, the attachments
+    /// in the response. If an <code>attachmentSetId</code> is specified, the attachments
     /// are added to the specified set, if it exists.
     /// 
     ///  
     /// <para>
     /// An attachment set is a temporary container for attachments that are to be added to
     /// a case or case communication. The set is available for one hour after it is created;
-    /// the <code>ExpiryTime</code> returned in the response indicates when the set expires.
+    /// the <code>expiryTime</code> returned in the response indicates when the set expires.
     /// The maximum number of attachments in a set is 3, and the maximum size of any attachment
     /// in the set is 5 MB.
     /// </para>
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the attachment set. If an <code>AttachmentSetId</code> is not specified,
+        /// <para>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified,
         /// a new attachment set is created, and the ID of the set is returned in the response.
-        /// If an <code>AttachmentSetId</code> is specified, the attachments are added to the
+        /// If an <code>attachmentSetId</code> is specified, the attachments are added to the
         /// specified set, if it exists.</para>
         /// </para>
         /// </summary>

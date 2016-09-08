@@ -28,9 +28,9 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Adds additional customer communication to an AWS Support case. You use the <code>CaseId</code>
+    /// Adds additional customer communication to an AWS Support case. You use the <code>caseId</code>
     /// value to identify the case to add communication to. You can list a set of email addresses
-    /// to copy on the communication using the <code>CcEmailAddresses</code> value. The <code>CommunicationBody</code>
+    /// to copy on the communication using the <code>ccEmailAddresses</code> value. The <code>communicationBody</code>
     /// value contains the text of the communication.
     /// 
     ///  
