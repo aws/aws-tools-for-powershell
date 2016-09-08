@@ -1,3 +1,7 @@
+### [AWSPowerShell.NetCore] 3.2.8.0-RC (2016-09-08)	
+  * Updates the service API support in the module cmdlets to match the 3.1.98.0 release of the AWSPowerShell desktop edition.
+  * Upgrades the underlying AWS SDK for .NET to the 2.3.8 RC version.
+
 ### 3.1.98.0 (2016-09-06)
   * Amazon Relation Database Service
     - Added support for the new DescribeSourceRegions API with new cmdlet Get-RDSSourceRegion. The DescribeSourceRegions API provides a list of all the source region names and endpoints for any region. Source regions are the regions where current region can get a replica or copy a snapshot from.
