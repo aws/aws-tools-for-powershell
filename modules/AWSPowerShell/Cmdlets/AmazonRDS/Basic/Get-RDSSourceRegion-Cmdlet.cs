@@ -22,59 +22,74 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// To retrieve a list of your reusable delegation sets, send a <code>GET</code> request
-    /// to the <code>/2013-04-01/delegationset</code> resource. The response to this request
-    /// includes a <code>DelegationSets</code> element with zero, one, or multiple <code>DelegationSet</code>
-    /// child elements. By default, the list of delegation sets is displayed on a single page.
-    /// You can control the length of the page that is displayed by using the <code>MaxItems</code>
-    /// parameter. You can use the <code>Marker</code> parameter to control the delegation
-    /// set that the list begins with. 
-    /// 
-    ///  <note><para>
-    ///  Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value greater
-    /// than 100, Amazon Route 53 returns only the first 100.
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list that includes the status of each source AWS Region that the current
+    /// region can get a Read Replica or a DB snapshot from. This API action supports pagination.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "R53ReusableDelegationSets")]
-    [OutputType("Amazon.Route53.Model.DelegationSet")]
-    [AWSCmdlet("Invokes the ListReusableDelegationSets operation against Amazon Route 53.", Operation = new[] {"ListReusableDelegationSets"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.DelegationSet",
-        "This cmdlet returns a collection of DelegationSet objects.",
-        "The service call response (type Amazon.Route53.Model.ListReusableDelegationSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
+    [Cmdlet("Get", "RDSSourceRegion")]
+    [OutputType("Amazon.RDS.Model.SourceRegion")]
+    [AWSCmdlet("Invokes the DescribeSourceRegions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeSourceRegions"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.SourceRegion",
+        "This cmdlet returns a collection of SourceRegion objects.",
+        "The service call response (type Amazon.RDS.Model.DescribeSourceRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public partial class GetR53ReusableDelegationSetsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetRDSSourceRegionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is not currently supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter RegionName
+        /// <summary>
+        /// <para>
+        /// <para>The source region name, for example US West (Oregon).</para><para>Constraints:</para><ul><li><para>Must specify a valid AWS Region name, for example US West (Oregon).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegionName { get; set; }
+        #endregion
         
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>If you're making the second or subsequent call to <code>ListReusableDelegationSets</code>,
-        /// the <code>Marker</code> element matches the value that you specified in the <code>marker</code>
-        /// parameter in the previous request.</para>
+        /// <para> An optional pagination token provided by a previous <a>DescribeSourceRegions</a>
+        /// request. If this parameter is specified, the response includes only records beyond
+        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
-        #region Parameter MaxItem
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The value that you specified for the <code>maxitems</code> parameter in the request
-        /// that produced the current response.</para>
+        /// <para>The maximum number of records to include in the response. If more records exist than
+        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int MaxItem { get; set; }
+        [Alias("MaxItems","MaxRecords")]
+        public int MaxRecord { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -90,9 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
+            }
             context.Marker = this.Marker;
-            if (ParameterWasBound("MaxItem"))
-                context.MaxItems = this.MaxItem;
+            if (ParameterWasBound("MaxRecord"))
+                context.MaxRecords = this.MaxRecord;
+            context.RegionName = this.RegionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -108,28 +128,29 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Route53.Model.ListReusableDelegationSetsRequest();
+            var request = new Amazon.RDS.Model.DescribeSourceRegionsRequest();
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.RegionName != null)
+            {
+                request.RegionName = cmdletContext.RegionName;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
                 _nextMarker = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecords))
             {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxItems;
+                _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxRecords);
             bool _continueIteration = true;
             
             try
@@ -139,21 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     request.Marker = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
-                    }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxItems))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -164,25 +171,22 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.DelegationSets;
+                        object pipelineOutput = response.SourceRegions;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
-                        notes["IsTruncated"] = response.IsTruncated;
-                        notes["NextMarker"] = response.NextMarker;
-                        notes["MaxItems"] = response.MaxItems;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.DelegationSets.Count;
+                        int _receivedThisCall = response.SourceRegions.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
                         }
                         
-                        _nextMarker = response.NextMarker;
+                        _nextMarker = response.Marker;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -196,15 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -228,13 +223,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.ListReusableDelegationSetsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListReusableDelegationSetsRequest request)
+        private static Amazon.RDS.Model.DescribeSourceRegionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeSourceRegionsRequest request)
         {
             #if DESKTOP
-            return client.ListReusableDelegationSets(request);
+            return client.DescribeSourceRegions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListReusableDelegationSetsAsync(request);
+            var task = client.DescribeSourceRegionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -245,8 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
             public System.String Marker { get; set; }
-            public int? MaxItems { get; set; }
+            public int? MaxRecords { get; set; }
+            public System.String RegionName { get; set; }
         }
         
     }

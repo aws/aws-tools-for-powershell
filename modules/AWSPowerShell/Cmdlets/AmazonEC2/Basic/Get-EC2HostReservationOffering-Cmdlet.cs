@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>This is the maximum duration of the reservation you'd like to purchase, specified
-        /// in seconds.Reservations are available in 1, 3, and 5 year terms. The number of seconds
-        /// specified must be the number of seconds in a year (365x24x60x60) times one of the
-        /// supported durations (1, 3, or 5). For example, specify 157680000 for 5 years.</para>
+        /// in seconds. Reservations are available in one-year and three-year terms. The number
+        /// of seconds specified must be the number of seconds in a year (365x24x60x60) times
+        /// one of the supported durations (1 or 3). For example, specify 94608000 for three years.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>This is the minimum duration of the reservation you'd like to purchase, specified
-        /// in seconds. Reservations are available in 1, 3, and 5 year terms. The number of seconds
-        /// specified must be the number of seconds in a year (365x24x60x60) times one of the
-        /// supported durations (1, 3, or 5). For example, specify 94608000 for 3 years.</para>
+        /// in seconds. Reservations are available in one-year and three-year terms. The number
+        /// of seconds specified must be the number of seconds in a year (365x24x60x60) times
+        /// one of the supported durations (1 or 3). For example, specify 31536000 for one year.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

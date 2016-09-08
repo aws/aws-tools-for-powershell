@@ -22,59 +22,59 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// To retrieve a list of your reusable delegation sets, send a <code>GET</code> request
-    /// to the <code>/2013-04-01/delegationset</code> resource. The response to this request
-    /// includes a <code>DelegationSets</code> element with zero, one, or multiple <code>DelegationSet</code>
-    /// child elements. By default, the list of delegation sets is displayed on a single page.
-    /// You can control the length of the page that is displayed by using the <code>MaxItems</code>
-    /// parameter. You can use the <code>Marker</code> parameter to control the delegation
-    /// set that the list begins with. 
-    /// 
-    ///  <note><para>
-    ///  Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value greater
-    /// than 100, Amazon Route 53 returns only the first 100.
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the user import jobs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "R53ReusableDelegationSets")]
-    [OutputType("Amazon.Route53.Model.DelegationSet")]
-    [AWSCmdlet("Invokes the ListReusableDelegationSets operation against Amazon Route 53.", Operation = new[] {"ListReusableDelegationSets"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.DelegationSet",
-        "This cmdlet returns a collection of DelegationSet objects.",
-        "The service call response (type Amazon.Route53.Model.ListReusableDelegationSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
+    [Cmdlet("Get", "CGIPUserImportJobList")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.UserImportJobType")]
+    [AWSCmdlet("Invokes the ListUserImportJobs operation against Amazon Cognito Identity Provider.", Operation = new[] {"ListUserImportJobs"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserImportJobType",
+        "This cmdlet returns a collection of UserImportJobType objects.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListUserImportJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: PaginationToken (type System.String)"
     )]
-    public partial class GetR53ReusableDelegationSetsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetCGIPUserImportJobListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter Marker
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>If you're making the second or subsequent call to <code>ListReusableDelegationSets</code>,
-        /// the <code>Marker</code> element matches the value that you specified in the <code>marker</code>
-        /// parameter in the previous request.</para>
+        /// <para>The user pool ID for the user pool that the users are being imported into.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserPoolId { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of import jobs you want the request to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("NextToken")]
-        public System.String Marker { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
-        #region Parameter MaxItem
+        #region Parameter PaginationToken
         /// <summary>
         /// <para>
-        /// <para>The value that you specified for the <code>maxitems</code> parameter in the request
-        /// that produced the current response.</para>
+        /// <para>An identifier that was returned from the previous call to this operation, which can
+        /// be used to return the next set of import jobs in the list.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int MaxItem { get; set; }
+        [Alias("NextToken")]
+        public System.String PaginationToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -90,9 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Marker = this.Marker;
-            if (ParameterWasBound("MaxItem"))
-                context.MaxItems = this.MaxItem;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.PaginationToken = this.PaginationToken;
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -108,52 +109,56 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Route53.Model.ListReusableDelegationSetsRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.ListUserImportJobsRequest();
+            if (cmdletContext.UserPoolId != null)
+            {
+                request.UserPoolId = cmdletContext.UserPoolId;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
-            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            int? _pageSize = 60;
+            if (AutoIterationHelpers.HasValue(cmdletContext.PaginationToken))
             {
-                _nextMarker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.PaginationToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 100. If the user has
+                // The service has a maximum page size of 60. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
+                // and giving us 60 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxItems;
+                _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.PaginationToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.Marker = _nextMarker;
+                    request.PaginationToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     if (AutoIterationHelpers.HasValue(_pageSize))
                     {
                         int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxItems))
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
                         {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
                         }
                         else
                         {
                             correctPageSize = _pageSize.Value;
                         }
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -164,25 +169,22 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.DelegationSets;
+                        object pipelineOutput = response.UserImportJobs;
                         notes = new Dictionary<string, object>();
-                        notes["Marker"] = response.Marker;
-                        notes["IsTruncated"] = response.IsTruncated;
-                        notes["NextMarker"] = response.NextMarker;
-                        notes["MaxItems"] = response.MaxItems;
+                        notes["PaginationToken"] = response.PaginationToken;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.DelegationSets.Count;
+                        int _receivedThisCall = response.UserImportJobs.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PaginationToken));
                         }
                         
-                        _nextMarker = response.NextMarker;
+                        _nextMarker = response.PaginationToken;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -196,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // The service has a maximum page size of 60 and the user has set a retrieval limit.
                     // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
                     // what's left to match the user's request.
                     
@@ -228,13 +230,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.ListReusableDelegationSetsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListReusableDelegationSetsRequest request)
+        private static Amazon.CognitoIdentityProvider.Model.ListUserImportJobsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListUserImportJobsRequest request)
         {
             #if DESKTOP
-            return client.ListReusableDelegationSets(request);
+            return client.ListUserImportJobs(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListReusableDelegationSetsAsync(request);
+            var task = client.ListUserImportJobsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -245,8 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Marker { get; set; }
-            public int? MaxItems { get; set; }
+            public int? MaxResults { get; set; }
+            public System.String PaginationToken { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

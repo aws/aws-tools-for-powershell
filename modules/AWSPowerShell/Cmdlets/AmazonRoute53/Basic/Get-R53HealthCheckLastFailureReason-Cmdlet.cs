@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// If you want to learn why a health check is currently failing or why it failed most
     /// recently (if at all), you can get the failure reason for the most recent failure.
-    /// Send a <code>GET</code> request to the <code>/<i>Route 53 API version</i>/healthcheck/<i>health
+    /// Send a <code>GET</code> request to the <code>/<i>Amazon Route 53 API version</i>/healthcheck/<i>health
     /// check ID</i>/lastfailurereason</code> resource.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckLastFailureReason")]
@@ -46,8 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HealthCheckId
         /// <summary>
         /// <para>
-        /// <para>The ID of the health check for which you want to retrieve the reason for the most
-        /// recent failure.</para>
+        /// <para>The ID for the health check for which you want the last failure reason. When you created
+        /// the health check, <code>CreateHealthCheck</code> returned the ID in the response,
+        /// in the <code>HealthCheckId</code> element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

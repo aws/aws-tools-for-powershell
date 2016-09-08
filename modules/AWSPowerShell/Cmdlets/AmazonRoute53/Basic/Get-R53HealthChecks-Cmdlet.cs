@@ -28,16 +28,19 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a list of your health checks, send a <code>GET</code> request to the <code>/<i>Route
-    /// 53 API version</i>/healthcheck</code> resource. The response to this request includes
-    /// a <code>HealthChecks</code> element with zero, one, or multiple <code>HealthCheck</code>
-    /// child elements. By default, the list of health checks is displayed on a single page.
-    /// You can control the length of the page that is displayed by using the <code>MaxItems</code>
-    /// parameter. You can use the <code>Marker</code> parameter to control the health check
-    /// that the list begins with. 
+    /// Retrieve a list of your health checks. Send a <code>GET</code> request to the <code>/2013-04-01/healthcheck</code>
+    /// resource. The response to this request includes a <code>HealthChecks</code> element
+    /// with zero or more <code>HealthCheck</code> child elements. By default, the list of
+    /// health checks is displayed on a single page. You can control the length of the page
+    /// that is displayed by using the <code>MaxItems</code> parameter. You can use the <code>Marker</code>
+    /// parameter to control the health check that the list begins with.
     /// 
-    ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
-    /// greater than 100, Amazon Route 53 returns only the first 100.</note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    ///  
+    /// <para>
+    /// For information about listing health checks using the Amazon Route 53 console, see
+    /// <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Amazon
+    /// Route 53 Health Checks and DNS Failover</a>.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53HealthChecks")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]
@@ -53,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>If the request returned more than one page of results, submit another request and
-        /// specify the value of <code>NextMarker</code> from the last response in the <code>marker</code>
-        /// parameter to get the next page of results.</para>
+        /// <para>If the response to a <code>ListHealthChecks</code> is more than one page, marker is
+        /// the health check ID for the first health check on the next page of results. For more
+        /// information, see <a>ListHealthChecksResponse$MaxItems</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,7 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of health checks to return per page of results.</para>
+        /// <para>The maximum number of <code>HealthCheck</code> elements you want <code>ListHealthChecks</code>
+        /// to return on each page of the response body. If the AWS account includes more <code>HealthCheck</code>
+        /// elements than the value of <code>maxitems</code>, the response is broken into pages.
+        /// Each page contains the number of <code>HealthCheck</code> elements specified by <code>maxitems</code>.</para><para>For example, suppose you specify <code>10</code> for <code>maxitems</code> and the
+        /// current AWS account has <code>51</code> health checks. In the response, <code>ListHealthChecks</code>
+        /// sets <a>ListHealthChecksResponse$IsTruncated</a> to true and includes the <a>ListHealthChecksResponse$NextMarker</a>
+        /// element. To access the second and subsequent pages, you resend the <code>GET</code><code>ListHealthChecks</code> request, add the <a>ListHealthChecksResponse$Marker</a>
+        /// parameter to the request, and specify the value of the <a>ListHealthChecksResponse$NextMarker</a>
+        /// element from the previous response. On the last (sixth) page of the response, which
+        /// contains only one HealthCheck element:</para><ul><li><para>The value of <a>ListHealthChecksResponse$IsTruncated</a> is <code>false</code>.</para></li><li><para><a>ListHealthChecksResponse$NextMarker</a> is omitted.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

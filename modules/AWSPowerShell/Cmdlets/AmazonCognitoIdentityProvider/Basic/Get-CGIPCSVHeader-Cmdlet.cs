@@ -22,43 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    
+    /// Gets the header information for the .csv file to be used as input for the user import
+    /// job.
     /// </summary>
-    [Cmdlet("Get", "R53TagsForResource")]
-    [OutputType("Amazon.Route53.Model.ResourceTagSet")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Route 53.", Operation = new[] {"ListTagsForResource"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.ResourceTagSet",
-        "This cmdlet returns a ResourceTagSet object.",
-        "The service call response (type Amazon.Route53.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIPCSVHeader")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse")]
+    [AWSCmdlet("Invokes the GetCSVHeader operation against Amazon Cognito Identity Provider.", Operation = new[] {"GetCSVHeader"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse",
+        "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetCGIPCSVHeaderCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource for which you want to retrieve tags.</para>
+        /// <para>The user pool ID for the user pool that the users are to be imported into.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <code>healthcheck</code>.</para></li><li><para>The resource type for hosted zones is <code>hostedzone</code>.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.Route53.TagResourceType")]
-        public Amazon.Route53.TagResourceType ResourceType { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String UserPoolId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceType = this.ResourceType;
-            context.ResourceId = this.ResourceId;
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.ListTagsForResourceRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.GetCSVHeaderRequest();
             
-            if (cmdletContext.ResourceType != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.ResourceType = cmdletContext.ResourceType;
-            }
-            if (cmdletContext.ResourceId != null)
-            {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
@@ -109,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ResourceTagSet;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +118,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTagsForResourceRequest request)
+        private static Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetCSVHeaderRequest request)
         {
             #if DESKTOP
-            return client.ListTagsForResource(request);
+            return client.GetCSVHeader(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListTagsForResourceAsync(request);
+            var task = client.GetCSVHeaderAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,8 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.Route53.TagResourceType ResourceType { get; set; }
-            public System.String ResourceId { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

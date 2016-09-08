@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> -- The credential received from the notification service.
-        /// For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential
+        /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> -- The credential received from the notification
+        /// service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential
         /// is "API key". For ADM, PlatformCredential is "client secret".</para></li><li><para><code>PlatformPrincipal</code> -- The principal received from the notification service.
         /// For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal
         /// is not applicable. For ADM, PlatformPrincipal is "client id".</para></li><li><para><code>EventEndpointCreated</code> -- Topic ARN to which EndpointCreated event notifications

@@ -28,9 +28,9 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a single geo location, send a <code>GET</code> request to the <code>/<i>Route
-    /// 53 API version</i>/geolocation</code> resource with one of these options: continentcode
-    /// | countrycode | countrycode and subdivisioncode.
+    /// Retrieves a single geo location. Send a <code>GET</code> request to the <code>/2013-04-01/geolocation</code>
+    /// resource with one of these options: continentcode | countrycode | countrycode and
+    /// subdivisioncode.
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
     [OutputType("Amazon.Route53.Model.GeoLocationDetails")]
@@ -45,10 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ContinentCode
         /// <summary>
         /// <para>
-        /// <para>The code for a continent geo location. Note: only continent locations have a continent
-        /// code.</para><para>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code>
-        /// | <code>OC</code> | <code>NA</code> | <code>SA</code></para><para>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code>
-        /// or <code>SubdivisionCode</code> returns an <code>InvalidInput</code> error.</para>
+        /// <para>Amazon Route 53 supports the following contintent codes:</para><ul><li><para><b>AF</b>: Africa</para></li><li><para><b>AN</b>: Antarctica</para></li><li><para><b>AS</b>: Asia</para></li><li><para><b>EU</b>: Europe</para></li><li><para><b>OC</b>: Oceania</para></li><li><para><b>NA</b>: North America</para></li><li><para><b>SA</b>: South America</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter CountryCode
         /// <summary>
         /// <para>
-        /// <para>The code for a country geo location. The default location uses '*' for the country
-        /// code and will match all locations that are not matched by a geo location.</para><para>The default geo location uses a <code>*</code> for the country code. All other country
-        /// codes follow the ISO 3166 two-character code.</para>
+        /// <para>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+        /// standard 3166-1 alpha-2</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,9 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter SubdivisionCode
         /// <summary>
         /// <para>
-        /// <para>The code for a country's subdivision (e.g., a province of Canada). A subdivision code
-        /// is only valid with the appropriate country code.</para><para>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code>
-        /// returns an <code>InvalidInput</code> error.</para>
+        /// <para>Amazon Route 53 uses the one- to three-letter subdivision codes that are specified
+        /// in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
+        /// alpha-2</a>. Amazon Route 53 doesn't support subdivision codes for all countries.
+        /// If you specify <code>SubdivisionCode</code>, you must also specify <code>CountryCode</code>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

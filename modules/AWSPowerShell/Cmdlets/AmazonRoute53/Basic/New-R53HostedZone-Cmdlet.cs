@@ -28,27 +28,42 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action creates a new hosted zone.
+    /// Creates a new public hosted zone, used to specify how the Domain Name System (DNS)
+    /// routes traffic on the Internet for a domain, such as example.com, and its subdomains.
     /// 
-    ///  
-    /// <para>
-    /// To create a new hosted zone, send a <code>POST</code> request to the <code>/<i>Route
-    /// 53 API version</i>/hostedzone</code> resource. The request body must include a document
-    /// with a <code>CreateHostedZoneRequest</code> element. The response returns the <code>CreateHostedZoneResponse</code>
-    /// element that contains metadata about the hosted zone.
+    /// 
+    ///  <important><para>
+    /// Public hosted zones cannot be converted to a private hosted zone or vice versa. Instead,
+    /// create a new hosted zone with the same name and create new resource record sets.
+    /// </para></important><para>
+    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/hostedzone</code>
+    /// resource. The request body must include an XML document with a <code>CreateHostedZoneRequest</code>
+    /// element. The response returns the <code>CreateHostedZoneResponse</code> element containing
+    /// metadata about the hosted zone.
     /// </para><para>
+    /// Fore more information about charges for hosted zones, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/pricing/">AmazonAmazon
+    /// Route 53 Pricing</a>.
+    /// </para><para>
+    /// Note the following:
+    /// </para><ul><li><para>
+    /// You cannot create a hosted zone for a top-level domain (TLD).
+    /// </para></li><li><para>
     /// Amazon Route 53 automatically creates a default SOA record and four NS records for
-    /// the zone. The NS records in the hosted zone are the name servers you give your registrar
-    /// to delegate your domain to. For more information about SOA and NS records, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
+    /// the zone. For more information about SOA and NS records, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
     /// and SOA Records that Amazon Route 53 Creates for a Hosted Zone</a> in the <i>Amazon
     /// Route 53 Developer Guide</i>.
-    /// </para><para>
-    /// When you create a zone, its initial status is <code>PENDING</code>. This means that
+    /// </para></li><li><para>
+    /// If your domain is registered with a registrar other than Amazon Route 53, you must
+    /// update the name servers with your registrar to make Amazon Route 53 your DNS service.
+    /// For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/creating-migrating.html">Configuring
+    /// Amazon Route 53 as your DNS Service</a> in the <i>Amazon Route 53 Developer's Guide</i>.
+    /// </para></li></ul><para>
+    /// After creating a zone, its initial status is <code>PENDING</code>. This means that
     /// it is not yet available on all DNS servers. The status of the zone changes to <code>INSYNC</code>
     /// when the NS and SOA records are available on all Amazon Route 53 DNS servers. 
     /// </para><para>
-    /// When trying to create a hosted zone using a reusable delegation set, you could specify
-    /// an optional DelegationSetId, and Route53 would assign those 4 NS records for the zone,
+    /// When trying to create a hosted zone using a reusable delegation set, specify an optional
+    /// DelegationSetId, and Amazon Route 53 would assign those 4 NS records for the zone,
     /// instead of alloting a new one.
     /// </para>
     /// </summary>
@@ -67,9 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>A unique string that identifies the request and that allows failed <code>CreateHostedZone</code>
         /// requests to be retried without the risk of executing the operation twice. You must
         /// use a unique <code>CallerReference</code> string every time you create a hosted zone.
-        /// <code>CallerReference</code> can be any unique string; you might choose to use a string
-        /// that identifies your project, such as <code>DNSMigration_01</code>.</para><para>Valid characters are any Unicode code points that are legal in an XML 1.0 document.
-        /// The UTF-8 encoding of the value must be less than 128 bytes.</para>
+        /// <code>CallerReference</code> can be any unique string, for example, a date/time stamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -79,9 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>An optional comment about your hosted zone. If you don't want to specify a comment,
-        /// you can omit the <code>HostedZoneConfig</code> and <code>Comment</code> elements from
-        /// the XML document.</para>
+        /// <para>Any comments that you want to include about the hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -91,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter DelegationSetId
         /// <summary>
         /// <para>
-        /// <para>The delegation set id of the reusable delgation set whose NS records you want to assign
-        /// to the new hosted zone.</para>
+        /// <para>If you want to associate a reusable delegation set with this hosted zone, the ID that
+        /// Amazon Route 53 assigned to the reusable delegation set when you created it. For more
+        /// information about reusable delegation sets, see <a>CreateReusableDelegationSet</a>.</para><dl><dt>Type</dt><dd><para>String</para></dd><dt>Default</dt><dd><para>None</para></dd><dt>Parent</dt><dd><para><code>CreatedHostedZoneRequest</code></para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,12 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the domain. This must be a fully-specified domain, for example, www.example.com.
-        /// The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully
-        /// qualified. This means that Amazon Route 53 treats www.example.com (without a trailing
-        /// dot) and www.example.com. (with a trailing dot) as identical.</para><para>This is the name you have registered with your DNS registrar. You should ask your
-        /// registrar to change the authoritative name servers for your domain to the set of <code>NameServers</code>
-        /// elements returned in <code>DelegationSet</code>.</para>
+        /// <para>The name of the domain. For resource record types that include a domain name, specify
+        /// a fully qualified domain name, for example, <i>www.example.com</i>. The trailing dot
+        /// is optional; Amazon Route 53 assumes that the domain name is fully qualified. This
+        /// means that Amazon Route 53 treats <i>www.example.com</i> (without a trailing dot)
+        /// and <i>www.example.com.</i> (with a trailing dot) as identical.</para><para>If you're creating a public hosted zone, this is the name you have registered with
+        /// your DNS registrar. If your domain name is registered with a registrar other than
+        /// Amazon Route 53, change the name servers for your domain to the set of <code>NameServers</code>
+        /// that <code>CreateHostedZone</code> returns in the DelegationSet element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -117,10 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneConfig_PrivateZone
         /// <summary>
         /// <para>
-        /// <para><code>GetHostedZone</code> and <code>ListHostedZone</code> responses: A Boolean value
-        /// that indicates whether a hosted zone is private.</para><para><code>CreateHostedZone</code> requests: When you're creating a private hosted zone
-        /// (when you specify values for VPCId and VPCRegion), you can optionally specify true
-        /// for PrivateZone. </para>
+        /// <para>A value that indicates whether this is a private hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

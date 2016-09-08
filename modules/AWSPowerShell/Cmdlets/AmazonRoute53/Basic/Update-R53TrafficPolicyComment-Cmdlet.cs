@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To update the comment, send a <code>POST</code> request to the <code>/<i>Route 53
-    /// API version</i>/trafficpolicy/</code> resource.
+    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/trafficpolicy/</code>
+    /// resource.
     /// </para><para>
     /// The request body must include a document with an <code>UpdateTrafficPolicyCommentRequest</code>
     /// element.

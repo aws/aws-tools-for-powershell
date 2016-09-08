@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resources.</para><para>- The resource type for health checks is <code>healthcheck</code>.</para><para>- The resource type for hosted zones is <code>hostedzone</code>.</para>
+        /// <para>The type of the resources.</para><ul><li><para>The resource type for health checks is <code>healthcheck</code>.</para></li><li><para>The resource type for hosted zones is <code>hostedzone</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

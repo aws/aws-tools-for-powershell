@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Disables monitoring of the specified metrics for the specified Auto Scaling group.
+    /// Disables group metrics for the specified Auto Scaling group.
     /// </summary>
     [Cmdlet("Disable", "ASMetricsCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

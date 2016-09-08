@@ -235,7 +235,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ScalableDimension")
         }
         {
-            $v = "ecs:service:DesiredCount"
+            $v = "ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount"
             break
         }
         
@@ -250,7 +250,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ServiceNamespace")
         }
         {
-            $v = "ecs"
+            $v = "ec2","ecs"
             break
         }
         
@@ -899,7 +899,7 @@ $CGIP_Completers = {
             ($_ -eq "Start-CGIPAuthAdmin/AuthFlow")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_AUTH","REFRESH_TOKEN_AUTH","USER_SRP_AUTH"
+            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_AUTH","REFRESH_TOKEN","REFRESH_TOKEN_AUTH","USER_SRP_AUTH"
             break
         }
         
@@ -993,7 +993,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::CloudTrail::Trail","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription"
+            $v = "AWS::ACM::Certificate","AWS::CloudTrail::Trail","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription"
             break
         }
         
@@ -1905,6 +1905,13 @@ $GML_Completers = {
             break
         }
         
+        # Amazon.GameLift.OperatingSystem
+        "New-GMLBuild/OperatingSystem"
+        {
+            $v = "AMAZON_LINUX","WINDOWS_2012"
+            break
+        }
+        
         # Amazon.GameLift.PlayerSessionCreationPolicy
         "Update-GMLGameSession/PlayerSessionCreationPolicy"
         {
@@ -1960,6 +1967,7 @@ $GML_map = @{
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
+    "OperatingSystem"=@("New-GMLBuild")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
@@ -2707,7 +2715,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","sa-east-1","us-east-1","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","sa-east-1","us-east-1","us-west-1","us-west-2"
             break
         }
         
@@ -2730,6 +2738,7 @@ $R53_Completers = {
         
         # Amazon.Route53.RRType
         {
+            ($_ -eq "Test-R53DNSAnswer/RecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
             ($_ -eq "Get-R53TrafficPolicyInstances/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByHostedZone/TrafficPolicyInstanceTypeMarker") -Or
@@ -2737,7 +2746,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53ChangeBatchesByRRSet/Type")
         }
         {
-            $v = "A","AAAA","CNAME","MX","NS","PTR","SOA","SPF","SRV","TXT"
+            $v = "A","AAAA","CNAME","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
             break
         }
         
@@ -2776,6 +2785,7 @@ $R53_map = @{
     "HealthCheckConfig_InsufficientDataHealthStatus"=@("New-R53HealthCheck")
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
+    "RecordType"=@("Test-R53DNSAnswer")
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResources")
     "StartRecordType"=@("Get-R53ResourceRecordSet")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstances","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")

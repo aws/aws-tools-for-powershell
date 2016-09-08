@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To create a traffic policy, send a <code>POST</code> request to the <code>/<i>Route
-    /// 53 API version</i>/trafficpolicy</code> resource. The request body must include a
-    /// document with a <code>CreateTrafficPolicyRequest</code> element. The response includes
-    /// the <code>CreateTrafficPolicyResponse</code> element, which contains information about
-    /// the new traffic policy.
+    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/trafficpolicy</code>
+    /// resource. The request body must include a document with a <code>CreateTrafficPolicyRequest</code>
+    /// element. The response includes the <code>CreateTrafficPolicyResponse</code> element,
+    /// which contains information about the new traffic policy.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>Any comments that you want to include about the traffic policy.</para>
+        /// <para>(Optional) Any comments that you want to include about the traffic policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The definition of this traffic policy in JSON format. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic
+        /// <para>The definition of this traffic policy in JSON format. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html">Traffic
         /// Policy Document Format</a> in the <i>Amazon Route 53 API Reference</i>.</para>
         /// </para>
         /// </summary>

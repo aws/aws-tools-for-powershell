@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter AddTag
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains a list of <code>Tag</code> elements. Each <code>Tag</code>
-        /// element identifies a tag that you want to add or update for the specified resource.</para>
+        /// <para>A complex type that contains a list of the tags that you want to add to the specified
+        /// health check or hosted zone and/or the tags for which you want to edit the <code>Value</code>
+        /// element.</para><para>You can add a maximum of 10 tags to a health check or a hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter RemoveTagKey
         /// <summary>
         /// <para>
-        /// <para>A list of <code>Tag</code> keys that you want to remove from the specified resource.</para>
+        /// <para>A complex type that contains a list of the tags that you want to delete from the specified
+        /// health check or hosted zone. You can specify up to 10 keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource.</para><para>- The resource type for health checks is <code>healthcheck</code>.</para><para>- The resource type for hosted zones is <code>hostedzone</code>.</para>
+        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <code>healthcheck</code>.</para></li><li><para>The resource type for hosted zones is <code>hostedzone</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

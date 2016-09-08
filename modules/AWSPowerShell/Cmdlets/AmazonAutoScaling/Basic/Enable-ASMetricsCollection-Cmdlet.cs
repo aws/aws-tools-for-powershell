@@ -28,13 +28,9 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Enables monitoring of the specified metrics for the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// You can only enable metrics collection if <code>InstanceMonitoring</code> in the launch
-    /// configuration for the group is set to <code>True</code>.
-    /// </para>
+    /// Enables group metrics for the specified Auto Scaling group. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AutoScaling/latest/userguide/as-instance-monitoring.html">Monitoring
+    /// Your Auto Scaling Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.
     /// </summary>
     [Cmdlet("Enable", "ASMetricsCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -71,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more of the following metrics. If you omit this parameter, all metrics are
-        /// enabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul><para>Note that the <code>GroupStandbyInstances</code> metric is not enabled by default.
-        /// You must explicitly request this metric.</para>
+        /// enabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

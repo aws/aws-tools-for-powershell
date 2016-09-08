@@ -28,22 +28,17 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a list of supported geo locations, send a <code>GET</code> request to
-    /// the <code>/<i>Route 53 API version</i>/geolocations</code> resource. The response
-    /// to this request includes a <code>GeoLocationDetailsList</code> element with zero,
-    /// one, or multiple <code>GeoLocationDetails</code> child elements. The list is sorted
-    /// by country code, and then subdivision code, followed by continents at the end of the
-    /// list. 
+    /// Retrieves a list of supported geo locations. Send a <code>GET</code> request to the
+    /// <code>/2013-04-01/geolocations</code> resource. The response to this request includes
+    /// a <code>GeoLocationDetailsList</code> element for each location that Amazon Route
+    /// 53 supports.
     /// 
     ///  
     /// <para>
-    /// By default, the list of geo locations is displayed on a single page. You can control
-    /// the length of the page that is displayed by using the <code>MaxItems</code> parameter.
-    /// If the list is truncated, <code>IsTruncated</code> will be set to <i>true</i> and
-    /// a combination of <code>NextContinentCode, NextCountryCode, NextSubdivisionCode</code>
-    /// will be populated. You can pass these as parameters to <code>StartContinentCode, StartCountryCode,
-    /// StartSubdivisionCode</code> to control the geo location that the list begins with.
-    /// 
+    /// Countries are listed first, and continents are listed last. If Amazon Route 53 supports
+    /// subdivisions for a country (for example, states or provinces), the subdivisions for
+    /// that country are listed in alphabetical order immediately after the corresponding
+    /// country. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "R53GeoLocations")]
@@ -58,11 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartContinentCode
         /// <summary>
         /// <para>
-        /// <para>The first continent code in the lexicographic ordering of geo locations that you want
-        /// the <code>ListGeoLocations</code> request to list. For non-continent geo locations,
-        /// this should be null.</para><para>Valid values: <code>AF</code> | <code>AN</code> | <code>AS</code> | <code>EU</code>
-        /// | <code>OC</code> | <code>NA</code> | <code>SA</code></para><para>Constraint: Specifying <code>ContinentCode</code> with either <code>CountryCode</code>
-        /// or <code>SubdivisionCode</code> returns an <code>InvalidInput</code> error.</para>
+        /// <para>The code for the continent with which you want to start listing locations that Amazon
+        /// Route 53 supports for geolocation. If Amazon Route 53 has already returned a page
+        /// or more of results, if <code>IsTruncated</code> is true, and if <code>NextContinentCode</code>
+        /// from the previous response has a value, enter that value in <code>StartContinentCode</code>
+        /// to return the next page of results.</para><para>Include <code>StartContinentCode</code> only if you want to list continents. Don't
+        /// include <code>StartContinentCode</code> when you're listing countries or countries
+        /// with their subdivisions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,9 +69,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartCountryCode
         /// <summary>
         /// <para>
-        /// <para>The first country code in the lexicographic ordering of geo locations that you want
-        /// the <code>ListGeoLocations</code> request to list.</para><para>The default geo location uses a <code>*</code> for the country code. All other country
-        /// codes follow the ISO 3166 two-character code.</para>
+        /// <para>The code for the country with which you want to start listing locations that Amazon
+        /// Route 53 supports for geolocation. If Amazon Route 53 has already returned a page
+        /// or more of results, if <code>IsTruncated</code> is <code>true</code>, and if <code>NextCountryCode</code>
+        /// from the previous response has a value, enter that value in <code>StartCountryCode</code>
+        /// to return the next page of results.</para><para>Amazon Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+        /// standard 3166-1 alpha-2</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,9 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartSubdivisionCode
         /// <summary>
         /// <para>
-        /// <para>The first subdivision code in the lexicographic ordering of geo locations that you
-        /// want the <code>ListGeoLocations</code> request to list.</para><para>Constraint: Specifying <code>SubdivisionCode</code> without <code>CountryCode</code>
-        /// returns an <code>InvalidInput</code> error.</para>
+        /// <para>The code for the subdivision (for example, state or province) with which you want
+        /// to start listing locations that Amazon Route 53 supports for geolocation. If Amazon
+        /// Route 53 has already returned a page or more of results, if <code>IsTruncated</code>
+        /// is <code>true</code>, and if <code>NextSubdivisionCode</code> from the previous response
+        /// has a value, enter that value in <code>StartSubdivisionCode</code> to return the next
+        /// page of results.</para><para>To list subdivisions of a country, you must include both <code>StartCountryCode</code>
+        /// and <code>StartSubdivisionCode</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of geo locations you want in the response body.</para>
+        /// <para>(Optional) The maximum number of geolocations to be included in the response body
+        /// for this request. If more than <code>MaxItems</code> geolocations remain to be listed,
+        /// then the value of the <code>IsTruncated</code> element in the response is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

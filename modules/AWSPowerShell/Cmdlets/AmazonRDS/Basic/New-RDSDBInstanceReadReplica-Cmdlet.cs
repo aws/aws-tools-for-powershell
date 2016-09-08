@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// running PostgreSQL 9.3.5.</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
         /// period must be greater than 0.</para></li><li><para>If the source DB instance is in the same region as the Read Replica, specify a valid
         /// DB instance identifier.</para></li><li><para>If the source DB instance is in a different region than the Read Replica, specify
-        /// a valid DB instance ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN">
+        /// a valid DB instance ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
         /// Constructing a Amazon RDS Amazon Resource Name (ARN)</a>.</para></li></ul>
         /// </para>
         /// </summary>

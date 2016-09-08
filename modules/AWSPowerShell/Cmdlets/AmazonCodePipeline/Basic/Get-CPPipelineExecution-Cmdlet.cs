@@ -22,43 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.CodePipeline;
+using Amazon.CodePipeline.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    
+    /// Returns information about an execution of a pipeline, including details about artifacts,
+    /// the pipeline execution ID, and the name, version, and status of the pipeline.
     /// </summary>
-    [Cmdlet("Get", "R53TagsForResource")]
-    [OutputType("Amazon.Route53.Model.ResourceTagSet")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Route 53.", Operation = new[] {"ListTagsForResource"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.ResourceTagSet",
-        "This cmdlet returns a ResourceTagSet object.",
-        "The service call response (type Amazon.Route53.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CPPipelineExecution")]
+    [OutputType("Amazon.CodePipeline.Model.PipelineExecution")]
+    [AWSCmdlet("Invokes the GetPipelineExecution operation against AWS CodePipeline.", Operation = new[] {"GetPipelineExecution"})]
+    [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineExecution",
+        "This cmdlet returns a PipelineExecution object.",
+        "The service call response (type Amazon.CodePipeline.Model.GetPipelineExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetCPPipelineExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter PipelineExecutionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource for which you want to retrieve tags.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The type of the resource.</para><ul><li><para>The resource type for health checks is <code>healthcheck</code>.</para></li><li><para>The resource type for hosted zones is <code>hostedzone</code>.</para></li></ul>
+        /// <para>The ID of the pipeline execution about which you want to get execution details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.Route53.TagResourceType")]
-        public Amazon.Route53.TagResourceType ResourceType { get; set; }
+        public System.String PipelineExecutionId { get; set; }
+        #endregion
+        
+        #region Parameter PipelineName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the pipeline about which you want to get execution details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PipelineName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceType = this.ResourceType;
-            context.ResourceId = this.ResourceId;
+            context.PipelineExecutionId = this.PipelineExecutionId;
+            context.PipelineName = this.PipelineName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.ListTagsForResourceRequest();
+            var request = new Amazon.CodePipeline.Model.GetPipelineExecutionRequest();
             
-            if (cmdletContext.ResourceType != null)
+            if (cmdletContext.PipelineExecutionId != null)
             {
-                request.ResourceType = cmdletContext.ResourceType;
+                request.PipelineExecutionId = cmdletContext.PipelineExecutionId;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.PipelineName != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.PipelineName = cmdletContext.PipelineName;
             }
             
             CmdletOutput output;
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ResourceTagSet;
+                object pipelineOutput = response.PipelineExecution;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTagsForResourceRequest request)
+        private static Amazon.CodePipeline.Model.GetPipelineExecutionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.GetPipelineExecutionRequest request)
         {
             #if DESKTOP
-            return client.ListTagsForResource(request);
+            return client.GetPipelineExecution(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListTagsForResourceAsync(request);
+            var task = client.GetPipelineExecutionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.Route53.TagResourceType ResourceType { get; set; }
-            public System.String ResourceId { get; set; }
+            public System.String PipelineExecutionId { get; set; }
+            public System.String PipelineName { get; set; }
         }
         
     }

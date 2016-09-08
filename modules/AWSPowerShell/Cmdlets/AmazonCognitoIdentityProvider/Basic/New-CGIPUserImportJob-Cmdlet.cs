@@ -22,49 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleNotificationService;
-using Amazon.SimpleNotificationService.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SNS
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent.
-    /// For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>. 
-    /// 
-    ///  
-    /// <para>
-    /// When you delete an endpoint that is also subscribed to a topic, then you must also
-    /// unsubscribe the endpoint from the topic.
-    /// </para>
+    /// Creates the user import job.
     /// </summary>
-    [Cmdlet("Remove", "SNSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteEndpoint operation against Amazon Simple Notification Service.", Operation = new[] {"DeleteEndpoint"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EndpointArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleNotificationService.Model.DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "CGIPUserImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.UserImportJobType")]
+    [AWSCmdlet("Invokes the CreateUserImportJob operation against Amazon Cognito Identity Provider.", Operation = new[] {"CreateUserImportJob"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserImportJobType",
+        "This cmdlet returns a UserImportJobType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.CreateUserImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSNSEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class NewCGIPUserImportJobCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter EndpointArn
+        #region Parameter CloudWatchLogsRoleArn
         /// <summary>
         /// <para>
-        /// <para>EndpointArn of endpoint to delete.</para>
+        /// <para>The role ARN for the Amazon CloudWatch Logging role for the user import job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CloudWatchLogsRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter JobName
+        /// <summary>
+        /// <para>
+        /// <para>The job name for the user import job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String JobName { get; set; }
+        #endregion
+        
+        #region Parameter UserPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The user pool ID for the user pool that the users are being imported into.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String EndpointArn { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the EndpointArn parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -81,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EndpointArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SNSEndpoint (DeleteEndpoint)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserPoolId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CGIPUserImportJob (CreateUserImportJob)"))
             {
                 return;
             }
@@ -96,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.EndpointArn = this.EndpointArn;
+            context.CloudWatchLogsRoleArn = this.CloudWatchLogsRoleArn;
+            context.JobName = this.JobName;
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,11 +116,19 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.DeleteEndpointRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.CreateUserImportJobRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.CloudWatchLogsRoleArn != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
+                request.CloudWatchLogsRoleArn = cmdletContext.CloudWatchLogsRoleArn;
+            }
+            if (cmdletContext.JobName != null)
+            {
+                request.JobName = cmdletContext.JobName;
+            }
+            if (cmdletContext.UserPoolId != null)
+            {
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
@@ -126,9 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.EndpointArn;
+                object pipelineOutput = response.UserImportJob;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,13 +164,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.DeleteEndpointResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.DeleteEndpointRequest request)
+        private static Amazon.CognitoIdentityProvider.Model.CreateUserImportJobResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.CreateUserImportJobRequest request)
         {
             #if DESKTOP
-            return client.DeleteEndpoint(request);
+            return client.CreateUserImportJob(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteEndpointAsync(request);
+            var task = client.CreateUserImportJobAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -170,7 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
+            public System.String CloudWatchLogsRoleArn { get; set; }
+            public System.String JobName { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

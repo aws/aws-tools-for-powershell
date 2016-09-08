@@ -628,6 +628,7 @@ Set-Alias -Name CD-ListDeploymentConfigs -Value Get-CDDeploymentConfigList
 Set-Alias -Name CD-ListDeploymentGroups -Value Get-CDDeploymentGroupList
 Set-Alias -Name CD-ListDeploymentInstances -Value Get-CDDeploymentInstanceList
 Set-Alias -Name CD-ListDeployments -Value Get-CDDeploymentList
+Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
 Set-Alias -Name CP-AcknowledgeJob -Value Confirm-CPJob
 Set-Alias -Name CP-AcknowledgeThirdPartyJob -Value Confirm-CPThirdPartyJob
@@ -643,6 +644,7 @@ Set-Alias -Name CP-DisableStageTransition -Value Disable-CPStageTransition
 Set-Alias -Name CP-EnableStageTransition -Value Enable-CPStageTransition
 Set-Alias -Name CP-GetJobDetails -Value Get-CPJobDetails
 Set-Alias -Name CP-GetPipeline -Value Get-CPPipeline
+Set-Alias -Name CP-GetPipelineExecution -Value Get-CPPipelineExecution
 Set-Alias -Name CP-GetPipelineState -Value Get-CPPipelineState
 Set-Alias -Name CP-GetThirdPartyJobDetails -Value Get-CPThirdPartyJobDetails
 Set-Alias -Name CP-ListActionTypes -Value Get-CPActionType
@@ -662,7 +664,6 @@ Set-Alias -Name CP-PutThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFai
 Set-Alias -Name Put-CPThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
 Set-Alias -Name CP-PutThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
 Set-Alias -Name CP-RetryStageExecution -Value Redo-CPStageExecution
-Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name Create-CGIIdentityPool -Value New-CGIIdentityPool
 Set-Alias -Name CGI-CreateIdentityPool -Value New-CGIIdentityPool
 Set-Alias -Name Delete-CGIIdentityPool -Value Remove-CGIIdentityPool
@@ -674,14 +675,20 @@ Set-Alias -Name CGI-ListIdentityPools -Value Get-CGIIdentityPoolList
 Set-Alias -Name Set-CGIIdentityPoolRoles -Value Set-CGIIdentityPoolRole
 Set-Alias -Name CGI-SetIdentityPoolRoles -Value Set-CGIIdentityPoolRole
 Set-Alias -Name CGI-UpdateIdentityPool -Value Update-CGIIdentityPool
+Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
+Set-Alias -Name CGIP-DescribeUserPool -Value Get-CGIPUserPool
+Set-Alias -Name Describe-CGIPUserPoolClient -Value Get-CGIPUserPoolClient
+Set-Alias -Name CGIP-DescribeUserPoolClient -Value Get-CGIPUserPoolClient
 Set-Alias -Name CGIP-ForgetDevice -Value Stop-CGIPDeviceTracking
 Set-Alias -Name CGIP-ForgotPassword -Value Reset-CGIPForgottenPassword
+Set-Alias -Name CGIP-GetCSVHeader -Value Get-CGIPCSVHeader
 Set-Alias -Name CGIP-GetDevice -Value Get-CGIPDevice
 Set-Alias -Name CGIP-GetUser -Value Get-CGIPUser
 Set-Alias -Name CGIP-GetUserAttributeVerificationCode -Value Get-CGIPUserAttributeVerificationCode
 Set-Alias -Name CGIP-GlobalSignOut -Value Disconnect-CGIPDeviceGlobal
 Set-Alias -Name CGIP-InitiateAuth -Value Start-CGIPAuth
 Set-Alias -Name CGIP-ListDevices -Value Get-CGIPDeviceList
+Set-Alias -Name CGIP-ListUserImportJobs -Value Get-CGIPUserImportJobList
 Set-Alias -Name CGIP-ListUserPoolClients -Value Get-CGIPUserPoolClientList
 Set-Alias -Name CGIP-ListUserPools -Value Get-CGIPUserPoolList
 Set-Alias -Name CGIP-ListUsers -Value Get-CGIPUserList
@@ -689,6 +696,8 @@ Set-Alias -Name CGIP-ResendConfirmationCode -Value Send-CGIPConfirmationCode
 Set-Alias -Name CGIP-RespondToAuthChallenge -Value Send-CGIPAuthChallengeResponse
 Set-Alias -Name CGIP-SetUserSettings -Value Set-CGIPUserSetting
 Set-Alias -Name CGIP-SignUp -Value Register-CGIPUserInPool
+Set-Alias -Name CGIP-StartUserImportJob -Value Start-CGIPUserImportJob
+Set-Alias -Name CGIP-StopUserImportJob -Value Stop-CGIPUserImportJob
 Set-Alias -Name CGIP-UpdateDeviceStatus -Value Edit-CGIPDeviceStatus
 Set-Alias -Name CGIP-UpdateUserAttributes -Value Update-CGIPUserAttribute
 Set-Alias -Name CGIP-UpdateUserPool -Value Update-CGIPUserPool
@@ -715,6 +724,8 @@ Set-Alias -Name CGIP-ChangePassword -Value Update-CGIPPassword
 Set-Alias -Name CGIP-ConfirmDevice -Value Approve-CGIPDevice
 Set-Alias -Name CGIP-ConfirmForgotPassword -Value Confirm-CGIPForgotPassword
 Set-Alias -Name CGIP-ConfirmSignUp -Value Confirm-CGIPUserRegistration
+Set-Alias -Name Create-CGIPUserImportJob -Value New-CGIPUserImportJob
+Set-Alias -Name CGIP-CreateUserImportJob -Value New-CGIPUserImportJob
 Set-Alias -Name Create-CGIPUserPool -Value New-CGIPUserPool
 Set-Alias -Name CGIP-CreateUserPool -Value New-CGIPUserPool
 Set-Alias -Name Create-CGIPUserPoolClient -Value New-CGIPUserPoolClient
@@ -727,10 +738,8 @@ Set-Alias -Name Delete-CGIPUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name CGIP-DeleteUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name Delete-CGIPUserPoolClient -Value Remove-CGIPUserPoolClient
 Set-Alias -Name CGIP-DeleteUserPoolClient -Value Remove-CGIPUserPoolClient
-Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
-Set-Alias -Name CGIP-DescribeUserPool -Value Get-CGIPUserPool
-Set-Alias -Name Describe-CGIPUserPoolClient -Value Get-CGIPUserPoolClient
-Set-Alias -Name CGIP-DescribeUserPoolClient -Value Get-CGIPUserPoolClient
+Set-Alias -Name Describe-CGIPUserImportJob -Value Get-CGIPUserImportJob
+Set-Alias -Name CGIP-DescribeUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder
@@ -2428,6 +2437,7 @@ Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
+Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot
 Set-Alias -Name RDS-RestoreDBInstanceToPointInTime -Value Restore-RDSDBInstanceToPointInTime
 Set-Alias -Name RDS-RevokeDBSecurityGroupIngress -Value Revoke-RDSDBSecurityGroupIngress
 Set-Alias -Name Describe-RDSOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
@@ -2438,6 +2448,8 @@ Set-Alias -Name Describe-RDSReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name RDS-DescribeReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
 Set-Alias -Name RDS-DescribeReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
+Set-Alias -Name Describe-RDSSourceRegion -Value Get-RDSSourceRegion
+Set-Alias -Name RDS-DescribeSourceRegions -Value Get-RDSSourceRegion
 Set-Alias -Name Download-RDSDBLogFilePortion -Value Get-RDSDBLogFilePortion
 Set-Alias -Name RDS-DownloadDBLogFilePortion -Value Get-RDSDBLogFilePortion
 Set-Alias -Name RDS-FailoverDBCluster -Value Start-RDSDBClusterFailover
@@ -2474,7 +2486,6 @@ Set-Alias -Name RDS-ResetDBParameterGroup -Value Reset-RDSDBParameterGroup
 Set-Alias -Name RDS-RestoreDBClusterFromS3 -Value Restore-RDSDBClusterFromS3
 Set-Alias -Name RDS-RestoreDBClusterFromSnapshot -Value Restore-RDSDBClusterFromSnapshot
 Set-Alias -Name RDS-RestoreDBClusterToPointInTime -Value Restore-RDSDBClusterToPointInTime
-Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name RDS-DeleteOptionGroup -Value Remove-RDSOptionGroup
 Set-Alias -Name Describe-RDSAccountAttributes -Value Get-RDSAccountAttributes
@@ -2707,6 +2718,7 @@ Set-Alias -Name List-R53TrafficPolicyInstancesByHostedZone -Value Get-R53Traffic
 Set-Alias -Name R53-ListTrafficPolicyInstancesByHostedZone -Value Get-R53TrafficPolicyInstancesByHostedZone
 Set-Alias -Name List-R53TrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
 Set-Alias -Name R53-ListTrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
+Set-Alias -Name R53-TestDNSAnswer -Value Test-R53DNSAnswer
 Set-Alias -Name R53-UpdateHostedZoneComment -Value Update-R53HostedZoneComment
 Set-Alias -Name R53-UpdateTrafficPolicyComment -Value Update-R53TrafficPolicyComment
 Set-Alias -Name R53-UpdateTrafficPolicyInstance -Value Update-R53TrafficPolicyInstance

@@ -28,15 +28,16 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action deletes a reusable delegation set. To delete a reusable delegation set,
-    /// send a <code>DELETE</code> request to the <code>/<i>Route 53 API version</i>/delegationset/<i>delegation
+    /// Deletes a reusable delegation set. Send a <code>DELETE</code> request to the <code>/2013-04-01/delegationset/<i>delegation
     /// set ID</i></code> resource.
     /// 
-    ///  <important> You can delete a reusable delegation set only if there are no associated
-    /// hosted zones. If your reusable delegation set contains associated hosted zones, you
-    /// must delete them before you can delete your reusable delegation set. If you try to
-    /// delete a reusable delegation set that contains associated hosted zones, Amazon Route
-    /// 53 will deny your request with a <code>DelegationSetInUse</code> error.</important>
+    ///  <important><para>
+    ///  You can delete a reusable delegation set only if there are no associated hosted zones.
+    /// </para></important><para>
+    /// To verify that the reusable delegation set is not associated with any hosted zones,
+    /// run the <a>GetReusableDelegationSet</a> action and specify the ID of the reusable
+    /// delegation set that you want to delete.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

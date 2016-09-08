@@ -94,5 +94,14 @@
     <ServiceOperation MethodName="UpdateUserAttributes" AnonymousAuthentication="Always" Noun="UserAttribute" ShouldProcessTarget="AccessToken"/>
     <ServiceOperation MethodName="VerifyUserAttribute" AnonymousAuthentication="Always" Output="Void" Verb="Test" PipelineParameter="AccessToken"/>
 
+	<ServiceOperation MethodName="GetCSVHeader" Output="Response" />
+	<ServiceOperation MethodName="ListUserImportJobs" Verb="Get" Noun="UserImportJobList">
+      <AutoIterate EmitLimit="MaxResults" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
+	</ServiceOperation>
+	<ServiceOperation MethodName="StartUserImportJob" PipelineParameter="JobId" />
+	<ServiceOperation MethodName="StopUserImportJob" PipelineParameter="JobId" />
+	<ServiceOperation MethodName="CreateUserImportJob" />
+	<ServiceOperation MethodName="DescribeUserImportJob" PipelineParameter="JobId" />
+	
   </ServiceOperations>
 </ConfigModel>

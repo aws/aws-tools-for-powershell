@@ -28,90 +28,81 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Disassociates a VPC from a Amazon Route 53 private hosted zone. 
-    /// 
-    ///  
-    /// <para>
-    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/hostedzone/<i>hosted
-    /// zone ID</i>/disassociatevpc</code> resource. The request body must include an XML
-    /// document with a <code>DisassociateVPCFromHostedZoneRequest</code> element. The response
-    /// returns the <code>DisassociateVPCFromHostedZoneResponse</code> element.
-    /// </para><important><para>
-    /// You can only disassociate a VPC from a private hosted zone when two or more VPCs are
-    /// associated with that hosted zone. You cannot convert a private hosted zone into a
-    /// public hosted zone.
-    /// </para></important>
+    
     /// </summary>
-    [Cmdlet("Unregister", "R53VPCFromHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the DisassociateVPCFromHostedZone operation against Amazon Route 53.", Operation = new[] {"DisassociateVPCFromHostedZone"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
-        "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "R53DNSAnswer")]
+    [OutputType("Amazon.Route53.Model.TestDNSAnswerResponse")]
+    [AWSCmdlet("Invokes the TestDNSAnswer operation against Amazon Route 53.", Operation = new[] {"TestDNSAnswer"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.TestDNSAnswerResponse",
+        "This cmdlet returns a Amazon.Route53.Model.TestDNSAnswerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UnregisterR53VPCFromHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class TestR53DNSAnswerCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         
-        #region Parameter Comment
+        #region Parameter EDNS0ClientSubnetIP
         /// <summary>
         /// <para>
-        /// <para><i>Optional:</i> A comment about the disassociation request.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Comment { get; set; }
+        public System.String EDNS0ClientSubnetIP { get; set; }
+        #endregion
+        
+        #region Parameter EDNS0ClientSubnetMask
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EDNS0ClientSubnetMask { get; set; }
         #endregion
         
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC that you want to disassociate from an Amazon Route 53 hosted zone.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
         #endregion
         
-        #region Parameter VPC_VPCId
+        #region Parameter RecordName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String VPC_VPCId { get; set; }
+        public System.String RecordName { get; set; }
         #endregion
         
-        #region Parameter VPC_VPCRegion
+        #region Parameter RecordType
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.Route53.VPCRegion")]
-        public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+        [AWSConstantClassSource("Amazon.Route53.RRType")]
+        public Amazon.Route53.RRType RecordType { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter ResolverIP
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String ResolverIP { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostedZoneId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-R53VPCFromHostedZone (DisassociateVPCFromHostedZone)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -123,9 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
             PreExecutionContextLoad(context);
             
             context.HostedZoneId = this.HostedZoneId;
-            context.VPC_VPCRegion = this.VPC_VPCRegion;
-            context.VPC_VPCId = this.VPC_VPCId;
-            context.Comment = this.Comment;
+            context.RecordName = this.RecordName;
+            context.RecordType = this.RecordType;
+            context.ResolverIP = this.ResolverIP;
+            context.EDNS0ClientSubnetIP = this.EDNS0ClientSubnetIP;
+            context.EDNS0ClientSubnetMask = this.EDNS0ClientSubnetMask;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -140,44 +133,31 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.DisassociateVPCFromHostedZoneRequest();
+            var request = new Amazon.Route53.Model.TestDNSAnswerRequest();
             
             if (cmdletContext.HostedZoneId != null)
             {
                 request.HostedZoneId = cmdletContext.HostedZoneId;
             }
-            
-             // populate VPC
-            bool requestVPCIsNull = true;
-            request.VPC = new Amazon.Route53.Model.VPC();
-            Amazon.Route53.VPCRegion requestVPC_vPC_VPCRegion = null;
-            if (cmdletContext.VPC_VPCRegion != null)
+            if (cmdletContext.RecordName != null)
             {
-                requestVPC_vPC_VPCRegion = cmdletContext.VPC_VPCRegion;
+                request.RecordName = cmdletContext.RecordName;
             }
-            if (requestVPC_vPC_VPCRegion != null)
+            if (cmdletContext.RecordType != null)
             {
-                request.VPC.VPCRegion = requestVPC_vPC_VPCRegion;
-                requestVPCIsNull = false;
+                request.RecordType = cmdletContext.RecordType;
             }
-            System.String requestVPC_vPC_VPCId = null;
-            if (cmdletContext.VPC_VPCId != null)
+            if (cmdletContext.ResolverIP != null)
             {
-                requestVPC_vPC_VPCId = cmdletContext.VPC_VPCId;
+                request.ResolverIP = cmdletContext.ResolverIP;
             }
-            if (requestVPC_vPC_VPCId != null)
+            if (cmdletContext.EDNS0ClientSubnetIP != null)
             {
-                request.VPC.VPCId = requestVPC_vPC_VPCId;
-                requestVPCIsNull = false;
+                request.EDNS0ClientSubnetIP = cmdletContext.EDNS0ClientSubnetIP;
             }
-             // determine if request.VPC should be set to null
-            if (requestVPCIsNull)
+            if (cmdletContext.EDNS0ClientSubnetMask != null)
             {
-                request.VPC = null;
-            }
-            if (cmdletContext.Comment != null)
-            {
-                request.Comment = cmdletContext.Comment;
+                request.EDNS0ClientSubnetMask = cmdletContext.EDNS0ClientSubnetMask;
             }
             
             CmdletOutput output;
@@ -188,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ChangeInfo;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -213,13 +193,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.DisassociateVPCFromHostedZoneRequest request)
+        private static Amazon.Route53.Model.TestDNSAnswerResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.TestDNSAnswerRequest request)
         {
             #if DESKTOP
-            return client.DisassociateVPCFromHostedZone(request);
+            return client.TestDNSAnswer(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DisassociateVPCFromHostedZoneAsync(request);
+            var task = client.TestDNSAnswerAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -231,9 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         internal class CmdletContext : ExecutorContext
         {
             public System.String HostedZoneId { get; set; }
-            public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
-            public System.String VPC_VPCId { get; set; }
-            public System.String Comment { get; set; }
+            public System.String RecordName { get; set; }
+            public Amazon.Route53.RRType RecordType { get; set; }
+            public System.String ResolverIP { get; set; }
+            public System.String EDNS0ClientSubnetIP { get; set; }
+            public System.String EDNS0ClientSubnetMask { get; set; }
         }
         
     }

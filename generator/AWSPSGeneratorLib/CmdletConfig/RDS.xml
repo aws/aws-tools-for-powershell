@@ -191,6 +191,8 @@
     <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Noun="DBClusterSnapshotAttribute" />
 	
 	<ServiceOperation MethodName="PromoteReadReplicaDBCluster" Verb="Convert" Noun="ReadReplicaDBCluster"/>
+	
+	<ServiceOperation MethodName="DescribeSourceRegions" Noun="SourceRegion" />
 
   </ServiceOperations>
 
