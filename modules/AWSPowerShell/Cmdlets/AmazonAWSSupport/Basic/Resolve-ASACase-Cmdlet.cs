@@ -28,7 +28,7 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Takes a <code>CaseId</code> and returns the initial state of the case along with the
+    /// Takes a <code>caseId</code> and returns the initial state of the case along with the
     /// state of the case after the call to <a>ResolveCase</a> completed.
     /// </summary>
     [Cmdlet("Resolve", "ASACase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

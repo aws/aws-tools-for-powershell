@@ -31,14 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Requests a refresh of the Trusted Advisor check that has the specified check ID. Check
     /// IDs can be obtained by calling <a>DescribeTrustedAdvisorChecks</a>.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Some checks are refreshed automatically, and they cannot be refreshed by using this
+    /// operation. Use of the <code>RefreshTrustedAdvisorCheck</code> operation for these
+    /// checks causes an <code>InvalidParameterValue</code> error.
+    /// </para></note><para>
     /// The response contains a <a>TrustedAdvisorCheckRefreshStatus</a> object, which contains
     /// these fields:
-    /// </para><ul><li><b>Status.</b> The refresh status of the check: "none", "enqueued", "processing",
-    /// "success", or "abandoned".</li><li><b>MillisUntilNextRefreshable.</b> The amount
-    /// of time, in milliseconds, until the check is eligible for refresh.</li><li><b>CheckId.</b>
-    /// The unique identifier for the check.</li></ul>
+    /// </para><ul><li><para><b>status.</b> The refresh status of the check: "none", "enqueued", "processing",
+    /// "success", or "abandoned".
+    /// </para></li><li><para><b>millisUntilNextRefreshable.</b> The amount of time, in milliseconds, until the
+    /// check is eligible for refresh.
+    /// </para></li><li><para><b>checkId.</b> The unique identifier for the check.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Request", "ASATrustedAdvisorCheckRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus")]
@@ -53,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CheckId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the Trusted Advisor check.</para>
+        /// <para>The unique identifier for the Trusted Advisor check to refresh. <b>Note:</b> Specifying
+        /// the check ID of a check that is automatically refreshed causes an <code>InvalidParameterValue</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

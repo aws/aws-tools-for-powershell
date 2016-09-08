@@ -29,20 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
     /// Returns a list of cases that you specify by passing one or more case IDs. In addition,
-    /// you can filter the cases by date by setting values for the <code>AfterTime</code>
-    /// and <code>BeforeTime</code> request parameters. You can set values for the <code>IncludeResolvedCases</code>
-    /// and <code>IncludeCommunications</code> request parameters to control how much information
+    /// you can filter the cases by date by setting values for the <code>afterTime</code>
+    /// and <code>beforeTime</code> request parameters. You can set values for the <code>includeResolvedCases</code>
+    /// and <code>includeCommunications</code> request parameters to control how much information
     /// is returned. 
     /// 
     ///  
     /// <para>
     /// Case data is available for 12 months after creation. If a case was created more than
-    /// 12 months ago, a request for data might cause an error. 
+    /// 12 months ago, a request for data might cause an error.
     /// </para><para>
     /// The response returns the following in JSON format:
-    /// </para><ol><li>One or more <a>CaseDetails</a> data types. </li><li>One or more <code>NextToken</code>
-    /// values, which specify where to paginate the returned records represented by the <code>CaseDetails</code>
-    /// objects.</li></ol><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><ul><li><para>
+    /// One or more <a>CaseDetails</a> data types. 
+    /// </para></li><li><para>
+    /// One or more <code>nextToken</code> values, which specify where to paginate the returned
+    /// records represented by the <code>CaseDetails</code> objects.
+    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASACases")]
     [OutputType("Amazon.AWSSupport.Model.CaseDetails")]
@@ -81,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>A list of ID numbers of the support cases you want returned. The maximum number of
-        /// cases is 100. </para>
+        /// cases is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -91,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter DisplayId
         /// <summary>
         /// <para>
-        /// <para>The ID displayed for a case in the AWS Support Center user interface. </para>
+        /// <para>The ID displayed for a case in the AWS Support Center user interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

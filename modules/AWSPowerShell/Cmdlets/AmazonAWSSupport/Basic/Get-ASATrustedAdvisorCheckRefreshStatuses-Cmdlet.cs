@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// <summary>
     /// Returns the refresh status of the Trusted Advisor checks that have the specified check
     /// IDs. Check IDs can be obtained by calling <a>DescribeTrustedAdvisorChecks</a>.
+    /// 
+    ///  <note><para>
+    /// Some checks are refreshed automatically, and their refresh statuses cannot be retrieved
+    /// by using this operation. Use of the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code>
+    /// operation for these checks causes an <code>InvalidParameterValue</code> error.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheckRefreshStatuses")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus")]
@@ -44,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CheckId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Trusted Advisor checks.</para>
+        /// <para>The IDs of the Trusted Advisor checks to get the status of. <b>Note:</b> Specifying
+        /// the check ID of a check that is automatically refreshed causes an <code>InvalidParameterValue</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
