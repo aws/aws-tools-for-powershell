@@ -536,6 +536,10 @@ namespace Amazon.PowerShell.Common
             // if user passes $null as value, we see a bound parameter
             if (ParameterWasBound("EndpointUrl") && !string.IsNullOrEmpty(this.EndpointUrl))
             {
+                // To allow use of urls that do not contain region info, swap any region
+                // we've already detected for the command into AuthRegion for the config;
+                // setting ServiceUrl will clear RegionEndpoint on the config.
+                config.AuthenticationRegion = config.RegionEndpoint.SystemName;
                 config.ServiceURL = this.EndpointUrl.ToString();
             }
         }
