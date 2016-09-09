@@ -1,3 +1,7 @@
+### 3.1.99.0 (2016-09-08)
+  * Amazon CloudFront
+    - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution to enable specifying HTTP2 support for distributions (-DistributionConfig_HttpVersion).
+
 ### [AWSPowerShell.NetCore] 3.2.8.0-RC (2016-09-08)	
   * Updates the service API support in the module cmdlets to match the 3.1.98.0 release of the AWSPowerShell desktop edition.
   * Upgrades the underlying AWS SDK for .NET to the 2.3.8 RC version.

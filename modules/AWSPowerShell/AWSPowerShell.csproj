@@ -73,7 +73,7 @@
       <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.1.4.2\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
-      <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.1.2.0\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.1.2.1\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.1.4.4\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
@@ -229,7 +229,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudHSM.3.1.2.5\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
-      <HintPath>..\..\packages\AWSSDK.CloudFront.3.1.6.0\lib\net35\AWSSDK.CloudFront.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFront.3.1.7.0\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.1.6.1\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
@@ -238,7 +238,7 @@
       <HintPath>..\..\packages\AWSSDK.CertificateManager.3.1.4.1\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
-      <HintPath>..\..\packages\AWSSDK.AWSSupport.3.1.0.9\lib\net35\AWSSDK.AWSSupport.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AWSSupport.3.1.0.10\lib\net35\AWSSDK.AWSSupport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceMetering">
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceMetering.3.1.0.6\lib\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
