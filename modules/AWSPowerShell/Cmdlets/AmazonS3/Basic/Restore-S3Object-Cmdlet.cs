@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// VersionId used to reference a specific version of the object.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionId { get; set; }
         #endregion
         

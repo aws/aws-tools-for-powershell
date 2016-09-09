@@ -38,6 +38,7 @@
     <Property>BucketName</Property>
     <Property>Key</Property>
     <Property>KeyPrefix</Property>
+	<Property>VersionId</Property>
   </PipelineByValueProperties>
 
   <ParamEmitters>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Downloads an S3 object, optionally including sub-objects, to a local file or folder location. Returns a
-    /// FileInfo or DirectoryInfo instance to the downloaded file (or specified containing folder).
+    /// FileInfo or DirectoryInfo instance to the downloaded file or the containing folder.
     /// </summary>
     [Cmdlet("Read", "S3Object", DefaultParameterSetName = "LocalFileParamSet")]
     [OutputType(new Type[] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) })]
@@ -41,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         const string ParamSet_ToLocalFile = "ToLocalFileParamSet";
         const string ParamSet_ToLocalFolder = "ToLocalFolderParamSet";
+        const string ParamSet_FromS3Object = "FromS3Object"; // can save to file or folder
 
         // try and anticipate all the ways a user might mean 'get everything from root'
         readonly string[] rootIndicators = new string[] { "/", @"\", "*", "/*", @"\*" };
@@ -72,6 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The full path to the local file that will be created.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_ToLocalFile, Mandatory = true)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object)]
         public System.String File { get; set; }
         #endregion
 
@@ -109,7 +111,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Directory")]
         [Parameter(Position = 2, ParameterSetName = ParamSet_ToLocalFolder, Mandatory = true)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object)]
         public System.String Folder { get; set; }
+        #endregion
+
+        #endregion
+
+        #region S3Object Download Parameters
+
+        #region Parameter S3Object
+        /// <summary>
+        /// <para>
+        /// Amazon.S3.Model.S3Object instance containing the bucketname and key of the object to download. 
+        /// If the supplied object is an Amazon.S3.Model.S3ObjectVersion instance (derived from S3Object), 
+        /// the version of the object to download will be inferred automatically. 
+        /// </para>
+        /// <para>
+        /// The object identified by the supplied S3Object can be downloaded to a specific file (by supplying 
+        /// a value for the -File parameter) or to a folder (specified using the -Folder parameter). When 
+        /// downloading to a folder, the object key is used as the filename. Note that object keys that are not 
+        /// valid filenames for the host system could cause an exception to be thrown.
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipeline=true, ParameterSetName=ParamSet_FromS3Object, Mandatory=true)]
+        public S3Object S3Object { get; set; }
         #endregion
 
         #endregion
@@ -191,20 +216,44 @@ namespace Amazon.PowerShell.Cmdlets.S3
                                   BucketName = this.BucketName
                               };
 
-            if (this.ParameterSetName == ParamSet_ToLocalFile)
+            switch (this.ParameterSetName)
             {
-                context.Key = AmazonS3Helper.CleanKey(this.Key);
-                context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File);
-            }
-            else
-            {
-                context.OriginalKeyPrefix = this.KeyPrefix;
-                context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
-                    ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
-                context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
-            }
+                case ParamSet_ToLocalFile:
+                    {
+                        context.Key = AmazonS3Helper.CleanKey(this.Key);
+                        context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File);
+                        context.Version = this.Version;
+                    }
+                    break;
 
-            context.Version = this.Version;
+                case ParamSet_ToLocalFolder:
+                    {
+                        context.OriginalKeyPrefix = this.KeyPrefix;
+                        context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
+                            ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
+                        context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
+                    }
+                    break;
+
+                case ParamSet_FromS3Object:
+                    {
+                        context.BucketName = this.S3Object.BucketName;
+                        context.Key = this.S3Object.Key;
+                        var s3ObjectVersion = this.S3Object as S3ObjectVersion;
+                        context.Version = s3ObjectVersion == null ? null : s3ObjectVersion.VersionId;
+
+                        if (this.ParameterWasBound("File"))
+                        {
+                            context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File);
+                        }
+                        else
+                        {
+                            var path = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
+                            context.File = Path.Combine(path, S3Object.Key);
+                        }
+                    }
+                    break;
+            }
 
             if (ParameterWasBound("ModifiedSinceDate"))
                 context.ModifiedSinceDate = this.ModifiedSinceDate;

@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// the url will reference the latest version of the object.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName=true)]
         public System.String VersionId { get; set; }
         #endregion
         

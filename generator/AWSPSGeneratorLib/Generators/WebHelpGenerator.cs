@@ -304,7 +304,6 @@ namespace AWSPowerShellGenerator.Generators
                     sb.AppendFormat("<div class=\"inputDescription\">You can pipe a {0} object to this cmdlet for the {1} parameter.</div>", 
                                     GetTypeDisplayName(simplePropertyInfo.PropertyType, false),
                                     simplePropertyInfo.CmdletParameterName);
-                    break;
                 }
             }
 

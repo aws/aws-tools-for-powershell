@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// to the specific version of the object.
         /// This property is ignored if the ACL is to be set on a Bucket.
         /// </summary>
-        [Parameter(Position = 6)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName=true)]
         public System.String VersionId { get; set; }
         #endregion
 
