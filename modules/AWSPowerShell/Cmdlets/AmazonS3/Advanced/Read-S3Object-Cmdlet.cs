@@ -28,8 +28,14 @@ using Amazon.PowerShell.Utils;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
+    /// <para>
     /// Downloads an S3 object, optionally including sub-objects, to a local file or folder location. Returns a
     /// FileInfo or DirectoryInfo instance to the downloaded file or the containing folder.
+    /// </para>
+    /// <para>
+    /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
+    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
+    /// </para>
     /// </summary>
     [Cmdlet("Read", "S3Object", DefaultParameterSetName = "LocalFileParamSet")]
     [OutputType(new Type[] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) })]

@@ -28,7 +28,13 @@ using System.Collections;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Makes a copy of an S3 object to another S3 object or to the local file system
+    /// <para>
+    /// Makes a copy of an S3 object to another S3 object or to the local file system.
+    /// </para>
+    /// <para>
+    /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
+    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
+    /// </para>
     /// </summary>
     [Cmdlet("Copy", "S3Object", DefaultParameterSetName = ToLocalFileParamSet, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
     [OutputType(new[] { typeof(CopyObjectResponse), typeof(FileInfo) })]

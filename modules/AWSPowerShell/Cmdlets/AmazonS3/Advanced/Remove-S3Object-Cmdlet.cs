@@ -25,10 +25,14 @@ using Amazon.S3;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Deletes the specified object, object version or set of objects from S3.
-    /// 
-    /// The DeleteObject operation removes the specified object from Amazon S3.
-    /// Once deleted, there is no method to restore or undelete an object.
+    /// <para>
+    /// Deletes the specified object, object version or set of objects from S3. The DeleteObject operation removes 
+    /// the specified object from Amazon S3.Once deleted, there is no method to restore or undelete an object.
+    /// </para>
+    /// <para>
+    /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
+    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_SingleObject, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType(new Type[] { typeof(DeleteObjectResponse), typeof(DeleteObjectsResponse) })]

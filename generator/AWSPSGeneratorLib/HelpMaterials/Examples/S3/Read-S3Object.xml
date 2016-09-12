@@ -8,4 +8,8 @@
     <code>Read-S3Object -BucketName test-files -KeyPrefix DIR -Folder Local-DIR</code>
     <description>This command retrieves virtual directory "DIR" from bucket "test-files" and saves it to a folder named "Local-DIR" in the current location. The folder "Local-DIR" does not have to exist before this command is called.</description>
   </example>
+  <example>
+    <code>Get-S3Bucket | ? { $_.BucketName -like '*config*' } | Get-S3Object | ? { $_.Key -like '*.json' } | Read-S3Object -Folder C:\ConfigObjects</code>
+	<description>Downloads all objects with keys ending in '.json' from buckets with 'config' in the bucket name to files in the specified folder. The object keys are used to set the filenames.</description>
+  </example>
 </examples>

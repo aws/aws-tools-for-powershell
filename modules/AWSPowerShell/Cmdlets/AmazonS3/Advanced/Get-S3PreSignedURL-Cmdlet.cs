@@ -28,8 +28,13 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Create a signed URL allowing access to a resource that would 
-    /// usually require authentication.
+    /// <para>
+    /// Create a signed URL allowing access to a resource that would usually require authentication.
+    /// </para>
+    /// <para>
+    /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
+    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "S3PreSignedURL")]
     [OutputType("System.String")]
