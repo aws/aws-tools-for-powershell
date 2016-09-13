@@ -2962,6 +2962,16 @@ $SC_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ServiceCatalog.AccessLevelFilterKey
+        {
+            ($_ -eq "Get-SCProvisionedProduct/AccessLevelFilter_Key") -Or
+            ($_ -eq "Get-SCRecordHistory/AccessLevelFilter_Key")
+        }
+        {
+            $v = "Account","Role","User"
+            break
+        }
+        
         # Amazon.ServiceCatalog.ProductViewSortBy
         "Find-SCProduct/SortBy"
         {
@@ -2984,6 +2994,7 @@ $SC_Completers = {
 }
 
 $SC_map = @{
+    "AccessLevelFilter_Key"=@("Get-SCProvisionedProduct","Get-SCRecordHistory")
     "SortBy"=@("Find-SCProduct")
     "SortOrder"=@("Find-SCProduct")
 }

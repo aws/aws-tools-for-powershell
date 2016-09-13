@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>Optional language code. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
+        /// <para>The language code to use for this operation. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieve. If null, this retrieves the first page
+        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
         /// of size <code>PageSize</code>.</para>
         /// </para>
         /// </summary>

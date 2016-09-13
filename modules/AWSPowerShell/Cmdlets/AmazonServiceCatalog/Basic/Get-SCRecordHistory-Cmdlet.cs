@@ -45,11 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>Optional language code. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
+        /// <para>The language code to use for this operation. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AcceptLanguage { get; set; }
+        #endregion
+        
+        #region Parameter AccessLevelFilter_Key
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the access level.</para><para><code>Account</code> allows results at the account level. </para><para><code>Role</code> allows results based on the federated role of the specified user.</para><para><code>User</code> allows results limited to the specified user. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.AccessLevelFilterKey")]
+        public Amazon.ServiceCatalog.AccessLevelFilterKey AccessLevelFilter_Key { get; set; }
         #endregion
         
         #region Parameter SearchFilter_Key
@@ -75,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public int PageSize { get; set; }
         #endregion
         
+        #region Parameter AccessLevelFilter_Value
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the user to which the access level applies. A value of <code>Self</code>
+        /// is currently supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AccessLevelFilter_Value { get; set; }
+        #endregion
+        
         #region Parameter SearchFilter_Value
         /// <summary>
         /// <para>
@@ -88,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieve. If null, this retrieves the first page
+        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
         /// of size <code>PageSize</code>.</para>
         /// </para>
         /// </summary>
@@ -111,6 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
+            context.AccessLevelFilter_Key = this.AccessLevelFilter_Key;
+            context.AccessLevelFilter_Value = this.AccessLevelFilter_Value;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
@@ -135,6 +159,35 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            
+             // populate AccessLevelFilter
+            bool requestAccessLevelFilterIsNull = true;
+            request.AccessLevelFilter = new Amazon.ServiceCatalog.Model.AccessLevelFilter();
+            Amazon.ServiceCatalog.AccessLevelFilterKey requestAccessLevelFilter_accessLevelFilter_Key = null;
+            if (cmdletContext.AccessLevelFilter_Key != null)
+            {
+                requestAccessLevelFilter_accessLevelFilter_Key = cmdletContext.AccessLevelFilter_Key;
+            }
+            if (requestAccessLevelFilter_accessLevelFilter_Key != null)
+            {
+                request.AccessLevelFilter.Key = requestAccessLevelFilter_accessLevelFilter_Key;
+                requestAccessLevelFilterIsNull = false;
+            }
+            System.String requestAccessLevelFilter_accessLevelFilter_Value = null;
+            if (cmdletContext.AccessLevelFilter_Value != null)
+            {
+                requestAccessLevelFilter_accessLevelFilter_Value = cmdletContext.AccessLevelFilter_Value;
+            }
+            if (requestAccessLevelFilter_accessLevelFilter_Value != null)
+            {
+                request.AccessLevelFilter.Value = requestAccessLevelFilter_accessLevelFilter_Value;
+                requestAccessLevelFilterIsNull = false;
+            }
+             // determine if request.AccessLevelFilter should be set to null
+            if (requestAccessLevelFilterIsNull)
+            {
+                request.AccessLevelFilter = null;
             }
             
              // populate SearchFilter
@@ -269,6 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public Amazon.ServiceCatalog.AccessLevelFilterKey AccessLevelFilter_Key { get; set; }
+            public System.String AccessLevelFilter_Value { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
             public System.String SearchFilter_Key { get; set; }
