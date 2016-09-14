@@ -79,13 +79,13 @@
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.1.4.4\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.1.0.2\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.1.1.0\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.1.4.5\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.1.9.0\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.1.10.0\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.1.2.1\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -166,7 +166,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.1.2.1\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.1.20.1\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.1.20.2\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.1.5.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
