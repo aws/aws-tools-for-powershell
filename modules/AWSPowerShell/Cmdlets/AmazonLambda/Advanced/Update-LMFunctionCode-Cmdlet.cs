@@ -24,6 +24,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Lambda;
 using Amazon.Lambda.Model;
+using System.IO;
 
 namespace Amazon.PowerShell.Cmdlets.LM
 {
@@ -110,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ZipFile
         /// <summary>
         /// <para>
-        /// <para>The contents of your zip file containing your deployment package. If you are using
-        /// the web API directly, the contents of the zip file must be base64-encoded. If you
-        /// are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you.
+        /// <para>The contents of your zip file containing your deployment package.
         /// For more information about creating a .zip file, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution
         /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </para>
         /// </para>
@@ -120,7 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream ZipFile { get; set; }
         #endregion
-        
+
+        #region Parameter ZipFilename
+        /// <summary>
+        /// <para>
+        /// The path to a zip file containing your deployment package. Use this parameter, or -ZipFile, to
+        /// specify the code to be deployed.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ZipFilename { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -157,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.S3Key = this.S3Key;
             context.S3ObjectVersion = this.S3ObjectVersion;
             context.ZipFile = this.ZipFile;
+            context.ZipFilename = this.ZipFilename;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,54 +183,68 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var cmdletContext = context as CmdletContext;
             // create request
             var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest();
-            
-            if (cmdletContext.FunctionName != null)
-            {
-                request.FunctionName = cmdletContext.FunctionName;
-            }
-            if (cmdletContext.Publish != null)
-            {
-                request.Publish = cmdletContext.Publish.Value;
-            }
-            if (cmdletContext.S3Bucket != null)
-            {
-                request.S3Bucket = cmdletContext.S3Bucket;
-            }
-            if (cmdletContext.S3Key != null)
-            {
-                request.S3Key = cmdletContext.S3Key;
-            }
-            if (cmdletContext.S3ObjectVersion != null)
-            {
-                request.S3ObjectVersion = cmdletContext.S3ObjectVersion;
-            }
-            if (cmdletContext.ZipFile != null)
-            {
-                request.ZipFile = cmdletContext.ZipFile;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
-                output = new CmdletOutput
+                if (cmdletContext.FunctionName != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.FunctionName = cmdletContext.FunctionName;
+                }
+                if (cmdletContext.Publish != null)
+                {
+                    request.Publish = cmdletContext.Publish.Value;
+                }
+                if (cmdletContext.S3Bucket != null)
+                {
+                    request.S3Bucket = cmdletContext.S3Bucket;
+                }
+                if (cmdletContext.S3Key != null)
+                {
+                    request.S3Key = cmdletContext.S3Key;
+                }
+                if (cmdletContext.S3ObjectVersion != null)
+                {
+                    request.S3ObjectVersion = cmdletContext.S3ObjectVersion;
+                }
+
+                if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                {
+                    var content = File.ReadAllBytes(cmdletContext.ZipFilename);
+                    var ms = new MemoryStream(content);
+                    request.ZipFile = ms;
+                }
+                else
+                    request.ZipFile = cmdletContext.ZipFile;
+
+                CmdletOutput output;
+
+                // issue call
+                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    Dictionary<string, object> notes = null;
+                    object pipelineOutput = response;
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response,
+                        Notes = notes
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if(!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                {
+                    request.ZipFile.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -254,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String S3Key { get; set; }
             public System.String S3ObjectVersion { get; set; }
             public System.IO.MemoryStream ZipFile { get; set; }
+            public System.String ZipFilename { get; set; }
         }
         
     }

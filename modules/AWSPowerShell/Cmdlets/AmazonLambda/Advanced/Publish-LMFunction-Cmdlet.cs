@@ -75,6 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// A file path to the zip file containing your packaged source code.
         /// </summary>
         [Parameter(Position = 1, Mandatory = true)]
+        [Alias("ZipFilename")]
         public System.String FunctionZip { get; set; }
         #endregion
 

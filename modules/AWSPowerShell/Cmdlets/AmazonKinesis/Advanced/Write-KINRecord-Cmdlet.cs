@@ -251,61 +251,69 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.PutRecordRequest();
 
-            if (cmdletContext.Blob == null)
-            {
-                var ms = new MemoryStream();
-                byte[] content;
-                if (!string.IsNullOrEmpty(cmdletContext.Text))
-                    content = Encoding.UTF8.GetBytes(cmdletContext.Text);
-                else
-                    content = File.ReadAllBytes(cmdletContext.FilePath);
-
-                ms.Write(content, 0, content.Length);
-                ms.Seek(0, SeekOrigin.Begin);
-                request.Data = ms;
-            }
-            else
-                request.Data = cmdletContext.Blob;
-
-            if (cmdletContext.ExplicitHashKey != null)
-            {
-                request.ExplicitHashKey = cmdletContext.ExplicitHashKey;
-            }
-            if (cmdletContext.PartitionKey != null)
-            {
-                request.PartitionKey = cmdletContext.PartitionKey;
-            }
-            if (cmdletContext.SequenceNumberForOrdering != null)
-            {
-                request.SequenceNumberForOrdering = cmdletContext.SequenceNumberForOrdering;
-            }
-            if (cmdletContext.StreamName != null)
-            {
-                request.StreamName = cmdletContext.StreamName;
-            }
-
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
-            CmdletOutput output;
-            
-            // issue call
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
-                output = new CmdletOutput
+                if (cmdletContext.Blob == null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    byte[] content;
+                    if (!string.IsNullOrEmpty(cmdletContext.Text))
+                        content = Encoding.UTF8.GetBytes(cmdletContext.Text);
+                    else
+                        content = File.ReadAllBytes(cmdletContext.FilePath);
+
+                    var ms = new MemoryStream(content);
+                    request.Data = ms;
+                }
+                else
+                    request.Data = cmdletContext.Blob;
+
+                if (cmdletContext.ExplicitHashKey != null)
+                {
+                    request.ExplicitHashKey = cmdletContext.ExplicitHashKey;
+                }
+                if (cmdletContext.PartitionKey != null)
+                {
+                    request.PartitionKey = cmdletContext.PartitionKey;
+                }
+                if (cmdletContext.SequenceNumberForOrdering != null)
+                {
+                    request.SequenceNumberForOrdering = cmdletContext.SequenceNumberForOrdering;
+                }
+                if (cmdletContext.StreamName != null)
+                {
+                    request.StreamName = cmdletContext.StreamName;
+                }
+
+                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                CmdletOutput output;
+
+                // issue call
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    Dictionary<string, object> notes = null;
+                    object pipelineOutput = response;
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response,
+                        Notes = notes
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (cmdletContext.Blob == null)
+                {
+                    request.Data.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()

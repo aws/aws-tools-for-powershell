@@ -36,7 +36,7 @@
     <ServiceOperation MethodName="PublishVersion" Output="Response"  />
     <ServiceOperation MethodName="RemovePermission" Output="Void" />
     <ServiceOperation MethodName="UpdateAlias" Output="Response"  />
-    <ServiceOperation MethodName="UpdateFunctionCode" Output="Response" />
+    <ServiceOperation MethodName="UpdateFunctionCode" Exclude="true" />
     <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" />
     <ServiceOperation MethodName="UpdateEventSourceMapping" Output="Response" />
   </ServiceOperations>

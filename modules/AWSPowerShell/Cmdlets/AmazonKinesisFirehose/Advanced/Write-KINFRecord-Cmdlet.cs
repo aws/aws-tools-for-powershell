@@ -201,52 +201,59 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // create request
             var request = new Amazon.KinesisFirehose.Model.PutRecordRequest();
             
-            if (cmdletContext.DeliveryStreamName != null)
-            {
-                request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
-            }
-            
-             // populate Record
-            if (cmdletContext.Blob == null)
-            {
-                var ms = new MemoryStream();
-                byte[] content;
-
-                if (!string.IsNullOrEmpty(cmdletContext.Text))
-                    content = Encoding.UTF8.GetBytes(cmdletContext.Text);
-                else
-                    content = File.ReadAllBytes(cmdletContext.FilePath);
-
-                ms.Write(content, 0, content.Length);
-                ms.Seek(0, SeekOrigin.Begin);
-
-                request.Record.Data = ms;
-            }
-            else
-                request.Record.Data = cmdletContext.Blob;
-
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
-            CmdletOutput output;
-            
-            // issue call
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.RecordId;
-                output = new CmdletOutput
+                if (cmdletContext.DeliveryStreamName != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
+                }
+
+                // populate Record
+                if (cmdletContext.Blob == null)
+                {
+                    byte[] content;
+
+                    if (!string.IsNullOrEmpty(cmdletContext.Text))
+                        content = Encoding.UTF8.GetBytes(cmdletContext.Text);
+                    else
+                        content = File.ReadAllBytes(cmdletContext.FilePath);
+
+                    var ms = new MemoryStream(content);
+                    request.Record.Data = ms;
+                }
+                else
+                    request.Record.Data = cmdletContext.Blob;
+
+                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                CmdletOutput output;
+
+                // issue call
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    Dictionary<string, object> notes = null;
+                    object pipelineOutput = response.RecordId;
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response,
+                        Notes = notes
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (cmdletContext.Blob == null)
+                {
+                    request.Record.Data.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
