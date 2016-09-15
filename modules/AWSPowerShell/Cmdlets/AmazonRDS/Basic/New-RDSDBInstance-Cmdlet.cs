@@ -215,10 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance.</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
-        /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
-        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code> |
-        /// <code>aurora</code></para><para>Not every database engine is available for every AWS region.</para>
+        /// <para>The name of the database engine to be used for this instance.</para><para> Valid Values: <code>mysql</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// | <code>oracle-se2</code> | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code>
+        /// | <code>sqlserver-se</code> | <code>sqlserver-ex</code> | <code>sqlserver-web</code>
+        /// | <code>postgres</code> | <code>aurora</code></para><para>Not every database engine is available for every AWS region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

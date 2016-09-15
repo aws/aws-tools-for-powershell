@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns a list that includes the status of each source AWS Region that the current
-    /// region can get a Read Replica or a DB snapshot from. This API action supports pagination.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of the source AWS regions where the current AWS region can create a
+    /// Read Replica or copy a DB snapshot from. This API action supports pagination.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSSourceRegion")]
     [OutputType("Amazon.RDS.Model.SourceRegion")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RegionName
         /// <summary>
         /// <para>
-        /// <para>The source region name, for example US West (Oregon).</para><para>Constraints:</para><ul><li><para>Must specify a valid AWS Region name, for example US West (Oregon).</para></li></ul>
+        /// <para>The source region name. For example, <code>us-east-1</code>.</para><para>Constraints:</para><ul><li><para>Must specify a valid AWS Region name.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
