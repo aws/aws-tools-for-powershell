@@ -287,6 +287,7 @@
             <FileException Include="test\temp\test-credentials-correct" />
 			<FileException Include="Include\sdk\Models\elasticbeanstalk.examples.json" />
 			<FileException Include="Include\sdk\Models\elasticbeanstalk.customizations.json" />
+			<FileException Include="Deployment\AWSPowerShell\AWSPowerShell.psd1" />
         </ItemGroup>
         
         <KeyScannerTask 
