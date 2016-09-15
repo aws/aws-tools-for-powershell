@@ -1,3 +1,9 @@
+### 3.1.101.0 (2016-09-15)
+  * AWS Lambda
+    - Extended the Update-LMFunctionCode cmdlet with a new parameter, -ZipFilename, that enables more a convenient way to specify the code to be updated. The original -ZipFile parameter, of type System.IO.MemoryStream, has been retained for backwards compatibility.
+  * Amazon Relational Database Service
+    - The Amazon.RDS.Model.DBCluster type in the underlying AWS SDK for .NET SDK has been extended with a new ReaderEndpoint property to support the new Aurora cluster reader end-point feature. 
+
 ### 3.1.100.0 (2016-09-13)
   * Amazon S3
     - Extended the Amazon.S3.Model.S3Object type in the underlying AWS SDK for .NET with a new member containing the name of the bucket containing the object. This enables improved pipelining of the S3 cmdlets, for example you can now run a pipeline such as 'Get-S3Bucket | ? { $_.BucketName -like '*config*' } | Get-S3Object | ? { $_.Key -like '*.json' } | Read-S3Object -Folder C:\Temp'. Read-S3Object has been updated to accept an S3Object (or S3ObjectVersion) instance to allow for use downloading objects with the -File or -Folder parameters, the other S3 cmdlets will automatically bind BucketName, Key and VersionId parameters (where relevant) from the piped-in object.
