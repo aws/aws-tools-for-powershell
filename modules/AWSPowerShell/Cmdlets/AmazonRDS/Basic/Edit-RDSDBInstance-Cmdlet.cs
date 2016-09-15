@@ -242,8 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specify the Active Directory Domain to move the instance to.</para><para>The specified Active Directory Domain must be created prior to this operation. Currently
-        /// only a SQL Server instance can be created in a Active Directory Domain.</para>
+        /// <para>The Active Directory Domain to move the instance to. Specify <code>none</code> to
+        /// remove the instance from its current domain. The domain must be created prior to this
+        /// operation. Currently only a Microsoft SQL Server instance can be created in a Active
+        /// Directory Domain. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -253,8 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para>
+        /// <para>The name of the IAM role to use when making API calls to the Directory Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
