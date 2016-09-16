@@ -103,13 +103,13 @@ namespace AWSPowerShellGenerator.Utils
                     NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.config")
                 },
                 // disable until we merge netcore and master branches
-                //new DotNetPlatformAndArtifacts
-                //{
-                //    DotNetPlatform = "netstandard1.3",
-                //    ProjectFile = Path.Combine(moduleRootFolder, "project.json"),
-                //    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellNetCoreModuleManifestFilename),
-                //    NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.NetCore.config")
-                //}
+                new DotNetPlatformAndArtifacts
+                {
+                    DotNetPlatform = "netstandard1.3",
+                    ProjectFile = Path.Combine(moduleRootFolder, "project.json"),
+                    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellNetCoreModuleManifestFilename),
+                    NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.NetCore.config")
+                }
             };
 
             foreach (var p in projectFiles)
@@ -328,14 +328,15 @@ namespace AWSPowerShellGenerator.Utils
             if (packages.Length != 1)
                 throw new Exception("Failed to locate single nuget package for assembly " + assemblyName);
 
-            // nuget drops trailing .0 on expanded package folder, but retains any trailing -tag text
-            // (eg mydll.3.2.5.0-beta.nupkg becomes mydll.3.2.5-beta\...)
+            // nuget drops the 4th version component on expanded package folder if it is .0 , but retains 
+            // any trailing -tag text (eg mydll.3.2.5.0-beta.nupkg becomes mydll.3.2.5-beta\..., mydll.3.3.0.nupkg
+            // stays as mydll.3.3.0.nupkg)
             var nugetPackage = Path.GetFileNameWithoutExtension(packages[0]);
             var tagStart = nugetPackage.LastIndexOf('-');
             if (tagStart > 0)
             {
                 var preTagText = nugetPackage.Substring(0, tagStart);
-                if (preTagText.EndsWith(".0", StringComparison.Ordinal))
+                if (preTagText.EndsWith(".0.0", StringComparison.Ordinal))
                 {
                     nugetPackage = preTagText.Substring(0, preTagText.Length - 2) + nugetPackage.Substring(tagStart);
                 }
@@ -353,10 +354,15 @@ namespace AWSPowerShellGenerator.Utils
         private string GetNugetPackageVersionForAssembly(string assemblyName)
         {
             var nugetPackage = LocateNugetPackageForAssembly(assemblyName);
-            // first two dotted parts are sdk assembly name by convention, the rest is the version
-            // (there is no extension in the package name returned above)
+            // First two dotted parts are sdk assembly name by convention, the rest is the version
+            // (there is no extension in the package name returned above). Further convention is
+            // to drop any trailing .0.
             var versionStart = nugetPackage.IndexOf('.', nugetPackage.IndexOf('.') + 1) + 1;
-            return nugetPackage.Substring(versionStart);
+            var version = nugetPackage.Substring(versionStart);
+            if (version.EndsWith(".0", StringComparison.Ordinal))
+                version = version.Substring(0, version.Length - 2);
+
+            return version;
         }
 
         /// <summary>
