@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean SetAsActive { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IoT.CertificateStatus")]
+        public Amazon.IoT.CertificateStatus Status { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -88,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.CertificatePem = this.CertificatePem;
             if (ParameterWasBound("SetAsActive"))
                 context.SetAsActive = this.SetAsActive;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.SetAsActive != null)
             {
                 request.SetAsActive = cmdletContext.SetAsActive.Value;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -170,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String CaCertificatePem { get; set; }
             public System.String CertificatePem { get; set; }
             public System.Boolean? SetAsActive { get; set; }
+            public Amazon.IoT.CertificateStatus Status { get; set; }
         }
         
     }

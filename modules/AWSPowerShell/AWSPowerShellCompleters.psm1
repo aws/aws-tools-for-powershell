@@ -2183,7 +2183,10 @@ $IOT_Completers = {
         }
         
         # Amazon.IoT.CertificateStatus
-        "Update-IOTCertificate/NewStatus"
+        {
+            ($_ -eq "Update-IOTCertificate/NewStatus") -Or
+            ($_ -eq "Register-IOTCertificate/Status")
+        }
         {
             $v = "ACTIVE","INACTIVE","PENDING_ACTIVATION","PENDING_TRANSFER","REGISTER_INACTIVE","REVOKED"
             break
@@ -2207,6 +2210,7 @@ $IOT_map = @{
     "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOptions")
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
+    "Status"=@("Register-IOTCertificate")
 }
 
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map
