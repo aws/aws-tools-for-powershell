@@ -269,10 +269,21 @@
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMServerCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Publish-IAMSigningCertificate.html" />
+			
+            <PrivateKeyException Include="Include\sdk\Models\acm-2015-12-08.normal.json" />
+            <PrivateKeyException Include="Include\sdk\Models\ec2-2014-02-01.normal.json" />
+            <PrivateKeyException Include="Include\sdk\Models\iam-2010-05-08.normal.json" />
+			
         </ItemGroup>
         
         <ItemGroup>
             <FileException Include="test\temp\test-credentials-correct" />
+			
+            <FileException Include="Include\sdk\Models\elasticbeanstalk.examples.json" />
+            <FileException Include="Include\sdk\Models\elasticbeanstalk.customizations.json" />
+			
+            <FileException Include="Deployment\AWSPowerShell\AWSPowerShell.psd1" />
+            <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.psd1" />
         </ItemGroup>
         
         <KeyScannerTask 
