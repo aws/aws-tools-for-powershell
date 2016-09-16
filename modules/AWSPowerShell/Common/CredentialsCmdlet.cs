@@ -156,7 +156,10 @@ namespace Amazon.PowerShell.Common
                 if (string.IsNullOrEmpty(StoreAs))
                     this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
                 else
-                    SettingsStore.SaveAWSCredentialProfile(StoreAs, currentCredentials.Credentials, null);
+                    SettingsStore.SaveAWSCredentialProfile(currentCredentials.Credentials,
+                                                           StoreAs, 
+                                                           commonArguments.ProfilesLocation, 
+                                                           null);
             }
         }
 

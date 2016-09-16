@@ -200,11 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         private static Amazon.KinesisAnalytics.Model.ListApplicationsResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.ListApplicationsRequest request)
         {
+#if DESKTOP
             return client.ListApplications(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ListApplicationsAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
         }
-        
+
         #endregion
-        
+
         internal class CmdletContext : ExecutorContext
         {
             public System.String ExclusiveStartApplicationName { get; set; }

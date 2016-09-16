@@ -13,7 +13,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
     /// as pipeline input by the schema builder cmdlets (Write-DDBAttributeSchema,
     /// Write-DDBKeySchema and Write-DDBIndexSchema).
     /// </summary>
-    public class TableSchema : ICloneable
+    public class TableSchema
     {
         private readonly string[] _projectionTypes = new string[]
         {
@@ -29,8 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
         }
 
         /// <summary>
-        /// Constructs a new table schema from a deep copy of the suppled object. Used
-        /// to support ICloneable.
+        /// Constructs a new table schema from a deep copy of the suppled object.
+        /// Note that ICloneable is not supported on the coreclr platform, so we
+        /// chose not to make the type derive from ICloneable but retained the 
+        /// Clone method.
         /// </summary>
         /// <param name="source"></param>
         private TableSchema(TableSchema source)
@@ -48,16 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
 
         #endregion
 
-        #region ICloneable
-
         public object Clone()
         {
             return From(this);
         }
 
-        #endregion
-
-        #region Properties
+#region Properties
 
         List<AttributeDefinition> _attributeSchema = new List<AttributeDefinition>();
         public List<AttributeDefinition> AttributeSchema 
@@ -110,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
         {
             AttributeSchema.AddRange(sourceSchema.Select(attr => new AttributeDefinition
             {
-                AttributeName = string.Copy(attr.AttributeName),
-                AttributeType = string.Copy(attr.AttributeType)
+                AttributeName = new string(attr.AttributeName.ToCharArray()),
+                AttributeType = new DynamoDBv2.ScalarAttributeType(attr.AttributeType)
             }));
         }
 
@@ -142,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
         {
             KeySchema.AddRange(sourceSchema.Select(key => new KeySchemaElement
             {
-                AttributeName = string.Copy(key.AttributeName),
-                KeyType = string.Copy(key.KeyType)
+                AttributeName = new string(key.AttributeName.ToCharArray()),
+                KeyType = new DynamoDBv2.KeyType(key.KeyType)
             }));
         }
 
@@ -189,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
             {
                 var clonedIndex = new LocalSecondaryIndex
                 {
-                    IndexName = string.Copy(sourceIndex.IndexName),
+                    IndexName = new string(sourceIndex.IndexName.ToCharArray()),
                     Projection = null,
                     KeySchema = new List<KeySchemaElement>()
                 };
@@ -198,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                 {
                     var clonedKey = new KeySchemaElement
                     {
-                        AttributeName = string.Copy(sourceKey.AttributeName),
-                        KeyType = string.Copy(sourceKey.KeyType)
+                        AttributeName = new string(sourceKey.AttributeName.ToCharArray()),
+                        KeyType = new DynamoDBv2.KeyType(sourceKey.KeyType)
                     };
                     clonedIndex.KeySchema.Add(clonedKey);
                 }
@@ -208,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                 {
                     clonedIndex.Projection = new Projection
                     {
-                        ProjectionType = string.Copy(sourceIndex.Projection.ProjectionType),
+                        ProjectionType = new DynamoDBv2.ProjectionType(sourceIndex.Projection.ProjectionType),
                         NonKeyAttributes = new List<string>()
                     };
                     foreach (var nonKeyAttr in sourceIndex.Projection.NonKeyAttributes)
@@ -286,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
             {
                 var clonedIndex = new GlobalSecondaryIndex
                 {
-                    IndexName = string.Copy(sourceIndex.IndexName),
+                    IndexName = new string(sourceIndex.IndexName.ToCharArray()),
                     Projection = null,
                     KeySchema = new List<KeySchemaElement>()
                 };
@@ -295,8 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                 {
                     var clonedKey = new KeySchemaElement
                     {
-                        AttributeName = string.Copy(sourceKey.AttributeName),
-                        KeyType = string.Copy(sourceKey.KeyType)
+                        AttributeName = new string(sourceKey.AttributeName.ToCharArray()),
+                        KeyType = new DynamoDBv2.KeyType(sourceKey.KeyType)
                     };
                     clonedIndex.KeySchema.Add(clonedKey);
                 }
@@ -305,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                 {
                     clonedIndex.Projection = new Projection
                     {
-                        ProjectionType = string.Copy(sourceIndex.Projection.ProjectionType),
+                        ProjectionType = new DynamoDBv2.ProjectionType(sourceIndex.Projection.ProjectionType),
                         NonKeyAttributes = new List<string>()
                     };
                     foreach (var nonKeyAttr in sourceIndex.Projection.NonKeyAttributes)

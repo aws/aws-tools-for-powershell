@@ -113,12 +113,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.DeleteObjects)
             {
                 output = null;
+#if DESKTOP
                 AmazonS3Util.DeleteS3BucketWithObjects(Client,
                                                        cmdletContext.BucketName, 
                                                        new S3DeleteBucketWithObjectsOptions 
                                                        { 
                                                            ContinueOnError = false 
                                                        });
+#elif CORECLR
+                AmazonS3Util.DeleteS3BucketWithObjectsAsync(Client,
+                                                             cmdletContext.BucketName,
+                                                             new S3DeleteBucketWithObjectsOptions
+                                                             {
+                                                                 ContinueOnError = false
+                                                             }).Wait();
+#else
+#error "Unknown build edition"
+#endif
             }
             else
             {
@@ -152,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
 #endregion
 
-        #region AWS Service Operation Call
+#region AWS Service Operation Call
 
         private static Amazon.S3.Model.DeleteBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketRequest request)
         {
@@ -167,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #endif
         }
 
-        #endregion
+#endregion
 
         internal class CmdletContext : ExecutorContext
         {

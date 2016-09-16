@@ -116,98 +116,106 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             foreach (var c in Category)
             {
-                switch (c)
+                try
                 {
-                    case MetadataCategory.AmiId:
-                        WriteObject(EC2InstanceMetadata.AmiId);
-                        break;
-                    case MetadataCategory.AncestorAmiId:
-                        WriteObject(EC2InstanceMetadata.AncestorAmiIds, true);
-                        break;
-                    case MetadataCategory.AvailabilityZone:
-                        WriteObject(EC2InstanceMetadata.AvailabilityZone);
-                        break;
-                    case MetadataCategory.BlockDeviceMapping:
-                        WriteObject(EC2InstanceMetadata.BlockDeviceMapping, true);
-                        break;
-                    case MetadataCategory.IdentityDocument:
-                        WriteObject(EC2InstanceMetadata.IdentityDocument);
-                        break;
-                    case MetadataCategory.IdentityPkcs7:
-                        WriteObject(EC2InstanceMetadata.IdentityPkcs7);
-                        break;
-                    case MetadataCategory.IdentitySignature:
-                        WriteObject(EC2InstanceMetadata.IdentitySignature);
-                        break;
-                    case MetadataCategory.InstanceId:
-                        WriteObject(EC2InstanceMetadata.InstanceId);
-                        break;
-                    case MetadataCategory.InstanceMonitoring:
-                        WriteObject(EC2InstanceMetadata.InstanceMonitoring);
-                        break;
-                    case MetadataCategory.InstanceType:
-                        WriteObject(EC2InstanceMetadata.InstanceType);
-                        break;
-                    case MetadataCategory.KernelId:
-                        WriteObject(EC2InstanceMetadata.KernelId);
-                        break;
-                    case MetadataCategory.LaunchIndex:
-                        WriteObject(EC2InstanceMetadata.AmiLaunchIndex);
-                        break;
-                    case MetadataCategory.LocalHostname:
-                        WriteObject(EC2InstanceMetadata.LocalHostname);
-                        break;
-                    case MetadataCategory.LocalIpv4:
-                        WriteObject(EC2InstanceMetadata.PrivateIpAddress);
-                        break;
-                    case MetadataCategory.ManifestPath:
-                        WriteObject(EC2InstanceMetadata.AmiManifestPath);
-                        break;
-                    case MetadataCategory.ProductCode:
-                        WriteObject(EC2InstanceMetadata.ProductCodes, true);
-                        break;
-                    case MetadataCategory.PublicHostname:
-                        {
-                            var interfaces = EC2InstanceMetadata.NetworkInterfaces;
-                            var hostnames = new List<string>();
-                            foreach (var i in interfaces)
+                    switch (c)
+                    {
+                        case MetadataCategory.AmiId:
+                            WriteObject(EC2InstanceMetadata.AmiId);
+                            break;
+                        case MetadataCategory.AncestorAmiId:
+                            WriteObject(EC2InstanceMetadata.AncestorAmiIds, true);
+                            break;
+                        case MetadataCategory.AvailabilityZone:
+                            WriteObject(EC2InstanceMetadata.AvailabilityZone);
+                            break;
+                        case MetadataCategory.BlockDeviceMapping:
+                            WriteObject(EC2InstanceMetadata.BlockDeviceMapping, true);
+                            break;
+                        case MetadataCategory.IdentityDocument:
+                            WriteObject(EC2InstanceMetadata.IdentityDocument);
+                            break;
+                        case MetadataCategory.IdentityPkcs7:
+                            WriteObject(EC2InstanceMetadata.IdentityPkcs7);
+                            break;
+                        case MetadataCategory.IdentitySignature:
+                            WriteObject(EC2InstanceMetadata.IdentitySignature);
+                            break;
+                        case MetadataCategory.InstanceId:
+                            WriteObject(EC2InstanceMetadata.InstanceId);
+                            break;
+                        case MetadataCategory.InstanceMonitoring:
+                            WriteObject(EC2InstanceMetadata.InstanceMonitoring);
+                            break;
+                        case MetadataCategory.InstanceType:
+                            WriteObject(EC2InstanceMetadata.InstanceType);
+                            break;
+                        case MetadataCategory.KernelId:
+                            WriteObject(EC2InstanceMetadata.KernelId);
+                            break;
+                        case MetadataCategory.LaunchIndex:
+                            WriteObject(EC2InstanceMetadata.AmiLaunchIndex);
+                            break;
+                        case MetadataCategory.LocalHostname:
+                            WriteObject(EC2InstanceMetadata.LocalHostname);
+                            break;
+                        case MetadataCategory.LocalIpv4:
+                            WriteObject(EC2InstanceMetadata.PrivateIpAddress);
+                            break;
+                        case MetadataCategory.ManifestPath:
+                            WriteObject(EC2InstanceMetadata.AmiManifestPath);
+                            break;
+                        case MetadataCategory.ProductCode:
+                            WriteObject(EC2InstanceMetadata.ProductCodes, true);
+                            break;
+                        case MetadataCategory.PublicHostname:
                             {
-                                hostnames.Add(i.PublicHostname);
-                            }
+                                var interfaces = EC2InstanceMetadata.NetworkInterfaces;
+                                var hostnames = new List<string>();
+                                foreach (var i in interfaces)
+                                {
+                                    hostnames.Add(i.PublicHostname);
+                                }
 
-                            WriteObject(hostnames, true);
-                        }
-                        break;
-                    case MetadataCategory.PublicIpv4:
-                        {
-                            var interfaces = EC2InstanceMetadata.NetworkInterfaces;
-                            var addresses = new List<string>();
-                            foreach (var i in interfaces)
+                                WriteObject(hostnames, true);
+                            }
+                            break;
+                        case MetadataCategory.PublicIpv4:
                             {
-                                addresses.AddRange(i.PublicIPv4s);
-                            }
+                                var interfaces = EC2InstanceMetadata.NetworkInterfaces;
+                                var addresses = new List<string>();
+                                foreach (var i in interfaces)
+                                {
+                                    addresses.AddRange(i.PublicIPv4s);
+                                }
 
-                            WriteObject(addresses, true);
-                        }
-                        break;
-                    case MetadataCategory.PublicKey:
-                        WriteObject(EC2InstanceMetadata.PublicKey);
-                        break;
-                    case MetadataCategory.RamdiskId:
-                        WriteObject(EC2InstanceMetadata.RamdiskId);
-                        break;
-                    case MetadataCategory.Region:
-                        WriteObject(EC2InstanceMetadata.Region);
-                        break;
-                    case MetadataCategory.ReservationId:
-                        WriteObject(EC2InstanceMetadata.ReservationId);
-                        break;
-                    case MetadataCategory.SecurityGroup:
-                        WriteObject(EC2InstanceMetadata.SecurityGroups);
-                        break;
-                    case MetadataCategory.UserData:
-                        WriteObject(EC2InstanceMetadata.UserData);
-                        break;
+                                WriteObject(addresses, true);
+                            }
+                            break;
+                        case MetadataCategory.PublicKey:
+                            WriteObject(EC2InstanceMetadata.PublicKey);
+                            break;
+                        case MetadataCategory.RamdiskId:
+                            WriteObject(EC2InstanceMetadata.RamdiskId);
+                            break;
+                        case MetadataCategory.Region:
+                            WriteObject(EC2InstanceMetadata.Region);
+                            break;
+                        case MetadataCategory.ReservationId:
+                            WriteObject(EC2InstanceMetadata.ReservationId);
+                            break;
+                        case MetadataCategory.SecurityGroup:
+                            WriteObject(EC2InstanceMetadata.SecurityGroups);
+                            break;
+                        case MetadataCategory.UserData:
+                            WriteObject(EC2InstanceMetadata.UserData);
+                            break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    var msg = string.Format("Failed to retrieve requested metadata. Error {0}.", e.Message);
+                    WriteError(new ErrorRecord(e, msg, ErrorCategory.ReadError, c));
                 }
             }
         }

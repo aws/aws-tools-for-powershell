@@ -135,7 +135,10 @@ namespace Amazon.PowerShell.Common
                 if (defaultCredentials.Source == CredentialsSource.Saved && userSuppliedProfileName)
                     SettingsStore.SaveFromProfile(commonArguments.ProfileName, SettingsStore.PSDefaultSettingName, region);
                 else
-                    SettingsStore.SaveAWSCredentialProfile(SettingsStore.PSDefaultSettingName, defaultCredentials.Credentials, region);
+                    SettingsStore.SaveAWSCredentialProfile(defaultCredentials.Credentials,
+                                                           SettingsStore.PSDefaultSettingName, 
+                                                           commonArguments.ProfilesLocation, 
+                                                           region);
 
                 WriteVerbose(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
             }

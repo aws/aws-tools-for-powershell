@@ -48,16 +48,11 @@
         <UpdateVersions Condition="'$(UpdateVersions)'==''">false</UpdateVersions>
 		<AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
 		
-		<!-- temp flag allows us to turn off the netcore build output if we're running in master branch,
-		     until netcore sdk is merged back to master
-		-->
-		<BuildNetCoreModule Condition="'$(BuildNetCoreModule)'==''">false</BuildNetCoreModule>
-		
 		<SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-artifacts;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
+            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;clean-sdkpackages;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;sign-script-artifacts;run-tests;create-help;keyscan;save-build">
 		<Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
 	</Target>
 
@@ -66,8 +61,8 @@
         <Exec Command="..\solutions\.nuget\NuGet.exe restore ..\modules\AWSPowerShell\AWSPowerShell.csproj"/>
         
 		<Exec Command="&quot;$(SDKToolingExe)&quot; restore" 
-			WorkingDirectory="..\modules\AWSPowerShell"
-			Condition="'$(BuildNetCoreModule)'" />		
+			  WorkingDirectory="..\modules\AWSPowerShell"
+			  />		
     </Target>
 	
     <Target Name="build-generator">
@@ -92,7 +87,6 @@
 		<!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.Format.ps1xml" 
               DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
-			  Condition="'$(BuildNetCoreModule)'"
 			  />
 		 
 	</Target>
@@ -106,7 +100,6 @@
 		<!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.dll-Help.xml" 
               DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
-			  Condition="'$(BuildNetCoreModule)'"
 			  />
 		 
 	</Target>
@@ -130,7 +123,7 @@
 			OutputFileName="$(DocDeployment)\help.zip" />
     </Target>
     
-    <Target Name="run-tests" DependsOnTargets="copy-artifacts" Condition="'$(RunTests)'">
+    <Target Name="run-tests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
         
         <RemoveDir Directories="$(RootPath)\test\results" />
@@ -143,7 +136,7 @@
         <Copy SourceFiles="@(TestResults)" DestinationFolder="$(Deployment)" />
     </Target>
     
-    <Target Name="copy-artifacts" DependsOnTargets="build-modules">
+    <Target Name="copy-desktop-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<BuildSourceFolder>bin\$(Configuration)\desktop\</BuildSourceFolder>
 			<DeploymentFolder>$(Deployment)\AWSPowerShell\</DeploymentFolder>
@@ -179,7 +172,7 @@
 
     </Target>
 
-	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules;" Condition="'$(BuildNetCoreModule)'">
+	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<!-- <BuildSourceFolder>bin\$(Configuration)\coreclr\</BuildSourceFolder> -->
 			<BuildSourceFolder>bin\$(Configuration)\coreclr\AWSPowerShell\bin\$(Configuration)\netstandard1.6\</BuildSourceFolder>
@@ -247,21 +240,21 @@
 			/>
 	</Target>
 
-	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-artifacts">
+	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
 		<PropertyGroup>
 			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
 			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
-			<SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)\BuildScripts\AuthenticodeSign.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
+			<SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\AuthenticodeSign.ps1</SigningScriptArgs>
 		</PropertyGroup>
 		
 		<Message Text="Authenticode signing module and script artifacts for Desktop edition" />
 		<Exec LogStandardErrorAsError="true"
-              Command="$(powershell) $(SigningScriptArgs) -Path $(DesktopDeploymentFolder)"/>
+              Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(DesktopDeploymentFolder)" />
 			  
 		<Message Text="Authenticode signing module and script artifacts for NetCore edition" />
 		<Exec LogStandardErrorAsError="true"
-              Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentFolder)" 
-			  Condition="'$(BuildNetCoreModule)'"/>
+              Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(NetCoreDeploymentFolder)" 
+			  />
 	</Target>
 	
     <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
@@ -276,18 +269,10 @@
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMServerCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Publish-IAMSigningCertificate.html" />
-			
-		    <PrivateKeyException Include="Include\sdk\Models\acm-2015-12-08.normal.json" />
-            <PrivateKeyException Include="Include\sdk\Models\ec2-2014-02-01.normal.json" />
-            <PrivateKeyException Include="Include\sdk\Models\iam-2010-05-08.normal.json" />
-		
         </ItemGroup>
         
         <ItemGroup>
             <FileException Include="test\temp\test-credentials-correct" />
-			<FileException Include="Include\sdk\Models\elasticbeanstalk.examples.json" />
-			<FileException Include="Include\sdk\Models\elasticbeanstalk.customizations.json" />
-			<FileException Include="Deployment\AWSPowerShell\AWSPowerShell.psd1" />
         </ItemGroup>
         
         <KeyScannerTask 
