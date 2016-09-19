@@ -1,3 +1,8 @@
+### 3.3.0.0 (2016-09-19)
+  * This release marks the General Availability (GA) of the AWS Tools for PowerShell Core (AWSPowerShell.NetCore) and the underlying AWS SDK for .NET Core. Starting with this release both AWS modules for PowerShell will update in sync with new service releases and service updates. The product version has incremented to 3.3.0.0 to match the underlying product version of the SDK. For more information see the blog post at http://blogs.aws.amazon.com/net/post/Tx3O6TT4NKFM0FU/.
+  * Set-AWSCredentials
+    - Fixed an issue in the AWSPowerShell.NetCore version of the cmdlet that caused it to not update the credentials file on non-Windows systems.
+
 ### 3.1.101.0 (2016-09-15)
   * AWS Lambda
     - Extended the Update-LMFunctionCode cmdlet with a new parameter, -ZipFilename, that enables more a convenient way to specify the code to be updated. The original -ZipFile parameter, of type System.IO.MemoryStream, has been retained for backwards compatibility.
