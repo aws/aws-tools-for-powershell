@@ -156,10 +156,14 @@ namespace Amazon.PowerShell.Common
                 if (string.IsNullOrEmpty(StoreAs))
                     this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
                 else
-                    SettingsStore.SaveAWSCredentialProfile(currentCredentials.Credentials,
-                                                           StoreAs, 
-                                                           commonArguments.ProfilesLocation, 
-                                                           null);
+                {
+                    var filename = SettingsStore.SaveAWSCredentialProfile(currentCredentials.Credentials,
+                                                                          StoreAs,
+                                                                          commonArguments.ProfilesLocation,
+                                                                          null);
+                    if (!string.IsNullOrEmpty(filename))
+                        WriteVerbose("Updated credential file at " + filename);
+                }
             }
         }
 

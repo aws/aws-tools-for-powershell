@@ -31,6 +31,7 @@ using Amazon.Util;
 using ThirdParty.Json.LitJson;
 using Amazon.Util.Internal;
 using Amazon.Runtime.Internal.Auth;
+using System.IO;
 
 namespace Amazon.PowerShell.Common
 {
@@ -830,7 +831,10 @@ namespace Amazon.PowerShell.Common
         ///   stored in ~/.aws/credentials.
         /// </param>
         /// <param name="region">Optional region data to also store in the profile</param>
-        internal static void SaveAWSCredentialProfile(AWSCredentials credentials, string name, string profilesLocation, RegionEndpoint region)
+        /// <returns>
+        /// The location of the updated credential file. If null, this can be interpreted as meaning the encrypted sdk store file was updated.
+        /// </returns>
+        internal static string SaveAWSCredentialProfile(AWSCredentials credentials, string name, string profilesLocation, RegionEndpoint region)
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentNullException("name");
@@ -840,7 +844,10 @@ namespace Amazon.PowerShell.Common
             // if we're not on Windows or the user has given us a specific credentials file, honor it.
             string credentialsFileLocation = profilesLocation;
             if (string.IsNullOrEmpty(credentialsFileLocation) && !Utils.Common.IsWindowsPlatform)
-                credentialsFileLocation = StoredProfileCredentials.DefaultSharedCredentialLocation;
+            {
+                var homePath = Environment.GetEnvironmentVariable("HOME");
+                credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
+            }
 
             if (string.IsNullOrEmpty(credentialsFileLocation))
             {
@@ -873,6 +880,8 @@ namespace Amazon.PowerShell.Common
                                         e);
                 }
             }
+
+            return credentialsFileLocation;
         }
 
         /// <summary>
