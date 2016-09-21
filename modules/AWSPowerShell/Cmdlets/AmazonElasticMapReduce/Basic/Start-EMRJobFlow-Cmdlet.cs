@@ -322,6 +322,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String ReleaseLabel { get; set; }
         #endregion
         
+        #region Parameter SecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of a security configuration to apply to the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SecurityConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Instances_ServiceAccessSecurityGroup
         /// <summary>
         /// <para>
@@ -494,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.NewSupportedProducts = new List<Amazon.ElasticMapReduce.Model.SupportedProductConfig>(this.NewSupportedProduct);
             }
             context.ReleaseLabel = this.ReleaseLabel;
+            context.SecurityConfiguration = this.SecurityConfiguration;
             context.ServiceRole = this.ServiceRole;
             if (this.Step != null)
             {
@@ -739,6 +750,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.ReleaseLabel = cmdletContext.ReleaseLabel;
             }
+            if (cmdletContext.SecurityConfiguration != null)
+            {
+                request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
+            }
             if (cmdletContext.ServiceRole != null)
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
@@ -835,6 +850,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProducts { get; set; }
             public System.String ReleaseLabel { get; set; }
+            public System.String SecurityConfiguration { get; set; }
             public System.String ServiceRole { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Steps { get; set; }
             public List<System.String> SupportedProducts { get; set; }

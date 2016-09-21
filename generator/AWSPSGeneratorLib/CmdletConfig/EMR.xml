@@ -13,13 +13,13 @@
     <Map From="JobFlows" To="JobFlow" />
     <Map From="Tags" To="Tag" />
   </NounMappings>
-  
+
   <VerbMappings>
     <Map From="Run" To="Start" />
     <Map From="Terminate" To="Stop" />
     <Map From="List" To="Get" />
   </VerbMappings>
-  
+
   <AutoIterate Start="Marker" Next="Marker" />
 
   <PositionalParameters>JobFlowId</PositionalParameters>
@@ -28,13 +28,17 @@
   <ServiceOperations>
     <ServiceOperation MethodName="AddInstanceGroups" Output="Response" PositionalParameters="InstanceGroups"/>
     <ServiceOperation MethodName="AddJobFlowSteps" PositionalParameters="Steps"/>
+    <ServiceOperation MethodName="CreateSecurityConfiguration" PipelineParameter="SecurityConfiguration" Output="Response" />
+    <ServiceOperation MethodName="DeleteSecurityConfiguration" Output="Void" />
     <ServiceOperation MethodName="DescribeCluster" />
     <ServiceOperation MethodName="DescribeJobFlows" PipelineParameter="JobFlowIds"/>
-    <ServiceOperation MethodName="DescribeStep" PipelineParameter="StepId" PositionalParameters="ClusterId"/>    
+    <ServiceOperation MethodName="DescribeSecurityConfiguration" Output="Response" />
+    <ServiceOperation MethodName="DescribeStep" PipelineParameter="StepId" PositionalParameters="ClusterId"/>
     <ServiceOperation MethodName="ListBootstrapActions" />
     <ServiceOperation MethodName="ListClusters" Noun="Clusters" />
     <ServiceOperation MethodName="ListInstanceGroups" Noun="InstanceGroups" />
     <ServiceOperation MethodName="ListInstances" Noun="Instances" PipelineParameter="InstanceGroupId" PositionalParameters="ClusterId;InstanceGroupTypes" />
+    <ServiceOperation MethodName="ListSecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" />
     <ServiceOperation MethodName="ListSteps" Noun="Steps" PipelineParameter="ClusterId"/>
     <ServiceOperation MethodName="ModifyInstanceGroups" Output="Void" />
     <ServiceOperation MethodName="RunJobFlow" PipelineParameter="Name" PositionalParameters="Name;LogUri"/>
@@ -46,7 +50,7 @@
         <Expression>cmdletContext.Tags</Expression>
         <Documentation>Returns the collection of Tag objects that were added</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
     <ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="TagKeys"  PipelineParameter="ResourceId" PositionalParameters="TagKeys">
       <PassThru>
         <Expression>cmdletContext.TagKeys</Expression>
@@ -54,7 +58,7 @@
       </PassThru>
     </ServiceOperation>
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>JobFlowId</Property>
     <Property>ClusterId</Property>
@@ -62,5 +66,5 @@
     <Property>ResourceId</Property>
     <Property>StepId</Property>
   </PipelineByValueProperties>
-  
+
 </ConfigModel>

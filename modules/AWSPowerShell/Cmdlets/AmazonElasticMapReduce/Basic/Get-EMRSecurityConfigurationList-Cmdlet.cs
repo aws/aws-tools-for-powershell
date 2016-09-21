@@ -28,39 +28,32 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides information about the bootstrap actions associated with a cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all the security configurations visible to this account, providing their creation
+    /// dates and times, and their names. This call returns a maximum of 50 clusters per call,
+    /// but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations
+    /// calls.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EMRBootstrapActions")]
-    [OutputType("Amazon.ElasticMapReduce.Model.Command")]
-    [AWSCmdlet("Invokes the ListBootstrapActions operation against Amazon Elastic MapReduce.", Operation = new[] {"ListBootstrapActions"})]
-    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Command",
-        "This cmdlet returns a collection of Command objects.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.ListBootstrapActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "EMRSecurityConfigurationList")]
+    [OutputType("Amazon.ElasticMapReduce.Model.SecurityConfigurationSummary")]
+    [AWSCmdlet("Invokes the ListSecurityConfigurations operation against Amazon Elastic MapReduce.", Operation = new[] {"ListSecurityConfigurations"})]
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.SecurityConfigurationSummary",
+        "This cmdlet returns a collection of SecurityConfigurationSummary objects.",
+        "The service call response (type Amazon.ElasticMapReduce.Model.ListSecurityConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public partial class GetEMRBootstrapActionsCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class GetEMRSecurityConfigurationListCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
-        
-        #region Parameter ClusterId
-        /// <summary>
-        /// <para>
-        /// <para>The cluster identifier for the bootstrap actions to list .</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ClusterId { get; set; }
-        #endregion
         
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The pagination token that indicates the next set of results to retrieve.</para>
+        /// <para>The pagination token that indicates the set of results to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
@@ -78,7 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ClusterId = this.ClusterId;
             context.Marker = this.Marker;
             
             // allow further manipulation of loaded context prior to processing
@@ -95,12 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ElasticMapReduce.Model.ListBootstrapActionsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ListSecurityConfigurationsRequest();
             
-            if (cmdletContext.ClusterId != null)
-            {
-                request.ClusterId = cmdletContext.ClusterId;
-            }
             
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
@@ -126,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.BootstrapActions;
+                        object pipelineOutput = response.SecurityConfigurations;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -137,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.BootstrapActions.Count;
+                            int _receivedThisCall = response.SecurityConfigurations.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
                         }
                         
@@ -172,13 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.ListBootstrapActionsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListBootstrapActionsRequest request)
+        private static Amazon.ElasticMapReduce.Model.ListSecurityConfigurationsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListSecurityConfigurationsRequest request)
         {
             #if DESKTOP
-            return client.ListBootstrapActions(request);
+            return client.ListSecurityConfigurations(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListBootstrapActionsAsync(request);
+            var task = client.ListSecurityConfigurationsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -189,7 +177,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ClusterId { get; set; }
             public System.String Marker { get; set; }
         }
         

@@ -1666,10 +1666,16 @@ Set-Alias -Name Add-EMRJobFlowSteps -Value Add-EMRJobFlowStep
 Set-Alias -Name EMR-AddJobFlowSteps -Value Add-EMRJobFlowStep
 Set-Alias -Name Add-EMRTags -Value Add-EMRTag
 Set-Alias -Name EMR-AddTags -Value Add-EMRTag
+Set-Alias -Name Create-EMRSecurityConfiguration -Value New-EMRSecurityConfiguration
+Set-Alias -Name EMR-CreateSecurityConfiguration -Value New-EMRSecurityConfiguration
+Set-Alias -Name Delete-EMRSecurityConfiguration -Value Remove-EMRSecurityConfiguration
+Set-Alias -Name EMR-DeleteSecurityConfiguration -Value Remove-EMRSecurityConfiguration
 Set-Alias -Name Describe-EMRCluster -Value Get-EMRCluster
 Set-Alias -Name EMR-DescribeCluster -Value Get-EMRCluster
 Set-Alias -Name Describe-EMRJobFlows -Value Get-EMRJobFlow
 Set-Alias -Name EMR-DescribeJobFlows -Value Get-EMRJobFlow
+Set-Alias -Name Describe-EMRSecurityConfiguration -Value Get-EMRSecurityConfiguration
+Set-Alias -Name EMR-DescribeSecurityConfiguration -Value Get-EMRSecurityConfiguration
 Set-Alias -Name Describe-EMRStep -Value Get-EMRStep
 Set-Alias -Name EMR-DescribeStep -Value Get-EMRStep
 Set-Alias -Name List-EMRBootstrapActions -Value Get-EMRBootstrapActions
@@ -1680,6 +1686,7 @@ Set-Alias -Name List-EMRInstanceGroups -Value Get-EMRInstanceGroup
 Set-Alias -Name EMR-ListInstanceGroups -Value Get-EMRInstanceGroup
 Set-Alias -Name List-EMRInstances -Value Get-EMRInstances
 Set-Alias -Name EMR-ListInstances -Value Get-EMRInstances
+Set-Alias -Name EMR-ListSecurityConfigurations -Value Get-EMRSecurityConfigurationList
 Set-Alias -Name List-EMRSteps -Value Get-EMRSteps
 Set-Alias -Name EMR-ListSteps -Value Get-EMRSteps
 Set-Alias -Name Modify-EMRInstanceGroups -Value Edit-EMRInstanceGroup
