@@ -85,7 +85,7 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.0\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.0\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.0.1\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -94,10 +94,10 @@
       <HintPath>..\..\packages\AWSSDK.Route53.3.3.0\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
-      <HintPath>..\..\packages\AWSSDK.Redshift.3.3.0\lib\net35\AWSSDK.Redshift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Redshift.3.3.1\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.0\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.1\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.0\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -142,7 +142,7 @@
       <HintPath>..\..\packages\AWSSDK.Elasticsearch.3.3.0\lib\net35\AWSSDK.Elasticsearch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticMapReduce">
-      <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.0\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.1\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancingV2">
       <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.0\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
@@ -202,7 +202,7 @@
       <HintPath>..\..\packages\AWSSDK.CodePipeline.3.3.0\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
-      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.0\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.1\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
       <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.0\lib\net35\AWSSDK.CodeCommit.dll</HintPath>
