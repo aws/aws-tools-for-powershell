@@ -28,8 +28,11 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Deletes a specified Amazon Redshift parameter group. <note>You cannot delete a parameter
-    /// group if it is associated with a cluster.</note>
+    /// Deletes a specified Amazon Redshift parameter group.
+    /// 
+    ///  <note><para>
+    /// You cannot delete a parameter group if it is associated with a cluster.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RSClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the parameter group to be deleted. </para><para>Constraints:</para><ul><li>Must be the name of an existing cluster parameter group.</li><li>Cannot
-        /// delete a default cluster parameter group.</li></ul>
+        /// <para>The name of the parameter group to be deleted.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing cluster parameter group.</para></li><li><para>Cannot delete a default cluster parameter group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

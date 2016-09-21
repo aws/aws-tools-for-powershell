@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// A cluster event is created when the reboot is completed. Any pending cluster modifications
     /// (see <a>ModifyCluster</a>) are applied at this reboot. For more information about
     /// managing clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
-    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>
+    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </summary>
     [Cmdlet("Restart", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The cluster identifier. </para>
+        /// <para>The cluster identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

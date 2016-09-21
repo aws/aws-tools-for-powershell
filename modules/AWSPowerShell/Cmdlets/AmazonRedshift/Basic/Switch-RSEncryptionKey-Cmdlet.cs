@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the cluster that you want to rotate the encryption keys
-        /// for. </para><para> Constraints: Must be the name of valid cluster that has encryption enabled. </para>
+        /// <para>The unique identifier of the cluster that you want to rotate the encryption keys for.</para><para>Constraints: Must be the name of valid cluster that has encryption enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

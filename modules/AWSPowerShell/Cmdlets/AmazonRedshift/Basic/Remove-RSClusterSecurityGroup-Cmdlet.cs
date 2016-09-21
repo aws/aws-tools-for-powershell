@@ -28,13 +28,15 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Deletes an Amazon Redshift security group. 
+    /// Deletes an Amazon Redshift security group.
     /// 
-    ///  <note>You cannot delete a security group that is associated with any clusters. You
-    /// cannot delete the default security group.</note><para>
+    ///  <note><para>
+    /// You cannot delete a security group that is associated with any clusters. You cannot
+    /// delete the default security group.
+    /// </para></note><para>
     ///  For information about managing security groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon
     /// Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management
-    /// Guide</i>. 
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "RSClusterSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the cluster security group to be deleted. </para>
+        /// <para>The name of the cluster security group to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

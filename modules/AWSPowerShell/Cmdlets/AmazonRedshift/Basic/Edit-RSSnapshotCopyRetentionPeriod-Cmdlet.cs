@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the cluster for which you want to change the retention period
-        /// for automated snapshots that are copied to a destination region. </para><para> Constraints: Must be the valid name of an existing cluster that has cross-region
-        /// snapshot copy enabled. </para>
+        /// <para>The unique identifier of the cluster for which you want to change the retention period
+        /// for automated snapshots that are copied to a destination region.</para><para>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot
+        /// copy enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,11 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of days to retain automated snapshots in the destination region after
-        /// they are copied from the source region. </para><para> If you decrease the retention period for automated snapshots that are copied to a
+        /// <para>The number of days to retain automated snapshots in the destination region after they
+        /// are copied from the source region.</para><para>If you decrease the retention period for automated snapshots that are copied to a
         /// destination region, Amazon Redshift will delete any existing automated snapshots that
-        /// were copied to the destination region and that fall outside of the new retention period.
-        /// </para><para> Constraints: Must be at least 1 and no more than 35. </para>
+        /// were copied to the destination region and that fall outside of the new retention period.</para><para>Constraints: Must be at least 1 and no more than 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

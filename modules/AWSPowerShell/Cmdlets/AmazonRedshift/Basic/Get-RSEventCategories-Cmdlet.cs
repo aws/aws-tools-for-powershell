@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para> The source type, such as cluster or parameter group, to which the described event
-        /// categories apply. </para><para> Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
-        /// </para>
+        /// <para>The source type, such as cluster or parameter group, to which the described event
+        /// categories apply.</para><para>Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

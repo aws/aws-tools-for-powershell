@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// whether the application accessing your cluster is running on the Internet or an Amazon
     /// EC2 instance, you can authorize inbound access to either a Classless Interdomain Routing
     /// (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add
-    /// as many as 20 ingress rules to an Amazon Redshift security group. 
+    /// as many as 20 ingress rules to an Amazon Redshift security group.
     /// 
     ///  
     /// <para>
@@ -40,11 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// and <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift
     /// cluster must be in the same AWS region. 
     /// </para><para>
-    ///  If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an
+    /// If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an
     /// overview of CIDR blocks, see the Wikipedia article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
     /// Inter-Domain Routing</a>. 
     /// </para><para>
-    ///  You must also associate the security group with a cluster so that clients running
+    /// You must also associate the security group with a cluster so that clients running
     /// on these IP addresses or the EC2 instance are authorized to connect to the cluster.
     /// For information about managing security groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working
     /// with Security Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter CIDRIP
         /// <summary>
         /// <para>
-        /// <para> The IP range to be added the Amazon Redshift security group. </para>
+        /// <para>The IP range to be added the Amazon Redshift security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the security group to which the ingress rule is added. </para>
+        /// <para>The name of the security group to which the ingress rule is added.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The EC2 security group to be added the Amazon Redshift security group. </para>
+        /// <para>The EC2 security group to be added the Amazon Redshift security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
-        /// <para> The AWS account number of the owner of the security group specified by the <i>EC2SecurityGroupName</i>
-        /// parameter. The AWS Access Key ID is not an acceptable value. </para><para> Example: <code>111122223333</code></para>
+        /// <para>The AWS account number of the owner of the security group specified by the <i>EC2SecurityGroupName</i>
+        /// parameter. The AWS Access Key ID is not an acceptable value. </para><para>Example: <code>111122223333</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

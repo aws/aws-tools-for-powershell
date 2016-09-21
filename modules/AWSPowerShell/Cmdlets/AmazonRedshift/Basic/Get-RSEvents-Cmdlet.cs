@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Duration
         /// <summary>
         /// <para>
-        /// <para> The number of minutes prior to the time of the request for which to retrieve events.
+        /// <para>The number of minutes prior to the time of the request for which to retrieve events.
         /// For example, if the request is sent at 18:00 and you specify a duration of 60, then
-        /// only events which have occurred after 17:00 will be returned. </para><para>Default: <code>60</code></para>
+        /// only events which have occurred after 17:00 will be returned.</para><para>Default: <code>60</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para> The end of the time interval for which to retrieve events, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// <para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: <code>2009-07-08T18:00Z</code></para>
         /// </para>
         /// </summary>
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the event source for which events will be returned. If this parameter
-        /// is not specified, then all sources are included in the response. </para><para>Constraints:</para><para>If <i>SourceIdentifier</i> is supplied, <i>SourceType</i> must also be provided.</para><ul><li>Specify a cluster identifier when <i>SourceType</i> is <code>cluster</code>.</li><li>Specify a cluster security group name when <i>SourceType</i> is <code>cluster-security-group</code>.</li><li>Specify a cluster parameter group name when <i>SourceType</i> is <code>cluster-parameter-group</code>.</li><li>Specify a cluster snapshot identifier when <i>SourceType</i> is <code>cluster-snapshot</code>.</li></ul>
+        /// <para>The identifier of the event source for which events will be returned. If this parameter
+        /// is not specified, then all sources are included in the response.</para><para>Constraints:</para><para>If <i>SourceIdentifier</i> is supplied, <i>SourceType</i> must also be provided.</para><ul><li><para>Specify a cluster identifier when <i>SourceType</i> is <code>cluster</code>.</para></li><li><para>Specify a cluster security group name when <i>SourceType</i> is <code>cluster-security-group</code>.</para></li><li><para>Specify a cluster parameter group name when <i>SourceType</i> is <code>cluster-parameter-group</code>.</para></li><li><para>Specify a cluster snapshot identifier when <i>SourceType</i> is <code>cluster-snapshot</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -82,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para> The event source to retrieve events for. If no value is specified, all events are
-        /// returned. </para><para>Constraints:</para><para>If <i>SourceType</i> is supplied, <i>SourceIdentifier</i> must also be provided.</para><ul><li>Specify <code>cluster</code> when <i>SourceIdentifier</i> is a cluster identifier.</li><li>Specify <code>cluster-security-group</code> when <i>SourceIdentifier</i> is a
-        /// cluster security group name.</li><li>Specify <code>cluster-parameter-group</code>
-        /// when <i>SourceIdentifier</i> is a cluster parameter group name.</li><li>Specify <code>cluster-snapshot</code>
-        /// when <i>SourceIdentifier</i> is a cluster snapshot identifier.</li></ul>
+        /// <para>The event source to retrieve events for. If no value is specified, all events are
+        /// returned.</para><para>Constraints:</para><para>If <i>SourceType</i> is supplied, <i>SourceIdentifier</i> must also be provided.</para><ul><li><para>Specify <code>cluster</code> when <i>SourceIdentifier</i> is a cluster identifier.</para></li><li><para>Specify <code>cluster-security-group</code> when <i>SourceIdentifier</i> is a cluster
+        /// security group name.</para></li><li><para>Specify <code>cluster-parameter-group</code> when <i>SourceIdentifier</i> is a cluster
+        /// parameter group name.</para></li><li><para>Specify <code>cluster-snapshot</code> when <i>SourceIdentifier</i> is a cluster snapshot
+        /// identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para> The beginning of the time interval to retrieve events for, specified in ISO 8601
-        /// format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// <para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+        /// For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
         /// Wikipedia page.</a></para><para>Example: <code>2009-07-08T18:00Z</code></para>
         /// </para>
         /// </summary>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeEvents</a> request exceed the value specified
         /// in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code> field of
         /// the response. You can retrieve the next set of response records by providing the returned
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>

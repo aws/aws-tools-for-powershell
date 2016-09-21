@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Returns information about Amazon Redshift security groups. If the name of a security
     /// group is specified, the response will contain only information about only that security
-    /// group. 
+    /// group.
     /// 
     ///  
     /// <para>
     ///  For information about managing security groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon
     /// Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management
-    /// Guide</i>. 
+    /// Guide</i>.
     /// </para><para>
     /// If you specify both tag keys and tag values in the same request, Amazon Redshift returns
     /// all security groups that match any combination of the specified keys and values. For
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of a cluster security group for which you are requesting details. You can
+        /// <para>The name of a cluster security group for which you are requesting details. You can
         /// specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter,
         /// but not both. </para><para> Example: <code>securitygroup1</code></para>
         /// </para>
@@ -106,12 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeClusterSecurityGroups</a> request exceed
         /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
         /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
-        /// </para><para> Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter
+        /// </para><para>Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter
         /// or the <b>Marker</b> parameter, but not both. </para>
         /// </para>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>

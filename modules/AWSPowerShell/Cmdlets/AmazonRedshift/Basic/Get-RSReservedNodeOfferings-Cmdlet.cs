@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     ///  
     /// <para>
     ///  For more information about reserved node offerings, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing
-    /// Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+    /// Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSReservedNodeOfferings")]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeReservedNodeOfferings</a> request exceed
         /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>

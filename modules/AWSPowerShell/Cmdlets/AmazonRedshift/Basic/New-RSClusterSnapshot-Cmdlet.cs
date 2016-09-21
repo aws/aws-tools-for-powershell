@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     ///  
     /// <para>
     ///  For more information about working with snapshots, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon
-    /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+    /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "RSClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The cluster identifier for which you want a snapshot. </para>
+        /// <para>The cluster identifier for which you want a snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -60,10 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> A unique identifier for the snapshot that you are requesting. This identifier must
-        /// be unique for all snapshots within the AWS account. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank</li><li>Must contain from 1 to 255 alphanumeric
-        /// characters or hyphens</li><li>First character must be a letter</li><li>Cannot end
-        /// with a hyphen or contain two consecutive hyphens</li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>A unique identifier for the snapshot that you are requesting. This identifier must
+        /// be unique for all snapshots within the AWS account.</para><para>Constraints:</para><ul><li><para>Cannot be null, empty, or blank</para></li><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

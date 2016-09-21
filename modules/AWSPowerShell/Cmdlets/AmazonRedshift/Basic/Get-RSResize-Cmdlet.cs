@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    ///  A resize operation can be requested using <a>ModifyCluster</a> and specifying a different
+    /// A resize operation can be requested using <a>ModifyCluster</a> and specifying a different
     /// number or type of nodes for the cluster. 
     /// </para>
     /// </summary>
@@ -51,9 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of a cluster whose resize progress you are requesting. This
-        /// parameter is case-sensitive. </para><para>By default, resize operations for all clusters defined for an AWS account are returned.
-        /// </para>
+        /// <para>The unique identifier of a cluster whose resize progress you are requesting. This
+        /// parameter is case-sensitive.</para><para>By default, resize operations for all clusters defined for an AWS account are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -30,13 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more
     /// subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon
-    /// Redshift subnet group. 
+    /// Redshift subnet group.
     /// 
     ///  
     /// <para>
     ///  For information about subnet groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon
     /// Redshift Cluster Subnet Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-    /// 
     /// </para>
     /// </summary>
     [Cmdlet("New", "RSClusterSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,10 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
-        /// </para><para>Constraints: </para><ul><li>Must contain no more than 255 alphanumeric characters or hyphens.</li><li>Must
-        /// not be "Default".</li><li>Must be unique for all subnet groups that are created by
-        /// your AWS account.</li></ul><para>Example: <code>examplesubnetgroup</code></para>
+        /// <para>The name for the subnet group. Amazon Redshift stores the value as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain no more than 255 alphanumeric characters or hyphens.</para></li><li><para>Must not be "Default".</para></li><li><para>Must be unique for all subnet groups that are created by your AWS account.</para></li></ul><para>Example: <code>examplesubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -75,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para> An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
-        /// </para>
+        /// <para>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

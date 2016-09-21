@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeHsmClientCertificates</a> request exceed
         /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>

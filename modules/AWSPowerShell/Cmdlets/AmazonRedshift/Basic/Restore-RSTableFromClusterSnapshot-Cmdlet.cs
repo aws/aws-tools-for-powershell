@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NewTableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table to create as a result of the current request. </para>
+        /// <para>The name of the table to create as a result of the current request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

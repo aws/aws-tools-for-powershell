@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para> The name of an existing S3 bucket where the log files are to be stored. </para><para>Constraints:</para><ul><li>Must be in the same region as the cluster</li><li>The cluster must have
-        /// read bucket and put object permissions</li></ul>
+        /// <para>The name of an existing S3 bucket where the log files are to be stored.</para><para>Constraints:</para><ul><li><para>Must be in the same region as the cluster</para></li><li><para>The cluster must have read bucket and put object permissions</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the cluster on which logging is to be started. </para><para>Example: <code>examplecluster</code></para>
+        /// <para>The identifier of the cluster on which logging is to be started.</para><para>Example: <code>examplecluster</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para> The prefix applied to the log file names. </para><para>Constraints:</para><ul><li>Cannot exceed 512 characters</li><li>Cannot contain spaces( ), double quotes
-        /// ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes
-        /// for invalid characters are: <ul><li>x00 to x20</li><li>x22</li><li>x27</li><li>x5c</li><li>x7f or larger</li></ul></li></ul>
+        /// <para>The prefix applied to the log file names.</para><para>Constraints:</para><ul><li><para>Cannot exceed 512 characters</para></li><li><para>Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or
+        /// control characters. The hexadecimal codes for invalid characters are: </para><ul><li><para>x00 to x20</para></li><li><para>x22</para></li><li><para>x27</para></li><li><para>x5c</para></li><li><para>x7f or larger</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

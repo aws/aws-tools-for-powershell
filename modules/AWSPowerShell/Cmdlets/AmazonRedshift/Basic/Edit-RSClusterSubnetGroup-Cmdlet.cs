@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para> An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
-        /// </para>
+        /// <para>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

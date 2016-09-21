@@ -64,10 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot copy grant. This name must be unique in the region for the
-        /// AWS account.</para><para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
-        /// characters must be lowercase.</li><li>First character must be a letter.</li><li>Cannot
-        /// end with a hyphen or contain two consecutive hyphens.</li><li>Must be unique for
-        /// all clusters within an AWS account.</li></ul></para>
+        /// AWS account.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an AWS account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

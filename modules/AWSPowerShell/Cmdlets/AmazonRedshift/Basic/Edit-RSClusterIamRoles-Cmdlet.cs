@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Modifies the list of AWS Identity and Access Management (IAM) roles that can be used
-    /// by the cluster to access other AWS services. 
+    /// by the cluster to access other AWS services.
     /// 
     ///  
     /// <para>
-    /// A cluster can have up to 10 IAM roles associated at any time. 
+    /// A cluster can have up to 10 IAM roles associated at any time.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RSClusterIamRoles", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AddIamRole
         /// <summary>
         /// <para>
-        /// <para>Zero or more IAM roles (in their ARN format) to associate with the cluster. You can
-        /// associate up to 10 IAM roles with a single cluster in a single request.</para>
+        /// <para>Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon
+        /// Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster
+        /// in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter RemoveIamRole
         /// <summary>
         /// <para>
-        /// <para>Zero or more IAM roles (in their ARN format) to disassociate from the cluster. You
-        /// can disassociate up to 10 IAM roles from a single cluster in a single request.</para>
+        /// <para>Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate
+        /// up to 10 IAM roles from a single cluster in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -34,11 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    ///  The following are limitations for <code>DescribeTags</code>: <ul><li>You cannot
-    /// specify an ARN and a resource-type value together in the same request.</li><li>You
-    /// cannot use the <code>MaxRecords</code> and <code>Marker</code> parameters together
-    /// with the ARN parameter.</li><li>The <code>MaxRecords</code> parameter can be a range
-    /// from 10 to 50 results to return in a request.</li></ul></para><para>
+    /// The following are limitations for <code>DescribeTags</code>: 
+    /// </para><ul><li><para>
+    /// You cannot specify an ARN and a resource-type value together in the same request.
+    /// </para></li><li><para>
+    /// You cannot use the <code>MaxRecords</code> and <code>Marker</code> parameters together
+    /// with the ARN parameter.
+    /// </para></li><li><para>
+    /// The <code>MaxRecords</code> parameter can be a range from 10 to 50 results to return
+    /// in a request.
+    /// </para></li></ul><para>
     /// If you specify both tag keys and tag values in the same request, Amazon Redshift returns
     /// all resources that match any combination of the specified keys and values. For example,
     /// if you have <code>owner</code> and <code>environment</code> for tag keys, and <code>admin</code>
@@ -63,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
+        /// <para>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
         /// example, <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </para>
         /// </para>
         /// </summary>
@@ -74,10 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para> The type of resource with which you want to view tags. Valid resource types are:
-        /// <ul><li>Cluster</li><li>CIDR/IP</li><li>EC2 security group</li><li>Snapshot</li><li>Cluster security group</li><li>Subnet group</li><li>HSM connection</li><li>HSM
-        /// certificate</li><li>Parameter group</li><li>Snapshot copy grant</li></ul></para><para> For more information about Amazon Redshift resource types and constructing ARNs,
-        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html">Constructing
+        /// <para>The type of resource with which you want to view tags. Valid resource types are: </para><ul><li><para>Cluster</para></li><li><para>CIDR/IP</para></li><li><para>EC2 security group</para></li><li><para>Snapshot</para></li><li><para>Cluster security group</para></li><li><para>Subnet group</para></li><li><para>HSM connection</para></li><li><para>HSM certificate</para></li><li><para>Parameter group</para></li><li><para>Snapshot copy grant</para></li></ul><para>For more information about Amazon Redshift resource types and constructing ARNs, go
+        /// to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html">Constructing
         /// an Amazon Redshift Amazon Resource Name (ARN)</a> in the Amazon Redshift Cluster Management
         /// Guide. </para>
         /// </para>
@@ -119,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> A value that indicates the starting point for the next set of response records in
+        /// <para>A value that indicates the starting point for the next set of response records in
         /// a subsequent request. If a value is returned in a response, you can retrieve the next
         /// set of records by providing this returned marker value in the <code>marker</code>
         /// parameter and retrying the command. If the <code>marker</code> field is empty, all
@@ -137,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number or response records to return in each call. If the number of remaining
+        /// <para>The maximum number or response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned <code>marker</code> value. </para>

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// Returns a detailed list of parameters contained within the specified Amazon Redshift
     /// parameter group. For each parameter the response includes information such as parameter
     /// name, description, data type, value, whether the parameter value is modifiable, and
-    /// so on. 
+    /// so on.
     /// 
     ///  
     /// <para>
@@ -41,7 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </para><para>
     ///  For more information about parameters and parameter groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
     /// Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-    /// 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSClusterParameters")]
@@ -58,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of a cluster parameter group for which to return details. </para>
+        /// <para>The name of a cluster parameter group for which to return details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -68,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para> The parameter types to return. Specify <code>user</code> to show parameters that
-        /// are different form the default. Similarly, specify <code>engine-default</code> to
-        /// show parameters that are the same as the default parameter group. </para><para>Default: All parameter types returned.</para><para>Valid Values: <code>user</code> | <code>engine-default</code></para>
+        /// <para>The parameter types to return. Specify <code>user</code> to show parameters that are
+        /// different form the default. Similarly, specify <code>engine-default</code> to show
+        /// parameters that are the same as the default parameter group. </para><para>Default: All parameter types returned.</para><para>Valid Values: <code>user</code> | <code>engine-default</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeClusterParameters</a> request exceed the
         /// value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
@@ -99,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>

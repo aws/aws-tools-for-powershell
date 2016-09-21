@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates an Amazon Redshift parameter group. 
+    /// Creates an Amazon Redshift parameter group.
     /// 
     ///  
     /// <para>
@@ -37,11 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// an existing cluster with a parameter group after the cluster is created by using <a>ModifyCluster</a>.
     /// 
     /// </para><para>
-    ///  Parameters in the parameter group define specific behavior that applies to the databases
+    /// Parameters in the parameter group define specific behavior that applies to the databases
     /// you create on the cluster. For more information about parameters and parameter groups,
     /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
     /// Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-    /// 
     /// </para>
     /// </summary>
     [Cmdlet("New", "RSClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> A description of the parameter group. </para>
+        /// <para>A description of the parameter group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -67,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para> The Amazon Redshift engine version to which the cluster parameter group applies.
-        /// The cluster engine version determines the set of parameters. </para><para>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>.
+        /// <para>The Amazon Redshift engine version to which the cluster parameter group applies. The
+        /// cluster engine version determines the set of parameters.</para><para>To get a list of valid parameter group family names, you can call <a>DescribeClusterParameterGroups</a>.
         /// By default, Amazon Redshift returns a list of all the parameter groups that are owned
         /// by your AWS account, including the default parameter groups for each Amazon Redshift
         /// engine version. The parameter group family names associated with the default parameter
@@ -83,9 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the cluster parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens</li><li>First character
-        /// must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive hyphens.</li><li>Must be unique withing your AWS account.</li></ul><note>This value is stored
-        /// as a lower-case string.</note>
+        /// <para>The name of the cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique withing your AWS account.</para></li></ul><note><para>This value is stored as a lower-case string.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

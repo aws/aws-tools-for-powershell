@@ -30,11 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Authorizes the specified AWS customer account to restore the specified snapshot.
     /// 
-    /// 
     ///  
     /// <para>
     ///  For more information about working with snapshots, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon
-    /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+    /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Approve", "RSSnapshotAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AccountWithRestoreAccess
         /// <summary>
         /// <para>
-        /// <para> The identifier of the AWS customer account authorized to restore the specified snapshot.
-        /// </para>
+        /// <para>The identifier of the AWS customer account authorized to restore the specified snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -61,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the cluster the snapshot was created from. This parameter is required
+        /// <para>The identifier of the cluster the snapshot was created from. This parameter is required
         /// if your IAM user has a policy containing a snapshot resource element that specifies
-        /// anything other than * for the cluster name. </para>
+        /// anything other than * for the cluster name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the snapshot the account is authorized to restore. </para>
+        /// <para>The identifier of the snapshot the account is authorized to restore.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the source cluster to copy snapshots from. </para><para> Constraints: Must be the valid name of an existing cluster that does not already
-        /// have cross-region snapshot copy enabled. </para>
+        /// <para>The unique identifier of the source cluster to copy snapshots from.</para><para>Constraints: Must be the valid name of an existing cluster that does not already have
+        /// cross-region snapshot copy enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para> The destination region that you want to copy snapshots to. </para><para> Constraints: Must be the name of a valid region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+        /// <para>The destination region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
         /// and Endpoints</a> in the Amazon Web Services General Reference. </para>
         /// </para>
         /// </summary>
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of days to retain automated snapshots in the destination region after
-        /// they are copied from the source region. </para><para> Default: 7. </para><para> Constraints: Must be at least 1 and no more than 35. </para>
+        /// <para>The number of days to retain automated snapshots in the destination region after they
+        /// are copied from the source region.</para><para>Default: 7.</para><para>Constraints: Must be at least 1 and no more than 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

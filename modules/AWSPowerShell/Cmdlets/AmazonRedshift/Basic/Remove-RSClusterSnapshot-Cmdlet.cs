@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    ///  Unlike automated snapshots, manual snapshots are retained even after you delete your
+    /// Unlike automated snapshots, manual snapshots are retained even after you delete your
     /// cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual
     /// snapshot explicitly to avoid getting charged. If other accounts are authorized to
     /// access the snapshot, you must revoke all of the authorizations before you can delete
-    /// the snapshot. 
+    /// the snapshot.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "RSClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the cluster the snapshot was created from. This parameter
+        /// <para>The unique identifier of the cluster the snapshot was created from. This parameter
         /// is required if your IAM user has a policy containing a snapshot resource element that
-        /// specifies anything other than * for the cluster name. </para><para>Constraints: Must be the name of valid cluster.</para>
+        /// specifies anything other than * for the cluster name.</para><para>Constraints: Must be the name of valid cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the manual snapshot to be deleted. </para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>
+        /// <para>The unique identifier of the manual snapshot to be deleted.</para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>
         /// state.</para>
         /// </para>
         /// </summary>

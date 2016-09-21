@@ -28,14 +28,14 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a new Amazon Redshift security group. You use security groups to control
-    /// access to non-VPC clusters. 
+    /// Creates a new Amazon Redshift security group. You use security groups to control access
+    /// to non-VPC clusters.
     /// 
     ///  
     /// <para>
     ///  For information about managing security groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon
     /// Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management
-    /// Guide</i>. 
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "RSClusterSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,10 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name for the security group. Amazon Redshift stores the value as a lowercase
-        /// string. </para><para>Constraints: </para><ul><li>Must contain no more than 255 alphanumeric characters or hyphens.</li><li>Must
-        /// not be "Default".</li><li>Must be unique for all security groups that are created
-        /// by your AWS account.</li></ul><para>Example: <code>examplesecuritygroup</code></para>
+        /// <para>The name for the security group. Amazon Redshift stores the value as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain no more than 255 alphanumeric characters or hyphens.</para></li><li><para>Must not be "Default".</para></li><li><para>Must be unique for all security groups that are created by your AWS account.</para></li></ul><para>Example: <code>examplesecuritygroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> A description for the security group. </para>
+        /// <para>A description for the security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

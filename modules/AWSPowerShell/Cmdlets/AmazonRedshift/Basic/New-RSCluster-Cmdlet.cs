@@ -28,12 +28,16 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a new cluster. To create the cluster in virtual private cloud (VPC), you
-    /// must provide cluster subnet group name. If you don't provide a cluster subnet group
-    /// name or the cluster security group parameter, Amazon Redshift creates a non-VPC cluster,
-    /// it associates the default cluster security group with the cluster. For more information
-    /// about managing clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
-    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i> .
+    /// Creates a new cluster.
+    /// 
+    ///  
+    /// <para>
+    /// To create the cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet
+    /// group name. The cluster subnet group identifies the subnets of your VPC that Amazon
+    /// Redshift uses when creating the cluster. For more information about managing clusters,
+    /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
@@ -59,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, major version upgrades can be applied during the maintenance
-        /// window to the Amazon Redshift engine that is running on the cluster.</para><para> When a new major version of the Amazon Redshift engine is released, you can request
+        /// window to the Amazon Redshift engine that is running on the cluster.</para><para>When a new major version of the Amazon Redshift engine is released, you can request
         /// that the service automatically apply upgrades during the maintenance window to the
-        /// Amazon Redshift engine that is running on your cluster. </para><para>Default: <code>true</code></para>
+        /// Amazon Redshift engine that is running on your cluster.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,9 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AutomatedSnapshotRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para> The number of days that automated snapshots are retained. If the value is 0, automated
+        /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
-        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para> Default: <code>1</code></para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>Default: <code>1</code></para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,12 +87,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
+        /// <para>The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
         /// cluster. For example, if you have several EC2 instances running in a specific Availability
         /// Zone, then you might want the cluster to be provisioned in the same zone in order
-        /// to decrease network latency. </para><para> Default: A random, system-chosen Availability Zone in the region that is specified
-        /// by the endpoint. </para><para> Example: <code>us-east-1d</code></para><para> Constraint: The specified Availability Zone must be in the same region as the current
-        /// endpoint. </para>
+        /// to decrease network latency.</para><para>Default: A random, system-chosen Availability Zone in the region that is specified
+        /// by the endpoint.</para><para>Example: <code>us-east-1d</code></para><para>Constraint: The specified Availability Zone must be in the same region as the current
+        /// endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,12 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> A unique identifier for the cluster. You use this identifier to refer to the cluster
+        /// <para>A unique identifier for the cluster. You use this identifier to refer to the cluster
         /// for any subsequent cluster operations such as deleting or modifying. The identifier
-        /// also appears in the Amazon Redshift console. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
-        /// characters must be lowercase.</li><li>First character must be a letter.</li><li>Cannot
-        /// end with a hyphen or contain two consecutive hyphens.</li><li>Must be unique for
-        /// all clusters within an AWS account.</li></ul><para>Example: <code>myexamplecluster</code></para>
+        /// also appears in the Amazon Redshift console.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an AWS account.</para></li></ul><para>Example: <code>myexamplecluster</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -113,10 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the parameter group to be associated with this cluster. </para><para>Default: The default Amazon Redshift cluster parameter group. For information about
+        /// <para>The name of the parameter group to be associated with this cluster.</para><para>Default: The default Amazon Redshift cluster parameter group. For information about
         /// the default parameter group, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
-        /// with Amazon Redshift Parameter Groups</a></para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens.</li><li>First character
-        /// must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive hyphens.</li></ul>
+        /// with Amazon Redshift Parameter Groups</a></para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para> A list of security groups to be associated with this cluster. </para><para> Default: The default cluster security group for Amazon Redshift. </para>
+        /// <para>A list of security groups to be associated with this cluster.</para><para>Default: The default cluster security group for Amazon Redshift.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of a cluster subnet group to be associated with this cluster. </para><para> If this parameter is not provided the resulting cluster will be deployed outside
-        /// virtual private cloud (VPC). </para>
+        /// <para>The name of a cluster subnet group to be associated with this cluster.</para><para>If this parameter is not provided the resulting cluster will be deployed outside virtual
+        /// private cloud (VPC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,9 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterType
         /// <summary>
         /// <para>
-        /// <para> The type of the cluster. When cluster type is specified as <ul><li><code>single-node</code>,
-        /// the <b>NumberOfNodes</b> parameter is not required.</li><li><code>multi-node</code>,
-        /// the <b>NumberOfNodes</b> parameter is required.</li></ul></para><para> Valid Values: <code>multi-node</code> | <code>single-node</code></para><para>Default: <code>multi-node</code></para>
+        /// <para>The type of the cluster. When cluster type is specified as</para><ul><li><para><code>single-node</code>, the <b>NumberOfNodes</b> parameter is not required.</para></li><li><para><code>multi-node</code>, the <b>NumberOfNodes</b> parameter is required.</para></li></ul><para>Valid Values: <code>multi-node</code> | <code>single-node</code></para><para>Default: <code>multi-node</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -160,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterVersion
         /// <summary>
         /// <para>
-        /// <para> The version of the Amazon Redshift engine software that you want to deploy on the
-        /// cluster. </para><para> The version selected runs on all the nodes in the cluster. </para><para>Constraints: Only version 1.0 is currently available.</para><para>Example: <code>1.0</code></para>
+        /// <para>The version of the Amazon Redshift engine software that you want to deploy on the
+        /// cluster.</para><para>The version selected runs on all the nodes in the cluster.</para><para>Constraints: Only version 1.0 is currently available.</para><para>Example: <code>1.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,13 +169,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The name of the first database to be created when the cluster is created. </para><para>To create additional databases after the cluster is created, connect to the cluster
+        /// <para>The name of the first database to be created when the cluster is created.</para><para>To create additional databases after the cluster is created, connect to the cluster
         /// with a SQL client and use SQL commands to create a database. For more information,
         /// go to <a href="http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
-        /// a Database</a> in the Amazon Redshift Database Developer Guide. </para><para>Default: <code>dev</code></para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters.</li><li>Must contain only
-        /// lowercase letters.</li><li>Cannot be a word that is reserved by the service. A list
-        /// of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
-        /// Words</a> in the Amazon Redshift Database Developer Guide. </li></ul>
+        /// a Database</a> in the Amazon Redshift Database Developer Guide. </para><para>Default: <code>dev</code></para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Must contain only lowercase letters.</para></li><li><para>Cannot be a word that is reserved by the service. A list of reserved words can be
+        /// found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -207,6 +204,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean Encrypted { get; set; }
         #endregion
         
+        #region Parameter EnhancedVpcRouting
+        /// <summary>
+        /// <para>
+        /// <para>An option that specifies whether to create the cluster with enhanced VPC routing enabled.
+        /// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC.
+        /// For more information, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+        /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <code>true</code>, enhanced VPC routing is enabled. </para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnhancedVpcRouting { get; set; }
+        #endregion
+        
         #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
@@ -234,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster
         /// to access other AWS services. You must supply the IAM roles in their Amazon Resource
-        /// Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated at any time. </para>
+        /// Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated with it at any time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -256,11 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para> The user name associated with the master user account for the cluster that is being
-        /// created. </para><para>Constraints:</para><ul><li>Must be 1 - 128 alphanumeric characters.</li><li>First character must be
-        /// a letter.</li><li>Cannot be a reserved word. A list of reserved words can be found
-        /// in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
-        /// Words</a> in the Amazon Redshift Database Developer Guide. </li></ul>
+        /// <para>The user name associated with the master user account for the cluster that is being
+        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -270,10 +278,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para> The password associated with the master user account for the cluster that is being
-        /// created. </para><para> Constraints: </para><ul><li>Must be between 8 and 64 characters in length.</li><li>Must contain at
-        /// least one uppercase letter.</li><li>Must contain at least one lowercase letter.</li><li>Must contain one number.</li><li>Can be any printable ASCII character (ASCII
-        /// code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.</li></ul>
+        /// <para>The password associated with the master user account for the cluster that is being
+        /// created.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote),
+        /// " (double quote), \, /, @, or space.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -283,10 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NodeType
         /// <summary>
         /// <para>
-        /// <para> The node type to be provisioned for the cluster. For information about node types,
+        /// <para>The node type to be provisioned for the cluster. For information about node types,
         /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-        /// </para><para> Valid Values: <code>ds1.xlarge</code> | <code>ds1.8xlarge</code> | <code>ds2.xlarge</code>
+        /// </para><para>Valid Values: <code>ds1.xlarge</code> | <code>ds1.8xlarge</code> | <code>ds2.xlarge</code>
         /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code>. </para>
         /// </para>
         /// </summary>
@@ -297,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NumberOfNodes
         /// <summary>
         /// <para>
-        /// <para> The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b>
+        /// <para>The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b>
         /// parameter is specified as <code>multi-node</code>. </para><para>For information about determining how many nodes you need, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para><para>If you don't specify this parameter, you get a single-node cluster. When requesting
@@ -311,9 +318,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the cluster accepts incoming connections. </para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
+        /// <para>The port number on which the cluster accepts incoming connections.</para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
         /// connection string requires the port on which the cluster will listen for incoming
-        /// connections.</para><para> Default: <code>5439</code></para><para> Valid Values: <code>1150-65535</code></para>
+        /// connections.</para><para>Default: <code>5439</code></para><para>Valid Values: <code>1150-65535</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -323,8 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The weekly time range (in UTC) during which automated cluster maintenance can occur.
-        /// </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
+        /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
         /// occurring on a random day of the week. For more information about the time blocks
         /// for each region, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
         /// Windows</a> in Amazon Redshift Cluster Management Guide.</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
@@ -414,6 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ElasticIp = this.ElasticIp;
             if (ParameterWasBound("Encrypted"))
                 context.Encrypted = this.Encrypted;
+            if (ParameterWasBound("EnhancedVpcRouting"))
+                context.EnhancedVpcRouting = this.EnhancedVpcRouting;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             if (this.IamRole != null)
@@ -506,6 +514,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.Encrypted != null)
             {
                 request.Encrypted = cmdletContext.Encrypted.Value;
+            }
+            if (cmdletContext.EnhancedVpcRouting != null)
+            {
+                request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
             }
             if (cmdletContext.HsmClientCertificateIdentifier != null)
             {
@@ -623,6 +635,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String DBName { get; set; }
             public System.String ElasticIp { get; set; }
             public System.Boolean? Encrypted { get; set; }
+            public System.Boolean? EnhancedVpcRouting { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
             public List<System.String> IamRoles { get; set; }

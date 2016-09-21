@@ -38,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     ///  
     /// <para>
-    ///  If you restore a cluster into a VPC, you must provide a cluster subnet group where
-    /// you want the cluster restored. 
+    /// If you restore a cluster into a VPC, you must provide a cluster subnet group where
+    /// you want the cluster restored.
     /// </para><para>
     ///  For more information about working with snapshots, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon
-    /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+    /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Restore", "RSFromClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The number of days that automated snapshots are retained. If the value is 0, automated
         /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
-        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para> Default: The value selected for the cluster from which the snapshot was taken. </para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para>Default: The value selected for the cluster from which the snapshot was taken.</para><para>Constraints: Must be a value from 0 to 35.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The Amazon EC2 Availability Zone in which to restore the cluster. </para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <code>us-east-1a</code></para>
+        /// <para>The Amazon EC2 Availability Zone in which to restore the cluster.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <code>us-east-1a</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,10 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the cluster that will be created from restoring the snapshot. </para><para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
-        /// characters must be lowercase.</li><li>First character must be a letter.</li><li>Cannot
-        /// end with a hyphen or contain two consecutive hyphens.</li><li>Must be unique for
-        /// all clusters within an AWS account.</li></ul></para>
+        /// <para>The identifier of the cluster that will be created from restoring the snapshot.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>Alphabetic characters must be lowercase.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must be unique for all clusters within an AWS account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -114,10 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the parameter group to be associated with this cluster. </para><para>Default: The default Amazon Redshift cluster parameter group. For information about
+        /// <para>The name of the parameter group to be associated with this cluster.</para><para>Default: The default Amazon Redshift cluster parameter group. For information about
         /// the default parameter group, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
-        /// with Amazon Redshift Parameter Groups</a>.</para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens.</li><li>First character
-        /// must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive hyphens.</li></ul>
+        /// with Amazon Redshift Parameter Groups</a>.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para> A list of security groups to be associated with this cluster. </para><para> Default: The default cluster security group for Amazon Redshift. </para><para>Cluster security groups only apply to clusters outside of VPCs.</para>
+        /// <para>A list of security groups to be associated with this cluster.</para><para>Default: The default cluster security group for Amazon Redshift.</para><para>Cluster security groups only apply to clusters outside of VPCs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the subnet group where you want to cluster restored. </para><para> A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide
-        /// subnet group name where you want the cluster restored. </para>
+        /// <para>The name of the subnet group where you want to cluster restored.</para><para>A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide
+        /// subnet group name where you want the cluster restored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,6 +150,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ElasticIp { get; set; }
+        #endregion
+        
+        #region Parameter EnhancedVpcRouting
+        /// <summary>
+        /// <para>
+        /// <para>An option that specifies whether to create the cluster with enhanced VPC routing enabled.
+        /// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC.
+        /// For more information, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+        /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <code>true</code>, enhanced VPC routing is enabled. </para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnhancedVpcRouting { get; set; }
         #endregion
         
         #region Parameter HsmClientCertificateIdentifier
@@ -183,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster
         /// to access other AWS services. You must supply the IAM roles in their Amazon Resource
-        /// Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated at any time. </para>
+        /// Name (ARN) format. You can supply up to 10 IAM roles in a single request.</para><para>A cluster can have up to 10 IAM roles associated at any time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -205,11 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter NodeType
         /// <summary>
         /// <para>
-        /// <para> The node type that the restored cluster will be provisioned with.</para><para> Default: The node type of the cluster from which the snapshot was taken. You can
-        /// modify this if you are using any DS node type. In that case, you can choose to restore
-        /// into another DS node type of the same size. For example, you can restore ds1.8xlarge
-        /// into ds2.8xlarge, or ds2.xlarge into ds1.xlarge. If you have a DC instance type, you
-        /// must restore into that same instance type and size. In other words, you can only restore
+        /// <para>The node type that the restored cluster will be provisioned with.</para><para>Default: The node type of the cluster from which the snapshot was taken. You can modify
+        /// this if you are using any DS node type. In that case, you can choose to restore into
+        /// another DS node type of the same size. For example, you can restore ds1.8xlarge into
+        /// ds2.8xlarge, or ds2.xlarge into ds1.xlarge. If you have a DC instance type, you must
+        /// restore into that same instance type and size. In other words, you can only restore
         /// a dc1.large instance type into another dc1.large instance type. For more information
         /// about node types, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
         /// About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i></para>
@@ -222,8 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para> The AWS customer account used to create or copy the snapshot. Required if you are
-        /// restoring a snapshot you do not own, optional if you own the snapshot. </para>
+        /// <para>The AWS customer account used to create or copy the snapshot. Required if you are
+        /// restoring a snapshot you do not own, optional if you own the snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -233,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the cluster accepts connections. </para><para>Default: The same port as the original cluster.</para><para>Constraints: Must be between <code>1115</code> and <code>65535</code>.</para>
+        /// <para>The port number on which the cluster accepts connections.</para><para>Default: The same port as the original cluster.</para><para>Constraints: Must be between <code>1115</code> and <code>65535</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -243,8 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The weekly time range (in UTC) during which automated cluster maintenance can occur.
-        /// </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: The value selected for the cluster from which the snapshot was taken. For
+        /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: The value selected for the cluster from which the snapshot was taken. For
         /// more information about the time blocks for each region, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
         /// Windows</a> in Amazon Redshift Cluster Management Guide. </para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
@@ -256,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para> If <code>true</code>, the cluster can be accessed from a public network. </para>
+        /// <para>If <code>true</code>, the cluster can be accessed from a public network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -266,9 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The name of the cluster the source snapshot was created from. This parameter is required
+        /// <para>The name of the cluster the source snapshot was created from. This parameter is required
         /// if your IAM user has a policy containing a snapshot resource element that specifies
-        /// anything other than * for the cluster name. </para>
+        /// anything other than * for the cluster name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -278,8 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The name of the snapshot from which to create the new cluster. This parameter isn't
-        /// case sensitive. </para><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>The name of the snapshot from which to create the new cluster. This parameter isn't
+        /// case sensitive.</para><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -289,8 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para> A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
-        /// </para><para> Default: The default VPC security group is associated with the cluster. </para><para> VPC security groups only apply to clusters in VPCs. </para>
+        /// <para>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</para><para>Default: The default VPC security group is associated with the cluster.</para><para>VPC security groups only apply to clusters in VPCs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -341,6 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
             context.ElasticIp = this.ElasticIp;
+            if (ParameterWasBound("EnhancedVpcRouting"))
+                context.EnhancedVpcRouting = this.EnhancedVpcRouting;
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             if (this.IamRole != null)
@@ -412,6 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ElasticIp != null)
             {
                 request.ElasticIp = cmdletContext.ElasticIp;
+            }
+            if (cmdletContext.EnhancedVpcRouting != null)
+            {
+                request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
             }
             if (cmdletContext.HsmClientCertificateIdentifier != null)
             {
@@ -521,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public List<System.String> ClusterSecurityGroups { get; set; }
             public System.String ClusterSubnetGroupName { get; set; }
             public System.String ElasticIp { get; set; }
+            public System.Boolean? EnhancedVpcRouting { get; set; }
             public System.String HsmClientCertificateIdentifier { get; set; }
             public System.String HsmConfigurationIdentifier { get; set; }
             public List<System.String> IamRoles { get; set; }

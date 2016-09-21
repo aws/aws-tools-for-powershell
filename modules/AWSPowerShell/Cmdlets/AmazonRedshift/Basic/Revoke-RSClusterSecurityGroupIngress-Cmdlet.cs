@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter CIDRIP
         /// <summary>
         /// <para>
-        /// <para> The IP range for which to revoke access. This range must be a valid Classless Inter-Domain
+        /// <para>The IP range for which to revoke access. This range must be a valid Classless Inter-Domain
         /// Routing (CIDR) block of IP addresses. If <code>CIDRIP</code> is specified, <code>EC2SecurityGroupName</code>
         /// and <code>EC2SecurityGroupOwnerId</code> cannot be provided. </para>
         /// </para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the security Group from which to revoke the ingress rule. </para>
+        /// <para>The name of the security Group from which to revoke the ingress rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the EC2 Security Group whose access is to be revoked. If <code>EC2SecurityGroupName</code>
+        /// <para>The name of the EC2 Security Group whose access is to be revoked. If <code>EC2SecurityGroupName</code>
         /// is specified, <code>EC2SecurityGroupOwnerId</code> must also be provided and <code>CIDRIP</code>
         /// cannot be provided. </para>
         /// </para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
-        /// <para> The AWS account number of the owner of the security group specified in the <code>EC2SecurityGroupName</code>
+        /// <para>The AWS account number of the owner of the security group specified in the <code>EC2SecurityGroupName</code>
         /// parameter. The AWS access key ID is not an acceptable value. If <code>EC2SecurityGroupOwnerId</code>
         /// is specified, <code>EC2SecurityGroupName</code> must also be provided. and <code>CIDRIP</code>
         /// cannot be provided. </para><para>Example: <code>111122223333</code></para>

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// Returns one or more snapshot objects, which contain metadata about your cluster snapshots.
     /// By default, this operation returns information about all snapshots of all clusters
     /// that are owned by you AWS customer account. No information is returned for snapshots
-    /// owned by inactive AWS customer accounts. 
+    /// owned by inactive AWS customer accounts.
     /// 
     ///  
     /// <para>
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the cluster for which information about snapshots is requested.
-        /// </para>
+        /// <para>The identifier of the cluster for which information about snapshots is requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para> A time value that requests only snapshots created at or before the specified time.
+        /// <para>A time value that requests only snapshots created at or before the specified time.
         /// The time value is specified in ISO 8601 format. For more information about ISO 8601,
         /// go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a></para><para>Example: <code>2012-07-16T18:00:00Z</code></para>
         /// </para>
@@ -83,9 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter OwnerAccount
         /// <summary>
         /// <para>
-        /// <para> The AWS customer account used to create or copy the snapshot. Use this field to filter
+        /// <para>The AWS customer account used to create or copy the snapshot. Use this field to filter
         /// the results to snapshots owned by a particular account. To describe snapshots you
-        /// own, either specify your AWS customer account, or do not specify the parameter. </para>
+        /// own, either specify your AWS customer account, or do not specify the parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The snapshot identifier of the snapshot about which to return information. </para>
+        /// <para>The snapshot identifier of the snapshot about which to return information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -105,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotType
         /// <summary>
         /// <para>
-        /// <para> The type of snapshots for which you are requesting information. By default, snapshots
-        /// of all types are returned. </para><para> Valid Values: <code>automated</code> | <code>manual</code></para>
+        /// <para>The type of snapshots for which you are requesting information. By default, snapshots
+        /// of all types are returned.</para><para>Valid Values: <code>automated</code> | <code>manual</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -116,9 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para> A value that requests only snapshots created at or after the specified time. The
-        /// time value is specified in ISO 8601 format. For more information about ISO 8601, go
-        /// to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a></para><para>Example: <code>2012-07-16T18:00:00Z</code></para>
+        /// <para>A value that requests only snapshots created at or after the specified time. The time
+        /// value is specified in ISO 8601 format. For more information about ISO 8601, go to
+        /// the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a></para><para>Example: <code>2012-07-16T18:00:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -159,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// <para>An optional parameter that specifies the starting point to return a set of response
         /// records. When the results of a <a>DescribeClusterSnapshots</a> request exceed the
         /// value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
@@ -178,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// <para>The maximum number of response records to return in each call. If the number of remaining
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>

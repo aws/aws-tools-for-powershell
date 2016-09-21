@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the cluster parameter group to be reset. </para>
+        /// <para>The name of the cluster parameter group to be reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para> An array of names of parameters to be reset. If <i>ResetAllParameters</i> option
-        /// is not used, then at least one parameter name must be supplied. </para><para>Constraints: A maximum of 20 parameters can be reset in a single request.</para>
+        /// <para>An array of names of parameters to be reset. If <i>ResetAllParameters</i> option is
+        /// not used, then at least one parameter name must be supplied. </para><para>Constraints: A maximum of 20 parameters can be reset in a single request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para> If <code>true</code>, all parameters in the specified parameter group will be reset
+        /// <para>If <code>true</code>, all parameters in the specified parameter group will be reset
         /// to their default values. </para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
