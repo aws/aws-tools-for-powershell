@@ -96,14 +96,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ListSupportedCharacterSet
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified, and if the requested engine supports the CharacterSetName
-        /// parameter for CreateDBInstance, the response includes a list of supported character
-        /// sets for each engine version.</para>
+        /// <para>If this parameter is specified and the requested engine supports the <code>CharacterSetName</code>
+        /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
+        /// character sets for each engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ListSupportedCharacterSets")]
         public System.Boolean ListSupportedCharacterSet { get; set; }
+        #endregion
+        
+        #region Parameter ListSupportedTimezone
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is specified and the requested engine supports the <code>TimeZone</code>
+        /// parameter for <code>CreateDBInstance</code>, the response includes a list of supported
+        /// time zones for each engine version. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ListSupportedTimezones")]
+        public System.Boolean ListSupportedTimezone { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -159,6 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (ParameterWasBound("ListSupportedCharacterSet"))
                 context.ListSupportedCharacterSets = this.ListSupportedCharacterSet;
+            if (ParameterWasBound("ListSupportedTimezone"))
+                context.ListSupportedTimezones = this.ListSupportedTimezone;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -201,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.ListSupportedCharacterSets != null)
             {
                 request.ListSupportedCharacterSets = cmdletContext.ListSupportedCharacterSets.Value;
+            }
+            if (cmdletContext.ListSupportedTimezones != null)
+            {
+                request.ListSupportedTimezones = cmdletContext.ListSupportedTimezones.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -311,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String EngineVersion { get; set; }
             public List<Amazon.RDS.Model.Filter> Filters { get; set; }
             public System.Boolean? ListSupportedCharacterSets { get; set; }
+            public System.Boolean? ListSupportedTimezones { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }

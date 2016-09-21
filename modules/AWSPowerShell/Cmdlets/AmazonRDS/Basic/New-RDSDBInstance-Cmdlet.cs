@@ -501,6 +501,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String TdeCredentialPassword { get; set; }
         #endregion
         
+        #region Parameter Timezone
+        /// <summary>
+        /// <para>
+        /// <para>The time zone of the DB instance. The time zone parameter is currently supported only
+        /// by <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone">Microsoft
+        /// SQL Server</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Timezone { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -594,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
+            context.Timezone = this.Timezone;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
@@ -758,6 +771,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.TdeCredentialPassword = cmdletContext.TdeCredentialPassword;
             }
+            if (cmdletContext.Timezone != null)
+            {
+                request.Timezone = cmdletContext.Timezone;
+            }
             if (cmdletContext.VpcSecurityGroupIds != null)
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
@@ -849,6 +866,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }
+            public System.String Timezone { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
