@@ -264,11 +264,11 @@
 		
 		<Message Text="Authenticode signing module and script artifacts for Desktop edition" />
 		<Exec LogStandardErrorAsError="true"
-              Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(DesktopDeploymentFolder)" />
+              Command="$(powershell) $(SigningScriptArgs) -Path $(DesktopDeploymentFolder)" />
 			  
 		<Message Text="Authenticode signing module and script artifacts for NetCore edition" />
 		<Exec LogStandardErrorAsError="true"
-              Command="$(powershell) $(SigningScriptArgs) -ModuleFolder $(NetCoreDeploymentFolder)" 
+              Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentFolder)" 
 			  />
 	</Target>
 	
