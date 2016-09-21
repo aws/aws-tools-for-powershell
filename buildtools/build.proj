@@ -59,10 +59,12 @@
     <Target Name="restore-nuget" DependsOnTargets="GetSDKToolingInfoTarget">
         <Message Text="Restore nuget packages"/>
         <Exec Command="..\solutions\.nuget\NuGet.exe restore ..\modules\AWSPowerShell\AWSPowerShell.csproj"/>
-        
+
+		<!--
 		<Exec Command="&quot;$(SDKToolingExe)&quot; restore" 
 			  WorkingDirectory="..\modules\AWSPowerShell"
-			  />		
+			  />
+		-->
     </Target>
 	
     <Target Name="build-generator">
@@ -75,8 +77,11 @@
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
 	</Target>
 
-	<Target Name="build-modules" DependsOnTargets="restore-nuget">
-		<Message Text="Building AWSPowerShell module editions"/>
+	<Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />
+	
+	<Target Name="build-desktop-module" DependsOnTargets="restore-nuget">
+	
+		<Message Text="Building AWSPowerShell desktop module edition"/>
 		<MSBuild Projects="..\solutions\AWSPowerShell.sln"
                  Targets="Clean;Build"
                  Properties="Configuration=$(Configuration);ResolveNuGetPackages=false" />		
@@ -89,6 +94,16 @@
               DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
 			  />
 		 
+	</Target>
+	
+	<Target Name="build-netcore-module" DependsOnTargets="GetSDKToolingInfoTarget">
+	
+		<Message Text="Building AWSPowerShell netcore module edition"/>
+		<Exec Command="&quot;$(SDKToolingExe)&quot; restore" 
+			WorkingDirectory="..\modules\AWSPowerShell"/>		
+		<Exec Command="&quot;$(SDKToolingExe)&quot; build -c $(Configuration) --no-incremental" 
+			WorkingDirectory="..\modules\AWSPowerShell"/>		
+			
 	</Target>
     
     <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
@@ -174,8 +189,7 @@
 
 	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
-			<!-- <BuildSourceFolder>bin\$(Configuration)\coreclr\</BuildSourceFolder> -->
-			<BuildSourceFolder>bin\$(Configuration)\coreclr\AWSPowerShell\bin\$(Configuration)\netstandard1.6\</BuildSourceFolder>
+			<BuildSourceFolder>bin\$(Configuration)\netstandard1.6\</BuildSourceFolder>
 			<DeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</DeploymentFolder>
 		</PropertyGroup>
 		
