@@ -1,3 +1,13 @@
+### 3.3.1.0 (2016-09-20)
+  * Amazon Elastic MapReduce
+    - Added support for Security Configurations which can be used to enable encryption at-rest and in-transit for certain applications on Amazon EMR with new cmdlets Get-EMRSecurityConfiguration (DescribeSecurityConfiguration API), Get-EMRSecurityConfigurationList (ListSecurityConfigurations API), New-EMRSecurityConfiguration (CreateSecurityConfiguration API) and Remove-EMRSecurityConfiguration (DeleteSecurityConfiguration API). The Start-EMRJobFlow cmdlet was also extended with a new '-SecurityConfiguration' parameter.
+  * Amazon Relational Database Service
+    - Added support for local time zones for AWS RDS SqlServer database instances: the Get-RDSDBEngineVersion was extended with a new parameter '-ListSupportedTimeZone' and the New-RDSDBInstance cmdlet was extended with a new parameter '-Timezone'.
+  * Amazon Redshift
+    - This release of Amazon Redshift introduces Enhanced VPC Routing. When you use Amazon Redshift Enhanced VPC Routing, Amazon Redshift forces all COPY and UNLOAD traffic between your cluster and your data repositories through your Amazon VPC. The Edit-RSCluster, New-RSCluster and Restore-RSFromClusterSnapshot cmdlets were extended with a new 'EnhancedVPCRouting' parameter.
+  * AWS CodeDeploy
+    - AWS CodeDeploy now integrates with Amazon CloudWatch alarms, making it possible to stop a deployment if there is a change in the state of a specified alarm for a number of consecutive periods, as specified in the alarm threshold. AWS CodeDeploy also now supports automatically rolling back a deployment if certain conditions are met, such as a deployment failure or an activated alarm. The New-CDDeployment cmdlet was extended with new parameters '-AutoRollbackConfiguration_Enabled' and '-AutoRollbackConfiguration_Event' and the Stop-CDDeployment cmdlet extended with a '-AutoRollbackEnabled' parameter. The New-CDDeploymentGroup and Update-CDDeploymentGroup cmdlets were extended with several parameters related to alarm configuration.
+
 ### 3.3.0.0 (2016-09-19)
   * This release marks the General Availability (GA) of the AWS Tools for PowerShell Core (AWSPowerShell.NetCore) and the underlying AWS SDK for .NET Core. Starting with this release both AWS modules for PowerShell will update in sync with new service releases and service updates. The product version has incremented to 3.3.0.0 to match the underlying product version of the SDK. For more information see the blog post at http://blogs.aws.amazon.com/net/post/Tx3O6TT4NKFM0FU/.
   * Set-AWSCredentials
@@ -7,7 +17,7 @@
   * AWS Lambda
     - Extended the Update-LMFunctionCode cmdlet with a new parameter, -ZipFilename, that enables more a convenient way to specify the code to be updated. The original -ZipFile parameter, of type System.IO.MemoryStream, has been retained for backwards compatibility.
   * Amazon Relational Database Service
-    - The Amazon.RDS.Model.DBCluster type in the underlying AWS SDK for .NET SDK has been extended with a new ReaderEndpoint property to support the new Aurora cluster reader end-point feature. 
+    - The Amazon.RDS.Model.DBCluster type in the underlying AWS SDK for .NET SDK has been extended with a new ReaderEndpoint property to support the new Aurora cluster reader end-point feature.
 
 ### 3.1.100.0 (2016-09-13)
   * Amazon S3
@@ -19,7 +29,7 @@
   * Amazon CloudFront
     - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution to enable specifying HTTP2 support for distributions (-DistributionConfig_HttpVersion).
 
-### [AWSPowerShell.NetCore] 3.2.8.0-RC (2016-09-08)	
+### [AWSPowerShell.NetCore] 3.2.8.0-RC (2016-09-08)
   * Updates the service API support in the module cmdlets to match the 3.1.98.0 release of the AWSPowerShell desktop edition.
   * Upgrades the underlying AWS SDK for .NET to the 2.3.8 RC version.
 
@@ -75,7 +85,7 @@
 
 ### 3.1.94.0 (2016-08-18)
   * Amazon WorkSpaces
-    - New cmdlets to support the launch and management of WorkSpaces that are paid for and used by the hour. The new cmdlets are Edit-WKSWorkspaceProperty (ModifyWorkspaceProperties API), Get-WKSWorkspacesConnectionStatus (DescribeWorkspacesConnectionStatus API) and Start-WKSWorkspace (StartWorkspaces API). 
+    - New cmdlets to support the launch and management of WorkSpaces that are paid for and used by the hour. The new cmdlets are Edit-WKSWorkspaceProperty (ModifyWorkspaceProperties API), Get-WKSWorkspacesConnectionStatus (DescribeWorkspacesConnectionStatus API) and Start-WKSWorkspace (StartWorkspaces API).
     NOTE: the new api to stop a workspace (StopWorkspace) is currently NOT supported as it clashes with an existing cmdlet, Stop-WKSWorkspace, which actually maps to the TerminateWorkspaces API. We are investigating correcting this with a new cmdlet, Remove-WKSWorkspace (which will map to TerminateWorkspaces) and updating the existing Stop-WKSWorkspace cmdlet to map to the new StopWorkspaces API. This is of course a breaking change.
   * Amazon EC2
     - Added support for dedicated host reservations with new cmdlets Get-EC2HostReservation (DescribeHostReservations API), Get-EC2HostReservationOffering (DescribeHostReservationOfferings API), Get-EC2HostReservationPurchasePreview (GetHostReservationPurchasePreview API) and New-EC2HostReservation (PurchaseHostReservation API).
@@ -161,7 +171,7 @@
   * Amazon RDS
     - Updated the Start-RDSDBClusterFailover (FailoverDBCluster API) cmdlet with a new parameter TargetDBInstanceIdentifier. Added a new cmdlet, Copy-RDSDBClusterParameterGroup, to support the new CopyDBClusterParameterGroup API.
   * Amazon ECS
-    - Added a new parameter, Overrides_TaskRoleArn, to the New-ECSTask and Start-EC2Task cmdlets. Added a new parameter, TaskRoleArn, to the Register-ECSTaskDefinition cmdlet. These parameters enable you to specify an IAM role for tasks. 
+    - Added a new parameter, Overrides_TaskRoleArn, to the New-ECSTask and Start-EC2Task cmdlets. Added a new parameter, TaskRoleArn, to the Register-ECSTaskDefinition cmdlet. These parameters enable you to specify an IAM role for tasks.
   * Amazon Database Migration Service
     - Updated various cmdlets with new CertificateArn and SslMode parameters enabling use of SSL-enabled endpoints. Added new cmdlets Get-DMSCertificate (DescribeCertificates API), Import-DSMCertificate (ImportCertificate API) and Remove-DSMCertificate (DeleteCertificate API).
 
@@ -245,9 +255,9 @@
 
 ### 3.1.71.0 (2016-05-19)
   * AWS Application Discovery Service [Breaking Change]
-    - The initial release for this service used an incorrect service model. The corrections involve two new new cmdlets, Get-ADSConfiguration (DescribeConfigurations API) and Get-ADSExportConfigurationsId (ExportConfigurations API). The existing Get-ADSExportConfiguration has been remapped to the correct DescribeExportConfigurations API. 
+    - The initial release for this service used an incorrect service model. The corrections involve two new new cmdlets, Get-ADSConfiguration (DescribeConfigurations API) and Get-ADSExportConfigurationsId (ExportConfigurations API). The existing Get-ADSExportConfiguration has been remapped to the correct DescribeExportConfigurations API.
   * Amazon ECS
-    - Updated the ECSTaskDefinitionFamilies cmdlet to add a new Status parameter. This enables filtering on active, inactive, or all task definition families. 
+    - Updated the ECSTaskDefinitionFamilies cmdlet to add a new Status parameter. This enables filtering on active, inactive, or all task definition families.
 
 ### 3.1.70.0 (2016-05-18)
   * Application Auto Scaling
@@ -305,7 +315,7 @@
   * AWS Elastic Beanstalk
     - Added support for automatic platform version upgrades with managed updates with three new cmdlets: Get-EBEnvironmentManagedAction (DescribeEnvironmentManagedAction API), Get-EBEnvironmentManagedActionHistory (DescribeEnvironmentManagedActionHistory API) and Submit-EBEnvironmentManagedAction (ApplyEnvironmentManagedAction API).
   * Amazon Kinesis
-    - Added support for enhanced monitoring with two new cmdlets: Enable-KINEnhancedMonitoring (EnableEnhancedMonitoring API) and Disable-KINEnhancedMonitoring (DisableEnhancedMonitoring API). 
+    - Added support for enhanced monitoring with two new cmdlets: Enable-KINEnhancedMonitoring (EnableEnhancedMonitoring API) and Disable-KINEnhancedMonitoring (DisableEnhancedMonitoring API).
   * Amazon Kinesis Firehose
     - Updated the Update-KINFDestination and New-KINFDeliveryStream cmdlets with additional parameters to support Elastic Search and Cloudwatch Logs.
   * Amazon S3
@@ -326,10 +336,10 @@
   * Amazon Route 53
     - Updated the Update-R53HealthCheck cmdlet with new parameters, -InsufficientDataHealthStatus and -AlarmIdentifier_Name, to support CloudWatch metric-based health checks.
   * Amazon API Gateway
-    - Added new cmdlets, Import-AGRestApi and Write-AGRestAopi, to support the ImportRestApi and PutRestApi operations. 
+    - Added new cmdlets, Import-AGRestApi and Write-AGRestAopi, to support the ImportRestApi and PutRestApi operations.
   * Amazon Inspector
     - The cmdlets for this service have been recreated to match a major revision to the service API. Please note that existing scripts that use this service will need to be updated to work with the new API.
-    
+
 ### 3.1.57.0 (2016-03-29)
   * AWS CloudFormation
     - Added support for ChangeSets. ChangeSets give users detailed information into what CloudFormation intends to perform when changes are executed to a stack, giving users the ability to preview and change the results before actually applying them. The new cmdlets are: Get-CFNChangeSet (DescribeChangeSet API), Get-CFNChangeSetList (ListChangeSets API), New-CFNChangeSet (CreateChangeSet API), Remove-CFNChangeSet (DeleteChangeSet API) and Start-CFNChangeSet (ExecuteChangeSet API).
@@ -360,7 +370,7 @@
   * AWS Cloud HSM
     - Added support for resource tagging with new cmdlets Set-HSMResourceTag (AddTagsToResource API), Get-HSMResourceTag (ListTagsForResource API) and  Remove-HSMResourceTag (RemoveTagsFromResource API).
   * AWS Marketplace Metering
-    - Added support for the new service. Cmdlets for the service share the noun prefix 'MM' and can be listed with the command 'Get-AWSCmdletName -service mm'. At this time the service has a single cmdlet, Send-MMMeteringData (MeterUsage API). 
+    - Added support for the new service. Cmdlets for the service share the noun prefix 'MM' and can be listed with the command 'Get-AWSCmdletName -service mm'. At this time the service has a single cmdlet, Send-MMMeteringData (MeterUsage API).
   * Elastic Load Balancing
     - Corrected a help example for New-ELBLoadBalancerPolicy.
 
