@@ -258,7 +258,8 @@
 		<PropertyGroup>
 			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
 			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
-			<SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\AuthenticodeSign.ps1</SigningScriptArgs>
+			
+            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)\BuildScripts\AuthenticodeSign.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
 		</PropertyGroup>
 		
 		<Message Text="Authenticode signing module and script artifacts for Desktop edition" />
