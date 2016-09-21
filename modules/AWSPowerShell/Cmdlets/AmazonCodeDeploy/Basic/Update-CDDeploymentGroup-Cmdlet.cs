@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class UpdateCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        #region Parameter AlarmConfiguration_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>A list of alarms configured for the deployment group. A maximum of 10 alarms can be
+        /// added to a deployment group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AlarmConfiguration_Alarms")]
+        public Amazon.CodeDeploy.Model.Alarm[] AlarmConfiguration_Alarm { get; set; }
+        #endregion
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
@@ -96,6 +108,50 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.EC2TagFilter[] Ec2TagFilter { get; set; }
         #endregion
         
+        #region Parameter AlarmConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the alarm configuration is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AlarmConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter AutoRollbackConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a defined automatic rollback configuration is currently enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AutoRollbackConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter AutoRollbackConfiguration_Event
+        /// <summary>
+        /// <para>
+        /// <para>The event type or types that trigger a rollback.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AutoRollbackConfiguration_Events")]
+        public System.String[] AutoRollbackConfiguration_Event { get; set; }
+        #endregion
+        
+        #region Parameter AlarmConfiguration_IgnorePollAlarmFailure
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a deployment should continue if information about the current state
+        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para>true: The deployment will proceed even if alarm status information can't be retrieved
+        /// from Amazon CloudWatch.</para></li><li><para>false: The deployment will stop if alarm status information can't be retrieved from
+        /// Amazon CloudWatch.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
+        #endregion
+        
         #region Parameter NewDeploymentGroupName
         /// <summary>
         /// <para>
@@ -132,7 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TriggerConfiguration
         /// <summary>
         /// <para>
-        /// <para>Information about triggers to change when the deployment group is updated.</para>
+        /// <para>Information about triggers to change when the deployment group is updated. For examples,
+        /// see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify
+        /// Triggers in an AWS CodeDeploy Deployment Group</a> in the AWS CodeDeploy User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,7 +227,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AlarmConfiguration_Alarm != null)
+            {
+                context.AlarmConfiguration_Alarms = new List<Amazon.CodeDeploy.Model.Alarm>(this.AlarmConfiguration_Alarm);
+            }
+            if (ParameterWasBound("AlarmConfiguration_Enabled"))
+                context.AlarmConfiguration_Enabled = this.AlarmConfiguration_Enabled;
+            if (ParameterWasBound("AlarmConfiguration_IgnorePollAlarmFailure"))
+                context.AlarmConfiguration_IgnorePollAlarmFailure = this.AlarmConfiguration_IgnorePollAlarmFailure;
             context.ApplicationName = this.ApplicationName;
+            if (ParameterWasBound("AutoRollbackConfiguration_Enabled"))
+                context.AutoRollbackConfiguration_Enabled = this.AutoRollbackConfiguration_Enabled;
+            if (this.AutoRollbackConfiguration_Event != null)
+            {
+                context.AutoRollbackConfiguration_Events = new List<System.String>(this.AutoRollbackConfiguration_Event);
+            }
             if (this.AutoScalingGroup != null)
             {
                 context.AutoScalingGroups = new List<System.String>(this.AutoScalingGroup);
@@ -206,9 +278,77 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // create request
             var request = new Amazon.CodeDeploy.Model.UpdateDeploymentGroupRequest();
             
+            
+             // populate AlarmConfiguration
+            bool requestAlarmConfigurationIsNull = true;
+            request.AlarmConfiguration = new Amazon.CodeDeploy.Model.AlarmConfiguration();
+            List<Amazon.CodeDeploy.Model.Alarm> requestAlarmConfiguration_alarmConfiguration_Alarm = null;
+            if (cmdletContext.AlarmConfiguration_Alarms != null)
+            {
+                requestAlarmConfiguration_alarmConfiguration_Alarm = cmdletContext.AlarmConfiguration_Alarms;
+            }
+            if (requestAlarmConfiguration_alarmConfiguration_Alarm != null)
+            {
+                request.AlarmConfiguration.Alarms = requestAlarmConfiguration_alarmConfiguration_Alarm;
+                requestAlarmConfigurationIsNull = false;
+            }
+            System.Boolean? requestAlarmConfiguration_alarmConfiguration_Enabled = null;
+            if (cmdletContext.AlarmConfiguration_Enabled != null)
+            {
+                requestAlarmConfiguration_alarmConfiguration_Enabled = cmdletContext.AlarmConfiguration_Enabled.Value;
+            }
+            if (requestAlarmConfiguration_alarmConfiguration_Enabled != null)
+            {
+                request.AlarmConfiguration.Enabled = requestAlarmConfiguration_alarmConfiguration_Enabled.Value;
+                requestAlarmConfigurationIsNull = false;
+            }
+            System.Boolean? requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure = null;
+            if (cmdletContext.AlarmConfiguration_IgnorePollAlarmFailure != null)
+            {
+                requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure = cmdletContext.AlarmConfiguration_IgnorePollAlarmFailure.Value;
+            }
+            if (requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure != null)
+            {
+                request.AlarmConfiguration.IgnorePollAlarmFailure = requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure.Value;
+                requestAlarmConfigurationIsNull = false;
+            }
+             // determine if request.AlarmConfiguration should be set to null
+            if (requestAlarmConfigurationIsNull)
+            {
+                request.AlarmConfiguration = null;
+            }
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            
+             // populate AutoRollbackConfiguration
+            bool requestAutoRollbackConfigurationIsNull = true;
+            request.AutoRollbackConfiguration = new Amazon.CodeDeploy.Model.AutoRollbackConfiguration();
+            System.Boolean? requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled = null;
+            if (cmdletContext.AutoRollbackConfiguration_Enabled != null)
+            {
+                requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled = cmdletContext.AutoRollbackConfiguration_Enabled.Value;
+            }
+            if (requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled != null)
+            {
+                request.AutoRollbackConfiguration.Enabled = requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled.Value;
+                requestAutoRollbackConfigurationIsNull = false;
+            }
+            List<System.String> requestAutoRollbackConfiguration_autoRollbackConfiguration_Event = null;
+            if (cmdletContext.AutoRollbackConfiguration_Events != null)
+            {
+                requestAutoRollbackConfiguration_autoRollbackConfiguration_Event = cmdletContext.AutoRollbackConfiguration_Events;
+            }
+            if (requestAutoRollbackConfiguration_autoRollbackConfiguration_Event != null)
+            {
+                request.AutoRollbackConfiguration.Events = requestAutoRollbackConfiguration_autoRollbackConfiguration_Event;
+                requestAutoRollbackConfigurationIsNull = false;
+            }
+             // determine if request.AutoRollbackConfiguration should be set to null
+            if (requestAutoRollbackConfigurationIsNull)
+            {
+                request.AutoRollbackConfiguration = null;
             }
             if (cmdletContext.AutoScalingGroups != null)
             {
@@ -293,7 +433,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CodeDeploy.Model.Alarm> AlarmConfiguration_Alarms { get; set; }
+            public System.Boolean? AlarmConfiguration_Enabled { get; set; }
+            public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
             public System.String ApplicationName { get; set; }
+            public System.Boolean? AutoRollbackConfiguration_Enabled { get; set; }
+            public List<System.String> AutoRollbackConfiguration_Events { get; set; }
             public List<System.String> AutoScalingGroups { get; set; }
             public System.String CurrentDeploymentGroupName { get; set; }
             public System.String DeploymentConfigName { get; set; }

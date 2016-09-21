@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Whether to list revisions based on whether the revision is the target revision of
-        /// an deployment group:</para><ul><li>include: List revisions that are target revisions of a deployment group.</li><li>exclude: Do not list revisions that are target revisions of a deployment group.</li><li>ignore: List all revisions.</li></ul>
+        /// an deployment group:</para><ul><li><para>include: List revisions that are target revisions of a deployment group.</para></li><li><para>exclude: Do not list revisions that are target revisions of a deployment group.</para></li><li><para>ignore: List all revisions.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The column name to use to sort the list results:</para><ul><li>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</li><li>firstUsedTime: Sort by the time the revisions were first used in a deployment.</li><li>lastUsedTime: Sort by the time the revisions were last used in a deployment.</li></ul><para>If not specified or set to null, the results will be returned in an arbitrary order.</para>
+        /// <para>The column name to use to sort the list results:</para><ul><li><para>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</para></li><li><para>firstUsedTime: Sort by the time the revisions were first used in a deployment.</para></li><li><para>lastUsedTime: Sort by the time the revisions were last used in a deployment.</para></li></ul><para>If not specified or set to null, the results will be returned in an arbitrary order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order in which to sort the list results:</para><ul><li>ascending: ascending order.</li><li>descending: descending order.</li></ul><para>If not specified, the results will be sorted in ascending order.</para><para>If set to null, the results will be sorted in an arbitrary order.</para>
+        /// <para>The order in which to sort the list results:</para><ul><li><para>ascending: ascending order.</para></li><li><para>descending: descending order.</para></li></ul><para>If not specified, the results will be sorted in ascending order.</para><para>If set to null, the results will be sorted in an arbitrary order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

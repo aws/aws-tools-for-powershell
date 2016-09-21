@@ -30,8 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// <summary>
     /// Deletes a deployment configuration.
     /// 
-    ///  <note>A deployment configuration cannot be deleted if it is currently in use. Predefined
-    /// configurations cannot be deleted.</note>
+    ///  <note><para>
+    /// A deployment configuration cannot be deleted if it is currently in use. Predefined
+    /// configurations cannot be deleted.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CDDeploymentConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3Location_BundleType
         /// <summary>
         /// <para>
-        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li>tar: A tar archive file.</li><li>tgz: A compressed tar archive file.</li><li>zip: A zip archive file.</li></ul>
+        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para>tar: A tar archive file.</para></li><li><para>tgz: A compressed tar archive file.</para></li><li><para>zip: A zip archive file.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
-        /// revision stored in GitHub.</li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

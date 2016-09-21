@@ -55,12 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
-        /// <para>A subset of instances to list by status:</para><ul><li>Pending: Include those instance with pending deployments.</li><li>InProgress:
-        /// Include those instance where deployments are still in progress.</li><li>Succeeded:
-        /// Include those instances with successful deployments.</li><li>Failed: Include those
-        /// instance with failed deployments.</li><li>Skipped: Include those instance with skipped
-        /// deployments.</li><li>Unknown: Include those instance with deployments in an unknown
-        /// state.</li></ul>
+        /// <para>A subset of instances to list by status:</para><ul><li><para>Pending: Include those instance with pending deployments.</para></li><li><para>InProgress: Include those instance where deployments are still in progress.</para></li><li><para>Succeeded: Include those instances with successful deployments.</para></li><li><para>Failed: Include those instance with failed deployments.</para></li><li><para>Skipped: Include those instance with skipped deployments.</para></li><li><para>Unknown: Include those instance with deployments in an unknown state.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

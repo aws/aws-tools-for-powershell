@@ -39,13 +39,24 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class StopCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        #region Parameter AutoRollbackEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates, when a deployment is stopped, whether instances that have been updated
+        /// should be rolled back to the previous version of the application revision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AutoRollbackEnabled { get; set; }
+        #endregion
+        
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The unique ID of a deployment.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String DeploymentId { get; set; }
         #endregion
         
@@ -78,6 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("AutoRollbackEnabled"))
+                context.AutoRollbackEnabled = this.AutoRollbackEnabled;
             context.DeploymentId = this.DeploymentId;
             
             // allow further manipulation of loaded context prior to processing
@@ -95,6 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // create request
             var request = new Amazon.CodeDeploy.Model.StopDeploymentRequest();
             
+            if (cmdletContext.AutoRollbackEnabled != null)
+            {
+                request.AutoRollbackEnabled = cmdletContext.AutoRollbackEnabled.Value;
+            }
             if (cmdletContext.DeploymentId != null)
             {
                 request.DeploymentId = cmdletContext.DeploymentId;
@@ -150,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoRollbackEnabled { get; set; }
             public System.String DeploymentId { get; set; }
         }
         

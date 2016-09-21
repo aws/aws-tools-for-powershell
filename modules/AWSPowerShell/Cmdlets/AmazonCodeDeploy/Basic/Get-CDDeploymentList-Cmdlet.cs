@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter CreateTimeRange_End
         /// <summary>
         /// <para>
-        /// <para>The end time of the time range.</para><note>Specify null to leave the end time open-ended.</note>
+        /// <para>The end time of the time range.</para><note><para>Specify null to leave the end time open-ended.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,11 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IncludeOnlyStatus
         /// <summary>
         /// <para>
-        /// <para>A subset of deployments to list by status:</para><ul><li>Created: Include created deployments in the resulting list.</li><li>Queued:
-        /// Include queued deployments in the resulting list.</li><li>In Progress: Include in-progress
-        /// deployments in the resulting list.</li><li>Succeeded: Include successful deployments
-        /// in the resulting list.</li><li>Failed: Include failed deployments in the resulting
-        /// list.</li><li>Stopped: Include stopped deployments in the resulting list.</li></ul>
+        /// <para>A subset of deployments to list by status:</para><ul><li><para>Created: Include created deployments in the resulting list.</para></li><li><para>Queued: Include queued deployments in the resulting list.</para></li><li><para>In Progress: Include in-progress deployments in the resulting list.</para></li><li><para>Succeeded: Include successful deployments in the resulting list.</para></li><li><para>Failed: Include failed deployments in the resulting list.</para></li><li><para>Stopped: Include stopped deployments in the resulting list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter CreateTimeRange_Start
         /// <summary>
         /// <para>
-        /// <para>The start time of the time range.</para><note>Specify null to leave the start time open-ended.</note>
+        /// <para>The start time of the time range.</para><note><para>Specify null to leave the start time open-ended.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

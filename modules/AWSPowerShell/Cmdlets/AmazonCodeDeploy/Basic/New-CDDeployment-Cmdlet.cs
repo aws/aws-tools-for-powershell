@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3Location_BundleType
         /// <summary>
         /// <para>
-        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li>tar: A tar archive file.</li><li>tgz: A compressed tar archive file.</li><li>zip: A zip archive file.</li></ul>
+        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para>tar: A tar archive file.</para></li><li><para>tgz: A compressed tar archive file.</para></li><li><para>zip: A zip archive file.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,6 +119,27 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter AutoRollbackConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a defined automatic rollback configuration is currently enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AutoRollbackConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter AutoRollbackConfiguration_Event
+        /// <summary>
+        /// <para>
+        /// <para>The event type or types that trigger a rollback.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AutoRollbackConfiguration_Events")]
+        public System.String[] AutoRollbackConfiguration_Event { get; set; }
+        #endregion
+        
         #region Parameter IgnoreApplicationStopFailure
         /// <summary>
         /// <para>
@@ -162,13 +183,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
-        /// revision stored in GitHub.</li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.CodeDeploy.RevisionLocationType")]
         public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
+        #endregion
+        
+        #region Parameter UpdateOutdatedInstancesOnly
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to deploy to all instances or only to instances that are not running
+        /// the latest application revision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean UpdateOutdatedInstancesOnly { get; set; }
         #endregion
         
         #region Parameter S3Location_Version
@@ -226,6 +257,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
             PreExecutionContextLoad(context);
             
             context.ApplicationName = this.ApplicationName;
+            if (ParameterWasBound("AutoRollbackConfiguration_Enabled"))
+                context.AutoRollbackConfiguration_Enabled = this.AutoRollbackConfiguration_Enabled;
+            if (this.AutoRollbackConfiguration_Event != null)
+            {
+                context.AutoRollbackConfiguration_Events = new List<System.String>(this.AutoRollbackConfiguration_Event);
+            }
             context.DeploymentConfigName = this.DeploymentConfigName;
             context.DeploymentGroupName = this.DeploymentGroupName;
             context.Description = this.Description;
@@ -239,6 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.Revision_S3Location_ETag = this.S3Location_ETag;
             context.Revision_S3Location_Key = this.S3Location_Key;
             context.Revision_S3Location_Version = this.S3Location_Version;
+            if (ParameterWasBound("UpdateOutdatedInstancesOnly"))
+                context.UpdateOutdatedInstancesOnly = this.UpdateOutdatedInstancesOnly;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -258,6 +297,35 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            
+             // populate AutoRollbackConfiguration
+            bool requestAutoRollbackConfigurationIsNull = true;
+            request.AutoRollbackConfiguration = new Amazon.CodeDeploy.Model.AutoRollbackConfiguration();
+            System.Boolean? requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled = null;
+            if (cmdletContext.AutoRollbackConfiguration_Enabled != null)
+            {
+                requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled = cmdletContext.AutoRollbackConfiguration_Enabled.Value;
+            }
+            if (requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled != null)
+            {
+                request.AutoRollbackConfiguration.Enabled = requestAutoRollbackConfiguration_autoRollbackConfiguration_Enabled.Value;
+                requestAutoRollbackConfigurationIsNull = false;
+            }
+            List<System.String> requestAutoRollbackConfiguration_autoRollbackConfiguration_Event = null;
+            if (cmdletContext.AutoRollbackConfiguration_Events != null)
+            {
+                requestAutoRollbackConfiguration_autoRollbackConfiguration_Event = cmdletContext.AutoRollbackConfiguration_Events;
+            }
+            if (requestAutoRollbackConfiguration_autoRollbackConfiguration_Event != null)
+            {
+                request.AutoRollbackConfiguration.Events = requestAutoRollbackConfiguration_autoRollbackConfiguration_Event;
+                requestAutoRollbackConfigurationIsNull = false;
+            }
+             // determine if request.AutoRollbackConfiguration should be set to null
+            if (requestAutoRollbackConfigurationIsNull)
+            {
+                request.AutoRollbackConfiguration = null;
             }
             if (cmdletContext.DeploymentConfigName != null)
             {
@@ -394,6 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.Revision = null;
             }
+            if (cmdletContext.UpdateOutdatedInstancesOnly != null)
+            {
+                request.UpdateOutdatedInstancesOnly = cmdletContext.UpdateOutdatedInstancesOnly.Value;
+            }
             
             CmdletOutput output;
             
@@ -446,6 +518,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
+            public System.Boolean? AutoRollbackConfiguration_Enabled { get; set; }
+            public List<System.String> AutoRollbackConfiguration_Events { get; set; }
             public System.String DeploymentConfigName { get; set; }
             public System.String DeploymentGroupName { get; set; }
             public System.String Description { get; set; }
@@ -458,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String Revision_S3Location_ETag { get; set; }
             public System.String Revision_S3Location_Key { get; set; }
             public System.String Revision_S3Location_Version { get; set; }
+            public System.Boolean? UpdateOutdatedInstancesOnly { get; set; }
         }
         
     }
