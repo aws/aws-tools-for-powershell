@@ -161,7 +161,7 @@ $AG_Completers = {
         # Amazon.APIGateway.IntegrationType
         "Write-AGIntegration/Type"
         {
-            $v = "AWS","HTTP","MOCK"
+            $v = "AWS","AWS_PROXY","HTTP","HTTP_PROXY","MOCK"
             break
         }
         
