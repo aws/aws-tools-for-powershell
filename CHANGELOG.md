@@ -1,3 +1,7 @@
+### 3.3.2.0 (2016-09-22)
+  * Amazon API Gateway
+    - Extended the argument completer for the -Type parameter on Write-AGIntegration to support the new values related to the Simple Proxy feature.
+
 ### 3.3.1.0 (2016-09-20)
   * Amazon Elastic MapReduce
     - Added support for Security Configurations which can be used to enable encryption at-rest and in-transit for certain applications on Amazon EMR with new cmdlets Get-EMRSecurityConfiguration (DescribeSecurityConfiguration API), Get-EMRSecurityConfigurationList (ListSecurityConfigurations API), New-EMRSecurityConfiguration (CreateSecurityConfiguration API) and Remove-EMRSecurityConfiguration (DeleteSecurityConfiguration API). The Start-EMRJobFlow cmdlet was also extended with a new '-SecurityConfiguration' parameter.
