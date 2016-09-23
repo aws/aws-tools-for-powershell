@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Common
                 // don't find it as otherwise we could drop through and pick up a 'default' profile that is
                 // for a different account
                 if (innerCredentials == null)
-					return false;
+                    return false;
            }
 
             // how about an aws credentials object?
@@ -181,8 +181,7 @@ namespace Amazon.PowerShell.Common
             {
                 try
                 {
-                    var storedCredentials = new StoredProfileAWSCredentials(SettingsStore.PSLegacyDefaultSettingName);
-                    innerCredentials = storedCredentials.ToKeyedCredentials();
+                    innerCredentials = new StoredProfileAWSCredentials(SettingsStore.PSLegacyDefaultSettingName);
                     source = CredentialsSource.Profile;
                     name = SettingsStore.PSLegacyDefaultSettingName;
                 }
@@ -223,25 +222,79 @@ namespace Amazon.PowerShell.Common
             if (credentials != null)
             {
 #if DESKTOP
-                // if we have picked up a SAML-based credentials profile, make sure the callback
-                // to authenticate the user is set. The underlying SDK will then call us back
-                // if it needs to (we could skip setting if the profile indicates its for the
-                // default identity, but it's simpler to just set up anyway)
-                var samlCredentials = credentials.Credentials as StoredProfileFederatedCredentials;
-                if (samlCredentials != null)
-                {
-                    var state = new SAMLCredentialCallbackState
-                    {
-                        Host = psHost,
-                        CmdletNetworkCredentialParameter = self.NetworkCredential
-                    };
-
-                    samlCredentials.SetCredentialCallbackData(UserCredentialCallbackHandler, state);
-                }
+                RegisterSAMLCredentialsCallback(credentials, psHost, self.NetworkCredential);
 #endif
+                RegisterAssumeRoleMFACallback(credentials);
             }
 
             return (credentials != null);
+        }
+
+#if DESKTOP
+        private static void RegisterSAMLCredentialsCallback(AWSPSCredentials credentials, PSHost psHost, PSCredential psCredential)
+        {
+            // if we have picked up a SAML-based credentials profile, make sure the callback
+            // to authenticate the user is set. The underlying SDK will then call us back
+            // if it needs to (we could skip setting if the profile indicates its for the
+            // default identity, but it's simpler to just set up anyway)
+            var samlCredentials = credentials.Credentials as StoredProfileFederatedCredentials;
+            if (samlCredentials != null)
+            {
+                var state = new SAMLCredentialCallbackState
+                {
+                    Host = psHost,
+                    CmdletNetworkCredentialParameter = psCredential
+                };
+
+                samlCredentials.SetCredentialCallbackData(UserCredentialCallbackHandler, state);
+            }
+        }
+#endif
+
+        private static void RegisterAssumeRoleMFACallback(AWSPSCredentials credentials)
+        {
+            // Add a callback to get the MFA token if necessary
+            var assumeRoleCredentials = ((credentials.Credentials) as StoredProfileAWSCredentials)?.WrappedCredentials as AssumeRoleAWSCredentials;
+            if (assumeRoleCredentials != null)
+            {
+                assumeRoleCredentials.Options.MfaTokenCodeCallback = ReadMFACode;
+            }
+        }
+
+        private static String ReadMFACode()
+        {
+            Console.Write("Enter MFA code:");
+
+            String mfaCode = "";
+            while (true)
+            {
+                ConsoleKeyInfo info = Console.ReadKey(true);
+                if (info.Key == ConsoleKey.Backspace)
+                {
+                    if (mfaCode.Length > 0)
+                    {
+                        // remove the character from the string
+                        mfaCode = mfaCode.Remove(mfaCode.Length - 1);
+
+                        // remove the * from the console
+                        var position = Console.CursorLeft - 1;
+                        Console.SetCursorPosition(position, Console.CursorTop);
+                        Console.Write(" ");
+                        Console.SetCursorPosition(position, Console.CursorTop);
+                    }
+                }
+                else if (info.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                    break;
+                }
+                else
+                {
+                    mfaCode += info.KeyChar;
+                    Console.Write("*");
+                }
+            }
+            return mfaCode;
         }
 
         private static void LoadAWSCredentialProfile(IAWSCredentialsArguments self,
@@ -253,8 +306,7 @@ namespace Amazon.PowerShell.Common
             var profileName = userSpecifiedProfile ? self.ProfileName : SettingsStore.PSDefaultSettingName;
             try
             {
-                var storedCredentials = new StoredProfileAWSCredentials(profileName, self.ProfilesLocation);
-                innerCredentials = storedCredentials.ToKeyedCredentials();
+                innerCredentials = new StoredProfileAWSCredentials(profileName, self.ProfilesLocation);
                 source = CredentialsSource.Profile;
                 name = profileName;
             }
