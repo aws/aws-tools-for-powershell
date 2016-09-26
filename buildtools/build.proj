@@ -273,6 +273,11 @@
 	</Target>
 	
     <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
+		<PropertyGroup>
+			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
+			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
+		</PropertyGroup>
+
         <ItemGroup>
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
@@ -297,8 +302,15 @@
             <FileException Include="Include\sdk\Models\elasticbeanstalk.examples.json" />
             <FileException Include="Include\sdk\Models\elasticbeanstalk.customizations.json" />
 			
-            <FileException Include="Deployment\AWSPowerShell\AWSPowerShell.psd1" />
-            <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.psd1" />
+            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShell.psd1" />
+            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShell.TypeExtensions.ps1xml" />
+            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShell.Format.ps1xml" />
+            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShellCompleters.psm1" />
+			
+            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShell.NetCore.psd1" />
+            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShell.TypeExtensions.ps1xml" />
+            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShell.Format.ps1xml" />
+            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShellCompleters.psm1" />
         </ItemGroup>
         
         <KeyScannerTask 
