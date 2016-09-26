@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Common
 
     public enum CredentialsSource
     {
-        Strings, Saved, CredentialsObject, Session, Environment, InstanceProfile, Unknown
+        Strings, Profile, CredentialsObject, Session, Environment, Container, InstanceProfile, Unknown
     }
 
     internal interface IAWSCredentialsArguments
@@ -183,20 +183,31 @@ namespace Amazon.PowerShell.Common
                 {
                     var storedCredentials = new StoredProfileAWSCredentials(SettingsStore.PSLegacyDefaultSettingName);
                     innerCredentials = storedCredentials.ToKeyedCredentials();
-                    source = CredentialsSource.Saved;
+                    source = CredentialsSource.Profile;
                     name = SettingsStore.PSLegacyDefaultSettingName;
                 }
                 catch { }
             }
 
-            // last chance, try and load credentials from EC2 Instance Profile
             if (innerCredentials == null)
             {
+                // try and load credentials from ECS endpoint (if the relevant environment variable is set)
+                // or EC2 Instance Profile as a last resort
                 try
                 {
-                    innerCredentials = new InstanceProfileAWSCredentials();
-                    source = CredentialsSource.InstanceProfile;
-                    name = "Instance Profile";
+                    string uri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
+                    if (!string.IsNullOrEmpty(uri))
+                    {
+                        innerCredentials = new ECSTaskCredentials();
+                        source = CredentialsSource.Container;
+                        name = "Container";
+                    }
+                    else
+                    {
+                        innerCredentials = new InstanceProfileAWSCredentials();
+                        source = CredentialsSource.InstanceProfile;
+                        name = "Instance Profile";
+                    }
                 }
                 catch
                 {
@@ -244,7 +255,7 @@ namespace Amazon.PowerShell.Common
             {
                 var storedCredentials = new StoredProfileAWSCredentials(profileName, self.ProfilesLocation);
                 innerCredentials = storedCredentials.ToKeyedCredentials();
-                source = CredentialsSource.Saved;
+                source = CredentialsSource.Profile;
                 name = profileName;
             }
 #if DESKTOP
@@ -285,7 +296,7 @@ namespace Amazon.PowerShell.Common
                 var webProxy = proxySettings != null ? proxySettings.GetWebProxy() : null;
                 var storedCredentials = new StoredProfileFederatedCredentials(profileName, self.ProfilesLocation, webProxy);
                 innerCredentials = storedCredentials;
-                source = CredentialsSource.Saved;
+                source = CredentialsSource.Profile;
                 name = profileName;
             }
             catch (Exception e)  // bad data of some form, or profile not found

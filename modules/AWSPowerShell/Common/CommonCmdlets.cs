@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Common
                 = defaultSettings == null ? null 
                                           : new AWSPSCredentials(defaultSettings.Credentials, 
                                                                  SettingsStore.PSDefaultSettingName, 
-                                                                 CredentialsSource.Saved);
+                                                                 CredentialsSource.Profile);
             var shouldSaveCredentials = GetCredentials(passedCredentials, ref defaultCredentials);
 
             var region = defaultSettings == null ? null : defaultSettings.Region;
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Common
                 // and clean it out to avoid a mix. Note that we get 'saved' source type for credentials
                 // the user just entered, so we have to do a check to see if the profile previously
                 // existed...
-                if (defaultCredentials.Source == CredentialsSource.Saved && userSuppliedProfileName)
+                if (defaultCredentials.Source == CredentialsSource.Profile && userSuppliedProfileName)
                     SettingsStore.SaveFromProfile(commonArguments.ProfileName, SettingsStore.PSDefaultSettingName, region);
                 else
                 {
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Common
                     {
                         var chosenCredentials = choices[choice];
                         var credentials = SettingsStore.Load(chosenCredentials.Label).Credentials;
-                        credentialsToUse = new AWSPSCredentials(credentials, chosenCredentials.Label, CredentialsSource.Saved);
+                        credentialsToUse = new AWSPSCredentials(credentials, chosenCredentials.Label, CredentialsSource.Profile);
                     }
                 }
 
@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Common
 
                     var credentials = new BasicAWSCredentials(accessKey, secretKey);
                     // this set will be saved as our default name
-                    credentialsToUse = new AWSPSCredentials(credentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Saved);
+                    credentialsToUse = new AWSPSCredentials(credentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
                 }
             }
 

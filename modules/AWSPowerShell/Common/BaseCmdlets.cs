@@ -460,10 +460,12 @@ namespace Amazon.PowerShell.Common
             {
                 case CredentialsSource.CredentialsObject:
                     return "supplied credentials object";
+                case CredentialsSource.Container:
+                    return "container environment";
                 case CredentialsSource.InstanceProfile:
                     return "instance profile";
-                case CredentialsSource.Saved:
-                    return String.Format("stored profile name '{0}'", creds.Name);
+                case CredentialsSource.Profile:
+                    return String.Format("stored profile named '{0}'", creds.Name);
                 case CredentialsSource.Session:
                     return "shell variable $" + SessionKeys.AWSRegionVariableName;
                 case CredentialsSource.Strings:
