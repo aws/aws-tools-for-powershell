@@ -28,39 +28,49 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Generates a data key that you can use in your application to locally encrypt data.
-    /// This call returns a plaintext version of the key in the <code>Plaintext</code> field
-    /// of the response object and an encrypted copy of the key in the <code>CiphertextBlob</code>
-    /// field. The key is encrypted by using the master key specified by the <code>KeyId</code>
-    /// field. To decrypt the encrypted key, pass it to the <code>Decrypt</code> API.
+    /// Returns a data encryption key that you can use in your application to encrypt data
+    /// locally.
     /// 
     ///  
     /// <para>
-    /// We recommend that you use the following pattern to locally encrypt data: call the
-    /// <code>GenerateDataKey</code> API, use the key returned in the <code>Plaintext</code>
-    /// response field to locally encrypt data, and then erase the plaintext data key from
-    /// memory. Store the encrypted data key (contained in the <code>CiphertextBlob</code>
-    /// field) alongside of the locally encrypted data.
-    /// </para><note><para>
-    /// You should not call the <code>Encrypt</code> function to re-encrypt your data keys
-    /// within a region. <code>GenerateDataKey</code> always returns the data key encrypted
-    /// and tied to the customer master key that will be used to decrypt it. There is no need
-    /// to decrypt it twice.
-    /// </para></note><para>
-    /// If you decide to use the optional <code>EncryptionContext</code> parameter, you must
-    /// also store the context in full or at least store enough information along with the
-    /// encrypted data to be able to reconstruct the context when submitting the ciphertext
-    /// to the <code>Decrypt</code> API. It is a good practice to choose a context that you
-    /// can reconstruct on the fly to better secure the ciphertext. For more information about
-    /// how this parameter is used, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html">Encryption
-    /// Context</a>.
+    /// You must specify the customer master key (CMK) under which to generate the data key.
+    /// You must also specify the length of the data key using either the <code>KeySpec</code>
+    /// or <code>NumberOfBytes</code> field. You must specify one field or the other, but
+    /// not both. For common key lengths (128-bit and 256-bit symmetric keys), we recommend
+    /// that you use <code>KeySpec</code>.
     /// </para><para>
-    /// To decrypt data, pass the encrypted data key to the <code>Decrypt</code> API. <code>Decrypt</code>
-    /// uses the associated master key to decrypt the encrypted data key and returns it as
-    /// plaintext. Use the plaintext data key to locally decrypt your data and then erase
-    /// the key from memory. You must specify the encryption context, if any, that you specified
-    /// when you generated the key. The encryption context is logged by CloudTrail, and you
-    /// can use this log to help track the use of particular data.
+    /// This operation returns a plaintext copy of the data key in the <code>Plaintext</code>
+    /// field of the response, and an encrypted copy of the data key in the <code>CiphertextBlob</code>
+    /// field. The data key is encrypted under the CMK specified in the <code>KeyId</code>
+    /// field of the request.
+    /// </para><para>
+    /// We recommend that you use the following pattern to encrypt data locally in your application:
+    /// </para><ol><li><para>
+    /// Use this operation (<code>GenerateDataKey</code>) to retrieve a data encryption key.
+    /// </para></li><li><para>
+    /// Use the plaintext data encryption key (returned in the <code>Plaintext</code> field
+    /// of the response) to encrypt data locally, then erase the plaintext data key from memory.
+    /// </para></li><li><para>
+    /// Store the encrypted data key (returned in the <code>CiphertextBlob</code> field of
+    /// the response) alongside the locally encrypted data.
+    /// </para></li></ol><para>
+    /// To decrypt data locally:
+    /// </para><ol><li><para>
+    /// Use the <a>Decrypt</a> operation to decrypt the encrypted data key into a plaintext
+    /// copy of the data key.
+    /// </para></li><li><para>
+    /// Use the plaintext data key to decrypt data locally, then erase the plaintext data
+    /// key from memory.
+    /// </para></li></ol><para>
+    /// To return only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>.
+    /// To return an arbitrary unpredictable byte string, use <a>GenerateRandom</a>.
+    /// </para><para>
+    /// If you use the optional <code>EncryptionContext</code> field, you must store at least
+    /// enough information to be able to reconstruct the full encryption context when you
+    /// later send the ciphertext to the <a>Decrypt</a> operation. It is a good practice to
+    /// choose an encryption context that you can reconstruct on the fly to better secure
+    /// the ciphertext. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+    /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KMSDataKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,9 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Name/value pair that contains additional data to be authenticated during the encryption
-        /// and decryption processes that use the key. This value is logged by AWS CloudTrail
-        /// to provide context around the data encrypted by the key.</para>
+        /// <para>A set of key-value pairs that represents additional authenticated data.</para><para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+        /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
-        /// by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
+        /// <para>The identifier of the CMK under which to generate and encrypt the data encryption
+        /// key.</para><para>A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK,
+        /// or the alias name or ARN of an alias that points to the CMK. Examples:</para><ul><li><para>Unique key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>CMK ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -111,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeySpec
         /// <summary>
         /// <para>
-        /// <para>Value that identifies the encryption algorithm and key size to generate a data key
-        /// for. Currently this can be AES_128 or AES_256.</para>
+        /// <para>The length of the data encryption key. Use <code>AES_128</code> to generate a 128-bit
+        /// symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,9 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter NumberOfBytes
         /// <summary>
         /// <para>
-        /// <para>Integer that contains the number of bytes to generate. Common values are 128, 256,
-        /// 512, and 1024. 1024 is the current limit. We recommend that you use the <code>KeySpec</code>
-        /// parameter instead.</para>
+        /// <para>The length of the data encryption key in bytes. For example, use the value 64 to generate
+        /// a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit
+        /// symmetric keys), we recommend that you use the <code>KeySpec</code> field instead
+        /// of this one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

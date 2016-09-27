@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Category
         /// <summary>
         /// <para>
-        /// <para>The category of the custom action, such as a source action or a build action.</para><note><para>Although Source is listed as a valid value, it is not currently functional. This value
-        /// is reserved for future use.</para></note>
+        /// <para>The category of the custom action, such as a build action or a test action.</para><note><para>Although Source and Approval are listed as valid values, they are not currently functional.
+        /// These values are reserved for future use.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version number of the custom action.</para>
+        /// <para>The version identifier of the custom action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

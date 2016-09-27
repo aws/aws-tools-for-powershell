@@ -195,15 +195,14 @@ namespace Amazon.PowerShell.Common
                 // or EC2 Instance Profile as a last resort
                 try
                 {
-                    // disable ecs until we get assume role variant working
-                    //string uri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
-                    //if (!string.IsNullOrEmpty(uri))
-                    //{
-                    //    innerCredentials = new ECSTaskCredentials();
-                    //    source = CredentialsSource.Container;
-                    //    name = "Container";
-                    //}
-                    //else
+                    string uri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
+                    if (!string.IsNullOrEmpty(uri))
+                    {
+                        innerCredentials = new ECSTaskCredentials();
+                        source = CredentialsSource.Container;
+                        name = "Container";
+                    }
+                    else
                     {
                         innerCredentials = new InstanceProfileAWSCredentials();
                         source = CredentialsSource.InstanceProfile;

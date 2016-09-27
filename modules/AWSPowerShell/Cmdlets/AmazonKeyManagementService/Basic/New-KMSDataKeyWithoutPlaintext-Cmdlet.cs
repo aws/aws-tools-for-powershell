@@ -28,10 +28,24 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns a data key encrypted by a customer master key without the plaintext copy of
-    /// that key. Otherwise, this API functions exactly like <a>GenerateDataKey</a>. You can
-    /// use this API to, for example, satisfy an audit requirement that an encrypted key be
-    /// made available without exposing the plaintext copy of that key.
+    /// Returns a data encryption key encrypted under a customer master key (CMK). This operation
+    /// is identical to <a>GenerateDataKey</a> but returns only the encrypted copy of the
+    /// data key.
+    /// 
+    ///  
+    /// <para>
+    /// This operation is useful in a system that has multiple components with different degrees
+    /// of trust. For example, consider a system that stores encrypted data in containers.
+    /// Each container stores the encrypted data and an encrypted copy of the data key. One
+    /// component of the system, called the <i>control plane</i>, creates new containers.
+    /// When it creates a new container, it uses this operation (<code>GenerateDataKeyWithoutPlaintext</code>)
+    /// to get an encrypted data key and then stores it in the container. Later, a different
+    /// component of the system, called the <i>data plane</i>, puts encrypted data into the
+    /// containers. To do this, it passes the encrypted data key to the <a>Decrypt</a> operation,
+    /// then uses the returned plaintext data key to encrypt data, and finally stores the
+    /// encrypted data in the container. In this system, the control plane never sees the
+    /// plaintext data key.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KMSDataKeyWithoutPlaintext", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse")]
@@ -45,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Name:value pair that contains additional data to be authenticated during the encryption
-        /// and decryption processes.</para>
+        /// <para>A set of key-value pairs that represents additional authenticated data.</para><para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+        /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,9 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
-        /// by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
+        /// <para>The identifier of the CMK under which to generate and encrypt the data encryption
+        /// key.</para><para>A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK,
+        /// or the alias name or ARN of an alias that points to the CMK. Examples:</para><ul><li><para>Unique key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>CMK ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -80,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeySpec
         /// <summary>
         /// <para>
-        /// <para>Value that identifies the encryption algorithm and key size. Currently this can be
-        /// AES_128 or AES_256.</para>
+        /// <para>The length of the data encryption key. Use <code>AES_128</code> to generate a 128-bit
+        /// symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,9 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter NumberOfBytes
         /// <summary>
         /// <para>
-        /// <para>Integer that contains the number of bytes to generate. Common values are 128, 256,
-        /// 512, 1024 and so on. We recommend that you use the <code>KeySpec</code> parameter
-        /// instead.</para>
+        /// <para>The length of the data encryption key in bytes. For example, use the value 64 to generate
+        /// a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit
+        /// symmetric keys), we recommend that you use the <code>KeySpec</code> field instead
+        /// of this one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
