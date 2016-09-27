@@ -1,3 +1,7 @@
+### 3.3.3.0 (2016-09-27)
+  * AWS CloudFormation
+    - Updated the New-CFNChangeSet, New-CFNStack, Remove-CFNStack, Resume-CFNUpdateRollback and UpdateStack with a new parameter, -RoleARN. When specified AWS CloudFormation uses the role's credentials to make calls on your behalf for future operations on the stack. 
+
 ### 3.3.2.0 (2016-09-22)
   * Amazon API Gateway
     - Extended the argument completer for the -Type parameter on Write-AGIntegration to support the new values related to the Simple Proxy feature.
