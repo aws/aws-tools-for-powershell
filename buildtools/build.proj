@@ -40,8 +40,11 @@
         
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
+        <DesktopDeploymentArtifacts>$(Deployment)\AWSPowerShell\</DesktopDeploymentArtifacts>
+        <NetCoreDeploymentArtifacts>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentArtifacts>
+
         <DocDeployment Condition="'$(DocDeployment)'==''">$(RootPath)\DocDeployment</DocDeployment>
-           
+        
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         <RunKeyScan Condition="'$(RunKeyScan)'==''">false</RunKeyScan>
         
@@ -90,8 +93,8 @@
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e desktop" />
 		
 		<!-- clone the generated file for coreclr too -->
-        <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.Format.ps1xml" 
-              DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
+        <Copy SourceFiles="$(DesktopDeploymentArtifacts)\AWSPowerShell.Format.ps1xml" 
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"
 			  />
 		 
 	</Target>
@@ -113,8 +116,8 @@
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t pshelp -e desktop" />
 
 		<!-- clone the generated file for coreclr too -->
-        <Copy SourceFiles="$(Deployment)\AWSPowerShell\AWSPowerShell.dll-Help.xml" 
-              DestinationFolder="$(Deployment)\AWSPowerShell.NetCore"
+        <Copy SourceFiles="$(DesktopDeploymentArtifacts)\AWSPowerShell.dll-Help.xml" 
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"
 			  />
 		 
 	</Target>
@@ -154,10 +157,9 @@
     <Target Name="copy-desktop-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<BuildSourceFolder>bin\$(Configuration)\desktop\</BuildSourceFolder>
-			<DeploymentFolder>$(Deployment)\AWSPowerShell\</DeploymentFolder>
 		</PropertyGroup>
 		
-		<Message Text="Consolidating Desktop edition artifacts from $(BuildSourceFolder) to $(DeploymentFolder)"/>
+		<Message Text="Consolidating Desktop edition artifacts from $(BuildSourceFolder) to $(DesktopDeploymentArtifacts)"/>
 	
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" 
@@ -165,35 +167,34 @@
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.dll"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 		<!-- the ndoc xml file is needed in separate build process to generate and push web docs to github -->
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.xml"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="@(SDKAssemblies)"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
     </Target>
 
 	<Target Name="copy-coreclr-artifacts" DependsOnTargets="build-modules">
 		<PropertyGroup>
 			<BuildSourceFolder>bin\$(Configuration)\netstandard1.6\</BuildSourceFolder>
-			<DeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</DeploymentFolder>
 		</PropertyGroup>
 		
-		<Message Text="Consolidating CoreCLR edition artifacts from $(BuildSourceFolder) to $(DeploymentFolder)"/>
+		<Message Text="Consolidating CoreCLR edition artifacts from $(BuildSourceFolder) to $(NetCoreDeploymentArtifacts)"/>
 	
         <ItemGroup>
             <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)\netstandard1.3\*.dll" 
@@ -201,25 +202,25 @@
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.NetCore.psd1"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.NetCore.dll"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="@(NetCoreSDKAssemblies)"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 		<!--
         <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 		-->
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
-              DestinationFolder="$(DeploymentFolder)"/>
+              DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
               
 		<Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1"
-        	  DestinationFolder="$(DeploymentFolder)"/>
+        	  DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 			
     </Target>
 	
@@ -256,28 +257,20 @@
 
 	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
 		<PropertyGroup>
-			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
-			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
-			
             <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)\BuildScripts\AuthenticodeSign.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
 		</PropertyGroup>
 		
 		<Message Text="Authenticode signing module and script artifacts for Desktop edition" />
 		<Exec LogStandardErrorAsError="true"
-              Command="$(powershell) $(SigningScriptArgs) -Path $(DesktopDeploymentFolder)" />
+              Command="$(powershell) $(SigningScriptArgs) -Path $(DesktopDeploymentArtifacts)" />
 			  
 		<Message Text="Authenticode signing module and script artifacts for NetCore edition" />
 		<Exec LogStandardErrorAsError="true"
-              Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentFolder)" 
+              Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentArtifacts)" 
 			  />
 	</Target>
 	
     <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
-		<PropertyGroup>
-			<DesktopArtifacts>$(Deployment)\AWSPowerShell</DesktopArtifacts>
-			<NetCoreArtifacts>$(Deployment)\AWSPowerShell.NetCore</NetCoreArtifacts>
-		</PropertyGroup>
-
         <ItemGroup>
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
@@ -302,17 +295,17 @@
             <FileException Include="Include\sdk\Models\elasticbeanstalk.examples.json" />
             <FileException Include="Include\sdk\Models\elasticbeanstalk.customizations.json" />
 			
-            <FileException Include="$(DesktopArtifacts)\AWSPowerShell.psd1" />
-            <FileException Include="$(DesktopArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
-            <FileException Include="$(DesktopArtifacts)\AWSPowerShell.Format.ps1xml" />
-            <FileException Include="$(DesktopArtifacts)\AWSPowerShellCompleters.psm1" />
-            <FileException Include="$(DesktopArtifacts)\AWSAliases.ps1" />
+            <FileException Include="$(DesktopDeploymentArtifacts)\AWSPowerShell.psd1" />
+            <FileException Include="$(DesktopDeploymentArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
+            <FileException Include="$(DesktopDeploymentArtifacts)\AWSPowerShell.Format.ps1xml" />
+            <FileException Include="$(DesktopDeploymentArtifacts)\AWSPowerShellCompleters.psm1" />
+            <FileException Include="$(DesktopDeploymentArtifacts)\AWSAliases.ps1" />
 			
-            <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.NetCore.psd1" />
-            <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
-            <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.Format.ps1xml" />
-            <FileException Include="$(NetCoreArtifacts)\AWSPowerShellCompleters.psm1" />
-            <FileException Include="$(NetCoreArtifacts)\AWSAliases.ps1" />
+            <FileException Include="$(NetCoreDeploymentArtifacts)\AWSPowerShell.NetCore.psd1" />
+            <FileException Include="$(NetCoreDeploymentArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
+            <FileException Include="$(NetCoreDeploymentArtifacts)\AWSPowerShell.Format.ps1xml" />
+            <FileException Include="$(NetCoreDeploymentArtifacts)\AWSPowerShellCompleters.psm1" />
+            <FileException Include="$(NetCoreDeploymentArtifacts)\AWSAliases.ps1" />
         </ItemGroup>
         
         <KeyScannerTask 
