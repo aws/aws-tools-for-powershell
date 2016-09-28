@@ -274,8 +274,8 @@
 	
     <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
 		<PropertyGroup>
-			<DesktopDeploymentFolder>$(Deployment)\AWSPowerShell\</DesktopDeploymentFolder>
-			<NetCoreDeploymentFolder>$(Deployment)\AWSPowerShell.NetCore\</NetCoreDeploymentFolder>
+			<DesktopArtifacts>$(Deployment)\AWSPowerShell</DesktopArtifacts>
+			<NetCoreArtifacts>$(Deployment)\AWSPowerShell.NetCore</NetCoreArtifacts>
 		</PropertyGroup>
 
         <ItemGroup>
@@ -302,15 +302,15 @@
             <FileException Include="Include\sdk\Models\elasticbeanstalk.examples.json" />
             <FileException Include="Include\sdk\Models\elasticbeanstalk.customizations.json" />
 			
-            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShell.psd1" />
-            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShell.TypeExtensions.ps1xml" />
-            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShell.Format.ps1xml" />
-            <FileException Include="$(DesktopDeploymentFolder)\AWSPowerShellCompleters.psm1" />
+            <FileException Include="$(DesktopArtifacts)\AWSPowerShell.psd1" />
+            <FileException Include="$(DesktopArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
+            <FileException Include="$(DesktopArtifacts)\AWSPowerShell.Format.ps1xml" />
+            <FileException Include="$(DesktopArtifacts)\AWSPowerShellCompleters.psm1" />
 			
-            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShell.NetCore.psd1" />
-            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShell.TypeExtensions.ps1xml" />
-            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShell.Format.ps1xml" />
-            <FileException Include="$(NetCoreDeploymentFolder)\AWSPowerShellCompleters.psm1" />
+            <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.NetCore.psd1" />
+            <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
+            <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.Format.ps1xml" />
+            <FileException Include="$(NetCoreArtifacts)\AWSPowerShellCompleters.psm1" />
         </ItemGroup>
         
         <KeyScannerTask 
