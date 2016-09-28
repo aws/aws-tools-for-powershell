@@ -306,11 +306,13 @@
             <FileException Include="$(DesktopArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
             <FileException Include="$(DesktopArtifacts)\AWSPowerShell.Format.ps1xml" />
             <FileException Include="$(DesktopArtifacts)\AWSPowerShellCompleters.psm1" />
+            <FileException Include="$(DesktopArtifacts)\AWSAliases.ps1" />
 			
             <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.NetCore.psd1" />
             <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.TypeExtensions.ps1xml" />
             <FileException Include="$(NetCoreArtifacts)\AWSPowerShell.Format.ps1xml" />
             <FileException Include="$(NetCoreArtifacts)\AWSPowerShellCompleters.psm1" />
+            <FileException Include="$(NetCoreArtifacts)\AWSAliases.ps1" />
         </ItemGroup>
         
         <KeyScannerTask 
