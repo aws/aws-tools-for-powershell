@@ -161,6 +161,23 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] ResourceType { get; set; }
         #endregion
         
+        #region Parameter RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+        /// that AWS CloudFormation assumes when executing the change set. AWS CloudFormation
+        /// uses the role's credentials to make calls on your behalf. AWS CloudFormation always
+        /// uses this role for all future operations on the stack. As long as users have permission
+        /// to operate on the stack, AWS CloudFormation uses this role even if the users don't
+        /// have permission to pass it. Ensure that the role grants least privilege.</para><para>If you don't specify a value, AWS CloudFormation uses the role that was previously
+        /// associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+        /// session that is generated from your user credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RoleARN { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -269,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
+            context.RoleARN = this.RoleARN;
             context.StackName = this.StackName;
             if (this.Tag != null)
             {
@@ -321,6 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ResourceTypes != null)
             {
                 request.ResourceTypes = cmdletContext.ResourceTypes;
+            }
+            if (cmdletContext.RoleARN != null)
+            {
+                request.RoleARN = cmdletContext.RoleARN;
             }
             if (cmdletContext.StackName != null)
             {
@@ -400,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public List<System.String> ResourceTypes { get; set; }
+            public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }
             public System.String TemplateBody { get; set; }

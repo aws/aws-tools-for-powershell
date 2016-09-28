@@ -56,6 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] RetainResource { get; set; }
         #endregion
         
+        #region Parameter RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+        /// that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's
+        /// credentials to make calls on your behalf.</para><para>If you don't specify a value, AWS CloudFormation uses the role that was previously
+        /// associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+        /// session that is generated from your user credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RoleARN { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -108,6 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.RetainResources = new List<System.String>(this.RetainResource);
             }
+            context.RoleARN = this.RoleARN;
             context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
@@ -128,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.RetainResources != null)
             {
                 request.RetainResources = cmdletContext.RetainResources;
+            }
+            if (cmdletContext.RoleARN != null)
+            {
+                request.RoleARN = cmdletContext.RoleARN;
             }
             if (cmdletContext.StackName != null)
             {
@@ -187,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> RetainResources { get; set; }
+            public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }
         }
         

@@ -55,6 +55,23 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class ResumeCFNUpdateRollbackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+        /// that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the
+        /// role's credentials to make calls on your behalf. AWS CloudFormation always uses this
+        /// role for all future operations on the stack. As long as users have permission to operate
+        /// on the stack, AWS CloudFormation uses this role even if the users don't have permission
+        /// to pass it. Ensure that the role grants least privilege.</para><para>If you don't specify a value, AWS CloudFormation uses the role that was previously
+        /// associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+        /// session that is generated from your user credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RoleARN { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -103,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.RoleARN = this.RoleARN;
             context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
@@ -120,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.ContinueUpdateRollbackRequest();
             
+            if (cmdletContext.RoleARN != null)
+            {
+                request.RoleARN = cmdletContext.RoleARN;
+            }
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
@@ -177,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }
         }
         

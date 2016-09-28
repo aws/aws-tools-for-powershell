@@ -28,7 +28,9 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Validates a specified template.
+    /// Validates a specified template. AWS CloudFormation first checks if the template is
+    /// valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML.
+    /// If both these checks fail, AWS CloudFormation returns a template validation error.
     /// </summary>
     [Cmdlet("Test", "CFNTemplate")]
     [OutputType("Amazon.CloudFormation.Model.ValidateTemplateResponse")]
