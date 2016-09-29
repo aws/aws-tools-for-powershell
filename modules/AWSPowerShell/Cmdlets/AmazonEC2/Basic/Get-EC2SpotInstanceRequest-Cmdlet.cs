@@ -42,6 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// the instance ID appears in the response and contains the identifier of the instance.
     /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
     /// where the instance lifecycle is <code>spot</code>.
+    /// </para><para>
+    /// Spot instance requests are deleted 4 hours after they are canceled and their instances
+    /// are terminated.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2SpotInstanceRequest")]

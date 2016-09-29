@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code>
         /// | <code> Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL
         /// Server Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>)
-        /// </para></li><li><para><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+        /// </para></li><li><para><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</para></li><li><para><code>scope</code> - The scope of the Reserved Instance (<code>Availability Zone</code>
+        /// or <code>Region</code>).</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
         /// example, 0.84).</para></li></ul>
         /// </para>
         /// </summary>
@@ -155,6 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 MinDuration { get; set; }
+        #endregion
+        
+        #region Parameter OfferingClass
+        /// <summary>
+        /// <para>
+        /// <para>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.OfferingClassType")]
+        public Amazon.EC2.OfferingClassType OfferingClass { get; set; }
         #endregion
         
         #region Parameter OfferingType
@@ -250,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (ParameterWasBound("MinDuration"))
                 context.MinDuration = this.MinDuration;
             context.NextToken = this.NextToken;
+            context.OfferingClass = this.OfferingClass;
             context.OfferingType = this.OfferingType;
             context.ProductDescription = this.ProductDescription;
             if (this.ReservedInstancesOfferingId != null)
@@ -303,6 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.MinDuration != null)
             {
                 request.MinDuration = cmdletContext.MinDuration.Value;
+            }
+            if (cmdletContext.OfferingClass != null)
+            {
+                request.OfferingClass = cmdletContext.OfferingClass;
             }
             if (cmdletContext.OfferingType != null)
             {
@@ -429,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public int? MaxResults { get; set; }
             public System.Int64? MinDuration { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.EC2.OfferingClassType OfferingClass { get; set; }
             public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
             public Amazon.EC2.RIProductDescription ProductDescription { get; set; }
             public List<System.String> ReservedInstancesOfferingIds { get; set; }

@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Purchases a Reserved Instance for use with your account. With Reserved Instances,
-    /// you obtain a capacity reservation for a certain instance configuration over a specified
-    /// period of time and pay a lower hourly rate compared to On-Demand instance pricing.
+    /// you pay a lower hourly rate compared to On-Demand instance pricing.
     /// 
     ///  
     /// <para>

@@ -21,6 +21,7 @@
   </ParamEmitters>
 
   <ServiceOperations>
+    <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Verb="Confirm" />
     <ServiceOperation MethodName="AllocateAddress" Output="Response" />
     <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId"
                       PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
@@ -213,6 +214,7 @@
     <ServiceOperation MethodName="GetConsoleOutput" Output="Response"/>
 	<ServiceOperation MethodName="GetConsoleScreenshot" Output="Response" />
     <ServiceOperation MethodName="GetPasswordData" Exclude="true"/>
+    <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Output="Response" />
     <ServiceOperation MethodName="ImportInstance" Exclude="true"/>
     <ServiceOperation MethodName="ImportKeyPair" Output="Response" PipelineParameter="KeyName" PositionalParameters="PublicKeyMaterial"/>
     <ServiceOperation MethodName="ImportVolume" Exclude="true"/>

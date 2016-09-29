@@ -28,59 +28,41 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the Availability Zone, instance count, instance type, or network platform
-    /// (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The Reserved Instances
-    /// to be modified must be identical, except for Availability Zone, network platform,
-    /// and instance type.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
-    /// Reserved Instances</a> in the Amazon Elastic Compute Cloud User Guide.
-    /// </para>
+    /// Purchases Convertible Reserved Instance offerings described in the <a>GetReservedInstancesExchangeQuote</a>
+    /// call.
     /// </summary>
-    [Cmdlet("Edit", "EC2ReservedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Confirm", "EC2ReservedInstancesExchangeQuote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ModifyReservedInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyReservedInstances"})]
+    [AWSCmdlet("Invokes the AcceptReservedInstancesExchangeQuote operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AcceptReservedInstancesExchangeQuote"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.EC2.Model.ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class ConfirmEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
+        #region Parameter ReservedInstanceId
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
-        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
+        /// <para>The IDs of the Convertible Reserved Instances that you want to exchange for other
+        /// Convertible Reserved Instances of the same or higher value.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
-        #region Parameter ReservedInstancesId
-        /// <summary>
-        /// <para>
-        /// <para>The IDs of the Reserved Instances to modify.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ReservedInstancesIds")]
-        public System.String[] ReservedInstancesId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("ReservedInstanceIds")]
+        public System.String[] ReservedInstanceId { get; set; }
         #endregion
         
         #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration settings for the Reserved Instances to modify.</para>
+        /// <para>The configurations of the Convertible Reserved Instance offerings you are purchasing
+        /// in this exchange.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.ReservedInstancesConfiguration[] TargetConfiguration { get; set; }
+        public Amazon.EC2.Model.TargetConfigurationRequest[] TargetConfiguration { get; set; }
         #endregion
         
         #region Parameter Force
@@ -97,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstancesId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2ReservedInstance (ModifyReservedInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstanceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Confirm-EC2ReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote)"))
             {
                 return;
             }
@@ -112,14 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ClientToken = this.ClientToken;
-            if (this.ReservedInstancesId != null)
+            if (this.ReservedInstanceId != null)
             {
-                context.ReservedInstancesIds = new List<System.String>(this.ReservedInstancesId);
+                context.ReservedInstanceIds = new List<System.String>(this.ReservedInstanceId);
             }
             if (this.TargetConfiguration != null)
             {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.ReservedInstancesConfiguration>(this.TargetConfiguration);
+                context.TargetConfigurations = new List<Amazon.EC2.Model.TargetConfigurationRequest>(this.TargetConfiguration);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -135,15 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyReservedInstancesRequest();
+            var request = new Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ReservedInstanceIds != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.ReservedInstancesIds != null)
-            {
-                request.ReservedInstancesIds = cmdletContext.ReservedInstancesIds;
+                request.ReservedInstanceIds = cmdletContext.ReservedInstanceIds;
             }
             if (cmdletContext.TargetConfigurations != null)
             {
@@ -158,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedInstancesModificationId;
+                object pipelineOutput = response.ExchangeId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -183,13 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifyReservedInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyReservedInstancesRequest request)
+        private static Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptReservedInstancesExchangeQuoteRequest request)
         {
             #if DESKTOP
-            return client.ModifyReservedInstances(request);
+            return client.AcceptReservedInstancesExchangeQuote(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ModifyReservedInstancesAsync(request);
+            var task = client.AcceptReservedInstancesExchangeQuoteAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,9 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public List<System.String> ReservedInstancesIds { get; set; }
-            public List<Amazon.EC2.Model.ReservedInstancesConfiguration> TargetConfigurations { get; set; }
+            public List<System.String> ReservedInstanceIds { get; set; }
+            public List<Amazon.EC2.Model.TargetConfigurationRequest> TargetConfigurations { get; set; }
         }
         
     }

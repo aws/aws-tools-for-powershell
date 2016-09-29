@@ -28,23 +28,25 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a listing for Amazon EC2 Reserved Instances to be sold in the Reserved Instance
-    /// Marketplace. You can submit one Reserved Instance listing at a time. To get a list
-    /// of your Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.
+    /// Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved
+    /// Instance Marketplace. You can submit one Standard Reserved Instance listing at a time.
+    /// To get a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a>
+    /// operation.
     /// 
     ///  
     /// <para>
-    /// The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance
-    /// capacity that they no longer need with buyers who want to purchase additional capacity.
-    /// Reserved Instances bought and sold through the Reserved Instance Marketplace work
-    /// like any other Reserved Instances.
+    /// The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved
+    /// Instance capacity that they no longer need with buyers who want to purchase additional
+    /// capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace
+    /// work like any other Reserved Instances.
     /// </para><para>
-    /// To sell your Reserved Instances, you must first register as a seller in the Reserved
-    /// Instance Marketplace. After completing the registration process, you can create a
-    /// Reserved Instance Marketplace listing of some or all of your Reserved Instances, and
-    /// specify the upfront price to receive for them. Your Reserved Instance listings then
-    /// become available for purchase. To view the details of your Reserved Instance listing,
-    /// you can use the <a>DescribeReservedInstancesListings</a> operation.
+    /// To sell your Standard Reserved Instances, you must first register as a seller in the
+    /// Reserved Instance Marketplace. After completing the registration process, you can
+    /// create a Reserved Instance Marketplace listing of some or all of your Standard Reserved
+    /// Instances, and specify the upfront price to receive for them. Your Standard Reserved
+    /// Instance listings then become available for purchase. To view the details of your
+    /// Standard Reserved Instance listing, you can use the <a>DescribeReservedInstancesListings</a>
+    /// operation.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
     /// Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -87,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PriceSchedule
         /// <summary>
         /// <para>
-        /// <para>A list specifying the price of the Reserved Instance for each month remaining in the
-        /// Reserved Instance term.</para>
+        /// <para>A list specifying the price of the Standard Reserved Instance for each month remaining
+        /// in the Reserved Instance term.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -99,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
-        /// <para>The ID of the active Reserved Instance.</para>
+        /// <para>The ID of the active Standard Reserved Instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

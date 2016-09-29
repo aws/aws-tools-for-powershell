@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved Instance
         /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved Instance (one year or three
         /// years), in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
-        /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type that is covered by the reservation.</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
+        /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type that is covered by the reservation.</para></li><li><para><code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability
+        /// Zone</code>).</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
         /// Instances that include <code>(Amazon VPC)</code> in the product platform description
         /// will only be displayed to EC2-Classic account holders and are for use with Amazon
         /// VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE Linux</code>
@@ -79,12 +80,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter OfferingClass
+        /// <summary>
+        /// <para>
+        /// <para>Describes whether the Reserved Instance is Standard or Convertible.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.OfferingClassType")]
+        public Amazon.EC2.OfferingClassType OfferingClass { get; set; }
+        #endregion
+        
         #region Parameter OfferingType
         /// <summary>
         /// <para>
         /// <para>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
         /// API version, you only have access to the <code>Medium Utilization</code> Reserved
-        /// Instance offering type. </para>
+        /// Instance offering type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -120,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            context.OfferingClass = this.OfferingClass;
             context.OfferingType = this.OfferingType;
             if (this.ReservedInstancesId != null)
             {
@@ -144,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.OfferingClass != null)
+            {
+                request.OfferingClass = cmdletContext.OfferingClass;
             }
             if (cmdletContext.OfferingType != null)
             {
@@ -205,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public Amazon.EC2.OfferingClassType OfferingClass { get; set; }
             public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
             public List<System.String> ReservedInstancesIds { get; set; }
         }

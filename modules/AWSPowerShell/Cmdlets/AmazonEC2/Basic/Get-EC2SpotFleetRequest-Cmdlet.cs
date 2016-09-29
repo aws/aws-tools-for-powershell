@@ -28,7 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes your Spot fleet requests.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes your Spot fleet requests.
+    /// 
+    ///  
+    /// <para>
+    /// Spot fleet requests are deleted 48 hours after they are canceled and their instances
+    /// are terminated.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetRequest")]
     [OutputType("Amazon.EC2.Model.SpotFleetRequestConfig")]
