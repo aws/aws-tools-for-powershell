@@ -1,3 +1,8 @@
+### 3.3.4.0 (2016-09-29)
+  * Amazon EC2
+    - Added support for convertible reserved instances with two new cmdlets: Get-EC2ReservedInstancesExchangeQuote (GetReservedInstancesExchangeQuote API) and Confirm-EC2ReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote API).
+    - Added completion support for new m4.16xlarge, P2 and X1 instance types.
+
 ### 3.3.3.0 (2016-09-27)
   * AWS CloudFormation
     - Updated the New-CFNChangeSet, New-CFNStack, Remove-CFNStack, Resume-CFNUpdateRollback and UpdateStack with a new parameter, -RoleARN. When specified AWS CloudFormation uses the role's credentials to make calls on your behalf for future operations on the stack. 
