@@ -67,10 +67,27 @@ namespace Amazon.PowerShell.Common
         [Alias("Credentials")]
         public ICredentials Credential { get; set; }
 
+        /// <summary>
+        /// An array of regular expressions that describe URIs that do not use 
+        /// the proxy server when accessed.
+        /// </summary>
+        [Parameter]
+        public string[] BypassList { get; set; }
+
+        /// <summary>
+        /// If specified, requests to local Internet resources do not use the configured proxy.
+        /// </summary>
+        /// <remarks>
+        /// Local requests are identified by the lack of a period (.) in the URI, as in http://webserver/, 
+        /// or access the local server, including http://localhost, http://loopback, or http://127.0.0.1
+        /// </remarks>
+        [Parameter]
+        public SwitchParameter BypassOnLocal { get; set; }
 
         protected override void ProcessRecord()
         {
             var settings = ProxySettings.GetSettings(this);
+
             settings.Hostname = Hostname;
             settings.Port = Port;
 
@@ -78,6 +95,14 @@ namespace Amazon.PowerShell.Common
                 settings.Credentials = Credential;
             else if (!string.IsNullOrEmpty(Username) || !string.IsNullOrEmpty(Password))
                 settings.Credentials = new NetworkCredential(Username, Password ?? String.Empty);
+            else
+                settings.Credentials = null;
+
+            settings.BypassList = BypassList != null ? new List<string>(BypassList) : null;
+            if (BypassOnLocal)
+                settings.BypassOnLocal = true;
+            else
+                settings.BypassOnLocal = null;
 
             settings.SaveSettings(this);
         }
@@ -118,6 +143,21 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         public ICredentials Credentials { get; set; }
 
+        /// <summary>
+        /// A collection of regular expressions denoting the set of endpoints for
+        /// which the configured proxy host will be bypassed.
+        /// </summary>
+        /// <remarks>
+        ///  For more information on bypass lists 
+        ///  see https://msdn.microsoft.com/en-us/library/system.net.webproxy.bypasslist%28v=vs.110%29.aspx.
+        /// </remarks>
+        public List<string> BypassList { get; set;}
+
+        /// <summary>
+        /// If set true requests to local addresses bypass the configured proxy.
+        /// </summary>
+        public bool? BypassOnLocal { get; set; }
+
         internal bool UseProxy
         {
             get
@@ -128,14 +168,29 @@ namespace Amazon.PowerShell.Common
 
         internal WebProxy GetWebProxy()
         {
+            const string httpPrefix = "http://";
+
             WebProxy proxy = null;
             if (!string.IsNullOrEmpty(Hostname) && Port > 0)
             {
-                proxy = new WebProxy(Hostname, Port);
-            }
-            if (proxy != null && Credentials != null)
-            {
-                proxy.Credentials = Credentials;
+                // WebProxy constructor adds the http:// prefix, but doesn't
+                // account for cases where it's already present which leads to
+                // malformed addresses
+                var host = Hostname.StartsWith(httpPrefix, StringComparison.OrdinalIgnoreCase)
+                               ? Hostname.Substring(httpPrefix.Length)
+                               : Hostname;
+                proxy = new WebProxy(host, Port);
+
+                if (Credentials != null)
+                {
+                    proxy.Credentials = Credentials;
+                }
+                if (BypassList != null)
+                {
+                    proxy.BypassList = BypassList.ToArray();
+                }
+                if (BypassOnLocal.HasValue)
+                    proxy.BypassProxyOnLocal = BypassOnLocal.Value;
             }
 
             return proxy;
