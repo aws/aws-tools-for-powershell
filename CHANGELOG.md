@@ -1,3 +1,7 @@
+### 3.3.5.0 (2016-10-06)
+  * Amazon Cognito Identity Provider
+    - Added a cmdlet, New-CGIPUserAdmin, to support the new AdminCreateUser API. The New-CGIPUserPool and Update-CGIPUerPool cmdlets were also updated with new parameters related to email and administrator control of creating new users.
+
 ### 3.3.4.0 (2016-09-29)
   * Amazon EC2
     - Added support for convertible reserved instances with two new cmdlets: Get-EC2ReservedInstancesExchangeQuote (GetReservedInstancesExchangeQuote API) and Confirm-EC2ReservedInstancesExchangeQuote (AcceptReservedInstancesExchangeQuote API).
