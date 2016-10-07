@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>Specifies the billing method for a test run: <code>metered</code> or <code>unmetered</code>.
-        /// If the parameter is not specified, the default value is <code>unmetered</code>.</para>
+        /// If the parameter is not specified, the default value is <code>metered</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

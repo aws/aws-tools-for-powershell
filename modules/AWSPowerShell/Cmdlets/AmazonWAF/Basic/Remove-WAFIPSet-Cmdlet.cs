@@ -36,10 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// If you just want to remove an <code>IPSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.
     /// </para><para>
     /// To permanently delete an <code>IPSet</code> from AWS WAF, perform the following steps:
-    /// </para><ol><li>Update the <code>IPSet</code> to remove IP address ranges, if any. For more
-    /// information, see <a>UpdateIPSet</a>.</li><li>Use <a>GetChangeToken</a> to get the
-    /// change token that you provide in the <code>ChangeToken</code> parameter of a <code>DeleteIPSet</code>
-    /// request.</li><li>Submit a <code>DeleteIPSet</code> request.</li></ol>
+    /// </para><ol><li><para>
+    /// Update the <code>IPSet</code> to remove IP address ranges, if any. For more information,
+    /// see <a>UpdateIPSet</a>.
+    /// </para></li><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>DeleteIPSet</code> request.
+    /// </para></li><li><para>
+    /// Submit a <code>DeleteIPSet</code> request.
+    /// </para></li></ol>
     /// </summary>
     [Cmdlet("Remove", "WAFIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

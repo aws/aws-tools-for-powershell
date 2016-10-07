@@ -39,19 +39,27 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// AWS WAF responds to the request with the default action. 
     /// </para><para>
     /// To create and configure a <code>WebACL</code>, perform the following steps:
-    /// </para><ol><li>Create and update the <code>ByteMatchSet</code> objects and other predicates
-    /// that you want to include in <code>Rules</code>. For more information, see <a>CreateByteMatchSet</a>,
+    /// </para><ol><li><para>
+    /// Create and update the <code>ByteMatchSet</code> objects and other predicates that
+    /// you want to include in <code>Rules</code>. For more information, see <a>CreateByteMatchSet</a>,
     /// <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>, <a>UpdateIPSet</a>, <a>CreateSqlInjectionMatchSet</a>,
-    /// and <a>UpdateSqlInjectionMatchSet</a>.</li><li>Create and update the <code>Rules</code>
-    /// that you want to include in the <code>WebACL</code>. For more information, see <a>CreateRule</a>
-    /// and <a>UpdateRule</a>.</li><li>Use <a>GetChangeToken</a> to get the change token
-    /// that you provide in the <code>ChangeToken</code> parameter of a <code>CreateWebACL</code>
-    /// request.</li><li>Submit a <code>CreateWebACL</code> request.</li><li>Use <code>GetChangeToken</code>
-    /// to get the change token that you provide in the <code>ChangeToken</code> parameter
-    /// of an <a>UpdateWebACL</a> request.</li><li>Submit an <a>UpdateWebACL</a> request
-    /// to specify the <code>Rules</code> that you want to include in the <code>WebACL</code>,
-    /// to specify the default action, and to associate the <code>WebACL</code> with a CloudFront
-    /// distribution.</li></ol><para>
+    /// and <a>UpdateSqlInjectionMatchSet</a>.
+    /// </para></li><li><para>
+    /// Create and update the <code>Rules</code> that you want to include in the <code>WebACL</code>.
+    /// For more information, see <a>CreateRule</a> and <a>UpdateRule</a>.
+    /// </para></li><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>CreateWebACL</code> request.
+    /// </para></li><li><para>
+    /// Submit a <code>CreateWebACL</code> request.
+    /// </para></li><li><para>
+    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <a>UpdateWebACL</a> request.
+    /// </para></li><li><para>
+    /// Submit an <a>UpdateWebACL</a> request to specify the <code>Rules</code> that you want
+    /// to include in the <code>WebACL</code>, to specify the default action, and to associate
+    /// the <code>WebACL</code> with a CloudFront distribution.
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API, see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS
     /// WAF Developer Guide</a>.
     /// </para>
@@ -102,11 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>Specifies how you want AWS WAF to respond to requests that match the settings in a
-        /// <code>Rule</code>. Valid settings include the following:</para><ul><li><code>ALLOW</code>: AWS WAF allows requests</li><li><code>BLOCK</code>:
-        /// AWS WAF blocks requests</li><li><code>COUNT</code>: AWS WAF increments a counter
-        /// of the requests that match all of the conditions in the rule. AWS WAF then continues
-        /// to inspect the web request based on the remaining rules in the web ACL. You can't
-        /// specify <code>COUNT</code> for the default action for a <code>WebACL</code>.</li></ul>
+        /// <code>Rule</code>. Valid settings include the following:</para><ul><li><para><code>ALLOW</code>: AWS WAF allows requests</para></li><li><para><code>BLOCK</code>: AWS WAF blocks requests</para></li><li><para><code>COUNT</code>: AWS WAF increments a counter of the requests that match all of
+        /// the conditions in the rule. AWS WAF then continues to inspect the web request based
+        /// on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for the
+        /// default action for a <code>WebACL</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

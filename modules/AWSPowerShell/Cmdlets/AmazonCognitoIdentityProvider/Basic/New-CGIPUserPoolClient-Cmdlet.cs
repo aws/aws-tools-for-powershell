@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GenerateSecret
         /// <summary>
         /// <para>
-        /// <para> Boolean to specify whether you want to generate a secret for the user pool client
+        /// <para>Boolean to specify whether you want to generate a secret for the user pool client
         /// being created.</para>
         /// </para>
         /// </summary>

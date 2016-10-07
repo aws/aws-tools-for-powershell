@@ -34,21 +34,35 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// the specifications to be allowed or blocked. For example, suppose you add the following
     /// to a <code>Rule</code>:
     /// 
-    ///  <ul><li>An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code></li><li>A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code>
-    /// header</li></ul><para>
+    ///  <ul><li><para>
+    /// An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code></para></li><li><para>
+    /// A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code>
+    /// header
+    /// </para></li></ul><para>
     /// You then add the <code>Rule</code> to a <code>WebACL</code> and specify that you want
     /// to blocks requests that satisfy the <code>Rule</code>. For a request to be blocked,
     /// it must come from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code>
     /// header in the request must contain the value <code>BadBot</code>.
     /// </para><para>
     /// To create and configure a <code>Rule</code>, perform the following steps:
-    /// </para><ol><li>Create and update the predicates that you want to include in the <code>Rule</code>.
-    /// For more information, see <a>CreateByteMatchSet</a>, <a>CreateIPSet</a>, and <a>CreateSqlInjectionMatchSet</a>.</li><li>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
-    /// parameter of a <code>CreateRule</code> request.</li><li>Submit a <code>CreateRule</code>
-    /// request.</li><li>Use <code>GetChangeToken</code> to get the change token that you
-    /// provide in the <code>ChangeToken</code> parameter of an <a>UpdateRule</a> request.</li><li>Submit an <code>UpdateRule</code> request to specify the predicates that you want
-    /// to include in the <code>Rule</code>.</li><li>Create and update a <code>WebACL</code>
-    /// that contains the <code>Rule</code>. For more information, see <a>CreateWebACL</a>.</li></ol><para>
+    /// </para><ol><li><para>
+    /// Create and update the predicates that you want to include in the <code>Rule</code>.
+    /// For more information, see <a>CreateByteMatchSet</a>, <a>CreateIPSet</a>, and <a>CreateSqlInjectionMatchSet</a>.
+    /// </para></li><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>CreateRule</code> request.
+    /// </para></li><li><para>
+    /// Submit a <code>CreateRule</code> request.
+    /// </para></li><li><para>
+    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <a>UpdateRule</a> request.
+    /// </para></li><li><para>
+    /// Submit an <code>UpdateRule</code> request to specify the predicates that you want
+    /// to include in the <code>Rule</code>.
+    /// </para></li><li><para>
+    /// Create and update a <code>WebACL</code> that contains the <code>Rule</code>. For more
+    /// information, see <a>CreateWebACL</a>.
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.

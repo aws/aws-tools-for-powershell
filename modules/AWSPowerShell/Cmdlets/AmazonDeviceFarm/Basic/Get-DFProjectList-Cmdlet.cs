@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The projects' ARNs.</para>
+        /// <para>Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns
+        /// a list of all projects for the AWS account. You can also specify a project ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

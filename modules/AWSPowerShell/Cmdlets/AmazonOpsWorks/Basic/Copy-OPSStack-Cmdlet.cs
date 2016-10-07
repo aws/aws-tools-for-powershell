@@ -112,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It is used to override the corresponding
-        /// default stack configuration JSON values. The string should be in the following format
-        /// and must escape characters such as '"':</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+        /// default stack configuration JSON values. The string should be in the following format:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
         /// Custom JSON to Modify the Stack Configuration Attributes</a></para>
         /// </para>
         /// </summary>

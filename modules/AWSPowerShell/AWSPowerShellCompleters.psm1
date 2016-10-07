@@ -922,7 +922,7 @@ $CGIP_Completers = {
             ($_ -eq "Send-CGIPAuthChallengeResponseAdmin/ChallengeName")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","PASSWORD_VERIFIER","SMS_MFA"
+            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","NEW_PASSWORD_REQUIRED","PASSWORD_VERIFIER","SMS_MFA"
             break
         }
         
@@ -933,6 +933,13 @@ $CGIP_Completers = {
         }
         {
             $v = "not_remembered","remembered"
+            break
+        }
+        
+        # Amazon.CognitoIdentityProvider.MessageActionType
+        "New-CGIPUserAdmin/MessageAction"
+        {
+            $v = "RESEND","SUPPRESS"
             break
         }
         
@@ -957,6 +964,7 @@ $CGIP_map = @{
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
+    "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Update-CGIPUserPool")
 }
 

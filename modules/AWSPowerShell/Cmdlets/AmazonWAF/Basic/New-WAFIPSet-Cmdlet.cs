@@ -38,12 +38,18 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     ///  
     /// <para>
     /// To create and configure an <code>IPSet</code>, perform the following steps:
-    /// </para><ol><li>Use <a>GetChangeToken</a> to get the change token that you provide in the
-    /// <code>ChangeToken</code> parameter of a <code>CreateIPSet</code> request.</li><li>Submit
-    /// a <code>CreateIPSet</code> request.</li><li>Use <code>GetChangeToken</code> to get
-    /// the change token that you provide in the <code>ChangeToken</code> parameter of an
-    /// <a>UpdateIPSet</a> request.</li><li>Submit an <code>UpdateIPSet</code> request to
-    /// specify the IP addresses that you want AWS WAF to watch for.</li></ol><para>
+    /// </para><ol><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>CreateIPSet</code> request.
+    /// </para></li><li><para>
+    /// Submit a <code>CreateIPSet</code> request.
+    /// </para></li><li><para>
+    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <a>UpdateIPSet</a> request.
+    /// </para></li><li><para>
+    /// Submit an <code>UpdateIPSet</code> request to specify the IP addresses that you want
+    /// AWS WAF to watch for.
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.

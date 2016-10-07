@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The device types' ARNs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The artifacts' type.</para><para>Allowed values include:</para><ul><li>FILE: The artifacts are files.</li><li>LOG: The artifacts are logs.</li><li>SCREENSHOT: The artifacts are screenshots.</li></ul>
+        /// <para>The artifacts' type.</para><para>Allowed values include:</para><ul><li><para>FILE: The artifacts are files.</para></li><li><para>LOG: The artifacts are logs.</para></li><li><para>SCREENSHOT: The artifacts are screenshots.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

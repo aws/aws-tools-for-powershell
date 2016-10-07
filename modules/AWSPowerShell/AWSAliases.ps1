@@ -675,6 +675,8 @@ Set-Alias -Name CGI-ListIdentityPools -Value Get-CGIIdentityPoolList
 Set-Alias -Name Set-CGIIdentityPoolRoles -Value Set-CGIIdentityPoolRole
 Set-Alias -Name CGI-SetIdentityPoolRoles -Value Set-CGIIdentityPoolRole
 Set-Alias -Name CGI-UpdateIdentityPool -Value Update-CGIIdentityPool
+Set-Alias -Name Describe-CGIPUserImportJob -Value Get-CGIPUserImportJob
+Set-Alias -Name CGIP-DescribeUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name Describe-CGIPUserPool -Value Get-CGIPUserPool
 Set-Alias -Name CGIP-DescribeUserPool -Value Get-CGIPUserPool
 Set-Alias -Name Describe-CGIPUserPoolClient -Value Get-CGIPUserPoolClient
@@ -705,6 +707,8 @@ Set-Alias -Name CGIP-UpdateUserPoolClient -Value Update-CGIPUserPoolClient
 Set-Alias -Name CGIP-VerifyUserAttribute -Value Test-CGIPUserAttribute
 Set-Alias -Name CGIP-AddCustomAttributes -Value Add-CGIPCustomAttribute
 Set-Alias -Name CGIP-AdminConfirmSignUp -Value Confirm-CGIPUserRegistrationAdmin
+Set-Alias -Name Create-CGIPUserAdmin -Value New-CGIPUserAdmin
+Set-Alias -Name CGIP-AdminCreateUser -Value New-CGIPUserAdmin
 Set-Alias -Name CGIP-AdminDeleteUser -Value Remove-CGIPUserAdmin
 Set-Alias -Name CGIP-AdminDeleteUserAttributes -Value Remove-CGIPUserAttributeAdmin
 Set-Alias -Name CGIP-AdminDisableUser -Value Disable-CGIPUserAdmin
@@ -738,8 +742,6 @@ Set-Alias -Name Delete-CGIPUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name CGIP-DeleteUserPool -Value Remove-CGIPUserPool
 Set-Alias -Name Delete-CGIPUserPoolClient -Value Remove-CGIPUserPoolClient
 Set-Alias -Name CGIP-DeleteUserPoolClient -Value Remove-CGIPUserPoolClient
-Set-Alias -Name Describe-CGIPUserImportJob -Value Get-CGIPUserImportJob
-Set-Alias -Name CGIP-DescribeUserImportJob -Value Get-CGIPUserImportJob
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder

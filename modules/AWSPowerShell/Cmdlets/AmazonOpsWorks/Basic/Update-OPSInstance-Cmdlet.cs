@@ -65,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AmiId
         /// <summary>
         /// <para>
-        /// <para>A custom AMI ID to be used to create the instance. The AMI must be based on one of
-        /// the supported operating systems. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Instances</a></para><note><para>If you specify a custom AMI, you must set <code>Os</code> to <code>Custom</code>.</para></note>
+        /// <para>The ID of the AMI that was used to create the instance. The value of this parameter
+        /// must be the same AMI ID that the instance is already using. You cannot apply a new
+        /// AMI to an instance by running UpdateInstance. UpdateInstance does not work on instances
+        /// that are using custom AMIs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -174,12 +176,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Os
         /// <summary>
         /// <para>
-        /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
+        /// <para>The instance's operating system, which must be set to one of the following. You cannot
+        /// update an instance that is using a custom AMI.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
         /// Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
         /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
         /// R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>,
         /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
-        /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>.</para></li></ul><para>For more information on the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li></ul><para>For more information on the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
         /// to <code>Custom</code>, you must use the AmiId parameter to specify the custom AMI
         /// that you want to use. For more information on the supported operating systems, see

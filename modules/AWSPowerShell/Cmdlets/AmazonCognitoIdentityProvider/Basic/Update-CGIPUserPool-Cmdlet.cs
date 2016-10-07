@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class UpdateCGIPUserPoolCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter AdminCreateUserConfig_AllowAdminCreateUserOnly
+        /// <summary>
+        /// <para>
+        /// <para>Set to True if only the administrator is allowed to create user profiles. Set to False
+        /// if users can sign themselves up via an app.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AdminCreateUserConfig_AllowAdminCreateUserOnly { get; set; }
+        #endregion
+        
         #region Parameter AutoVerifiedAttribute
         /// <summary>
         /// <para>
@@ -103,6 +114,28 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Boolean DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }
         #endregion
         
+        #region Parameter InviteMessageTemplate_EmailMessage
+        /// <summary>
+        /// <para>
+        /// <para>The message template for email messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdminCreateUserConfig_InviteMessageTemplate_EmailMessage")]
+        public System.String InviteMessageTemplate_EmailMessage { get; set; }
+        #endregion
+        
+        #region Parameter InviteMessageTemplate_EmailSubject
+        /// <summary>
+        /// <para>
+        /// <para>The subject line for email messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdminCreateUserConfig_InviteMessageTemplate_EmailSubject")]
+        public System.String InviteMessageTemplate_EmailSubject { get; set; }
+        #endregion
+        
         #region Parameter EmailVerificationMessage
         /// <summary>
         /// <para>
@@ -116,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationSubject
         /// <summary>
         /// <para>
-        /// <para>The subject of the email verfication message</para>
+        /// <para>The subject of the email verfication message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,11 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaConfiguration
         /// <summary>
         /// <para>
-        /// <para>Can be one of the following values:</para><ul><li><code>OFF</code> - MFA tokens are not required and cannot be specified during
-        /// user registration.</li><li><code>ON</code> - MFA tokens are required for all user
-        /// registrations. You can only specify required when you are initially creating a user
-        /// pool.</li><li><code>OPTIONAL</code> - Users have the option when registering to create
-        /// an MFA token.</li></ul>
+        /// <para>Can be one of the following values:</para><ul><li><para><code>OFF</code> - MFA tokens are not required and cannot be specified during user
+        /// registration.</para></li><li><para><code>ON</code> - MFA tokens are required for all user registrations. You can only
+        /// specify required when you are initially creating a user pool.</para></li><li><para><code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -267,6 +298,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String SmsAuthenticationMessage { get; set; }
         #endregion
         
+        #region Parameter InviteMessageTemplate_SMSMessage
+        /// <summary>
+        /// <para>
+        /// <para>The message template for SMS messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdminCreateUserConfig_InviteMessageTemplate_SMSMessage")]
+        public System.String InviteMessageTemplate_SMSMessage { get; set; }
+        #endregion
+        
         #region Parameter SmsVerificationMessage
         /// <summary>
         /// <para>
@@ -295,6 +337,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EmailConfiguration_SourceArn { get; set; }
+        #endregion
+        
+        #region Parameter AdminCreateUserConfig_UnusedAccountValidityDay
+        /// <summary>
+        /// <para>
+        /// <para>The user account expiration limit, in days, after which the account is no longer usable.
+        /// To reset the account after that time limit, you must call AdminCreateUser again, specifying
+        /// "RESEND" for the MessageAction parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdminCreateUserConfig_UnusedAccountValidityDays")]
+        public System.Int32 AdminCreateUserConfig_UnusedAccountValidityDay { get; set; }
         #endregion
         
         #region Parameter UserPoolId
@@ -355,6 +410,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("AdminCreateUserConfig_AllowAdminCreateUserOnly"))
+                context.AdminCreateUserConfig_AllowAdminCreateUserOnly = this.AdminCreateUserConfig_AllowAdminCreateUserOnly;
+            context.AdminCreateUserConfig_InviteMessageTemplate_EmailMessage = this.InviteMessageTemplate_EmailMessage;
+            context.AdminCreateUserConfig_InviteMessageTemplate_EmailSubject = this.InviteMessageTemplate_EmailSubject;
+            context.AdminCreateUserConfig_InviteMessageTemplate_SMSMessage = this.InviteMessageTemplate_SMSMessage;
+            if (ParameterWasBound("AdminCreateUserConfig_UnusedAccountValidityDay"))
+                context.AdminCreateUserConfig_UnusedAccountValidityDays = this.AdminCreateUserConfig_UnusedAccountValidityDay;
             if (this.AutoVerifiedAttribute != null)
             {
                 context.AutoVerifiedAttributes = new List<System.String>(this.AutoVerifiedAttribute);
@@ -407,6 +469,80 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.UpdateUserPoolRequest();
             
+            
+             // populate AdminCreateUserConfig
+            bool requestAdminCreateUserConfigIsNull = true;
+            request.AdminCreateUserConfig = new Amazon.CognitoIdentityProvider.Model.AdminCreateUserConfigType();
+            System.Boolean? requestAdminCreateUserConfig_adminCreateUserConfig_AllowAdminCreateUserOnly = null;
+            if (cmdletContext.AdminCreateUserConfig_AllowAdminCreateUserOnly != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_AllowAdminCreateUserOnly = cmdletContext.AdminCreateUserConfig_AllowAdminCreateUserOnly.Value;
+            }
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_AllowAdminCreateUserOnly != null)
+            {
+                request.AdminCreateUserConfig.AllowAdminCreateUserOnly = requestAdminCreateUserConfig_adminCreateUserConfig_AllowAdminCreateUserOnly.Value;
+                requestAdminCreateUserConfigIsNull = false;
+            }
+            System.Int32? requestAdminCreateUserConfig_adminCreateUserConfig_UnusedAccountValidityDay = null;
+            if (cmdletContext.AdminCreateUserConfig_UnusedAccountValidityDays != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_UnusedAccountValidityDay = cmdletContext.AdminCreateUserConfig_UnusedAccountValidityDays.Value;
+            }
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_UnusedAccountValidityDay != null)
+            {
+                request.AdminCreateUserConfig.UnusedAccountValidityDays = requestAdminCreateUserConfig_adminCreateUserConfig_UnusedAccountValidityDay.Value;
+                requestAdminCreateUserConfigIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.Model.MessageTemplateType requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate = null;
+            
+             // populate InviteMessageTemplate
+            bool requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplateIsNull = true;
+            requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate = new Amazon.CognitoIdentityProvider.Model.MessageTemplateType();
+            System.String requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailMessage = null;
+            if (cmdletContext.AdminCreateUserConfig_InviteMessageTemplate_EmailMessage != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailMessage = cmdletContext.AdminCreateUserConfig_InviteMessageTemplate_EmailMessage;
+            }
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailMessage != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate.EmailMessage = requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailMessage;
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplateIsNull = false;
+            }
+            System.String requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailSubject = null;
+            if (cmdletContext.AdminCreateUserConfig_InviteMessageTemplate_EmailSubject != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailSubject = cmdletContext.AdminCreateUserConfig_InviteMessageTemplate_EmailSubject;
+            }
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailSubject != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate.EmailSubject = requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_EmailSubject;
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplateIsNull = false;
+            }
+            System.String requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_SMSMessage = null;
+            if (cmdletContext.AdminCreateUserConfig_InviteMessageTemplate_SMSMessage != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_SMSMessage = cmdletContext.AdminCreateUserConfig_InviteMessageTemplate_SMSMessage;
+            }
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_SMSMessage != null)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate.SMSMessage = requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate_inviteMessageTemplate_SMSMessage;
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplateIsNull = false;
+            }
+             // determine if requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate should be set to null
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplateIsNull)
+            {
+                requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate = null;
+            }
+            if (requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate != null)
+            {
+                request.AdminCreateUserConfig.InviteMessageTemplate = requestAdminCreateUserConfig_adminCreateUserConfig_InviteMessageTemplate;
+                requestAdminCreateUserConfigIsNull = false;
+            }
+             // determine if request.AdminCreateUserConfig should be set to null
+            if (requestAdminCreateUserConfigIsNull)
+            {
+                request.AdminCreateUserConfig = null;
+            }
             if (cmdletContext.AutoVerifiedAttributes != null)
             {
                 request.AutoVerifiedAttributes = cmdletContext.AutoVerifiedAttributes;
@@ -738,6 +874,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AdminCreateUserConfig_AllowAdminCreateUserOnly { get; set; }
+            public System.String AdminCreateUserConfig_InviteMessageTemplate_EmailMessage { get; set; }
+            public System.String AdminCreateUserConfig_InviteMessageTemplate_EmailSubject { get; set; }
+            public System.String AdminCreateUserConfig_InviteMessageTemplate_SMSMessage { get; set; }
+            public System.Int32? AdminCreateUserConfig_UnusedAccountValidityDays { get; set; }
             public List<System.String> AutoVerifiedAttributes { get; set; }
             public System.Boolean? DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
             public System.Boolean? DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }

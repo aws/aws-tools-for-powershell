@@ -28,6 +28,7 @@
 
     <ServiceOperation MethodName="AddCustomAttributes" Output="Void" Noun="CustomAttribute"/>
     <ServiceOperation MethodName="AdminConfirmSignUp" Output="Void" ShouldProcessTarget="UserName" Verb="Confirm" Noun="UserRegistrationAdmin"/>
+    <ServiceOperation MethodName="AdminCreateUser" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Create"/>
     <ServiceOperation MethodName="AdminDeleteUser" Output="Void" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Remove"/>
     <ServiceOperation MethodName="AdminDeleteUserAttributes" Output="Void" ShouldProcessTarget="UserName" Noun="UserAttributeAdmin" Verb="Remove"/>
     <ServiceOperation MethodName="AdminDisableUser" Output="Void" ShouldProcessTarget="UserName" Verb="Disable" Noun="UserAdmin"/>

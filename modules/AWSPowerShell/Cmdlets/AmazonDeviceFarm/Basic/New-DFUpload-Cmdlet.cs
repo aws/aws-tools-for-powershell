@@ -53,7 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The upload's file name. The name should not contain the '/' character.</para>
+        /// <para>The upload's file name. The name should not contain the '/' character. If uploading
+        /// an iOS app, the file name needs to end with the <code>.ipa</code> extension. If uploading
+        /// an Android app, the file name needs to end with the <code>.apk</code> extension. For
+        /// all others, the file name must end with the <code>.zip</code> file extension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -35,12 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     ///  
     /// <para>
     /// To create and configure an <code>XssMatchSet</code>, perform the following steps:
-    /// </para><ol><li>Use <a>GetChangeToken</a> to get the change token that you provide in the
-    /// <code>ChangeToken</code> parameter of a <code>CreateXssMatchSet</code> request.</li><li>Submit a <code>CreateXssMatchSet</code> request.</li><li>Use <code>GetChangeToken</code>
-    /// to get the change token that you provide in the <code>ChangeToken</code> parameter
-    /// of an <a>UpdateXssMatchSet</a> request.</li><li>Submit an <a>UpdateXssMatchSet</a>
-    /// request to specify the parts of web requests in which you want to allow, block, or
-    /// count cross-site scripting attacks.</li></ol><para>
+    /// </para><ol><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>CreateXssMatchSet</code> request.
+    /// </para></li><li><para>
+    /// Submit a <code>CreateXssMatchSet</code> request.
+    /// </para></li><li><para>
+    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <a>UpdateXssMatchSet</a> request.
+    /// </para></li><li><para>
+    /// Submit an <a>UpdateXssMatchSet</a> request to specify the parts of web requests in
+    /// which you want to allow, block, or count cross-site scripting attacks.
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.

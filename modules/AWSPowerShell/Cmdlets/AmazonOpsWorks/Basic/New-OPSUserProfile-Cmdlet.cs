@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter IamUserArn
         /// <summary>
         /// <para>
-        /// <para>The user's IAM ARN.</para>
+        /// <para>The user's IAM ARN; this can also be a federated user's ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

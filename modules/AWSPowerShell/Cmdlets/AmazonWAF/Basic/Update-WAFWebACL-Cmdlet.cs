@@ -32,32 +32,47 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// identifies web requests that you want to allow, block, or count. When you update a
     /// <code>WebACL</code>, you specify the following values:
     /// 
-    ///  <ul><li>A default action for the <code>WebACL</code>, either <code>ALLOW</code>
-    /// or <code>BLOCK</code>. AWS WAF performs the default action if a request doesn't match
-    /// the criteria in any of the <code>Rules</code> in a <code>WebACL</code>.</li><li>The
-    /// <code>Rules</code> that you want to add and/or delete. If you want to replace one
-    /// <code>Rule</code> with another, you delete the existing <code>Rule</code> and add
-    /// the new one.</li><li>For each <code>Rule</code>, whether you want AWS WAF to allow
-    /// requests, block requests, or count requests that match the conditions in the <code>Rule</code>.</li><li>The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>.
+    ///  <ul><li><para>
+    /// A default action for the <code>WebACL</code>, either <code>ALLOW</code> or <code>BLOCK</code>.
+    /// AWS WAF performs the default action if a request doesn't match the criteria in any
+    /// of the <code>Rules</code> in a <code>WebACL</code>.
+    /// </para></li><li><para>
+    /// The <code>Rules</code> that you want to add and/or delete. If you want to replace
+    /// one <code>Rule</code> with another, you delete the existing <code>Rule</code> and
+    /// add the new one.
+    /// </para></li><li><para>
+    /// For each <code>Rule</code>, whether you want AWS WAF to allow requests, block requests,
+    /// or count requests that match the conditions in the <code>Rule</code>.
+    /// </para></li><li><para>
+    /// The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>.
     /// If you add more than one <code>Rule</code> to a <code>WebACL</code>, AWS WAF evaluates
     /// each request against the <code>Rules</code> in order based on the value of <code>Priority</code>.
     /// (The <code>Rule</code> that has the lowest value for <code>Priority</code> is evaluated
     /// first.) When a web request matches all of the predicates (such as <code>ByteMatchSets</code>
     /// and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the corresponding
     /// action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code>
-    /// in the <code>WebACL</code>, if any. </li><li>The CloudFront distribution that you
-    /// want to associate with the <code>WebACL</code>.</li></ul><para>
+    /// in the <code>WebACL</code>, if any. 
+    /// </para></li><li><para>
+    /// The CloudFront distribution that you want to associate with the <code>WebACL</code>.
+    /// </para></li></ul><para>
     /// To create and configure a <code>WebACL</code>, perform the following steps:
-    /// </para><ol><li>Create and update the predicates that you want to include in <code>Rules</code>.
-    /// For more information, see <a>CreateByteMatchSet</a>, <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>,
-    /// <a>UpdateIPSet</a>, <a>CreateSqlInjectionMatchSet</a>, and <a>UpdateSqlInjectionMatchSet</a>.</li><li>Create and update the <code>Rules</code> that you want to include in the <code>WebACL</code>.
-    /// For more information, see <a>CreateRule</a> and <a>UpdateRule</a>.</li><li>Create
-    /// a <code>WebACL</code>. See <a>CreateWebACL</a>.</li><li>Use <code>GetChangeToken</code>
-    /// to get the change token that you provide in the <code>ChangeToken</code> parameter
-    /// of an <a>UpdateWebACL</a> request.</li><li>Submit an <code>UpdateWebACL</code> request
-    /// to specify the <code>Rules</code> that you want to include in the <code>WebACL</code>,
-    /// to specify the default action, and to associate the <code>WebACL</code> with a CloudFront
-    /// distribution. </li></ol><para>
+    /// </para><ol><li><para>
+    /// Create and update the predicates that you want to include in <code>Rules</code>. For
+    /// more information, see <a>CreateByteMatchSet</a>, <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>,
+    /// <a>UpdateIPSet</a>, <a>CreateSqlInjectionMatchSet</a>, and <a>UpdateSqlInjectionMatchSet</a>.
+    /// </para></li><li><para>
+    /// Create and update the <code>Rules</code> that you want to include in the <code>WebACL</code>.
+    /// For more information, see <a>CreateRule</a> and <a>UpdateRule</a>.
+    /// </para></li><li><para>
+    /// Create a <code>WebACL</code>. See <a>CreateWebACL</a>.
+    /// </para></li><li><para>
+    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <a>UpdateWebACL</a> request.
+    /// </para></li><li><para>
+    /// Submit an <code>UpdateWebACL</code> request to specify the <code>Rules</code> that
+    /// you want to include in the <code>WebACL</code>, to specify the default action, and
+    /// to associate the <code>WebACL</code> with a CloudFront distribution. 
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.
@@ -87,11 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>Specifies how you want AWS WAF to respond to requests that match the settings in a
-        /// <code>Rule</code>. Valid settings include the following:</para><ul><li><code>ALLOW</code>: AWS WAF allows requests</li><li><code>BLOCK</code>:
-        /// AWS WAF blocks requests</li><li><code>COUNT</code>: AWS WAF increments a counter
-        /// of the requests that match all of the conditions in the rule. AWS WAF then continues
-        /// to inspect the web request based on the remaining rules in the web ACL. You can't
-        /// specify <code>COUNT</code> for the default action for a <code>WebACL</code>.</li></ul>
+        /// <code>Rule</code>. Valid settings include the following:</para><ul><li><para><code>ALLOW</code>: AWS WAF allows requests</para></li><li><para><code>BLOCK</code>: AWS WAF blocks requests</para></li><li><para><code>COUNT</code>: AWS WAF increments a counter of the requests that match all of
+        /// the conditions in the rule. AWS WAF then continues to inspect the web request based
+        /// on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for the
+        /// default action for a <code>WebACL</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,8 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete
-        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></li><li><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, and
-        /// <code>RuleId</code></li><li><a>WafAction</a>: Contains <code>Type</code></li></ul>
+        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></para></li><li><para><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, and <code>RuleId</code></para></li><li><para><a>WafAction</a>: Contains <code>Type</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

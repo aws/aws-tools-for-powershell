@@ -31,13 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// Inserts or deletes <a>XssMatchTuple</a> objects (filters) in an <a>XssMatchSet</a>.
     /// For each <code>XssMatchTuple</code> object, you specify the following values:
     /// 
-    ///  <ul><li><code>Action</code>: Whether to insert the object into or delete the object
-    /// from the array. To change a <code>XssMatchTuple</code>, you delete the existing object
-    /// and add a new one.</li><li><code>FieldToMatch</code>: The part of web requests that
-    /// you want AWS WAF to inspect and, if you want AWS WAF to inspect a header, the name
-    /// of the header.</li><li><code>TextTransformation</code>: Which text transformation,
-    /// if any, to perform on the web request before inspecting the request for cross-site
-    /// scripting attacks.</li></ul><para>
+    ///  <ul><li><para><code>Action</code>: Whether to insert the object into or delete the object from
+    /// the array. To change a <code>XssMatchTuple</code>, you delete the existing object
+    /// and add a new one.
+    /// </para></li><li><para><code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect
+    /// and, if you want AWS WAF to inspect a header, the name of the header.
+    /// </para></li><li><para><code>TextTransformation</code>: Which text transformation, if any, to perform on
+    /// the web request before inspecting the request for cross-site scripting attacks.
+    /// </para></li></ul><para>
     /// You use <code>XssMatchSet</code> objects to specify which CloudFront requests you
     /// want to allow, block, or count. For example, if you're receiving requests that contain
     /// cross-site scripting attacks in the request body and you want to block the requests,
@@ -45,11 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// configure AWS WAF to block the requests. 
     /// </para><para>
     /// To create and configure an <code>XssMatchSet</code>, perform the following steps:
-    /// </para><ol><li>Submit a <a>CreateXssMatchSet</a> request.</li><li>Use <a>GetChangeToken</a>
-    /// to get the change token that you provide in the <code>ChangeToken</code> parameter
-    /// of an <a>UpdateIPSet</a> request.</li><li>Submit an <code>UpdateXssMatchSet</code>
-    /// request to specify the parts of web requests that you want AWS WAF to inspect for
-    /// cross-site scripting attacks.</li></ol><para>
+    /// </para><ol><li><para>
+    /// Submit a <a>CreateXssMatchSet</a> request.
+    /// </para></li><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <a>UpdateIPSet</a> request.
+    /// </para></li><li><para>
+    /// Submit an <code>UpdateXssMatchSet</code> request to specify the parts of web requests
+    /// that you want AWS WAF to inspect for cross-site scripting attacks.
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or
-        /// delete from a <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code></li><li><a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code></li><li><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></li></ul>
+        /// delete from a <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code></para></li><li><para><a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code></para></li><li><para><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

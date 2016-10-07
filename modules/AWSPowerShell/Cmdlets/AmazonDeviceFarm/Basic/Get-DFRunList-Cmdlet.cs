@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Gets information about runs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about runs, given an AWS Device Farm project ARN.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DFRunList")]
     [OutputType("Amazon.DeviceFarm.Model.Run")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The runs' ARNs.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project for which you want to list runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

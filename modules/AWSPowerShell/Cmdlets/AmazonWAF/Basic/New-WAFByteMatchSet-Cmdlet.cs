@@ -38,12 +38,19 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     ///  
     /// <para>
     /// To create and configure a <code>ByteMatchSet</code>, perform the following steps:
-    /// </para><ol><li>Use <a>GetChangeToken</a> to get the change token that you provide in the
-    /// <code>ChangeToken</code> parameter of a <code>CreateByteMatchSet</code> request.</li><li>Submit a <code>CreateByteMatchSet</code> request.</li><li>Use <code>GetChangeToken</code>
-    /// to get the change token that you provide in the <code>ChangeToken</code> parameter
-    /// of an <code>UpdateByteMatchSet</code> request.</li><li>Submit an <a>UpdateByteMatchSet</a>
-    /// request to specify the part of the request that you want AWS WAF to inspect (for example,
-    /// the header or the URI) and the value that you want AWS WAF to watch for.</li></ol><para>
+    /// </para><ol><li><para>
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>CreateByteMatchSet</code> request.
+    /// </para></li><li><para>
+    /// Submit a <code>CreateByteMatchSet</code> request.
+    /// </para></li><li><para>
+    /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of an <code>UpdateByteMatchSet</code> request.
+    /// </para></li><li><para>
+    /// Submit an <a>UpdateByteMatchSet</a> request to specify the part of the request that
+    /// you want AWS WAF to inspect (for example, the header or the URI) and the value that
+    /// you want AWS WAF to watch for.
+    /// </para></li></ol><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.
