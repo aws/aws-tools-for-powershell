@@ -861,6 +861,9 @@ namespace Amazon.PowerShell.Common
                  if (!isWindows || (isWindows && !ProfileManager.IsAvailable))
                  {
                      var homePath = Environment.GetEnvironmentVariable("HOME");
+                     if (string.IsNullOrEmpty(homePath))
+                         homePath = Environment.GetEnvironmentVariable("USERPROFILE");
+
                      credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
                  }
             }
