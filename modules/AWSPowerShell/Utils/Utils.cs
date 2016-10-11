@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Management.Automation;
 using System.Reflection;
@@ -41,6 +42,11 @@ namespace Amazon.PowerShell.Utils
                 clientConfig.ProxyHost = proxySettings.Hostname;
                 clientConfig.ProxyPort = proxySettings.Port;
                 clientConfig.ProxyCredentials = proxySettings.Credentials;
+
+                if (proxySettings.BypassList != null)
+                    clientConfig.ProxyBypassList = new List<string>(proxySettings.BypassList);
+                if (proxySettings.BypassOnLocal.HasValue)
+                    clientConfig.ProxyBypassOnLocal = proxySettings.BypassOnLocal.Value;
             }
 #endif
         }
