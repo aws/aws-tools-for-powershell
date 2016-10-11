@@ -1,4 +1,4 @@
-### 3.3.6.0 (2016-10-11)
+### 3.3.6.2 (2016-10-11)
   * Added support for proxy bypass lists and 'bypass on local' mode for proxies configured using the Set-AWSproxy cmdlet. This enables use of proxies configured using this cmdlet in environments with SAML Federated Identity in an Active Directory Federated Services environment. Previously the proxy had to be configured at the system level. 
 
 ### 3.3.5.0 (2016-10-06)

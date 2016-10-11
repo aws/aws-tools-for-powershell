@@ -852,12 +852,17 @@ namespace Amazon.PowerShell.Common
             if (credentials == null)
                 throw new ArgumentNullException("credentials");
 
-            // if we're not on Windows or the user has given us a specific credentials file, honor it.
+            // if we're not on Windows, or we're on Windows and the credential store apis are not available (eg Nano),
+            // or the user has given us a specific credentials file, honor it.
             string credentialsFileLocation = profilesLocation;
-            if (string.IsNullOrEmpty(credentialsFileLocation) && !Utils.Common.IsWindowsPlatform)
+            if (string.IsNullOrEmpty(credentialsFileLocation))
             {
-                var homePath = Environment.GetEnvironmentVariable("HOME");
-                credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
+                var isWindows = Utils.Common.IsWindowsPlatform;
+                 if (!isWindows || (isWindows && !ProfileManager.IsAvailable))
+                 {
+                     var homePath = Environment.GetEnvironmentVariable("HOME");
+                     credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
+                 }
             }
 
             if (string.IsNullOrEmpty(credentialsFileLocation))
@@ -880,6 +885,10 @@ namespace Amazon.PowerShell.Common
             {
                 try
                 {
+                    var filePath = Path.GetDirectoryName(credentialsFileLocation);
+                    if (!Directory.Exists(filePath))
+                        Directory.CreateDirectory(filePath);
+
                     var credentialsFile = new SharedCredentialsFile(credentialsFileLocation);
                     var credentialKeys = credentials.GetCredentials();
                     credentialsFile.AddOrUpdateCredentials(name, credentialKeys.AccessKey, credentialKeys.SecretKey, credentialKeys.Token);
