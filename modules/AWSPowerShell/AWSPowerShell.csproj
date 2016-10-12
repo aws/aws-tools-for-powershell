@@ -157,13 +157,13 @@
       <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.0.1\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
-      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.0.1\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.1\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>..\..\packages\AWSSDK.ECS.3.3.0.1\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
-      <HintPath>..\..\packages\AWSSDK.ECR.3.3.0.1\lib\net35\AWSSDK.ECR.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECR.3.3.1\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
       <HintPath>..\..\packages\AWSSDK.EC2.3.3.1.1\lib\net35\AWSSDK.EC2.dll</HintPath>
