@@ -28,9 +28,9 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>AuthorizeCacheSecurityGroupIngress</i> action allows network ingress to a cache
-    /// security group. Applications using ElastiCache must be running on Amazon EC2, and
-    /// Amazon EC2 security groups are used as the authorization mechanism.
+    /// Allows network ingress to a cache security group. Applications using ElastiCache must
+    /// be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization
+    /// mechanism.
     /// 
     ///  <note><para>
     /// You cannot authorize ingress from an Amazon EC2 security group in one region to an
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>The cache security group which will allow network ingress.</para>
+        /// <para>The cache security group that allows network ingress.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

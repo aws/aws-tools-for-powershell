@@ -28,10 +28,13 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeSnapshots</i> action returns information about cache cluster snapshots.
-    /// By default, <i>DescribeSnapshots</i> lists all of your snapshots; it can optionally
-    /// describe a single snapshot, or just the snapshots associated with a particular cache
-    /// cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns information about cache cluster or replication group snapshots. By default,
+    /// <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally describe
+    /// a single snapshot, or just the snapshots associated with a particular cache cluster.
+    /// 
+    ///  <note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSnapshots")]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]
@@ -48,18 +51,40 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A user-supplied cluster identifier. If this parameter is specified, only snapshots
-        /// associated with that specific cache cluster will be described.</para>
+        /// associated with that specific cache cluster are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheClusterId { get; set; }
         #endregion
         
+        #region Parameter ReplicationGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A user-supplied replication group identifier. If this parameter is specified, only
+        /// snapshots associated with that specific replication group are described.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReplicationGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ShowNodeGroupConfig
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value which if true, the node group (shard) configuration is included in
+        /// the snapshot description.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ShowNodeGroupConfig { get; set; }
+        #endregion
+        
         #region Parameter SnapshotName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name of the snapshot. If this parameter is specified, only this snapshot
-        /// will be described.</para>
+        /// are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -83,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -125,6 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
+            context.ReplicationGroupId = this.ReplicationGroupId;
+            if (ParameterWasBound("ShowNodeGroupConfig"))
+                context.ShowNodeGroupConfig = this.ShowNodeGroupConfig;
             context.SnapshotName = this.SnapshotName;
             context.SnapshotSource = this.SnapshotSource;
             
@@ -146,6 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheClusterId != null)
             {
                 request.CacheClusterId = cmdletContext.CacheClusterId;
+            }
+            if (cmdletContext.ReplicationGroupId != null)
+            {
+                request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
+            }
+            if (cmdletContext.ShowNodeGroupConfig != null)
+            {
+                request.ShowNodeGroupConfig = cmdletContext.ShowNodeGroupConfig.Value;
             }
             if (cmdletContext.SnapshotName != null)
             {
@@ -261,6 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheClusterId { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
+            public System.String ReplicationGroupId { get; set; }
+            public System.Boolean? ShowNodeGroupConfig { get; set; }
             public System.String SnapshotName { get; set; }
             public System.String SnapshotSource { get; set; }
         }

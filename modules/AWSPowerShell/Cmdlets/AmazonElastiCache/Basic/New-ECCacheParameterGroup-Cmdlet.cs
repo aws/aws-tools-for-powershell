@@ -28,9 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>CreateCacheParameterGroup</i> action creates a new cache parameter group. A
-    /// cache parameter group is a collection of parameters that you apply to all of the nodes
-    /// in a cache cluster.
+    /// Creates a new cache parameter group. A cache parameter group is a collection of parameters
+    /// that you apply to all of the nodes in a cache cluster.
     /// </summary>
     [Cmdlet("New", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CacheParameterGroup")]
@@ -45,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of the cache parameter group family the cache parameter group can be used
-        /// with.</para><para>Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code></para>
+        /// <para>The name of the cache parameter group family that the cache parameter group can be
+        /// used with.</para><para>Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code>
+        /// | <code>redis3.2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -28,16 +28,18 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DeleteReplicationGroup</i> action deletes an existing replication group. By
-    /// default, this action deletes the entire replication group, including the primary cluster
-    /// and all of the read replicas. You can optionally delete only the read replicas, while
-    /// retaining the primary cluster.
+    /// Deletes an existing replication group. By default, this operation deletes the entire
+    /// replication group, including the primary/primaries and all of the read replicas. If
+    /// the replication group has only one primary, you can optionally delete only the read
+    /// replicas, while retaining the primary by setting <code>RetainPrimaryCluster=true</code>.
     /// 
     ///  
     /// <para>
-    /// When you receive a successful response from this action, Amazon ElastiCache immediately
-    /// begins deleting the selected resources; you cannot cancel or revert this action.
-    /// </para>
+    /// When you receive a successful response from this operation, Amazon ElastiCache immediately
+    /// begins deleting the selected resources; you cannot cancel or revert this operation.
+    /// </para><note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -52,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter FinalSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of a final node group snapshot. ElastiCache creates the snapshot from the
-        /// primary node in the cluster, rather than one of the replicas; this is to ensure that
-        /// it captures the freshest data. After the final snapshot is taken, the cluster is immediately
-        /// deleted.</para>
+        /// <para>The name of a final node group (shard) snapshot. ElastiCache creates the snapshot
+        /// from the primary node in the cluster, rather than one of the replicas; this is to
+        /// ensure that it captures the freshest data. After the final snapshot is taken, the
+        /// replication group is immediately deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter RetainPrimaryCluster
         /// <summary>
         /// <para>
-        /// <para>If set to <i>true</i>, all of the read replicas will be deleted, but the primary node
-        /// will be retained.</para>
+        /// <para>If set to <code>true</code>, all of the read replicas are deleted, but the primary
+        /// node is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

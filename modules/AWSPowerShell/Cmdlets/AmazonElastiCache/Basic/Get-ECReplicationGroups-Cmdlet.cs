@@ -28,9 +28,12 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeReplicationGroups</i> action returns information about a particular
-    /// replication group. If no identifier is specified, <i>DescribeReplicationGroups</i>
-    /// returns information about all replication groups.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns information about a particular replication group. If no identifier is specified,
+    /// <code>DescribeReplicationGroups</code> returns information about all replication groups.
+    /// 
+    ///  <note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECReplicationGroups")]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -59,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

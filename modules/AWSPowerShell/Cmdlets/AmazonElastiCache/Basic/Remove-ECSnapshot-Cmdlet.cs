@@ -28,9 +28,13 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DeleteSnapshot</i> action deletes an existing snapshot. When you receive a
-    /// successful response from this action, ElastiCache immediately begins deleting the
-    /// snapshot; you cannot cancel or revert this action.
+    /// Deletes an existing snapshot. When you receive a successful response from this operation,
+    /// ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert
+    /// this operation.
+    /// 
+    ///  <note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]

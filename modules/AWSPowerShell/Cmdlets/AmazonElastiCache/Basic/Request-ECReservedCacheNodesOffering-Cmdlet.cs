@@ -28,8 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>PurchaseReservedCacheNodesOffering</i> action allows you to purchase a reserved
-    /// cache node offering.
+    /// Allows you to purchase a reserved cache node offering.
     /// </summary>
     [Cmdlet("Request", "ECReservedCacheNodesOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReservedCacheNode")]

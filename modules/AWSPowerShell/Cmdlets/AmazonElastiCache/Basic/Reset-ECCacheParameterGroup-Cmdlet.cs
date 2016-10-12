@@ -28,10 +28,10 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>ResetCacheParameterGroup</i> action modifies the parameters of a cache parameter
-    /// group to the engine or system default value. You can reset specific parameters by
-    /// submitting a list of parameter names. To reset the entire cache parameter group, specify
-    /// the <i>ResetAllParameters</i> and <i>CacheParameterGroupName</i> parameters.
+    /// Modifies the parameters of a cache parameter group to the engine or system default
+    /// value. You can reset specific parameters by submitting a list of parameter names.
+    /// To reset the entire cache parameter group, specify the <code>ResetAllParameters</code>
+    /// and <code>CacheParameterGroupName</code> parameters.
     /// </summary>
     [Cmdlet("Reset", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -56,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ParameterNameValue
         /// <summary>
         /// <para>
-        /// <para>An array of parameter names to reset to their default values. If <i>ResetAllParameters</i>
-        /// is <i>false</i>, you must specify the name of at least one parameter to reset.</para>
+        /// <para>An array of parameter names to reset to their default values. If <code>ResetAllParameters</code>
+        /// is <code>true</code>, do not use <code>ParameterNameValues</code>. If <code>ResetAllParameters</code>
+        /// is <code>false</code>, you must specify the name of at least one parameter to reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
-        /// <para>If <i>true</i>, all parameters in the cache parameter group will be reset to their
-        /// default values. If <i>false</i>, only the parameters listed by <i>ParameterNameValues</i>
+        /// <para>If <code>true</code>, all parameters in the cache parameter group are reset to their
+        /// default values. If <code>false</code>, only the parameters listed by <code>ParameterNameValues</code>
         /// are reset to their default values.</para><para>Valid values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>

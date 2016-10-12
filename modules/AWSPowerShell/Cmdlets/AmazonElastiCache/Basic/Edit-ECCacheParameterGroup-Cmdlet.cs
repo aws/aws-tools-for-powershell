@@ -28,9 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>ModifyCacheParameterGroup</i> action modifies the parameters of a cache parameter
-    /// group. You can modify up to 20 parameters in a single request by submitting a list
-    /// parameter name and value pairs.
+    /// Modifies the parameters of a cache parameter group. You can modify up to 20 parameters
+    /// in a single request by submitting a list parameter name and value pairs.
     /// </summary>
     [Cmdlet("Edit", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

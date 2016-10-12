@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>ModifyCacheSubnetGroup</i> action modifies an existing cache subnet group.
+    /// Modifies an existing cache subnet group.
     /// </summary>
     [Cmdlet("Edit", "ECCacheSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CacheSubnetGroup")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSubnetGroupDescription
         /// <summary>
         /// <para>
-        /// <para>A description for the cache subnet group.</para>
+        /// <para>A description of the cache subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DeleteCacheSecurityGroup</i> action deletes a cache security group.
+    /// Deletes a cache security group.
     /// 
     ///  <note><para>
     /// You cannot delete a cache security group if it is associated with any cache clusters.

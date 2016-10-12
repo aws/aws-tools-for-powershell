@@ -28,14 +28,14 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>CreateCacheSecurityGroup</i> action creates a new cache security group. Use
-    /// a cache security group to control access to one or more cache clusters.
+    /// Creates a new cache security group. Use a cache security group to control access to
+    /// one or more cache clusters.
     /// 
     ///  
     /// <para>
     /// Cache security groups are only used when you are creating a cache cluster outside
-    /// of an Amazon Virtual Private Cloud (VPC). If you are creating a cache cluster inside
-    /// of a VPC, use a cache subnet group instead. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html">CreateCacheSubnetGroup</a>.
+    /// of an Amazon Virtual Private Cloud (Amazon VPC). If you are creating a cache cluster
+    /// inside of a VPC, use a cache subnet group instead. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html">CreateCacheSubnetGroup</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECCacheSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

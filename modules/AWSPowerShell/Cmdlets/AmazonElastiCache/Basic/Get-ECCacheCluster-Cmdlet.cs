@@ -28,26 +28,25 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeCacheClusters</i> action returns information about all provisioned
-    /// cache clusters if no cache cluster identifier is specified, or about a specific cache
-    /// cluster if a cache cluster identifier is supplied.
+    /// Returns information about all provisioned cache clusters if no cache cluster identifier
+    /// is specified, or about a specific cache cluster if a cache cluster identifier is supplied.
     /// 
     ///  
     /// <para>
-    /// By default, abbreviated information about the cache clusters(s) will be returned.
-    /// You can use the optional <i>ShowDetails</i> flag to retrieve detailed information
-    /// about the cache nodes associated with the cache clusters. These details include the
-    /// DNS address and port for the cache node endpoint.
+    /// By default, abbreviated information about the cache clusters are returned. You can
+    /// use the optional <code>ShowDetails</code> flag to retrieve detailed information about
+    /// the cache nodes associated with the cache clusters. These details include the DNS
+    /// address and port for the cache node endpoint.
     /// </para><para>
-    /// If the cluster is in the CREATING state, only cluster level information will be displayed
+    /// If the cluster is in the CREATING state, only cluster-level information is displayed
     /// until all of the nodes are successfully provisioned.
     /// </para><para>
-    /// If the cluster is in the DELETING state, only cluster level information will be displayed.
+    /// If the cluster is in the DELETING state, only cluster-level information is displayed.
     /// </para><para>
     /// If cache nodes are currently being added to the cache cluster, node endpoint information
-    /// and creation time for the additional nodes will not be displayed until they are completely
-    /// provisioned. When the cache cluster state is <i>available</i>, the cluster is ready
-    /// for use.
+    /// and creation time for the additional nodes are not displayed until they are completely
+    /// provisioned. When the cache cluster state is <code>available</code>, the cluster is
+    /// ready for use.
     /// </para><para>
     /// If cache nodes are currently being removed from the cache cluster, no endpoint information
     /// for the removed nodes is displayed.
@@ -90,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

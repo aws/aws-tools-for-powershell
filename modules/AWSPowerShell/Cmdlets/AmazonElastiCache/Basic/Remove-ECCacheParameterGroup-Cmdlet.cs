@@ -28,9 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DeleteCacheParameterGroup</i> action deletes the specified cache parameter
-    /// group. You cannot delete a cache parameter group if it is associated with any cache
-    /// clusters.
+    /// Deletes the specified cache parameter group. You cannot delete a cache parameter group
+    /// if it is associated with any cache clusters.
     /// </summary>
     [Cmdlet("Remove", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

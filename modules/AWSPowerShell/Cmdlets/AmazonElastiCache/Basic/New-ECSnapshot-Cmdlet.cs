@@ -28,8 +28,12 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>CreateSnapshot</i> action creates a copy of an entire cache cluster at a specific
-    /// moment in time.
+    /// Creates a copy of an entire cache cluster or replication group at a specific moment
+    /// in time.
+    /// 
+    ///  <note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]
@@ -44,12 +48,23 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an existing cache cluster. The snapshot will be created from this
-        /// cache cluster.</para>
+        /// <para>The identifier of an existing cache cluster. The snapshot is created from this cache
+        /// cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheClusterId { get; set; }
+        #endregion
+        
+        #region Parameter ReplicationGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of an existing replication group. The snapshot is created from this
+        /// replication group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReplicationGroupId { get; set; }
         #endregion
         
         #region Parameter SnapshotName
@@ -92,6 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             PreExecutionContextLoad(context);
             
             context.CacheClusterId = this.CacheClusterId;
+            context.ReplicationGroupId = this.ReplicationGroupId;
             context.SnapshotName = this.SnapshotName;
             
             // allow further manipulation of loaded context prior to processing
@@ -112,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheClusterId != null)
             {
                 request.CacheClusterId = cmdletContext.CacheClusterId;
+            }
+            if (cmdletContext.ReplicationGroupId != null)
+            {
+                request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
             }
             if (cmdletContext.SnapshotName != null)
             {
@@ -169,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         internal class CmdletContext : ExecutorContext
         {
             public System.String CacheClusterId { get; set; }
+            public System.String ReplicationGroupId { get; set; }
             public System.String SnapshotName { get; set; }
         }
         

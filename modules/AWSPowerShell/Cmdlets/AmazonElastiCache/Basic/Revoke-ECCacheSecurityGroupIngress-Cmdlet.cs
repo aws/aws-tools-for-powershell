@@ -28,9 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>RevokeCacheSecurityGroupIngress</i> action revokes ingress from a cache security
-    /// group. Use this action to disallow access from an Amazon EC2 security group that had
-    /// been previously authorized.
+    /// Revokes ingress from a cache security group. Use this operation to disallow access
+    /// from an Amazon EC2 security group that had been previously authorized.
     /// </summary>
     [Cmdlet("Revoke", "ECCacheSecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CacheSecurityGroup")]

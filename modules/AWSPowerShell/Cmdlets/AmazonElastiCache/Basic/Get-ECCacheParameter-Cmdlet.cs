@@ -28,8 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeCacheParameters</i> action returns the detailed parameter list for
-    /// a particular cache parameter group.
+    /// Returns the detailed parameter list for a particular cache parameter group.
     /// </summary>
     [Cmdlet("Get", "ECCacheParameter")]
     [OutputType("Amazon.ElastiCache.Model.DescribeCacheParametersResponse")]
@@ -64,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of brecords to include in the response. If more records exist than
+        /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a marker is included in the response
         /// so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
         /// </para>

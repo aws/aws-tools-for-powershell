@@ -28,10 +28,9 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>ListTagsForResource</i> action lists all cost allocation tags currently on
-    /// the named resource. A <i>cost allocation tag</i> is a key-value pair where the key
-    /// is case-sensitive and the value is optional. Cost allocation tags can be used to categorize
-    /// and track your AWS costs.
+    /// Lists all cost allocation tags currently on the named resource. A <code>cost allocation
+    /// tag</code> is a key-value pair where the key is case-sensitive and the value is optional.
+    /// You can use cost allocation tags to categorize and track your AWS costs.
     /// 
     ///  
     /// <para>
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource for which you want the list of tags,
         /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
-        /// or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</para><para>For more information on ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>

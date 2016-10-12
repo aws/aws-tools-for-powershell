@@ -1798,7 +1798,7 @@ $EC_Completers = {
         # Amazon.ElastiCache.SourceType
         "Get-ECEvent/SourceType"
         {
-            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group"
+            $v = "cache-cluster","cache-parameter-group","cache-security-group","cache-subnet-group","replication-group"
             break
         }
         

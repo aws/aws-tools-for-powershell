@@ -28,8 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeEngineDefaultParameters</i> action returns the default engine and system
-    /// parameter information for the specified cache engine.
+    /// Returns the default engine and system parameter information for the specified cache
+    /// engine.
     /// </summary>
     [Cmdlet("Get", "ECEngineDefaultParameter")]
     [OutputType("Amazon.ElastiCache.Model.EngineDefaults")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of the cache parameter group family. Valid values are: <code>memcached1.4</code>
-        /// | <code>redis2.6</code> | <code>redis2.8</code></para>
+        /// <para>The name of the cache parameter group family.</para><para>Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code>
+        /// | <code>redis3.2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

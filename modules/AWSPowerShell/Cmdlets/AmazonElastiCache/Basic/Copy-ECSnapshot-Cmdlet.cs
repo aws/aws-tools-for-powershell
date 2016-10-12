@@ -53,7 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter TargetBucket
         /// <summary>
         /// <para>
-        /// Amazon.ElastiCache.Model.CopySnapshotRequest.TargetBucket
+        /// <para>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only
+        /// when exporting a snapshot for external access.</para><para>When using this parameter to export a snapshot, be sure Amazon ElastiCache has the
+        /// needed permissions to this S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html#Snapshots.Exporting.GrantAccess">Step
+        /// 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache
+        /// User Guide</i>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Snapshots.Exporting.html">Exporting
+        /// a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter TargetSnapshotName
         /// <summary>
         /// <para>
-        /// Amazon.ElastiCache.Model.CopySnapshotRequest.TargetSnapshotName
+        /// <para>A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot,
+        /// therefore this name must be unique within its context - ElastiCache or an Amazon S3
+        /// bucket if exporting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

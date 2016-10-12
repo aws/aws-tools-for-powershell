@@ -28,10 +28,9 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeEvents</i> action returns events related to cache clusters, cache security
-    /// groups, and cache parameter groups. You can obtain events specific to a particular
-    /// cache cluster, cache security group, or cache parameter group by providing the name
-    /// as a parameter.
+    /// Returns events related to cache clusters, cache security groups, and cache parameter
+    /// groups. You can obtain events specific to a particular cache cluster, cache security
+    /// group, or cache parameter group by providing the name as a parameter.
     /// 
     ///  
     /// <para>
@@ -73,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the event source for which events will be returned. If not specified,
-        /// then all sources are included in the response.</para>
+        /// <para>The identifier of the event source for which events are returned. If not specified,
+        /// all sources are included in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -85,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The event source to retrieve events for. If no value is specified, all events are
-        /// returned.</para><para>Valid values are: <code>cache-cluster</code> | <code>cache-parameter-group</code>
-        /// | <code>cache-security-group</code> | <code>cache-subnet-group</code></para>
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -108,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

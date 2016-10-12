@@ -28,8 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DescribeCacheEngineVersions</i> action returns a list of the available cache
-    /// engines and their versions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of the available cache engines and their versions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECCacheEngineVersions")]
     [OutputType("Amazon.ElastiCache.Model.CacheEngineVersion")]
@@ -45,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of a specific cache parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The name of a specific cache parameter group family to return details for.</para><para>Valid values are: <code>memcached1.4</code> | <code>redis2.6</code> | <code>redis2.8</code>
+        /// | <code>redis3.2</code></para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter DefaultOnly
         /// <summary>
         /// <para>
-        /// <para>If <i>true</i>, specifies that only the default version of the specified engine or
-        /// engine and major version combination is to be returned.</para>
+        /// <para>If <code>true</code>, specifies that only the default version of the specified engine
+        /// or engine and major version combination is to be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
-        /// results from this action. If this parameter is specified, the response includes only
-        /// records beyond the marker, up to the value specified by <i>MaxRecords</i>.</para>
+        /// results from this operation. If this parameter is specified, the response includes
+        /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

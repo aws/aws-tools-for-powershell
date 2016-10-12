@@ -28,7 +28,14 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>ModifyReplicationGroup</i> action modifies the settings for a replication group.
+    /// Modifies the settings for a replication group.
+    /// 
+    ///  <important><para>
+    /// Due to current limitations on Redis (cluster mode disabled), this operation or parameter
+    /// is not supported on Redis (cluster mode enabled) replication groups.
+    /// </para></important><note><para>
+    /// This operation is valid for Redis only.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -45,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>If <code>true</code>, this parameter causes the modifications in this request and
         /// any pending modifications to be applied, asynchronously and as soon as possible, regardless
-        /// of the <i>PreferredMaintenanceWindow</i> setting for the replication group.</para><para>If <code>false</code>, then changes to the nodes in the replication group are applied
-        /// on the next maintenance reboot, or the next failure reboot, whichever occurs first.</para><para>Valid values: <code>true</code> | <code>false</code></para><para>Default: <code>false</code></para>
+        /// of the <code>PreferredMaintenanceWindow</code> setting for the replication group.</para><para>If <code>false</code>, changes to the nodes in the replication group are applied on
+        /// the next maintenance reboot, or the next failure reboot, whichever occurs first.</para><para>Valid values: <code>true</code> | <code>false</code></para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutomaticFailoverEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether a read replica will be automatically promoted to read/write primary if the
-        /// existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para><note><para>ElastiCache Multi-AZ replication groups are not supported on:</para><ul><li><para>Redis versions earlier than 2.8.6.</para></li><li><para>T1 and T2 cache node types.</para></li></ul></note>
+        /// <para>Determines whether a read replica is automatically promoted to read/write primary
+        /// if the existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para><note><para>ElastiCache Multi-AZ replication groups are not supported on:</para><ul><li><para>Redis versions earlier than 2.8.6.</para></li><li><para>Redis (cluster mode disabled):T1 and T2 cache node types.</para><para>Redis (cluster mode enabled): T1 node types.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,9 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheNodeType
         /// <summary>
         /// <para>
-        /// <para>A valid cache node type that you want to scale this replication group to. The value
-        /// of this parameter must be one of the <i>ScaleUpModifications</i> values returned by
-        /// the <code>ListAllowedCacheNodeTypeModification</code> action.</para>
+        /// <para>A valid cache node type that you want to scale this replication group to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the cache parameter group to apply to all of the clusters in this replication
         /// group. This change is asynchronously applied as soon as possible for parameters when
-        /// the <i>ApplyImmediately</i> parameter is specified as <i>true</i> for this request.</para>
+        /// the <code>ApplyImmediately</code> parameter is specified as <code>true</code> for
+        /// this request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A list of cache security group names to authorize for the clusters in this replication
         /// group. This change is asynchronously applied as soon as possible.</para><para>This parameter can be used only with replication group containing cache clusters running
-        /// outside of an Amazon Virtual Private Cloud (VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</para>
+        /// outside of an Amazon Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
-        /// be sent.</para><note><para>The Amazon SNS topic owner must be same as the replication group owner. </para></note>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are
+        /// sent.</para><note><para>The Amazon SNS topic owner must be same as the replication group owner. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The status of the Amazon SNS notification topic for the replication group. Notifications
-        /// are sent only if the status is <i>active</i>.</para><para>Valid values: <code>active</code> | <code>inactive</code></para>
+        /// are sent only if the status is <code>active</code>.</para><para>Valid values: <code>active</code> | <code>inactive</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,10 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
+        /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
-        /// are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:05:00-sun:09:00</code></para>
+        /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <code>ddd</code> are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:23:00-mon:01:30</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PrimaryClusterId
         /// <summary>
         /// <para>
-        /// <para>If this parameter is specified, ElastiCache will promote the specified cluster in
-        /// the specified replication group to the primary role. The nodes of all other clusters
-        /// in the replication group will be read replicas.</para>
+        /// <para>For replication groups with a single primary, if this parameter is specified, ElastiCache
+        /// promotes the specified cluster in the specified replication group to the primary role.
+        /// The nodes of all other clusters in the replication group are read replicas.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -197,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the VPC Security Groups associated with the cache clusters in the replication
         /// group.</para><para>This parameter can be used only with replication group containing cache clusters running
-        /// in an Amazon Virtual Private Cloud (VPC).</para>
+        /// in an Amazon Virtual Private Cloud (Amazon VPC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -208,9 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotRetentionLimit
         /// <summary>
         /// <para>
-        /// <para>The number of days for which ElastiCache will retain automatic node group snapshots
-        /// before deleting them. For example, if you set <i>SnapshotRetentionLimit</i> to 5,
-        /// then a snapshot that was taken today will be retained for 5 days before being deleted.</para><para><b>Important</b> If the value of SnapshotRetentionLimit is set to zero (0), backups
+        /// <para>The number of days for which ElastiCache retains automatic node group (shard) snapshots
+        /// before deleting them. For example, if you set <code>SnapshotRetentionLimit</code>
+        /// to 5, a snapshot that was taken today is retained for 5 days before being deleted.</para><para><b>Important</b> If the value of SnapshotRetentionLimit is set to zero (0), backups
         /// are turned off.</para>
         /// </para>
         /// </summary>
@@ -221,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshottingClusterId
         /// <summary>
         /// <para>
-        /// <para>The cache cluster ID that will be used as the daily snapshot source for the replication
-        /// group.</para>
+        /// <para>The cache cluster ID that is used as the daily snapshot source for the replication
+        /// group. This parameter cannot be set for Redis (cluster mode enabled) replication groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -232,9 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotWindow
         /// <summary>
         /// <para>
-        /// <para>The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot
-        /// of the node group specified by <i>SnapshottingClusterId</i>.</para><para>Example: <code>05:00-09:00</code></para><para>If you do not specify this parameter, then ElastiCache will automatically choose an
-        /// appropriate time range.</para>
+        /// <para>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot
+        /// of the node group (shard) specified by <code>SnapshottingClusterId</code>.</para><para>Example: <code>05:00-09:00</code></para><para>If you do not specify this parameter, ElastiCache automatically chooses an appropriate
+        /// time range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

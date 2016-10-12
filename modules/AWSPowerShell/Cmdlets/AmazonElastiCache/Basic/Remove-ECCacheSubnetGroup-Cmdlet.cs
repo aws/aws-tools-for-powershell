@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>DeleteCacheSubnetGroup</i> action deletes a cache subnet group.
+    /// Deletes a cache subnet group.
     /// 
     ///  <note><para>
     /// You cannot delete a cache subnet group if it is associated with any cache clusters.

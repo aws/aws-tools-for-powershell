@@ -28,12 +28,12 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// The <i>CreateCacheSubnetGroup</i> action creates a new cache subnet group.
+    /// Creates a new cache subnet group.
     /// 
     ///  
     /// <para>
     /// Use this parameter only when you are creating a cluster in an Amazon Virtual Private
-    /// Cloud (VPC).
+    /// Cloud (Amazon VPC).
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECCacheSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
