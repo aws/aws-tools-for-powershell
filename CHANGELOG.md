@@ -1,3 +1,9 @@
+### 3.3.8.0 (2016-10-12)
+  * Amazon EC2 Container Registry
+    - Added a new cmdlet, Get-ECRImageMetadata, to support the new DescribeImages API. This cmdlet can be used to expose image metadata which today includes image size and image creation timestamp.
+  * Amazon ElastiCache
+    - Updated cmdlets for service update adding support for a new major engine release of Redis, 3.2 (providing stability updates and new command sets over 2.8), as well as ElasticSupport for enabling Redis Cluster in 3.2, which provides support for multiple node groups to horizontally scale data, and superior engine failover capabilities.
+
 ### 3.3.6.2 (2016-10-11)
   * Added support for proxy bypass lists and 'bypass on local' mode for proxies configured using the Set-AWSproxy cmdlet. This enables use of proxies configured using this cmdlet in environments with SAML Federated Identity in an Active Directory Federated Services environment. Previously the proxy had to be configured at the system level.
   * Fixed issues with the Set-AWSCredentials cmdlet when attempting to store credential profiles on Nano Server instances. In previous releases the cmdlet would either display an error message about a missing CryptProtectData api or if the -ProfilesLocation parameter was used, the folder path used with the parameter had to exist before the credentials file could be created.
