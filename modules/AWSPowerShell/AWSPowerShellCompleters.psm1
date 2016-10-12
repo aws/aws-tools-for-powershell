@@ -1671,7 +1671,10 @@ $ECR_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ECR.TagStatus
-        "Get-ECRImage/Filter_TagStatus"
+        {
+            ($_ -eq "Get-ECRImage/Filter_TagStatus") -Or
+            ($_ -eq "Get-ECRImageMetadata/Filter_TagStatus")
+        }
         {
             $v = "TAGGED","UNTAGGED"
             break
@@ -1685,7 +1688,7 @@ $ECR_Completers = {
 }
 
 $ECR_map = @{
-    "Filter_TagStatus"=@("Get-ECRImage")
+    "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata")
 }
 
 _awsArgumentCompleterRegistration $ECR_Completers $ECR_map

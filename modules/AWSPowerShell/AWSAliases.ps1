@@ -1413,6 +1413,8 @@ Set-Alias -Name Delete-ECRRepository -Value Remove-ECRRepository
 Set-Alias -Name ECR-DeleteRepository -Value Remove-ECRRepository
 Set-Alias -Name Delete-ECRRepositoryPolicy -Value Remove-ECRRepositoryPolicy
 Set-Alias -Name ECR-DeleteRepositoryPolicy -Value Remove-ECRRepositoryPolicy
+Set-Alias -Name Describe-ECRImageMetadata -Value Get-ECRImageMetadata
+Set-Alias -Name ECR-DescribeImages -Value Get-ECRImageMetadata
 Set-Alias -Name Describe-ECRRepository -Value Get-ECRRepository
 Set-Alias -Name ECR-DescribeRepositories -Value Get-ECRRepository
 Set-Alias -Name ECR-GetAuthorizationToken -Value Get-ECRAuthorizationToken

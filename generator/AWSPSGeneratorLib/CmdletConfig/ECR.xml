@@ -29,6 +29,7 @@
       </Params>
     </ServiceOperation>
 	  <ServiceOperation MethodName="DeleteRepositoryPolicy" Output="Response" />
+      <ServiceOperation MethodName="DescribeImages" Noun="ImageMetadata" />
 	  <ServiceOperation MethodName="DescribeRepositories" Noun="Repository" PipelineParameter="RepositoryNames" />
 	  <ServiceOperation MethodName="GetAuthorizationToken" />
 	  <ServiceOperation MethodName="GetDownloadUrlForLayer" Output="Response" />
