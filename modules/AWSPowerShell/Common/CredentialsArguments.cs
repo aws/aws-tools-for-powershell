@@ -855,17 +855,16 @@ namespace Amazon.PowerShell.Common
             // if we're not on Windows, or we're on Windows and the credential store apis are not available (eg Nano),
             // or the user has given us a specific credentials file, honor it.
             string credentialsFileLocation = profilesLocation;
-            if (string.IsNullOrEmpty(credentialsFileLocation))
+            if (string.IsNullOrEmpty(credentialsFileLocation) && !ProfileManager.IsAvailable)
             {
-                var isWindows = Utils.Common.IsWindowsPlatform;
-                 if (!isWindows || (isWindows && !ProfileManager.IsAvailable))
-                 {
-                     var homePath = Environment.GetEnvironmentVariable("HOME");
-                     if (string.IsNullOrEmpty(homePath))
-                         homePath = Environment.GetEnvironmentVariable("USERPROFILE");
+                // NanoServer doesn't have HOME set
+                var homePath = Environment.GetEnvironmentVariable("HOME");
+                if (string.IsNullOrEmpty(homePath))
+                    homePath = Environment.GetEnvironmentVariable("USERPROFILE");
+                else
+                    homePath = Directory.GetCurrentDirectory(); // so we save somewhere predictable, assuming write access
 
-                     credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
-                 }
+                credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
             }
 
             if (string.IsNullOrEmpty(credentialsFileLocation))

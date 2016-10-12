@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Common
     /// the services and their API versions supported by this module are also displayed.
     /// </summary>
     [Cmdlet("Get", "AWSPowerShellVersion")]
-    [AWSCmdlet("Displays version and copyright information for the AWS Tools for Windows PowerShell to the shell. If the ListServices switch is specified"
+    [AWSCmdlet("Displays version and copyright information for the AWS Tools for Windows PowerShell to the shell. If the ListServiceVersionInfo switch is specified"
                 + "the services and their API versions supported by this module are also displayed.")]
     [OutputType("String")]
     [AWSCmdletOutput("String", "Version information for the tools and optionally supported services.")]
@@ -378,7 +378,7 @@ namespace Amazon.PowerShell.Common
                         var o = new PSObject();
                         o.Properties.Add(new PSNoteProperty("Service", clientAttribute.ServiceName));
                         o.Properties.Add(new PSNoteProperty("Noun Prefix", clientAttribute.ServicePrefix));
-                        o.Properties.Add(new PSNoteProperty("Version", clientAttribute.Version));
+                        o.Properties.Add(new PSNoteProperty("API Version", clientAttribute.Version));
 
                         services.Add(clientAttribute.ServiceName, o);
                     }
