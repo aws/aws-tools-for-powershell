@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// specify additional FQDNs if users can reach your site by using other names. For each
     /// domain name you specify, email is sent to the domain owner to request approval to
     /// issue the certificate. After receiving approval from the domain owner, the ACM Certificate
-    /// is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">AWS
-    /// Certificate Manager User Guide </a>.
+    /// is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
+    /// Certificate Manager User Guide</a>.
     /// </summary>
     [Cmdlet("New", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

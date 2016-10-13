@@ -1,0 +1,259 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CertificateManager;
+using Amazon.CertificateManager.Model;
+using System.IO;
+
+namespace Amazon.PowerShell.Cmdlets.ACM
+{
+    /// <summary>
+    /// Imports an SSL/TLS certificate into AWS Certificate Manager (ACM) to use with <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">ACM's
+    /// integrated AWS services</a>.
+    /// 
+    ///  <note><para>
+    /// ACM does not provide <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed
+    /// renewal</a> for certificates that you import.
+    /// </para></note><para>
+    /// For more information about importing certificates into ACM, including the differences
+    /// between certificates that you import and those that ACM provides, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+    /// Certificates</a> in the <i>AWS Certificate Manager User Guide</i>.
+    /// </para><para>
+    /// To import a certificate, you must provide the certificate and the matching private
+    /// key. When the certificate is not self-signed, you must also provide a certificate
+    /// chain. You can omit the certificate chain when importing a self-signed certificate.
+    /// </para><para>
+    /// The certificate, private key, and certificate chain must be PEM-encoded. For more
+    /// information about converting these items to PEM format, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html#import-certificate-troubleshooting">Importing
+    /// Certificates Troubleshooting</a> in the <i>AWS Certificate Manager User Guide</i>.
+    /// </para><para>
+    /// To import a new certificate, omit the <code>CertificateArn</code> field. Include this
+    /// field only when you want to replace a previously imported certificate.
+    /// </para><para>
+    /// This operation returns the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+    /// Resource Name (ARN)</a> of the imported certificate.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Import", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ImportCertificate operation against AWS Certificate Manager.", Operation = new[] {"ImportCertificate"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CertificateManager.Model.ImportCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class ImportACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>The certificate to import. It must meet the following requirements:</para><ul><li><para>Must be PEM-encoded.</para></li><li><para>Must contain a 1024-bit or 2048-bit RSA public key.</para></li><li><para>Must be valid at the time of import. You cannot import a certificate before its validity
+        /// period begins (the certificate's <code>NotBefore</code> date) or after it expires
+        /// (the certificate's <code>NotAfter</code> date).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public byte[] Certificate { get; set; }
+        #endregion
+        
+        #region Parameter CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of an imported certificate to replace. To import a new certificate,
+        /// omit this field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter CertificateChain
+        /// <summary>
+        /// <para>
+        /// <para>The certificate chain. It must be PEM-encoded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public byte[] CertificateChain { get; set; }
+        #endregion
+        
+        #region Parameter PrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>The private key that matches the public key in the certificate. It must meet the following
+        /// requirements:</para><ul><li><para>Must be PEM-encoded.</para></li><li><para>Must be unencrypted. You cannot import a private key that is protected by a password
+        /// or passphrase.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public byte[] PrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-ACMCertificate (ImportCertificate)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.Certificate = this.Certificate;
+            context.CertificateArn = this.CertificateArn;
+            context.CertificateChain = this.CertificateChain;
+            context.PrivateKey = this.PrivateKey;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            MemoryStream certificate = null;
+            MemoryStream certificateChain = null;
+            MemoryStream privateKey = null;
+           
+            try
+            {
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.CertificateManager.Model.ImportCertificateRequest();
+
+                if (cmdletContext.Certificate != null)
+                {
+                    certificate = new MemoryStream(cmdletContext.Certificate);
+                    request.Certificate = certificate;
+                }
+                if (cmdletContext.CertificateArn != null)
+                {
+                    request.CertificateArn = cmdletContext.CertificateArn;
+                }
+                if (cmdletContext.CertificateChain != null)
+                {
+                    certificateChain = new MemoryStream(cmdletContext.CertificateChain);
+                    request.CertificateChain = certificateChain;
+                }
+                if (cmdletContext.PrivateKey != null)
+                {
+                    privateKey = new MemoryStream(cmdletContext.PrivateKey);
+                    request.PrivateKey = privateKey;
+                }
+
+                CmdletOutput output;
+
+                // issue call
+                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    Dictionary<string, object> notes = null;
+                    object pipelineOutput = response.CertificateArn;
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response,
+                        Notes = notes
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+
+                return output;
+            }
+            finally      
+            {
+                if (certificate != null)
+                    certificate.Dispose();
+
+                if (certificateChain != null)
+                    certificateChain.Dispose();
+
+                if (privateKey != null)
+                    privateKey.Dispose();
+            }
+
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.CertificateManager.Model.ImportCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ImportCertificateRequest request)
+        {
+            #if DESKTOP
+            return client.ImportCertificate(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.ImportCertificateAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public byte[] Certificate { get; set; }
+            public System.String CertificateArn { get; set; }
+            public byte[] CertificateChain { get; set; }
+            public byte[] PrivateKey { get; set; }
+        }
+        
+    }
+}
