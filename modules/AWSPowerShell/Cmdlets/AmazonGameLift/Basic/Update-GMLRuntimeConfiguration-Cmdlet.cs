@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Collection of server process configurations describing what server processes to run
-        /// on each instance in a fleet </para>
+        /// on each instance in a fleet</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

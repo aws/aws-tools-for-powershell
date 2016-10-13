@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves a collection of alias records for this AWS account. You can filter the result
     /// set by alias name and/or routing strategy type. Use the pagination parameters to retrieve
-    /// results in sequential pages. 
+    /// results in sequential pages.
     /// 
     ///  <note><para>
     /// Aliases are not listed in any particular order.
@@ -61,11 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Type of routing to filter results on. Use this parameter to retrieve only aliases
-        /// of a certain type. To retrieve all aliases, leave this parameter empty.</para><para>Possible routing types include the following:</para><ul><li><b>SIMPLE</b> – The alias resolves to one specific fleet. Use this type when
-        /// routing to active fleets.</li><li><b>TERMINAL</b> – The alias does not resolve to
-        /// a fleet but instead can be used to display a message to the user. A terminal alias
-        /// throws a TerminalRoutingStrategyException with the <a>RoutingStrategy</a> message
-        /// embedded.</li></ul>
+        /// of a certain type. To retrieve all aliases, leave this parameter empty.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> – The alias resolves to one specific fleet. Use this type when routing
+        /// to active fleets.</para></li><li><para><b>TERMINAL</b> – The alias does not resolve to a fleet but instead can be used to
+        /// display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
+        /// with the <a>RoutingStrategy</a> message embedded.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     ///  
     /// <para>
     /// Related Topics
-    /// </para><ul><li><a>RequestEnvironmentInfo</a></li></ul>
+    /// </para><ul><li><para><a>RequestEnvironmentInfo</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "EBEnvironmentInfo")]
     [OutputType("Amazon.ElasticBeanstalk.Model.EnvironmentInfoDescription")]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter InfoType
         /// <summary>
         /// <para>
-        /// <para> The type of information to retrieve. </para>
+        /// <para>The type of information to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

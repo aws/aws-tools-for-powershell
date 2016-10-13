@@ -28,13 +28,15 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Updates the specified configuration template to have the specified properties or
-    /// configuration option values. 
+    /// Updates the specified configuration template to have the specified properties or configuration
+    /// option values.
     /// 
-    ///  <note> If a property (for example, <code>ApplicationName</code>) is not provided,
-    /// its value remains unchanged. To clear such properties, specify an empty string. </note><para>
+    ///  <note><para>
+    /// If a property (for example, <code>ApplicationName</code>) is not provided, its value
+    /// remains unchanged. To clear such properties, specify an empty string.
+    /// </para></note><para>
     /// Related Topics
-    /// </para><ul><li><a>DescribeConfigurationOptions</a></li></ul>
+    /// </para><ul><li><para><a>DescribeConfigurationOptions</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "EBConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse")]
@@ -69,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
-        /// <para> A list of configuration option settings to update with the new specified option value.
-        /// </para>
+        /// <para>A list of configuration option settings to update with the new specified option value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
-        /// <para> A list of configuration options to remove from the configuration set. </para><para> Constraint: You can remove only <code>UserDefined</code> configuration options. </para>
+        /// <para>A list of configuration options to remove from the configuration set.</para><para> Constraint: You can remove only <code>UserDefined</code> configuration options. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

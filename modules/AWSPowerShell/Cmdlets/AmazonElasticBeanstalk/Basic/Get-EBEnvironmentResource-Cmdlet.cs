@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para> The ID of the environment to retrieve AWS resource usage data. </para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// <para>The ID of the environment to retrieve AWS resource usage data.</para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
         /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the environment to retrieve AWS resource usage data. </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
+        /// <para>The name of the environment to retrieve AWS resource usage data.</para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
         /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>

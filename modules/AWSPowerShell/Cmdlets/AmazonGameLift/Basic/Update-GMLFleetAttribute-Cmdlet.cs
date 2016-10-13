@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet you want to update attribute metadata for. </para>
+        /// <para>Unique identifier for the fleet you want to update attribute metadata for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,14 +77,35 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Game session protection policy to apply to all new instances created in this fleet.
         /// Instances that already exist are not affected. You can set protection for individual
-        /// instances using <a>UpdateGameSession</a>.</para><ul><li><b>NoProtection</b> – The game session can be terminated during a scale-down
-        /// event.</li><li><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code>
-        /// status, it cannot be terminated during a scale-down event.</li></ul>
+        /// instances using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> – The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code> status,
+        /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.GameLift.ProtectionPolicy")]
         public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
+        #endregion
+        
+        #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of game sessions an individual can create during the policy period.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
+        #endregion
+        
+        #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
+        /// <summary>
+        /// <para>
+        /// <para>Time span used to evaluate the resource creation limit policy. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceCreationLimitPolicy_PolicyPeriodInMinutes")]
+        public System.Int32 ResourceCreationLimitPolicy_PolicyPeriodInMinute { get; set; }
         #endregion
         
         #region Parameter Force
@@ -120,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.FleetId = this.FleetId;
             context.Name = this.Name;
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
+            if (ParameterWasBound("ResourceCreationLimitPolicy_NewGameSessionsPerCreator"))
+                context.ResourceCreationLimitPolicy_NewGameSessionsPerCreator = this.ResourceCreationLimitPolicy_NewGameSessionsPerCreator;
+            if (ParameterWasBound("ResourceCreationLimitPolicy_PolicyPeriodInMinute"))
+                context.ResourceCreationLimitPolicy_PolicyPeriodInMinutes = this.ResourceCreationLimitPolicy_PolicyPeriodInMinute;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,6 +176,35 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.NewGameSessionProtectionPolicy != null)
             {
                 request.NewGameSessionProtectionPolicy = cmdletContext.NewGameSessionProtectionPolicy;
+            }
+            
+             // populate ResourceCreationLimitPolicy
+            bool requestResourceCreationLimitPolicyIsNull = true;
+            request.ResourceCreationLimitPolicy = new Amazon.GameLift.Model.ResourceCreationLimitPolicy();
+            System.Int32? requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator = null;
+            if (cmdletContext.ResourceCreationLimitPolicy_NewGameSessionsPerCreator != null)
+            {
+                requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator = cmdletContext.ResourceCreationLimitPolicy_NewGameSessionsPerCreator.Value;
+            }
+            if (requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator != null)
+            {
+                request.ResourceCreationLimitPolicy.NewGameSessionsPerCreator = requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator.Value;
+                requestResourceCreationLimitPolicyIsNull = false;
+            }
+            System.Int32? requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute = null;
+            if (cmdletContext.ResourceCreationLimitPolicy_PolicyPeriodInMinutes != null)
+            {
+                requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute = cmdletContext.ResourceCreationLimitPolicy_PolicyPeriodInMinutes.Value;
+            }
+            if (requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute != null)
+            {
+                request.ResourceCreationLimitPolicy.PolicyPeriodInMinutes = requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute.Value;
+                requestResourceCreationLimitPolicyIsNull = false;
+            }
+             // determine if request.ResourceCreationLimitPolicy should be set to null
+            if (requestResourceCreationLimitPolicyIsNull)
+            {
+                request.ResourceCreationLimitPolicy = null;
             }
             
             CmdletOutput output;
@@ -207,6 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String FleetId { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
+            public System.Int32? ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
+            public System.Int32? ResourceCreationLimitPolicy_PolicyPeriodInMinutes { get; set; }
         }
         
     }

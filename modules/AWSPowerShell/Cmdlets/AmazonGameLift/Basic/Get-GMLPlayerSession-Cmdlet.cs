@@ -57,7 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a game session.</para>
+        /// <para>Unique identifier for the game session to get player sessions for.Game session ID
+        /// format is as follows: "arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+        /// ID&gt;/&lt;ID string&gt;". The value of &lt;ID string&gt; is either a custom ID string
+        /// (if one was specified when the game session was created) an auto-generated string.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,12 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerSessionStatusFilter
         /// <summary>
         /// <para>
-        /// <para>Player session status to filter results on.</para><para>Possible player session statuses include the following:</para><ul><li><b>RESERVED</b> – The player session request has been received, but the player
-        /// has not yet connected to the server process and/or been validated. </li><li><b>ACTIVE</b>
-        /// – The player has been validated by the server process and is currently connected.</li><li><b>COMPLETED</b>
-        /// – The player connection has been dropped.</li><li><b>TIMEDOUT</b> – A player session
-        /// request was received, but the player did not connect and/or was not validated within
-        /// the time-out limit (60 seconds).</li></ul>
+        /// <para>Player session status to filter results on.</para><para>Possible player session statuses include the following:</para><ul><li><para><b>RESERVED</b> – The player session request has been received, but the player has
+        /// not yet connected to the server process and/or been validated. </para></li><li><para><b>ACTIVE</b> – The player has been validated by the server process and is currently
+        /// connected.</para></li><li><para><b>COMPLETED</b> – The player connection has been dropped.</para></li><li><para><b>TIMEDOUT</b> – A player session request was received, but the player did not connect
+        /// and/or was not validated within the time-out limit (60 seconds).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

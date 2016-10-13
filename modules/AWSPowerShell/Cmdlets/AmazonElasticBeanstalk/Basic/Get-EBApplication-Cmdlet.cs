@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
-        /// those with the specified names. </para>
+        /// those with the specified names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

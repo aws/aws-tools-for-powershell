@@ -30,9 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Deletes the specified configuration template.
     /// 
-    ///  <note>When you launch an environment using a configuration template, the environment
-    /// gets a copy of the template. You can delete or modify the environment's copy of the
-    /// template without affecting the running environment.</note>
+    ///  <note><para>
+    /// When you launch an environment using a configuration template, the environment gets
+    /// a copy of the template. You can delete or modify the environment's copy of the template
+    /// without affecting the running environment.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "EBConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application to delete the configuration template from.</para>
+        /// <para>The name of the application to delete the configuration template from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

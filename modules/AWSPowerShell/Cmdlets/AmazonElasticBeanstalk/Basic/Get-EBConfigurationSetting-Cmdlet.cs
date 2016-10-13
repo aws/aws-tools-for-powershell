@@ -30,17 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Returns a description of the settings for the specified configuration set, that is,
     /// either a configuration template or the configuration set associated with a running
-    /// environment. 
+    /// environment.
     /// 
     ///  
     /// <para>
-    ///  When describing the settings for the configuration set associated with a running
-    /// environment, it is possible to receive two sets of setting descriptions. One is the
-    /// deployed configuration set, and the other is a draft configuration of an environment
-    /// that is either in the process of deployment or that failed to deploy. 
+    /// When describing the settings for the configuration set associated with a running environment,
+    /// it is possible to receive two sets of setting descriptions. One is the deployed configuration
+    /// set, and the other is a draft configuration of an environment that is either in the
+    /// process of deployment or that failed to deploy.
     /// </para><para>
     /// Related Topics
-    /// </para><ul><li><a>DeleteEnvironmentConfiguration</a></li></ul>
+    /// </para><ul><li><para><a>DeleteEnvironmentConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "EBConfigurationSetting")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ConfigurationSettingsDescription")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The application for the environment or configuration template. </para>
+        /// <para>The application for the environment or configuration template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the environment to describe. </para><para> Condition: You must specify either this or a TemplateName, but not both. If you specify
+        /// <para>The name of the environment to describe.</para><para> Condition: You must specify either this or a TemplateName, but not both. If you specify
         /// both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error.
         /// If you do not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para> The name of the configuration template to describe. </para><para> Conditional: You must specify either this parameter or an EnvironmentName, but not
+        /// <para>The name of the configuration template to describe.</para><para> Conditional: You must specify either this parameter or an EnvironmentName, but not
         /// both. If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code>
         /// error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code>
         /// error. </para>

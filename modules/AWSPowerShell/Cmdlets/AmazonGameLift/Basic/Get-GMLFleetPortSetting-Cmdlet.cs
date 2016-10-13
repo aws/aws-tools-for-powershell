@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet you want to retrieve port settings for. </para>
+        /// <para>Unique identifier for the fleet you want to retrieve port settings for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

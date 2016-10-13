@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter DestinationEnvironmentId
         /// <summary>
         /// <para>
-        /// <para> The ID of the destination environment. </para><para> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or
+        /// <para>The ID of the destination environment.</para><para> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or
         /// the <code>DestinationEnvironmentName</code>. You may also specify both. You must specify
         /// the <code>SourceEnvironmentId</code> with the <code>DestinationEnvironmentId</code>.
         /// </para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter DestinationEnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the destination environment. </para><para> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or
+        /// <para>The name of the destination environment.</para><para> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or
         /// the <code>DestinationEnvironmentName</code>. You may also specify both. You must specify
         /// the <code>SourceEnvironmentName</code> with the <code>DestinationEnvironmentName</code>.
         /// </para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceEnvironmentId
         /// <summary>
         /// <para>
-        /// <para> The ID of the source environment. </para><para> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
+        /// <para>The ID of the source environment.</para><para> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
         /// <code>SourceEnvironmentName</code>. You may also specify both. If you specify the
         /// <code>SourceEnvironmentId</code>, you must specify the <code>DestinationEnvironmentId</code>.
         /// </para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceEnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the source environment. </para><para> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
+        /// <para>The name of the source environment.</para><para> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
         /// <code>SourceEnvironmentName</code>. You may also specify both. If you specify the
         /// <code>SourceEnvironmentName</code>, you must specify the <code>DestinationEnvironmentName</code>.
         /// </para>

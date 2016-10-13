@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application that contains the version to be deployed. </para><para> If no application is found with this name, <code>CreateEnvironment</code> returns
+        /// <para>The name of the application that contains the version to be deployed.</para><para> If no application is found with this name, <code>CreateEnvironment</code> returns
         /// an <code>InvalidParameterValue</code> error. </para>
         /// </para>
         /// </summary>
@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter CNAMEPrefix
         /// <summary>
         /// <para>
-        /// <para> If specified, the environment attempts to use this value as the prefix for the CNAME.
+        /// <para>If specified, the environment attempts to use this value as the prefix for the CNAME.
         /// If not specified, the CNAME is generated automatically by appending a random alphanumeric
-        /// string to the environment name. </para>
+        /// string to the environment name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> A unique name for the deployment environment. Used in the application URL. </para><para>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters,
+        /// <para>A unique name for the deployment environment. Used in the application URL.</para><para>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters,
         /// numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique
         /// in your account. If the specified name already exists, AWS Elastic Beanstalk returns
         /// an <code>InvalidParameterValue</code> error. </para><para>Default: If the CNAME parameter is not specified, the environment name becomes part
@@ -112,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk sets the specified configuration options to the
+        /// <para>If specified, AWS Elastic Beanstalk sets the specified configuration options to the
         /// requested value in the configuration set for the new environment. These override the
-        /// values obtained from the solution stack or the configuration template. </para>
+        /// values obtained from the solution stack or the configuration template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
-        /// <para> A list of custom user-defined configuration options to remove from the configuration
-        /// set for this new environment. </para>
+        /// <para>A list of custom user-defined configuration options to remove from the configuration
+        /// set for this new environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> This specifies the tags applied to resources in the environment. </para>
+        /// <para>This specifies the tags applied to resources in the environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -184,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The name of the application version to deploy.</para><para> If the specified application has no associated application versions, AWS Elastic
         /// Beanstalk <code>UpdateEnvironment</code> returns an <code>InvalidParameterValue</code>
-        /// error. </para><para> Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application
-        /// in the container. </para>
+        /// error. </para><para>Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application
+        /// in the container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SolutionStackName
         /// <summary>
         /// <para>
-        /// <para> This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
+        /// <para>This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
         /// sets the configuration values to the default values associated with the specified
-        /// solution stack. </para><para> Condition: You must specify either this or a <code>TemplateName</code>, but not both.
+        /// solution stack.</para><para> Condition: You must specify either this or a <code>TemplateName</code>, but not both.
         /// If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code>
         /// error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code>
         /// error. </para>

@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// For example, this policy: "If the number of idle instances exceeds 20 for more than
     /// 15 minutes, then reduce the fleet capacity by 10 instances" could be implemented as
-    /// the following rule statement: 
+    /// the following rule statement:
     /// </para><para>
     /// If [IdleInstances] is [GreaterThanOrEqualToThreshold] [20] for [15] minutes, then
-    /// [ChangeInCapacity] by [-10]. 
+    /// [ChangeInCapacity] by [-10].
     /// </para><para>
     /// To create or update a scaling policy, specify a unique combination of name and fleet
     /// ID, and set the rule values. All parameters for this action are required. If successful,
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ComparisonOperator
         /// <summary>
         /// <para>
-        /// <para>Comparison operator to use when measuring the metric against the threshold value.
-        /// </para>
+        /// <para>Comparison operator to use when measuring the metric against the threshold value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,17 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.</para><ul><li><b>ActivatingGameSessions</b> – number of game sessions in the process
-        /// of being created (game session status = <code>ACTIVATING</code>).</li><li><b>ActiveGameSessions</b>
-        /// – number of game sessions currently running (game session status = <code>ACTIVE</code>).</li><li><b>CurrentPlayerSessions</b> – number of active or reserved player sessions (player
-        /// session status = <code>ACTIVE</code> or <code>RESERVED</code>). </li><li><b>AvailablePlayerSessions</b>
-        /// – number of player session slots currently available in active game sessions across
-        /// the fleet, calculated by subtracting a game session's current player session count
-        /// from its maximum player session count. This number includes game sessions that are
-        /// not currently accepting players (game session <code>PlayerSessionCreationPolicy</code>
-        /// = <code>DENY_ALL</code>).</li><li><b>ActiveInstances</b> – number of instances currently
-        /// running a game session.</li><li><b>IdleInstances</b> – number of instances not currently
-        /// running a game session.</li></ul>
+        /// <para>Name of the Amazon GameLift-defined metric that is used to trigger an adjustment.</para><ul><li><para><b>ActivatingGameSessions</b> – number of game sessions in the process of being created
+        /// (game session status = <code>ACTIVATING</code>).</para></li><li><para><b>ActiveGameSessions</b> – number of game sessions currently running (game session
+        /// status = <code>ACTIVE</code>).</para></li><li><para><b>CurrentPlayerSessions</b> – number of active or reserved player sessions (player
+        /// session status = <code>ACTIVE</code> or <code>RESERVED</code>). </para></li><li><para><b>AvailablePlayerSessions</b> – number of player session slots currently available
+        /// in active game sessions across the fleet, calculated by subtracting a game session's
+        /// current player session count from its maximum player session count. This number includes
+        /// game sessions that are not currently accepting players (game session <code>PlayerSessionCreationPolicy</code>
+        /// = <code>DENY_ALL</code>).</para></li><li><para><b>ActiveInstances</b> – number of instances currently running a game session.</para></li><li><para><b>IdleInstances</b> – number of instances not currently running a game session.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,13 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScalingAdjustmentType
         /// <summary>
         /// <para>
-        /// <para>Type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</para><ul><li><b>ChangeInCapacity</b> – add (or subtract) the scaling adjustment value
-        /// from the current instance count. Positive values scale up while negative values scale
-        /// down.</li><li><b>ExactCapacity</b> – set the instance count to the scaling adjustment
-        /// value.</li><li><b>PercentChangeInCapacity</b> – increase or reduce the current instance
-        /// count by the scaling adjustment, read as a percentage. Positive values scale up while
-        /// negative values scale down; for example, a value of "-10" scales the fleet down by
-        /// 10%.</li></ul>
+        /// <para>Type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</para><ul><li><para><b>ChangeInCapacity</b> – add (or subtract) the scaling adjustment value from the
+        /// current instance count. Positive values scale up while negative values scale down.</para></li><li><para><b>ExactCapacity</b> – set the instance count to the scaling adjustment value.</para></li><li><para><b>PercentChangeInCapacity</b> – increase or reduce the current instance count by
+        /// the scaling adjustment, read as a percentage. Positive values scale up while negative
+        /// values scale down; for example, a value of "-10" scales the fleet down by 10%.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

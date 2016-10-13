@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     ///  
     /// <para>
     /// Related Topics
-    /// </para><ul><li><a>DescribeConfigurationOptions</a></li><li><a>DescribeConfigurationSettings</a></li><li><a>ListAvailableSolutionStacks</a></li></ul>
+    /// </para><ul><li><para><a>DescribeConfigurationOptions</a></para></li><li><para><a>DescribeConfigurationSettings</a></para></li><li><para><a>ListAvailableSolutionStacks</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "EBConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse")]
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk sets the specified configuration option to the
+        /// <para>If specified, AWS Elastic Beanstalk sets the specified configuration option to the
         /// requested value. The new value overrides the value obtained from the solution stack
-        /// or the source configuration template. </para>
+        /// or the source configuration template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration template.</para><para>Constraint: This name must be unique per application. </para><para>Default: If a configuration template already exists with this name, AWS Elastic Beanstalk
+        /// <para>The name of the configuration template.</para><para>Constraint: This name must be unique per application.</para><para>Default: If a configuration template already exists with this name, AWS Elastic Beanstalk
         /// returns an <code>InvalidParameterValue</code> error. </para>
         /// </para>
         /// </summary>
@@ -128,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>The name of the solution stack used by this configuration. The solution stack specifies
         /// the operating system, architecture, and application server for a configuration template.
         /// It determines the set of configuration options as well as the possible and default
-        /// values. </para><para> Use <a>ListAvailableSolutionStacks</a> to obtain a list of available solution stacks.
+        /// values.</para><para> Use <a>ListAvailableSolutionStacks</a> to obtain a list of available solution stacks.
         /// </para><para> A solution stack name or a source configuration parameter must be specified, otherwise
-        /// AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para> If a solution stack name is not specified and the source configuration parameter
-        /// is specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration
-        /// template. </para>
+        /// AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>If a solution stack name is not specified and the source configuration parameter is
+        /// specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration
+        /// template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

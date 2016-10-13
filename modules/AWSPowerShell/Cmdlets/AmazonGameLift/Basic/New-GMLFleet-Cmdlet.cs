@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute
     /// Cloud (Amazon EC2) instances, each of which can run multiple server processes to host
     /// game sessions. You configure a fleet to create instances with certain hardware specifications
-    /// (see <a href="https://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>
+    /// (see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>
     /// for more information), and deploy a specified game build to each instance. A newly
     /// created fleet passes through several statuses; once it reaches the <code>ACTIVE</code>
     /// status, it can begin hosting game sessions.
@@ -47,21 +47,33 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
     /// tasks:
-    /// </para><ul><li>Creates a fleet record and sets the status to <code>NEW</code> (followed
-    /// by other statuses as the fleet is activated).</li><li>Sets the fleet's capacity to
-    /// 1 "desired", which causes GameLift to start one new EC2 instance.</li><li>Starts
-    /// launching server processes on the instance. If the fleet is configured to run multiple
-    /// server processes per instance, GameLift staggers each launch by a few seconds.</li><li>Begins writing events to the fleet event log, which can be accessed in the GameLift
-    /// console.</li><li>Sets the fleet's status to <code>ACTIVE</code> once one server process
-    /// in the fleet is ready to host a game session.</li></ul><para>
+    /// </para><ul><li><para>
+    /// Creates a fleet record and sets the status to <code>NEW</code> (followed by other
+    /// statuses as the fleet is activated).
+    /// </para></li><li><para>
+    /// Sets the fleet's capacity to 1 "desired", which causes GameLift to start one new EC2
+    /// instance.
+    /// </para></li><li><para>
+    /// Starts launching server processes on the instance. If the fleet is configured to run
+    /// multiple server processes per instance, GameLift staggers each launch by a few seconds.
+    /// </para></li><li><para>
+    /// Begins writing events to the fleet event log, which can be accessed in the GameLift
+    /// console.
+    /// </para></li><li><para>
+    /// Sets the fleet's status to <code>ACTIVE</code> once one server process in the fleet
+    /// is ready to host a game session.
+    /// </para></li></ul><para>
     /// After a fleet is created, use the following actions to change fleet properties and
     /// configuration:
-    /// </para><ul><li><a>UpdateFleetAttributes</a> -- Update fleet metadata, including name and
-    /// description.</li><li><a>UpdateFleetCapacity</a> -- Increase or decrease the number
-    /// of instances you want the fleet to maintain.</li><li><a>UpdateFleetPortSettings</a>
-    /// -- Change the IP address and port ranges that allow access to incoming traffic.</li><li><a>UpdateRuntimeConfiguration</a> -- Change how server processes are launched
-    /// in the fleet, including launch path, launch parameters, and the number of concurrent
-    /// processes.</li></ul>
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a> -- Update fleet metadata, including name and description.
+    /// </para></li><li><para><a>UpdateFleetCapacity</a> -- Increase or decrease the number of instances you want
+    /// the fleet to maintain.
+    /// </para></li><li><para><a>UpdateFleetPortSettings</a> -- Change the IP address and port ranges that allow
+    /// access to incoming traffic.
+    /// </para></li><li><para><a>UpdateRuntimeConfiguration</a> -- Change how server processes are launched in
+    /// the fleet, including launch path, launch parameters, and the number of concurrent
+    /// processes.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]
@@ -115,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance
         /// type determines the computing resources of each instance in the fleet, including CPU,
         /// memory, storage, and networking capacity. GameLift supports the following EC2 instance
-        /// types. See <a href="https://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
+        /// types. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
         /// Types</a> for detailed descriptions.</para>
         /// </para>
         /// </summary>
@@ -157,14 +169,35 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// is not set, instances in this fleet default to no protection. You can change a fleet's
         /// protection policy using UpdateFleetAttributes, but this change will only affect sessions
         /// created after the policy change. You can also set protection for individual instances
-        /// using <a>UpdateGameSession</a>.</para><ul><li><b>NoProtection</b> – The game session can be terminated during a scale-down
-        /// event.</li><li><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code>
-        /// status, it cannot be terminated during a scale-down event.</li></ul>
+        /// using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> – The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code> status,
+        /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.GameLift.ProtectionPolicy")]
         public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
+        #endregion
+        
+        #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of game sessions an individual can create during the policy period.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
+        #endregion
+        
+        #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
+        /// <summary>
+        /// <para>
+        /// <para>Time span used to evaluate the resource creation limit policy. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceCreationLimitPolicy_PolicyPeriodInMinutes")]
+        public System.Int32 ResourceCreationLimitPolicy_PolicyPeriodInMinute { get; set; }
         #endregion
         
         #region Parameter ServerLaunchParameter
@@ -196,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Collection of server process configurations describing what server processes to run
-        /// on each instance in a fleet </para>
+        /// on each instance in a fleet</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -246,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             context.Name = this.Name;
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
+            if (ParameterWasBound("ResourceCreationLimitPolicy_NewGameSessionsPerCreator"))
+                context.ResourceCreationLimitPolicy_NewGameSessionsPerCreator = this.ResourceCreationLimitPolicy_NewGameSessionsPerCreator;
+            if (ParameterWasBound("ResourceCreationLimitPolicy_PolicyPeriodInMinute"))
+                context.ResourceCreationLimitPolicy_PolicyPeriodInMinutes = this.ResourceCreationLimitPolicy_PolicyPeriodInMinute;
             if (this.RuntimeConfiguration_ServerProcess != null)
             {
                 context.RuntimeConfiguration_ServerProcesses = new List<Amazon.GameLift.Model.ServerProcess>(this.RuntimeConfiguration_ServerProcess);
@@ -295,6 +332,35 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.NewGameSessionProtectionPolicy != null)
             {
                 request.NewGameSessionProtectionPolicy = cmdletContext.NewGameSessionProtectionPolicy;
+            }
+            
+             // populate ResourceCreationLimitPolicy
+            bool requestResourceCreationLimitPolicyIsNull = true;
+            request.ResourceCreationLimitPolicy = new Amazon.GameLift.Model.ResourceCreationLimitPolicy();
+            System.Int32? requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator = null;
+            if (cmdletContext.ResourceCreationLimitPolicy_NewGameSessionsPerCreator != null)
+            {
+                requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator = cmdletContext.ResourceCreationLimitPolicy_NewGameSessionsPerCreator.Value;
+            }
+            if (requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator != null)
+            {
+                request.ResourceCreationLimitPolicy.NewGameSessionsPerCreator = requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_NewGameSessionsPerCreator.Value;
+                requestResourceCreationLimitPolicyIsNull = false;
+            }
+            System.Int32? requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute = null;
+            if (cmdletContext.ResourceCreationLimitPolicy_PolicyPeriodInMinutes != null)
+            {
+                requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute = cmdletContext.ResourceCreationLimitPolicy_PolicyPeriodInMinutes.Value;
+            }
+            if (requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute != null)
+            {
+                request.ResourceCreationLimitPolicy.PolicyPeriodInMinutes = requestResourceCreationLimitPolicy_resourceCreationLimitPolicy_PolicyPeriodInMinute.Value;
+                requestResourceCreationLimitPolicyIsNull = false;
+            }
+             // determine if request.ResourceCreationLimitPolicy should be set to null
+            if (requestResourceCreationLimitPolicyIsNull)
+            {
+                request.ResourceCreationLimitPolicy = null;
             }
             
              // populate RuntimeConfiguration
@@ -381,6 +447,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<System.String> LogPaths { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
+            public System.Int32? ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
+            public System.Int32? ResourceCreationLimitPolicy_PolicyPeriodInMinutes { get; set; }
             public List<Amazon.GameLift.Model.ServerProcess> RuntimeConfiguration_ServerProcesses { get; set; }
             public System.String ServerLaunchParameters { get; set; }
             public System.String ServerLaunchPath { get; set; }

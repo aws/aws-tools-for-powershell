@@ -77,10 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TerminateResource
         /// <summary>
         /// <para>
-        /// <para> Indicates whether the associated AWS resources should shut down when the environment
-        /// is terminated: </para><ul><li><code>true</code>: The specified environment as well as the associated
-        /// AWS resources, such as Auto Scaling group and LoadBalancer, are terminated. </li><li><code>false</code>: AWS Elastic Beanstalk resource management is removed from
-        /// the environment, but the AWS resources continue to operate. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
+        /// <para>Indicates whether the associated AWS resources should shut down when the environment
+        /// is terminated:</para><ul><li><para><code>true</code>: The specified environment as well as the associated AWS resources,
+        /// such as Auto Scaling group and LoadBalancer, are terminated.</para></li><li><para><code>false</code>: AWS Elastic Beanstalk resource management is removed from the
+        /// environment, but the AWS resources continue to operate.</para></li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
         /// AWS Elastic Beanstalk User Guide. </a></para><para> Default: <code>true</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>

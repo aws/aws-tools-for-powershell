@@ -33,10 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to Amazon S3.
     /// 
     ///  <important><para>
-    /// Call this action only if you need credentials for a build created with <code><a>CreateBuild</a></code>.
-    /// This is a rare situation; in most cases, builds are created using the CLI command
-    /// <code>upload-build</code>, which creates a build record and also uploads build files.
-    /// 
+    /// Call this action only if you need credentials for a build created with <code><a>CreateBuild</a></code>. This is a rare situation; in most cases, builds are created using the CLI
+    /// command <code>upload-build</code>, which creates a build record and also uploads build
+    /// files. 
     /// </para></important><para>
     /// Upload credentials are returned when you create the build, but they have a limited
     /// lifespan. You can get fresh credentials and use them to re-upload game files until
@@ -56,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the build you want to get credentials for. </para>
+        /// <para>Unique identifier for the build you want to get credentials for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

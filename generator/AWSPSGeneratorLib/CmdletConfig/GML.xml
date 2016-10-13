@@ -38,6 +38,7 @@
     <ServiceOperation MethodName="DescribeFleetUtilization"/>
     <ServiceOperation MethodName="DescribeGameSessions" Noun="GameSession"/>
     <ServiceOperation MethodName="DescribeGameSessionDetails" Noun="GameSessionDetail" PipelineParameter="GameSessionId"/>
+    <ServiceOperation MethodName="DescribeInstances" Noun="Instance" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="DescribePlayerSessions" Noun="PlayerSession"/>
     <ServiceOperation MethodName="DescribeRuntimeConfiguration"/>
     <ServiceOperation MethodName="DescribeScalingPolicies" Noun="ScalingPolicy" PipelineParameter="FleetId"/>
@@ -48,7 +49,7 @@
     <ServiceOperation MethodName="PutScalingPolicy" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="RequestUploadCredentials" Output="Response" Noun="UploadCredential" />
     <ServiceOperation MethodName="ResolveAlias"/>
-	<ServiceOperation MethodName="SearchGameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" />
+    <ServiceOperation MethodName="SearchGameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" />
     <ServiceOperation MethodName="UpdateAlias" ShouldProcessTarget="AliasId"/>
     <ServiceOperation MethodName="UpdateBuild" ShouldProcessTarget="BuildId"/>
     <ServiceOperation MethodName="UpdateFleetAttributes" ShouldProcessTarget="FleetId" Noun="FleetAttribute"/>

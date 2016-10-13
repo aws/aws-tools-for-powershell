@@ -28,10 +28,12 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Updates the specified application version to have the specified properties. 
+    /// Updates the specified application version to have the specified properties.
     /// 
-    ///  <note> If a property (for example, <code>description</code>) is not provided, the
-    /// value remains unchanged. To clear properties, specify an empty string. </note>
+    ///  <note><para>
+    /// If a property (for example, <code>description</code>) is not provided, the value remains
+    /// unchanged. To clear properties, specify an empty string.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "EBApplicationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application associated with this version. </para><para> If no application is found with this name, <code>UpdateApplication</code> returns
+        /// <para>The name of the application associated with this version.</para><para> If no application is found with this name, <code>UpdateApplication</code> returns
         /// an <code>InvalidParameterValue</code> error. </para>
         /// </para>
         /// </summary>

@@ -28,10 +28,12 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Updates the specified application to have the specified properties. 
+    /// Updates the specified application to have the specified properties.
     /// 
-    ///  <note> If a property (for example, <code>description</code>) is not provided, the
-    /// value remains unchanged. To clear these properties, specify an empty string. </note>
+    ///  <note><para>
+    /// If a property (for example, <code>description</code>) is not provided, the value remains
+    /// unchanged. To clear these properties, specify an empty string.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "EBApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationDescription")]
@@ -57,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> A new description for the application. </para><para>Default: If not specified, AWS Elastic Beanstalk does not update the description.
-        /// </para>
+        /// <para>A new description for the application.</para><para>Default: If not specified, AWS Elastic Beanstalk does not update the description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

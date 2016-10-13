@@ -1747,6 +1747,8 @@ Set-Alias -Name ETS-TestRole -Value Test-ETSRole
 Set-Alias -Name ETS-UpdatePipeline -Value Update-ETSPipeline
 Set-Alias -Name ETS-UpdatePipelineNotifications -Value Update-ETSPipelineNotifications
 Set-Alias -Name ETS-UpdatePipelineStatus -Value Update-ETSPipelineStatus
+Set-Alias -Name List-GMLAlias -Value Get-GMLAlias
+Set-Alias -Name GML-ListAliases -Value Get-GMLAlias
 Set-Alias -Name List-GMLBuild -Value Get-GMLBuild
 Set-Alias -Name GML-ListBuilds -Value Get-GMLBuild
 Set-Alias -Name List-GMLFleet -Value Get-GMLFleet
@@ -1801,6 +1803,8 @@ Set-Alias -Name Describe-GMLGameSessionDetail -Value Get-GMLGameSessionDetail
 Set-Alias -Name GML-DescribeGameSessionDetails -Value Get-GMLGameSessionDetail
 Set-Alias -Name Describe-GMLGameSession -Value Get-GMLGameSession
 Set-Alias -Name GML-DescribeGameSessions -Value Get-GMLGameSession
+Set-Alias -Name Describe-GMLInstance -Value Get-GMLInstance
+Set-Alias -Name GML-DescribeInstances -Value Get-GMLInstance
 Set-Alias -Name Describe-GMLPlayerSession -Value Get-GMLPlayerSession
 Set-Alias -Name GML-DescribePlayerSessions -Value Get-GMLPlayerSession
 Set-Alias -Name Describe-GMLRuntimeConfiguration -Value Get-GMLRuntimeConfiguration
@@ -1808,8 +1812,6 @@ Set-Alias -Name GML-DescribeRuntimeConfiguration -Value Get-GMLRuntimeConfigurat
 Set-Alias -Name Describe-GMLScalingPolicy -Value Get-GMLScalingPolicy
 Set-Alias -Name GML-DescribeScalingPolicies -Value Get-GMLScalingPolicy
 Set-Alias -Name GML-GetGameSessionLogUrl -Value Get-GMLGameSessionLogUrl
-Set-Alias -Name List-GMLAlias -Value Get-GMLAlias
-Set-Alias -Name GML-ListAliases -Value Get-GMLAlias
 Set-Alias -Name HSM-AddTagsToResource -Value Set-HSMResourceTag
 Set-Alias -Name Create-HSMHapg -Value New-HSMPartitionGroup
 Set-Alias -Name HSM-CreateHapg -Value New-HSMPartitionGroup

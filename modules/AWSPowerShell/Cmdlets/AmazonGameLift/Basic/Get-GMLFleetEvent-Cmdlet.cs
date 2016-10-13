@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet to get event logs for. </para>
+        /// <para>Unique identifier for the fleet to get event logs for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

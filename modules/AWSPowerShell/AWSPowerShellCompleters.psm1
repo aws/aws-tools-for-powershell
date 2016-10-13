@@ -329,6 +329,20 @@ $EB_Completers = {
             break
         }
         
+        # Amazon.ElasticBeanstalk.SourceRepository
+        "New-EBApplicationVersion/SourceBuildInformation_SourceRepository"
+        {
+            $v = "CodeCommit"
+            break
+        }
+        
+        # Amazon.ElasticBeanstalk.SourceType
+        "New-EBApplicationVersion/SourceBuildInformation_SourceType"
+        {
+            $v = "Git"
+            break
+        }
+        
     }
     
     $v |
@@ -339,6 +353,8 @@ $EB_Completers = {
 $EB_map = @{
     "InfoType"=@("Get-EBEnvironmentInfo","Request-EBEnvironmentInfo")
     "Severity"=@("Get-EBEvent")
+    "SourceBuildInformation_SourceRepository"=@("New-EBApplicationVersion")
+    "SourceBuildInformation_SourceType"=@("New-EBApplicationVersion")
     "Status"=@("Get-EBEnvironmentManagedAction")
 }
 

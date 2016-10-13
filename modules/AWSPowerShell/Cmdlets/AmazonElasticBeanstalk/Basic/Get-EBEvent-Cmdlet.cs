@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Returns list of event descriptions matching criteria up to the last 6 weeks.
     /// 
-    ///  <note>This action returns the most recent 1,000 events from the specified <code>NextToken</code>.</note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    ///  <note><para>
+    /// This action returns the most recent 1,000 events from the specified <code>NextToken</code>.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EBEvent")]
     [OutputType("Amazon.ElasticBeanstalk.Model.EventDescription")]
@@ -90,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the described events to include only
-        /// those associated with this request ID. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the described events to include only
+        /// those associated with this request ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Severity
         /// <summary>
         /// <para>
-        /// <para> If specified, limits the events returned from this call to include only those with
-        /// the specified severity or higher. </para>
+        /// <para>If specified, limits the events returned from this call to include only those with
+        /// the specified severity or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -146,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para> Specifies the maximum number of events that can be returned, beginning with the most
-        /// recent event. </para>
+        /// <para>Specifies the maximum number of events that can be returned, beginning with the most
+        /// recent event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Pagination token. If specified, the events return the next batch of results. </para>
+        /// <para>Pagination token. If specified, the events return the next batch of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

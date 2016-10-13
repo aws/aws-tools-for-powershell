@@ -51,12 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Build status to filter results by. To retrieve all builds, leave this parameter empty.</para><para>Possible build statuses include the following:</para><ul><li><b>INITIALIZED</b> – A new build has been defined, but no files have been
-        /// uploaded. You cannot create fleets for builds that are in this status. When a build
-        /// is successfully created, the build status is set to this value. </li><li><b>READY</b>
-        /// – The game build has been successfully uploaded. You can now create new fleets for
-        /// this build.</li><li><b>FAILED</b> – The game build upload failed. You cannot create
-        /// new fleets for this build. </li></ul>
+        /// <para>Build status to filter results by. To retrieve all builds, leave this parameter empty.</para><para>Possible build statuses include the following:</para><ul><li><para><b>INITIALIZED</b> – A new build has been defined, but no files have been uploaded.
+        /// You cannot create fleets for builds that are in this status. When a build is successfully
+        /// created, the build status is set to this value. </para></li><li><para><b>READY</b> – The game build has been successfully uploaded. You can now create
+        /// new fleets for this build.</para></li><li><para><b>FAILED</b> – The game build upload failed. You cannot create new fleets for this
+        /// build. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

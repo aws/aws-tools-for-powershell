@@ -30,10 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Creates an application version for the specified application.
     /// 
-    ///  <note>Once you create an application version with a specified Amazon S3 bucket and
-    /// key location, you cannot change that Amazon S3 location. If you change the Amazon
-    /// S3 location, you receive an exception when you attempt to launch an environment from
-    /// the application version. </note>
+    ///  <note><para>
+    /// Once you create an application version with a specified Amazon S3 bucket and key location,
+    /// you cannot change that Amazon S3 location. If you change the Amazon S3 location, you
+    /// receive an exception when you attempt to launch an environment from the application
+    /// version.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EBApplicationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
@@ -59,11 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter AutoCreateApplication
         /// <summary>
         /// <para>
-        /// <para> Determines how the system behaves if the specified application for this version does
-        /// not already exist: </para><ul><li><code>true</code> : Automatically creates the specified application for
-        /// this release if it does not already exist. </li><li><code>false</code> : Throws
-        /// an <code>InvalidParameterValue</code> if the specified application for this release
-        /// does not already exist. </li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Determines how the system behaves if the specified application for this version does
+        /// not already exist:</para><ul><li><para><code>true</code> : Automatically creates the specified application for this release
+        /// if it does not already exist.</para></li><li><para><code>false</code> : Throws an <code>InvalidParameterValue</code> if the specified
+        /// application for this release does not already exist.</para></li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,6 +111,38 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceBundle_S3Key { get; set; }
+        #endregion
+        
+        #region Parameter SourceBuildInformation_SourceLocation
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceBuildInformation_SourceLocation { get; set; }
+        #endregion
+        
+        #region Parameter SourceBuildInformation_SourceRepository
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.SourceRepository")]
+        public Amazon.ElasticBeanstalk.SourceRepository SourceBuildInformation_SourceRepository { get; set; }
+        #endregion
+        
+        #region Parameter SourceBuildInformation_SourceType
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.SourceType")]
+        public Amazon.ElasticBeanstalk.SourceType SourceBuildInformation_SourceType { get; set; }
         #endregion
         
         #region Parameter VersionLabel
@@ -159,6 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.Description = this.Description;
             if (ParameterWasBound("Process"))
                 context.Process = this.Process;
+            context.SourceBuildInformation_SourceLocation = this.SourceBuildInformation_SourceLocation;
+            context.SourceBuildInformation_SourceRepository = this.SourceBuildInformation_SourceRepository;
+            context.SourceBuildInformation_SourceType = this.SourceBuildInformation_SourceType;
             context.SourceBundle_S3Bucket = this.SourceBundle_S3Bucket;
             context.SourceBundle_S3Key = this.SourceBundle_S3Key;
             context.VersionLabel = this.VersionLabel;
@@ -193,6 +229,45 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.Process != null)
             {
                 request.Process = cmdletContext.Process.Value;
+            }
+            
+             // populate SourceBuildInformation
+            bool requestSourceBuildInformationIsNull = true;
+            request.SourceBuildInformation = new Amazon.ElasticBeanstalk.Model.SourceBuildInformation();
+            System.String requestSourceBuildInformation_sourceBuildInformation_SourceLocation = null;
+            if (cmdletContext.SourceBuildInformation_SourceLocation != null)
+            {
+                requestSourceBuildInformation_sourceBuildInformation_SourceLocation = cmdletContext.SourceBuildInformation_SourceLocation;
+            }
+            if (requestSourceBuildInformation_sourceBuildInformation_SourceLocation != null)
+            {
+                request.SourceBuildInformation.SourceLocation = requestSourceBuildInformation_sourceBuildInformation_SourceLocation;
+                requestSourceBuildInformationIsNull = false;
+            }
+            Amazon.ElasticBeanstalk.SourceRepository requestSourceBuildInformation_sourceBuildInformation_SourceRepository = null;
+            if (cmdletContext.SourceBuildInformation_SourceRepository != null)
+            {
+                requestSourceBuildInformation_sourceBuildInformation_SourceRepository = cmdletContext.SourceBuildInformation_SourceRepository;
+            }
+            if (requestSourceBuildInformation_sourceBuildInformation_SourceRepository != null)
+            {
+                request.SourceBuildInformation.SourceRepository = requestSourceBuildInformation_sourceBuildInformation_SourceRepository;
+                requestSourceBuildInformationIsNull = false;
+            }
+            Amazon.ElasticBeanstalk.SourceType requestSourceBuildInformation_sourceBuildInformation_SourceType = null;
+            if (cmdletContext.SourceBuildInformation_SourceType != null)
+            {
+                requestSourceBuildInformation_sourceBuildInformation_SourceType = cmdletContext.SourceBuildInformation_SourceType;
+            }
+            if (requestSourceBuildInformation_sourceBuildInformation_SourceType != null)
+            {
+                request.SourceBuildInformation.SourceType = requestSourceBuildInformation_sourceBuildInformation_SourceType;
+                requestSourceBuildInformationIsNull = false;
+            }
+             // determine if request.SourceBuildInformation should be set to null
+            if (requestSourceBuildInformationIsNull)
+            {
+                request.SourceBuildInformation = null;
             }
             
              // populate SourceBundle
@@ -282,6 +357,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.Boolean? AutoCreateApplication { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? Process { get; set; }
+            public System.String SourceBuildInformation_SourceLocation { get; set; }
+            public Amazon.ElasticBeanstalk.SourceRepository SourceBuildInformation_SourceRepository { get; set; }
+            public Amazon.ElasticBeanstalk.SourceType SourceBuildInformation_SourceType { get; set; }
             public System.String SourceBundle_S3Bucket { get; set; }
             public System.String SourceBundle_S3Key { get; set; }
             public System.String VersionLabel { get; set; }

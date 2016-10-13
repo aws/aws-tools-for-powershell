@@ -78,8 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a game session. Specify the game session to retrieve information
-        /// on.</para>
+        /// <para>Unique identifier for the game session to retrieve information on. Game session ID
+        /// format is as follows: "arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
+        /// ID&gt;/&lt;ID string&gt;". The value of &lt;ID string&gt; is either a custom ID string
+        /// (if one was specified when the game session was created) an auto-generated string.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

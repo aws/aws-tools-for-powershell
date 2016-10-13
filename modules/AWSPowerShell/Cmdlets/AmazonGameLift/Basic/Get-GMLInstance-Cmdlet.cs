@@ -28,79 +28,47 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a set of one or more game sessions and properties. This action can be used
-    /// in several ways: (1) provide a <code>GameSessionId</code> to request properties for
-    /// a specific game session; (2) provide a <code>FleetId</code> or an <code>AliasId</code>
-    /// to request properties for all game sessions running on a fleet. You can also use <a>SearchGameSessions</a>,
-    /// which allows you to retrieve all game sessions or filter on certain criteria, but
-    /// only returns game sessions with a status of ACTIVE. If you need to retrieve the protection
-    /// policy for each game session, use <a>DescribeGameSessionDetails</a>.
+    /// Retrieves information about instances in a fleet.
     /// 
     ///  
     /// <para>
-    /// To get game session record(s), specify just one of the following: game session ID,
-    /// fleet ID, or alias ID. You can filter this request by game session status. Use the
+    /// To get information on a specific instance, specify both a fleet ID and instance ID.
+    /// To get information for all instances in a fleet, specify a fleet ID only. Use the
     /// pagination parameters to retrieve results as a set of sequential pages. If successful,
-    /// a <a>GameSession</a> object is returned for each session matching the request.
+    /// an <a>Instance</a> object is returned for each result.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLGameSession")]
-    [OutputType("Amazon.GameLift.Model.GameSession")]
-    [AWSCmdlet("Invokes the DescribeGameSessions operation against Amazon GameLift Service.", Operation = new[] {"DescribeGameSessions"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.GameSession",
-        "This cmdlet returns a collection of GameSession objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeGameSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "GMLInstance")]
+    [OutputType("Amazon.GameLift.Model.Instance")]
+    [AWSCmdlet("Invokes the DescribeInstances operation against Amazon GameLift Service.", Operation = new[] {"DescribeInstances"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.Instance",
+        "This cmdlet returns a collection of Instance objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetGMLGameSessionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLInstanceCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
-        
-        #region Parameter AliasId
-        /// <summary>
-        /// <para>
-        /// <para>Unique identifier for a fleet alias. Specify an alias to retrieve information on all
-        /// game sessions active on the fleet.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AliasId { get; set; }
-        #endregion
         
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet. Specify a fleet to retrieve information on all game
-        /// sessions active on the fleet.</para>
+        /// <para>Unique identifier for a fleet. Specify the fleet to retrieve instance information
+        /// for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FleetId { get; set; }
         #endregion
         
-        #region Parameter GameSessionId
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to retrieve information on. Game session ID
-        /// format is as follows: "arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet
-        /// ID&gt;/&lt;ID string&gt;". The value of &lt;ID string&gt; is either a custom ID string
-        /// (if one was specified when the game session was created) an auto-generated string.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String GameSessionId { get; set; }
-        #endregion
-        
-        #region Parameter StatusFilter
-        /// <summary>
-        /// <para>
-        /// <para>Game session status to filter results on. Possible game session statuses include <code>ACTIVE</code>,
-        /// <code>TERMINATED</code>, <code>ACTIVATING</code>, and <code>TERMINATING</code> (the
-        /// last two are transitory). </para>
+        /// <para>Unique identifier for an instance. Specify an instance to retrieve information for
+        /// or leave blank to get information on all instances in the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String StatusFilter { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -143,13 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AliasId = this.AliasId;
             context.FleetId = this.FleetId;
-            context.GameSessionId = this.GameSessionId;
+            context.InstanceId = this.InstanceId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            context.StatusFilter = this.StatusFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,22 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.DescribeGameSessionsRequest();
-            if (cmdletContext.AliasId != null)
-            {
-                request.AliasId = cmdletContext.AliasId;
-            }
+            var request = new Amazon.GameLift.Model.DescribeInstancesRequest();
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
             }
-            if (cmdletContext.GameSessionId != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.GameSessionId = cmdletContext.GameSessionId;
-            }
-            if (cmdletContext.StatusFilter != null)
-            {
-                request.StatusFilter = cmdletContext.StatusFilter;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             // Initialize loop variants and commence piping
@@ -216,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.GameSessions;
+                        object pipelineOutput = response.Instances;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -225,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.GameSessions.Count;
+                        int _receivedThisCall = response.Instances.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -268,13 +226,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DescribeGameSessionsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeGameSessionsRequest request)
+        private static Amazon.GameLift.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeInstancesRequest request)
         {
             #if DESKTOP
-            return client.DescribeGameSessions(request);
+            return client.DescribeInstances(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeGameSessionsAsync(request);
+            var task = client.DescribeInstancesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -285,12 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AliasId { get; set; }
             public System.String FleetId { get; set; }
-            public System.String GameSessionId { get; set; }
+            public System.String InstanceId { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public System.String StatusFilter { get; set; }
         }
         
     }

@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves the following information for the specified EC2 instance type:
     /// 
-    ///  <ul><li>maximum number of instances allowed per AWS account (service limit)</li><li>current usage level for the AWS account </li></ul><para>
+    ///  <ul><li><para>
+    /// maximum number of instances allowed per AWS account (service limit)
+    /// </para></li><li><para>
+    /// current usage level for the AWS account
+    /// </para></li></ul><para>
     /// Service limits vary depending on region. Available regions for GameLift can be found
     /// in the AWS Management Console for GameLift (see the drop-down list in the upper right
     /// corner).
@@ -52,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance
         /// type determines the computing resources of each instance in the fleet, including CPU,
         /// memory, storage, and networking capacity. GameLift supports the following EC2 instance
-        /// types. See <a href="https://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
+        /// types. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
         /// Types</a> for detailed descriptions. Leave this parameter blank to retrieve limits
         /// for all types.</para>
         /// </para>

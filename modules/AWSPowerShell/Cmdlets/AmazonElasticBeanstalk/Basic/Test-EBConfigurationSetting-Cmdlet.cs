@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
     /// Takes a set of configuration settings and either a configuration template or environment,
-    /// and determines whether those values are valid. 
+    /// and determines whether those values are valid.
     /// 
     ///  
     /// <para>
-    ///  This action returns a list of messages indicating any errors or warnings associated
-    /// with the selection of option values. 
+    /// This action returns a list of messages indicating any errors or warnings associated
+    /// with the selection of option values.
     /// </para>
     /// </summary>
     [Cmdlet("Test", "EBConfigurationSetting")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of the application that the configuration template or environment belongs
-        /// to. </para>
+        /// <para>The name of the application that the configuration template or environment belongs
+        /// to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The name of the environment to validate the settings against. </para><para> Condition: You cannot specify both this and a configuration template name. </para>
+        /// <para>The name of the environment to validate the settings against.</para><para>Condition: You cannot specify both this and a configuration template name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
-        /// <para> A list of the options and desired values to evaluate. </para>
+        /// <para>A list of the options and desired values to evaluate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para> The name of the configuration template to validate the settings against. </para><para> Condition: You cannot specify both this and an environment name. </para>
+        /// <para>The name of the configuration template to validate the settings against.</para><para>Condition: You cannot specify both this and an environment name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

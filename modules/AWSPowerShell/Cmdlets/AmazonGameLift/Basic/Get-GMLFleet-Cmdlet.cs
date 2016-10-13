@@ -31,7 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves a collection of fleet records for this AWS account. You can filter the result
     /// set by build ID. Use the pagination parameters to retrieve results in sequential pages.
     /// 
-    /// 
     ///  <note><para>
     /// Fleet records are not listed in any particular order.
     /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.

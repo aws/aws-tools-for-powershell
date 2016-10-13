@@ -48,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a game session. Specify the game session you want to update.
-        /// </para>
+        /// <para>Unique identifier for the game session to update. Game session ID format is as follows:
+        /// "arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;ID string&gt;".
+        /// The value of &lt;ID string&gt; is either a custom ID string (if one was specified
+        /// when the game session was created) an auto-generated string. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><b>NoProtection</b> – The game session can be terminated during a scale-down
-        /// event.</li><li><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code>
-        /// status, it cannot be terminated during a scale-down event.</li></ul>
+        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><b>NoProtection</b> – The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code> status,
+        /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,7 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Initiates a request to compile the specified type of information of the deployed
-    /// environment. 
+    /// Initiates a request to compile the specified type of information of the deployed environment.
     /// 
     ///  
     /// <para>
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     ///  Use <a>RetrieveEnvironmentInfo</a> to obtain the set of logs. 
     /// </para><para>
     /// Related Topics
-    /// </para><ul><li><a>RetrieveEnvironmentInfo</a></li></ul>
+    /// </para><ul><li><para><a>RetrieveEnvironmentInfo</a></para></li></ul>
     /// </summary>
     [Cmdlet("Request", "EBEnvironmentInfo", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

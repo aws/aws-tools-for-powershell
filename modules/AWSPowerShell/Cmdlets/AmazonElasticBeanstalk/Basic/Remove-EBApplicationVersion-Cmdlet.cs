@@ -28,10 +28,11 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Deletes the specified version from the specified application. 
+    /// Deletes the specified version from the specified application.
     /// 
-    ///  <note>You cannot delete an application version that is associated with a running
-    /// environment.</note>
+    ///  <note><para>
+    /// You cannot delete an application version that is associated with a running environment.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "EBApplicationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -56,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter DeleteSourceBundle
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to delete the associated source bundle from Amazon S3: </para><ul><li><code>true</code>: An attempt is made to delete the associated Amazon S3
-        /// source bundle specified at time of creation. </li><li><code>false</code>: No action
-        /// is taken on the Amazon S3 source bundle specified at time of creation. </li></ul><para> Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Indicates whether to delete the associated source bundle from Amazon S3:</para><ul><li><para><code>true</code>: An attempt is made to delete the associated Amazon S3 source bundle
+        /// specified at time of creation.</para></li><li><para><code>false</code>: No action is taken on the Amazon S3 source bundle specified at
+        /// time of creation.</para></li></ul><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

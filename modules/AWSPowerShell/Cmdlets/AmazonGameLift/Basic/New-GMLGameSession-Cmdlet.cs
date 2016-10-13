@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String AliasId { get; set; }
         #endregion
         
+        #region Parameter CreatorId
+        /// <summary>
+        /// <para>
+        /// <para>Player ID identifying the person or entity creating the game session. This ID is used
+        /// to enforce a resource protection policy (if one exists) that limits the number of
+        /// concurrent active game sessions one player can have.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CreatorId { get; set; }
+        #endregion
+        
         #region Parameter FleetId
         /// <summary>
         /// <para>
@@ -79,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Set of properties used to administer a game session. These properties are passed to
-        /// the server process hosting it. </para>
+        /// the server process hosting it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,11 +99,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.Model.GameProperty[] GameProperty { get; set; }
         #endregion
         
+        #region Parameter GameSessionId
+        /// <summary>
+        /// <para>
+        /// <para>Custom string to include in the game session ID, with a maximum length of 48 characters.
+        /// If this parameter is set, GameLift creates a game session ID in the following format:
+        /// "arn:aws:gamelift:&lt;region&gt;::gamesession/fleet-&lt;fleet ID&gt;/&lt;custom ID
+        /// string&gt;". For example, this full game session ID: "arn:aws:gamelift:us-west-2::gamesession/fleet-2ec2aae5-c2c7-43ca-b19d-8249fe5fddf2/my-game-session"
+        /// includes the custom ID string "my-game-session". If this parameter is not set, GameLift
+        /// creates a game session ID in the same format with an auto-generated ID string. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GameSessionId { get; set; }
+        #endregion
+        
         #region Parameter MaximumPlayerSessionCount
         /// <summary>
         /// <para>
-        /// <para>Maximum number of players that can be connected simultaneously to the game session.
-        /// </para>
+        /// <para>Maximum number of players that can be connected simultaneously to the game session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,11 +165,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             PreExecutionContextLoad(context);
             
             context.AliasId = this.AliasId;
+            context.CreatorId = this.CreatorId;
             context.FleetId = this.FleetId;
             if (this.GameProperty != null)
             {
                 context.GameProperties = new List<Amazon.GameLift.Model.GameProperty>(this.GameProperty);
             }
+            context.GameSessionId = this.GameSessionId;
             if (ParameterWasBound("MaximumPlayerSessionCount"))
                 context.MaximumPlayerSessionCount = this.MaximumPlayerSessionCount;
             context.Name = this.Name;
@@ -167,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.AliasId = cmdletContext.AliasId;
             }
+            if (cmdletContext.CreatorId != null)
+            {
+                request.CreatorId = cmdletContext.CreatorId;
+            }
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
@@ -174,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.GameProperties != null)
             {
                 request.GameProperties = cmdletContext.GameProperties;
+            }
+            if (cmdletContext.GameSessionId != null)
+            {
+                request.GameSessionId = cmdletContext.GameSessionId;
             }
             if (cmdletContext.MaximumPlayerSessionCount != null)
             {
@@ -235,8 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal class CmdletContext : ExecutorContext
         {
             public System.String AliasId { get; set; }
+            public System.String CreatorId { get; set; }
             public System.String FleetId { get; set; }
             public List<Amazon.GameLift.Model.GameProperty> GameProperties { get; set; }
+            public System.String GameSessionId { get; set; }
             public System.Int32? MaximumPlayerSessionCount { get; set; }
             public System.String Name { get; set; }
         }

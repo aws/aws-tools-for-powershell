@@ -28,11 +28,11 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Creates the Amazon S3 storage location for the account. 
+    /// Creates the Amazon S3 storage location for the account.
     /// 
     ///  
     /// <para>
-    ///  This location is used to store user log files. 
+    /// This location is used to store user log files.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EBStorageLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

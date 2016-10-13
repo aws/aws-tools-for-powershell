@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// <summary>
     /// Updates the environment description, deploys a new application version, updates the
     /// configuration settings to an entirely new configuration template, or updates select
-    /// configuration option values in the running environment. 
+    /// configuration option values in the running environment.
     /// 
     ///  
     /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>If this parameter is specified, AWS Elastic Beanstalk updates the description of this
-        /// environment. </para>
+        /// environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>If specified, AWS Elastic Beanstalk updates the configuration set associated with
         /// the running environment and sets the specified configuration options to the requested
-        /// value. </para>
+        /// value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>A list of custom user-defined configuration options to remove from the configuration
-        /// set for this environment. </para>
+        /// set for this environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>This specifies the platform version that the environment will run after the environment
-        /// is updated. </para>
+        /// is updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
