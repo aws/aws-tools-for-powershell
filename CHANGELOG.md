@@ -1,3 +1,9 @@
+### 3.3.9.0 (2016-10-13)
+  * AWS Certificate Manager
+    - Added a new cmdlet, Import-ACMCertificate, to support the new ImportCertificate API. This cmdlet enables users to import third-party SSL/TLS certificates into ACM.
+  * Amazon Gamelift
+    - Added a new cmdlet, Get-GMLInstance, to support the new DescribeInstances API. The existing cmdlets were also updated to support new service features to protect game developer resources (builds, alias, fleets, instances, game sessions and player sessions) against abuse.
+
 ### 3.3.8.0 (2016-10-12)
   * Amazon EC2 Container Registry
     - Added a new cmdlet, Get-ECRImageMetadata, to support the new DescribeImages API. This cmdlet can be used to expose image metadata which today includes image size and image creation timestamp.
