@@ -39,12 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// of hosted zones, you can use the <code>maxitems</code> parameter to list them in groups
     /// of up to 100. The response includes four values that help navigate from one group
     /// of <code>maxitems</code> hosted zones to the next:
-    /// </para><ul><li><para><code>MaxItems</code>is the value specified for the <code>maxitems</code> parameter
+    /// </para><ul><li><para><code>MaxItems</code> is the value specified for the <code>maxitems</code> parameter
     /// in the request that produced the current response.
     /// </para></li><li><para>
     /// If the value of <code>IsTruncated</code> in the response is true, there are more hosted
     /// zones associated with the current AWS account. 
-    /// </para></li><li><para><code>NextMarker</code>is the hosted zone ID of the next hosted zone that is associated
+    /// </para></li><li><para><code>NextMarker</code> is the hosted zone ID of the next hosted zone that is associated
     /// with the current AWS account. If you want to list more hosted zones, make another
     /// call to <code>ListHostedZones</code>, and specify the value of the <code>NextMarker</code>
     /// element in the marker parameter. 
@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter DelegationSetId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If you're using reusable delegation sets and you want to list all of the hosted zones
+        /// that are associated with a reusable delegation set, specify the ID of that reusable
+        /// delegation set. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

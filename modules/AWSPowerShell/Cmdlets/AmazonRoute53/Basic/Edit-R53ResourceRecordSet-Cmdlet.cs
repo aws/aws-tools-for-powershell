@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// changes in a change batch request. This ensures that Amazon Route 53 never partially
     /// implements the intended changes to the resource record sets in a hosted zone. 
     /// </para><para>
-    /// For example, a change batch request that deletes the <code>CNAME</code>record for
+    /// For example, a change batch request that deletes the <code>CNAME</code> record for
     /// www.example.com and creates an alias resource record set for www.example.com. Amazon
     /// Route 53 deletes the first resource record set and creates the second resource record
     /// set in a single operation. If either the <code>DELETE</code> or the <code>CREATE</code>
@@ -60,11 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// or subdomain names (such as www.example.com), in the same hosted zone or in multiple
     /// hosted zones. You can roll back the updates if the new configuration isn't performing
     /// as expected. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html">Using
-    /// Traffic Flow to Route DNS Traffic</a> in the Amazon Route 53 API Reference or <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/actions-on-polices">Actions
-    /// on Traffic Policies and Traffic Policy Instances</a> in this guide.
+    /// Traffic Flow to Route DNS Traffic</a> in the <i>Amazon Route 53 Developer Guide</i>.
     /// </para></note><para>
     /// Use <code>ChangeResourceRecordsSetsRequest</code> to perform the following actions:
-    /// </para><ul><li><para><code>CREATE</code>:Creates a resource record set that has the specified values.
+    /// </para><ul><li><para><code>CREATE</code>: Creates a resource record set that has the specified values.
     /// </para></li><li><para><code>DELETE</code>: Deletes an existing resource record set that has the specified
     /// values for <code>Name</code>, <code>Type</code>, <code>Set Identifier</code> (for
     /// code latency, weighted, geolocation, and failover resource record sets), and <code>TTL</code>
@@ -88,34 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// a few minutes. In rare circumstances, propagation can take up to 30 minutes. For more
     /// information, see <a>GetChange</a>.
     /// </para><para>
-    /// Note the following limitations on a <code>ChangeResourceRecordSets</code> request:
-    /// </para><ul><li><para>
-    ///  A request cannot contain more than 100 Change elements.
-    /// </para></li><li><para>
-    ///  A request cannot contain more than 1000 ResourceRecord elements.
-    /// </para></li><li><para>
-    /// The sum of the number of characters (including spaces) in all <code>Value</code> elements
-    /// in a request cannot exceed 32,000 characters.
-    /// </para></li><li><note><para>
-    /// If the value of the Action element in a ChangeResourceRecordSets request is <code>UPSERT</code>
-    /// and the resource record set already exists, Amazon Route 53 automatically performs
-    /// a <code>DELETE</code> request and a <code>CREATE</code> request. When Amazon Route
-    /// 53 calculates the number of characters in the Value elements of a change batch request,
-    /// it adds the number of characters in the Value element of the resource record set being
-    /// deleted and the number of characters in the Value element of the resource record set
-    /// being created.
-    /// </para></note></li><li><para>
-    /// The same resource cannot be deleted more than once in a single batch.
-    /// </para></li></ul><note><para>
-    /// If the value of the Action element in a ChangeResourceRecordSets request is <code>UPSERT</code>
-    /// and the resource record set already exists, Amazon Route 53 automatically performs
-    /// a <code>DELETE</code> request and a <code>CREATE</code> request. When Amazon Route
-    /// 53 calculates the number of characters in the Value elements of a change batch request,
-    /// it adds the number of characters in the Value element of the resource record set being
-    /// deleted and the number of characters in the Value element of the resource record set
-    /// being created.
-    /// </para></note><para>
-    /// For more information on transactional changes, see <a>ChangeResourceRecordSets</a>.
+    /// For information about the limits on a <code>ChangeResourceRecordSets</code> request,
+    /// see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
+    /// in the <i>Amazon Route 53 Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "R53ResourceRecordSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

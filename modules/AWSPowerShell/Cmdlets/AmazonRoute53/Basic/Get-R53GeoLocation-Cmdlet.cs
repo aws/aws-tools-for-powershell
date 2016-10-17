@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ContinentCode
         /// <summary>
         /// <para>
-        /// <para>Amazon Route 53 supports the following contintent codes:</para><ul><li><para><b>AF</b>: Africa</para></li><li><para><b>AN</b>: Antarctica</para></li><li><para><b>AS</b>: Asia</para></li><li><para><b>EU</b>: Europe</para></li><li><para><b>OC</b>: Oceania</para></li><li><para><b>NA</b>: North America</para></li><li><para><b>SA</b>: South America</para></li></ul>
+        /// <para>Amazon Route 53 supports the following continent codes:</para><ul><li><para><b>AF</b>: Africa</para></li><li><para><b>AN</b>: Antarctica</para></li><li><para><b>AS</b>: Asia</para></li><li><para><b>EU</b>: Europe</para></li><li><para><b>OC</b>: Oceania</para></li><li><para><b>NA</b>: North America</para></li><li><para><b>SA</b>: South America</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

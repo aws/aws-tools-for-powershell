@@ -28,7 +28,42 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    
+    /// Lists the resource record sets in a specified hosted zone.
+    /// 
+    ///  
+    /// <para><code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time
+    /// in ASCII order, beginning at a position specified by the <code>name</code> and <code>type</code>
+    /// elements. The action sorts results first by DNS name with the labels reversed, for
+    /// example:
+    /// </para><para><code>com.example.www.</code></para><para>
+    /// Note the trailing dot, which can change the sort order in some circumstances.
+    /// </para><para>
+    /// When multiple records have the same DNS name, the action sorts results by the record
+    /// type.
+    /// </para><para>
+    /// You can use the name and type elements to adjust the beginning position of the list
+    /// of resource record sets returned:
+    /// </para><dl><dt>If you do not specify Name or Type</dt><dd><para>
+    /// The results begin with the first resource record set that the hosted zone contains.
+    /// </para></dd><dt>If you specify Name but not Type</dt><dd><para>
+    /// The results begin with the first resource record set in the list whose name is greater
+    /// than or equal to <code>Name</code>.
+    /// </para></dd><dt>If you specify Type but not Name</dt><dd><para>
+    /// Amazon Route 53 returns the <code>InvalidInput</code> error.
+    /// </para></dd><dt>If you specify both Name and Type</dt><dd><para>
+    /// The results begin with the first resource record set in the list whose name is greater
+    /// than or equal to <code>Name</code>, and whose type is greater than or equal to <code>Type</code>.
+    /// </para></dd></dl><para>
+    /// This action returns the most current version of the records. This includes records
+    /// that are <code>PENDING</code>, and that are not yet available on all Amazon Route
+    /// 53 DNS servers.
+    /// </para><para>
+    /// To ensure that you get an accurate listing of the resource record sets for a hosted
+    /// zone at a point in time, do not submit a <code>ChangeResourceRecordSets</code> request
+    /// while you're paging through the results of a <code>ListResourceRecordSets</code> request.
+    /// If you do, some pages may display results without the latest changes while other pages
+    /// display results with the latest changes.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "R53ResourceRecordSet")]
     [OutputType("Amazon.Route53.Model.ListResourceRecordSetsResponse")]

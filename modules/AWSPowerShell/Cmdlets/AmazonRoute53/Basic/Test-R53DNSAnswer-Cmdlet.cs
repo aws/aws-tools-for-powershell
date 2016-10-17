@@ -28,7 +28,9 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    
+    /// Gets the value that Amazon Route 53 returns in response to a DNS request for a specified
+    /// record name and type. You can optionally specify the IP address of a DNS resolver,
+    /// an EDNS0 client subnet IP address, and a subnet mask.
     /// </summary>
     [Cmdlet("Test", "R53DNSAnswer")]
     [OutputType("Amazon.Route53.Model.TestDNSAnswerResponse")]
@@ -42,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter EDNS0ClientSubnetIP
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If the resolver that you specified for resolverip supports EDNS0, specify the IP address
+        /// of a client in the applicable location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter EDNS0ClientSubnetMask
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If you specify an IP address for <code>edns0clientsubnetip</code>, you can optionally
+        /// specify the number of bits of the IP address that you want the checking tool to include
+        /// in the DNS query. For example, if you specify <code>192.0.2.44</code> for <code>edns0clientsubnetip</code>
+        /// and <code>24</code> for <code>edns0clientsubnetmask</code>, the checking tool will
+        /// simulate a request from 192.0.2.0/24. The default value is 24 bits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -72,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter RecordName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the resource record set that you want Amazon Route 53 to simulate a query
+        /// for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter RecordType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The type of the resource record set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter ResolverIP
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If you want to simulate a request from a specific DNS resolver, specify the IP address
+        /// for that resolver. If you omit this value, <code>TestDnsAnswer</code> uses the IP
+        /// address of a DNS resolver in the AWS US East region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

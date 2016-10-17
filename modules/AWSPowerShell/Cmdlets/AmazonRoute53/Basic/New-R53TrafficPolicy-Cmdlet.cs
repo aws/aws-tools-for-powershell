@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/trafficpolicy</code>
-    /// resource. The request body must include a document with a <code>CreateTrafficPolicyRequest</code>
+    /// Send a <code>POST</code> request to the <code>/2013-04-01/trafficpolicy</code> resource.
+    /// The request body must include a document with a <code>CreateTrafficPolicyRequest</code>
     /// element. The response includes the <code>CreateTrafficPolicyResponse</code> element,
     /// which contains information about the new traffic policy.
     /// </para>

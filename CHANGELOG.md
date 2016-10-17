@@ -1,3 +1,8 @@
+### 3.3.10.0 (2016-10-17)
+  * Added support for the new US East (Ohio) region. To select this region, specify the value 'us-east-2' for the -Region parameter when invoking a cmdlet.
+  * Amazon Route53
+    - Added support for specifying the new US East (Ohio) region when defining resource record sets.
+
 ### 3.3.9.0 (2016-10-13)
   * AWS Certificate Manager
     - Added a new cmdlet, Import-ACMCertificate, to support the new ImportCertificate API. This cmdlet enables users to import third-party SSL/TLS certificates into ACM.

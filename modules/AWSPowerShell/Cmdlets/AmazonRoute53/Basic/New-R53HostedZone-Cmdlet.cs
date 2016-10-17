@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Public hosted zones cannot be converted to a private hosted zone or vice versa. Instead,
     /// create a new hosted zone with the same name and create new resource record sets.
     /// </para></important><para>
-    /// Send a <code>POST</code> request to the <code>/<i>Amazon Route 53 API version</i>/hostedzone</code>
-    /// resource. The request body must include an XML document with a <code>CreateHostedZoneRequest</code>
+    /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone</code> resource.
+    /// The request body must include an XML document with a <code>CreateHostedZoneRequest</code>
     /// element. The response returns the <code>CreateHostedZoneResponse</code> element containing
     /// metadata about the hosted zone.
     /// </para><para>
-    /// Fore more information about charges for hosted zones, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/pricing/">AmazonAmazon
+    /// Fore more information about charges for hosted zones, see <a href="http://aws.amazon.com/route53/pricing/">Amazon
     /// Route 53 Pricing</a>.
     /// </para><para>
     /// Note the following:
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para><para>
     /// When trying to create a hosted zone using a reusable delegation set, specify an optional
     /// DelegationSetId, and Amazon Route 53 would assign those 4 NS records for the zone,
-    /// instead of alloting a new one.
+    /// instead of allotting a new one.
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -151,7 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The region in which you created the VPC that you want to associate with the specified
+        /// Amazon Route 53 hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

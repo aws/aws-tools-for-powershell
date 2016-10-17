@@ -28,7 +28,13 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    
+    /// Adds, edits, or deletes tags for a health check or a hosted zone.
+    /// 
+    ///  
+    /// <para>
+    /// For information about using tags for cost allocation, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
+    /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "R53TagsForResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
