@@ -42,15 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter InvalidationBatch_CallerReference
         /// <summary>
         /// <para>
-        /// A unique name that ensures the request
-        /// can't be replayed. If the CallerReference is new (no matter the content of the Path
-        /// object), a new distribution is created. If the CallerReference is a value you already
-        /// sent in a previous request to create an invalidation batch, and the content of each
-        /// Path element is identical to the original request, the response includes the same
-        /// information returned to the original request. If the CallerReference is a value you
-        /// already sent in a previous request to create a distribution but the content of any
-        /// Path is different from the original request, CloudFront returns an InvalidationBatchAlreadyExists
-        /// error.
+        /// <para>A value that you specify to uniquely identify an invalidation request. CloudFront
+        /// uses the value to prevent you from accidentally resubmitting an identical request.
+        /// Whenever you create a new invalidation request, you must specify a new value for <code>CallerReference</code>
+        /// and change other values in the request as applicable. One way to ensure that the value
+        /// of <code>CallerReference</code> is unique is to use a <code>timestamp</code>, for
+        /// example, <code>20120301090000</code>.</para><para>If you make a second invalidation request with the same value for <code>CallerReference</code>,
+        /// and if the rest of the request is the same, CloudFront doesn't create a new invalidation
+        /// request. Instead, CloudFront returns information about the invalidation request that
+        /// you previously created with the same <code>CallerReference</code>.</para><para>If <code>CallerReference</code> is a value you already sent in a previous invalidation
+        /// batch request but the content of any <code>Path</code> is different from the original
+        /// request, CloudFront returns an <code>InvalidationBatchAlreadyExists</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionId
         /// <summary>
         /// <para>
-        /// The distribution's id.
+        /// <para>The distribution's id.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Paths_Item
         /// <summary>
         /// <para>
-        /// A complex type that contains a list of the objects
-        /// that you want to invalidate.
+        /// <para>A complex type that contains a list of the paths that you want to invalidate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Paths_Quantity
         /// <summary>
         /// <para>
-        /// The number of objects that you want to invalidate.
+        /// <para>The number of objects that you want to invalidate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

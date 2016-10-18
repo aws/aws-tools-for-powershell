@@ -28,12 +28,12 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns the name of one or more specified configuration recorders. If the recorder
-    /// name is not specified, this action returns the names of all the configuration recorders
-    /// associated with the account. 
+    /// Returns the details for the specified configuration recorders. If the configuration
+    /// recorder is not specified, this action returns the details for all configuration recorders
+    /// associated with the account.
     /// 
     ///  <note><para>
-    /// Currently, you can specify only one configuration recorder per account.
+    /// Currently, you can specify only one configuration recorder per region in your account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorders")]

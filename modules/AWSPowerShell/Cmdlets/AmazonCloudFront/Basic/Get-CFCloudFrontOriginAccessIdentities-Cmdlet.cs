@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// List origin access identities.
+    /// Lists origin access identities.
     /// </summary>
     [Cmdlet("Get", "CFCloudFrontOriginAccessIdentities")]
     [OutputType("Amazon.CloudFront.Model.CloudFrontOriginAccessIdentityList")]
@@ -43,11 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// Use this when paginating results to indicate where
-        /// to begin in your list of origin access identities. The results include identities
-        /// in the list that occur after the marker. To get the next page of results, set the
-        /// Marker to the value of the NextMarker from the current page's response (which is also
-        /// the ID of the last identity on that page).
+        /// <para>Use this when paginating results to indicate where to begin in your list of origin
+        /// access identities. The results include identities in the list that occur after the
+        /// marker. To get the next page of results, set the <code>Marker</code> to the value
+        /// of the <code>NextMarker</code> from the current page's response (which is also the
+        /// ID of the last identity on that page).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// The maximum number of origin access identities
-        /// you want in the response body.
+        /// <para>The maximum number of origin access identities you want in the response body. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// of an existing recorder. To change the role, call the action on the existing configuration
     /// recorder and specify a role.
     /// </para><note><para>
-    /// Currently, you can specify only one configuration recorder per account.
+    /// Currently, you can specify only one configuration recorder per region in your account.
     /// </para><para>
     /// If <code>ConfigurationRecorder</code> does not have the <b>recordingGroup</b> parameter
     /// specified, the default is to record all supported resource types.

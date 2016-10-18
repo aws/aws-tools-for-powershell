@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// List invalidation batches.
+    /// Lists invalidation batches.
     /// </summary>
     [Cmdlet("Get", "CFInvalidations")]
     [OutputType("Amazon.CloudFront.Model.InvalidationList")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionId
         /// <summary>
         /// <para>
-        /// The distribution's id.
+        /// <para>The distribution's ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,13 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// Use this parameter when paginating results to indicate
-        /// where to begin in your list of invalidation batches. Because the results are returned
-        /// in decreasing order from most recent to oldest, the most recent results are on the
-        /// first page, the second page will contain earlier results, and so on. To get the next
-        /// page of results, set the Marker to the value of the NextMarker from the current page's
-        /// response. This value is the same as the ID of the last invalidation batch on that
-        /// page.
+        /// <para>Use this parameter when paginating results to indicate where to begin in your list
+        /// of invalidation batches. Because the results are returned in decreasing order from
+        /// most recent to oldest, the most recent results are on the first page, the second page
+        /// will contain earlier results, and so on. To get the next page of results, set <code>Marker</code>
+        /// to the value of the <code>NextMarker</code> from the current page's response. This
+        /// value is the same as the ID of the last invalidation batch on that page. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// The maximum number of invalidation batches you
-        /// want in the response body.
+        /// <para>The maximum number of invalidation batches that you want in the response body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

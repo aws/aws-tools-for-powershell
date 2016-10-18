@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// The origin access identity's id.
+        /// <para>The origin access identity's ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// The value of the ETag header you received from
-        /// a previous GET or PUT request. For example: E2QWRUHAPOMQZL.
+        /// <para>The value of the <code>ETag</code> header you received from a previous <code>GET</code>
+        /// or <code>PUT</code> request. For example: <code>E2QWRUHAPOMQZL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

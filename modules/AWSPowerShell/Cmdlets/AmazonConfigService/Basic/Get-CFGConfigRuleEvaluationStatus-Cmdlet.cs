@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The name of the AWS managed Config rules for which you want status information. If
         /// you do not specify any names, AWS Config returns status information for all AWS managed
-        /// Config rules that you use. </para>
+        /// Config rules that you use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

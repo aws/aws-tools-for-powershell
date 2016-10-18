@@ -28,7 +28,11 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Create a new origin access identity.
+    /// Creates a new origin access identity. If you're using Amazon S3 for your origin, you
+    /// can use an origin access identity to require users to access your content using a
+    /// CloudFront URL instead of the Amazon S3 URL. For more information about how to use
+    /// origin access identities, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+    /// Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "CFCloudFrontOriginAccessIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateCloudFrontOriginAccessIdentityResponse")]
@@ -42,16 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CloudFrontOriginAccessIdentityConfig_CallerReference
         /// <summary>
         /// <para>
-        /// A unique number that ensures the request
-        /// can't be replayed. If the CallerReference is new (no matter the content of the CloudFrontOriginAccessIdentityConfig
-        /// object), a new origin access identity is created. If the CallerReference is a value
-        /// you already sent in a previous request to create an identity, and the content of the
-        /// CloudFrontOriginAccessIdentityConfig is identical to the original request (ignoring
-        /// white space), the response includes the same information returned to the original
-        /// request. If the CallerReference is a value you already sent in a previous request
-        /// to create an identity but the content of the CloudFrontOriginAccessIdentityConfig
-        /// is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists
-        /// error.
+        /// <para>A unique number that ensures the request can't be replayed.</para><para>If the <code>CallerReference</code> is new (no matter the content of the <code>CloudFrontOriginAccessIdentityConfig</code>
+        /// object), a new origin access identity is created.</para><para>If the <code>CallerReference</code> is a value already sent in a previous identity
+        /// request, and the content of the <code>CloudFrontOriginAccessIdentityConfig</code>
+        /// is identical to the original request (ignoring white space), the response includes
+        /// the same information returned to the original request. </para><para>If the <code>CallerReference</code> is a value you already sent in a previous request
+        /// to create an identity, but the content of the <code>CloudFrontOriginAccessIdentityConfig</code>
+        /// is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code>
+        /// error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CloudFrontOriginAccessIdentityConfig_Comment
         /// <summary>
         /// <para>
-        /// Any comments you want to include about the origin
-        /// access identity.
+        /// <para>Any comments you want to include about the origin access identity. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -226,9 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new DB subnet group for the DB instance. You can use this parameter to move your
-        /// DB instance to a different VPC, or to a different subnet group in the same VPC. If
-        /// your DB instance is not in a VPC, you can also use this parameter to move your DB
-        /// instance into a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
+        /// DB instance to a different VPC. If your DB instance is not in a VPC, you can also
+        /// use this parameter to move your DB instance into a VPC. For more information, see
+        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
         /// the VPC for a DB Instance</a>. </para><para>Changing the subnet group causes an outage during the change. The change is applied
         /// during the next maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code>
         /// parameter. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,

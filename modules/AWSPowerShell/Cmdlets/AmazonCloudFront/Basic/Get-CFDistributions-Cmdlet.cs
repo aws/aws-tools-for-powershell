@@ -43,11 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// Use Marker and MaxItems to control pagination of
-        /// results. If you have more than MaxItems distributions that satisfy the request, the
-        /// response includes a NextMarker element. To get the next page of results, submit another
-        /// request. For the value of Marker, specify the value of NextMarker from the last response.
-        /// (For the first request, omit Marker.)
+        /// <para>Use this when paginating results to indicate where to begin in your list of distributions.
+        /// The results include distributions in the list that occur after the marker. To get
+        /// the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code>
+        /// from the current page's response (which is also the ID of the last distribution on
+        /// that page).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,9 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// The maximum number of distributions that you
-        /// want CloudFront to return in the response body. The maximum and default values are
-        /// both 100.
+        /// <para>The maximum number of distributions you want in the response body.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

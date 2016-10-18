@@ -43,11 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// Use this when paginating results to indicate where
-        /// to begin in your list of streaming distributions. The results include distributions
-        /// in the list that occur after the marker. To get the next page of results, set the
-        /// Marker to the value of the NextMarker from the current page's response (which is also
-        /// the ID of the last distribution on that page).
+        /// <para>The value that you provided for the <code>Marker</code> request parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// The maximum number of streaming distributions
-        /// you want in the response body.
+        /// <para>The value that you provided for the <code>MaxItems</code> request parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -44,16 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CloudFrontOriginAccessIdentityConfig_CallerReference
         /// <summary>
         /// <para>
-        /// A unique number that ensures the request
-        /// can't be replayed. If the CallerReference is new (no matter the content of the CloudFrontOriginAccessIdentityConfig
-        /// object), a new origin access identity is created. If the CallerReference is a value
-        /// you already sent in a previous request to create an identity, and the content of the
-        /// CloudFrontOriginAccessIdentityConfig is identical to the original request (ignoring
-        /// white space), the response includes the same information returned to the original
-        /// request. If the CallerReference is a value you already sent in a previous request
-        /// to create an identity but the content of the CloudFrontOriginAccessIdentityConfig
-        /// is different from the original request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists
-        /// error.
+        /// <para>A unique number that ensures the request can't be replayed.</para><para>If the <code>CallerReference</code> is new (no matter the content of the <code>CloudFrontOriginAccessIdentityConfig</code>
+        /// object), a new origin access identity is created.</para><para>If the <code>CallerReference</code> is a value already sent in a previous identity
+        /// request, and the content of the <code>CloudFrontOriginAccessIdentityConfig</code>
+        /// is identical to the original request (ignoring white space), the response includes
+        /// the same information returned to the original request. </para><para>If the <code>CallerReference</code> is a value you already sent in a previous request
+        /// to create an identity, but the content of the <code>CloudFrontOriginAccessIdentityConfig</code>
+        /// is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code>
+        /// error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CloudFrontOriginAccessIdentityConfig_Comment
         /// <summary>
         /// <para>
-        /// Any comments you want to include about the origin
-        /// access identity.
+        /// <para>Any comments you want to include about the origin access identity. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// The identity's id.
+        /// <para>The identity's id.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// The value of the ETag header you received when
-        /// retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
+        /// <para>The value of the <code>ETag</code> header that you received when retrieving the identity's
+        /// configuration. For example: <code>E2QWRUHAPOMQZL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

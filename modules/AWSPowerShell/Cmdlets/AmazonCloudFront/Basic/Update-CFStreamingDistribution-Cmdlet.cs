@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
-        /// The Amazon S3 bucket to store the access logs in,
-        /// for example, myawslogbucket.s3.amazonaws.com.
+        /// <para>The Amazon S3 bucket to store the access logs in, for example, <code>myawslogbucket.s3.amazonaws.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,16 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StreamingDistributionConfig_CallerReference
         /// <summary>
         /// <para>
-        /// A unique number that ensures the request
-        /// can't be replayed. If the CallerReference is new (no matter the content of the StreamingDistributionConfig
-        /// object), a new streaming distribution is created. If the CallerReference is a value
-        /// you already sent in a previous request to create a streaming distribution, and the
-        /// content of the StreamingDistributionConfig is identical to the original request (ignoring
-        /// white space), the response includes the same information returned to the original
-        /// request. If the CallerReference is a value you already sent in a previous request
-        /// to create a streaming distribution but the content of the StreamingDistributionConfig
-        /// is different from the original request, CloudFront returns a DistributionAlreadyExists
-        /// error.
+        /// <para>A unique number that ensures that the request can't be replayed. If the <code>CallerReference</code>
+        /// is new (no matter the content of the <code>StreamingDistributionConfig</code> object),
+        /// a new streaming distribution is created. If the <code>CallerReference</code> is a
+        /// value that you already sent in a previous request to create a streaming distribution,
+        /// and the content of the <code>StreamingDistributionConfig</code> is identical to the
+        /// original request (ignoring white space), the response includes the same information
+        /// returned to the original request. If the <code>CallerReference</code> is a value that
+        /// you already sent in a previous request to create a streaming distribution but the
+        /// content of the <code>StreamingDistributionConfig</code> is different from the original
+        /// request, CloudFront returns a <code>DistributionAlreadyExists</code> error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StreamingDistributionConfig_Comment
         /// <summary>
         /// <para>
-        /// Any comments you want to include about the streaming
-        /// distribution.
+        /// <para>Any comments you want to include about the streaming distribution. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter S3Origin_DomainName
         /// <summary>
         /// <para>
-        /// The DNS name of the S3 origin.
+        /// <para>The DNS name of the Amazon S3 origin. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StreamingDistributionConfig_Enabled
         /// <summary>
         /// <para>
-        /// Whether the streaming distribution is enabled
-        /// to accept end user requests for content.
+        /// <para>Whether the streaming distribution is enabled to accept user requests for content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,12 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_Enabled
         /// <summary>
         /// <para>
-        /// Specifies whether you want CloudFront to save
-        /// access logs to an Amazon S3 bucket. If you do not want to enable logging when you
-        /// create a streaming distribution or if you want to disable logging for an existing
-        /// streaming distribution, specify false for Enabled, and specify empty Bucket and Prefix
-        /// elements. If you specify false for Enabled but you specify values for Bucket and Prefix,
-        /// the values are automatically deleted.
+        /// <para>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket.
+        /// If you do not want to enable logging when you create a streaming distribution or if
+        /// you want to disable logging for an existing streaming distribution, specify <code>false</code>
+        /// for <code>Enabled</code>, and specify <code>empty Bucket</code> and <code>Prefix</code>
+        /// elements. If you specify <code>false</code> for <code>Enabled</code> but you specify
+        /// values for <code>Bucket</code> and <code>Prefix</code>, the values are automatically
+        /// deleted. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -124,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
-        /// Specifies whether you want to require end users
-        /// to use signed URLs to access the files specified by PathPattern and TargetOriginId.
+        /// <para>Specifies whether you want to require viewers to use signed URLs to access the files
+        /// specified by <code>PathPattern</code> and <code>TargetOriginId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// The streaming distribution's id.
+        /// <para>The streaming distribution's id.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -146,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// The value of the ETag header you received when
-        /// retrieving the streaming distribution's configuration. For example: E2QWRUHAPOMQZL.
+        /// <para>The value of the <code>ETag</code> header that you received when retrieving the streaming
+        /// distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -157,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Aliases_Item
         /// <summary>
         /// <para>
-        /// Optional: A complex type that contains CNAME elements,
-        /// if any, for this distribution. If Quantity is 0, you can omit Items.
+        /// <para>A complex type that contains the CNAME aliases, if any, that you want to associate
+        /// with this distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
-        /// Optional: A complex type that contains trusted signers
-        /// for this cache behavior. If Quantity is 0, you can omit Items.
+        /// <para><b>Optional</b>: A complex type that contains trusted signers for this cache behavior.
+        /// If <code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -181,7 +179,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter S3Origin_OriginAccessIdentity
         /// <summary>
         /// <para>
-        /// Your S3 origin's origin access identity.
+        /// <para>The CloudFront origin access identity to associate with the RTMP distribution. Use
+        /// an origin access identity to configure the distribution so that end users can only
+        /// access objects in an Amazon S3 bucket through CloudFront.</para><para>If you want end users to be able to access objects using either the CloudFront URL
+        /// or the Amazon S3 URL, specify an empty <code>OriginAccessIdentity</code> element.</para><para>To delete the origin access identity from an existing distribution, update the distribution
+        /// configuration and include an empty <code>OriginAccessIdentity</code> element.</para><para>To replace the origin access identity, update the distribution configuration and specify
+        /// the new origin access identity.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Using
+        /// an Origin Access Identity to Restrict Access to Your Amazon S3 Content</a> in the
+        /// <i>Amazon Amazon CloudFront Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -192,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
-        /// An optional string that you want CloudFront to
-        /// prefix to the access log filenames for this streaming distribution, for example, myprefix/.
-        /// If you want to enable logging, but you do not want to specify a prefix, you still
-        /// must include an empty Prefix element in the Logging element.
+        /// <para>An optional string that you want CloudFront to prefix to the access log <code>filenames</code>
+        /// for this streaming distribution, for example, <code>myprefix/</code>. If you want
+        /// to enable logging, but you do not want to specify a prefix, you still must include
+        /// an empty <code>Prefix</code> element in the <code>Logging</code> element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -206,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StreamingDistributionConfig_PriceClass
         /// <summary>
         /// <para>
-        /// A complex type that contains information about
-        /// price class for this streaming distribution.
+        /// <para>A complex type that contains information about price class for this streaming distribution.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -218,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Aliases_Quantity
         /// <summary>
         /// <para>
-        /// The number of CNAMEs, if any, for this distribution.
+        /// <para>The number of CNAME aliases, if any, that you want to associate with this distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -229,8 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
-        /// The number of trusted signers for this cache
-        /// behavior.
+        /// <para>The number of trusted signers for this cache behavior.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

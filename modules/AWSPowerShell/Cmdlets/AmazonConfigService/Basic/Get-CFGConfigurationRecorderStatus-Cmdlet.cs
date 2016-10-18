@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// associated with the account.
     /// 
     ///  <note><para>
-    /// Currently, you can specify only one configuration recorder per account.
+    /// Currently, you can specify only one configuration recorder per region in your account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorderStatus")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The name(s) of the configuration recorder. If the name is not specified, the action
         /// returns the current status of all the configuration recorders associated with the
-        /// account. </para>
+        /// account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

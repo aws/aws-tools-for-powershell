@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// If you specify a different value for either the S3 bucket or the SNS topic, this action
     /// will keep the existing value for the parameter that is not changed.
     /// </para><note><para>
-    /// You can have only one delivery channel per AWS account.
+    /// You can have only one delivery channel per region in your account.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

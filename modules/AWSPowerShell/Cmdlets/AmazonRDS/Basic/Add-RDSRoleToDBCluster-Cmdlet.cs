@@ -22,47 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFront;
-using Amazon.CloudFront.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CF
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Remove tags from a CloudFront resource.
+    /// Associates an Identity and Access Management (IAM) role from an Aurora DB cluster.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Authorizing.AWSServices.html">Authorizing
+    /// Amazon Aurora to Access Other AWS Services On Your Behalf</a>.
     /// </summary>
-    [Cmdlet("Remove", "CFResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Add", "RDSRoleToDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UntagResource operation against Amazon CloudFront.", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Invokes the AddRoleToDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"AddRoleToDBCluster"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Resource parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudFront.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBClusterIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.RDS.Model.AddRoleToDBClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCFResourceTagCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class AddRDSRoleToDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
-        #region Parameter TagKey
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> A complex type that contains <code>Tag</code> key elements.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
-        #region Parameter Resource
-        /// <summary>
-        /// <para>
-        /// <para> An ARN of a CloudFront resource.</para>
+        /// <para>The name of the DB cluster to associate the IAM role with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Resource { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to associate with the Aurora DB cluster,
+        /// for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public System.String RoleArn { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the Resource parameter.
+        /// Returns the value passed to the DBClusterIdentifier parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Resource", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RoleArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-RDSRoleToDBCluster (AddRoleToDBCluster)"))
             {
                 return;
             }
@@ -98,11 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Resource = this.Resource;
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,30 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.UntagResourceRequest();
+            var request = new Amazon.RDS.Model.AddRoleToDBClusterRequest();
             
-            if (cmdletContext.Resource != null)
+            if (cmdletContext.DBClusterIdentifier != null)
             {
-                request.Resource = cmdletContext.Resource;
+                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
             }
-            
-             // populate TagKeys
-            bool requestTagKeysIsNull = true;
-            request.TagKeys = new Amazon.CloudFront.Model.TagKeys();
-            List<System.String> requestTagKeys_tagKey = null;
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.RoleArn != null)
             {
-                requestTagKeys_tagKey = cmdletContext.TagKey;
-            }
-            if (requestTagKeys_tagKey != null)
-            {
-                request.TagKeys.Items = requestTagKeys_tagKey;
-                requestTagKeysIsNull = false;
-            }
-             // determine if request.TagKeys should be set to null
-            if (requestTagKeysIsNull)
-            {
-                request.TagKeys = null;
+                request.RoleArn = cmdletContext.RoleArn;
             }
             
             CmdletOutput output;
@@ -153,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Resource;
+                    pipelineOutput = this.DBClusterIdentifier;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -178,13 +163,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UntagResourceRequest request)
+        private static Amazon.RDS.Model.AddRoleToDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddRoleToDBClusterRequest request)
         {
             #if DESKTOP
-            return client.UntagResource(request);
+            return client.AddRoleToDBCluster(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UntagResourceAsync(request);
+            var task = client.AddRoleToDBClusterAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -195,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Resource { get; set; }
-            public List<System.String> TagKey { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String RoleArn { get; set; }
         }
         
     }

@@ -34,19 +34,24 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     ///  
     /// <para>
     /// A rule is compliant if all of the evaluated resources comply with it, and it is noncompliant
-    /// if any of these resources do not comply. 
+    /// if any of these resources do not comply.
     /// </para><para>
     /// If AWS Config has no current evaluation results for the rule, it returns <code>INSUFFICIENT_DATA</code>.
     /// This result might indicate one of the following conditions:
-    /// </para><ul><li>AWS Config has never invoked an evaluation for the rule. To check whether
-    /// it has, use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the
-    /// <code>LastSuccessfulInvocationTime</code> and <code>LastFailedInvocationTime</code>.</li><li>The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
+    /// </para><ul><li><para>
+    /// AWS Config has never invoked an evaluation for the rule. To check whether it has,
+    /// use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the <code>LastSuccessfulInvocationTime</code>
+    /// and <code>LastFailedInvocationTime</code>.
+    /// </para></li><li><para>
+    /// The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
     /// Verify that the role that you assigned to your configuration recorder includes the
     /// <code>config:PutEvaluations</code> permission. If the rule is a custom rule, verify
     /// that the AWS Lambda execution role includes the <code>config:PutEvaluations</code>
-    /// permission.</li><li>The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code>
-    /// for all evaluation results. This can occur if the resources were deleted or removed
-    /// from the rule's scope.</li></ul>
+    /// permission.
+    /// </para></li><li><para>
+    /// The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
+    /// results. This can occur if the resources were deleted or removed from the rule's scope.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByConfigRule")]

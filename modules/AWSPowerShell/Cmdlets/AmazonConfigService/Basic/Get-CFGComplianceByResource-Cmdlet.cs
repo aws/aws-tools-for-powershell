@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Indicates whether the specified AWS resources are compliant. If a resource is noncompliant,
     /// this action returns the number of AWS Config rules that the resource does not comply
-    /// with. 
+    /// with.
     /// 
     ///  
     /// <para>
@@ -40,15 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// If AWS Config has no current evaluation results for the resource, it returns <code>INSUFFICIENT_DATA</code>.
     /// This result might indicate one of the following conditions about the rules that evaluate
     /// the resource:
-    /// </para><ul><li>AWS Config has never invoked an evaluation for the rule. To check whether
-    /// it has, use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the
-    /// <code>LastSuccessfulInvocationTime</code> and <code>LastFailedInvocationTime</code>.</li><li>The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
+    /// </para><ul><li><para>
+    /// AWS Config has never invoked an evaluation for the rule. To check whether it has,
+    /// use the <code>DescribeConfigRuleEvaluationStatus</code> action to get the <code>LastSuccessfulInvocationTime</code>
+    /// and <code>LastFailedInvocationTime</code>.
+    /// </para></li><li><para>
+    /// The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
     /// Verify that the role that you assigned to your configuration recorder includes the
     /// <code>config:PutEvaluations</code> permission. If the rule is a custom rule, verify
     /// that the AWS Lambda execution role includes the <code>config:PutEvaluations</code>
-    /// permission.</li><li>The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code>
-    /// for all evaluation results. This can occur if the resources were deleted or removed
-    /// from the rule's scope.</li></ul>
+    /// permission.
+    /// </para></li><li><para>
+    /// The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
+    /// results. This can occur if the resources were deleted or removed from the rule's scope.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByResource")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByResource")]

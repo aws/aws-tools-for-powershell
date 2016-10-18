@@ -44,6 +44,7 @@
         <Documentation>Returns the collection of tags that were added</Documentation>
       </PassThru>
     </ServiceOperation>
+    <ServiceOperation MethodName="AddRoleToDBCluster" Output="Void" PipelineParameter="DBClusterIdentifier" PositionalParameters="RoleArn"/>
     <ServiceOperation MethodName="ApplyPendingMaintenanceAction" PipelineParameter="ResourceIdentifier" Verb="Submit"/>
     <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" Verb="Enable" Noun="DBSecurityGroupIngress"
                        PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
@@ -115,6 +116,7 @@
     <ServiceOperation MethodName="PurchaseReservedDBInstancesOffering" Verb="Get" Noun="ReservedDBInstancesOffering"
                        PipelineParameter="ReservedDBInstancesOfferingId"/>
     <ServiceOperation MethodName="RebootDBInstance"/>
+    <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" PipelineParameter="DBClusterIdentifier" PositionalParameters="RoleArn"/>
     <!-- do we need shouldprocess here? -->
     <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" ShouldProcessTarget="SourceIdentifier"
                       PipelineParameter="SubscriptionName" PositionalParameters="SourceIdentifier"/>

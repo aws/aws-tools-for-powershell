@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Get the information about a streaming distribution.
+    /// Gets information about a specified RTMP distribution, including the distribution configuration.
     /// </summary>
     [Cmdlet("Get", "CFStreamingDistribution")]
     [OutputType("Amazon.CloudFront.Model.StreamingDistribution")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// The streaming distribution's id.
+        /// <para>The streaming distribution's ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
