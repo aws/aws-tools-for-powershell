@@ -211,6 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AvailabilityZone { get; set; }
         #endregion
 
+        #region Parameter Affinity
+        /// <summary>
+        /// The affinity setting for the instance on the dedicated host.
+        /// </summary>
+        [Alias("Placement_Affinity")]
+        [Parameter]
+        public System.String Affinity { get; set; }
+        #endregion
+
         #region Parameter PlacementGroup
         /// <summary>
         /// The name of an existing placement group.
@@ -223,16 +232,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Tenancy 
         /// <summary>
         /// <para>
-        /// The tenancy of the instance. An instance with a tenancy of dedicated runs on single-tenant hardware and can only be launched into a VPC.
+        /// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
         /// </para>
         /// <para>
-        /// Valid Values: default | dedicated
+        /// Valid Values: default | dedicated | host
         /// </para>
         /// </summary>
         [Alias("Placement_Tenancy")]
         [Parameter]
         [AWSConstantClassSource("Amazon.EC2.Tenancy")]
         public Amazon.EC2.Tenancy Tenancy { get; set; }
+        #endregion
+
+        #region Parameter HostId
+        /// <summary>
+        /// The ID of the dedicted host on which the instance resides.
+        /// </summary>
+        [Alias("Placement_Host")]
+        [Parameter]
+        public System.String HostId { get; set; }
         #endregion
 
         #region Parameter KernelId
@@ -437,6 +455,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Placement_AvailabilityZone = this.AvailabilityZone;
             context.Placement_GroupName = this.PlacementGroup;
             context.Placement_Tenancy = this.Tenancy;
+            context.Placement_HostId = this.HostId;
+            context.Placement_Affinity = this.Affinity;
             context.KernelId = this.KernelId;
             context.RamdiskId = this.RamdiskId;
             if (this.BlockDeviceMapping != null)
@@ -564,6 +584,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate Placement
             bool requestPlacementIsNull = true;
             request.Placement = new Placement();
+
+            String requestPlacement_placement_Affinity = null;
+            if (cmdletContext.Placement_Affinity != null)
+            {
+                requestPlacement_placement_Affinity = cmdletContext.Placement_Affinity;
+            }
+            if (requestPlacement_placement_Affinity != null)
+            {
+                request.Placement.Affinity = requestPlacement_placement_Affinity;
+                requestPlacementIsNull = false;
+            }
+            
             String requestPlacement_placement_AvailabilityZone = null;
             if (cmdletContext.Placement_AvailabilityZone != null)
             {
@@ -574,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Placement.AvailabilityZone = requestPlacement_placement_AvailabilityZone;
                 requestPlacementIsNull = false;
             }
+
             String requestPlacement_placement_GroupName = null;
             if (cmdletContext.Placement_GroupName != null)
             {
@@ -584,6 +617,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Placement.GroupName = requestPlacement_placement_GroupName;
                 requestPlacementIsNull = false;
             }
+
+            String requestPlacement_placement_HostId = null;
+            if (cmdletContext.Placement_HostId != null)
+            {
+                requestPlacement_placement_HostId = cmdletContext.Placement_HostId;
+            }
+            if (requestPlacement_placement_HostId != null)
+            {
+                request.Placement.HostId = requestPlacement_placement_HostId;
+                requestPlacementIsNull = false;
+            }
+
             String requestPlacement_placement_Tenancy = null;
             if (cmdletContext.Placement_Tenancy != null)
             {
@@ -594,6 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Placement.Tenancy = requestPlacement_placement_Tenancy;
                 requestPlacementIsNull = false;
             }
+
              // determine if request.Placement should be set to null
             if (requestPlacementIsNull)
             {
@@ -731,9 +777,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<String> SecurityGroupIds { get; set; }
             public String UserData { get; set; }
             public String InstanceType { get; set; }
+            public String Placement_Affinity { get; set; }
             public String Placement_AvailabilityZone { get; set; }
             public String Placement_GroupName { get; set; }
             public String Placement_Tenancy { get; set; }
+            public String Placement_HostId { get; set; }
             public String KernelId { get; set; }
             public String RamdiskId { get; set; }
             public List<BlockDeviceMapping> BlockDeviceMapping { get; set; }

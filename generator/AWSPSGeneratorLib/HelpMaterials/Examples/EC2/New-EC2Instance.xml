@@ -23,4 +23,8 @@ PS C:\> New-EC2Instance -ImageId ami-12345678 -BlockDeviceMapping $bdm ...
 PS C:\> New-EC2Instance -ImageId $ami.ImageId ...</code>
     <description>To specify one of the current Windows AMIs, get its AMI ID using Get-EC2ImageByName. This example launches an instance from the current base AMI for Windows Server 2012 R2.</description>
   </example>
+  <example>
+    <code>New-EC2Instance -ImageId ami-1a2b3c4d -InstanceType m4.large -KeyName my-key-pair -SecurityGroupId sg-1a2b3c4d  -AvailabilityZone us-west-1a -Tenancy host -HostID h-1a2b3c4d5e6f1a2b3</code>
+    <description>Launches an instance into the specified dedicated host environment.</description>
+  </example>
 </examples>
