@@ -1,3 +1,10 @@
+### 3.3.11.0 (2016-10-18)
+  * Amazon EC2
+    - Added HostId and Affinity parameters to the New-EC2Instance cmdlet to support launching instances on a dedicated host.
+  * Bug fix: fixed issue in underlying AWS SDK for .NET that could lead to file corruption when updating the credential profile store file.
+  * Amazon Relational Database Service
+    - Added support for Amazon Aurora integration with other AWS services, allowing you to extend your Aurora DB cluster to utilize other capabilities in the AWS cloud. Permission to access other AWS services is granted by creating an IAM role with the necessary permissions, and then associating the role with your DB cluster. This support includes two new cmdlets, Add-RDSRoleToDBCluster (AddRoleToDBCluster API) and Remove-RDSRoleFromDBCluster (RemoveRoleFromDBCluster API).
+
 ### 3.3.10.0 (2016-10-17)
   * Added support for the new US East (Ohio) region. To select this region, specify the value 'us-east-2' for the -Region parameter when invoking a cmdlet.
   * Amazon Route53
