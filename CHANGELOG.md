@@ -1,3 +1,7 @@
+### 3.3.12.0 (2016-10-19)
+  * Amazon EC2
+    - Added support for retrieving latest Windows Server 2016 images using the Get-EC2ImageByName cmdlet.
+
 ### 3.3.11.0 (2016-10-18)
   * Amazon EC2
     - Added HostId and Affinity parameters to the New-EC2Instance cmdlet to support launching instances on a dedicated host.
