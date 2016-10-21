@@ -7,6 +7,7 @@
     <Path>AutoScaling.xml</Path>
     <Path>AWSSupport.xml</Path>
     <Path>Beanstalk.xml</Path>
+    <Path>Budgets.xml</Path>
     <Path>CertificateManager.xml</Path>
     <Path>CloudFormation.xml</Path>
     <Path>CloudFront.xml</Path>

@@ -54,6 +54,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Budgets">
+      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.0\lib\net35\AWSSDK.Budgets.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.3.0.1\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>

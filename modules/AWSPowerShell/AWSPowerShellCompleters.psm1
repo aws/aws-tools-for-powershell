@@ -361,6 +361,102 @@ $EB_map = @{
 _awsArgumentCompleterRegistration $EB_Completers $EB_map
 
 
+# Argument completions for service AWS Budgets
+$BGT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Budgets.BudgetType
+        {
+            ($_ -eq "New-BGTBudget/Budget_BudgetType") -Or
+            ($_ -eq "Update-BGTBudget/NewBudget_BudgetType")
+        }
+        {
+            $v = "COST","USAGE"
+            break
+        }
+        
+        # Amazon.Budgets.ComparisonOperator
+        {
+            ($_ -eq "Update-BGTNotification/NewNotification_ComparisonOperator") -Or
+            ($_ -eq "Get-BGTSubscribersForNotification/Notification_ComparisonOperator") -Or
+            ($_ -eq "New-BGTNotification/Notification_ComparisonOperator") -Or
+            ($_ -eq "New-BGTSubscriber/Notification_ComparisonOperator") -Or
+            ($_ -eq "Remove-BGTNotification/Notification_ComparisonOperator") -Or
+            ($_ -eq "Remove-BGTSubscriber/Notification_ComparisonOperator") -Or
+            ($_ -eq "Update-BGTSubscriber/Notification_ComparisonOperator") -Or
+            ($_ -eq "Update-BGTNotification/OldNotification_ComparisonOperator")
+        }
+        {
+            $v = "EQUAL_TO","GREATER_THAN","LESS_THAN"
+            break
+        }
+        
+        # Amazon.Budgets.NotificationType
+        {
+            ($_ -eq "Update-BGTNotification/NewNotification_NotificationType") -Or
+            ($_ -eq "Get-BGTSubscribersForNotification/Notification_NotificationType") -Or
+            ($_ -eq "New-BGTNotification/Notification_NotificationType") -Or
+            ($_ -eq "New-BGTSubscriber/Notification_NotificationType") -Or
+            ($_ -eq "Remove-BGTNotification/Notification_NotificationType") -Or
+            ($_ -eq "Remove-BGTSubscriber/Notification_NotificationType") -Or
+            ($_ -eq "Update-BGTSubscriber/Notification_NotificationType") -Or
+            ($_ -eq "Update-BGTNotification/OldNotification_NotificationType")
+        }
+        {
+            $v = "ACTUAL","FORECASTED"
+            break
+        }
+        
+        # Amazon.Budgets.SubscriptionType
+        {
+            ($_ -eq "Update-BGTSubscriber/NewSubscriber_SubscriptionType") -Or
+            ($_ -eq "Update-BGTSubscriber/OldSubscriber_SubscriptionType") -Or
+            ($_ -eq "New-BGTSubscriber/Subscriber_SubscriptionType") -Or
+            ($_ -eq "Remove-BGTSubscriber/Subscriber_SubscriptionType")
+        }
+        {
+            $v = "EMAIL","SNS"
+            break
+        }
+        
+        # Amazon.Budgets.TimeUnit
+        {
+            ($_ -eq "New-BGTBudget/Budget_TimeUnit") -Or
+            ($_ -eq "Update-BGTBudget/NewBudget_TimeUnit")
+        }
+        {
+            $v = "ANNUALLY","MONTHLY","QUARTERLY"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BGT_map = @{
+    "Budget_BudgetType"=@("New-BGTBudget")
+    "Budget_TimeUnit"=@("New-BGTBudget")
+    "NewBudget_BudgetType"=@("Update-BGTBudget")
+    "NewBudget_TimeUnit"=@("Update-BGTBudget")
+    "NewNotification_ComparisonOperator"=@("Update-BGTNotification")
+    "NewNotification_NotificationType"=@("Update-BGTNotification")
+    "NewSubscriber_SubscriptionType"=@("Update-BGTSubscriber")
+    "Notification_ComparisonOperator"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
+    "Notification_NotificationType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
+    "OldNotification_ComparisonOperator"=@("Update-BGTNotification")
+    "OldNotification_NotificationType"=@("Update-BGTNotification")
+    "OldSubscriber_SubscriptionType"=@("Update-BGTSubscriber")
+    "Subscriber_SubscriptionType"=@("New-BGTSubscriber","Remove-BGTSubscriber")
+}
+
+_awsArgumentCompleterRegistration $BGT_Completers $BGT_map
+
+
 # Argument completions for service AWS CloudFormation
 $CFN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
