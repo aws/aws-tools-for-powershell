@@ -27,7 +27,7 @@ using Amazon.Budgets.Model;
 
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
-    [AWSClientCmdlet("AWS Budgets", "BGT", "2016-09-15")]
+    [AWSClientCmdlet("AWS Budgets", "BGT", "2016-10-20")]
     public abstract partial class AmazonBudgetsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBudgets Client { get; private set; }

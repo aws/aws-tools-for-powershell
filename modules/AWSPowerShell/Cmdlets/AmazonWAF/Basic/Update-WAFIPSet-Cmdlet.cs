@@ -35,27 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// Whether to insert or delete the object from the array. If you want to change an <code>IPSetDescriptor</code>
     /// object, you delete the existing object and add a new one.
     /// </para></li><li><para>
-    /// The IP address version, <code>IPv4</code> or <code>IPv6</code>. 
+    /// The IP address version, <code>IPv4</code>. 
     /// </para></li><li><para>
     /// The IP address in CIDR notation, for example, <code>192.0.2.0/24</code> (for the range
     /// of IP addresses from <code>192.0.2.0</code> to <code>192.0.2.255</code>) or <code>192.0.2.44/32</code>
     /// (for the individual IP address <code>192.0.2.44</code>). 
     /// </para></li></ul><para>
-    /// AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48,
-    /// /56, /64 and /128 for IPv6. For more information about CIDR notation, see the Wikipedia
-    /// entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
+    /// AWS WAF supports /8, /16, /24, and /32 IP address ranges. For more information about
+    /// CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
     /// Inter-Domain Routing</a>.
     /// </para><para>
-    /// IPv6 addresses can be represented using any of the following formats:
-    /// </para><ul><li><para>
-    /// 1111:0000:0000:0000:0000:0000:0000:0111/128
-    /// </para></li><li><para>
-    /// 1111:0:0:0:0:0:0:0111/128
-    /// </para></li><li><para>
-    /// 1111::0111/128
-    /// </para></li><li><para>
-    /// 1111::111/128
-    /// </para></li></ul><para>
     /// You use an <code>IPSet</code> to specify which web requests you want to allow or block
     /// based on the IP addresses that the requests originated from. For example, if you're
     /// receiving a lot of requests from one or a small number of IP addresses and you want
