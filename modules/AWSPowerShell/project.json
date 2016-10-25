@@ -28,7 +28,7 @@
 		"AWSSDK.CognitoIdentity": "3.3.0.1",
 		"AWSSDK.CognitoIdentityProvider": "3.3.1.1",
 		"AWSSDK.ConfigService": "3.3.1",
-		"AWSSDK.Core": "3.3.2.1",
+		"AWSSDK.Core": "3.3.3",
 		"AWSSDK.DatabaseMigrationService": "3.3.0.1",
 		"AWSSDK.DataPipeline": "3.3.0.1",
 		"AWSSDK.DeviceFarm": "3.3.0.2",
@@ -37,7 +37,7 @@
 		"AWSSDK.DynamoDBv2": "3.3.0.1",
 		"AWSSDK.EC2": "3.3.2",
 		"AWSSDK.ECR": "3.3.1",
-		"AWSSDK.ECS": "3.3.0.1",
+		"AWSSDK.ECS": "3.3.0.2",
 		"AWSSDK.ElastiCache": "3.3.1",
 		"AWSSDK.ElasticBeanstalk": "3.3.1",
 		"AWSSDK.ElasticFileSystem": "3.3.0.2",
@@ -72,7 +72,7 @@
 		"AWSSDK.Snowball": "3.3.0.1",
 		"AWSSDK.SQS": "3.3.0.1",
 		"AWSSDK.StorageGateway": "3.3.0.1",
-		"AWSSDK.WAF": "3.3.1.1",
+		"AWSSDK.WAF": "3.3.1.2",
 		"AWSSDK.WorkSpaces": "3.3.0.1"
  	},
 	"buildOptions": {

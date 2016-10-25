@@ -119,9 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The upper limit (as a percentage of the service's <code>desiredCount</code>) of the
-        /// number of running tasks that can be running in a service during a deployment. The
-        /// maximum number of tasks during a deployment is the <code>desiredCount</code> multiplied
-        /// by the <code>maximumPercent</code>/100, rounded down to the nearest integer value.</para>
+        /// number of tasks that are allowed in the <code>RUNNING</code> or <code>PENDING</code>
+        /// state in a service during a deployment. The maximum number of tasks during a deployment
+        /// is the <code>desiredCount</code> multiplied by the <code>maximumPercent</code>/100,
+        /// rounded down to the nearest integer value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The lower limit (as a percentage of the service's <code>desiredCount</code>) of the
-        /// number of running tasks that must remain running and healthy in a service during a
-        /// deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code>
+        /// number of running tasks that must remain in the <code>RUNNING</code> state in a service
+        /// during a deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code>
         /// multiplied by the <code>minimumHealthyPercent</code>/100, rounded up to the nearest
         /// integer value.</para>
         /// </para>

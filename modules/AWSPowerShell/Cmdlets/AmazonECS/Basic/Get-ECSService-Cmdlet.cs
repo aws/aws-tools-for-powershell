@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>A list of services to describe.</para>
+        /// <para>A list of services to describe. You may specify up to 10 services to describe in a
+        /// single operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
