@@ -3205,6 +3205,36 @@ $SES_map = @{
 _awsArgumentCompleterRegistration $SES_Completers $SES_map
 
 
+# Argument completions for service Amazon Server Migration Service
+$SMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ServerMigrationService.LicenseType
+        {
+            ($_ -eq "New-SMSReplicationJob/LicenseType") -Or
+            ($_ -eq "Update-SMSReplicationJob/LicenseType")
+        }
+        {
+            $v = "AWS","BYOL"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMS_map = @{
+    "LicenseType"=@("New-SMSReplicationJob","Update-SMSReplicationJob")
+}
+
+_awsArgumentCompleterRegistration $SMS_Completers $SMS_map
+
+
 # Argument completions for service AWS Import/Export Snowball
 $SNOW_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

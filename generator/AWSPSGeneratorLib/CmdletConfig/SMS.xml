@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>SMS</ServiceNounPrefix>
+  <ServiceName>Amazon Server Migration Service</ServiceName>
+  <ServiceClientInterface>IAmazonServerMigrationService</ServiceClientInterface>
+  <ServiceClient>AmazonServerMigrationServiceClient</ServiceClient>
+  <ServiceNamespace>Amazon.ServerMigrationService</ServiceNamespace>
+
+  <AutoIterate EmitLimit="MaxResults"
+               Start="NextToken"
+               Next="NextToken" 
+			   Exclusions="GetReplicationRuns;GetServers"/>
+
+  <PipelineByValueProperties>
+    <Property>ServerId</Property>
+    <Property>ReplicationJobId</Property>
+    <Property>ConnectorId</Property>
+  </PipelineByValueProperties>
+
+  <PipelineParameter>ReplicationJobId</PipelineParameter>
+
+  <ServiceOperations>
+	<ServiceOperation MethodName="CreateReplicationJob" NoPipelineParameter="true" ShouldProcessTarget="ServerId" />
+	<ServiceOperation MethodName="DeleteReplicationJob" Output="Void" />
+	<ServiceOperation MethodName="DeleteServerCatalog" Output="Void" />
+	<ServiceOperation MethodName="DisassociateConnector" Output="Void" Verb="Unregister" />
+	<ServiceOperation MethodName="GetConnectors" Noun="Connector" />
+	<ServiceOperation MethodName="GetReplicationJobs" Noun="ReplicationJob" />
+	<ServiceOperation MethodName="GetReplicationRuns" Noun="ReplicationRun" Output="Response" />
+	<ServiceOperation MethodName="GetServers" Noun="Server" Output="Response" />
+	<ServiceOperation MethodName="ImportServerCatalog" Output="Void" />
+	<ServiceOperation MethodName="StartOnDemandReplicationRun" />
+	<ServiceOperation MethodName="UpdateReplicationJob" Output="Void" />
+  </ServiceOperations>
+
+</ConfigModel>

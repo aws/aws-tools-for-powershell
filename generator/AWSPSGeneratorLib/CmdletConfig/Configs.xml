@@ -65,6 +65,7 @@
 	<Path>ServiceCatalog.xml</Path>
     <Path>SES.xml</Path>
 	<Path>Snowball.xml</Path>
+    <Path>SMS.xml</Path>
     <Path>SNS.xml</Path>
     <Path>SSM.xml</Path>
     <Path>SQS.xml</Path>
