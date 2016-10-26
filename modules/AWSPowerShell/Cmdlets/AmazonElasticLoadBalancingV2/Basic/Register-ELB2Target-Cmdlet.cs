@@ -32,8 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
+    /// By default, the load balancer routes requests to registered targets using the protocol
+    /// and port number for the target group. Alternatively, you can override the port for
+    /// a target when you register it.
+    /// </para><para>
     /// The target must be in the virtual private cloud (VPC) that you specified for the target
-    /// group.
+    /// group. If the target is an EC2 instance, it can't be in the <code>stopped</code> or
+    /// <code>running</code> state when you register it.
     /// </para><para>
     /// To remove a target from a target group, use <a>DeregisterTargets</a>.
     /// </para>
@@ -61,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets.</para>
+        /// <para>The targets. The default port for a target is the port for the target group. You can
+        /// specify a port override. If a target is already registered, you can register it again
+        /// using a different port.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

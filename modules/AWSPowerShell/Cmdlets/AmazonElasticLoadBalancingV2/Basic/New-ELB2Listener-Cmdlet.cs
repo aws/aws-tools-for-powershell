@@ -28,10 +28,12 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Creates a listener for the specified Application load balancer.
+    /// Creates a listener for the specified Application Load Balancer.
     /// 
     ///  
     /// <para>
+    /// You can create up to 10 listeners per load balancer.
+    /// </para><para>
     /// To update a listener, use <a>ModifyListener</a>. When you are finished with a listener,
     /// you can delete it using <a>DeleteListener</a>. If you are finished with both the listener
     /// and the load balancer, you can delete them both using <a>DeleteLoadBalancer</a>.
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter DefaultAction
         /// <summary>
         /// <para>
-        /// <para>The default actions for the listener.</para>
+        /// <para>The default action for the listener.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

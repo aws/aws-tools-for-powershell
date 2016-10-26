@@ -151,7 +151,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.1.1\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancingV2">
-      <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.0.1\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.0.2\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancing.3.3.0.1\lib\net35\AWSSDK.ElasticLoadBalancing.dll</HintPath>
@@ -253,7 +253,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.0.1\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
-      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.1\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.2\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
       <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.0.1\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>

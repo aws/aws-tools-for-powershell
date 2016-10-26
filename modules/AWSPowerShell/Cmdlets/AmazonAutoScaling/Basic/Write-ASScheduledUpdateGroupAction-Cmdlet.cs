@@ -30,11 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <summary>
     /// Creates or updates a scheduled scaling action for an Auto Scaling group. When updating
     /// a scheduled scaling action, if you leave a parameter unspecified, the corresponding
-    /// value remains unchanged in the affected Auto Scaling group.
+    /// value remains unchanged.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html">Scheduled
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/schedule_time.html">Scheduled
     /// Scaling</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The time for this action to end.</para>
+        /// <para>The time for the recurring schedule to end. Auto Scaling does not perform the action
+        /// after this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -101,10 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Recurrence
         /// <summary>
         /// <para>
-        /// <para>The time when recurring future actions will start. Start time is specified by the
-        /// user following the Unix cron syntax format. For more information, see <a href="http://en.wikipedia.org/wiki/Cron">Cron</a>
-        /// in Wikipedia.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
-        /// they form the boundaries of when the recurring action will start and stop.</para>
+        /// <para>The recurring schedule for this action, in Unix cron syntax format. For more information,
+        /// see <a href="http://en.wikipedia.org/wiki/Cron">Cron</a> in Wikipedia.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.</para><para>When <code>StartTime</code> and <code>EndTime</code> are specified with <code>Recurrence</code>,
-        /// they form the boundaries of when the recurring action starts and stops.</para>
+        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Auto Scaling performs
+        /// the action at this time, and then performs the action based on the specified recurrence.</para><para>If you try to schedule your action in the past, Auto Scaling returns an error message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

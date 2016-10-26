@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Modifies the specified attributes of the specified load balancer.
+    /// Modifies the specified attributes of the specified Application Load Balancer.
     /// 
     ///  
     /// <para>

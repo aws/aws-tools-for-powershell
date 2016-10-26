@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>If this parameter is true, Auto Scaling waits for the cooldown period to complete
         /// before executing the policy. Otherwise, Auto Scaling executes the policy without waiting
-        /// for the cooldown period to complete.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
+        /// for the cooldown period to complete.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
         /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>

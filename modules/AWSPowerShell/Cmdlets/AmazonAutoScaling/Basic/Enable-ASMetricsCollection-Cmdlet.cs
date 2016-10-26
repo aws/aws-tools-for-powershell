@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Enables group metrics for the specified Auto Scaling group. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AutoScaling/latest/userguide/as-instance-monitoring.html">Monitoring
+    /// see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html">Monitoring
     /// Your Auto Scaling Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.
     /// </summary>
     [Cmdlet("Enable", "ASMetricsCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

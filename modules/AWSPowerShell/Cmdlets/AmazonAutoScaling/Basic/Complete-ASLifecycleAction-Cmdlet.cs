@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If you need more time, record the lifecycle action heartbeat to keep the instance
     /// in a pending state.
     /// </para></li><li><para><b>If you finish before the timeout period ends, complete the lifecycle action.</b></para></li></ol><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html">Auto
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto
     /// Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>

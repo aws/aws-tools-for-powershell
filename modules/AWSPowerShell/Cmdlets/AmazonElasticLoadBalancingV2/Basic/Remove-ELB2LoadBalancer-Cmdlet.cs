@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Deletes the specified load balancer and its attached listeners.
+    /// Deletes the specified Application Load Balancer and its attached listeners.
     /// 
     ///  
     /// <para>

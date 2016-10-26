@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets.</para>
+        /// <para>The targets. If you specified a port override when you registered a target, you must
+        /// specify both the target ID and the port when you deregister it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

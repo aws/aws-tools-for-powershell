@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This configuration overwrites any existing configuration.
     /// </para><para>
-    /// For more information see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html">Getting
+    /// For more information see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html">Getting
     /// SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User
     /// Guide</i>.
     /// </para>

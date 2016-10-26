@@ -28,8 +28,8 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the specified Application load balancers or all of your Application load
-    /// balancers.
+    /// Describes the specified Application Load Balancers or all of your Application Load
+    /// Balancers.
     /// 
     ///  
     /// <para>

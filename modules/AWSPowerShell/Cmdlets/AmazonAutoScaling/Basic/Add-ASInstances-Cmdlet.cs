@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// are also registered with the load balancer. If there are target groups attached to
     /// your Auto Scaling group, the instances are also registered with the target groups.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-instance-asg.html">Attach
     /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>

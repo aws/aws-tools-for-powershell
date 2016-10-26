@@ -1,3 +1,12 @@
+### 3.3.14.0 (2016-10-25)
+  * AWS Server Migration Service
+    - Added support for the new Server Migration Service, an agentless service that makes it easier and faster for you to migrate thousands of on-premises workloads to AWS. Cmdlets for the service have the noun prefix 'SMS'. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SMS"'. 
+
+### 3.3.13.0 (2016-10-20)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * AWS Budgets
+    - Added support for the new AWS Budgets service. Cmdlets for this service have the noun prefix 'BGT'. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "BGT"'. 
+
 ### 3.3.12.0 (2016-10-19)
   * Amazon EC2
     - Added support for retrieving latest Windows Server 2016 images using the Get-EC2ImageByName cmdlet.
