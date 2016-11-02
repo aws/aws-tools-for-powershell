@@ -363,8 +363,6 @@ Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name CFN-CancelUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name CFN-ContinueUpdateRollback -Value Resume-CFNUpdateRollback
-Set-Alias -Name Create-CFNChangeSet -Value New-CFNChangeSet
-Set-Alias -Name CFN-CreateChangeSet -Value New-CFNChangeSet
 Set-Alias -Name Create-CFNStack -Value New-CFNStack
 Set-Alias -Name CFN-CreateStack -Value New-CFNStack
 Set-Alias -Name Delete-CFNChangeSet -Value Remove-CFNChangeSet
@@ -387,9 +385,9 @@ Set-Alias -Name Estimate-CFNTemplateCost -Value Measure-CFNTemplateCost
 Set-Alias -Name CFN-EstimateTemplateCost -Value Measure-CFNTemplateCost
 Set-Alias -Name CFN-ExecuteChangeSet -Value Start-CFNChangeSet
 Set-Alias -Name CFN-GetStackPolicy -Value Get-CFNStackPolicy
-Set-Alias -Name CFN-GetTemplate -Value Get-CFNTemplate
 Set-Alias -Name CFN-GetTemplateSummary -Value Get-CFNTemplateSummary
 Set-Alias -Name CFN-ListChangeSets -Value Get-CFNChangeSetList
+Set-Alias -Name CFN-ListExports -Value Get-CFNExport
 Set-Alias -Name Get-CFNStackResourceSummaries -Value Get-CFNStackResourceSummary
 Set-Alias -Name CFN-ListStackResources -Value Get-CFNStackResourceSummary
 Set-Alias -Name Get-CFNStackSummaries -Value Get-CFNStackSummary

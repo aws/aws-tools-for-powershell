@@ -39,7 +39,7 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Output="Void" />    
-	<ServiceOperation MethodName="CreateChangeSet" />
+	<ServiceOperation MethodName="CreateChangeSet" Exclude="true"/>
 	<ServiceOperation MethodName="DeleteChangeSet" PipelineParameter="ChangeSetName" Output="Void" />
     <ServiceOperation MethodName="DeleteStack" Output="Void"/>
     <ServiceOperation MethodName="DescribeAccountLimits"/>
@@ -51,7 +51,7 @@
     <ServiceOperation MethodName="EstimateTemplateCost" PipelineParameter="TemplateBody"/>
 	<ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" PipelineParameter="ChangeSetName" Output="Void" />
     <ServiceOperation MethodName="GetStackPolicy"/>
-    <ServiceOperation MethodName="GetTemplate"/>
+    <ServiceOperation MethodName="GetTemplate" Exclude="true"/>
     <ServiceOperation MethodName="GetTemplateSummary" Output="Response"/>
 	<ServiceOperation MethodName="ListChangeSets" Verb="Get" Noun="ChangeSetList"  />
     <ServiceOperation MethodName="ListStackResources" Verb="Get" Noun="StackResourceSummaries"/>
@@ -60,6 +60,7 @@
     <ServiceOperation MethodName="UpdateStack"/>
     <ServiceOperation MethodName="ValidateTemplate" Output="Response" PipelineParameter="TemplateBody"/>
     <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" Output="Void"/>
+    <ServiceOperation MethodName="ListExports" Verb="Get" Noun="Export"/>
   </ServiceOperations>
 
   <PipelineByValueProperties>
