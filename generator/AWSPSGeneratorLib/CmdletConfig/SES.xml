@@ -74,16 +74,24 @@
     <ServiceOperation MethodName="SetActiveReceiptRuleSet" Output="Void"/>
     <ServiceOperation MethodName="SetReceiptRulePosition" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
     <ServiceOperation MethodName="UpdateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
-    
-	<ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Output="Void" PipelineParameter="Identity" />
-	
-  </ServiceOperations>
+    <ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Output="Void" PipelineParameter="Identity" />
 
+    <ServiceOperation MethodName="DeleteConfigurationSet" Output="Void"/>
+    <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Output="Void" PipelineParameter="EventDestinationName" />
+    <ServiceOperation MethodName="DescribeConfigurationSet" PipelineParameter="ConfigurationSetName" Output="Response"/>
+    <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Output="Void" PipelineParameter="ConfigurationSetName"/>
+    <ServiceOperation MethodName="CreateConfigurationSet" Output="Void"/>
+    <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Output="Void" PipelineParameter="ConfigurationSetName" />
+    <ServiceOperation MethodName="ListConfigurationSets" Verb="Get" Noun="ConfigurationSetList"/>
+    
+  </ServiceOperations>
   <PipelineByValueProperties>
     <Property>Identity</Property>
     <Property>EmailAddress</Property>
     <Property>RuleName</Property>
     <Property>RuleSetName</Property>
+    <Property>EventDestinationName</Property>
+    <Property>ConfigurationSetName</Property>
   </PipelineByValueProperties>
 
 </ConfigModel>

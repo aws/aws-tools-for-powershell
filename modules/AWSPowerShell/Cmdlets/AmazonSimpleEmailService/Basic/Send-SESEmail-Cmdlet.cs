@@ -120,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
         public System.String Subject_Charset { get; set; }
         #endregion
         
+        #region Parameter ConfigurationSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the configuration set to use when you send an email using <code>SendEmail</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationSetName { get; set; }
+        #endregion
+        
         #region Parameter Html_Data
         /// <summary>
         /// <para>
@@ -233,6 +243,19 @@ namespace Amazon.PowerShell.Cmdlets.SES
         public System.String SourceArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
+        /// using <code>SendEmail</code>. Tags correspond to characteristics of the email that
+        /// you define, so that you can publish email sending events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.SimpleEmail.Model.MessageTag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Destination_ToAddress
         /// <summary>
         /// <para>
@@ -273,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ConfigurationSetName = this.ConfigurationSetName;
             if (this.Destination_BccAddress != null)
             {
                 context.Destination_BccAddresses = new List<System.String>(this.Destination_BccAddress);
@@ -299,6 +323,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
             context.ReturnPathArn = this.ReturnPathArn;
             context.Source = this.Source;
             context.SourceArn = this.SourceArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.SimpleEmail.Model.MessageTag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -315,6 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // create request
             var request = new Amazon.SimpleEmail.Model.SendEmailRequest();
             
+            if (cmdletContext.ConfigurationSetName != null)
+            {
+                request.ConfigurationSetName = cmdletContext.ConfigurationSetName;
+            }
             
              // populate Destination
             bool requestDestinationIsNull = true;
@@ -503,6 +535,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
             {
                 request.SourceArn = cmdletContext.SourceArn;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -554,6 +590,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ConfigurationSetName { get; set; }
             public List<System.String> Destination_BccAddresses { get; set; }
             public List<System.String> Destination_CcAddresses { get; set; }
             public List<System.String> Destination_ToAddresses { get; set; }
@@ -568,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             public System.String ReturnPathArn { get; set; }
             public System.String Source { get; set; }
             public System.String SourceArn { get; set; }
+            public List<Amazon.SimpleEmail.Model.MessageTag> Tags { get; set; }
         }
         
     }
