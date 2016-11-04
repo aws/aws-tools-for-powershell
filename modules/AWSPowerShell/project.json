@@ -13,7 +13,7 @@
 		"AWSSDK.AWSSupport": "3.3.0.1",
 		"AWSSDK.Budgets": "3.3.0",
 		"AWSSDK.CertificateManager": "3.3.1",
-		"AWSSDK.CloudFormation": "3.3.1.1",
+		"AWSSDK.CloudFormation": "3.3.2",
 		"AWSSDK.CloudFront": "3.3.1",
 		"AWSSDK.CloudHSM": "3.3.0.1",
 		"AWSSDK.CloudSearch": "3.3.0.1",

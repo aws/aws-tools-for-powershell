@@ -238,7 +238,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.1\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
-      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.1.1\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.2\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
       <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.1\lib\net35\AWSSDK.CertificateManager.dll</HintPath>

@@ -991,10 +991,13 @@ Set-Alias -Name Describe-DCInterconnects -Value Get-DCInterconnect
 Set-Alias -Name DC-DescribeInterconnects -Value Get-DCInterconnect
 Set-Alias -Name Describe-DCLocations -Value Get-DCLocations
 Set-Alias -Name DC-DescribeLocations -Value Get-DCLocations
+Set-Alias -Name DC-DescribeTags -Value Get-DCResourceTag
 Set-Alias -Name Describe-DCVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name DC-DescribeVirtualGateways -Value Get-DCVirtualGateway
 Set-Alias -Name Describe-DCVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name DC-DescribeVirtualInterfaces -Value Get-DCVirtualInterface
+Set-Alias -Name DC-TagResource -Value Add-DCResourceTag
+Set-Alias -Name DC-UntagResource -Value Remove-DCResourceTag
 Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
 Set-Alias -Name DS-RemoveIpRoutes -Value Remove-DSIpRoutes
 Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag

@@ -36,6 +36,9 @@
     <ServiceOperation MethodName="DescribeLocations"/>
     <ServiceOperation MethodName="DescribeVirtualGateways"/>
     <ServiceOperation MethodName="DescribeVirtualInterfaces" PipelineParameter="ConnectionId" PositionalParameters="VirtualInterfaceId"/>
+    <ServiceOperation MethodName="DescribeTags" Verb="Get" Noun="ResourceTag"/>
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="Resource" Output="Void"/>
+    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="Resource" Output="Void"/>
   </ServiceOperations>
 
   <PipelineByValueProperties>
