@@ -28,7 +28,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes a subscription filter associated with the specified log group.
+    /// Deletes the specified subscription filter.
     /// </summary>
     [Cmdlet("Remove", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterName
         /// <summary>
         /// <para>
-        /// <para>The name of the subscription filter to delete.</para>
+        /// <para>The name of the subscription filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group that is associated with the subscription filter to delete.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

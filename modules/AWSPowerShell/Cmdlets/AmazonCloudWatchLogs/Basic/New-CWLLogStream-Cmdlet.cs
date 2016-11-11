@@ -28,17 +28,19 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a new log stream in the specified log group. The name of the log stream must
-    /// be unique within the log group. There is no limit on the number of log streams that
-    /// can exist in a log group.
+    /// Creates a log stream for the specified log group.
     /// 
     ///  
     /// <para>
+    /// There is no limit on the number of log streams that you can create for a log group.
+    /// </para><para>
     /// You must use the following guidelines when naming a log stream:
     /// </para><ul><li><para>
+    /// Log stream names must be unique within the log group.
+    /// </para></li><li><para>
     /// Log stream names can be between 1 and 512 characters long.
     /// </para></li><li><para>
-    /// The ':' colon character is not allowed.
+    /// The ':' (colon) and '*' (asterisk) characters are not allowed.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "CWLLogStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group under which the log stream is to be created.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the log stream to create.</para>
+        /// <para>The name of the log stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

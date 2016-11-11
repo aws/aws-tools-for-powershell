@@ -28,7 +28,12 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Cancels an export task if it is in <code>PENDING</code> or <code>RUNNING</code> state.
+    /// Cancels the specified export task.
+    /// 
+    ///  
+    /// <para>
+    /// The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "CWLExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>Id of the export task to cancel.</para>
+        /// <para>The ID of the export task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

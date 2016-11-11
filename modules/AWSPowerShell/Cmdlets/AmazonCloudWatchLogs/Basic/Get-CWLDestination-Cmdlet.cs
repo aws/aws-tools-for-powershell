@@ -28,16 +28,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns all the destinations that are associated with the AWS account making the request.
-    /// The list returned in the response is ASCII-sorted by destination name.
-    /// 
-    ///  
-    /// <para>
-    /// By default, this operation returns up to 50 destinations. If there are more destinations
-    /// to list, the response would contain a <code>nextToken</code> value in the response
-    /// body. You can also limit the number of destinations returned in the response by specifying
-    /// the <code>limit</code> parameter in the request.
-    /// </para>
+    /// Lists all your destinations. The results are ASCII-sorted by destination name.
     /// </summary>
     [Cmdlet("Get", "CWLDestination")]
     [OutputType("Amazon.CloudWatchLogs.Model.Destination")]
@@ -53,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter DestinationNamePrefix
         /// <summary>
         /// <para>
-        /// <para>Will only return destinations that match the provided destinationNamePrefix. If you
-        /// don't specify a value, no prefix is applied.</para>
+        /// <para>The prefix to match. If you don't specify a value, no prefix filter is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -64,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The maximum number of items returned. If you don't specify a value, the default is
+        /// up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

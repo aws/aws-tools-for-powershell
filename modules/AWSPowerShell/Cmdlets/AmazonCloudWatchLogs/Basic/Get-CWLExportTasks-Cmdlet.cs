@@ -28,16 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns all the export tasks that are associated with the AWS account making the request.
-    /// The export tasks can be filtered based on <code>TaskId</code> or <code>TaskStatus</code>.
-    /// 
-    ///  
-    /// <para>
-    /// By default, this operation returns up to 50 export tasks that satisfy the specified
-    /// filters. If there are more export tasks to list, the response would contain a <code>nextToken</code>
-    /// value in the response body. You can also limit the number of export tasks returned
-    /// in the response by specifying the <code>limit</code> parameter in the request.
-    /// </para>
+    /// Lists the specified export tasks. You can list all your export tasks or filter the
+    /// results based on task ID or task status.
     /// </summary>
     [Cmdlet("Get", "CWLExportTasks")]
     [OutputType("Amazon.CloudWatchLogs.Model.ExportTask")]
@@ -53,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// <para>All export tasks that matches the specified status code will be returned. This can
-        /// return zero or more export tasks.</para>
+        /// <para>The status code of the export task. Specifying a status code filters the results to
+        /// zero or more export tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>Export task that matches the specified task Id will be returned. This can result in
-        /// zero or one export task.</para>
+        /// <para>The ID of the export task. Specifying a task ID filters the results to zero or one
+        /// export tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -76,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items returned in the response. If you don't specify a value,
-        /// the request would return up to 50 items.</para>
+        /// <para>The maximum number of items returned. If you don't specify a value, the default is
+        /// up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,9 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the response of the previous <code>DescribeExportTasks</code>
-        /// request.</para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogEventMessage
         /// <summary>
         /// <para>
-        /// <para>A list of log event messages to test.</para>
+        /// <para>The log event messages to test.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

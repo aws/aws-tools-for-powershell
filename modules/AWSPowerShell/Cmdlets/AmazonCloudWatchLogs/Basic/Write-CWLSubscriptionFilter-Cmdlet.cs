@@ -30,23 +30,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a subscription filter and associates it with the specified log
     /// group. Subscription filters allow you to subscribe to a real-time stream of log events
-    /// ingested through <code>PutLogEvents</code> requests and have them delivered to a specific
-    /// destination. Currently, the supported destinations are:
+    /// ingested through <a>PutLogEvents</a> and have them delivered to a specific destination.
+    /// Currently, the supported destinations are:
     /// 
     ///  <ul><li><para>
     /// An Amazon Kinesis stream belonging to the same account as the subscription filter,
     /// for same-account delivery.
     /// </para></li><li><para>
-    ///  A logical destination (used via an ARN of <code>Destination</code>) belonging to
-    /// a different account, for cross-account delivery.
+    /// A logical destination that belongs to a different account, for cross-account delivery.
     /// </para></li><li><para>
-    /// An Amazon Kinesis Firehose stream belonging to the same account as the subscription
+    /// An Amazon Kinesis Firehose stream that belongs to the same account as the subscription
     /// filter, for same-account delivery.
     /// </para></li><li><para>
-    /// An AWS Lambda function belonging to the same account as the subscription filter, for
-    /// same-account delivery.
+    /// An AWS Lambda function that belongs to the same account as the subscription filter,
+    /// for same-account delivery.
     /// </para></li></ul><para>
-    /// Currently there can only be one subscription filter associated with a log group.
+    /// There can only be one subscription filter associated with a log group.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The ARN of the destination to deliver matching log events to. Currently, the supported
         /// destinations are:</para><ul><li><para>An Amazon Kinesis stream belonging to the same account as the subscription filter,
-        /// for same-account delivery.</para></li><li><para>A logical destination (used via an ARN of <code>Destination</code>) belonging to a
-        /// different account, for cross-account delivery.</para></li><li><para>An Amazon Kinesis Firehose stream belonging to the same account as the subscription
+        /// for same-account delivery.</para></li><li><para>A logical destination (specified using an ARN) belonging to a different account, for
+        /// cross-account delivery.</para></li><li><para>An Amazon Kinesis Firehose stream belonging to the same account as the subscription
         /// filter, for same-account delivery.</para></li><li><para>An AWS Lambda function belonging to the same account as the subscription filter, for
         /// same-account delivery.</para></li></ul>
         /// </para>
@@ -87,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterPattern
         /// <summary>
         /// <para>
-        /// <para>A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log
-        /// events.</para>
+        /// <para>A filter pattern for subscribing to a filtered stream of log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -98,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group to associate the subscription filter with.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -110,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested
         /// log events to the destination stream. You don't need to provide the ARN when you are
-        /// working with a logical destination (used via an ARN of <code>Destination</code>) for
-        /// cross-account delivery.</para>
+        /// working with a logical destination for cross-account delivery.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,17 +28,15 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Retrieves log events from the specified log stream. You can provide an optional time
-    /// range to filter the results on the event <code>timestamp</code>.
+    /// Lists log events from the specified log stream. You can list all the log events or
+    /// filter using a time range.
     /// 
     ///  
     /// <para>
-    /// By default, this operation returns as much log events as can fit in a response size
-    /// of 1MB, up to 10,000 log events. The response will always include a <code>nextForwardToken</code>
-    /// and a <code>nextBackwardToken</code> in the response body. You can use any of these
-    /// tokens in subsequent <code>GetLogEvents</code> requests to paginate through events
-    /// in either forward or backward direction. You can also limit the number of log events
-    /// returned in the response by specifying the <code>limit</code> parameter in the request.
+    /// By default, this operation returns as many log events as can fit in a response size
+    /// of 1MB (up to 10,000 log events). If the results include tokens, there are more log
+    /// events available. You can get additional log events by specifying one of the tokens
+    /// in a subsequent call.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvents")]
@@ -53,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The end of the time range. Events with a timestamp later than this time are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group to query.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -73,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the log stream to query.</para>
+        /// <para>The name of the log stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -83,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartFromHead
         /// <summary>
         /// <para>
-        /// <para>If set to true, the earliest log events would be returned first. The default is false
-        /// (the latest log events are returned first).</para>
+        /// <para>If the value is true, the earliest log events are returned first. If the value is
+        /// false, the latest log events are returned first. The default value is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The start of the time range. Events with a timestamp earlier than this time are not
+        /// included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,9 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of log events returned in the response. If you don't specify a
-        /// value, the request would return as many log events as can fit in a response size of
-        /// 1MB, up to 10,000 log events.</para>
+        /// <para>The maximum number of log events returned. If you don't specify a value, the maximum
+        /// is as many log events as can fit in a response size of 1MB, up to 10,000 log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,9 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the <code>nextForwardToken</code> or <code>nextBackwardToken</code>
-        /// fields in the response of the previous <code>GetLogEvents</code> request.</para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

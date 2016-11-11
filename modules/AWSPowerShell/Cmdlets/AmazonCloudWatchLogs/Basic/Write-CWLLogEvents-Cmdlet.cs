@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// Every PutLogEvents request must include the <code>sequenceToken</code> obtained from
-    /// the response of the previous request. An upload in a newly created log stream does
-    /// not require a <code>sequenceToken</code>. You can also get the <code>sequenceToken</code>
-    /// using <a>DescribeLogStreams</a>.
+    /// You must include the sequence token obtained from the response of the previous call.
+    /// An upload in a newly created log stream does not require a sequence token. You can
+    /// also get the sequence token using <a>DescribeLogStreams</a>.
     /// </para><para>
     /// The batch of events must satisfy the following constraints:
     /// </para><ul><li><para>
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// None of the log events in the batch can be older than 14 days or the retention period
     /// of the log group.
     /// </para></li><li><para>
-    /// The log events in the batch must be in chronological ordered by their <code>timestamp</code>.
+    /// The log events in the batch must be in chronological ordered by their timestamp.
     /// </para></li><li><para>
     /// The maximum number of log events in a batch is 10,000.
     /// </para></li><li><para>
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogEvent
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group to put log events to.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the log stream to put log events to.</para>
+        /// <para>The name of the log stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -100,8 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter SequenceToken
         /// <summary>
         /// <para>
-        /// <para>A string token that must be obtained from the response of the previous <code>PutLogEvents</code>
-        /// request.</para>
+        /// <para>The sequence token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

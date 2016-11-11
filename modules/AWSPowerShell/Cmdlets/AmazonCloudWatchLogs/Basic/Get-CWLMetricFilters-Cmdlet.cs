@@ -28,16 +28,9 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns all the metrics filters associated with the specified log group. The list
-    /// returned in the response is ASCII-sorted by filter name.
-    /// 
-    ///  
-    /// <para>
-    /// By default, this operation returns up to 50 metric filters. If there are more metric
-    /// filters to list, the response would contain a <code>nextToken</code> value in the
-    /// response body. You can also limit the number of metric filters returned in the response
-    /// by specifying the <code>limit</code> parameter in the request.
-    /// </para>
+    /// Lists the specified metric filters. You can list all the metric filters or filter
+    /// the results by log name, prefix, metric name, or metric namespace. The results are
+    /// ASCII-sorted by filter name.
     /// </summary>
     [Cmdlet("Get", "CWLMetricFilters")]
     [OutputType("Amazon.CloudWatchLogs.Model.MetricFilter")]
@@ -53,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>
-        /// <para>Will only return metric filters that match the provided filterNamePrefix. If you don't
-        /// specify a value, no prefix filter is applied.</para>
+        /// <para>The prefix to match.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,18 +56,38 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The log group name for which metric filters are to be listed.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
         #endregion
         
+        #region Parameter MetricName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MetricName { get; set; }
+        #endregion
+        
+        #region Parameter MetricNamespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace of the CloudWatch metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MetricNamespace { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items returned in the response. If you don't specify a value,
-        /// the request would return up to 50 items.</para>
+        /// <para>The maximum number of items returned. If you don't specify a value, the default is
+        /// up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,9 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string token used for pagination that points to the next page of results. It must
-        /// be a value obtained from the response of the previous <code>DescribeMetricFilters</code>
-        /// request.</para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,6 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.LogGroupName = this.LogGroupName;
+            context.MetricName = this.MetricName;
+            context.MetricNamespace = this.MetricNamespace;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -140,6 +153,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
+            }
+            if (cmdletContext.MetricName != null)
+            {
+                request.MetricName = cmdletContext.MetricName;
+            }
+            if (cmdletContext.MetricNamespace != null)
+            {
+                request.MetricNamespace = cmdletContext.MetricNamespace;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -201,6 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String FilterNamePrefix { get; set; }
             public int? Limit { get; set; }
             public System.String LogGroupName { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String MetricNamespace { get; set; }
             public System.String NextToken { get; set; }
         }
         

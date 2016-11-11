@@ -28,16 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns all the subscription filters associated with the specified log group. The
-    /// list returned in the response is ASCII-sorted by filter name.
-    /// 
-    ///  
-    /// <para>
-    /// By default, this operation returns up to 50 subscription filters. If there are more
-    /// subscription filters to list, the response would contain a <code>nextToken</code>
-    /// value in the response body. You can also limit the number of subscription filters
-    /// returned in the response by specifying the <code>limit</code> parameter in the request.
-    /// </para>
+    /// Lists the subscription filters for the specified log group. You can list all the subscription
+    /// filters or filter the results by prefix. The results are ASCII-sorted by filter name.
     /// </summary>
     [Cmdlet("Get", "CWLSubscriptionFilters")]
     [OutputType("Amazon.CloudWatchLogs.Model.SubscriptionFilter")]
@@ -53,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>
-        /// <para>Will only return subscription filters that match the provided filterNamePrefix. If
-        /// you don't specify a value, no prefix filter is applied.</para>
+        /// <para>The prefix to match. If you don't specify a value, no prefix filter is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The log group name for which subscription filters are to be listed.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The maximum number of items returned. If you don't specify a value, the default is
+        /// up to 50 items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

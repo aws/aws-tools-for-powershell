@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a metric filter and associates it with the specified log group.
     /// Metric filters allow you to configure rules to extract metric data from log events
-    /// ingested through <code>PutLogEvents</code> requests.
+    /// ingested through <a>PutLogEvents</a>.
     /// 
     ///  
     /// <para>
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterPattern
         /// <summary>
         /// <para>
-        /// <para>A valid CloudWatch Logs filter pattern for extracting metric data out of ingested
-        /// log events.</para>
+        /// <para>A filter pattern for extracting metric data out of ingested log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group to associate the metric filter with.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

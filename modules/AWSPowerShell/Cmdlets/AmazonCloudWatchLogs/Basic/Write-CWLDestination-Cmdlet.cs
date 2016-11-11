@@ -28,19 +28,19 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates or updates a <code>Destination</code>. A destination encapsulates a physical
-    /// resource (such as a Kinesis stream) and allows you to subscribe to a real-time stream
-    /// of log events of a different account, ingested through <code>PutLogEvents</code> requests.
-    /// Currently, the only supported physical resource is a Amazon Kinesis stream belonging
-    /// to the same account as the destination.
+    /// Creates or updates a destination. A destination encapsulates a physical resource (such
+    /// as a Kinesis stream) and enables you to subscribe to a real-time stream of log events
+    /// of a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported
+    /// physical resource is a Amazon Kinesis stream belonging to the same account as the
+    /// destination.
     /// 
     ///  
     /// <para>
     /// A destination controls what is written to its Amazon Kinesis stream through an access
-    /// policy. By default, PutDestination does not set any access policy with the destination,
-    /// which means a cross-account user will not be able to call <code>PutSubscriptionFilter</code>
-    /// against this destination. To enable that, the destination owner must call <code>PutDestinationPolicy</code>
-    /// after PutDestination.
+    /// policy. By default, <code>PutDestination</code> does not set any access policy with
+    /// the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a>
+    /// against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a>
+    /// after <code>PutDestination</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to do Amazon Kinesis
-        /// PutRecord requests on the destination stream.</para>
+        /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to call Amazon Kinesis
+        /// PutRecord on the destination stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

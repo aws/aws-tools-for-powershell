@@ -28,21 +28,15 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Retrieves log events, optionally filtered by a filter pattern from the specified log
-    /// group. You can provide an optional time range to filter the results on the event <code>timestamp</code>.
-    /// You can limit the streams searched to an explicit list of <code>logStreamNames</code>.
+    /// Lists log events from the specified log group. You can list all the log events or
+    /// filter the results using a filter pattern, a time range, and the name of the log stream.
     /// 
     ///  
     /// <para>
-    /// By default, this operation returns as much matching log events as can fit in a response
-    /// size of 1MB, up to 10,000 log events, or all the events found within a time-bounded
-    /// scan window. If the response includes a <code>nextToken</code>, then there is more
-    /// data to search, and the search can be resumed with a new request providing the nextToken.
-    /// The response will contain a list of <code>searchedLogStreams</code> that contains
-    /// information about which streams were searched in the request and whether they have
-    /// been searched completely or require further pagination. The <code>limit</code> parameter
-    /// in the request can be used to specify the maximum number of events to return in a
-    /// page.
+    /// By default, this operation returns as many log events as can fit in 1MB (up to 10,000
+    /// log events), or all the events found within the time range that you specify. If the
+    /// results include a token, then there are more log events available, and you can get
+    /// additional results by specifying the token in a subsequent call.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLFilteredLogEvent")]
@@ -57,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
-        /// UTC. If provided, events with a timestamp later than this time are not returned.</para>
+        /// <para>The end of the time range. Events with a timestamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterPattern
         /// <summary>
         /// <para>
-        /// <para>A valid CloudWatch Logs filter pattern to use for filtering the response. If not provided,
-        /// all the events are matched.</para>
+        /// <para>The filter pattern to use. If not provided, all the events are matched.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Interleaved
         /// <summary>
         /// <para>
-        /// <para>If provided, the API will make a best effort to provide responses that contain events
-        /// from multiple log streams within the log group interleaved in a single response. If
-        /// not provided, all the matched log events in the first log stream will be searched
-        /// first, then those in the next log stream, etc.</para>
+        /// <para>If the value is true, the operation makes a best effort to provide responses that
+        /// contain events from multiple log streams within the log group interleaved in a single
+        /// response. If the value is false all the matched log events in the first log stream
+        /// are searched first, then those in the next log stream, and so on. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group to query.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -102,8 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>Optional list of log stream names within the specified log group to search. Defaults
-        /// to all the log streams in the log group.</para>
+        /// <para>Optional list of log stream names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
-        /// UTC. If provided, events with a timestamp prior to this time are not returned.</para>
+        /// <para>The start of the time range. Events with a timestamp prior to this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of events to return in a page of results. Default is 10,000 events.</para>
+        /// <para>The maximum number of events to return. The default is 10,000 events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,9 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token obtained from a <code>FilterLogEvents</code> response to continue
-        /// paginating the FilterLogEvents results. This token is omitted from the response when
-        /// there are no other events to display.</para>
+        /// <para>The token for the next set of events to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

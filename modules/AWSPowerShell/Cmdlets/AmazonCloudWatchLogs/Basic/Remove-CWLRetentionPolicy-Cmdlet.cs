@@ -28,8 +28,12 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes the retention policy of the specified log group. Log events would not expire
-    /// if they belong to log groups without a retention policy.
+    /// Deletes the specified retention policy.
+    /// 
+    ///  
+    /// <para>
+    /// Log events do not expire if they belong to log groups without a retention policy.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWLRetentionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group that is associated with the retention policy to delete.</para>
+        /// <para>The name of the log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

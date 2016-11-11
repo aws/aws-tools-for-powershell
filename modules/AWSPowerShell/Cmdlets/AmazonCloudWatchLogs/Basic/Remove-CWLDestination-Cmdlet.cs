@@ -28,8 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes the destination with the specified name and eventually disables all the subscription
-    /// filters that publish to it. This will not delete the physical resource encapsulated
+    /// Deletes the specified destination, and eventually disables all the subscription filters
+    /// that publish to it. This operation does not delete the physical resource encapsulated
     /// by the destination.
     /// </summary>
     [Cmdlet("Remove", "CWLDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter DestinationName
         /// <summary>
         /// <para>
-        /// <para>The name of destination to delete.</para>
+        /// <para>The name of the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
