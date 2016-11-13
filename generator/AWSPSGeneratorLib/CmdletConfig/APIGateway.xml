@@ -132,8 +132,8 @@
     <ServiceOperation MethodName="DeleteAuthorizer" ShouldProcessTarget="AuthorizerId" Output="Void" />
     <ServiceOperation MethodName="GetAuthorizer" Output="Response" />
 
-    <ServiceOperation MethodName="ImportRestApi" PipelineParameter="Parameters" Output="Response" />
-    <ServiceOperation MethodName="PutRestApi" PipelineParameter="Parameters" Output="Response" />
+    <ServiceOperation MethodName="ImportRestApi" PipelineParameter="Parameters" Output="Response" RemapMemoryStreamParameters="false" />
+    <ServiceOperation MethodName="PutRestApi" PipelineParameter="Parameters" Output="Response" RemapMemoryStreamParameters="false" />
 
 	<ServiceOperation MethodName="UpdateUsage" Output="Response" PipelineParameter="KeyId" />
 	<ServiceOperation MethodName="UpdateUsagePlan" Output="Response" PipelineParameter="UsagePlanId" />
@@ -142,7 +142,11 @@
 	<ServiceOperation MethodName="GetUsagePlanKey" Output="Response" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="GetUsagePlanKeys" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" />
 	<ServiceOperation MethodName="GetUsagePlans" Noun="UsagePlanList"  />
-	<ServiceOperation MethodName="ImportApiKeys" Noun="ApiKey" NoPipelineParameter="true" Output="Response" AnonymousShouldProcessTarget="true" />
+	<ServiceOperation MethodName="ImportApiKeys" Noun="ApiKey" 
+                    NoPipelineParameter="true" 
+                    Output="Response" 
+                    AnonymousShouldProcessTarget="true"
+                    RemapMemoryStreamParameters="false"/>
 	<ServiceOperation MethodName="CreateUsagePlan" NoPipelineParameter="true" Output="Response" />
 	<ServiceOperation MethodName="CreateUsagePlanKey" PipelineParameter="KeyId" Output="Response" />
 	<ServiceOperation MethodName="DeleteUsagePlan" Output="Void" />

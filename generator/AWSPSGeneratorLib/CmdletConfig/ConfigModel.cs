@@ -941,6 +941,16 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// </summary>
         public AutoIteration AutoIterate = null;
 
+        /// <summary>
+        /// If set false, MemoryStream parameters to the cmdlet will not be translated to
+        /// the more command line friendly byte[] type. This is used to maintain
+        /// backwards compatibility for cmdlets that shipped with stream parameters
+        /// until metric log dives can indicate we can change the parameters without
+        /// breaking customers.
+        /// </summary>
+        [XmlAttribute]
+        public bool RemapMemoryStreamParameters { get; set; }
+
         #region Data constructed during generation
 
         /// <summary>
@@ -972,6 +982,11 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlIgnore]
         public bool Processed { get; set; }
         #endregion
+
+        public ServiceOperation()
+        {
+            RemapMemoryStreamParameters = true;
+        }
     }
 
     /// <summary>

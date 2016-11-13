@@ -24,7 +24,6 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.CertificateManager;
 using Amazon.CertificateManager.Model;
-using System.IO;
 
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
@@ -156,20 +155,20 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         public object Execute(ExecutorContext context)
         {
-            MemoryStream certificate = null;
-            MemoryStream certificateChain = null;
-            MemoryStream privateKey = null;
-           
+            System.IO.MemoryStream _CertificateStream = null;
+            System.IO.MemoryStream _CertificateChainStream = null;
+            System.IO.MemoryStream _PrivateKeyStream = null;
+            
             try
             {
                 var cmdletContext = context as CmdletContext;
                 // create request
                 var request = new Amazon.CertificateManager.Model.ImportCertificateRequest();
-
+                
                 if (cmdletContext.Certificate != null)
                 {
-                    certificate = new MemoryStream(cmdletContext.Certificate);
-                    request.Certificate = certificate;
+                    _CertificateStream = new System.IO.MemoryStream(cmdletContext.Certificate);
+                    request.Certificate = _CertificateStream;
                 }
                 if (cmdletContext.CertificateArn != null)
                 {
@@ -177,17 +176,17 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 }
                 if (cmdletContext.CertificateChain != null)
                 {
-                    certificateChain = new MemoryStream(cmdletContext.CertificateChain);
-                    request.CertificateChain = certificateChain;
+                    _CertificateChainStream = new System.IO.MemoryStream(cmdletContext.CertificateChain);
+                    request.CertificateChain = _CertificateChainStream;
                 }
                 if (cmdletContext.PrivateKey != null)
                 {
-                    privateKey = new MemoryStream(cmdletContext.PrivateKey);
-                    request.PrivateKey = privateKey;
+                    _PrivateKeyStream = new System.IO.MemoryStream(cmdletContext.PrivateKey);
+                    request.PrivateKey = _PrivateKeyStream;
                 }
-
+                
                 CmdletOutput output;
-
+                
                 // issue call
                 var client = Client ?? CreateClient(context.Credentials, context.Region);
                 try
@@ -206,21 +205,24 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 {
                     output = new CmdletOutput { ErrorResponse = e };
                 }
-
+                
                 return output;
             }
-            finally      
+            finally
             {
-                if (certificate != null)
-                    certificate.Dispose();
-
-                if (certificateChain != null)
-                    certificateChain.Dispose();
-
-                if (privateKey != null)
-                    privateKey.Dispose();
+                if( _CertificateStream != null)
+                {
+                    _CertificateStream.Dispose();
+                }
+                if( _CertificateChainStream != null)
+                {
+                    _CertificateChainStream.Dispose();
+                }
+                if( _PrivateKeyStream != null)
+                {
+                    _PrivateKeyStream.Dispose();
+                }
             }
-
         }
         
         public ExecutorContext CreateContext()

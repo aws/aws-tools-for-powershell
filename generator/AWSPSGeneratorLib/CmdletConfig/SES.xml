@@ -46,7 +46,8 @@
     <ServiceOperation MethodName="SendRawEmail" 
                       PipelineParameter="Source" 
                       ShouldProcessTarget="Source"
-                      PositionalParameters="Destinations"/>
+                      PositionalParameters="Destinations"
+                      RemapMemoryStreamParameters="false"/>
     <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="DkimEnabled"/>
     <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="ForwardingEnabled"/>
     <ServiceOperation MethodName="SetIdentityMailFromDomain" Output="Void" PipelineParameter="Identity" PositionalParameters="MailFromDomain;BehaviorOnMXFailure"/>

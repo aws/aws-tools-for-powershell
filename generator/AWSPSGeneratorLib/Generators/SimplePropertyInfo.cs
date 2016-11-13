@@ -167,6 +167,13 @@ namespace AWSPowerShellGenerator.Generators
         public bool IsReadWrite { get; private set; }
         public XmlDocument DocumentationSource { get; private set; }
 
+        /// <summary>
+        /// True if the type of the parameter/property is drived from
+        /// a System.IO.MemoryStream type. This type is replaced with
+        /// a byte[] for command line usability.
+        /// </summary>
+        public bool IsMemoryStreamType { get; private set; }
+
         public string PowershellDocumentation
         {
             get
@@ -335,6 +342,7 @@ namespace AWSPowerShellGenerator.Generators
             Children = new List<SimplePropertyInfo>();
             IsReadWrite = propertyInfo.CanRead && propertyInfo.CanWrite;
             DocumentationSource = documentationSource;
+            IsMemoryStreamType = propertyTypeName.Equals("System.IO.MemoryStream", StringComparison.Ordinal);
 
             UseParameterValueOnlyIfBound = isEmitLimiter || IsNullableValueType(propertyInfo.PropertyType);
 

@@ -21,7 +21,7 @@
     <ServiceOperation MethodName="DeleteCertificate" Output="Void" />
     <ServiceOperation MethodName="DescribeCertificate" Noun="CertificateDetail" />
     <ServiceOperation MethodName="GetCertificate" Output="Response" />
-    <ServiceOperation MethodName="ImportCertificate" Exclude="true" />
+    <ServiceOperation MethodName="ImportCertificate" />
     <ServiceOperation MethodName="ListCertificates" Verb="Get" Noun="CertificateList" />
     <ServiceOperation MethodName="ListTagsForCertificate" Verb="Get" Noun="CertificateTagList" />
     <ServiceOperation MethodName="RequestCertificate" Verb="New" NoPipelineParameter="true" ShouldProcessTarget="DomainName" />

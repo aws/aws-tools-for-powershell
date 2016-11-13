@@ -355,6 +355,7 @@ Set-Alias -Name ACM-DeleteCertificate -Value Remove-ACMCertificate
 Set-Alias -Name Describe-ACMCertificateDetail -Value Get-ACMCertificateDetail
 Set-Alias -Name ACM-DescribeCertificate -Value Get-ACMCertificateDetail
 Set-Alias -Name ACM-GetCertificate -Value Get-ACMCertificate
+Set-Alias -Name ACM-ImportCertificate -Value Import-ACMCertificate
 Set-Alias -Name ACM-ListCertificates -Value Get-ACMCertificateList
 Set-Alias -Name ACM-ListTagsForCertificate -Value Get-ACMCertificateTagList
 Set-Alias -Name ACM-RemoveTagsFromCertificate -Value Remove-ACMCertificateTag

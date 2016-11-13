@@ -25,6 +25,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         public const string ParameterRegionMarker = "#region Parameter";
         public const string EndRegionMarker = "#endregion";
 
+        private const string MemoryStreamSubstitutionType = "byte[]";
+
         public ConfigModel ServiceConfig { get; private set; }
         public ServiceOperation Operation { get; private set; }
         public OperationAnalyzer MethodAnalysis { get; private set; }
@@ -522,7 +524,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             }
 
             if (property.CollectionType == SimplePropertyInfo.PropertyCollectionType.NoCollection || property.GenericCollectionTypes == null)
-                writer.WriteLine("public {0} {1} {{ get; set; }}", property.PropertyTypeName, property.CmdletParameterName);
+            {
+                writer.WriteLine("public {0} {1} {{ get; set; }}", GetPropertyTypeToEmit(property), property.CmdletParameterName);
+            }
             else
             {
                 switch (property.CollectionType)
@@ -854,7 +858,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             foreach (var property in properties.Where(property => !OperationAnalyzer.IsExcludedParameter(property.AnalyzedName, ServiceConfig, Operation)))
             {
                 writer.WriteLine("public {0}{1} {2} {{ get; set; }}", 
-                                  property.PropertyTypeName, 
+                                  GetPropertyTypeToEmit(property), 
                                   property.UseParameterValueOnlyIfBound ? "?" : "",
                                   property.ContextParameterName);
             }
@@ -880,42 +884,49 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("public object Execute(ExecutorContext context)");
             writer.OpenRegion();
             {
-                writer.WriteLine("var cmdletContext = context as CmdletContext;");
+                WriteMemoryStreamVariableInitializers(writer, operationAnalysis);
 
-                writer.WriteLine("// create request");
-                writer.WriteLine("var request = new {0}();", OperationAnalyzer.GetValidTypeName(requestType, ServiceConfig));
-                writer.WriteLine();
-
-                foreach (var simpleProperty in rootSimpleProperties)
                 {
-                    WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
+                    writer.WriteLine("var cmdletContext = context as CmdletContext;");
+
+                    writer.WriteLine("// create request");
+                    writer.WriteLine("var request = new {0}();", OperationAnalyzer.GetValidTypeName(requestType, ServiceConfig));
+                    writer.WriteLine();
+
+                    foreach (var simpleProperty in rootSimpleProperties)
+                    {
+                        WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
+                    }
+
+                    writer.WriteLine();
+                    //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
+                    writer.WriteLine("CmdletOutput output;");
+
+                    writer.WriteLine();
+                    writer.WriteLine("// issue call");
+
+                    if (Operation.RequiresAnonymousAuthentication)
+                        writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                    else
+                        writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+
+                    writer.WriteLine("try");
+                    writer.OpenRegion();
+                    writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
+                    WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
+                    writer.CloseRegion();
+                    writer.WriteLine("catch (Exception e)");
+                    writer.OpenRegion();
+                    writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
+                    writer.CloseRegion();
+
+                    writer.WriteLine();
+                    writer.WriteLine("return output;");
                 }
 
-                writer.WriteLine();
-                //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
-                writer.WriteLine("CmdletOutput output;");
-
-                writer.WriteLine();
-                writer.WriteLine("// issue call");
-
-                if (Operation.RequiresAnonymousAuthentication)
-                    writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
-                else
-                    writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
-
-                writer.WriteLine("try");
-                writer.OpenRegion();
-                writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
-                writer.CloseRegion();
-                writer.WriteLine("catch (Exception e)");
-                writer.OpenRegion();
-                writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
-                writer.CloseRegion();
-
-                writer.WriteLine();
-                writer.WriteLine("return output;");
+                WriteMemoryStreamVariableCleanup(writer, operationAnalysis, true);
             }
+
             writer.CloseRegion();
         }
 
@@ -937,115 +948,122 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("public object Execute(ExecutorContext context)");
             writer.OpenRegion();
             {
-                writer.WriteLine("var cmdletContext = context as CmdletContext;");
-                writer.WriteLine();
+                WriteMemoryStreamVariableInitializers(writer, operationAnalysis);
 
-                writer.WriteLine("// create request and set iteration invariants");
-                writer.WriteLine("var request = new {0}();", OperationAnalyzer.GetValidTypeName(requestType, ServiceConfig));
-                writer.WriteLine();
-
-                string iteratorType = string.Empty;
-                // emit non-iterator properties
-                foreach (var simpleProperty in rootSimpleProperties)
                 {
-                    if (simpleProperty.Name.Equals(autoIteration.Start, StringComparison.Ordinal))
+                    writer.WriteLine("var cmdletContext = context as CmdletContext;");
+                    writer.WriteLine();
+
+                    writer.WriteLine("// create request and set iteration invariants");
+                    writer.WriteLine("var request = new {0}();", OperationAnalyzer.GetValidTypeName(requestType, ServiceConfig));
+                    writer.WriteLine();
+
+                    string iteratorType = string.Empty;
+                    // emit non-iterator properties
+                    foreach (var simpleProperty in rootSimpleProperties)
                     {
-                        iteratorType = simpleProperty.PropertyTypeName;
-                        continue;
+                        if (simpleProperty.Name.Equals(autoIteration.Start, StringComparison.Ordinal))
+                        {
+                            iteratorType = simpleProperty.PropertyTypeName;
+                            continue;
+                        }
+
+                        WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
                     }
 
-                    WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
-                }
+                    writer.WriteLine();
 
-                writer.WriteLine();
-
-                writer.WriteLine("// Initialize loop variant and commence piping");
-                writer.WriteLine("{0} _nextMarker = null;", iteratorType);
-                writer.WriteLine("bool _userControllingPaging = false;");
-                writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.Start);
-                writer.OpenRegion();
-                {
-                    writer.WriteLine("_nextMarker = cmdletContext.{0};", autoIteration.Start);
-                    writer.WriteLine("_userControllingPaging = true;");
-                }
-                writer.CloseRegion();
-                writer.WriteLine();
-
-                writer.WriteLine("try");
-                writer.OpenRegion();
-                {
-                    writer.WriteLine("do");
+                    writer.WriteLine("// Initialize loop variant and commence piping");
+                    writer.WriteLine("{0} _nextMarker = null;", iteratorType);
+                    writer.WriteLine("bool _userControllingPaging = false;");
+                    writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.Start);
                     writer.OpenRegion();
                     {
-                        writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
-                        writer.WriteLine();
+                        writer.WriteLine("_nextMarker = cmdletContext.{0};", autoIteration.Start);
+                        writer.WriteLine("_userControllingPaging = true;");
+                    }
+                    writer.CloseRegion();
+                    writer.WriteLine();
 
-                        if (Operation.RequiresAnonymousAuthentication)
-                            writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
-                        else
-                            writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
-
-                        writer.WriteLine("CmdletOutput output;");
-
-                        writer.WriteLine();
-                        writer.WriteLine("try");
+                    writer.WriteLine("try");
+                    writer.OpenRegion();
+                    {
+                        writer.WriteLine("do");
                         writer.OpenRegion();
                         {
-                            //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
+                            writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
                             writer.WriteLine();
 
-                            writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
+                            if (Operation.RequiresAnonymousAuthentication)
+                                writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                            else
+                                writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+
+                            writer.WriteLine("CmdletOutput output;");
+
                             writer.WriteLine();
-
-                            WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
-
-                            // Most if not all collections are marshalled as List<T>, so assume we have a Count
-                            // property available (if not, compile will break post-generation and we can investigate).
-                            // Note that we only emit progress indicators if we are manually paging which we detect
-                            // by the presence of an input marker; PowerShell ISE has an issue where the repeated progress 
-                            // output when in a tight loop in user script bogs down the environment to the point of 
-                            // non-responsiveness (doesn't happen in console shell)
-                            writer.WriteLine("if (_userControllingPaging)");
+                            writer.WriteLine("try");
                             writer.OpenRegion();
-                            writer.WriteLine("int _receivedThisCall = response.{0}.Count;", analyzedResult.SingleResultProperty.Name);
-                            writer.WriteLine("WriteProgressRecord(\"Retrieving\", string.Format(\"Retrieved {{0}} records starting from marker '{{1}}'\", _receivedThisCall, request.{0}));",
-                                             autoIteration.Start);
+                            {
+                                //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
+                                writer.WriteLine();
+
+                                writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
+                                writer.WriteLine();
+
+                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
+
+                                // Most if not all collections are marshalled as List<T>, so assume we have a Count
+                                // property available (if not, compile will break post-generation and we can investigate).
+                                // Note that we only emit progress indicators if we are manually paging which we detect
+                                // by the presence of an input marker; PowerShell ISE has an issue where the repeated progress 
+                                // output when in a tight loop in user script bogs down the environment to the point of 
+                                // non-responsiveness (doesn't happen in console shell)
+                                writer.WriteLine("if (_userControllingPaging)");
+                                writer.OpenRegion();
+                                writer.WriteLine("int _receivedThisCall = response.{0}.Count;", analyzedResult.SingleResultProperty.Name);
+                                writer.WriteLine("WriteProgressRecord(\"Retrieving\", string.Format(\"Retrieved {{0}} records starting from marker '{{1}}'\", _receivedThisCall, request.{0}));",
+                                                 autoIteration.Start);
+                                writer.CloseRegion();
+
+                                writer.WriteLine();
+                                writer.WriteLine("_nextMarker = response.{0};", autoIteration.Next);
+                            }
+                            writer.CloseRegion();
+                            writer.WriteLine("catch (Exception e)");
+                            writer.OpenRegion();
+                            {
+                                writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
+                            }
                             writer.CloseRegion();
 
                             writer.WriteLine();
-                            writer.WriteLine("_nextMarker = response.{0};", autoIteration.Next);
+                            writer.WriteLine("ProcessOutput(output);");
+                            writer.WriteLine();
                         }
-                        writer.CloseRegion();
-                        writer.WriteLine("catch (Exception e)");
-                        writer.OpenRegion();
-                        {
-                            writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
-                        }
-                        writer.CloseRegion();
-
-                        writer.WriteLine();
-                        writer.WriteLine("ProcessOutput(output);");
-                        writer.WriteLine();
+                        writer.CloseRegion("} while (AutoIterationHelpers.HasValue(_nextMarker));");
                     }
-                    writer.CloseRegion("} while (AutoIterationHelpers.HasValue(_nextMarker));");
-                }
-            }
-            writer.CloseRegion();
-
-            writer.WriteLine("finally");
-            writer.OpenRegion();
-            {
-                writer.WriteLine("if (_userControllingPaging)");
-                writer.OpenRegion();
-                {
-                    writer.WriteLine("WriteProgressCompleteRecord(\"Retrieving\", \"Retrieved records\");");
                 }
                 writer.CloseRegion();
-            }
-            writer.CloseRegion();
 
-            writer.WriteLine();
-            writer.WriteLine("return null;");
+                writer.WriteLine("finally");
+                writer.OpenRegion();
+                {
+                    writer.WriteLine("if (_userControllingPaging)");
+                    writer.OpenRegion();
+                    {
+                        writer.WriteLine("WriteProgressCompleteRecord(\"Retrieving\", \"Retrieved records\");");
+                    }
+                    writer.CloseRegion();
+
+                    WriteMemoryStreamVariableCleanup(writer, operationAnalysis, false);
+                }
+                writer.CloseRegion();
+
+                writer.WriteLine();
+                writer.WriteLine("return null;");
+            }
+
             writer.CloseRegion();
         }
 
@@ -1068,207 +1086,213 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("public object Execute(ExecutorContext context)");
             writer.OpenRegion();
             {
-                writer.WriteLine("var cmdletContext = context as CmdletContext;");
-                writer.WriteLine();
+                WriteMemoryStreamVariableInitializers(writer, operationAnalysis);
 
-                writer.WriteLine("// create request and set iteration invariants");
-                writer.WriteLine("var request = new {0}();", OperationAnalyzer.GetValidTypeName(requestType, ServiceConfig));
-
-                string iteratorType = string.Empty;
-                string iteratorLimitType = string.Empty;
-
-                // emit non-iterator properties
-                foreach (var simpleProperty in rootSimpleProperties)
                 {
-                    if (simpleProperty.Name.Equals(autoIteration.Start, StringComparison.Ordinal))
+                    writer.WriteLine("var cmdletContext = context as CmdletContext;");
+                    writer.WriteLine();
+
+                    writer.WriteLine("// create request and set iteration invariants");
+                    writer.WriteLine("var request = new {0}();", OperationAnalyzer.GetValidTypeName(requestType, ServiceConfig));
+
+                    string iteratorType = string.Empty;
+                    string iteratorLimitType = string.Empty;
+
+                    // emit non-iterator properties
+                    foreach (var simpleProperty in rootSimpleProperties)
                     {
-                        iteratorType = simpleProperty.PropertyTypeName;
-                        continue;
+                        if (simpleProperty.Name.Equals(autoIteration.Start, StringComparison.Ordinal))
+                        {
+                            iteratorType = simpleProperty.PropertyTypeName;
+                            continue;
+                        }
+
+                        if (simpleProperty.Name.Equals(autoIteration.EmitLimit, StringComparison.Ordinal))
+                        {
+                            //iteratorLimitType = simpleProperty.PropertyTypeName;
+                            //iteratorLimitType = iteratorLimitType.Trim('?');
+                            iteratorLimitType = simpleProperty.PropertyType.Name;
+                            continue;
+                        }
+
+                        WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
                     }
 
-                    if (simpleProperty.Name.Equals(autoIteration.EmitLimit, StringComparison.Ordinal))
-                    {
-                        //iteratorLimitType = simpleProperty.PropertyTypeName;
-                        //iteratorLimitType = iteratorLimitType.Trim('?');
-                        iteratorLimitType = simpleProperty.PropertyType.Name;
-                        continue;
-                    }
-
-                    WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
-                }
-
-                writer.WriteLine();
-                writer.WriteLine("// Initialize loop variants and commence piping");
-                writer.WriteLine("{0} _nextMarker = null;", iteratorType);
-                writer.WriteLine("int? _emitLimit = null;");
-                writer.WriteLine("int _retrievedSoFar = 0;");
-                if (pageSizeSet)
-                    writer.WriteLine("int? _pageSize = {0};", autoIteration.ServicePageSize.ToString());
-
-                //writer.WriteLine("{0}{1} _emitLimit = null;", iteratorLimitType, iteratorLimitType.EndsWith("?") ? string.Empty : "?");
-                //writer.WriteLine("{0} _retrievedSoFar = 0;", iteratorLimitType);
-                writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.Start);
-                writer.OpenRegion();
-                {
-                    writer.WriteLine("_nextMarker = cmdletContext.{0};", autoIteration.Start);
-                }
-                writer.CloseRegion();
-                writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.EmitLimit);
-                writer.OpenRegion();
-                {
+                    writer.WriteLine();
+                    writer.WriteLine("// Initialize loop variants and commence piping");
+                    writer.WriteLine("{0} _nextMarker = null;", iteratorType);
+                    writer.WriteLine("int? _emitLimit = null;");
+                    writer.WriteLine("int _retrievedSoFar = 0;");
                     if (pageSizeSet)
-                    {
-                        writer.WriteLine("// The service has a maximum page size of {0}. If the user has", autoIteration.ServicePageSize);
-                        writer.WriteLine("// asked for more items than page max, and there is no page size");
-                        writer.WriteLine("// configured, we rely on the service ignoring the set maximum");
-                        writer.WriteLine("// and giving us {0} items back. If a page size is set, that will", autoIteration.ServicePageSize);
-                        writer.WriteLine("// be used to configure the pagination.");
-                        writer.WriteLine("// We'll make further calls to satisfy the user's request.");
-                    }
-                    writer.WriteLine("_emitLimit = cmdletContext.{0};", autoIteration.EmitLimit);
-                }
-                writer.CloseRegion();
+                        writer.WriteLine("int? _pageSize = {0};", autoIteration.ServicePageSize.ToString());
 
-                writer.WriteLine("bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.{0}) || AutoIterationHelpers.HasValue(cmdletContext.{1});",
-                                 autoIteration.Start,
-                                 autoIteration.EmitLimit);
-
-                writer.WriteLine("bool _continueIteration = true;"); // allows us to bomb out if we retrieve nothing
-                writer.WriteLine();
-
-                writer.WriteLine("try");
-                writer.OpenRegion();
-                {
-                    writer.WriteLine("do");
+                    //writer.WriteLine("{0}{1} _emitLimit = null;", iteratorLimitType, iteratorLimitType.EndsWith("?") ? string.Empty : "?");
+                    //writer.WriteLine("{0} _retrievedSoFar = 0;", iteratorLimitType);
+                    writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.Start);
                     writer.OpenRegion();
                     {
-                        writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
-                        writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit))");
-                        writer.OpenRegion();
-                        {
-                            writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(_emitLimit.Value);",
-                                                autoIteration.EmitLimit,
-                                                iteratorLimitType);
-                        }
-                        writer.CloseRegion();
-                        writer.WriteLine();
-
-                        if (pageSizeSet)
-                        {
-                            writer.WriteLine("if (AutoIterationHelpers.HasValue(_pageSize))");
-                            writer.OpenRegion();
-                            {
-                                writer.WriteLine("int correctPageSize;");
-                                writer.WriteLine("if (AutoIterationHelpers.IsSet(request.{0}))", autoIteration.EmitLimit);
-                                writer.OpenRegion();
-                                {
-                                    writer.WriteLine("correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.{0});", autoIteration.EmitLimit);
-                                }
-                                writer.CloseRegion();
-                                writer.WriteLine("else");
-                                writer.OpenRegion();
-                                {
-                                    writer.WriteLine("correctPageSize = _pageSize.Value;", autoIteration.EmitLimit);
-                                }
-                                writer.CloseRegion();
-
-                                writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(correctPageSize);", autoIteration.EmitLimit, iteratorLimitType);
-                            }
-                            writer.CloseRegion();
-                            writer.WriteLine();
-                        }
-
-                        if (Operation.RequiresAnonymousAuthentication)
-                            writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
-                        else
-                            writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
-
-                        writer.WriteLine("CmdletOutput output;");
-
-                        writer.WriteLine();
-                        writer.WriteLine("try");
-                        writer.OpenRegion();
-                        {
-                            //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
-                            writer.WriteLine();
-
-                            writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                            WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
-
-                            // most if not all collections are marshalled as List<T>, so assume we have a Count
-                            // property available (if not, compile will break post-generation and we can investigate)
-                            // Note that we only emit progress indicators if we are manually paging which we detect
-                            // by the presence of an input marker or a max count; PowerShell ISE has an issue where 
-                            // the repeated progress output when in a tight loop in user script bogs down the 
-                            // environment to the point of  non-responsiveness (doesn't happen in console shell)
-                            writer.WriteLine("int _receivedThisCall = response.{0}.Count;", analyzedResult.SingleResultProperty.Name);
-                            writer.WriteLine("if (_userControllingPaging)");
-                            writer.OpenRegion();
-                            writer.WriteLine("WriteProgressRecord(\"Retrieving\", string.Format(\"Retrieved {{0}} records starting from marker '{{1}}'\", _receivedThisCall, request.{0}));",
-                                             autoIteration.Start);
-                            writer.CloseRegion();
-
-                            writer.WriteLine();
-                            writer.WriteLine("_nextMarker = response.{0};", autoIteration.Next);
-
-                            writer.WriteLine();
-                            writer.WriteLine("_retrievedSoFar += _receivedThisCall;");
-
-                            writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))");
-                            writer.OpenRegion();
-                            {
-                                writer.WriteLine("_continueIteration = false;");
-                            }
-                            writer.CloseRegion();
-                        }
-                        writer.CloseRegion();
-                        writer.WriteLine("catch (Exception e)");
-                        writer.OpenRegion();
-                        {
-                            writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
-                        }
-                        writer.CloseRegion();
-
-                        writer.WriteLine();
-                        writer.WriteLine("ProcessOutput(output);");
-
-                        if (pageSizeSet)
-                        {
-                            writer.WriteLine("// The service has a maximum page size of {0} and the user has set a retrieval limit.", autoIteration.ServicePageSize);
-                            writer.WriteLine("// Deduce what's left to fetch and if less than one page update _emitLimit to fetch just");
-                            writer.WriteLine("// what's left to match the user's request.");
-                            writer.WriteLine();
-                            writer.WriteLine("var _remainingItems = _emitLimit - _retrievedSoFar;");
-                            writer.WriteLine("if (_remainingItems < _pageSize)");
-                            writer.OpenRegion();
-                            {
-                                writer.WriteLine("_emitLimit = _remainingItems;");
-                            }
-                            writer.CloseRegion();
-                        }
+                        writer.WriteLine("_nextMarker = cmdletContext.{0};", autoIteration.Start);
                     }
-                    writer.CloseRegion("} while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));");
-                }
+                    writer.CloseRegion();
+                    writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.EmitLimit);
+                    writer.OpenRegion();
+                    {
+                        if (pageSizeSet)
+                        {
+                            writer.WriteLine("// The service has a maximum page size of {0}. If the user has", autoIteration.ServicePageSize);
+                            writer.WriteLine("// asked for more items than page max, and there is no page size");
+                            writer.WriteLine("// configured, we rely on the service ignoring the set maximum");
+                            writer.WriteLine("// and giving us {0} items back. If a page size is set, that will", autoIteration.ServicePageSize);
+                            writer.WriteLine("// be used to configure the pagination.");
+                            writer.WriteLine("// We'll make further calls to satisfy the user's request.");
+                        }
+                        writer.WriteLine("_emitLimit = cmdletContext.{0};", autoIteration.EmitLimit);
+                    }
+                    writer.CloseRegion();
 
-                writer.WriteLine();
-            }
-            writer.CloseRegion();
+                    writer.WriteLine("bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.{0}) || AutoIterationHelpers.HasValue(cmdletContext.{1});",
+                                     autoIteration.Start,
+                                     autoIteration.EmitLimit);
 
-            writer.WriteLine("finally");
-            writer.OpenRegion();
-            {
-                writer.WriteLine("if (_userControllingPaging)");
-                writer.OpenRegion();
-                {
-                    writer.WriteLine("WriteProgressCompleteRecord(\"Retrieving\", \"Retrieved records\");");
+                    writer.WriteLine("bool _continueIteration = true;"); // allows us to bomb out if we retrieve nothing
+                    writer.WriteLine();
+
+                    writer.WriteLine("try");
+                    writer.OpenRegion();
+                    {
+                        writer.WriteLine("do");
+                        writer.OpenRegion();
+                        {
+                            writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
+                            writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit))");
+                            writer.OpenRegion();
+                            {
+                                writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(_emitLimit.Value);",
+                                                    autoIteration.EmitLimit,
+                                                    iteratorLimitType);
+                            }
+                            writer.CloseRegion();
+                            writer.WriteLine();
+
+                            if (pageSizeSet)
+                            {
+                                writer.WriteLine("if (AutoIterationHelpers.HasValue(_pageSize))");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("int correctPageSize;");
+                                    writer.WriteLine("if (AutoIterationHelpers.IsSet(request.{0}))", autoIteration.EmitLimit);
+                                    writer.OpenRegion();
+                                    {
+                                        writer.WriteLine("correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.{0});", autoIteration.EmitLimit);
+                                    }
+                                    writer.CloseRegion();
+                                    writer.WriteLine("else");
+                                    writer.OpenRegion();
+                                    {
+                                        writer.WriteLine("correctPageSize = _pageSize.Value;", autoIteration.EmitLimit);
+                                    }
+                                    writer.CloseRegion();
+
+                                    writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(correctPageSize);", autoIteration.EmitLimit, iteratorLimitType);
+                                }
+                                writer.CloseRegion();
+                                writer.WriteLine();
+                            }
+
+                            if (Operation.RequiresAnonymousAuthentication)
+                                writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                            else
+                                writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+
+                            writer.WriteLine("CmdletOutput output;");
+
+                            writer.WriteLine();
+                            writer.WriteLine("try");
+                            writer.OpenRegion();
+                            {
+                                //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
+                                writer.WriteLine();
+
+                                writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
+                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError);
+
+                                // most if not all collections are marshalled as List<T>, so assume we have a Count
+                                // property available (if not, compile will break post-generation and we can investigate)
+                                // Note that we only emit progress indicators if we are manually paging which we detect
+                                // by the presence of an input marker or a max count; PowerShell ISE has an issue where 
+                                // the repeated progress output when in a tight loop in user script bogs down the 
+                                // environment to the point of  non-responsiveness (doesn't happen in console shell)
+                                writer.WriteLine("int _receivedThisCall = response.{0}.Count;", analyzedResult.SingleResultProperty.Name);
+                                writer.WriteLine("if (_userControllingPaging)");
+                                writer.OpenRegion();
+                                writer.WriteLine("WriteProgressRecord(\"Retrieving\", string.Format(\"Retrieved {{0}} records starting from marker '{{1}}'\", _receivedThisCall, request.{0}));",
+                                                 autoIteration.Start);
+                                writer.CloseRegion();
+
+                                writer.WriteLine();
+                                writer.WriteLine("_nextMarker = response.{0};", autoIteration.Next);
+
+                                writer.WriteLine();
+                                writer.WriteLine("_retrievedSoFar += _receivedThisCall;");
+
+                                writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("_continueIteration = false;");
+                                }
+                                writer.CloseRegion();
+                            }
+                            writer.CloseRegion();
+                            writer.WriteLine("catch (Exception e)");
+                            writer.OpenRegion();
+                            {
+                                writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
+                            }
+                            writer.CloseRegion();
+
+                            writer.WriteLine();
+                            writer.WriteLine("ProcessOutput(output);");
+
+                            if (pageSizeSet)
+                            {
+                                writer.WriteLine("// The service has a maximum page size of {0} and the user has set a retrieval limit.", autoIteration.ServicePageSize);
+                                writer.WriteLine("// Deduce what's left to fetch and if less than one page update _emitLimit to fetch just");
+                                writer.WriteLine("// what's left to match the user's request.");
+                                writer.WriteLine();
+                                writer.WriteLine("var _remainingItems = _emitLimit - _retrievedSoFar;");
+                                writer.WriteLine("if (_remainingItems < _pageSize)");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("_emitLimit = _remainingItems;");
+                                }
+                                writer.CloseRegion();
+                            }
+                        }
+                        writer.CloseRegion("} while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));");
+                    }
+
+                    writer.WriteLine();
                 }
                 writer.CloseRegion();
+
+                writer.WriteLine("finally");
+                writer.OpenRegion();
+                {
+                    writer.WriteLine("if (_userControllingPaging)");
+                    writer.OpenRegion();
+                    {
+                        writer.WriteLine("WriteProgressCompleteRecord(\"Retrieving\", \"Retrieved records\");");
+                    }
+                    writer.CloseRegion();
+
+                    WriteMemoryStreamVariableCleanup(writer, operationAnalysis, false);
+                }
+                writer.CloseRegion();
+
+                writer.WriteLine();
+                writer.WriteLine("return null;");
             }
-            writer.CloseRegion();
 
-
-            writer.WriteLine();
-            writer.WriteLine("return null;");
             writer.CloseRegion();
         }
 
@@ -1390,12 +1414,24 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.OpenRegion();
                 {
                     if (isEmitLimiter)
+                    {
                         writer.WriteLine("{0} = AutoIterationHelpers.ConvertEmitLimitToServiceType{1}(cmdletContext.{2}.Value);",
                             variableName, property.PropertyType.Name, property.ContextParameterName);
+                    }
+                    else if (property.IsMemoryStreamType && operationAnalyzer.CurrentOperation.RemapMemoryStreamParameters)
+                    {
+                        var streamVariableName = BuildMemoryStreamVariableName(property.ContextParameterName);
+                        writer.WriteLine("{0} = new System.IO.MemoryStream(cmdletContext.{1});",
+                                         streamVariableName,
+                                         property.ContextParameterName);
+                        writer.WriteLine("{0} = {1};", variableName, streamVariableName);
+                    }
                     else
+                    {
                         writer.WriteLine(
                             property.PropertyType.IsValueType ? "{0} = cmdletContext.{1}.Value;" : "{0} = cmdletContext.{1};",
                             variableName, property.ContextParameterName);
+                    }
                 }
                 writer.CloseRegion();
             }
@@ -1557,5 +1593,69 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             return string.Format(ConfigModel.ParamEmitterComplexKeyFormat, propertyTypeName, property.Name);
         }
 
+        /// <summary>
+        /// If we detected MemoryStream parameter types for the cmdlet, outputs one
+        /// stream variable for each parameter that we switched to be a byte[] type.
+        /// It then enters an additional try closure so we can clean up the streams
+        /// prior to exiting the cmdlet executor.
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="analyzer"></param>
+        void WriteMemoryStreamVariableInitializers(IndentedTextWriter writer, OperationAnalyzer analyzer)
+        {
+            if (!analyzer.HasMemoryStreamParameters)
+                return;
+
+            foreach (var p in analyzer.MemoryStreamParameters)
+            {
+                writer.WriteLine("System.IO.MemoryStream {0} = null;", BuildMemoryStreamVariableName(p));
+            }
+
+            writer.WriteLine();
+
+            writer.WriteLine("try");
+            writer.OpenRegion();
+        }
+
+        string BuildMemoryStreamVariableName(string contextName)
+        {
+            return string.Format("_{0}Stream", contextName);
+        }
+
+        // pass generateNewFinallyBlock true to wrap the cleanup code inside a finally {} block. If false, the
+        // generated code is assumed to already be housed inside such a block.
+        void WriteMemoryStreamVariableCleanup(IndentedTextWriter writer, OperationAnalyzer analyzer, bool generateNewFinallyBlock)
+        {
+            if (!analyzer.HasMemoryStreamParameters)
+                return;
+
+            if (generateNewFinallyBlock)
+            {
+                writer.CloseRegion();
+                writer.WriteLine("finally");
+                writer.OpenRegion();
+            }
+
+            foreach (var p in analyzer.MemoryStreamParameters)
+            {
+                var variableName = BuildMemoryStreamVariableName(p);
+                writer.WriteLine("if( {0} != null)", variableName);
+                writer.OpenRegion();
+                writer.WriteLine("{0}.Dispose();", variableName);
+                writer.CloseRegion();
+            }
+
+            if (generateNewFinallyBlock)
+            {
+                writer.CloseRegion();
+            }
+        }
+
+        string GetPropertyTypeToEmit(SimplePropertyInfo property)
+        {
+            return property.IsMemoryStreamType && MethodAnalysis.CurrentOperation.RemapMemoryStreamParameters
+                ? MemoryStreamSubstitutionType : property.PropertyTypeName;
+        }
+    
     }
 }

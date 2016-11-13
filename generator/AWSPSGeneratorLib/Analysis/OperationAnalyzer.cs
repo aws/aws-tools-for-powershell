@@ -6,13 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Reflection;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Xml;
 using AWSPowerShellGenerator.CmdletConfig;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Utils;
-using AWSPowerShellGenerator.Writers.SourceCode;
 
 namespace AWSPowerShellGenerator.Analysis
 {
@@ -57,6 +55,29 @@ namespace AWSPowerShellGenerator.Analysis
         /// a service request. Complex types are not flattened here.
         /// </summary>
         public List<SimplePropertyInfo> RequestProperties { get; private set; }
+
+        /// <summary>
+        /// Contains the context property names of parameters that are MemoryStream-based 
+        /// in the underlying request. These parameters will instead be output as byte[]
+        /// types and the requirement to load into a memory stream for the underlying
+        /// sdk will be done by the cmdlet during execution.
+        /// </summary>
+        public HashSet<string> MemoryStreamParameters { get; private set; }
+
+        /// <summary>
+        /// Indicates if the cmdlet requires special handling for memory stream
+        /// based parameters.
+        /// </summary>
+        internal bool HasMemoryStreamParameters
+        {
+            get
+            {
+                if (!CurrentOperation.RemapMemoryStreamParameters)
+                    return false;
+
+                return MemoryStreamParameters != null && MemoryStreamParameters.Any();
+            }
+        }
 
         /// <summary>
         /// Returns any autoiteration settings that apply, defined at either the operation
@@ -453,6 +474,8 @@ namespace AWSPowerShellGenerator.Analysis
         /// Creates a simplified property for the specified request or response field. If the field's 
         /// type is derived from the SDK's ConstantClass 'enum' type, we will also register to emit
         /// an argument completer unless the field is a member of the result type.
+        /// If the parameter type is a MemoryStream the parameter name is registered for replacement
+        /// with a byte[] during cmdlet generation.
         /// </summary>
         /// <param name="property"></param>
         /// <param name="parent"></param>
@@ -503,6 +526,18 @@ namespace AWSPowerShellGenerator.Analysis
                                                         collectionType,
                                                         genericCollectionTypes,
                                                         IsEmitLimiter(property.Name));
+
+            // if requiring substitution due to being a memory stream type,
+            // add to the collection we'll iterate over when initializing one or
+            // more memory streams during cmdlet execution
+            if (isCmdletParameter && simpleProperty.IsMemoryStreamType && CurrentOperation.RemapMemoryStreamParameters)
+            {
+                if (MemoryStreamParameters == null)
+                    MemoryStreamParameters = new HashSet<string>();
+
+                MemoryStreamParameters.Add(simpleProperty.ContextParameterName);
+            }
+
             if (simpleProperty.IsConstrainedToSet && isCmdletParameter)
             {
                 // push the set members and a reference from the current cmdlet into the service 

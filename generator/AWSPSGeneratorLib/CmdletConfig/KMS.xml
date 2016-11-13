@@ -50,9 +50,19 @@
     <ServiceOperation MethodName="EnableKeyRotation" Output="Void" />
     <ServiceOperation MethodName="GetKeyRotationStatus" />
 
-    <ServiceOperation MethodName="Decrypt" Verb="Invoke" Noun="Decrypt" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="Encrypt" Verb="Invoke" Noun="Encrypt" Output="Response" PipelineParameter="KeyId" />
-    <ServiceOperation MethodName="ReEncrypt" Verb="Invoke" Noun="ReEncrypt" Output="Response" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="Decrypt" Verb="Invoke" Noun="Decrypt" 
+                      Output="Response" 
+                      IgnoreSupportsShouldProcess="true" 
+                      NoPipelineParameter="true"
+                      RemapMemoryStreamParameters="false" />
+    <ServiceOperation MethodName="Encrypt" Verb="Invoke" Noun="Encrypt" 
+                      Output="Response" 
+                      PipelineParameter="KeyId"
+                      RemapMemoryStreamParameters="false" />
+    <ServiceOperation MethodName="ReEncrypt" Verb="Invoke" Noun="ReEncrypt" 
+                      Output="Response" 
+                      NoPipelineParameter="true"
+                      RemapMemoryStreamParameters="false" />
     
     <ServiceOperation MethodName="CancelKeyDeletion" />
     <ServiceOperation MethodName="ScheduleKeyDeletion" Verb="Request" Output="Response" PipelineParameter="KeyId" />
