@@ -1,3 +1,13 @@
+### 3.3.17.0 (2016-11-13)
+  * AWS CloudFormation
+    - Added a new cmdlet, Get-CFNExport, to support the new ListExports API. Also updated existing cmdlets to support resources to skip during rollback, and new ChangeSet types and transforms.
+  * Amazon Simple Email Service
+    - Added new cmdlets to support API updates enabling tracking of bounce, complaint, delivery, sent, and rejected email metrics with fine-grained granularity.
+  * AWS Direct Connect
+    - Added three new cmdlets to support tagging operations: Add-DCResourceTag (TagResource API), Get-DCResourceTag (DescribeTags API) and Remove-DCResourceTag (UntagResource API).
+  * Amazon CloudWatch Logs
+    - Updated cmdlets to add support for CloudWatch Metrics to Logs, a capability that helps pivot from your logs-extracted metrics directly to the corresponding logs.
+
 ### 3.3.14.0 (2016-10-25)
   * AWS Server Migration Service
     - Added support for the new Server Migration Service, an agentless service that makes it easier and faster for you to migrate thousands of on-premises workloads to AWS. Cmdlets for the service have the noun prefix 'SMS'. The cmdlets and the service APIs they map to can be listed with the command 'Get-AWSCmdletName -Service "SMS"'. 
