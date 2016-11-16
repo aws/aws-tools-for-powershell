@@ -22,15 +22,51 @@
     <ServiceOperation MethodName="DescribeRecord" Output="Response" />
     <ServiceOperation MethodName="ListLaunchPaths" Noun="LaunchPath" PipelineParameter="ProductId" />
     <ServiceOperation MethodName="ListRecordHistory" />
-    <ServiceOperation MethodName="ProvisionProduct" Verb="New" Noun="Product" PipelineParameter="ProvisionedProductName" />
+    <ServiceOperation MethodName="ProvisionProduct" Verb="New" Noun="ProvisionedProduct" PipelineParameter="ProvisionedProductName" />
     <ServiceOperation MethodName="ScanProvisionedProducts" Verb="Get" Noun="ProvisionedProduct" />
     <ServiceOperation MethodName="SearchProducts" Verb="Find" Noun="Product" Output="Response" />
     <ServiceOperation MethodName="TerminateProvisionedProduct" Verb="Remove" PipelineParameter="ProvisionedProductId" />
     <ServiceOperation MethodName="UpdateProvisionedProduct" PipelineParameter="ProvisionedProductId" />
+    
+    <ServiceOperation MethodName="ListPrincipalsForPortfolio" Verb="Get" PipelineParameter="PortfolioId" />
+    <ServiceOperation MethodName="ListProvisioningArtifacts" Verb="Get" Noun="ProvisioningArtifactList"  PipelineParameter="ProductId" />
+    <ServiceOperation MethodName="RejectPortfolioShare" Verb="Deny" PipelineParameter="PortfolioId" Output="Void" />
+    <ServiceOperation MethodName="SearchProductsAsAdmin" PipelineParameter="PortfolioId" />
+    <ServiceOperation MethodName="UpdateConstraint" Output="Response" />
+    <ServiceOperation MethodName="UpdatePortfolio" Output="Response" />
+    <ServiceOperation MethodName="UpdateProduct" Output="Response" />
+    <ServiceOperation MethodName="UpdateProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" Output="Response" />
+    <ServiceOperation MethodName="AcceptPortfolioShare" Verb="Receive" PipelineParameter="PortfolioId" Output="Void" />
+    <ServiceOperation MethodName="AssociatePrincipalWithPortfolio" PipelineParameter="PrincipalARN" Output="Void" />
+    <ServiceOperation MethodName="AssociateProductWithPortfolio" PipelineParameter="ProductId" Output="Void" />
+    <ServiceOperation MethodName="CreateConstraint" PipelineParameter="ProductId" Output="Response" />
+    <ServiceOperation MethodName="CreatePortfolio" NoPipelineParameter="true" ShouldProcessTarget="DisplayName" Output="Response" />
+    <ServiceOperation MethodName="CreatePortfolioShare" PipelineParameter="AccountId" Output="Void" />
+    <ServiceOperation MethodName="CreateProduct" NoPipelineParameter="true" ShouldProcessTarget="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateProvisioningArtifact" PipelineParameter="ProductId" Output="Response" />
+    <ServiceOperation MethodName="DeleteConstraint" Output="Void" />
+    <ServiceOperation MethodName="DeletePortfolio" Output="Void" />
+    <ServiceOperation MethodName="DeletePortfolioShare" PipelineParameter="AccountId" Output="Void" />
+    <ServiceOperation MethodName="DeleteProduct" Output="Void" />
+    <ServiceOperation MethodName="DeleteProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" Output="Void" />
+    <ServiceOperation MethodName="DescribeConstraint" Output="Response" />
+    <ServiceOperation MethodName="DescribePortfolio" Output="Response" />
+    <ServiceOperation MethodName="DescribeProductAsAdmin" Output="Response" />
+    <ServiceOperation MethodName="DescribeProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" Output="Response" />
+    <ServiceOperation MethodName="DisassociatePrincipalFromPortfolio" PipelineParameter="PrincipalARN" Output="Void" />
+    <ServiceOperation MethodName="DisassociateProductFromPortfolio" PipelineParameter="ProductId" Output="Void" />
+    <ServiceOperation MethodName="ListAcceptedPortfolioShares" Verb="Get" Noun="AcceptedPortfolioSharesList" />
+    <ServiceOperation MethodName="ListConstraintsForPortfolio" Verb="Get" Noun="ConstrainsForPortfolioList" PipelineParameter="PortfolioId" />
+    <ServiceOperation MethodName="ListPortfolioAccess" Verb="Get" Noun="PortfolioAccessList" PipelineParameter="PortfolioId" />
+    <ServiceOperation MethodName="ListPortfolios" Verb="Get" Noun="PortfolioList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="ListPortfoliosForProduct" Verb="Get" Noun="ProductPortfoliosList" PipelineParameter="ProductId" />
+    
   </ServiceOperations>
 
   <VerbMappings>
 	<Map From="List" To="Get" />
+    <Map From="Associate" To="Register" />
+    <Map From="Disassociate" To="Unregister" />
   </VerbMappings>
   
   <PipelineByValueProperties />

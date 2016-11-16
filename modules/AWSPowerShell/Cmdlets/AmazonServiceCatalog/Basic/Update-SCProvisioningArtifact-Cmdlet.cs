@@ -22,61 +22,72 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a traffic policy, which you use to create multiple DNS resource record sets
-    /// for one domain name (such as example.com) or one subdomain name (such as www.example.com).
-    /// 
-    ///  
-    /// <para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/trafficpolicy</code> resource.
-    /// The request body must include a document with a <code>CreateTrafficPolicyRequest</code>
-    /// element. The response includes the <code>CreateTrafficPolicyResponse</code> element,
-    /// which contains information about the new traffic policy.
-    /// </para>
+    /// Updates an existing provisioning artifact's information. This operation will not work
+    /// on a provisioning artifact associated with a product that has been shared with you.
     /// </summary>
-    [Cmdlet("New", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.CreateTrafficPolicyResponse")]
-    [AWSCmdlet("Invokes the CreateTrafficPolicy operation against Amazon Route 53.", Operation = new[] {"CreateTrafficPolicy"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.CreateTrafficPolicyResponse",
-        "This cmdlet returns a Amazon.Route53.Model.CreateTrafficPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse")]
+    [AWSCmdlet("Invokes the UpdateProvisioningArtifact operation against AWS Service Catalog.", Operation = new[] {"UpdateProvisioningArtifact"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class UpdateSCProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter Comment
+        #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>(Optional) Any comments that you want to include about the traffic policy.</para>
+        /// <para>The language code to use for this operation. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Comment { get; set; }
+        public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Document
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The definition of this traffic policy in JSON format. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic
-        /// Policy Document Format</a>.</para>
+        /// <para>The updated text description of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Document { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the traffic policy.</para>
+        /// <para>The updated name of the provisioning artifact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProductId
+        /// <summary>
+        /// <para>
+        /// <para>The product identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ProductId { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningArtifactId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the provisioning artifact for the update request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Name { get; set; }
+        public System.String ProvisioningArtifactId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53TrafficPolicy (CreateTrafficPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProvisioningArtifactId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCProvisioningArtifact (UpdateProvisioningArtifact)"))
             {
                 return;
             }
@@ -108,9 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AcceptLanguage = this.AcceptLanguage;
+            context.Description = this.Description;
             context.Name = this.Name;
-            context.Document = this.Document;
-            context.Comment = this.Comment;
+            context.ProductId = this.ProductId;
+            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,19 +138,27 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.CreateTrafficPolicyRequest();
+            var request = new Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactRequest();
             
+            if (cmdletContext.AcceptLanguage != null)
+            {
+                request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Document != null)
+            if (cmdletContext.ProductId != null)
             {
-                request.Document = cmdletContext.Document;
+                request.ProductId = cmdletContext.ProductId;
             }
-            if (cmdletContext.Comment != null)
+            if (cmdletContext.ProvisioningArtifactId != null)
             {
-                request.Comment = cmdletContext.Comment;
+                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
             }
             
             CmdletOutput output;
@@ -173,13 +194,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.CreateTrafficPolicyResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateTrafficPolicyRequest request)
+        private static Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactRequest request)
         {
             #if DESKTOP
-            return client.CreateTrafficPolicy(request);
+            return client.UpdateProvisioningArtifact(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateTrafficPolicyAsync(request);
+            var task = client.UpdateProvisioningArtifactAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -190,9 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AcceptLanguage { get; set; }
+            public System.String Description { get; set; }
             public System.String Name { get; set; }
-            public System.String Document { get; set; }
-            public System.String Comment { get; set; }
+            public System.String ProductId { get; set; }
+            public System.String ProvisioningArtifactId { get; set; }
         }
         
     }

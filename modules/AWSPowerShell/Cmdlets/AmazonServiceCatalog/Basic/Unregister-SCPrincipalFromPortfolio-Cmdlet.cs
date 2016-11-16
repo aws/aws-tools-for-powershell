@@ -22,61 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a traffic policy, which you use to create multiple DNS resource record sets
-    /// for one domain name (such as example.com) or one subdomain name (such as www.example.com).
-    /// 
-    ///  
-    /// <para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/trafficpolicy</code> resource.
-    /// The request body must include a document with a <code>CreateTrafficPolicyRequest</code>
-    /// element. The response includes the <code>CreateTrafficPolicyResponse</code> element,
-    /// which contains information about the new traffic policy.
-    /// </para>
+    /// Disassociates a previously associated principal ARN from a specified portfolio.
     /// </summary>
-    [Cmdlet("New", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.CreateTrafficPolicyResponse")]
-    [AWSCmdlet("Invokes the CreateTrafficPolicy operation against Amazon Route 53.", Operation = new[] {"CreateTrafficPolicy"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.CreateTrafficPolicyResponse",
-        "This cmdlet returns a Amazon.Route53.Model.CreateTrafficPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "SCPrincipalFromPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DisassociatePrincipalFromPortfolio operation against AWS Service Catalog.", Operation = new[] {"DisassociatePrincipalFromPortfolio"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PrincipalARN parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class UnregisterSCPrincipalFromPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter Comment
+        #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>(Optional) Any comments that you want to include about the traffic policy.</para>
+        /// <para>The language code to use for this operation. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Comment { get; set; }
+        public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Document
+        #region Parameter PortfolioId
         /// <summary>
         /// <para>
-        /// <para>The definition of this traffic policy in JSON format. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html">Traffic
-        /// Policy Document Format</a>.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Document { get; set; }
+        public System.String PortfolioId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter PrincipalARN
         /// <summary>
         /// <para>
-        /// <para>The name of the traffic policy.</para>
+        /// <para>The ARN representing the principal (IAM user, role, or group).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Name { get; set; }
+        public System.String PrincipalARN { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the PrincipalARN parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53TrafficPolicy (CreateTrafficPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PortfolioId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-SCPrincipalFromPortfolio (DisassociatePrincipalFromPortfolio)"))
             {
                 return;
             }
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Name = this.Name;
-            context.Document = this.Document;
-            context.Comment = this.Comment;
+            context.AcceptLanguage = this.AcceptLanguage;
+            context.PortfolioId = this.PortfolioId;
+            context.PrincipalARN = this.PrincipalARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,19 +125,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.CreateTrafficPolicyRequest();
+            var request = new Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.AcceptLanguage != null)
             {
-                request.Name = cmdletContext.Name;
+                request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.Document != null)
+            if (cmdletContext.PortfolioId != null)
             {
-                request.Document = cmdletContext.Document;
+                request.PortfolioId = cmdletContext.PortfolioId;
             }
-            if (cmdletContext.Comment != null)
+            if (cmdletContext.PrincipalARN != null)
             {
-                request.Comment = cmdletContext.Comment;
+                request.PrincipalARN = cmdletContext.PrincipalARN;
             }
             
             CmdletOutput output;
@@ -148,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.PrincipalARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -173,13 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.CreateTrafficPolicyResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateTrafficPolicyRequest request)
+        private static Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioRequest request)
         {
             #if DESKTOP
-            return client.CreateTrafficPolicy(request);
+            return client.DisassociatePrincipalFromPortfolio(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateTrafficPolicyAsync(request);
+            var task = client.DisassociatePrincipalFromPortfolioAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -190,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.String Document { get; set; }
-            public System.String Comment { get; set; }
+            public System.String AcceptLanguage { get; set; }
+            public System.String PortfolioId { get; set; }
+            public System.String PrincipalARN { get; set; }
         }
         
     }

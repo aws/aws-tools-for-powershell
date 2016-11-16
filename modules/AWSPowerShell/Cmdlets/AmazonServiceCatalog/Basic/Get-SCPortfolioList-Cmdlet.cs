@@ -28,19 +28,17 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Returns a paginated list of all paths to a specified product. A path is how the user
-    /// has access to a specified product, and is necessary when provisioning a product. A
-    /// path also determines the constraints put on the product.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all portfolios in the catalog.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SCLaunchPath")]
-    [OutputType("Amazon.ServiceCatalog.Model.LaunchPathSummary")]
-    [AWSCmdlet("Invokes the ListLaunchPaths operation against AWS Service Catalog.", Operation = new[] {"ListLaunchPaths"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.LaunchPathSummary",
-        "This cmdlet returns a collection of LaunchPathSummary objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ListLaunchPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SCPortfolioList")]
+    [OutputType("Amazon.ServiceCatalog.Model.PortfolioDetail")]
+    [AWSCmdlet("Invokes the ListPortfolios operation against AWS Service Catalog.", Operation = new[] {"ListPortfolios"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.PortfolioDetail",
+        "This cmdlet returns a collection of PortfolioDetail objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ListPortfoliosResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public partial class GetSCLaunchPathCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCPortfolioListCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -64,17 +62,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter ProductId
-        /// <summary>
-        /// <para>
-        /// <para>The product identifier.. Identifies the product for which to retrieve <code>LaunchPathSummaries</code>
-        /// information.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProductId { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -106,7 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
-            context.ProductId = this.ProductId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,14 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ServiceCatalog.Model.ListLaunchPathsRequest();
+            var request = new Amazon.ServiceCatalog.Model.ListPortfoliosRequest();
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
-            }
-            if (cmdletContext.ProductId != null)
-            {
-                request.ProductId = cmdletContext.ProductId;
             }
             
             // Initialize loop variants and commence piping
@@ -165,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.LaunchPathSummaries;
+                        object pipelineOutput = response.PortfolioDetails;
                         notes = new Dictionary<string, object>();
                         notes["NextPageToken"] = response.NextPageToken;
                         output = new CmdletOutput
@@ -174,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.LaunchPathSummaries.Count;
+                        int _receivedThisCall = response.PortfolioDetails.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
@@ -217,13 +199,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListLaunchPathsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListLaunchPathsRequest request)
+        private static Amazon.ServiceCatalog.Model.ListPortfoliosResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListPortfoliosRequest request)
         {
             #if DESKTOP
-            return client.ListLaunchPaths(request);
+            return client.ListPortfolios(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListLaunchPathsAsync(request);
+            var task = client.ListPortfoliosAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -237,7 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
-            public System.String ProductId { get; set; }
         }
         
     }

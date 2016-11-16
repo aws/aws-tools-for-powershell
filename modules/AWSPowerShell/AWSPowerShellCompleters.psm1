@@ -2874,7 +2874,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","sa-east-1","us-east-1","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         
@@ -2901,8 +2901,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
             ($_ -eq "Get-R53TrafficPolicyInstances/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByHostedZone/TrafficPolicyInstanceTypeMarker") -Or
-            ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker") -Or
-            ($_ -eq "Get-R53ChangeBatchesByRRSet/Type")
+            ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
         }
         {
             $v = "A","AAAA","CNAME","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
@@ -2923,7 +2922,9 @@ $R53_Completers = {
         # Amazon.Route53.VPCRegion
         {
             ($_ -eq "New-R53HostedZone/VPC_VPCRegion") -Or
+            ($_ -eq "New-R53VPCAssociationAuthorization/VPC_VPCRegion") -Or
             ($_ -eq "Register-R53VPCWithHostedZone/VPC_VPCRegion") -Or
+            ($_ -eq "Remove-R53VPCAssociationAuthorization/VPC_VPCRegion") -Or
             ($_ -eq "Unregister-R53VPCFromHostedZone/VPC_VPCRegion")
         }
         {
@@ -2948,8 +2949,7 @@ $R53_map = @{
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResources")
     "StartRecordType"=@("Get-R53ResourceRecordSet")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstances","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
-    "Type"=@("Get-R53ChangeBatchesByRRSet")
-    "VPC_VPCRegion"=@("New-R53HostedZone","Register-R53VPCWithHostedZone","Unregister-R53VPCFromHostedZone")
+    "VPC_VPCRegion"=@("New-R53HostedZone","New-R53VPCAssociationAuthorization","Register-R53VPCWithHostedZone","Remove-R53VPCAssociationAuthorization","Unregister-R53VPCFromHostedZone")
 }
 
 _awsArgumentCompleterRegistration $R53_Completers $R53_map
@@ -3118,15 +3118,52 @@ $SC_Completers = {
             break
         }
         
+        # Amazon.ServiceCatalog.PrincipalType
+        "Register-SCPrincipalWithPortfolio/PrincipalType"
+        {
+            $v = "IAM"
+            break
+        }
+        
+        # Amazon.ServiceCatalog.ProductSource
+        "Search-SCProductsAsAdmin/ProductSource"
+        {
+            $v = "ACCOUNT"
+            break
+        }
+        
+        # Amazon.ServiceCatalog.ProductType
+        "New-SCProduct/ProductType"
+        {
+            $v = "CLOUD_FORMATION_TEMPLATE"
+            break
+        }
+        
         # Amazon.ServiceCatalog.ProductViewSortBy
-        "Find-SCProduct/SortBy"
+        {
+            ($_ -eq "Find-SCProduct/SortBy") -Or
+            ($_ -eq "Search-SCProductsAsAdmin/SortBy")
+        }
         {
             $v = "CreationDate","Title","VersionCount"
             break
         }
         
+        # Amazon.ServiceCatalog.ProvisioningArtifactType
+        {
+            ($_ -eq "New-SCProvisioningArtifact/Parameters_Type") -Or
+            ($_ -eq "New-SCProduct/ProvisioningArtifactParameters_Type")
+        }
+        {
+            $v = "CLOUD_FORMATION_TEMPLATE"
+            break
+        }
+        
         # Amazon.ServiceCatalog.SortOrder
-        "Find-SCProduct/SortOrder"
+        {
+            ($_ -eq "Find-SCProduct/SortOrder") -Or
+            ($_ -eq "Search-SCProductsAsAdmin/SortOrder")
+        }
         {
             $v = "ASCENDING","DESCENDING"
             break
@@ -3141,8 +3178,13 @@ $SC_Completers = {
 
 $SC_map = @{
     "AccessLevelFilter_Key"=@("Get-SCProvisionedProduct","Get-SCRecordHistory")
-    "SortBy"=@("Find-SCProduct")
-    "SortOrder"=@("Find-SCProduct")
+    "Parameters_Type"=@("New-SCProvisioningArtifact")
+    "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
+    "ProductSource"=@("Search-SCProductsAsAdmin")
+    "ProductType"=@("New-SCProduct")
+    "ProvisioningArtifactParameters_Type"=@("New-SCProduct")
+    "SortBy"=@("Find-SCProduct","Search-SCProductsAsAdmin")
+    "SortOrder"=@("Find-SCProduct","Search-SCProductsAsAdmin")
 }
 
 _awsArgumentCompleterRegistration $SC_Completers $SC_map

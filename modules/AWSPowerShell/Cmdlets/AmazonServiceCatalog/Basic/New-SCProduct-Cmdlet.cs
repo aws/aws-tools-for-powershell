@@ -28,22 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Requests a <i>Provision</i> of a specified product. A <i>ProvisionedProduct</i> is
-    /// a resourced instance for a product. For example, provisioning a CloudFormation-template-backed
-    /// product results in launching a CloudFormation stack and all the underlying resources
-    /// that come with it. 
-    /// 
-    ///  
-    /// <para>
-    /// You can check the status of this request using the <a>DescribeRecord</a> operation.
-    /// </para>
+    /// Creates a new product.
     /// </summary>
     [Cmdlet("New", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
-    [AWSCmdlet("Invokes the ProvisionProduct operation against AWS Service Catalog.", Operation = new[] {"ProvisionProduct"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail",
-        "This cmdlet returns a RecordDetail object.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ProvisionProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [OutputType("Amazon.ServiceCatalog.Model.CreateProductResponse")]
+    [AWSCmdlet("Invokes the CreateProduct operation against AWS Service Catalog.", Operation = new[] {"CreateProduct"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.CreateProductResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.CreateProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
@@ -58,90 +49,149 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter NotificationArn
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.</para>
+        /// <para>The text description of the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NotificationArns")]
-        public System.String[] NotificationArn { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter PathId
+        #region Parameter ProvisioningArtifactParameters_Description
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
+        /// <para>The text description of the provisioning artifact properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PathId { get; set; }
+        public System.String ProvisioningArtifactParameters_Description { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter Distributor
         /// <summary>
         /// <para>
-        /// <para>The identifier of the product.</para>
+        /// <para>The distributor of the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProductId { get; set; }
+        public System.String Distributor { get; set; }
         #endregion
         
-        #region Parameter ProvisionedProductName
+        #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A user-friendly name to identify the ProvisionedProduct object. This value must be
-        /// unique for the AWS account and cannot be updated after the product is provisioned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProvisionedProductName { get; set; }
-        #endregion
-        
-        #region Parameter ProvisioningArtifactId
-        /// <summary>
-        /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>A token to disambiguate duplicate requests. You can create multiple resources using
+        /// the same input in multiple requests, provided that you also specify a different idempotency
+        /// token for each request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProvisioningArtifactId { get; set; }
+        public System.String IdempotencyToken { get; set; }
         #endregion
         
-        #region Parameter ProvisioningParameter
+        #region Parameter ProvisioningArtifactParameters_Info
         /// <summary>
         /// <para>
-        /// <para>Parameters specified by the administrator that are required for provisioning the product.</para>
+        /// <para>Additional information about the provisioning artifact properties.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("ProvisioningParameters")]
-        public Amazon.ServiceCatalog.Model.ProvisioningParameter[] ProvisioningParameter { get; set; }
+        public System.Collections.Hashtable ProvisioningArtifactParameters_Info { get; set; }
         #endregion
         
-        #region Parameter ProvisionToken
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An idempotency token that uniquely identifies the provisioning request. </para>
+        /// <para>The name of the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProvisionToken { get; set; }
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningArtifactParameters_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name assigned to the provisioning artifact properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ProvisioningArtifactParameters_Name { get; set; }
+        #endregion
+        
+        #region Parameter ProductType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the product to create.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.ProductType")]
+        public Amazon.ServiceCatalog.ProductType ProductType { get; set; }
+        #endregion
+        
+        #region Parameter SupportDescription
+        /// <summary>
+        /// <para>
+        /// <para>Support information about the product.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SupportDescription { get; set; }
+        #endregion
+        
+        #region Parameter SupportEmail
+        /// <summary>
+        /// <para>
+        /// <para>Contact email for product support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SupportEmail { get; set; }
+        #endregion
+        
+        #region Parameter SupportUrl
+        /// <summary>
+        /// <para>
+        /// <para>Contact URL for product support.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SupportUrl { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to use as provisioning options.</para>
+        /// <para>Tags to associate with the new product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ServiceCatalog.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningArtifactParameters_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the provisioning artifact properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.ProvisioningArtifactType")]
+        public Amazon.ServiceCatalog.ProvisioningArtifactType ProvisioningArtifactParameters_Type { get; set; }
+        #endregion
+        
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the product.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Owner { get; set; }
         #endregion
         
         #region Parameter Force
@@ -158,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProvisionedProductName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SCProduct (ProvisionProduct)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SCProduct (CreateProduct)"))
             {
                 return;
             }
@@ -174,19 +224,26 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            if (this.NotificationArn != null)
+            context.Description = this.Description;
+            context.Distributor = this.Distributor;
+            context.IdempotencyToken = this.IdempotencyToken;
+            context.Name = this.Name;
+            context.Owner = this.Owner;
+            context.ProductType = this.ProductType;
+            context.ProvisioningArtifactParameters_Description = this.ProvisioningArtifactParameters_Description;
+            if (this.ProvisioningArtifactParameters_Info != null)
             {
-                context.NotificationArns = new List<System.String>(this.NotificationArn);
+                context.ProvisioningArtifactParameters_Info = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ProvisioningArtifactParameters_Info.Keys)
+                {
+                    context.ProvisioningArtifactParameters_Info.Add((String)hashKey, (String)(this.ProvisioningArtifactParameters_Info[hashKey]));
+                }
             }
-            context.PathId = this.PathId;
-            context.ProductId = this.ProductId;
-            context.ProvisionedProductName = this.ProvisionedProductName;
-            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
-            if (this.ProvisioningParameter != null)
-            {
-                context.ProvisioningParameters = new List<Amazon.ServiceCatalog.Model.ProvisioningParameter>(this.ProvisioningParameter);
-            }
-            context.ProvisionToken = this.ProvisionToken;
+            context.ProvisioningArtifactParameters_Name = this.ProvisioningArtifactParameters_Name;
+            context.ProvisioningArtifactParameters_Type = this.ProvisioningArtifactParameters_Type;
+            context.SupportDescription = this.SupportDescription;
+            context.SupportEmail = this.SupportEmail;
+            context.SupportUrl = this.SupportUrl;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
@@ -205,39 +262,96 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.ProvisionProductRequest();
+            var request = new Amazon.ServiceCatalog.Model.CreateProductRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.NotificationArns != null)
+            if (cmdletContext.Description != null)
             {
-                request.NotificationArns = cmdletContext.NotificationArns;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.PathId != null)
+            if (cmdletContext.Distributor != null)
             {
-                request.PathId = cmdletContext.PathId;
+                request.Distributor = cmdletContext.Distributor;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.IdempotencyToken != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
-            if (cmdletContext.ProvisionedProductName != null)
+            if (cmdletContext.Name != null)
             {
-                request.ProvisionedProductName = cmdletContext.ProvisionedProductName;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ProvisioningArtifactId != null)
+            if (cmdletContext.Owner != null)
             {
-                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+                request.Owner = cmdletContext.Owner;
             }
-            if (cmdletContext.ProvisioningParameters != null)
+            if (cmdletContext.ProductType != null)
             {
-                request.ProvisioningParameters = cmdletContext.ProvisioningParameters;
+                request.ProductType = cmdletContext.ProductType;
             }
-            if (cmdletContext.ProvisionToken != null)
+            
+             // populate ProvisioningArtifactParameters
+            bool requestProvisioningArtifactParametersIsNull = true;
+            request.ProvisioningArtifactParameters = new Amazon.ServiceCatalog.Model.ProvisioningArtifactProperties();
+            System.String requestProvisioningArtifactParameters_provisioningArtifactParameters_Description = null;
+            if (cmdletContext.ProvisioningArtifactParameters_Description != null)
             {
-                request.ProvisionToken = cmdletContext.ProvisionToken;
+                requestProvisioningArtifactParameters_provisioningArtifactParameters_Description = cmdletContext.ProvisioningArtifactParameters_Description;
+            }
+            if (requestProvisioningArtifactParameters_provisioningArtifactParameters_Description != null)
+            {
+                request.ProvisioningArtifactParameters.Description = requestProvisioningArtifactParameters_provisioningArtifactParameters_Description;
+                requestProvisioningArtifactParametersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestProvisioningArtifactParameters_provisioningArtifactParameters_Info = null;
+            if (cmdletContext.ProvisioningArtifactParameters_Info != null)
+            {
+                requestProvisioningArtifactParameters_provisioningArtifactParameters_Info = cmdletContext.ProvisioningArtifactParameters_Info;
+            }
+            if (requestProvisioningArtifactParameters_provisioningArtifactParameters_Info != null)
+            {
+                request.ProvisioningArtifactParameters.Info = requestProvisioningArtifactParameters_provisioningArtifactParameters_Info;
+                requestProvisioningArtifactParametersIsNull = false;
+            }
+            System.String requestProvisioningArtifactParameters_provisioningArtifactParameters_Name = null;
+            if (cmdletContext.ProvisioningArtifactParameters_Name != null)
+            {
+                requestProvisioningArtifactParameters_provisioningArtifactParameters_Name = cmdletContext.ProvisioningArtifactParameters_Name;
+            }
+            if (requestProvisioningArtifactParameters_provisioningArtifactParameters_Name != null)
+            {
+                request.ProvisioningArtifactParameters.Name = requestProvisioningArtifactParameters_provisioningArtifactParameters_Name;
+                requestProvisioningArtifactParametersIsNull = false;
+            }
+            Amazon.ServiceCatalog.ProvisioningArtifactType requestProvisioningArtifactParameters_provisioningArtifactParameters_Type = null;
+            if (cmdletContext.ProvisioningArtifactParameters_Type != null)
+            {
+                requestProvisioningArtifactParameters_provisioningArtifactParameters_Type = cmdletContext.ProvisioningArtifactParameters_Type;
+            }
+            if (requestProvisioningArtifactParameters_provisioningArtifactParameters_Type != null)
+            {
+                request.ProvisioningArtifactParameters.Type = requestProvisioningArtifactParameters_provisioningArtifactParameters_Type;
+                requestProvisioningArtifactParametersIsNull = false;
+            }
+             // determine if request.ProvisioningArtifactParameters should be set to null
+            if (requestProvisioningArtifactParametersIsNull)
+            {
+                request.ProvisioningArtifactParameters = null;
+            }
+            if (cmdletContext.SupportDescription != null)
+            {
+                request.SupportDescription = cmdletContext.SupportDescription;
+            }
+            if (cmdletContext.SupportEmail != null)
+            {
+                request.SupportEmail = cmdletContext.SupportEmail;
+            }
+            if (cmdletContext.SupportUrl != null)
+            {
+                request.SupportUrl = cmdletContext.SupportUrl;
             }
             if (cmdletContext.Tags != null)
             {
@@ -252,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.RecordDetail;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -277,13 +391,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ProvisionProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ProvisionProductRequest request)
+        private static Amazon.ServiceCatalog.Model.CreateProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.CreateProductRequest request)
         {
             #if DESKTOP
-            return client.ProvisionProduct(request);
+            return client.CreateProduct(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ProvisionProductAsync(request);
+            var task = client.CreateProductAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -295,13 +409,19 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public List<System.String> NotificationArns { get; set; }
-            public System.String PathId { get; set; }
-            public System.String ProductId { get; set; }
-            public System.String ProvisionedProductName { get; set; }
-            public System.String ProvisioningArtifactId { get; set; }
-            public List<Amazon.ServiceCatalog.Model.ProvisioningParameter> ProvisioningParameters { get; set; }
-            public System.String ProvisionToken { get; set; }
+            public System.String Description { get; set; }
+            public System.String Distributor { get; set; }
+            public System.String IdempotencyToken { get; set; }
+            public System.String Name { get; set; }
+            public System.String Owner { get; set; }
+            public Amazon.ServiceCatalog.ProductType ProductType { get; set; }
+            public System.String ProvisioningArtifactParameters_Description { get; set; }
+            public Dictionary<System.String, System.String> ProvisioningArtifactParameters_Info { get; set; }
+            public System.String ProvisioningArtifactParameters_Name { get; set; }
+            public Amazon.ServiceCatalog.ProvisioningArtifactType ProvisioningArtifactParameters_Type { get; set; }
+            public System.String SupportDescription { get; set; }
+            public System.String SupportEmail { get; set; }
+            public System.String SupportUrl { get; set; }
             public List<Amazon.ServiceCatalog.Model.Tag> Tags { get; set; }
         }
         

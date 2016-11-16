@@ -28,18 +28,16 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provides information about parameters required to provision a specified product in
-    /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
-    /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
-    /// product.
+    /// Associates the specified principal ARN with the specified portfolio.
     /// </summary>
-    [Cmdlet("Get", "SCProvisioningParameter")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningParameters operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningParameters"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "SCPrincipalWithPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the AssociatePrincipalWithPortfolio operation against AWS Service Catalog.", Operation = new[] {"AssociatePrincipalWithPortfolio"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PrincipalARN parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class RegisterSCPrincipalWithPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -52,41 +50,65 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter PathId
+        #region Parameter PortfolioId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PathId { get; set; }
+        public System.String PortfolioId { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter PrincipalARN
         /// <summary>
         /// <para>
-        /// <para>The product identifier.</para>
+        /// <para>The ARN representing the principal (IAM user, role, or group).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProductId { get; set; }
+        public System.String PrincipalARN { get; set; }
         #endregion
         
-        #region Parameter ProvisioningArtifactId
+        #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>The principal type. Must be <code>IAM</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProvisioningArtifactId { get; set; }
+        [AWSConstantClassSource("Amazon.ServiceCatalog.PrincipalType")]
+        public Amazon.ServiceCatalog.PrincipalType PrincipalType { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the PrincipalARN parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PortfolioId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-SCPrincipalWithPortfolio (AssociatePrincipalWithPortfolio)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -98,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.PathId = this.PathId;
-            context.ProductId = this.ProductId;
-            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            context.PortfolioId = this.PortfolioId;
+            context.PrincipalARN = this.PrincipalARN;
+            context.PrincipalType = this.PrincipalType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,23 +137,23 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest();
+            var request = new Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.PathId != null)
+            if (cmdletContext.PortfolioId != null)
             {
-                request.PathId = cmdletContext.PathId;
+                request.PortfolioId = cmdletContext.PortfolioId;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.PrincipalARN != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.PrincipalARN = cmdletContext.PrincipalARN;
             }
-            if (cmdletContext.ProvisioningArtifactId != null)
+            if (cmdletContext.PrincipalType != null)
             {
-                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+                request.PrincipalType = cmdletContext.PrincipalType;
             }
             
             CmdletOutput output;
@@ -142,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.PrincipalARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -167,13 +191,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
+        private static Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioRequest request)
         {
             #if DESKTOP
-            return client.DescribeProvisioningParameters(request);
+            return client.AssociatePrincipalWithPortfolio(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeProvisioningParametersAsync(request);
+            var task = client.AssociatePrincipalWithPortfolioAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -185,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String PathId { get; set; }
-            public System.String ProductId { get; set; }
-            public System.String ProvisioningArtifactId { get; set; }
+            public System.String PortfolioId { get; set; }
+            public System.String PrincipalARN { get; set; }
+            public Amazon.ServiceCatalog.PrincipalType PrincipalType { get; set; }
         }
         
     }

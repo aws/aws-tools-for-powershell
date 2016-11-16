@@ -33,17 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// To create a new health check, send a <code>POST</code> request to the <code>/2013-04-01/healthcheck</code>
-    /// resource. The request body must include an XML document with a <code>CreateHealthCheckRequest</code>
+    /// resource. The request body must include a document with a <code>CreateHealthCheckRequest</code>
     /// element. The response returns the <code>CreateHealthCheckResponse</code> element,
     /// containing the health check ID specified when adding health check to a resource record
     /// set. For information about adding health checks to resource record sets, see <a>ResourceRecordSet$HealthCheckId</a>
     /// in <a>ChangeResourceRecordSets</a>. 
     /// </para><para>
-    /// If you are registering Amazon EC2 instances with an Elastic Load Balancing (ELB) load
-    /// balancer, do not create Amazon Route 53 health checks for the Amazon EC2 instances.
-    /// When you register an Amazon EC2 instance with a load balancer, you configure settings
-    /// for an ELB health check, which performs a similar function to an Amazon Route 53 health
-    /// check.
+    /// If you are registering EC2 instances with an Elastic Load Balancing (ELB) load balancer,
+    /// do not create Amazon Route 53 health checks for the EC2 instances. When you register
+    /// an EC2 instance with a load balancer, you configure settings for an ELB health check,
+    /// which performs a similar function to an Amazon Route 53 health check.
     /// </para><para>
     /// You can associate health checks with failover resource record sets in a private hosted
     /// zone. Note the following:
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// metric, add an alarm to the metric, and then create a health check that is based on
     /// the state of the alarm. For information about creating CloudWatch metrics and alarms
     /// by using the CloudWatch console, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon
-    /// CloudWatch Developer Guide</a>.
+    /// CloudWatch User Guide</a>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "R53HealthCheck")]
@@ -226,12 +225,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// checks. If you don't specify a value for <code>IPAddress</code>, Amazon Route 53 sends
         /// a DNS request to resolve the domain name that you specify in <code>FullyQualifiedDomainName</code>
         /// at the interval that you specify in RequestInterval. Using an IP address that DNS
-        /// returns, Amazon Route 53 then checks the health of the endpoint.</para><para>If the endpoint is an Amazon EC2 instance, we recommend that you create an Elastic
-        /// IP address, associate it with your Amazon EC2 instance, and specify the Elastic IP
-        /// address for <code>IPAddress</code>. This ensures that the IP address of your instance
-        /// will never change.</para><para>For more information, see <a>HealthCheckConfig$FullyQualifiedDomainName</a>.</para><para>Contraints: Amazon Route 53 cannot check the health of endpoints for which the IP
-        /// address is in local, private, non-routable, or multicast ranges. For more information
-        /// about IP addresses for which you cannot create health checks, see <a href="https://tools.ietf.org/html/rfc5735">RFC
+        /// returns, Amazon Route 53 then checks the health of the endpoint.</para><para>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address,
+        /// associate it with your EC2 instance, and specify the Elastic IP address for <code>IPAddress</code>.
+        /// This ensures that the IP address of your instance will never change.</para><para>For more information, see <a>HealthCheckConfig$FullyQualifiedDomainName</a>.</para><para>Constraints: Amazon Route 53 can't check the health of endpoints for which the IP
+        /// address is in local, private, non-routable, or \ multicast ranges. For more information
+        /// about IP addresses for which you can't create health checks, see <a href="https://tools.ietf.org/html/rfc5735">RFC
         /// 5735, Special Use IPv4 Addresses</a> and <a href="https://tools.ietf.org/html/rfc6598">RFC
         /// 6598, IANA-Reserved IPv4 Prefix for Shared Address Space</a>.</para><para>When the value of Type is <code>CALCULATED</code> or <code>CLOUDWATCH_METRIC</code>,
         /// omit IPAddress.</para>

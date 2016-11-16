@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code> | <code>NS</code> | <code>PTR</code>
         /// | <code>SOA</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for weighted, latency, geo, and failover resource record sets: <code>A</code>
         /// | <code>AAAA</code> | <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code> |
-        /// <code>PTR</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for alias resource record sets: </para><ul><li><para><b>CloudFront distribution</b>: A</para></li><li><para><b>Elastic Beanstalk environment that has a regionalized subdomain</b>: A</para></li><li><para><b>ELB load balancer</b>: A | AAAA</para></li><li><para><b>Amazon S3 bucket</b>: A</para></li></ul><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
+        /// <code>PTR</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for alias resource record sets: </para><ul><li><para><b>CloudFront distribution</b>: A or AAAA</para></li><li><para><b>Elastic Beanstalk environment that has a regionalized subdomain</b>: A</para></li><li><para><b>ELB load balancer</b>: A | AAAA</para></li><li><para><b>Amazon S3 bucket</b>: A</para></li></ul><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
         /// an <code>InvalidInput</code> error.</para>
         /// </para>
         /// </summary>

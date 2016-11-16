@@ -28,19 +28,17 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Returns a paginated list of all paths to a specified product. A path is how the user
-    /// has access to a specified product, and is necessary when provisioning a product. A
-    /// path also determines the constraints put on the product.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves detailed constraint information for the specified portfolio and product.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SCLaunchPath")]
-    [OutputType("Amazon.ServiceCatalog.Model.LaunchPathSummary")]
-    [AWSCmdlet("Invokes the ListLaunchPaths operation against AWS Service Catalog.", Operation = new[] {"ListLaunchPaths"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.LaunchPathSummary",
-        "This cmdlet returns a collection of LaunchPathSummary objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ListLaunchPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SCConstrainsForPortfolioList")]
+    [OutputType("Amazon.ServiceCatalog.Model.ConstraintDetail")]
+    [AWSCmdlet("Invokes the ListConstraintsForPortfolio operation against AWS Service Catalog.", Operation = new[] {"ListConstraintsForPortfolio"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ConstraintDetail",
+        "This cmdlet returns a collection of ConstraintDetail objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public partial class GetSCLaunchPathCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCConstrainsForPortfolioListCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -66,14 +64,23 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public int PageSize { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter PortfolioId
         /// <summary>
         /// <para>
-        /// <para>The product identifier.. Identifies the product for which to retrieve <code>LaunchPathSummaries</code>
-        /// information.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PortfolioId { get; set; }
+        #endregion
+        
+        #region Parameter ProductId
+        /// <summary>
+        /// <para>
+        /// <para>The product identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
         public System.String ProductId { get; set; }
         #endregion
         
@@ -106,6 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
+            context.PortfolioId = this.PortfolioId;
             context.ProductId = this.ProductId;
             
             // allow further manipulation of loaded context prior to processing
@@ -122,10 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ServiceCatalog.Model.ListLaunchPathsRequest();
+            var request = new Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioRequest();
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            if (cmdletContext.PortfolioId != null)
+            {
+                request.PortfolioId = cmdletContext.PortfolioId;
             }
             if (cmdletContext.ProductId != null)
             {
@@ -165,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.LaunchPathSummaries;
+                        object pipelineOutput = response.ConstraintDetails;
                         notes = new Dictionary<string, object>();
                         notes["NextPageToken"] = response.NextPageToken;
                         output = new CmdletOutput
@@ -174,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.LaunchPathSummaries.Count;
+                        int _receivedThisCall = response.ConstraintDetails.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
@@ -217,13 +229,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListLaunchPathsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListLaunchPathsRequest request)
+        private static Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioRequest request)
         {
             #if DESKTOP
-            return client.ListLaunchPaths(request);
+            return client.ListConstraintsForPortfolio(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListLaunchPathsAsync(request);
+            var task = client.ListConstraintsForPortfolioAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -237,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
+            public System.String PortfolioId { get; set; }
             public System.String ProductId { get; set; }
         }
         

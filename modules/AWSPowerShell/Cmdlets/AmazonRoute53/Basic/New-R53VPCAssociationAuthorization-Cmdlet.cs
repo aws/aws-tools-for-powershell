@@ -28,53 +28,40 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Associates an Amazon VPC with a private hosted zone. 
-    /// 
-    ///  <important><para>
-    /// To perform the association, the VPC and the private hosted zone must already exist.
-    /// You can't convert a public hosted zone into a private hosted zone.
-    /// </para></important><para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted zone
-    /// ID</i>/associatevpc</code> resource. The request body must include a document with
-    /// an <code>AssociateVPCWithHostedZoneRequest</code> element. The response contains a
-    /// <code>ChangeInfo</code> data type that you can use to track the progress of the request.
-    /// 
-    /// </para><note><para>
-    /// If you want to associate a VPC that was created by using one AWS account with a private
-    /// hosted zone that was created by using a different account, the AWS account that created
-    /// the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
-    /// request. Then the account that created the VPC must submit an <code>AssociateVPCWithHostedZone</code>
+    /// Authorizes the AWS account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>
+    /// request to associate the VPC with a specified hosted zone that was created by a different
+    /// account. To submit a <code>CreateVPCAssociationAuthorization</code> request, you must
+    /// use the account that created the hosted zone. After you authorize the association,
+    /// use the account that created the VPC to submit an <code>AssociateVPCWithHostedZone</code>
     /// request.
-    /// </para></note>
+    /// 
+    ///  <note><para>
+    /// If you want to associate multiple VPCs that you created by using one account with
+    /// a hosted zone that you created by using a different account, you must submit one authorization
+    /// request for each VPC.
+    /// </para></note><para>
+    /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted zone
+    /// ID</i>/authorizevpcassociation</code> resource. The request body must include a document
+    /// with a <code>CreateVPCAssociationAuthorizationRequest</code> element. The response
+    /// contains information about the authorization.
+    /// </para>
     /// </summary>
-    [Cmdlet("Register", "R53VPCWithHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the AssociateVPCWithHostedZone operation against Amazon Route 53.", Operation = new[] {"AssociateVPCWithHostedZone"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
-        "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type Amazon.Route53.Model.AssociateVPCWithHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "R53VPCAssociationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse")]
+    [AWSCmdlet("Invokes the CreateVPCAssociationAuthorization operation against Amazon Route 53.", Operation = new[] {"CreateVPCAssociationAuthorization"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse",
+        "This cmdlet returns a Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterR53VPCWithHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class NewR53VPCAssociationAuthorizationCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
-        
-        #region Parameter Comment
-        /// <summary>
-        /// <para>
-        /// <para><i>Optional:</i> A comment about the association request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Comment { get; set; }
-        #endregion
         
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para>The ID of the private hosted zone that you want to associate an Amazon VPC with.</para><para>Note that you can't associate a VPC with a hosted zone that doesn't have an existing
-        /// VPC association.</para>
+        /// <para>The ID of the private hosted zone that you want to authorize associating a VPC with.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HostedZoneId { get; set; }
         #endregion
         
@@ -114,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostedZoneId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-R53VPCWithHostedZone (AssociateVPCWithHostedZone)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VPC_VPCId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53VPCAssociationAuthorization (CreateVPCAssociationAuthorization)"))
             {
                 return;
             }
@@ -132,7 +119,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.HostedZoneId = this.HostedZoneId;
             context.VPC_VPCRegion = this.VPC_VPCRegion;
             context.VPC_VPCId = this.VPC_VPCId;
-            context.Comment = this.Comment;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.AssociateVPCWithHostedZoneRequest();
+            var request = new Amazon.Route53.Model.CreateVPCAssociationAuthorizationRequest();
             
             if (cmdletContext.HostedZoneId != null)
             {
@@ -182,10 +168,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 request.VPC = null;
             }
-            if (cmdletContext.Comment != null)
-            {
-                request.Comment = cmdletContext.Comment;
-            }
             
             CmdletOutput output;
             
@@ -195,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ChangeInfo;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -220,13 +202,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.AssociateVPCWithHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.AssociateVPCWithHostedZoneRequest request)
+        private static Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateVPCAssociationAuthorizationRequest request)
         {
             #if DESKTOP
-            return client.AssociateVPCWithHostedZone(request);
+            return client.CreateVPCAssociationAuthorization(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AssociateVPCWithHostedZoneAsync(request);
+            var task = client.CreateVPCAssociationAuthorizationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -240,7 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.String HostedZoneId { get; set; }
             public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
             public System.String VPC_VPCId { get; set; }
-            public System.String Comment { get; set; }
         }
         
     }
