@@ -28,18 +28,16 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provides information about parameters required to provision a specified product in
-    /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
-    /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
-    /// product.
+    /// Updates an existing provisioning artifact's information. This operation will not work
+    /// on a provisioning artifact associated with a product that has been shared with you.
     /// </summary>
-    [Cmdlet("Get", "SCProvisioningParameter")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningParameters operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningParameters"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse")]
+    [AWSCmdlet("Invokes the UpdateProvisioningArtifact operation against AWS Service Catalog.", Operation = new[] {"UpdateProvisioningArtifact"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class UpdateSCProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -52,16 +50,24 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter PathId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
+        /// <para>The updated text description of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PathId { get; set; }
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The updated name of the provisioning artifact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter ProductId
@@ -70,23 +76,39 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The product identifier.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String ProductId { get; set; }
         #endregion
         
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>The identifier of the provisioning artifact for the update request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ProvisioningArtifactId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProvisioningArtifactId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCProvisioningArtifact (UpdateProvisioningArtifact)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -98,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.PathId = this.PathId;
+            context.Description = this.Description;
+            context.Name = this.Name;
             context.ProductId = this.ProductId;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
             
@@ -115,15 +138,19 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest();
+            var request = new Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.PathId != null)
+            if (cmdletContext.Description != null)
             {
-                request.PathId = cmdletContext.PathId;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.ProductId != null)
             {
@@ -167,13 +194,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
+        private static Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactRequest request)
         {
             #if DESKTOP
-            return client.DescribeProvisioningParameters(request);
+            return client.UpdateProvisioningArtifact(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeProvisioningParametersAsync(request);
+            var task = client.UpdateProvisioningArtifactAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -185,7 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String PathId { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
             public System.String ProductId { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
         }

@@ -3118,15 +3118,52 @@ $SC_Completers = {
             break
         }
         
+        # Amazon.ServiceCatalog.PrincipalType
+        "Register-SCPrincipalWithPortfolio/PrincipalType"
+        {
+            $v = "IAM"
+            break
+        }
+        
+        # Amazon.ServiceCatalog.ProductSource
+        "Search-SCProductsAsAdmin/ProductSource"
+        {
+            $v = "ACCOUNT"
+            break
+        }
+        
+        # Amazon.ServiceCatalog.ProductType
+        "New-SCProduct/ProductType"
+        {
+            $v = "CLOUD_FORMATION_TEMPLATE"
+            break
+        }
+        
         # Amazon.ServiceCatalog.ProductViewSortBy
-        "Find-SCProduct/SortBy"
+        {
+            ($_ -eq "Find-SCProduct/SortBy") -Or
+            ($_ -eq "Search-SCProductsAsAdmin/SortBy")
+        }
         {
             $v = "CreationDate","Title","VersionCount"
             break
         }
         
+        # Amazon.ServiceCatalog.ProvisioningArtifactType
+        {
+            ($_ -eq "New-SCProvisioningArtifact/Parameters_Type") -Or
+            ($_ -eq "New-SCProduct/ProvisioningArtifactParameters_Type")
+        }
+        {
+            $v = "CLOUD_FORMATION_TEMPLATE"
+            break
+        }
+        
         # Amazon.ServiceCatalog.SortOrder
-        "Find-SCProduct/SortOrder"
+        {
+            ($_ -eq "Find-SCProduct/SortOrder") -Or
+            ($_ -eq "Search-SCProductsAsAdmin/SortOrder")
+        }
         {
             $v = "ASCENDING","DESCENDING"
             break
@@ -3141,8 +3178,13 @@ $SC_Completers = {
 
 $SC_map = @{
     "AccessLevelFilter_Key"=@("Get-SCProvisionedProduct","Get-SCRecordHistory")
-    "SortBy"=@("Find-SCProduct")
-    "SortOrder"=@("Find-SCProduct")
+    "Parameters_Type"=@("New-SCProvisioningArtifact")
+    "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
+    "ProductSource"=@("Search-SCProductsAsAdmin")
+    "ProductType"=@("New-SCProduct")
+    "ProvisioningArtifactParameters_Type"=@("New-SCProduct")
+    "SortBy"=@("Find-SCProduct","Search-SCProductsAsAdmin")
+    "SortOrder"=@("Find-SCProduct","Search-SCProductsAsAdmin")
 }
 
 _awsArgumentCompleterRegistration $SC_Completers $SC_map

@@ -28,18 +28,16 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provides information about parameters required to provision a specified product in
-    /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
-    /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
-    /// product.
+    /// Associates a product with a portfolio.
     /// </summary>
-    [Cmdlet("Get", "SCProvisioningParameter")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningParameters operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningParameters"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "SCProductWithPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the AssociateProductWithPortfolio operation against AWS Service Catalog.", Operation = new[] {"AssociateProductWithPortfolio"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProductId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class RegisterSCProductWithPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -52,16 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter PathId
+        #region Parameter PortfolioId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PathId { get; set; }
+        public System.String PortfolioId { get; set; }
         #endregion
         
         #region Parameter ProductId
@@ -74,19 +70,44 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String ProductId { get; set; }
         #endregion
         
-        #region Parameter ProvisioningArtifactId
+        #region Parameter SourcePortfolioId
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>The identifier of the source portfolio to use with this association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProvisioningArtifactId { get; set; }
+        public System.String SourcePortfolioId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ProductId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProductId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-SCProductWithPortfolio (AssociateProductWithPortfolio)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -98,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.PathId = this.PathId;
+            context.PortfolioId = this.PortfolioId;
             context.ProductId = this.ProductId;
-            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            context.SourcePortfolioId = this.SourcePortfolioId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,23 +136,23 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest();
+            var request = new Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.PathId != null)
+            if (cmdletContext.PortfolioId != null)
             {
-                request.PathId = cmdletContext.PathId;
+                request.PortfolioId = cmdletContext.PortfolioId;
             }
             if (cmdletContext.ProductId != null)
             {
                 request.ProductId = cmdletContext.ProductId;
             }
-            if (cmdletContext.ProvisioningArtifactId != null)
+            if (cmdletContext.SourcePortfolioId != null)
             {
-                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+                request.SourcePortfolioId = cmdletContext.SourcePortfolioId;
             }
             
             CmdletOutput output;
@@ -142,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ProductId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -167,13 +190,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
+        private static Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioRequest request)
         {
             #if DESKTOP
-            return client.DescribeProvisioningParameters(request);
+            return client.AssociateProductWithPortfolio(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeProvisioningParametersAsync(request);
+            var task = client.AssociateProductWithPortfolioAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -185,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String PathId { get; set; }
+            public System.String PortfolioId { get; set; }
             public System.String ProductId { get; set; }
-            public System.String ProvisioningArtifactId { get; set; }
+            public System.String SourcePortfolioId { get; set; }
         }
         
     }

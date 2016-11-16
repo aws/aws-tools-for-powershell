@@ -28,18 +28,17 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provides information about parameters required to provision a specified product in
-    /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
-    /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
-    /// product.
+    /// Lists the account IDs that have been authorized sharing of the specified portfolio.
     /// </summary>
-    [Cmdlet("Get", "SCProvisioningParameter")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningParameters operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningParameters"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SCPortfolioAccessList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListPortfolioAccess operation against AWS Service Catalog.", Operation = new[] {"ListPortfolioAccess"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ListPortfolioAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
-    public partial class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCPortfolioAccessListCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -52,36 +51,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter PathId
+        #region Parameter PortfolioId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String PathId { get; set; }
-        #endregion
-        
-        #region Parameter ProductId
-        /// <summary>
-        /// <para>
-        /// <para>The product identifier.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProductId { get; set; }
-        #endregion
-        
-        #region Parameter ProvisioningArtifactId
-        /// <summary>
-        /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProvisioningArtifactId { get; set; }
+        public System.String PortfolioId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -98,9 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.PathId = this.PathId;
-            context.ProductId = this.ProductId;
-            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            context.PortfolioId = this.PortfolioId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,23 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest();
+            var request = new Amazon.ServiceCatalog.Model.ListPortfolioAccessRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.PathId != null)
+            if (cmdletContext.PortfolioId != null)
             {
-                request.PathId = cmdletContext.PathId;
-            }
-            if (cmdletContext.ProductId != null)
-            {
-                request.ProductId = cmdletContext.ProductId;
-            }
-            if (cmdletContext.ProvisioningArtifactId != null)
-            {
-                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+                request.PortfolioId = cmdletContext.PortfolioId;
             }
             
             CmdletOutput output;
@@ -142,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.AccountIds;
+                notes = new Dictionary<string, object>();
+                notes["NextPageToken"] = response.NextPageToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -167,13 +136,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
+        private static Amazon.ServiceCatalog.Model.ListPortfolioAccessResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListPortfolioAccessRequest request)
         {
             #if DESKTOP
-            return client.DescribeProvisioningParameters(request);
+            return client.ListPortfolioAccess(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeProvisioningParametersAsync(request);
+            var task = client.ListPortfolioAccessAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -185,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String PathId { get; set; }
-            public System.String ProductId { get; set; }
-            public System.String ProvisioningArtifactId { get; set; }
+            public System.String PortfolioId { get; set; }
         }
         
     }

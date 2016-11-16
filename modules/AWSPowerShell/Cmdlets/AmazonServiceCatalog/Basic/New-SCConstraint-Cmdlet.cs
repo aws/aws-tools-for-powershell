@@ -28,18 +28,15 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provides information about parameters required to provision a specified product in
-    /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
-    /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
-    /// product.
+    /// Creates a new constraint.
     /// </summary>
-    [Cmdlet("Get", "SCProvisioningParameter")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningParameters operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningParameters"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceCatalog.Model.CreateConstraintResponse")]
+    [AWSCmdlet("Invokes the CreateConstraint operation against AWS Service Catalog.", Operation = new[] {"CreateConstraint"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.CreateConstraintResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.CreateConstraintResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProvisioningParameterCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class NewSCConstraintCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -52,16 +49,47 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter PathId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
+        /// <para>The text description of the constraint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PathId { get; set; }
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter IdempotencyToken
+        /// <summary>
+        /// <para>
+        /// <para>A token to disambiguate duplicate requests. You can create multiple resources using
+        /// the same input in multiple requests, provided that you also specify a different idempotency
+        /// token for each request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The constraint parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Parameters")]
+        public System.String Parameter { get; set; }
+        #endregion
+        
+        #region Parameter PortfolioId
+        /// <summary>
+        /// <para>
+        /// <para>The portfolio identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PortfolioId { get; set; }
         #endregion
         
         #region Parameter ProductId
@@ -74,19 +102,35 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String ProductId { get; set; }
         #endregion
         
-        #region Parameter ProvisioningArtifactId
+        #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>The type of the constraint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProvisioningArtifactId { get; set; }
+        public System.String Type { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProductId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SCConstraint (CreateConstraint)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -98,9 +142,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.PathId = this.PathId;
+            context.Description = this.Description;
+            context.IdempotencyToken = this.IdempotencyToken;
+            context.Parameters = this.Parameter;
+            context.PortfolioId = this.PortfolioId;
             context.ProductId = this.ProductId;
-            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,23 +162,35 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest();
+            var request = new Amazon.ServiceCatalog.Model.CreateConstraintRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.PathId != null)
+            if (cmdletContext.Description != null)
             {
-                request.PathId = cmdletContext.PathId;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.IdempotencyToken != null)
+            {
+                request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.Parameters != null)
+            {
+                request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.PortfolioId != null)
+            {
+                request.PortfolioId = cmdletContext.PortfolioId;
             }
             if (cmdletContext.ProductId != null)
             {
                 request.ProductId = cmdletContext.ProductId;
             }
-            if (cmdletContext.ProvisioningArtifactId != null)
+            if (cmdletContext.Type != null)
             {
-                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -167,13 +226,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
+        private static Amazon.ServiceCatalog.Model.CreateConstraintResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.CreateConstraintRequest request)
         {
             #if DESKTOP
-            return client.DescribeProvisioningParameters(request);
+            return client.CreateConstraint(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeProvisioningParametersAsync(request);
+            var task = client.CreateConstraintAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -185,9 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String PathId { get; set; }
+            public System.String Description { get; set; }
+            public System.String IdempotencyToken { get; set; }
+            public System.String Parameters { get; set; }
+            public System.String PortfolioId { get; set; }
             public System.String ProductId { get; set; }
-            public System.String ProvisioningArtifactId { get; set; }
+            public System.String Type { get; set; }
         }
         
     }
