@@ -4,6 +4,7 @@
     - Three cmdlets that were marked obsolete have now been removed due to the removal of the underlying service APIs (the service apis had also been set to return error states since being marked obsolete so no script would have been able to use them successfully). The cmdlets that have been removed were: Get-R53ChangeDetails, Get-R53ChangeBatchesByHostedZone and Get-R53ChangeBatchesByRRSet.
   * AWS Service Catalog
     - Added support for the new administrative operations with 32 new cmdlets. The full list of cmdlets for this service can be viewed with the command 'Get-AWSCmdletName -Service SC'. 
+    - [BREAKING CHANGE] With the addition of a new CreateProduct API for this service we have had to rename the original New-SCProduct cmdlet (which mapped to the ProvisionProduct API) to 'New-SCProvisionedProduct'. The New-SCProduct cmdlet now maps to the 'CreateProduct' API. We aplogize for any inconvenience this change may cause.
 
 ### 3.3.19.0 (2016-11-16)
   (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
