@@ -1,3 +1,24 @@
+### 3.3.20.0 (2016-11-16)
+  * Amazon Route53
+    - Added support for cross-account VPC assocation with new cmdlets: get-R53VPCAssociationAuthorizationList (ListVPCAssociationAuthorizations API), New-R53VPCAssociationAuthorization (CreateVPCAssociationAuthorization API) and Remove-R53VPCAssociationAuthorization (DeleteVPVAssociationAuthorization API).
+    - Three cmdlets that were marked obsolete have now been removed due to the removal of the underlying service APIs (the service apis had also been set to return error states since being marked obsolete so no script would have been able to use them successfully). The cmdlets that have been removed were: Get-R53ChangeDetails, Get-R53ChangeBatchesByHostedZone and Get-R53ChangeBatchesByRRSet.
+  * AWS Service Catalog
+    - Added support for the new administrative operations with 32 new cmdlets. The full list of cmdlets for this service can be viewed with the command 'Get-AWSCmdletName -Service SC'. 
+
+### 3.3.19.0 (2016-11-16)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * Amazon ElastiCache
+    - Added a new parameter, -AuthToken, to the New-ECCacheCluster and New-ECReplicationGroup cmdlets to support provision of an authtoken for Redis.
+  * AWS Directory Service
+    - Added support for schema extensions with three new cmdlets: Get-DSSchemaExtension (ListSchemaExtensions API),  Start-DSSchemaExtension (StartSchemaExtension API) and Stop-DSSchemaExtension (CancelSchemaExtension API).
+  * Amazon Kinesis
+    - Updates to support describing shard limits, open shard count and stream creation timestamp. This includes two new cmdlets, Get-KINLimit (DescribeLimits API) and Update-KINShardCount (UpdateShardCount API).
+
+### 3.3.18.0 (2016-11-15)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * Amazon Cognito Identity Provider
+    - Added a new parameter, -Schema, to the New-CGIPIdentityPool cmdlet to support specifying schema attributes.
+
 ### 3.3.17.0 (2016-11-13)
   * AWS CloudFormation
     - Added a new cmdlet, Get-CFNExport, to support the new ListExports API. Also updated existing cmdlets to support resources to skip during rollback, and new ChangeSet types and transforms.
