@@ -28,24 +28,51 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have
-    /// up to 10 tags.
+    /// Updates the shard count of the specified stream to the specified number of shards.
     /// 
     ///  
     /// <para>
-    /// If tags have already been assigned to the stream, <code>AddTagsToStream</code> overwrites
-    /// any existing tags that correspond to the specified tag keys.
+    /// Updating the shard count is an asynchronous operation. Upon receiving the request,
+    /// Amazon Kinesis returns immediately and sets the status of the stream to <code>UPDATING</code>.
+    /// After the update is complete, Amazon Kinesis sets the status of the stream back to
+    /// <code>ACTIVE</code>. Depending on the size of the stream, the scaling action could
+    /// take a few minutes to complete. You can continue to read and write data to your stream
+    /// while its status is <code>UPDATING</code>.
+    /// </para><para>
+    /// To update the shard count, Amazon Kinesis performs splits and merges and individual
+    /// shards. This can cause short-lived shards to be created, in addition to the final
+    /// shards. We recommend that you double or halve the shard count, as this results in
+    /// the fewest number of splits or merges.
+    /// </para><para>
+    /// This operation has a rate limit of twice per rolling 24 hour period. You cannot scale
+    /// above double your current shard count, scale below half your current shard count,
+    /// or exceed the shard limits for your account.
+    /// </para><para>
+    /// For the default limits for an AWS account, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
+    /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>. If you need to increase
+    /// a limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
+    /// AWS Support</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Add", "KINTagsToStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddTagsToStream operation against Amazon Kinesis.", Operation = new[] {"AddTagsToStream"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "KINShardCount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Kinesis.Model.UpdateShardCountResponse")]
+    [AWSCmdlet("Invokes the UpdateShardCount operation against Amazon Kinesis.", Operation = new[] {"UpdateShardCount"})]
+    [AWSCmdletOutput("Amazon.Kinesis.Model.UpdateShardCountResponse",
+        "This cmdlet returns a Amazon.Kinesis.Model.UpdateShardCountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class UpdateKINShardCountCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ScalingType
+        /// <summary>
+        /// <para>
+        /// <para>The scaling type. Uniform scaling creates shards of equal size.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [AWSConstantClassSource("Amazon.Kinesis.ScalingType")]
+        public Amazon.Kinesis.ScalingType ScalingType { get; set; }
+        #endregion
         
         #region Parameter StreamName
         /// <summary>
@@ -57,24 +84,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamName { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter TargetShardCount
         /// <summary>
         /// <para>
-        /// <para>The set of key-value pairs to use to create the tags.</para>
+        /// <para>The new number of shards.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the StreamName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.Int32 TargetShardCount { get; set; }
         #endregion
         
         #region Parameter Force
@@ -92,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINTagsToStream (AddTagsToStream)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-KINShardCount (UpdateShardCount)"))
             {
                 return;
             }
@@ -106,15 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ScalingType = this.ScalingType;
             context.StreamName = this.StreamName;
-            if (this.Tag != null)
-            {
-                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
+            if (ParameterWasBound("TargetShardCount"))
+                context.TargetShardCount = this.TargetShardCount;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +141,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
+            var request = new Amazon.Kinesis.Model.UpdateShardCountRequest();
             
+            if (cmdletContext.ScalingType != null)
+            {
+                request.ScalingType = cmdletContext.ScalingType;
+            }
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
             }
-            if (cmdletContext.Tags != null)
+            if (cmdletContext.TargetShardCount != null)
             {
-                request.Tags = cmdletContext.Tags;
+                request.TargetShardCount = cmdletContext.TargetShardCount.Value;
             }
             
             CmdletOutput output;
@@ -148,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StreamName;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,13 +189,13 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.AddTagsToStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.AddTagsToStreamRequest request)
+        private static Amazon.Kinesis.Model.UpdateShardCountResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.UpdateShardCountRequest request)
         {
             #if DESKTOP
-            return client.AddTagsToStream(request);
+            return client.UpdateShardCount(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AddTagsToStreamAsync(request);
+            var task = client.UpdateShardCountAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -192,8 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.Kinesis.ScalingType ScalingType { get; set; }
             public System.String StreamName { get; set; }
-            public Dictionary<System.String, System.String> Tags { get; set; }
+            public System.Int32? TargetShardCount { get; set; }
         }
         
     }

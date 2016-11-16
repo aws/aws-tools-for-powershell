@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// If the shard is closed, <a>GetShardIterator</a> returns a valid iterator for the last
     /// sequence number of the shard. Note that a shard can be closed as a result of using
     /// <a>SplitShard</a> or <a>MergeShards</a>.
-    /// </para><para><a>GetShardIterator</a> has a limit of 5 transactions per second per account per open
-    /// shard.
+    /// </para><para><a>GetShardIterator</a> has a limit of 5 transactions per second per account per
+    /// open shard.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINShardIterator")]
@@ -92,14 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardIteratorType
         /// <summary>
         /// <para>
-        /// <para>Determines how the shard iterator is used to start reading data records from the shard.</para><para>The following are the valid Amazon Kinesis shard iterator types:</para><ul><li>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific
-        /// sequence number, provided in the value <code>StartingSequenceNumber</code>.</li><li>AFTER_SEQUENCE_NUMBER
-        /// - Start reading right after the position denoted by a specific sequence number, provided
-        /// in the value <code>StartingSequenceNumber</code>.</li><li>AT_TIMESTAMP - Start reading
-        /// from the position denoted by a specific timestamp, provided in the value <code>Timestamp</code>.</li><li>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the
-        /// system, which is the oldest data record in the shard.</li><li>LATEST - Start reading
-        /// just after the most recent record in the shard, so that you always read the most recent
-        /// data in the shard.</li></ul>
+        /// <para>Determines how the shard iterator is used to start reading data records from the shard.</para><para>The following are the valid Amazon Kinesis shard iterator types:</para><ul><li><para>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific sequence
+        /// number, provided in the value <code>StartingSequenceNumber</code>.</para></li><li><para>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific
+        /// sequence number, provided in the value <code>StartingSequenceNumber</code>.</para></li><li><para>AT_TIMESTAMP - Start reading from the position denoted by a specific timestamp, provided
+        /// in the value <code>Timestamp</code>.</para></li><li><para>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system,
+        /// which is the oldest data record in the shard.</para></li><li><para>LATEST - Start reading just after the most recent record in the shard, so that you
+        /// always read the most recent data in the shard.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

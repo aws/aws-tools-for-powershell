@@ -2201,6 +2201,8 @@ Set-Alias -Name KIN-CreateStream -Value New-KINStream
 Set-Alias -Name KIN-DecreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodDecrease
 Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
+Set-Alias -Name Describe-KINLimit -Value Get-KINLimit
+Set-Alias -Name KIN-DescribeLimits -Value Get-KINLimit
 Set-Alias -Name Describe-KINStream -Value Get-KINStream
 Set-Alias -Name KIN-DescribeStream -Value Get-KINStream
 Set-Alias -Name KIN-DisableEnhancedMonitoring -Value Disable-KINEnhancedMonitoring
@@ -2217,6 +2219,7 @@ Set-Alias -Name Put-KINMultipleRecord -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-PutRecords -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
+Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KINA-AddApplicationInput -Value Add-KINAApplicationInput
 Set-Alias -Name KINA-AddApplicationOutput -Value Add-KINAApplicationOutput
 Set-Alias -Name KINA-AddApplicationReferenceDataSource -Value Add-KINAApplicationReferenceDataSource
