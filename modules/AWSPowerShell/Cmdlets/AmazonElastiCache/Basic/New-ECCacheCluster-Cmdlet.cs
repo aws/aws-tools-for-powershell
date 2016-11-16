@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public partial class NewECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthToken
+        /// <summary>
+        /// <para>
+        /// <para>The password used to access a password protected server.</para><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or "@". </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// at Redis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthToken { get; set; }
+        #endregion
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
@@ -356,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthToken = this.AuthToken;
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
                 context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AZMode = this.AZMode;
@@ -413,6 +425,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // create request
             var request = new Amazon.ElastiCache.Model.CreateCacheClusterRequest();
             
+            if (cmdletContext.AuthToken != null)
+            {
+                request.AuthToken = cmdletContext.AuthToken;
+            }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
@@ -552,6 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthToken { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public Amazon.ElastiCache.AZMode AZMode { get; set; }
             public System.String CacheClusterId { get; set; }

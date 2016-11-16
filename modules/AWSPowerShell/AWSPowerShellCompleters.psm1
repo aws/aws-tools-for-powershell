@@ -2356,6 +2356,13 @@ $KIN_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Kinesis.ScalingType
+        "Update-KINShardCount/ScalingType"
+        {
+            $v = "UNIFORM_SCALING"
+            break
+        }
+        
         # Amazon.Kinesis.ShardIteratorType
         "Get-KINShardIterator/ShardIteratorType"
         {
@@ -2371,6 +2378,7 @@ $KIN_Completers = {
 }
 
 $KIN_map = @{
+    "ScalingType"=@("Update-KINShardCount")
     "ShardIteratorType"=@("Get-KINShardIterator")
 }
 

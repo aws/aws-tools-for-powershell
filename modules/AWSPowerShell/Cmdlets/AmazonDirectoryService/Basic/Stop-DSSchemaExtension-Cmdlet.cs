@@ -22,55 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have
-    /// up to 10 tags.
-    /// 
-    ///  
-    /// <para>
-    /// If tags have already been assigned to the stream, <code>AddTagsToStream</code> overwrites
-    /// any existing tags that correspond to the specified tag keys.
-    /// </para>
+    /// Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
+    /// extension has started replicating to all domain controllers, the task can no longer
+    /// be canceled. A schema extension can be canceled during any of the following states;
+    /// <code>Initializing</code>, <code>CreatingSnapshot</code>, and <code>UpdatingSchema</code>.
     /// </summary>
-    [Cmdlet("Add", "KINTagsToStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Stop", "DSSchemaExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddTagsToStream operation against Amazon Kinesis.", Operation = new[] {"AddTagsToStream"})]
+    [AWSCmdlet("Invokes the CancelSchemaExtension operation against AWS Directory Service.", Operation = new[] {"CancelSchemaExtension"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DirectoryService.Model.CancelSchemaExtensionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class StopDSSchemaExtensionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter StreamName
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The name of the stream.</para>
+        /// <para>The identifier of the directory whose schema extension will be canceled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter SchemaExtensionId
         /// <summary>
         /// <para>
-        /// <para>The set of key-value pairs to use to create the tags.</para>
+        /// <para>The identifier of the schema extension that will be canceled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String SchemaExtensionId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the StreamName parameter.
+        /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINTagsToStream (AddTagsToStream)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-DSSchemaExtension (CancelSchemaExtension)"))
             {
                 return;
             }
@@ -106,15 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.StreamName = this.StreamName;
-            if (this.Tag != null)
-            {
-                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
+            context.DirectoryId = this.DirectoryId;
+            context.SchemaExtensionId = this.SchemaExtensionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
+            var request = new Amazon.DirectoryService.Model.CancelSchemaExtensionRequest();
             
-            if (cmdletContext.StreamName != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.StreamName = cmdletContext.StreamName;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Tags != null)
+            if (cmdletContext.SchemaExtensionId != null)
             {
-                request.Tags = cmdletContext.Tags;
+                request.SchemaExtensionId = cmdletContext.SchemaExtensionId;
             }
             
             CmdletOutput output;
@@ -150,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StreamName;
+                    pipelineOutput = this.DirectoryId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,13 +163,13 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.AddTagsToStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.AddTagsToStreamRequest request)
+        private static Amazon.DirectoryService.Model.CancelSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CancelSchemaExtensionRequest request)
         {
             #if DESKTOP
-            return client.AddTagsToStream(request);
+            return client.CancelSchemaExtension(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AddTagsToStreamAsync(request);
+            var task = client.CancelSchemaExtensionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -192,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String StreamName { get; set; }
-            public Dictionary<System.String, System.String> Tags { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.String SchemaExtensionId { get; set; }
         }
         
     }

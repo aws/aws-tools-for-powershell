@@ -22,61 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectoryService;
-using Amazon.DirectoryService.Model;
+using Amazon.Kinesis;
+using Amazon.Kinesis.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DS
+namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Deletes an AWS Directory Service directory.
+    /// Describes the shard limits and usage for the account.
     /// 
     ///  
     /// <para>
-    /// Before you call <i>DeleteDirectory</i>, ensure that all of the required permissions
-    /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <i>DeleteDirectory</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
-    /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
+    /// If you update your account limits, the old limits might be returned for a few minutes.
+    /// </para><para>
+    /// This operation has a limit of 1 transaction per second per account.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteDirectory operation against AWS Directory Service.", Operation = new[] {"DeleteDirectory"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.DirectoryService.Model.DeleteDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KINLimit")]
+    [OutputType("Amazon.Kinesis.Model.DescribeLimitsResponse")]
+    [AWSCmdlet("Invokes the DescribeLimits operation against Amazon Kinesis.", Operation = new[] {"DescribeLimits"})]
+    [AWSCmdletOutput("Amazon.Kinesis.Model.DescribeLimitsResponse",
+        "This cmdlet returns a Amazon.Kinesis.Model.DescribeLimitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class GetKINLimitCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
-        
-        #region Parameter DirectoryId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the directory to delete.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryId { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSDirectory (DeleteDirectory)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -87,7 +59,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DirectoryId = this.DirectoryId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -102,12 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.DeleteDirectoryRequest();
+            var request = new Amazon.Kinesis.Model.DescribeLimitsRequest();
             
-            if (cmdletContext.DirectoryId != null)
-            {
-                request.DirectoryId = cmdletContext.DirectoryId;
-            }
             
             CmdletOutput output;
             
@@ -117,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DirectoryId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,13 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DeleteDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteDirectoryRequest request)
+        private static Amazon.Kinesis.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DescribeLimitsRequest request)
         {
             #if DESKTOP
-            return client.DeleteDirectory(request);
+            return client.DescribeLimits(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteDirectoryAsync(request);
+            var task = client.DescribeLimitsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -159,7 +126,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DirectoryId { get; set; }
         }
         
     }

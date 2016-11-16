@@ -22,59 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have
-    /// up to 10 tags.
-    /// 
-    ///  
-    /// <para>
-    /// If tags have already been assigned to the stream, <code>AddTagsToStream</code> overwrites
-    /// any existing tags that correspond to the specified tag keys.
-    /// </para>
+    /// Applies a schema extension to a Microsoft AD directory.
     /// </summary>
-    [Cmdlet("Add", "KINTagsToStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddTagsToStream operation against Amazon Kinesis.", Operation = new[] {"AddTagsToStream"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "DSSchemaExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the StartSchemaExtension operation against AWS Directory Service.", Operation = new[] {"StartSchemaExtension"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.DirectoryService.Model.StartSchemaExtensionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class StartDSSchemaExtensionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter StreamName
+        #region Parameter CreateSnapshotBeforeSchemaExtension
         /// <summary>
         /// <para>
-        /// <para>The name of the stream.</para>
+        /// <para>If true, creates a snapshot of the directory before applying the schema extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CreateSnapshotBeforeSchemaExtension { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A description of the schema extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DirectoryId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the directory for which the schema extension will be applied to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter LdifContent
         /// <summary>
         /// <para>
-        /// <para>The set of key-value pairs to use to create the tags.</para>
+        /// <para>The LDIF file represented as a string. The file size can be no larger than 1MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the StreamName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String LdifContent { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINTagsToStream (AddTagsToStream)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-DSSchemaExtension (StartSchemaExtension)"))
             {
                 return;
             }
@@ -106,15 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.StreamName = this.StreamName;
-            if (this.Tag != null)
-            {
-                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
+            if (ParameterWasBound("CreateSnapshotBeforeSchemaExtension"))
+                context.CreateSnapshotBeforeSchemaExtension = this.CreateSnapshotBeforeSchemaExtension;
+            context.Description = this.Description;
+            context.DirectoryId = this.DirectoryId;
+            context.LdifContent = this.LdifContent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,15 +128,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
+            var request = new Amazon.DirectoryService.Model.StartSchemaExtensionRequest();
             
-            if (cmdletContext.StreamName != null)
+            if (cmdletContext.CreateSnapshotBeforeSchemaExtension != null)
             {
-                request.StreamName = cmdletContext.StreamName;
+                request.CreateSnapshotBeforeSchemaExtension = cmdletContext.CreateSnapshotBeforeSchemaExtension.Value;
             }
-            if (cmdletContext.Tags != null)
+            if (cmdletContext.Description != null)
             {
-                request.Tags = cmdletContext.Tags;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DirectoryId != null)
+            {
+                request.DirectoryId = cmdletContext.DirectoryId;
+            }
+            if (cmdletContext.LdifContent != null)
+            {
+                request.LdifContent = cmdletContext.LdifContent;
             }
             
             CmdletOutput output;
@@ -148,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StreamName;
+                object pipelineOutput = response.SchemaExtensionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -175,13 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.AddTagsToStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.AddTagsToStreamRequest request)
+        private static Amazon.DirectoryService.Model.StartSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.StartSchemaExtensionRequest request)
         {
             #if DESKTOP
-            return client.AddTagsToStream(request);
+            return client.StartSchemaExtension(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AddTagsToStreamAsync(request);
+            var task = client.StartSchemaExtensionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -192,8 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String StreamName { get; set; }
-            public Dictionary<System.String, System.String> Tags { get; set; }
+            public System.Boolean? CreateSnapshotBeforeSchemaExtension { get; set; }
+            public System.String Description { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.String LdifContent { get; set; }
         }
         
     }

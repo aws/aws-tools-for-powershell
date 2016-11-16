@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ShowNodeGroupConfig
         /// <summary>
         /// <para>
-        /// <para>A boolean value which if true, the node group (shard) configuration is included in
+        /// <para>A Boolean value which if true, the node group (shard) configuration is included in
         /// the snapshot description.</para>
         /// </para>
         /// </summary>

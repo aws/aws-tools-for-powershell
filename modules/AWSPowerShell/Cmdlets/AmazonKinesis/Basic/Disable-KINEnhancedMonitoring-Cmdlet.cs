@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>List of shard-level metrics to disable.</para><para>The following are the valid shard-level metrics. The value "<code>ALL</code>" disables
-        /// every metric.</para><ul><li><code>IncomingBytes</code></li><li><code>IncomingRecords</code></li><li><code>OutgoingBytes</code></li><li><code>OutgoingRecords</code></li><li><code>WriteProvisionedThroughputExceeded</code></li><li><code>ReadProvisionedThroughputExceeded</code></li><li><code>IteratorAgeMilliseconds</code></li><li><code>ALL</code></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
+        /// every metric.</para><ul><li><para><code>IncomingBytes</code></para></li><li><para><code>IncomingRecords</code></para></li><li><para><code>OutgoingBytes</code></para></li><li><para><code>OutgoingRecords</code></para></li><li><para><code>WriteProvisionedThroughputExceeded</code></para></li><li><para><code>ReadProvisionedThroughputExceeded</code></para></li><li><para><code>IteratorAgeMilliseconds</code></para></li><li><para><code>ALL</code></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
         /// the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis
         /// Streams Developer Guide</i>.</para>
         /// </para>

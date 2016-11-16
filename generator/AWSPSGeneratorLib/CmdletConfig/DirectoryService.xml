@@ -79,6 +79,10 @@
 
 	<ServiceOperation MethodName="ListIpRoutes" Verb="Get" Noun="IpRoutes"/>
 
+    <ServiceOperation MethodName="StartSchemaExtension" PipelineParameter="DirectoryId"/>
+    <ServiceOperation MethodName="ListSchemaExtensions" Verb="Get" Noun="SchemaExtension"/>
+    <ServiceOperation MethodName="CancelSchemaExtension" PipelineParameter="DirectoryId" Output="Void"/>
+
 	<ServiceOperation MethodName="RemoveIpRoutes" Output="Void" PipelineParameter="DirectoryId"/>
 
 	<ServiceOperation MethodName="RestoreFromSnapshot"

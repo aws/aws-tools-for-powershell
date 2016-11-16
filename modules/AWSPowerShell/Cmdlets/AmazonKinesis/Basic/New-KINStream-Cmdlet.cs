@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// The stream name identifies the stream. The name is scoped to the AWS account used
     /// by the application. It is also scoped by region. That is, two streams in two different
     /// accounts can have the same name, and two streams in the same account, but in two different
-    /// regions, can have the same name. 
+    /// regions, can have the same name.
     /// </para><para><code>CreateStream</code> is an asynchronous operation. Upon receiving a <code>CreateStream</code>
     /// request, Amazon Kinesis immediately returns and sets the stream status to <code>CREATING</code>.
     /// After the stream is created, Amazon Kinesis sets the stream status to <code>ACTIVE</code>.
@@ -54,8 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// You receive a <code>LimitExceededException</code> when making a <code>CreateStream</code>
     /// request if you try to do one of the following:
-    /// </para><ul><li>Have more than five streams in the <code>CREATING</code> state at any point
-    /// in time.</li><li>Create more shards than are authorized for your account.</li></ul><para>
+    /// </para><ul><li><para>
+    /// Have more than five streams in the <code>CREATING</code> state at any point in time.
+    /// </para></li><li><para>
+    /// Create more shards than are authorized for your account.
+    /// </para></li></ul><para>
     /// For the default shard limit for an AWS account, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
     /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>. If you need to increase
     /// this limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact

@@ -307,17 +307,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Boolean PasswordPolicy_RequireUppercase { get; set; }
         #endregion
         
-        #region Parameter Schema
-        /// <summary>
-        /// <para>
-        /// <para>An array of schema attributes for the new user pool. These attributes can be standard
-        /// or custom attributes.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public Amazon.CognitoIdentityProvider.Model.SchemaAttributeType[] Schema { get; set; }
-        #endregion
-        
         #region Parameter SmsAuthenticationMessage
         /// <summary>
         /// <para>
@@ -464,10 +453,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (ParameterWasBound("PasswordPolicy_RequireUppercase"))
                 context.Policies_PasswordPolicy_RequireUppercase = this.PasswordPolicy_RequireUppercase;
             context.PoolName = this.PoolName;
-            if (this.Schema != null)
-            {
-                context.Schema = new List<Amazon.CognitoIdentityProvider.Model.SchemaAttributeType>(this.Schema);
-            }
             context.SmsAuthenticationMessage = this.SmsAuthenticationMessage;
             context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
@@ -807,10 +792,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.PoolName = cmdletContext.PoolName;
             }
-            if (cmdletContext.Schema != null)
-            {
-                request.Schema = cmdletContext.Schema;
-            }
             if (cmdletContext.SmsAuthenticationMessage != null)
             {
                 request.SmsAuthenticationMessage = cmdletContext.SmsAuthenticationMessage;
@@ -927,7 +908,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Boolean? Policies_PasswordPolicy_RequireSymbols { get; set; }
             public System.Boolean? Policies_PasswordPolicy_RequireUppercase { get; set; }
             public System.String PoolName { get; set; }
-            public List<Amazon.CognitoIdentityProvider.Model.SchemaAttributeType> Schema { get; set; }
             public System.String SmsAuthenticationMessage { get; set; }
             public System.String SmsConfiguration_ExternalId { get; set; }
             public System.String SmsConfiguration_SnsCallerArn { get; set; }

@@ -999,15 +999,20 @@ Set-Alias -Name Describe-DCVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name DC-DescribeVirtualInterfaces -Value Get-DCVirtualInterface
 Set-Alias -Name DC-TagResource -Value Add-DCResourceTag
 Set-Alias -Name DC-UntagResource -Value Remove-DCResourceTag
+Set-Alias -Name DS-ListSchemaExtensions -Value Get-DSSchemaExtension
+Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
 Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
 Set-Alias -Name DS-RemoveIpRoutes -Value Remove-DSIpRoutes
 Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
+Set-Alias -Name DS-StartSchemaExtension -Value Start-DSSchemaExtension
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name DS-AddIpRoutes -Value Add-DSIpRoutes
 Set-Alias -Name DS-AddTagsToResource -Value Add-DSResourceTag
+Set-Alias -Name Cancel-DSSchemaExtension -Value Stop-DSSchemaExtension
+Set-Alias -Name DS-CancelSchemaExtension -Value Stop-DSSchemaExtension
 Set-Alias -Name DS-ConnectDirectory -Value Connect-DSDirectory
 Set-Alias -Name Create-DSAlias -Value New-DSAlias
 Set-Alias -Name DS-CreateAlias -Value New-DSAlias
@@ -1048,7 +1053,6 @@ Set-Alias -Name DS-EnableSso -Value Enable-DSSso
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
 Set-Alias -Name DS-ListIpRoutes -Value Get-DSIpRoutes
-Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
@@ -2198,6 +2202,8 @@ Set-Alias -Name KIN-CreateStream -Value New-KINStream
 Set-Alias -Name KIN-DecreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodDecrease
 Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
+Set-Alias -Name Describe-KINLimit -Value Get-KINLimit
+Set-Alias -Name KIN-DescribeLimits -Value Get-KINLimit
 Set-Alias -Name Describe-KINStream -Value Get-KINStream
 Set-Alias -Name KIN-DescribeStream -Value Get-KINStream
 Set-Alias -Name KIN-DisableEnhancedMonitoring -Value Disable-KINEnhancedMonitoring
@@ -2214,6 +2220,7 @@ Set-Alias -Name Put-KINMultipleRecord -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-PutRecords -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
+Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KINA-AddApplicationInput -Value Add-KINAApplicationInput
 Set-Alias -Name KINA-AddApplicationOutput -Value Add-KINAApplicationOutput
 Set-Alias -Name KINA-AddApplicationReferenceDataSource -Value Add-KINAApplicationReferenceDataSource

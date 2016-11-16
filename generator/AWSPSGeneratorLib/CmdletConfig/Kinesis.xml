@@ -24,6 +24,7 @@
     <ServiceOperation MethodName="AddTagsToStream" Output="Void" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="CreateStream" Output="Void" PositionalParameters="ShardCount" PipelineParameter="StreamName" />
     <ServiceOperation MethodName="DeleteStream" Output="Void" />
+    <ServiceOperation MethodName="DescribeLimits" Verb="Describe" Noun="Limit" Output="Response"/>
     <ServiceOperation MethodName="DescribeStream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="GetRecords" PipelineParameter="ShardIterator" Output="Response"/>
     <ServiceOperation MethodName="GetShardIterator" PipelineParameter="ShardId" />
@@ -38,6 +39,7 @@
         <Documentation>Returns the collection of tag keys that were removed</Documentation>
       </PassThru>
     </ServiceOperation>
+    <ServiceOperation MethodName="UpdateShardCount" PipelineParameter="StreamName" PositionalParameters="ShardCount;ScalingType" Output="Response"/>
 
     <ServiceOperation MethodName="DecreaseStreamRetentionPeriod"
                       Verb="Request" Noun="StreamRetentionPeriodDecrease"
