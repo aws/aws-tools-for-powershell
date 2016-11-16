@@ -28,34 +28,56 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Deletes an AWS Directory Service directory.
-    /// 
-    ///  
-    /// <para>
-    /// Before you call <i>DeleteDirectory</i>, ensure that all of the required permissions
-    /// have been explicitly granted through a policy. For details about what permissions
-    /// are required to run the <i>DeleteDirectory</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
-    /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
-    /// </para>
+    /// Applies a schema extension to a Microsoft AD directory.
     /// </summary>
-    [Cmdlet("Remove", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Start", "DSSchemaExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteDirectory operation against AWS Directory Service.", Operation = new[] {"DeleteDirectory"})]
+    [AWSCmdlet("Invokes the StartSchemaExtension operation against AWS Directory Service.", Operation = new[] {"StartSchemaExtension"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.DirectoryService.Model.DeleteDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.StartSchemaExtensionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class StartDSSchemaExtensionCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CreateSnapshotBeforeSchemaExtension
+        /// <summary>
+        /// <para>
+        /// <para>If true, creates a snapshot of the directory before applying the schema extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CreateSnapshotBeforeSchemaExtension { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A description of the schema extension.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
         
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to delete.</para>
+        /// <para>The identifier of the directory for which the schema extension will be applied to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
+        
+        #region Parameter LdifContent
+        /// <summary>
+        /// <para>
+        /// <para>The LDIF file represented as a string. The file size can be no larger than 1MB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LdifContent { get; set; }
         #endregion
         
         #region Parameter Force
@@ -73,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSDirectory (DeleteDirectory)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-DSSchemaExtension (StartSchemaExtension)"))
             {
                 return;
             }
@@ -87,7 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("CreateSnapshotBeforeSchemaExtension"))
+                context.CreateSnapshotBeforeSchemaExtension = this.CreateSnapshotBeforeSchemaExtension;
+            context.Description = this.Description;
             context.DirectoryId = this.DirectoryId;
+            context.LdifContent = this.LdifContent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -102,11 +128,23 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.DeleteDirectoryRequest();
+            var request = new Amazon.DirectoryService.Model.StartSchemaExtensionRequest();
             
+            if (cmdletContext.CreateSnapshotBeforeSchemaExtension != null)
+            {
+                request.CreateSnapshotBeforeSchemaExtension = cmdletContext.CreateSnapshotBeforeSchemaExtension.Value;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
+            }
+            if (cmdletContext.LdifContent != null)
+            {
+                request.LdifContent = cmdletContext.LdifContent;
             }
             
             CmdletOutput output;
@@ -117,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DirectoryId;
+                object pipelineOutput = response.SchemaExtensionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,13 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DeleteDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteDirectoryRequest request)
+        private static Amazon.DirectoryService.Model.StartSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.StartSchemaExtensionRequest request)
         {
             #if DESKTOP
-            return client.DeleteDirectory(request);
+            return client.StartSchemaExtension(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteDirectoryAsync(request);
+            var task = client.StartSchemaExtensionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -159,7 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CreateSnapshotBeforeSchemaExtension { get; set; }
+            public System.String Description { get; set; }
             public System.String DirectoryId { get; set; }
+            public System.String LdifContent { get; set; }
         }
         
     }

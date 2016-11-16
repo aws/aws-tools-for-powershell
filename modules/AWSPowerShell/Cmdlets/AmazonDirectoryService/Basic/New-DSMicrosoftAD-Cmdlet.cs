@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Creates a Microsoft AD in the AWS cloud.
+    /// 
+    ///  
+    /// <para>
+    /// Before you call <i>CreateMicrosoftAD</i>, ensure that all of the required permissions
+    /// have been explicitly granted through a policy. For details about what permissions
+    /// are required to run the <i>CreateMicrosoftAD</i> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+    /// Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSMicrosoftAD", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
