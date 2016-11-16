@@ -121,7 +121,7 @@
       <HintPath>..\..\packages\AWSSDK.KinesisAnalytics.3.3.0.4\lib\net35\AWSSDK.KinesisAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kinesis">
-      <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.0.3\lib\net35\AWSSDK.Kinesis.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.1\lib\net35\AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.1.3\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
@@ -163,7 +163,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.1.2\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
-      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.1.2\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.2\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>..\..\packages\AWSSDK.ECS.3.3.0.4\lib\net35\AWSSDK.ECS.dll</HintPath>
@@ -178,7 +178,7 @@
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.0.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
-      <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.0.3\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.1\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
       <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.1.1\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
