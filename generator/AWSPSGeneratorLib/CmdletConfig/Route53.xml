@@ -83,14 +83,13 @@
     <ServiceOperation MethodName="ListHealthChecks" />
     <ServiceOperation MethodName="ListHostedZones" />
 
+    <ServiceOperation MethodName="ListVPCAssociationAuthorizations" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" Output="Response"/>
+    <ServiceOperation MethodName="CreateVPCAssociationAuthorization" PipelineParameter="VPC" Output="Response" ShouldProcessTarget="VPC_VPCId"/>
+    <ServiceOperation MethodName="DeleteVPCAssociationAuthorization" PipelineParameter="VPC" Output="Void" ShouldProcessTarget="VPC_VPCId"/>
+
     <ServiceOperation MethodName="ListHostedZonesByName" Exclude="true" />
     <ServiceOperation MethodName="UpdateHealthCheck" Exclude="true" />
 
-    <!-- excluded due to obsolence message -->
-    <ServiceOperation MethodName="GetChangeDetails" Exclude="true" />
-    <ServiceOperation MethodName="ListChangeBatchesByHostedZone" Exclude="true" />
-    <ServiceOperation MethodName="ListChangeBatchesByRRSet" Exclude="true" />
-	
 	<ServiceOperation MethodName="TestDNSAnswer" PipelineParameter="HostedZoneId" Output="Response" />
 
   </ServiceOperations>

@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// Send a <code>POST</code> request to the <code>/2013-04-01/delegationset</code> resource.
-    /// The request body must include an XML document with a <code>CreateReusableDelegationSetRequest</code>
+    /// The request body must include a document with a <code>CreateReusableDelegationSetRequest</code>
     /// element.
     /// </para><note><para>
-    /// A reusable delegation set cannot be associated with a private hosted zone/
+    /// A reusable delegation set can't be associated with a private hosted zone/
     /// </para></note><para>
     /// For more information, including a procedure on how to create and configure a reusable
     /// delegation set (also known as white label name servers), see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring

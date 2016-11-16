@@ -2744,6 +2744,7 @@ Set-Alias -Name RS-DescribeClusters -Value Get-RSClusters
 Set-Alias -Name Describe-RSClusterSecurityGroups -Value Get-RSClusterSecurityGroups
 Set-Alias -Name RS-DescribeClusterSecurityGroups -Value Get-RSClusterSecurityGroups
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-ECReservedNodeOffering
+Set-Alias -Name R53-GetTrafficPolicyInstance -Value Get-R53TrafficPolicyInstance
 Set-Alias -Name R53-GetTrafficPolicyInstanceCount -Value Get-R53TrafficPolicyInstanceCount
 Set-Alias -Name List-R53GeoLocations -Value Get-R53GeoLocations
 Set-Alias -Name R53-ListGeoLocations -Value Get-R53GeoLocations
@@ -2765,6 +2766,7 @@ Set-Alias -Name List-R53TrafficPolicyInstancesByHostedZone -Value Get-R53Traffic
 Set-Alias -Name R53-ListTrafficPolicyInstancesByHostedZone -Value Get-R53TrafficPolicyInstancesByHostedZone
 Set-Alias -Name List-R53TrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
 Set-Alias -Name R53-ListTrafficPolicyInstancesByPolicy -Value Get-R53TrafficPolicyInstancesByPolicy
+Set-Alias -Name R53-ListVPCAssociationAuthorizations -Value Get-R53VPCAssociationAuthorizationList
 Set-Alias -Name R53-TestDNSAnswer -Value Test-R53DNSAnswer
 Set-Alias -Name R53-UpdateHostedZoneComment -Value Update-R53HostedZoneComment
 Set-Alias -Name R53-UpdateTrafficPolicyComment -Value Update-R53TrafficPolicyComment
@@ -2786,6 +2788,8 @@ Set-Alias -Name Create-R53TrafficPolicyInstance -Value New-R53TrafficPolicyInsta
 Set-Alias -Name R53-CreateTrafficPolicyInstance -Value New-R53TrafficPolicyInstance
 Set-Alias -Name Create-R53TrafficPolicyVersion -Value New-R53TrafficPolicyVersion
 Set-Alias -Name R53-CreateTrafficPolicyVersion -Value New-R53TrafficPolicyVersion
+Set-Alias -Name Create-R53VPCAssociationAuthorization -Value New-R53VPCAssociationAuthorization
+Set-Alias -Name R53-CreateVPCAssociationAuthorization -Value New-R53VPCAssociationAuthorization
 Set-Alias -Name Delete-R53HealthCheck -Value Remove-R53HealthCheck
 Set-Alias -Name R53-DeleteHealthCheck -Value Remove-R53HealthCheck
 Set-Alias -Name Delete-R53HostedZone -Value Remove-R53HostedZone
@@ -2796,6 +2800,8 @@ Set-Alias -Name Delete-R53TrafficPolicy -Value Remove-R53TrafficPolicy
 Set-Alias -Name R53-DeleteTrafficPolicy -Value Remove-R53TrafficPolicy
 Set-Alias -Name Delete-R53TrafficPolicyInstance -Value Remove-R53TrafficPolicyInstance
 Set-Alias -Name R53-DeleteTrafficPolicyInstance -Value Remove-R53TrafficPolicyInstance
+Set-Alias -Name Delete-R53VPCAssociationAuthorization -Value Remove-R53VPCAssociationAuthorization
+Set-Alias -Name R53-DeleteVPCAssociationAuthorization -Value Remove-R53VPCAssociationAuthorization
 Set-Alias -Name R53-DisassociateVPCFromHostedZone -Value Unregister-R53VPCFromHostedZone
 Set-Alias -Name R53-GetChange -Value Get-R53Change
 Set-Alias -Name R53-GetCheckerIpRanges -Value Get-R53CheckerIpRanges
@@ -2808,7 +2814,6 @@ Set-Alias -Name R53-GetHostedZone -Value Get-R53HostedZone
 Set-Alias -Name R53-GetHostedZoneCount -Value Get-R53HostedZoneCount
 Set-Alias -Name R53-GetReusableDelegationSet -Value Get-R53ReusableDelegationSet
 Set-Alias -Name R53-GetTrafficPolicy -Value Get-R53TrafficPolicy
-Set-Alias -Name R53-GetTrafficPolicyInstance -Value Get-R53TrafficPolicyInstance
 Set-Alias -Name R53D-CheckDomainAvailability -Value Get-R53DDomainAvailability
 Set-Alias -Name Delete-R53DTagsForDomain -Value Remove-R53DTagsForDomain
 Set-Alias -Name R53D-DeleteTagsForDomain -Value Remove-R53DTagsForDomain

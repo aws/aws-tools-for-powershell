@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name of the user for whom you want to enter a code to retrieve a forgotten
-        /// password.</para>
+        /// <para>The user name of the user for whom you want to enter a code to reset a forgotten password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

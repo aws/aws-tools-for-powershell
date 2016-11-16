@@ -30,16 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Disassociates a VPC from a Amazon Route 53 private hosted zone. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// You can't disassociate the last VPC from a private hosted zone.
+    /// </para></note><para>
     /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted zone
-    /// ID</i>/disassociatevpc</code> resource. The request body must include an XML document
-    /// with a <code>DisassociateVPCFromHostedZoneRequest</code> element. The response returns
-    /// the <code>DisassociateVPCFromHostedZoneResponse</code> element.
+    /// ID</i>/disassociatevpc</code> resource. The request body must include a document with
+    /// a <code>DisassociateVPCFromHostedZoneRequest</code> element. The response includes
+    /// a <code>DisassociateVPCFromHostedZoneResponse</code> element.
     /// </para><important><para>
-    /// You can only disassociate a VPC from a private hosted zone when two or more VPCs are
-    /// associated with that hosted zone. You cannot convert a private hosted zone into a
-    /// public hosted zone.
+    /// You can't disassociate a VPC from a private hosted zone when only one VPC is associated
+    /// with the hosted zone. You also can't convert a private hosted zone into a public hosted
+    /// zone.
     /// </para></important>
     /// </summary>
     [Cmdlet("Unregister", "R53VPCFromHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC that you want to disassociate from an Amazon Route 53 hosted zone.</para>
+        /// <para>The ID of the private hosted zone that you want to disassociate a VPC from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
