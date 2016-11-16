@@ -16,6 +16,9 @@
     <PropertyGroup>
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+
+        <!-- fetch sdk binaries by default; if set false, we'll build with what we have in Include folder -->
+		<EnableGetReferences>true</EnableGetReferences>
         
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
@@ -345,7 +348,7 @@
 			/>
 	</Target>
 	
-	<Target Name="get-references"  DependsOnTargets="build-tools">		
+	<Target Name="get-references"  DependsOnTargets="build-tools" Condition="$(EnableGetReferences)">		
 		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-sdk" Properties="TargetRepository=$(MSBuildProjectDirectory)\.."/>
 	</Target>
 </Project>
