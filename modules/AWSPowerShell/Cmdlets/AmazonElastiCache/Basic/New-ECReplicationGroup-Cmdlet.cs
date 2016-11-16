@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </para><para>
     /// When a Redis (cluster mode disabled) replication group has been successfully created,
     /// you can add one or more read replicas to it, up to a total of 5 read replicas. You
-    /// cannot alter a Redis (cluster mode enabled) replication group once it has been created.
+    /// cannot alter a Redis (cluster mode enabled) replication group after it has been created.
     /// </para><note><para>
     /// This operation is valid for Redis only.
     /// </para></note>
@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public partial class NewECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthToken
+        /// <summary>
+        /// <para>
+        /// <para>The password used to access a password protected server.</para><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or "@". </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// at Redis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthToken { get; set; }
+        #endregion
         
         #region Parameter AutomaticFailoverEnabled
         /// <summary>
@@ -197,8 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The number of clusters this replication group initially has.</para><para>This parameter is not used if there is more than one node group (shard). You should
         /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>Multi-AZ</code> is <code>enabled</code>, the value of this parameter must
         /// be at least 2.</para><para>The maximum permitted value for <code>NumCacheClusters</code> is 6 (primary plus 5
-        /// replicas). If you need to exceed this limit, fill out the ElastiCache Limit Increase
-        /// Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</para>
+        /// replicas).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -406,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthToken = this.AuthToken;
             if (ParameterWasBound("AutomaticFailoverEnabled"))
                 context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
@@ -472,6 +483,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // create request
             var request = new Amazon.ElastiCache.Model.CreateReplicationGroupRequest();
             
+            if (cmdletContext.AuthToken != null)
+            {
+                request.AuthToken = cmdletContext.AuthToken;
+            }
             if (cmdletContext.AutomaticFailoverEnabled != null)
             {
                 request.AutomaticFailoverEnabled = cmdletContext.AutomaticFailoverEnabled.Value;
@@ -623,6 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthToken { get; set; }
             public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String CacheNodeType { get; set; }
