@@ -28,14 +28,15 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Retrieves history for the specified alarm. Filter alarms by date range or item type.
-    /// If an alarm name is not specified, Amazon CloudWatch returns histories for all of
-    /// the owner's alarms.
+    /// Retrieves the history for the specified alarm. You can filter the results by date
+    /// range or item type. If an alarm name is not specified, the histories for all alarms
+    /// are returned.
     /// 
-    ///  <note><para>
-    /// Amazon CloudWatch retains the history of an alarm for two weeks, whether or not you
-    /// delete the alarm.
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    ///  
+    /// <para>
+    /// Note that Amazon CloudWatch retains the history of an alarm even if you delete the
+    /// alarm.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWAlarmHistory")]
     [OutputType("Amazon.CloudWatch.Model.AlarmHistoryItem")]

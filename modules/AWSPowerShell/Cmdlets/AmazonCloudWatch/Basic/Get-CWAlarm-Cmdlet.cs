@@ -28,9 +28,9 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Retrieves alarms with the specified names. If no name is specified, all alarms for
-    /// the user are returned. Alarms can be retrieved by using only a prefix for the alarm
-    /// name, the alarm state, or a prefix for any action.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves the specified alarms. If no alarms are specified, all alarms are returned.
+    /// Alarms can be retrieved by using only a prefix for the alarm name, the alarm state,
+    /// or a prefix for any action.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWAlarm")]
     [OutputType("Amazon.CloudWatch.Model.MetricAlarm")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The alarm name prefix. <code>AlarmNames</code> cannot be specified if this parameter
+        /// <para>The alarm name prefix. You cannot specify <code>AlarmNames</code> if this parameter
         /// is specified.</para>
         /// </para>
         /// </summary>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>A list of alarm names to retrieve information for.</para>
+        /// <para>The names of the alarms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

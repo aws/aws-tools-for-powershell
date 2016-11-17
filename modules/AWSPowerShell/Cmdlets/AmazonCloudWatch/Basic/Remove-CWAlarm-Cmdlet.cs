@@ -28,7 +28,7 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Deletes all specified alarms. In the event of an error, no alarms are deleted.
+    /// Deletes the specified alarms. In the event of an error, no alarms are deleted.
     /// </summary>
     [Cmdlet("Remove", "CWAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>A list of alarms to be deleted.</para>
+        /// <para>The alarms to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

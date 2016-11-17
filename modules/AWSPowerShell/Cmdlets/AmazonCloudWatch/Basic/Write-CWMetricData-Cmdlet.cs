@@ -31,20 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates the
     /// data points with the specified metric. If the specified metric does not exist, Amazon
     /// CloudWatch creates the metric. When Amazon CloudWatch creates a metric, it can take
-    /// up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>. 
+    /// up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.
     /// 
     ///  
     /// <para>
-    ///  Each <code>PutMetricData</code> request is limited to 8 KB in size for HTTP GET requests
-    /// and is limited to 40 KB in size for HTTP POST requests. 
-    /// </para><important><para>
+    /// Each <code>PutMetricData</code> request is limited to 8 KB in size for HTTP GET requests
+    /// and is limited to 40 KB in size for HTTP POST requests.
+    /// </para><para>
     /// Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>,
     /// Amazon CloudWatch rejects values that are either too small or too large. Values must
     /// be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base
     /// 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
-    /// </para></important><para>
-    /// Data that is timestamped 24 hours or more in the past may take in excess of 48 hours
-    /// to become available from submission time using <code>GetMetricStatistics</code>.
+    /// </para><para>
+    /// Data points with time stamps from 24 hours ago or longer can take at least 48 hours
+    /// to become available for <a>GetMetricStatistics</a> from the time they are submitted.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWMetricData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricData
         /// <summary>
         /// <para>
-        /// <para>A list of data describing the metric.</para>
+        /// <para>The data for the metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -70,9 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for the metric data.</para><note><para>You cannot specify a namespace that begins with "AWS/". Namespaces that begin with
-        /// "AWS/" are reserved for other Amazon Web Services products that send metrics to Amazon
-        /// CloudWatch.</para></note>
+        /// <para>The namespace for the metric data.</para><para>You cannot specify a namespace that begins with "AWS/". Namespaces that begin with
+        /// "AWS/" are reserved for use by Amazon Web Services products.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

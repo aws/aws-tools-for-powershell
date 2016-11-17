@@ -28,8 +28,8 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Disables actions for the specified alarms. When an alarm's actions are disabled the
-    /// alarm's state may change, but none of the alarm's actions will execute.
+    /// Disables the actions for the specified alarms. When an alarm's actions are disabled,
+    /// the alarm actions do not execute when the alarm state changes.
     /// </summary>
     [Cmdlet("Disable", "CWAlarmAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The names of the alarms to disable actions for.</para>
+        /// <para>The names of the alarms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
