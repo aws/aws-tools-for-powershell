@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Deletes the queue specified by the <b>queue URL</b>, regardless of whether the queue
-    /// is empty. If the specified queue does not exist, Amazon SQS returns a successful response.
+    /// is empty. If the specified queue doesn't exist, Amazon SQS returns a successful response.
     /// 
     /// 
     ///  <important><para>
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// no longer exist. Also, when you delete a queue, you must wait at least 60 seconds
     /// before creating a queue with the same name. 
     /// </para><para>
-    ///  We reserve the right to delete queues that have had no activity for more than 30
-    /// days. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html">How
+    /// We reserve the right to delete queues that have had no activity for more than 30 days.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html">How
     /// Amazon SQS Queues Work</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// </para>
     /// </summary>

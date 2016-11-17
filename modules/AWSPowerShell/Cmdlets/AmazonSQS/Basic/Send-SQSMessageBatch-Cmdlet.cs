@@ -28,33 +28,36 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Delivers up to ten messages to the specified queue. This is a batch version of <a>SendMessage</a>.
-    /// The result of the send action on each message is reported individually in the response.
-    /// The maximum allowed individual message size is 256 KB (262,144 bytes).
+    /// Delivers up to ten messages to the specified queue. This is a batch version of <code><a>SendMessage</a></code>. For a FIFO queue, multiple messages within a single batch
+    /// are enqueued in the order they are sent.
     /// 
     ///  
     /// <para>
-    /// The maximum total payload size (i.e., the sum of all a batch's individual message
-    /// lengths) is also 256 KB (262,144 bytes).
+    /// The result of sending each message is reported individually in the response. Because
+    /// the batch request can result in a combination of successful and unsuccessful actions,
+    /// you should check for batch errors even when the call returns an HTTP status code of
+    /// 200.
     /// </para><para>
-    /// If the <code>DelaySeconds</code> parameter is not specified for an entry, the default
-    /// for the queue is used.
+    /// The maximum allowed individual message size and the maximum total payload size (the
+    /// sum of the individual lengths of all of the batched messages) are both 256 KB (262,144
+    /// bytes).
     /// </para><important><para>
     /// The following list shows the characters (in Unicode) that are allowed in your message,
-    /// according to the W3C XML specification. For more information, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.
-    /// If you send any characters that are not included in the list, your request will be
-    /// rejected.
+    /// according to the W3C XML specification:
+    /// </para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | [<code>#x20</code> to <code>#xD7FF</code>]
+    /// | [<code>#xE000</code> to <code>#xFFFD</code>] | [<code>#x10000</code> to <code>#x10FFFF</code>]
     /// </para><para>
-    /// #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]
-    /// </para></important><important><para>
-    /// Because the batch request can result in a combination of successful and unsuccessful
-    /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of 200.
-    /// </para></important><note><para>
+    /// For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
+    /// If you send any characters that aren't included in this list, your request will be
+    /// rejected.
+    /// </para></important><para>
+    /// If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon
+    /// SQS uses the default for the queue.
+    /// </para><note><para>
     /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this: 
-    /// </para></note><para><code><![CDATA[&amp;Attribute.1=this]]></code></para><para><code><![CDATA[&amp;Attribute.2=that]]></code></para>
+    /// </para></note><para><code>&amp;amp;Attribute.1=this</code></para><para><code>&amp;amp;Attribute.2=that</code></para>
     /// </summary>
     [Cmdlet("Send", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SQS.Model.SendMessageBatchResponse")]

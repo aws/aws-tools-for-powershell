@@ -43,34 +43,38 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// any messages in a particular <code>ReceiveMessage</code> response; in which case you
     /// should repeat the request. 
     /// </para><para>
-    ///  For each message returned, the response includes the following: 
+    /// For each message returned, the response includes the following:
     /// </para><ul><li><para>
-    ///  Message body 
+    /// Message body
     /// </para></li><li><para>
-    ///  MD5 digest of the message body. For information about MD5, go to <a href="http://www.faqs.org/rfcs/rfc1321.html">http://www.faqs.org/rfcs/rfc1321.html</a>.
+    ///  MD5 digest of the message body. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
     /// 
     /// </para></li><li><para>
-    ///  Message ID you received when you sent the message to the queue. 
+    /// Message ID you received when you sent the message to the queue.
     /// </para></li><li><para>
-    ///  Receipt handle. 
+    /// Receipt handle.
     /// </para></li><li><para>
-    ///  Message attributes. 
+    /// Message attributes.
     /// </para></li><li><para>
-    ///  MD5 digest of the message attributes. 
+    /// MD5 digest of the message attributes.
     /// </para></li></ul><para>
     ///  The receipt handle is the identifier you must provide when deleting the message.
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html">Queue
     /// and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// </para><para>
     ///  You can provide the <code>VisibilityTimeout</code> parameter in your request, which
-    /// will be applied to the messages that Amazon SQS returns in the response. If you do
-    /// not include the parameter, the overall visibility timeout for the queue is used for
-    /// the returned messages. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility
+    /// will be applied to the messages that Amazon SQS returns in the response. If you don't
+    /// include the parameter, the overall visibility timeout for the queue is used for the
+    /// returned messages. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility
     /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>. 
+    /// </para><para>
+    ///  A message that is not deleted or a message whose visibility is not extended before
+    /// the visibility timeout expires counts as a failed receive. Depending on the configuration
+    /// of the queue, the message might be sent to the dead letter queue. 
     /// </para><note><para>
-    ///  Going forward, new attributes might be added. If you are writing code that calls
-    /// this action, we recommend that you structure your code so that it can handle new attributes
-    /// gracefully. 
+    /// Going forward, new attributes might be added. If you are writing code that calls this
+    /// action, we recommend that you structure your code so that it can handle new attributes
+    /// gracefully.
     /// </para></note>
     /// </summary>
     [Cmdlet("Receive", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,16 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>A list of attributes that need to be returned along with each message. These attributes
-        /// include:</para><ul><li><para><code>All</code> - returns all values.</para></li><li><para><code>ApproximateFirstReceiveTimestamp</code> - returns the time when the message
-        /// was first received from the queue (epoch time in milliseconds).</para></li><li><para><code>ApproximateReceiveCount</code> - returns the number of times a message has been
-        /// received from the queue but not deleted.</para></li><li><para><code>SenderId</code> - returns the AWS account number (or the IP address, if anonymous
-        /// access is allowed) of the sender.</para></li><li><para><code>SentTimestamp</code> - returns the time when the message was sent to the queue
-        /// (epoch time in milliseconds).</para></li></ul><para>Any other valid special request parameters that are specified (such as <code>ApproximateNumberOfMessages</code>,
-        /// <code>ApproximateNumberOfMessagesDelayed</code>, <code>ApproximateNumberOfMessagesNotVisible</code>,
-        /// <code>CreatedTimestamp</code>, <code>DelaySeconds</code>, <code>LastModifiedTimestamp</code>,
-        /// <code>MaximumMessageSize</code>, <code>MessageRetentionPeriod</code>, <code>Policy</code>,
-        /// <code>QueueArn</code>, <code>ReceiveMessageWaitTimeSeconds</code>, <code>RedrivePolicy</code>,
-        /// and <code>VisibilityTimeout</code>) will be ignored.</para>
+        /// include:</para><ul><li><para><code>All</code> - Returns all values.</para></li><li><para><code>ApproximateFirstReceiveTimestamp</code> - Returns the time the message was
+        /// first received from the queue (epoch time in milliseconds).</para></li><li><para><code>ApproximateReceiveCount</code> - Returns the number of times a message has
+        /// been received from the queue but not deleted.</para></li><li><para><code>SenderId</code></para><ul><li><para>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</para></li><li><para>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</para></li></ul></li><li><para><code>SentTimestamp</code> - Returns the time the message was sent to the queue (epoch
+        /// time in milliseconds).</para></li><li><para><code>MessageDeduplicationId</code> - Returns the value provided by the sender that
+        /// calls the <code><a>SendMessage</a></code> action.</para></li><li><para><code>MessageGroupId</code> - Returns the value provided by the sender that calls
+        /// the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code>
+        /// are returned in sequence.</para></li><li><para><code>SequenceNumber</code> - Returns the value provided by Amazon SQS.</para></li></ul><para>Any other valid special request parameters (such as the following) that are specified
+        /// are ignored:</para><ul><li><para><code>ApproximateNumberOfMessages</code></para></li><li><para><code>ApproximateNumberOfMessagesDelayed</code></para></li><li><para><code>ApproximateNumberOfMessagesNotVisible</code></para></li><li><para><code>CreatedTimestamp</code></para></li><li><para><code>ContentBasedDeduplication</code></para></li><li><para><code>DelaySeconds</code></para></li><li><para><code>LastModifiedTimestamp</code></para></li><li><para><code>MaximumMessageSize</code></para></li><li><para><code>MessageRetentionPeriod</code></para></li><li><para><code>Policy</code></para></li><li><para><code>QueueArn</code>, </para></li><li><para><code>ReceiveMessageWaitTimeSeconds</code></para></li><li><para><code>RedrivePolicy</code></para></li><li><para><code>FifoQueue</code></para></li><li><para><code>VisibilityTimeout</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -108,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages to return. Amazon SQS never returns more messages than
-        /// this value but may return fewer. Values can be from 1 to 10. Default is 1.</para><para>All of the messages are not necessarily returned.</para>
+        /// this value but might return fewer. Values can be from 1 to 10. Default is 1.</para><para>All of the messages are not necessarily returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -123,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// name can contain the following characters: A-Z, a-z, 0-9, underscore (_), hyphen (-),
         /// and period (.). The name must not start or end with a period, and it should not have
         /// successive periods. The name is case sensitive and must be unique among all attribute
-        /// names for the message. The name can be up to 256 characters long. The name cannot
-        /// start with "AWS." or "Amazon." (or any variations in casing), because these prefixes
-        /// are reserved for use by Amazon Web Services.</para><para>When using <code>ReceiveMessage</code>, you can send a list of attribute names to
+        /// names for the message. The name can be up to 256 characters long. The name can't start
+        /// with "AWS." or "Amazon." (or any variations in casing), because these prefixes are
+        /// reserved for use by Amazon Web Services.</para><para>When using <code>ReceiveMessage</code>, you can send a list of attribute names to
         /// receive, or you can return all of the attributes by specifying "All" or ".*" in your
         /// request. You can also use "bar.*" to return all message attributes starting with the
         /// "bar" prefix.</para>
@@ -144,6 +146,41 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
+        #endregion
+        
+        #region Parameter ReceiveRequestAttemptId
+        /// <summary>
+        /// <para>
+        /// <para>This parameter applies only to FIFO (first-in-first-out) queues.</para><para>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking
+        /// issue occurs after a <code>ReceiveMessage</code> action, and instead of a response
+        /// you receive a generic error, you can retry the same action with an identical <code>ReceiveRequestAttemptId</code>
+        /// to retrieve the same set of messages, even if their visibility timeout has not yet
+        /// expired.</para><ul><li><para>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code>
+        /// action.</para></li><li><para>When you set <code>FifoQueue</code>, a caller of the <code>ReceiveMessage</code> action
+        /// can provide a <code>ReceiveRequestAttemptId</code> explicitly.</para></li><li><para>If a caller of the <code>ReceiveMessage</code> action doesn't provide a <code>ReceiveRequestAttemptId</code>,
+        /// Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</para></li><li><para>You can retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code>
+        /// if none of the messages have been modified (deleted or had their visibility changes).</para></li><li><para>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code>
+        /// return the same messages and receipt handles. If a retry occurs within the deduplication
+        /// interval, it resets the visibility timeout. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility
+        /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><important><para>If a caller of the <code>ReceiveMessage</code> action is still processing messages
+        /// when the visibility timeout expires and messages become visible, another worker reading
+        /// from the same queue can receive the same messages and therefore process duplicates.
+        /// Also, if a reader whose message processing time is longer than the visibility timeout
+        /// tries to delete the processed messages, the action fails with an error.</para><para>To mitigate this effect, ensure that your application observes a safe threshold before
+        /// the visibility timeout expires and extend the visibility timeout as necessary.</para></important></li><li><para>While messages with a particular <code>MessageGroupId</code> are invisible, no more
+        /// messages belonging to the same <code>MessageGroupId</code> are returned until the
+        /// visibility timeout expires. You can still receive messages with another <code>MessageGroupId</code>
+        /// as long as it is also visible.</para></li><li><para>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>,
+        /// no retries will work until the original visibility timeout expires. As a result, delays
+        /// might occur but the messages in the queue will remain in a strict order.</para></li></ul><para>The length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code>
+        /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
+        /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-receiverequestattemptid-request-parameter">Using
+        /// the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon Simple Queue Service
+        /// Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ReceiveRequestAttemptId { get; set; }
         #endregion
         
         #region Parameter VisibilityTimeout
@@ -210,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.MessageAttributeNames = new List<System.String>(this.MessageAttributeName);
             }
             context.QueueUrl = this.QueueUrl;
+            context.ReceiveRequestAttemptId = this.ReceiveRequestAttemptId;
             if (ParameterWasBound("VisibilityTimeout"))
                 context.VisibilityTimeout = this.VisibilityTimeout;
             if (ParameterWasBound("WaitTimeInSeconds"))
@@ -245,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             if (cmdletContext.QueueUrl != null)
             {
                 request.QueueUrl = cmdletContext.QueueUrl;
+            }
+            if (cmdletContext.ReceiveRequestAttemptId != null)
+            {
+                request.ReceiveRequestAttemptId = cmdletContext.ReceiveRequestAttemptId;
             }
             if (cmdletContext.VisibilityTimeout != null)
             {
@@ -309,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             public System.Int32? MessageCount { get; set; }
             public List<System.String> MessageAttributeNames { get; set; }
             public System.String QueueUrl { get; set; }
+            public System.String ReceiveRequestAttemptId { get; set; }
             public System.Int32? VisibilityTimeout { get; set; }
             public System.Int32? WaitTimeInSeconds { get; set; }
         }

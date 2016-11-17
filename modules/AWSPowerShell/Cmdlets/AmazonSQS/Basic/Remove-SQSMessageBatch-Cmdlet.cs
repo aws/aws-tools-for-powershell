@@ -32,14 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// The result of the delete action on each message is reported individually in the response.
     /// 
     ///  <important><para>
-    ///  Because the batch request can result in a combination of successful and unsuccessful
+    /// Because the batch request can result in a combination of successful and unsuccessful
     /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of 200. 
+    /// code of 200.
     /// </para></important><note><para>
     /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para></note><para><code><![CDATA[&amp;Attribute.1=this]]></code></para><para><code><![CDATA[&amp;Attribute.2=that]]></code></para>
+    /// </para></note><para><code>&amp;amp;Attribute.1=this</code></para><para><code>&amp;amp;Attribute.2=that</code></para>
     /// </summary>
     [Cmdlet("Remove", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SQS.Model.DeleteMessageBatchResponse")]

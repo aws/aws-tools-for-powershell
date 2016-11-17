@@ -28,18 +28,17 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Delivers a message to the specified queue. With Amazon SQS, you now have the ability
-    /// to send large payload messages that are up to 256KB (262,144 bytes) in size. To send
-    /// large payloads, you must use an AWS SDK that supports SigV4 signing. To verify whether
-    /// SigV4 is supported for an AWS SDK, check the SDK release notes. 
+    /// Delivers a message to the specified queue.
     /// 
     ///  <important><para>
-    ///  The following list shows the characters (in Unicode) allowed in your message, according
-    /// to the W3C XML specification. For more information, go to <a href="http://www.w3.org/TR/REC-xml/#charsets">http://www.w3.org/TR/REC-xml/#charsets</a>
-    /// If you send any characters not included in the list, your request will be rejected.
-    /// 
+    /// The following list shows the characters (in Unicode) that are allowed in your message,
+    /// according to the W3C XML specification:
+    /// </para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | [<code>#x20</code> to <code>#xD7FF</code>]
+    /// | [<code>#xE000</code> to <code>#xFFFD</code>] | [<code>#x10000</code> to <code>#x10FFFF</code>]
     /// </para><para>
-    ///  #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF] 
+    /// For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
+    /// If you send any characters that aren't included in this list, your request will be
+    /// rejected.
     /// </para></important>
     /// </summary>
     [Cmdlet("Send", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para> The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages
         /// with a positive <code>DelaySeconds</code> value become available for processing after
         /// the delay time is finished. If you don't specify a value, the default value for the
-        /// queue applies. </para>
+        /// queue applies. </para><note><para>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message.
+        /// You can set this parameter only on a queue level.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>
         /// <para>Each message attribute consists of a Name, Type, and Value. For more information,
         /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV">Message
-        /// Attribute Items</a>.</para>
+        /// Attribute Items</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,11 +82,63 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The message to send. String maximum 256 KB in size. For a list of allowed characters,
-        /// see the preceding important note.</para>
+        /// see the preceding note.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String MessageBody { get; set; }
+        #endregion
+        
+        #region Parameter MessageDeduplicationId
+        /// <summary>
+        /// <para>
+        /// <para>This parameter applies only to FIFO (first-in-first-out) queues.</para><para>The token used for deduplication of sent messages. If a message with a particular
+        /// <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the
+        /// same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered
+        /// during the 5-minute deduplication interval. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">
+        /// Exactly-Once Processing</a> in the <i>Amazon SQS Developer Guide</i>.</para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>,</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable
+        /// <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash
+        /// to generate the <code>MessageDeduplicationId</code> using the body of the message
+        /// (but not the attributes of the message). </para></li><li><para>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have
+        /// <code>ContentBasedDeduplication</code> set, the action fails with an error.</para></li><li><para>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+        /// overrides the generated one.</para></li></ul></li><li><para>When <code>ContentBasedDeduplication</code> is in effect, messages with identical
+        /// content sent within the deduplication interval are treated as duplicates and only
+        /// one copy of the message is delivered.</para></li><li><para>You can also use <code>ContentBasedDeduplication</code> for messages with identical
+        /// content to be treated as duplicates.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
+        /// another message with a <code>MessageDeduplicationId</code> that is the same as the
+        /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
+        /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul><note><para>The <code>MessageDeduplicationId</code> is available to the recipient of the message
+        /// (this can be useful for troubleshooting delivery issues).</para><para>If a message is sent successfully but the acknowledgdment is lost and the message
+        /// is resent with the same <code>MessageDeduplicationId</code> after the deduplication
+        /// interval, Amazon SQS can't detect duplicate messages.</para></note><para>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code>
+        /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
+        /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>MessageDeduplicationId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property">Using
+        /// the MessageDeduplicationId Property</a> in the <i>Amazon Simple Queue Service Developer
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MessageDeduplicationId { get; set; }
+        #endregion
+        
+        #region Parameter MessageGroupId
+        /// <summary>
+        /// <para>
+        /// <para>This parameter applies only to FIFO (first-in-first-out) queues.</para><para>The tag that specifies that a message belongs to a specific message group. Messages
+        /// that belong to the same message group are processed in a FIFO manner (however, messages
+        /// in different message groups might be processed out of order). To interleave multiple
+        /// ordered streams within a single queue, use <code>MessageGroupId</code> values (for
+        /// example, session data for multiple users). In this scenario, multiple readers can
+        /// process the queue, but the session data of each user is processed in a FIFO fashion.</para><ul><li><para>You must associate a non-empty <code>MessageGroupId</code> with a message. If you
+        /// don't provide a <code>MessageGroupId</code>, the action fails.</para></li><li><para><code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code>
+        /// values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.
+        /// The caller can't specify a <code>MessageGroupId</code>.</para></li></ul><para>The length of <code>MessageGroupId</code> is 128 characters. Valid values are alphanumeric
+        /// characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>For best practices of using <code>MessageGroupId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property">Using
+        /// the MessageGroupId Property</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MessageGroupId { get; set; }
         #endregion
         
         #region Parameter QueueUrl
@@ -113,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("QueueUrl", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("MessageDeduplicationId", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SQSMessage (SendMessage)"))
             {
                 return;
@@ -139,6 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 }
             }
             context.MessageBody = this.MessageBody;
+            context.MessageDeduplicationId = this.MessageDeduplicationId;
+            context.MessageGroupId = this.MessageGroupId;
             context.QueueUrl = this.QueueUrl;
             
             // allow further manipulation of loaded context prior to processing
@@ -167,6 +221,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             if (cmdletContext.MessageBody != null)
             {
                 request.MessageBody = cmdletContext.MessageBody;
+            }
+            if (cmdletContext.MessageDeduplicationId != null)
+            {
+                request.MessageDeduplicationId = cmdletContext.MessageDeduplicationId;
+            }
+            if (cmdletContext.MessageGroupId != null)
+            {
+                request.MessageGroupId = cmdletContext.MessageGroupId;
             }
             if (cmdletContext.QueueUrl != null)
             {
@@ -226,6 +288,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             public System.Int32? DelayInSeconds { get; set; }
             public Dictionary<System.String, Amazon.SQS.Model.MessageAttributeValue> MessageAttributes { get; set; }
             public System.String MessageBody { get; set; }
+            public System.String MessageDeduplicationId { get; set; }
+            public System.String MessageGroupId { get; set; }
             public System.String QueueUrl { get; set; }
         }
         

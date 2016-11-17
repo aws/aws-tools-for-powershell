@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Deletes the messages in a queue specified by the <b>queue URL</b>.
     /// 
     ///  <important><para>
-    /// When you use the <code>PurgeQueue</code> API, the deleted messages in the queue cannot
+    /// When you use the <code>PurgeQueue</code> API, the deleted messages in the queue can't
     /// be retrieved.
     /// </para></important><para>
     /// When you purge a queue, the message deletion process takes up to 60 seconds. All messages
     /// sent to the queue before calling <code>PurgeQueue</code> will be deleted; messages
-    /// sent to the queue while it is being purged may be deleted. While the queue is being
-    /// purged, messages sent to the queue before <code>PurgeQueue</code> was called may be
-    /// received, but will be deleted within the next minute.
+    /// sent to the queue while it is being purged might be deleted. While the queue is being
+    /// purged, messages sent to the queue before <code>PurgeQueue</code> was called might
+    /// be received, but will be deleted within the next minute.
     /// </para>
     /// </summary>
     [Cmdlet("Clear", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

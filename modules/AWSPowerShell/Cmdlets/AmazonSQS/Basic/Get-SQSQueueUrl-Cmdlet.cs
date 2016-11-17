@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Returns the URL of an existing queue. This action provides a simple way to retrieve
-    /// the URL of an Amazon SQS queue. 
+    /// the URL of an Amazon SQS queue.
     /// 
     ///  
     /// <para>
     ///  To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code>
     /// parameter to specify the account ID of the queue's owner. The queue's owner must grant
     /// you permission to access the queue. For more information about shared queue access,
-    /// see <a>AddPermission</a> or go to <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
+    /// see <a>AddPermission</a> or see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
     /// Queues</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// </para>
     /// </summary>

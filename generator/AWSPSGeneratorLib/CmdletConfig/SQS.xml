@@ -52,7 +52,7 @@
     </ServiceOperation>
 
     <ServiceOperation MethodName="RemovePermission" Output="Void" ShouldProcessTarget="Label" PositionalParameters="Label"/>  <!-- do we need shouldprocess here? -->
-    <ServiceOperation MethodName="SendMessage" Output="Response" PositionalParameters="MessageBody;DelaySeconds">
+    <ServiceOperation MethodName="SendMessage" Output="Response" PositionalParameters="MessageBody;DelaySeconds" ShouldProcessTarget="MessageDeduplicationId">
       <Params>
         <!-- bring parameter name into line with other services and suffix with 'InUNITS' -->
         <Param Name="DelaySeconds" NewName="DelayInSeconds" />
