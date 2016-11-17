@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class NewAGApiKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter CustomerId
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CustomerId { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -133,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CustomerId = this.CustomerId;
             context.Description = this.Description;
             if (ParameterWasBound("Enabled"))
                 context.Enabled = this.Enabled;
@@ -160,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.CreateApiKeyRequest();
             
+            if (cmdletContext.CustomerId != null)
+            {
+                request.CustomerId = cmdletContext.CustomerId;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -235,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String CustomerId { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? Enabled { get; set; }
             public System.Boolean? GenerateDistinctId { get; set; }

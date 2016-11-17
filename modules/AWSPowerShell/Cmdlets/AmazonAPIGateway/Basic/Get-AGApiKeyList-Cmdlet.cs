@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGApiKeyListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter CustomerId
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CustomerId { get; set; }
+        #endregion
+        
         #region Parameter IncludeValue
         /// <summary>
         /// <para>
@@ -99,6 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CustomerId = this.CustomerId;
             if (ParameterWasBound("IncludeValue"))
                 context.IncludeValues = this.IncludeValue;
             if (ParameterWasBound("Limit"))
@@ -121,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.GetApiKeysRequest();
             
+            if (cmdletContext.CustomerId != null)
+            {
+                request.CustomerId = cmdletContext.CustomerId;
+            }
             if (cmdletContext.IncludeValues != null)
             {
                 request.IncludeValues = cmdletContext.IncludeValues.Value;
@@ -188,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String CustomerId { get; set; }
             public System.Boolean? IncludeValues { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NameQuery { get; set; }

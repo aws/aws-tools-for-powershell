@@ -39,6 +39,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class WriteAGIntegrationResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter ContentHandling
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how to handle response payload content type conversions. Supported values
+        /// are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following
+        /// behaviors:</para><ul><li><para><code>CONVERT_TO_BINARY</code>: Converts a response payload from a Base64-encoded
+        /// string to the corresponding binary blob.</para></li><li><para><code>CONVERT_TO_TEXT</code>: Converts a response payload from a binary blob to a
+        /// Base64-encoded string.</para></li></ul><para>If this property is not defined, the response payload will be passed through from
+        /// the integration response to the method response without modification.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.ContentHandlingType")]
+        public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
+        #endregion
+        
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
@@ -149,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ContentHandling = this.ContentHandling;
             context.HttpMethod = this.HttpMethod;
             context.ResourceId = this.ResourceId;
             if (this.ResponseParameter != null)
@@ -186,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.PutIntegrationResponseRequest();
             
+            if (cmdletContext.ContentHandling != null)
+            {
+                request.ContentHandling = cmdletContext.ContentHandling;
+            }
             if (cmdletContext.HttpMethod != null)
             {
                 request.HttpMethod = cmdletContext.HttpMethod;
@@ -265,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
             public System.String HttpMethod { get; set; }
             public System.String ResourceId { get; set; }
             public Dictionary<System.String, System.String> ResponseParameters { get; set; }

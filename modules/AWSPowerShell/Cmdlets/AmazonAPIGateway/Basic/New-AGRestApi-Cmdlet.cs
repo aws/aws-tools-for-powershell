@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter BinaryMediaType
+        /// <summary>
+        /// <para>
+        /// <para>The list of binary media types supported by the <a>RestApi</a>. By default, the <a>RestApi</a>
+        /// supports only UTF-8-encoded text payloads.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BinaryMediaTypes")]
+        public System.String[] BinaryMediaType { get; set; }
+        #endregion
+        
         #region Parameter CloneFrom
         /// <summary>
         /// <para>
@@ -67,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Version
+        /// <summary>
+        /// <para>
+        /// <para>The version of the <a>RestApi</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Version { get; set; }
         #endregion
         
         #region Parameter Force
@@ -98,9 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.BinaryMediaType != null)
+            {
+                context.BinaryMediaTypes = new List<System.String>(this.BinaryMediaType);
+            }
             context.CloneFrom = this.CloneFrom;
             context.Description = this.Description;
             context.Name = this.Name;
+            context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.CreateRestApiRequest();
             
+            if (cmdletContext.BinaryMediaTypes != null)
+            {
+                request.BinaryMediaTypes = cmdletContext.BinaryMediaTypes;
+            }
             if (cmdletContext.CloneFrom != null)
             {
                 request.CloneFrom = cmdletContext.CloneFrom;
@@ -128,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Version != null)
+            {
+                request.Version = cmdletContext.Version;
             }
             
             CmdletOutput output;
@@ -180,9 +215,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> BinaryMediaTypes { get; set; }
             public System.String CloneFrom { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.String Version { get; set; }
         }
         
     }

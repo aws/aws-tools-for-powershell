@@ -60,6 +60,23 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String CacheNamespace { get; set; }
         #endregion
         
+        #region Parameter ContentHandling
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how to handle request payload content type conversions. Supported values
+        /// are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following
+        /// behaviors:</para><ul><li><para><code>CONVERT_TO_BINARY</code>: Converts a request payload from a Base64-encoded string
+        /// to the corresponding binary blob.</para></li><li><para><code>CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a Base64-encoded
+        /// string.</para></li></ul><para>If this property is not defined, the request payload will be passed through from the
+        /// method request to integration request without modification, provided that the <code>passthroughBehaviors</code>
+        /// is configured to support payload pass-through.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.ContentHandlingType")]
+        public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
+        #endregion
+        
         #region Parameter TargetCredential
         /// <summary>
         /// <para>
@@ -216,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.CacheKeyParameters = new List<System.String>(this.CacheKeyParameter);
             }
             context.CacheNamespace = this.CacheNamespace;
+            context.ContentHandling = this.ContentHandling;
             context.TargetCredential = this.TargetCredential;
             context.HttpMethod = this.HttpMethod;
             context.IntegrationHttpMethod = this.IntegrationHttpMethod;
@@ -263,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.CacheNamespace != null)
             {
                 request.CacheNamespace = cmdletContext.CacheNamespace;
+            }
+            if (cmdletContext.ContentHandling != null)
+            {
+                request.ContentHandling = cmdletContext.ContentHandling;
             }
             if (cmdletContext.TargetCredential != null)
             {
@@ -357,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public List<System.String> CacheKeyParameters { get; set; }
             public System.String CacheNamespace { get; set; }
+            public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
             public System.String TargetCredential { get; set; }
             public System.String HttpMethod { get; set; }
             public System.String IntegrationHttpMethod { get; set; }

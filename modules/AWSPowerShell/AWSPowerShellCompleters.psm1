@@ -158,6 +158,16 @@ $AG_Completers = {
             break
         }
         
+        # Amazon.APIGateway.ContentHandlingType
+        {
+            ($_ -eq "Write-AGIntegration/ContentHandling") -Or
+            ($_ -eq "Write-AGIntegrationResponse/ContentHandling")
+        }
+        {
+            $v = "CONVERT_TO_BINARY","CONVERT_TO_TEXT"
+            break
+        }
+        
         # Amazon.APIGateway.IntegrationType
         "Write-AGIntegration/Type"
         {
@@ -188,6 +198,7 @@ $AG_Completers = {
 
 $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
+    "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
     "Format"=@("Import-AGApiKey")
     "Mode"=@("Write-AGRestApi")
     "Quota_Period"=@("New-AGUsagePlan")

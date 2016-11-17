@@ -80,6 +80,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String HttpMethod { get; set; }
         #endregion
         
+        #region Parameter OperationName
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OperationName { get; set; }
+        #endregion
+        
         #region Parameter RequestModel
         /// <summary>
         /// <para>
@@ -166,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.AuthorizationType = this.AuthorizationType;
             context.AuthorizerId = this.AuthorizerId;
             context.HttpMethod = this.HttpMethod;
+            context.OperationName = this.OperationName;
             if (this.RequestModel != null)
             {
                 context.RequestModels = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -215,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.HttpMethod != null)
             {
                 request.HttpMethod = cmdletContext.HttpMethod;
+            }
+            if (cmdletContext.OperationName != null)
+            {
+                request.OperationName = cmdletContext.OperationName;
             }
             if (cmdletContext.RequestModels != null)
             {
@@ -287,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String AuthorizationType { get; set; }
             public System.String AuthorizerId { get; set; }
             public System.String HttpMethod { get; set; }
+            public System.String OperationName { get; set; }
             public Dictionary<System.String, System.String> RequestModels { get; set; }
             public Dictionary<System.String, System.Boolean> RequestParameters { get; set; }
             public System.String ResourceId { get; set; }
