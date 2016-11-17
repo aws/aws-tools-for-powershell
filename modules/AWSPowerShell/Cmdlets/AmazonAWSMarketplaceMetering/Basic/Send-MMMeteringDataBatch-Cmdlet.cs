@@ -28,71 +28,36 @@ using Amazon.AWSMarketplaceMetering.Model;
 namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
-    /// API to emit metering records. For identical requests, the API is idempotent. It simply
-    /// returns the metering record ID.
+    
     /// </summary>
-    [Cmdlet("Send", "MMMeteringData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the MeterUsage operation against AWS Marketplace Metering.", Operation = new[] {"MeterUsage"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Send", "MMMeteringDataBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse")]
+    [AWSCmdlet("Invokes the BatchMeterUsage operation against AWS Marketplace Metering.", Operation = new[] {"BatchMeterUsage"})]
+    [AWSCmdletOutput("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse",
+        "This cmdlet returns a Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SendMMMeteringDataCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
+    public partial class SendMMMeteringDataBatchCmdlet : AmazonAWSMarketplaceMeteringClientCmdlet, IExecutor
     {
-        
-        #region Parameter DryRun
-        /// <summary>
-        /// <para>
-        /// <para>Checks whether you have the permissions required for the action, but does not make
-        /// the request. If you have the permissions, the request returns DryRunOperation; otherwise,
-        /// it returns UnauthorizedException.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean DryRun { get; set; }
-        #endregion
         
         #region Parameter ProductCode
         /// <summary>
         /// <para>
-        /// <para>Product code is used to uniquely identify a product in AWS Marketplace. The product
-        /// code should be the same as the one used during the publishing of a new product.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ProductCode { get; set; }
         #endregion
         
-        #region Parameter Timestamp
+        #region Parameter UsageRecord
         /// <summary>
         /// <para>
-        /// <para>Timestamp of the hour, recorded in UTC. The seconds and milliseconds portions of the
-        /// timestamp will be ignored.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.DateTime Timestamp { get; set; }
-        #endregion
-        
-        #region Parameter UsageDimension
-        /// <summary>
-        /// <para>
-        /// <para>It will be one of the 'fcp dimension name' provided during the publishing of the product.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String UsageDimension { get; set; }
-        #endregion
-        
-        #region Parameter UsageQuantity
-        /// <summary>
-        /// <para>
-        /// <para>Consumption value for the hour.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 UsageQuantity { get; set; }
+        [Alias("UsageRecords")]
+        public Amazon.AWSMarketplaceMetering.Model.UsageRecord[] UsageRecord { get; set; }
         #endregion
         
         #region Parameter Force
@@ -110,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProductCode", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-MMMeteringData (MeterUsage)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-MMMeteringDataBatch (BatchMeterUsage)"))
             {
                 return;
             }
@@ -124,14 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.MM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("DryRun"))
-                context.DryRun = this.DryRun;
             context.ProductCode = this.ProductCode;
-            if (ParameterWasBound("Timestamp"))
-                context.Timestamp = this.Timestamp;
-            context.UsageDimension = this.UsageDimension;
-            if (ParameterWasBound("UsageQuantity"))
-                context.UsageQuantity = this.UsageQuantity;
+            if (this.UsageRecord != null)
+            {
+                context.UsageRecords = new List<Amazon.AWSMarketplaceMetering.Model.UsageRecord>(this.UsageRecord);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,27 +108,15 @@ namespace Amazon.PowerShell.Cmdlets.MM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest();
+            var request = new Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageRequest();
             
-            if (cmdletContext.DryRun != null)
-            {
-                request.DryRun = cmdletContext.DryRun.Value;
-            }
             if (cmdletContext.ProductCode != null)
             {
                 request.ProductCode = cmdletContext.ProductCode;
             }
-            if (cmdletContext.Timestamp != null)
+            if (cmdletContext.UsageRecords != null)
             {
-                request.Timestamp = cmdletContext.Timestamp.Value;
-            }
-            if (cmdletContext.UsageDimension != null)
-            {
-                request.UsageDimension = cmdletContext.UsageDimension;
-            }
-            if (cmdletContext.UsageQuantity != null)
-            {
-                request.UsageQuantity = cmdletContext.UsageQuantity.Value;
+                request.UsageRecords = cmdletContext.UsageRecords;
             }
             
             CmdletOutput output;
@@ -177,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.MeteringRecordId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -202,13 +152,13 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest request)
+        private static Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageRequest request)
         {
             #if DESKTOP
-            return client.MeterUsage(request);
+            return client.BatchMeterUsage(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.MeterUsageAsync(request);
+            var task = client.BatchMeterUsageAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -219,11 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DryRun { get; set; }
             public System.String ProductCode { get; set; }
-            public System.DateTime? Timestamp { get; set; }
-            public System.String UsageDimension { get; set; }
-            public System.Int32? UsageQuantity { get; set; }
+            public List<Amazon.AWSMarketplaceMetering.Model.UsageRecord> UsageRecords { get; set; }
         }
         
     }

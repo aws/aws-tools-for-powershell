@@ -10,9 +10,15 @@
   <ServiceOperations>
 
     <ServiceOperation MethodName="MeterUsage" Verb="Send" Noun="MeteringData"
-					  NoPipelineParameter="true" 
-					  ShouldProcessTarget="ProductCode" />
+        PipelineParameter="ProductCode" 
+        ShouldProcessTarget="ProductCode" />
 
-  </ServiceOperations>
-  
+    <ServiceOperation MethodName="BatchMeterUsage" Verb="Send" Noun="MeteringDataBatch"
+        PipelineParameter="ProductCode"
+        ShouldProcessTarget="ProductCode"
+        Output="Response"/>
+
+    <ServiceOperation MethodName="ResolveCustomer" Verb="Get" Noun="CustomerMetadata" Output="Response"/>
+    
+    </ServiceOperations>
 </ConfigModel>

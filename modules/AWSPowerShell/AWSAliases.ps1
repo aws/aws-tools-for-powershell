@@ -2323,7 +2323,9 @@ Set-Alias -Name LM-RemovePermission -Value Remove-LMPermission
 Set-Alias -Name LM-UpdateAlias -Value Update-LMAlias
 Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
+Set-Alias -Name MM-BatchMeterUsage -Value Send-MMMeteringDataBatch
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
+Set-Alias -Name MM-ResolveCustomer -Value Get-MMCustomerMetadata
 Set-Alias -Name MCA-GenerateDataSet -Value New-MCADataSet
 Set-Alias -Name MCA-StartSupportDataExport -Value Start-MCASupportDataExport
 Set-Alias -Name ML-UpdateBatchPrediction -Value Update-MLBatchPrediction
