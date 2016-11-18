@@ -1,3 +1,14 @@
+### 3.3.21.0 (2016-11-17)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * Amazon API Gateway
+    - Added new parameters to several cmdlets to support custom encoding. 
+  * Amazon CloudWatch
+    - Updated cmdlet documentation.
+  * AWS Marketplace Metering
+    - Added support for third party submission of metering records with two new cmdlets: Send-MMMeteringDataBatch (BatchMeterUsage API) and Get-MMCustomerMetadata (ResolveCustomer API).
+  * Amazon SQS
+    - Updated cmdlet documentation and added new parameters to Send-SQSMessage and Receive-SQSMessage cmdlets to support the new FIFO message queue feature.
+
 ### 3.3.20.0 (2016-11-16)
   * Amazon Route53
     - Added support for cross-account VPC assocation with new cmdlets: get-R53VPCAssociationAuthorizationList (ListVPCAssociationAuthorizations API), New-R53VPCAssociationAuthorization (CreateVPCAssociationAuthorization API) and Remove-R53VPCAssociationAuthorization (DeleteVPVAssociationAuthorization API).

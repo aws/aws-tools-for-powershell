@@ -70,7 +70,7 @@
       <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.0.3\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
-      <HintPath>..\..\packages\AWSSDK.SQS.3.3.0.3\lib\net35\AWSSDK.SQS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SQS.3.3.1\lib\net35\AWSSDK.SQS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.0.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
@@ -220,7 +220,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.0.3\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
-      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.0.3\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.1\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
       <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.0.3\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
@@ -247,7 +247,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSSupport.3.3.0.3\lib\net35\AWSSDK.AWSSupport.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceMetering">
-      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceMetering.3.3.0.3\lib\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceMetering.3.3.1\lib\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.0.3\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
@@ -262,7 +262,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.0.3\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
-      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.1.3\lib\net35\AWSSDK.APIGateway.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.2\lib\net35\AWSSDK.APIGateway.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
