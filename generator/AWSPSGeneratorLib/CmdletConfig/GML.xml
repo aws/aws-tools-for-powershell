@@ -43,6 +43,7 @@
     <ServiceOperation MethodName="DescribeRuntimeConfiguration"/>
     <ServiceOperation MethodName="DescribeScalingPolicies" Noun="ScalingPolicy" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="GetGameSessionLogUrl"/>
+    <ServiceOperation MethodName="GetInstanceAccess" PipelineParameter="FleeId"/>
     <ServiceOperation MethodName="ListAliases" Noun="Alias"/>
     <ServiceOperation MethodName="ListBuilds" Noun="Build"/>
     <ServiceOperation MethodName="ListFleets" Noun="Fleet"/>

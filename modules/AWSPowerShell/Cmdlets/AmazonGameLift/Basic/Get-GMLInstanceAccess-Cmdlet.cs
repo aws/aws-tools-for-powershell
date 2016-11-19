@@ -28,59 +28,63 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a fresh set of upload credentials and the assigned Amazon S3 storage location
-    /// for a specific build. Valid credentials are required to upload your game build files
-    /// to Amazon S3.
+    /// Requests remote access to a fleet instance. Remote access is useful for debugging,
+    /// gathering benchmarking data, or watching activity in real time. 
     /// 
-    ///  <important><para>
-    /// Call this action only if you need credentials for a build created with<code><a>CreateBuild</a></code>. This is a rare situation; in most cases, builds are created using the CLI
-    /// command <code>upload-build</code>, which creates a build record and also uploads build
-    /// files. 
-    /// </para></important><para>
-    /// Upload credentials are returned when you create the build, but they have a limited
-    /// lifespan. You can get fresh credentials and use them to re-upload game files until
-    /// the status of that build changes to <code>READY</code>. Once this happens, you must
-    /// create a brand new build.
+    ///  
+    /// <para>
+    /// Access requires credentials that match the operating system of the instance. For a
+    /// Windows instance, GameLift returns a username and password as strings for use with
+    /// a Windows Remote Desktop client. For a Linux instance, GameLift returns a username
+    /// and RSA private key, also as strings, for use with an SSH client. The private key
+    /// must be saved in the proper format to a .pem file before using. If you're making this
+    /// request using the AWS CLI, saving the secret can be handled as part of the GetInstanceAccess
+    /// request (see the example later in this topic). For more information on remote access,
+    /// see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-remote-access.html">Remotely
+    /// Accessing an Instance</a>.
+    /// </para><para>
+    /// To request access to a specific instance, specify the IDs of the instance and the
+    /// fleet it belongs to. If successful, an <a>InstanceAccess</a> object is returned containing
+    /// the instance's IP address and a set of credentials.
     /// </para>
     /// </summary>
-    [Cmdlet("Request", "GMLUploadCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.GameLift.Model.RequestUploadCredentialsResponse")]
-    [AWSCmdlet("Invokes the RequestUploadCredentials operation against Amazon GameLift Service.", Operation = new[] {"RequestUploadCredentials"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.RequestUploadCredentialsResponse",
-        "This cmdlet returns a Amazon.GameLift.Model.RequestUploadCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GMLInstanceAccess")]
+    [OutputType("Amazon.GameLift.Model.InstanceAccess")]
+    [AWSCmdlet("Invokes the GetInstanceAccess operation against Amazon GameLift Service.", Operation = new[] {"GetInstanceAccess"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.InstanceAccess",
+        "This cmdlet returns a InstanceAccess object.",
+        "The service call response (type Amazon.GameLift.Model.GetInstanceAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RequestGMLUploadCredentialCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLInstanceAccessCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter BuildId
+        #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the build you want to get credentials for.</para>
+        /// <para>Unique identifier for a fleet. Specify the fleet that contain the instance you want
+        /// access to. The fleet can be in any of the following statuses: ACTIVATING, ACTIVE,
+        /// or ERROR. Fleets with an ERROR status can be accessed for a few hours before being
+        /// deleted.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String BuildId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String FleetId { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter InstanceId
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>Unique identifier for an instance. Specify the instance you want to get access to.
+        /// You can access an instance in any status.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BuildId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-GMLUploadCredential (RequestUploadCredentials)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -91,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.BuildId = this.BuildId;
+            context.FleetId = this.FleetId;
+            context.InstanceId = this.InstanceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,11 +111,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.RequestUploadCredentialsRequest();
+            var request = new Amazon.GameLift.Model.GetInstanceAccessRequest();
             
-            if (cmdletContext.BuildId != null)
+            if (cmdletContext.FleetId != null)
             {
-                request.BuildId = cmdletContext.BuildId;
+                request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -121,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.InstanceAccess;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -146,13 +155,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.RequestUploadCredentialsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.RequestUploadCredentialsRequest request)
+        private static Amazon.GameLift.Model.GetInstanceAccessResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetInstanceAccessRequest request)
         {
             #if DESKTOP
-            return client.RequestUploadCredentials(request);
+            return client.GetInstanceAccess(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RequestUploadCredentialsAsync(request);
+            var task = client.GetInstanceAccessAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -163,7 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String BuildId { get; set; }
+            public System.String FleetId { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

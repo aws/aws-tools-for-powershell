@@ -28,14 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves information about instances in a fleet.
+    /// Retrieves information about a fleet's instances, including instance IDs. Use this
+    /// action to get details on all instances in the fleet or get details on one specific
+    /// instance.
     /// 
     ///  
     /// <para>
-    /// To get information on a specific instance, specify both a fleet ID and instance ID.
-    /// To get information for all instances in a fleet, specify a fleet ID only. Use the
-    /// pagination parameters to retrieve results as a set of sequential pages. If successful,
-    /// an <a>Instance</a> object is returned for each result.
+    /// To get a specific instance, specify fleet ID and instance ID. To get all instances
+    /// in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results
+    /// as a set of sequential pages. If successful, an <a>Instance</a> object is returned
+    /// for each result.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLInstance")]

@@ -1776,6 +1776,7 @@ Set-Alias -Name ETS-TestRole -Value Test-ETSRole
 Set-Alias -Name ETS-UpdatePipeline -Value Update-ETSPipeline
 Set-Alias -Name ETS-UpdatePipelineNotifications -Value Update-ETSPipelineNotifications
 Set-Alias -Name ETS-UpdatePipelineStatus -Value Update-ETSPipelineStatus
+Set-Alias -Name GML-GetInstanceAccess -Value Get-GMLInstanceAccess
 Set-Alias -Name List-GMLAlias -Value Get-GMLAlias
 Set-Alias -Name GML-ListAliases -Value Get-GMLAlias
 Set-Alias -Name List-GMLBuild -Value Get-GMLBuild

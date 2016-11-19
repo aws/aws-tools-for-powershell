@@ -143,8 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// captures and stores any log files in this location. These logs are in addition to
         /// game session logs; see more on game session logs in the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
         /// GameLift Developer Guide</a>. If no default log path for a fleet is specified, GameLift
-        /// will automatically upload logs stored on each instance at <code>C:\game\logs</code>.
-        /// Use the GameLift console to access stored logs. </para>
+        /// will automatically upload logs stored on each instance at <code>C:\game\logs</code>
+        /// (for Windows) or <code>/local/game/logs</code> (for Linux). Use the GameLift console
+        /// to access stored logs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -181,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
         /// <summary>
         /// <para>
-        /// <para>Maximum number of game sessions an individual can create during the policy period.
+        /// <para>Maximum number of game sessions that an individual can create during the policy period.
         /// </para>
         /// </para>
         /// </summary>
@@ -192,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
         /// <summary>
         /// <para>
-        /// <para>Time span used to evaluate the resource creation limit policy. </para>
+        /// <para>Time span used in evaluating the resource creation limit policy. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Descriptive label associated with a build. Build names do not need to be unique. A
-        /// build name can be changed later using <code><a>UpdateBuild</a></code>.</para>
+        /// build name can be changed later using<code><a>UpdateBuild</a></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Version associated with this build. Version strings do not need to be unique to a
-        /// build. A build version can be changed later using <code><a>UpdateBuild</a></code>.</para>
+        /// build. A build version can be changed later using<code><a>UpdateBuild</a></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

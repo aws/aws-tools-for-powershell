@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
         /// <summary>
         /// <para>
-        /// <para>Maximum number of game sessions an individual can create during the policy period.
+        /// <para>Maximum number of game sessions that an individual can create during the policy period.
         /// </para>
         /// </para>
         /// </summary>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
         /// <summary>
         /// <para>
-        /// <para>Time span used to evaluate the resource creation limit policy. </para>
+        /// <para>Time span used in evaluating the resource creation limit policy. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
