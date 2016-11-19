@@ -30,15 +30,17 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// <summary>
     /// The CreatePreset operation creates a preset with settings that you specify.
     /// 
-    ///  <important>Elastic Transcoder checks the CreatePreset settings to ensure that they
-    /// meet Elastic Transcoder requirements and to determine whether they comply with H.264
-    /// standards. If your settings are not valid for Elastic Transcoder, Elastic Transcoder
-    /// returns an HTTP 400 response (<code>ValidationException</code>) and does not create
-    /// the preset. If the settings are valid for Elastic Transcoder but aren't strictly compliant
-    /// with the H.264 standard, Elastic Transcoder creates the preset and returns a warning
-    /// message in the response. This helps you determine whether your settings comply with
-    /// the H.264 standard while giving you greater flexibility with respect to the video
-    /// that Elastic Transcoder produces.</important><para>
+    ///  <important><para>
+    /// Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic
+    /// Transcoder requirements and to determine whether they comply with H.264 standards.
+    /// If your settings are not valid for Elastic Transcoder, Elastic Transcoder returns
+    /// an HTTP 400 response (<code>ValidationException</code>) and does not create the preset.
+    /// If the settings are valid for Elastic Transcoder but aren't strictly compliant with
+    /// the H.264 standard, Elastic Transcoder creates the preset and returns a warning message
+    /// in the response. This helps you determine whether your settings comply with the H.264
+    /// standard while giving you greater flexibility with respect to the video that Elastic
+    /// Transcoder produces.
+    /// </para></important><para>
     /// Elastic Transcoder uses the H.264 video-compression format. For more information,
     /// see the International Telecommunication Union publication <i>Recommendation ITU-T
     /// H.264: Advanced video coding for generic audiovisual services</i>.
@@ -94,43 +96,37 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// specify an <code>Audio:AudioPackingMode</code>, Elastic Transcoder uses <code>SingleTrack</code>.</para><para>The following values are valid:</para><para><code>SingleTrack</code>, <code>OneChannelPerTrack</code>, and <code>OneChannelPerTrackWithMosTo8Tracks</code></para><para>When you specify <code>SingleTrack</code>, Elastic Transcoder creates a single track
         /// for your output. The track can have up to eight channels. Use <code>SingleTrack</code>
         /// for all non-<code>mxf</code> containers.</para><para>The outputs of <code>SingleTrack</code> for a specific channel value and inputs are
-        /// as follows:</para><ul><li><code>0</code><b> channels with any input:</b> Audio omitted from the output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted
-        /// from the output</li><li><code>1 </code><b>channel with any input with audio:</b>
-        /// One track with one channel, downmixed if necessary</li><li><code>2 </code><b>channels
-        /// with one track with one channel:</b> One track with two identical channels</li><li><code>2
-        /// or auto </code><b>channels with two tracks with one channel each:</b> One track with
-        /// two channels</li><li><code>2 or auto </code><b>channels with one track with two
-        /// channels:</b> One track with two channels</li><li><code>2 </code><b>channels with
-        /// one track with multiple channels:</b> One track with two channels</li><li><code>auto
-        /// </code><b>channels with one track with one channel:</b> One track with one channel</li><li><code>auto </code><b>channels with one track with multiple channels:</b> One
-        /// track with multiple channels</li></ul><para>When you specify <code>OneChannelPerTrack</code>, Elastic Transcoder creates a new
+        /// as follows:</para><ul><li><para><code>0</code><b> channels with any input:</b> Audio omitted from the output</para></li><li><para><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted from
+        /// the output</para></li><li><para><code>1 </code><b>channel with any input with audio:</b> One track with one channel,
+        /// downmixed if necessary</para></li><li><para><code>2 </code><b>channels with one track with one channel:</b> One track with two
+        /// identical channels</para></li><li><para><code>2 or auto </code><b>channels with two tracks with one channel each:</b> One
+        /// track with two channels</para></li><li><para><code>2 or auto </code><b>channels with one track with two channels:</b> One track
+        /// with two channels</para></li><li><para><code>2 </code><b>channels with one track with multiple channels:</b> One track
+        /// with two channels</para></li><li><para><code>auto </code><b>channels with one track with one channel:</b> One track with
+        /// one channel</para></li><li><para><code>auto </code><b>channels with one track with multiple channels:</b> One track
+        /// with multiple channels</para></li></ul><para>When you specify <code>OneChannelPerTrack</code>, Elastic Transcoder creates a new
         /// track for every channel in your output. Your output can have up to eight single-channel
         /// tracks.</para><para>The outputs of <code>OneChannelPerTrack</code> for a specific channel value and inputs
-        /// are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted
-        /// from the output</li><li><code>1 </code><b>channel with any input with audio:</b>
-        /// One track with one channel, downmixed if necessary</li><li><code>2 </code><b>channels
-        /// with one track with one channel:</b> Two tracks with one identical channel each</li><li><code>2 or auto </code><b>channels with two tracks with one channel each:</b>
-        /// Two tracks with one channel each</li><li><code>2 or auto </code><b>channels with
-        /// one track with two channels:</b> Two tracks with one channel each</li><li><code>2
-        /// </code><b>channels with one track with multiple channels:</b> Two tracks with one
-        /// channel each</li><li><code>auto </code><b>channels with one track with one channel:</b>
-        /// One track with one channel</li><li><code>auto </code><b>channels with one track
-        /// with multiple channels:</b> Up to eight tracks with one channel each</li></ul><para>When you specify <code>OneChannelPerTrackWithMosTo8Tracks</code>, Elastic Transcoder
+        /// are as follows:</para><ul><li><para><code>0 </code><b>channels with any input:</b> Audio omitted from the output</para></li><li><para><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted from
+        /// the output</para></li><li><para><code>1 </code><b>channel with any input with audio:</b> One track with one channel,
+        /// downmixed if necessary</para></li><li><para><code>2 </code><b>channels with one track with one channel:</b> Two tracks with
+        /// one identical channel each</para></li><li><para><code>2 or auto </code><b>channels with two tracks with one channel each:</b> Two
+        /// tracks with one channel each</para></li><li><para><code>2 or auto </code><b>channels with one track with two channels:</b> Two tracks
+        /// with one channel each</para></li><li><para><code>2 </code><b>channels with one track with multiple channels:</b> Two tracks
+        /// with one channel each</para></li><li><para><code>auto </code><b>channels with one track with one channel:</b> One track with
+        /// one channel</para></li><li><para><code>auto </code><b>channels with one track with multiple channels:</b> Up to eight
+        /// tracks with one channel each</para></li></ul><para>When you specify <code>OneChannelPerTrackWithMosTo8Tracks</code>, Elastic Transcoder
         /// creates eight single-channel tracks for your output. All tracks that do not contain
         /// audio data from an input channel are MOS, or Mit Out Sound, tracks.</para><para>The outputs of <code>OneChannelPerTrackWithMosTo8Tracks</code> for a specific channel
-        /// value and inputs are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted
-        /// from the output</li><li><code>1 </code><b>channel with any input with audio:</b>
-        /// One track with one channel, downmixed if necessary, plus six MOS tracks</li><li><code>2
-        /// </code><b>channels with one track with one channel:</b> Two tracks with one identical
-        /// channel each, plus six MOS tracks</li><li><code>2 or auto </code><b>channels with
-        /// two tracks with one channel each:</b> Two tracks with one channel each, plus six MOS
-        /// tracks</li><li><code>2 or auto </code><b>channels with one track with two channels:</b>
-        /// Two tracks with one channel each, plus six MOS tracks</li><li><code>2 </code><b>channels
-        /// with one track with multiple channels:</b> Two tracks with one channel each, plus
-        /// six MOS tracks</li><li><code>auto </code><b>channels with one track with one channel:</b>
-        /// One track with one channel, plus seven MOS tracks</li><li><code>auto </code><b>channels
-        /// with one track with multiple channels:</b> Up to eight tracks with one channel each,
-        /// plus MOS tracks until there are eight tracks in all</li></ul>
+        /// value and inputs are as follows:</para><ul><li><para><code>0 </code><b>channels with any input:</b> Audio omitted from the output</para></li><li><para><code>1, 2, or auto </code><b>channels with no audio input:</b> Audio omitted from
+        /// the output</para></li><li><para><code>1 </code><b>channel with any input with audio:</b> One track with one channel,
+        /// downmixed if necessary, plus six MOS tracks</para></li><li><para><code>2 </code><b>channels with one track with one channel:</b> Two tracks with
+        /// one identical channel each, plus six MOS tracks</para></li><li><para><code>2 or auto </code><b>channels with two tracks with one channel each:</b> Two
+        /// tracks with one channel each, plus six MOS tracks</para></li><li><para><code>2 or auto </code><b>channels with one track with two channels:</b> Two tracks
+        /// with one channel each, plus six MOS tracks</para></li><li><para><code>2 </code><b>channels with one track with multiple channels:</b> Two tracks
+        /// with one channel each, plus six MOS tracks</para></li><li><para><code>auto </code><b>channels with one track with one channel:</b> One track with
+        /// one channel, plus seven MOS tracks</para></li><li><para><code>auto </code><b>channels with one track with multiple channels:</b> Up to eight
+        /// tracks with one channel each, plus MOS tracks until there are eight tracks in all</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -182,10 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// If you specify a value other than <code>auto</code>, we recommend that you specify
         /// a value less than or equal to the maximum H.264-compliant value listed for your level
         /// and profile:</para><para><i>Level - Maximum video bit rate in kilobits/second (baseline and main Profile)
-        /// : maximum video bit rate in kilobits/second (high Profile)</i></para><ul><li>1 - 64 : 80</li><li>1b - 128 : 160</li><li>1.1 - 192 : 240</li><li>1.2
-        /// - 384 : 480</li><li>1.3 - 768 : 960</li><li>2 - 2000 : 2500</li><li>3 - 10000 :
-        /// 12500</li><li>3.1 - 14000 : 17500</li><li>3.2 - 20000 : 25000</li><li>4 - 20000
-        /// : 25000</li><li>4.1 - 50000 : 62500</li></ul>
+        /// : maximum video bit rate in kilobits/second (high Profile)</i></para><ul><li><para>1 - 64 : 80</para></li><li><para>1b - 128 : 160</para></li><li><para>1.1 - 192 : 240</para></li><li><para>1.2 - 384 : 480</para></li><li><para>1.3 - 768 : 960</para></li><li><para>2 - 2000 : 2500</para></li><li><para>3 - 10000 : 12500</para></li><li><para>3.1 - 14000 : 17500</para></li><li><para>3.2 - 20000 : 25000</para></li><li><para>4 - 20000 : 25000</para></li><li><para>4.1 - 50000 : 62500</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,12 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// track with two channels sends one channel to the left speaker, and the other channel
         /// to the right speaker. The output channels are organized into tracks. If you want Elastic
         /// Transcoder to automatically detect the number of audio channels in the input file
-        /// and use that value for the output file, select <code>auto</code>.</para><para>The output of a specific channel value and inputs are as follows:</para><ul><li><code>auto</code><b> channel specified, with any input:</b> Pass through
-        /// up to eight input channels.</li><li><code>0</code><b> channels specified, with any
-        /// input:</b> Audio omitted from the output.</li><li><code>1</code><b> channel specified,
-        /// with at least one input channel:</b> Mono sound.</li><li><code>2</code><b> channels
-        /// specified, with any input:</b> Two identical mono channels or stereo. For more information
-        /// about tracks, see <code>Audio:AudioPackingMode.</code></li></ul><para> For more information about how Elastic Transcoder organizes channels and tracks,
+        /// and use that value for the output file, select <code>auto</code>.</para><para>The output of a specific channel value and inputs are as follows:</para><ul><li><para><code>auto</code><b> channel specified, with any input:</b> Pass through up to eight
+        /// input channels.</para></li><li><para><code>0</code><b> channels specified, with any input:</b> Audio omitted from the
+        /// output.</para></li><li><para><code>1</code><b> channel specified, with at least one input channel:</b> Mono sound.</para></li><li><para><code>2</code><b> channels specified, with any input:</b> Two identical mono channels
+        /// or stereo. For more information about tracks, see <code>Audio:AudioPackingMode.</code></para></li></ul><para> For more information about how Elastic Transcoder organizes channels and tracks,
         /// see <code>Audio:AudioPackingMode</code>.</para>
         /// </para>
         /// </summary>
@@ -228,9 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The video codec for the output file. Valid values include <code>gif</code>, <code>H.264</code>,
-        /// <code>mpeg2</code>, and <code>vp8</code>. You can only specify <code>vp8</code> when
-        /// the container type is <code>webm</code>, <code>gif</code> when the container type
-        /// is <code>gif</code>, and <code>mpeg2</code> when the container type is <code>mpg</code>.</para>
+        /// <code>mpeg2</code>, <code>vp8</code>, and <code>vp9</code>. You can only specify <code>vp8</code>
+        /// and <code>vp9</code> when the container type is <code>webm</code>, <code>gif</code>
+        /// when the container type is <code>gif</code>, and <code>mpeg2</code> when the container
+        /// type is <code>mpg</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -240,11 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Video_CodecOption
         /// <summary>
         /// <para>
-        /// <para><b>Profile (H.264/VP8 Only)</b></para><para>The H.264 profile that you want to use for the output file. Elastic Transcoder supports
-        /// the following profiles:</para><ul><li><code>baseline</code>: The profile most commonly used for videoconferencing
-        /// and for mobile applications.</li><li><code>main</code>: The profile used for standard-definition
-        /// digital TV broadcasts.</li><li><code>high</code>: The profile used for high-definition
-        /// digital TV broadcasts and for Blu-ray discs.</li></ul><para><b>Level (H.264 Only)</b></para><para>The H.264 level that you want to use for the output file. Elastic Transcoder supports
+        /// <para><b>Profile (H.264/VP8/VP9 Only)</b></para><para>The H.264 profile that you want to use for the output file. Elastic Transcoder supports
+        /// the following profiles:</para><ul><li><para><code>baseline</code>: The profile most commonly used for videoconferencing and for
+        /// mobile applications.</para></li><li><para><code>main</code>: The profile used for standard-definition digital TV broadcasts.</para></li><li><para><code>high</code>: The profile used for high-definition digital TV broadcasts and
+        /// for Blu-ray discs.</para></li></ul><para><b>Level (H.264 Only)</b></para><para>The H.264 level that you want to use for the output file. Elastic Transcoder supports
         /// the following levels:</para><para><code>1</code>, <code>1b</code>, <code>1.1</code>, <code>1.2</code>, <code>1.3</code>,
         /// <code>2</code>, <code>2.1</code>, <code>2.2</code>, <code>3</code>, <code>3.1</code>,
         /// <code>3.2</code>, <code>4</code>, <code>4.1</code></para><para><b>MaxReferenceFrames (H.264 Only)</b></para><para>Applicable only when the value of Video:Codec is H.264. The maximum number of previously
@@ -254,11 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// * Height in pixels)), 16)</code></para><para>where <i>Width in pixels</i> and <i>Height in pixels</i> represent either MaxWidth
         /// and MaxHeight, or Resolution. <i>Maximum decoded picture buffer in macroblocks</i>
         /// depends on the value of the <code>Level</code> object. See the list below. (A macroblock
-        /// is a block of pixels measuring 16x16.) </para><ul><li>1 - 396</li><li>1b - 396</li><li>1.1 - 900</li><li>1.2 - 2376</li><li>1.3
-        /// - 2376</li><li>2 - 2376</li><li>2.1 - 4752</li><li>2.2 - 8100</li><li>3 - 8100</li><li>3.1 - 18000</li><li>3.2 - 20480</li><li>4 - 32768</li><li>4.1 - 32768</li></ul><para><b>MaxBitRate (Optional, H.264/MPEG2/VP8 only)</b></para><para>The maximum number of bits per second in a video buffer; the size of the buffer is
+        /// is a block of pixels measuring 16x16.) </para><ul><li><para>1 - 396</para></li><li><para>1b - 396</para></li><li><para>1.1 - 900</para></li><li><para>1.2 - 2376</para></li><li><para>1.3 - 2376</para></li><li><para>2 - 2376</para></li><li><para>2.1 - 4752</para></li><li><para>2.2 - 8100</para></li><li><para>3 - 8100</para></li><li><para>3.1 - 18000</para></li><li><para>3.2 - 20480</para></li><li><para>4 - 32768</para></li><li><para>4.1 - 32768</para></li></ul><para><b>MaxBitRate (Optional, H.264/MPEG2/VP8/VP9 only)</b></para><para>The maximum number of bits per second in a video buffer; the size of the buffer is
         /// specified by <code>BufferSize</code>. Specify a value between 16 and 62,500. You can
         /// reduce the bandwidth required to stream a video by reducing the maximum bit rate,
-        /// but this also reduces the quality of the video.</para><para><b>BufferSize (Optional, H.264/MPEG2/VP8 only)</b></para><para>The maximum number of bits in any x seconds of the output video. This window is commonly
+        /// but this also reduces the quality of the video.</para><para><b>BufferSize (Optional, H.264/MPEG2/VP8/VP9 only)</b></para><para>The maximum number of bits in any x seconds of the output video. This window is commonly
         /// 10 seconds, the standard segment duration when you're using FMP4 or MPEG-TS for the
         /// container type of the output video. Specify an integer greater than 0. If you specify
         /// <code>MaxBitRate</code> and omit <code>BufferSize</code>, Elastic Transcoder sets
@@ -277,12 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// output is interlaced, your frame rate is one of <code>23.97</code>, <code>24</code>,
         /// <code>25</code>, <code>29.97</code>, <code>50</code>, or <code>60</code>, your <code>SegmentDuration</code>
         /// is null, and you are using one of the resolution changes from the list below, Elastic
-        /// Transcoder applies the following color space conversions:</para><ul><li><i>Standard to HD, 720x480 to 1920x1080</i> - Elastic Transcoder applies
-        /// <code>Bt601ToBt709</code></li><li><i>Standard to HD, 720x576 to 1920x1080</i> - Elastic
-        /// Transcoder applies <code>Bt601ToBt709</code></li><li><i>HD to Standard, 1920x1080
-        /// to 720x480</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></li><li><i>HD
-        /// to Standard, 1920x1080 to 720x576</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></li></ul><note>Elastic Transcoder may change the behavior of the <code>ColorspaceConversionMode</code><code>Auto</code> mode in the future. All outputs in a playlist must use the same
-        /// <code>ColorSpaceConversionMode</code>.</note><para>If you do not specify a <code>ColorSpaceConversionMode</code>, Elastic Transcoder
+        /// Transcoder applies the following color space conversions:</para><ul><li><para><i>Standard to HD, 720x480 to 1920x1080</i> - Elastic Transcoder applies <code>Bt601ToBt709</code></para></li><li><para><i>Standard to HD, 720x576 to 1920x1080</i> - Elastic Transcoder applies <code>Bt601ToBt709</code></para></li><li><para><i>HD to Standard, 1920x1080 to 720x480</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></para></li><li><para><i>HD to Standard, 1920x1080 to 720x576</i> - Elastic Transcoder applies <code>Bt709ToBt601</code></para></li></ul><note><para>Elastic Transcoder may change the behavior of the <code>ColorspaceConversionMode</code><code>Auto</code> mode in the future. All outputs in a playlist must use the same
+        /// <code>ColorSpaceConversionMode</code>.</para></note><para>If you do not specify a <code>ColorSpaceConversionMode</code>, Elastic Transcoder
         /// does not change the color space of a file. If you are unsure what <code>ColorSpaceConversionMode</code>
         /// was applied to your output file, you can check the <code>AppliedColorSpaceConversion</code>
         /// parameter included in your job response. If your job does not have an <code>AppliedColorSpaceConversion</code>
@@ -335,9 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,
         /// or <code>VP8</code>.</para><para>Whether to use a fixed value for <code>FixedGOP</code>. Valid values are <code>true</code>
-        /// and <code>false</code>:</para><ul><li><code>true</code>: Elastic Transcoder uses the value of <code>KeyframesMaxDist</code>
+        /// and <code>false</code>:</para><ul><li><para><code>true</code>: Elastic Transcoder uses the value of <code>KeyframesMaxDist</code>
         /// for the distance between key frames (the number of frames in a group of pictures,
-        /// or GOP).</li><li><code>false</code>: The distance between key frames can vary.</li></ul><important><para><code>FixedGOP</code> must be set to <code>true</code> for <code>fmp4</code> containers.</para></important>
+        /// or GOP).</para></li><li><para><code>false</code>: The distance between key frames can vary.</para></li></ul><important><para><code>FixedGOP</code> must be set to <code>true</code> for <code>fmp4</code> containers.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -363,11 +349,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <code>25</code>, <code>29.97</code>, <code>30</code>, <code>60</code></para><para>If you specify <code>auto</code>, Elastic Transcoder uses the detected frame rate
         /// of the input source. If you specify a frame rate, we recommend that you perform the
         /// following calculation:</para><para><code>Frame rate = maximum recommended decoding speed in luma samples/second / (width
-        /// in pixels * height in pixels)</code></para><para>where:</para><ul><li><i>width in pixels</i> and <i>height in pixels</i> represent the Resolution
-        /// of the output video.</li><li><i>maximum recommended decoding speed in Luma samples/second</i>
-        /// is less than or equal to the maximum value listed in the following table, based on
-        /// the value that you specified for Level.</li></ul><para>The maximum recommended decoding speed in Luma samples/second for each level is described
-        /// in the following list (<i>Level - Decoding speed</i>):</para><ul><li>1 - 380160</li><li>1b - 380160</li><li>1.1 - 76800</li><li>1.2 - 1536000</li><li>1.3 - 3041280</li><li>2 - 3041280</li><li>2.1 - 5068800</li><li>2.2 - 5184000</li><li>3 - 10368000</li><li>3.1 - 27648000</li><li>3.2 - 55296000</li><li>4 - 62914560</li><li>4.1 - 62914560</li></ul>
+        /// in pixels * height in pixels)</code></para><para>where:</para><ul><li><para><i>width in pixels</i> and <i>height in pixels</i> represent the Resolution of the
+        /// output video.</para></li><li><para><i>maximum recommended decoding speed in Luma samples/second</i> is less than or
+        /// equal to the maximum value listed in the following table, based on the value that
+        /// you specified for Level.</para></li></ul><para>The maximum recommended decoding speed in Luma samples/second for each level is described
+        /// in the following list (<i>Level - Decoding speed</i>):</para><ul><li><para>1 - 380160</para></li><li><para>1b - 380160</para></li><li><para>1.1 - 76800</para></li><li><para>1.2 - 1536000</para></li><li><para>1.3 - 3041280</para></li><li><para>2 - 3041280</para></li><li><para>2.1 - 5068800</para></li><li><para>2.2 - 5184000</para></li><li><para>3 - 10368000</para></li><li><para>3.1 - 27648000</para></li><li><para>3.2 - 55296000</para></li><li><para>4 - 62914560</para></li><li><para>4.1 - 62914560</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -425,7 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The maximum height of thumbnails in pixels. If you specify auto, Elastic Transcoder
         /// uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an
-        /// even integer between 32 and 3072. </para>
+        /// even integer between 32 and 3072.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -449,7 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>
         /// <para>The maximum width of thumbnails in pixels. If you specify auto, Elastic Transcoder
         /// uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an
-        /// even integer between 32 and 4096. </para>
+        /// even integer between 32 and 4096.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -509,12 +495,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</para><para>Specify the AAC profile for the output file. Elastic Transcoder supports the following
-        /// profiles:</para><ul><li><code>auto</code>: If you specify <code>auto</code>, Elastic Transcoder
-        /// will select the profile based on the bit rate selected for the output file.</li><li><code>AAC-LC</code>:
-        /// The most common AAC profile. Use for bit rates larger than 64 kbps.</li><li><code>HE-AAC</code>:
-        /// Not supported on some older players and devices. Use for bit rates between 40 and
-        /// 80 kbps.</li><li><code>HE-AACv2</code>: Not supported on some players and devices.
-        /// Use for bit rates less than 48 kbps.</li></ul><para>All outputs in a <code>Smooth</code> playlist must have the same value for <code>Profile</code>.</para><note><para>If you created any presets before AAC profiles were added, Elastic Transcoder automatically
+        /// profiles:</para><ul><li><para><code>auto</code>: If you specify <code>auto</code>, Elastic Transcoder selects the
+        /// profile based on the bit rate selected for the output file.</para></li><li><para><code>AAC-LC</code>: The most common AAC profile. Use for bit rates larger than 64
+        /// kbps.</para></li><li><para><code>HE-AAC</code>: Not supported on some older players and devices. Use for bit
+        /// rates between 40 and 80 kbps.</para></li><li><para><code>HE-AACv2</code>: Not supported on some players and devices. Use for bit rates
+        /// less than 48 kbps.</para></li></ul><para>All outputs in a <code>Smooth</code> playlist must have the same value for <code>Profile</code>.</para><note><para>If you created any presets before AAC profiles were added, Elastic Transcoder automatically
         /// updated your presets to use AAC-LC. You can change the value as required.</para></note>
         /// </para>
         /// </summary>
@@ -529,9 +514,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <important><para>To better control resolution and aspect ratio of thumbnails, we recommend that you
         /// use the values <code>MaxWidth</code>, <code>MaxHeight</code>, <code>SizingPolicy</code>,
         /// and <code>PaddingPolicy</code> instead of <code>Resolution</code> and <code>AspectRatio</code>.
-        /// The two groups of settings are mutually exclusive. Do not use them together.</para></important><para>The width and height of thumbnail files in pixels. Specify a value in the format <code><i>width</i></code>
-        /// x <code><i>height</i></code> where both values are even integers. The values cannot
-        /// exceed the width and height that you specified in the <code>Video:Resolution</code>
+        /// The two groups of settings are mutually exclusive. Do not use them together.</para></important><para>The width and height of thumbnail files in pixels. Specify a value in the format <code><i>width</i></code> x <code><i>height</i></code> where both values are even integers.
+        /// The values cannot exceed the width and height that you specified in the <code>Video:Resolution</code>
         /// object.</para>
         /// </para>
         /// </summary>
@@ -547,15 +531,13 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <code>PaddingPolicy</code>, and <code>DisplayAspectRatio</code> instead of <code>Resolution</code>
         /// and <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do
         /// not use them together.</para></important><para>The width and height of the video in the output file, in pixels. Valid values are
-        /// <code>auto</code> and <i>width</i> x <i>height</i>:</para><ul><li><code>auto</code>: Elastic Transcoder attempts to preserve the width and
-        /// height of the input file, subject to the following rules.</li><li><code><i>width</i>
-        /// x <i>height</i></code>: The width and height of the output video in pixels.</li></ul><para>Note the following about specifying the width and height:</para><ul><li>The width must be an even integer between 128 and 4096, inclusive.</li><li>The height must be an even integer between 96 and 3072, inclusive.</li><li>If
-        /// you specify a resolution that is less than the resolution of the input file, Elastic
-        /// Transcoder rescales the output file to the lower resolution.</li><li>If you specify
-        /// a resolution that is greater than the resolution of the input file, Elastic Transcoder
-        /// rescales the output to the higher resolution.</li><li>We recommend that you specify
-        /// a resolution for which the product of width and height is less than or equal to the
-        /// applicable value in the following list (<i>List - Max width x height value</i>):</li><ul><li>1 - 25344</li><li>1b - 25344</li><li>1.1 - 101376</li><li>1.2 - 101376</li><li>1.3 - 101376</li><li>2 - 101376</li><li>2.1 - 202752</li><li>2.2 - 404720</li><li>3 - 404720</li><li>3.1 - 921600</li><li>3.2 - 1310720</li><li>4 - 2097152</li><li>4.1 - 2097152</li></ul></ul>
+        /// <code>auto</code> and <i>width</i> x <i>height</i>:</para><ul><li><para><code>auto</code>: Elastic Transcoder attempts to preserve the width and height of
+        /// the input file, subject to the following rules.</para></li><li><para><code><i>width</i> x <i>height</i></code>: The width and height of the output video
+        /// in pixels.</para></li></ul><para>Note the following about specifying the width and height:</para><ul><li><para>The width must be an even integer between 128 and 4096, inclusive.</para></li><li><para>The height must be an even integer between 96 and 3072, inclusive.</para></li><li><para>If you specify a resolution that is less than the resolution of the input file, Elastic
+        /// Transcoder rescales the output file to the lower resolution.</para></li><li><para>If you specify a resolution that is greater than the resolution of the input file,
+        /// Elastic Transcoder rescales the output to the higher resolution.</para></li><li><para>We recommend that you specify a resolution for which the product of width and height
+        /// is less than or equal to the applicable value in the following list (<i>List - Max
+        /// width x height value</i>):</para><ul><li><para>1 - 25344</para></li><li><para>1b - 25344</para></li><li><para>1.1 - 101376</para></li><li><para>1.2 - 101376</para></li><li><para>1.3 - 101376</para></li><li><para>2 - 101376</para></li><li><para>2.1 - 202752</para></li><li><para>2.2 - 404720</para></li><li><para>3 - 404720</para></li><li><para>3.1 - 921600</para></li><li><para>3.2 - 1310720</para></li><li><para>4 - 2097152</para></li><li><para>4.1 - 2097152</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -590,26 +572,23 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Thumbnails_SizingPolicy
         /// <summary>
         /// <para>
-        /// <para>Specify one of the following values to control scaling of thumbnails:</para><para><ul><li><code>Fit</code>: Elastic Transcoder scales thumbnails so they match the
-        /// value that you specified in thumbnail MaxWidth or MaxHeight settings without exceeding
-        /// the other value. </li><li><code>Fill</code>: Elastic Transcoder scales thumbnails
-        /// so they match the value that you specified in thumbnail <code>MaxWidth</code> or <code>MaxHeight</code>
-        /// settings and matches or exceeds the other value. Elastic Transcoder centers the image
-        /// in thumbnails and then crops in the dimension (if any) that exceeds the maximum value.</li><li><code>Stretch</code>: Elastic Transcoder stretches thumbnails to match the values
+        /// <para>Specify one of the following values to control scaling of thumbnails:</para><ul><li><para><code>Fit</code>: Elastic Transcoder scales thumbnails so they match the value that
+        /// you specified in thumbnail MaxWidth or MaxHeight settings without exceeding the other
+        /// value. </para></li><li><para><code>Fill</code>: Elastic Transcoder scales thumbnails so they match the value that
+        /// you specified in thumbnail <code>MaxWidth</code> or <code>MaxHeight</code> settings
+        /// and matches or exceeds the other value. Elastic Transcoder centers the image in thumbnails
+        /// and then crops in the dimension (if any) that exceeds the maximum value.</para></li><li><para><code>Stretch</code>: Elastic Transcoder stretches thumbnails to match the values
         /// that you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code>
         /// settings. If the relative proportions of the input video and thumbnails are different,
-        /// the thumbnails will be distorted.</li><li><code>Keep</code>: Elastic Transcoder does
-        /// not scale thumbnails. If either dimension of the input video exceeds the values that
-        /// you specified for thumbnail <code>MaxWidth</code> and <code>MaxHeight</code> settings,
-        /// Elastic Transcoder crops the thumbnails.</li><li><code>ShrinkToFit</code>: Elastic
-        /// Transcoder scales thumbnails down so that their dimensions match the values that you
-        /// specified for at least one of thumbnail <code>MaxWidth</code> and <code>MaxHeight</code>
-        /// without exceeding either value. If you specify this option, Elastic Transcoder does
-        /// not scale thumbnails up.</li><li><code>ShrinkToFill</code>: Elastic Transcoder scales
-        /// thumbnails down so that their dimensions match the values that you specified for at
-        /// least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping below
-        /// either value. If you specify this option, Elastic Transcoder does not scale thumbnails
-        /// up.</li></ul></para>
+        /// the thumbnails will be distorted.</para></li><li><para><code>Keep</code>: Elastic Transcoder does not scale thumbnails. If either dimension
+        /// of the input video exceeds the values that you specified for thumbnail <code>MaxWidth</code>
+        /// and <code>MaxHeight</code> settings, Elastic Transcoder crops the thumbnails.</para></li><li><para><code>ShrinkToFit</code>: Elastic Transcoder scales thumbnails down so that their
+        /// dimensions match the values that you specified for at least one of thumbnail <code>MaxWidth</code>
+        /// and <code>MaxHeight</code> without exceeding either value. If you specify this option,
+        /// Elastic Transcoder does not scale thumbnails up.</para></li><li><para><code>ShrinkToFill</code>: Elastic Transcoder scales thumbnails down so that their
+        /// dimensions match the values that you specified for at least one of <code>MaxWidth</code>
+        /// and <code>MaxHeight</code> without dropping below either value. If you specify this
+        /// option, Elastic Transcoder does not scale thumbnails up.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -619,27 +598,23 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Video_SizingPolicy
         /// <summary>
         /// <para>
-        /// <para>Specify one of the following values to control scaling of the output video:</para><para><ul><li><code>Fit</code>: Elastic Transcoder scales the output video so it matches
-        /// the value that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code>
-        /// without exceeding the other value.</li><li><code>Fill</code>: Elastic Transcoder
-        /// scales the output video so it matches the value that you specified in either <code>MaxWidth</code>
-        /// or <code>MaxHeight</code> and matches or exceeds the other value. Elastic Transcoder
-        /// centers the output video and then crops it in the dimension (if any) that exceeds
-        /// the maximum value.</li><li><code>Stretch</code>: Elastic Transcoder stretches the
-        /// output video to match the values that you specified for <code>MaxWidth</code> and
-        /// <code>MaxHeight</code>. If the relative proportions of the input video and the output
-        /// video are different, the output video will be distorted.</li><li><code>Keep</code>:
-        /// Elastic Transcoder does not scale the output video. If either dimension of the input
-        /// video exceeds the values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>,
-        /// Elastic Transcoder crops the output video.</li><li><code>ShrinkToFit</code>: Elastic
-        /// Transcoder scales the output video down so that its dimensions match the values that
-        /// you specified for at least one of <code>MaxWidth</code> and <code>MaxHeight</code>
-        /// without exceeding either value. If you specify this option, Elastic Transcoder does
-        /// not scale the video up.</li><li><code>ShrinkToFill</code>: Elastic Transcoder scales
-        /// the output video down so that its dimensions match the values that you specified for
-        /// at least one of <code>MaxWidth</code> and <code>MaxHeight</code> without dropping
-        /// below either value. If you specify this option, Elastic Transcoder does not scale
-        /// the video up.</li></ul></para>
+        /// <para>Specify one of the following values to control scaling of the output video:</para><ul><li><para><code>Fit</code>: Elastic Transcoder scales the output video so it matches the value
+        /// that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without
+        /// exceeding the other value.</para></li><li><para><code>Fill</code>: Elastic Transcoder scales the output video so it matches the value
+        /// that you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> and matches
+        /// or exceeds the other value. Elastic Transcoder centers the output video and then crops
+        /// it in the dimension (if any) that exceeds the maximum value.</para></li><li><para><code>Stretch</code>: Elastic Transcoder stretches the output video to match the
+        /// values that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If
+        /// the relative proportions of the input video and the output video are different, the
+        /// output video will be distorted.</para></li><li><para><code>Keep</code>: Elastic Transcoder does not scale the output video. If either
+        /// dimension of the input video exceeds the values that you specified for <code>MaxWidth</code>
+        /// and <code>MaxHeight</code>, Elastic Transcoder crops the output video.</para></li><li><para><code>ShrinkToFit</code>: Elastic Transcoder scales the output video down so that
+        /// its dimensions match the values that you specified for at least one of <code>MaxWidth</code>
+        /// and <code>MaxHeight</code> without exceeding either value. If you specify this option,
+        /// Elastic Transcoder does not scale the video up.</para></li><li><para><code>ShrinkToFill</code>: Elastic Transcoder scales the output video down so that
+        /// its dimensions match the values that you specified for at least one of <code>MaxWidth</code>
+        /// and <code>MaxHeight</code> without dropping below either value. If you specify this
+        /// option, Elastic Transcoder does not scale the video up.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

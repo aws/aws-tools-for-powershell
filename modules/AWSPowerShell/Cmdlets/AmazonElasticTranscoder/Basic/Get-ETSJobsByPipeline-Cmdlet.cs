@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter PipelineId
         /// <summary>
         /// <para>
-        /// <para> The ID of the pipeline for which you want to get job information. </para>
+        /// <para>The ID of the pipeline for which you want to get job information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

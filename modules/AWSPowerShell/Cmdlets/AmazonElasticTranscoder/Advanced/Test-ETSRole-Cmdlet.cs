@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter OutputBucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket that Elastic Transcoder will write transcoded media files to.
-        /// The action attempts to read from this bucket.</para>
+        /// <para>The Amazon S3 bucket that Elastic Transcoder writes transcoded media files to. The
+        /// action attempts to read from this bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -96,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
+
+            WriteWarning("This cmdlet has been deprecated and will be removed in a future release.");
+
             var context = new CmdletContext
             {
                 Region = this.Region,

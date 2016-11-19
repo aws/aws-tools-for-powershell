@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
 {
     /// <summary>
     /// When you create a job, Elastic Transcoder returns JSON data that includes the values
-    /// that you specified plus information about the job that is created. 
+    /// that you specified plus information about the job that is created.
     /// 
     ///  
     /// <para>
@@ -86,6 +86,18 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         public Amazon.ElasticTranscoder.Model.CaptionFormat[] Captions_CaptionFormat { get; set; }
         #endregion
         
+        #region Parameter InputCaptions_CaptionSource
+        /// <summary>
+        /// <para>
+        /// <para>Source files for the input sidecar captions used during the transcoding process. To
+        /// omit all sidecar captions, leave <code>CaptionSources</code> blank.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Input_InputCaptions_CaptionSources")]
+        public Amazon.ElasticTranscoder.Model.CaptionSource[] InputCaptions_CaptionSource { get; set; }
+        #endregion
+        
         #region Parameter Captions_CaptionSource
         /// <summary>
         /// <para>
@@ -126,6 +138,21 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_Container { get; set; }
+        #endregion
+        
+        #region Parameter TimeSpan_Duration
+        /// <summary>
+        /// <para>
+        /// <para>The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999;
+        /// SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't
+        /// specify a value, Elastic Transcoder creates an output file from StartTime to the end
+        /// of the file.</para><para>If you specify a value longer than the duration of the input file, Elastic Transcoder
+        /// transcodes the file and returns a warning message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Input_TimeSpan_Duration")]
+        public System.String TimeSpan_Duration { get; set; }
         #endregion
         
         #region Parameter DetectedProperties_DurationMilli
@@ -226,6 +253,18 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_InitializationVector")]
         public System.String ThumbnailEncryption_InitializationVector { get; set; }
+        #endregion
+        
+        #region Parameter Input
+        /// <summary>
+        /// <para>
+        /// <para>A section of the request body that provides information about the files that are being
+        /// transcoded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Inputs")]
+        public Amazon.ElasticTranscoder.Model.JobInput[] Input { get; set; }
         #endregion
         
         #region Parameter Input_Interlaced
@@ -350,17 +389,34 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         public System.String ThumbnailEncryption_KeyMd5 { get; set; }
         #endregion
         
+        #region Parameter InputCaptions_MergePolicy
+        /// <summary>
+        /// <para>
+        /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
+        /// captions.</para><ul><li><para><b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions
+        /// into outputs. If captions for a language are embedded in the input file and also appear
+        /// in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded
+        /// captions for that language.</para></li><li><para><b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions
+        /// into outputs. If captions for a language are embedded in the input file and also appear
+        /// in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar
+        /// captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder
+        /// omits all sidecar captions from the output files.</para></li><li><para><b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you
+        /// specify in <code>CaptionSources</code>.</para></li></ul><para><code>MergePolicy</code> cannot be null.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Input_InputCaptions_MergePolicy")]
+        public System.String InputCaptions_MergePolicy { get; set; }
+        #endregion
+        
         #region Parameter AlbumArt_MergePolicy
         /// <summary>
         /// <para>
-        /// <para>A policy that determines how Elastic Transcoder will handle the existence of multiple
-        /// album artwork files.</para><para><ul><li><code>Replace:</code> The specified album art will replace any existing
-        /// album art.</li><li><code>Prepend:</code> The specified album art will be placed in
-        /// front of any existing album art.</li><li><code>Append:</code> The specified album
-        /// art will be placed after any existing album art.</li><li><code>Fallback:</code> If
-        /// the original input file contains artwork, Elastic Transcoder will use that artwork
-        /// for the output. If the original input does not contain artwork, Elastic Transcoder
-        /// will use the specified album art file.</li></ul></para>
+        /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
+        /// album artwork files.</para><ul><li><para><code>Replace:</code> The specified album art replaces any existing album art.</para></li><li><para><code>Prepend:</code> The specified album art is placed in front of any existing
+        /// album art.</para></li><li><para><code>Append:</code> The specified album art is placed after any existing album art.</para></li><li><para><code>Fallback:</code> If the original input file contains artwork, Elastic Transcoder
+        /// uses that artwork for the output. If the original input does not contain artwork,
+        /// Elastic Transcoder uses the specified album art file.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -399,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// to use to your pipeline.</para></li><li><para><b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for
         /// HLS files.</para></li><li><para><b>AES-CTR:</b> AES Counter Mode.</para></li><li><para><b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
         /// encryption format, meaning that a file, key, or initialization vector that has been
-        /// tampered with will fail the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
+        /// tampered with fails the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
         /// base64-encoded:</para><ul><li><para><b>Key</b></para></li><li><para><b>Key MD5</b></para></li><li><para><b>Initialization Vector</b></para></li></ul><important><para>For the AES modes, your private encryption keys and your unencrypted data are never
         /// stored by AWS; therefore, it is important that you safely manage your encryption keys.
         /// If you lose them, you won't be able to unencrypt your data.</para></important>
@@ -421,7 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// to use to your pipeline.</para></li><li><para><b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for
         /// HLS files.</para></li><li><para><b>AES-CTR:</b> AES Counter Mode.</para></li><li><para><b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
         /// encryption format, meaning that a file, key, or initialization vector that has been
-        /// tampered with will fail the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
+        /// tampered with fails the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
         /// base64-encoded:</para><ul><li><para><b>Key</b></para></li><li><para><b>Key MD5</b></para></li><li><para><b>Initialization Vector</b></para></li></ul><important><para>For the AES modes, your private encryption keys and your unencrypted data are never
         /// stored by AWS; therefore, it is important that you safely manage your encryption keys.
         /// If you lose them, you won't be able to unencrypt your data.</para></important>
@@ -443,7 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// to use to your pipeline.</para></li><li><para><b>AES-CBC-PKCS7:</b> A padded cipher-block mode of operation originally used for
         /// HLS files.</para></li><li><para><b>AES-CTR:</b> AES Counter Mode.</para></li><li><para><b>AES-GCM:</b> AES Galois Counter Mode, a mode of operation that is an authenticated
         /// encryption format, meaning that a file, key, or initialization vector that has been
-        /// tampered with will fail the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
+        /// tampered with fails the decryption process.</para></li></ul><para>For all three AES options, you must provide the following settings, which must be
         /// base64-encoded:</para><ul><li><para><b>Key</b></para></li><li><para><b>Key MD5</b></para></li><li><para><b>Initialization Vector</b></para></li></ul><important><para>For the AES modes, your private encryption keys and your unencrypted data are never
         /// stored by AWS; therefore, it is important that you safely manage your encryption keys.
         /// If you lose them, you won't be able to unencrypt your data.</para></important>
@@ -544,9 +600,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Output_SegmentDuration
         /// <summary>
         /// <para>
-        /// <para><important>(Outputs in Fragmented MP4 or MPEG-TS format only.</important>If you specify
-        /// a preset in <code>PresetId</code> for which the value of <code>Container</code> is
-        /// <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), <code>SegmentDuration</code>
+        /// <important><para>(Outputs in Fragmented MP4 or MPEG-TS format only.</para></important><para>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code>
+        /// is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), <code>SegmentDuration</code>
         /// is the target maximum duration of each segment in seconds. For <code>HLSv3</code>
         /// format playlists, each media segment is stored in a separate <code>.ts</code> file.
         /// For <code>HLSv4</code> and <code>Smooth</code> playlists, all media segments for an
@@ -562,19 +617,32 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         public System.String Output_SegmentDuration { get; set; }
         #endregion
         
+        #region Parameter TimeSpan_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The place in the input file where you want a clip to start. The format can be either
+        /// HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS
+        /// (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts
+        /// at the beginning of the input file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Input_TimeSpan_StartTime")]
+        public System.String TimeSpan_StartTime { get; set; }
+        #endregion
+        
         #region Parameter Output_ThumbnailPattern
         /// <summary>
         /// <para>
         /// <para>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so,
-        /// how you want Elastic Transcoder to name the files.</para><para>If you don't want Elastic Transcoder to create thumbnails, specify "".</para><para> If you do want Elastic Transcoder to create thumbnails, specify the information that
+        /// how you want Elastic Transcoder to name the files.</para><para>If you don't want Elastic Transcoder to create thumbnails, specify "".</para><para>If you do want Elastic Transcoder to create thumbnails, specify the information that
         /// you want to include in the file name for each thumbnail. You can specify the following
-        /// values in any sequence: </para><ul><li><para><b><code>{count}</code> (Required)</b>: If you want to create thumbnails, you must
+        /// values in any sequence:</para><ul><li><para><b><code>{count}</code> (Required)</b>: If you want to create thumbnails, you must
         /// include <code>{count}</code> in the <code>ThumbnailPattern</code> object. Wherever
         /// you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence number
         /// (beginning with <b>00001</b>) to thumbnail file names. The number indicates where
-        /// a given thumbnail appears in the sequence of thumbnails for a transcoded file. </para><important>If you specify a literal value and/or <code>{resolution}</code> but you
-        /// omit <code>{count}</code>, Elastic Transcoder returns a validation error and does
-        /// not create the job.</important></li><li><para><b>Literal values (Optional)</b>: You can specify literal values anywhere in the
+        /// a given thumbnail appears in the sequence of thumbnails for a transcoded file. </para><important><para>If you specify a literal value and/or <code>{resolution}</code> but you omit <code>{count}</code>,
+        /// Elastic Transcoder returns a validation error and does not create the job.</para></important></li><li><para><b>Literal values (Optional)</b>: You can specify literal values anywhere in the
         /// <code>ThumbnailPattern</code> object. For example, you can include them as a file
         /// name prefix or as a delimiter between <code>{resolution}</code> and <code>{count}</code>.
         /// </para></li><li><para><b><code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include
@@ -595,7 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <para>User-defined metadata that you want to associate with an Elastic Transcoder job. You
         /// specify metadata in <code>key/value</code> pairs, and you can add up to 10 <code>key/value</code>
         /// pairs per job. Elastic Transcoder does not guarantee that <code>key/value</code> pairs
-        /// will be returned in the same order in which you specify them.</para>
+        /// are returned in the same order in which you specify them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -671,9 +739,20 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.InputEncryptionKeyMd5 = this.InputEncryptionKeyMd5;
             context.InputEncryptionMode = this.InputEncryptionMode;
             context.Input_FrameRate = this.Input_FrameRate;
+            if (this.InputCaptions_CaptionSource != null)
+            {
+                context.Input_InputCaptions_CaptionSources = new List<Amazon.ElasticTranscoder.Model.CaptionSource>(this.InputCaptions_CaptionSource);
+            }
+            context.Input_InputCaptions_MergePolicy = this.InputCaptions_MergePolicy;
             context.Input_Interlaced = this.Input_Interlaced;
             context.Input_Key = this.Input_Key;
             context.Input_Resolution = this.Input_Resolution;
+            context.Input_TimeSpan_Duration = this.TimeSpan_Duration;
+            context.Input_TimeSpan_StartTime = this.TimeSpan_StartTime;
+            if (this.Input != null)
+            {
+                context.Inputs = new List<Amazon.ElasticTranscoder.Model.JobInput>(this.Input);
+            }
             if (this.AlbumArt_Artwork != null)
             {
                 context.Output_AlbumArt_Artwork = new List<Amazon.ElasticTranscoder.Model.Artwork>(this.AlbumArt_Artwork);
@@ -807,6 +886,76 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.Resolution = requestInput_input_Resolution;
                 requestInputIsNull = false;
             }
+            Amazon.ElasticTranscoder.Model.InputCaptions requestInput_input_InputCaptions = null;
+            
+             // populate InputCaptions
+            bool requestInput_input_InputCaptionsIsNull = true;
+            requestInput_input_InputCaptions = new Amazon.ElasticTranscoder.Model.InputCaptions();
+            List<Amazon.ElasticTranscoder.Model.CaptionSource> requestInput_input_InputCaptions_inputCaptions_CaptionSource = null;
+            if (cmdletContext.Input_InputCaptions_CaptionSources != null)
+            {
+                requestInput_input_InputCaptions_inputCaptions_CaptionSource = cmdletContext.Input_InputCaptions_CaptionSources;
+            }
+            if (requestInput_input_InputCaptions_inputCaptions_CaptionSource != null)
+            {
+                requestInput_input_InputCaptions.CaptionSources = requestInput_input_InputCaptions_inputCaptions_CaptionSource;
+                requestInput_input_InputCaptionsIsNull = false;
+            }
+            System.String requestInput_input_InputCaptions_inputCaptions_MergePolicy = null;
+            if (cmdletContext.Input_InputCaptions_MergePolicy != null)
+            {
+                requestInput_input_InputCaptions_inputCaptions_MergePolicy = cmdletContext.Input_InputCaptions_MergePolicy;
+            }
+            if (requestInput_input_InputCaptions_inputCaptions_MergePolicy != null)
+            {
+                requestInput_input_InputCaptions.MergePolicy = requestInput_input_InputCaptions_inputCaptions_MergePolicy;
+                requestInput_input_InputCaptionsIsNull = false;
+            }
+             // determine if requestInput_input_InputCaptions should be set to null
+            if (requestInput_input_InputCaptionsIsNull)
+            {
+                requestInput_input_InputCaptions = null;
+            }
+            if (requestInput_input_InputCaptions != null)
+            {
+                request.Input.InputCaptions = requestInput_input_InputCaptions;
+                requestInputIsNull = false;
+            }
+            Amazon.ElasticTranscoder.Model.TimeSpan requestInput_input_TimeSpan = null;
+            
+             // populate TimeSpan
+            bool requestInput_input_TimeSpanIsNull = true;
+            requestInput_input_TimeSpan = new Amazon.ElasticTranscoder.Model.TimeSpan();
+            System.String requestInput_input_TimeSpan_timeSpan_Duration = null;
+            if (cmdletContext.Input_TimeSpan_Duration != null)
+            {
+                requestInput_input_TimeSpan_timeSpan_Duration = cmdletContext.Input_TimeSpan_Duration;
+            }
+            if (requestInput_input_TimeSpan_timeSpan_Duration != null)
+            {
+                requestInput_input_TimeSpan.Duration = requestInput_input_TimeSpan_timeSpan_Duration;
+                requestInput_input_TimeSpanIsNull = false;
+            }
+            System.String requestInput_input_TimeSpan_timeSpan_StartTime = null;
+            if (cmdletContext.Input_TimeSpan_StartTime != null)
+            {
+                requestInput_input_TimeSpan_timeSpan_StartTime = cmdletContext.Input_TimeSpan_StartTime;
+            }
+            if (requestInput_input_TimeSpan_timeSpan_StartTime != null)
+            {
+                requestInput_input_TimeSpan.StartTime = requestInput_input_TimeSpan_timeSpan_StartTime;
+                requestInput_input_TimeSpanIsNull = false;
+            }
+             // determine if requestInput_input_TimeSpan should be set to null
+            if (requestInput_input_TimeSpanIsNull)
+            {
+                requestInput_input_TimeSpan = null;
+            }
+            if (requestInput_input_TimeSpan != null)
+            {
+                request.Input.TimeSpan = requestInput_input_TimeSpan;
+                requestInputIsNull = false;
+            }
             Amazon.ElasticTranscoder.Model.Encryption requestInput_input_Encryption = null;
             
              // populate Encryption
@@ -931,6 +1080,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             if (requestInputIsNull)
             {
                 request.Input = null;
+            }
+            if (cmdletContext.Inputs != null)
+            {
+                request.Inputs = cmdletContext.Inputs;
             }
             
              // populate Output
@@ -1284,9 +1437,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             public System.String InputEncryptionKeyMd5 { get; set; }
             public System.String InputEncryptionMode { get; set; }
             public System.String Input_FrameRate { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.CaptionSource> Input_InputCaptions_CaptionSources { get; set; }
+            public System.String Input_InputCaptions_MergePolicy { get; set; }
             public System.String Input_Interlaced { get; set; }
             public System.String Input_Key { get; set; }
             public System.String Input_Resolution { get; set; }
+            public System.String Input_TimeSpan_Duration { get; set; }
+            public System.String Input_TimeSpan_StartTime { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.JobInput> Inputs { get; set; }
             public List<Amazon.ElasticTranscoder.Model.Artwork> Output_AlbumArt_Artwork { get; set; }
             public System.String Output_AlbumArt_MergePolicy { get; set; }
             public List<Amazon.ElasticTranscoder.Model.CaptionFormat> Output_Captions_CaptionFormats { get; set; }

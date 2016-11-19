@@ -1777,7 +1777,6 @@ Set-Alias -Name ETS-ListPresets -Value Get-ETSPreset
 Set-Alias -Name ETS-ReadJob -Value Read-ETSJob
 Set-Alias -Name ETS-ReadPipeline -Value Read-ETSPipeline
 Set-Alias -Name ETS-ReadPreset -Value Read-ETSPreset
-Set-Alias -Name ETS-TestRole -Value Test-ETSRole
 Set-Alias -Name ETS-UpdatePipeline -Value Update-ETSPipeline
 Set-Alias -Name ETS-UpdatePipelineNotifications -Value Update-ETSPipelineNotifications
 Set-Alias -Name ETS-UpdatePipelineStatus -Value Update-ETSPipelineStatus

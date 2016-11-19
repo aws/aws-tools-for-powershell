@@ -47,7 +47,7 @@
     <ServiceOperation MethodName="ReadJob"/>
     <ServiceOperation MethodName="ReadPipeline"/>
     <ServiceOperation MethodName="ReadPreset"/>
-    <ServiceOperation MethodName="TestRole" Output="Response" PipelineParameter="Role" PositionalParameters="InputBucket;OutputBucket;Topics"/>
+    <ServiceOperation MethodName="TestRole" Exclude="true"/>
     <ServiceOperation MethodName="UpdatePipeline" PositionalParameters="Name;InputBucket;Role"/>
     <ServiceOperation MethodName="UpdatePipelineNotifications" />
     <ServiceOperation MethodName="UpdatePipelineStatus" PositionalParameters="Status"/>

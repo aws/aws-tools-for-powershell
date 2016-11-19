@@ -59,17 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded
-        /// files. Specify this value when all of the following are true: <ul><li>You want to
-        /// save transcoded files, thumbnails (if any), and playlists (if any) together in one
-        /// bucket.</li><li>You do not want to specify the users or groups who have access to
-        /// the transcoded files, thumbnails, and playlists.</li><li>You do not want to specify
-        /// the permissions that Elastic Transcoder grants to the files. </li><li>You want to
-        /// associate the transcoded files and thumbnails with the Amazon S3 Standard storage
-        /// class.</li></ul> If you want to save transcoded files and playlists in one bucket
-        /// and thumbnails in another bucket, specify which users can access the transcoded files
-        /// or the permissions the users have, or change the Amazon S3 storage class, omit OutputBucket
-        /// and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>
-        /// instead. </para>
+        /// files. Specify this value when all of the following are true:</para><ul><li><para>You want to save transcoded files, thumbnails (if any), and playlists (if any) together
+        /// in one bucket.</para></li><li><para>You do not want to specify the users or groups who have access to the transcoded files,
+        /// thumbnails, and playlists.</para></li><li><para>You do not want to specify the permissions that Elastic Transcoder grants to the files.</para></li><li><para>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard
+        /// storage class.</para></li></ul><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
+        /// another bucket, specify which users can access the transcoded files or the permissions
+        /// the users have, or change the Amazon S3 storage class, omit OutputBucket and specify
+        /// values for <code>ContentConfig</code> and <code>ThumbnailConfig</code> instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,17 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para> The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded
-        /// files. Specify this value when all of the following are true: <ul><li>You want to
-        /// save transcoded files, thumbnails (if any), and playlists (if any) together in one
-        /// bucket.</li><li>You do not want to specify the users or groups who have access to
-        /// the transcoded files, thumbnails, and playlists.</li><li>You do not want to specify
-        /// the permissions that Elastic Transcoder grants to the files. </li><li>You want to
-        /// associate the transcoded files and thumbnails with the Amazon S3 Standard storage
-        /// class.</li></ul> If you want to save transcoded files and playlists in one bucket
-        /// and thumbnails in another bucket, specify which users can access the transcoded files
-        /// or the permissions the users have, or change the Amazon S3 storage class, omit OutputBucket
-        /// and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>
-        /// instead. </para>
+        /// files. Specify this value when all of the following are true:</para><ul><li><para>You want to save transcoded files, thumbnails (if any), and playlists (if any) together
+        /// in one bucket.</para></li><li><para>You do not want to specify the users or groups who have access to the transcoded files,
+        /// thumbnails, and playlists.</para></li><li><para>You do not want to specify the permissions that Elastic Transcoder grants to the files.</para></li><li><para>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard
+        /// storage class.</para></li></ul><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
+        /// another bucket, specify which users can access the transcoded files or the permissions
+        /// the users have, or change the Amazon S3 storage class, omit OutputBucket and specify
+        /// values for <code>ContentConfig</code> and <code>ThumbnailConfig</code> instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -144,14 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        /// (Use this, or use ContentConfig:Bucket plus ThumbnailConfig:Bucket.)</para><para>Specify this value when all of the following are true: <ul><li>You want to save transcoded
-        /// files, thumbnails (if any), and playlists (if any) together in one bucket.</li><li>You
-        /// do not want to specify the users or groups who have access to the transcoded files,
-        /// thumbnails, and playlists.</li><li>You do not want to specify the permissions that
-        /// Elastic Transcoder grants to the files. <important>When Elastic Transcoder saves files
-        /// in <code>OutputBucket</code>, it grants full control over the files only to the AWS
-        /// account that owns the role that is specified by <code>Role</code>.</important></li><li>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard
-        /// storage class.</li></ul></para><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
+        /// (Use this, or use ContentConfig:Bucket plus ThumbnailConfig:Bucket.)</para><para>Specify this value when all of the following are true:</para><ul><li><para>You want to save transcoded files, thumbnails (if any), and playlists (if any) together
+        /// in one bucket.</para></li><li><para>You do not want to specify the users or groups who have access to the transcoded files,
+        /// thumbnails, and playlists.</para></li><li><para>You do not want to specify the permissions that Elastic Transcoder grants to the files.
+        /// </para><important><para>When Elastic Transcoder saves files in <code>OutputBucket</code>, it grants full control
+        /// over the files only to the AWS account that owns the role that is specified by <code>Role</code>.</para></important></li><li><para>You want to associate the transcoded files and thumbnails with the Amazon S3 Standard
+        /// storage class.</para></li></ul><para>If you want to save transcoded files and playlists in one bucket and thumbnails in
         /// another bucket, specify which users can access the transcoded files or the permissions
         /// the users have, or change the Amazon S3 storage class, omit <code>OutputBucket</code>
         /// and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>

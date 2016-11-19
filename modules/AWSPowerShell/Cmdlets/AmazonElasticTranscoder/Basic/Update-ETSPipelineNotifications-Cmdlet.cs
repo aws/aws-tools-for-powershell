@@ -72,8 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The identifier of the pipeline for which you want to change notification settings.
-        /// </para>
+        /// <para>The identifier of the pipeline for which you want to change notification settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
