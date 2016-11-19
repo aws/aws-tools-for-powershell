@@ -28,36 +28,43 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Creates a security configuration, which is stored in the service and can be specified
-    /// when a cluster is created.
+    /// Cancels a pending step or steps in a running cluster. Available only in Amazon EMR
+    /// versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed
+    /// in each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not
+    /// guarantee a step will be canceled, even if the request is successfully submitted.
+    /// You can only cancel steps that are in a <code>PENDING</code> state.
     /// </summary>
-    [Cmdlet("New", "EMRSecurityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse")]
-    [AWSCmdlet("Invokes the CreateSecurityConfiguration operation against Amazon Elastic MapReduce.", Operation = new[] {"CreateSecurityConfiguration"})]
-    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse",
-        "This cmdlet returns a Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "EMRSteps", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticMapReduce.Model.CancelStepsInfo")]
+    [AWSCmdlet("Invokes the CancelSteps operation against Amazon Elastic MapReduce.", Operation = new[] {"CancelSteps"})]
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CancelStepsInfo",
+        "This cmdlet returns a collection of CancelStepsInfo objects.",
+        "The service call response (type Amazon.ElasticMapReduce.Model.CancelStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEMRSecurityConfigurationCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class StopEMRStepsCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The name of the security configuration.</para>
+        /// <para>The <code>ClusterID</code> for which specified steps will be canceled. Use <a>RunJobFlow</a>
+        /// and <a>ListClusters</a> to get ClusterIDs. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ClusterId { get; set; }
         #endregion
         
-        #region Parameter SecurityConfiguration
+        #region Parameter StepId
         /// <summary>
         /// <para>
-        /// <para>The security configuration details in JSON format.</para>
+        /// <para>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps and
+        /// their states for the specified cluster.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String SecurityConfiguration { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StepIds")]
+        public System.String[] StepId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -74,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMRSecurityConfiguration (CreateSecurityConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EMRSteps (CancelSteps)"))
             {
                 return;
             }
@@ -89,8 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Name = this.Name;
-            context.SecurityConfiguration = this.SecurityConfiguration;
+            context.ClusterId = this.ClusterId;
+            if (this.StepId != null)
+            {
+                context.StepIds = new List<System.String>(this.StepId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -105,15 +115,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationRequest();
+            var request = new Amazon.ElasticMapReduce.Model.CancelStepsRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ClusterId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ClusterId = cmdletContext.ClusterId;
             }
-            if (cmdletContext.SecurityConfiguration != null)
+            if (cmdletContext.StepIds != null)
             {
-                request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
+                request.StepIds = cmdletContext.StepIds;
             }
             
             CmdletOutput output;
@@ -124,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.CancelStepsInfoList;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,13 +159,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationRequest request)
+        private static Amazon.ElasticMapReduce.Model.CancelStepsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CancelStepsRequest request)
         {
             #if DESKTOP
-            return client.CreateSecurityConfiguration(request);
+            return client.CancelSteps(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateSecurityConfigurationAsync(request);
+            var task = client.CancelStepsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -166,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.String SecurityConfiguration { get; set; }
+            public System.String ClusterId { get; set; }
+            public List<System.String> StepIds { get; set; }
         }
         
     }

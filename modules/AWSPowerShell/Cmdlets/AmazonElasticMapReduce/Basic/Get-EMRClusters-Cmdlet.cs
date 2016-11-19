@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter CreatedAfter
         /// <summary>
         /// <para>
-        /// <para>The creation date and time beginning value filter for listing clusters .</para>
+        /// <para>The creation date and time beginning value filter for listing clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter CreatedBefore
         /// <summary>
         /// <para>
-        /// <para>The creation date and time end value filter for listing clusters .</para>
+        /// <para>The creation date and time end value filter for listing clusters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

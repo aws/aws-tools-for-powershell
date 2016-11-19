@@ -1701,6 +1701,8 @@ Set-Alias -Name Add-EMRJobFlowSteps -Value Add-EMRJobFlowStep
 Set-Alias -Name EMR-AddJobFlowSteps -Value Add-EMRJobFlowStep
 Set-Alias -Name Add-EMRTags -Value Add-EMRTag
 Set-Alias -Name EMR-AddTags -Value Add-EMRTag
+Set-Alias -Name Cancel-EMRSteps -Value Stop-EMRSteps
+Set-Alias -Name EMR-CancelSteps -Value Stop-EMRSteps
 Set-Alias -Name Create-EMRSecurityConfiguration -Value New-EMRSecurityConfiguration
 Set-Alias -Name EMR-CreateSecurityConfiguration -Value New-EMRSecurityConfiguration
 Set-Alias -Name Delete-EMRSecurityConfiguration -Value Remove-EMRSecurityConfiguration
@@ -1726,6 +1728,9 @@ Set-Alias -Name List-EMRSteps -Value Get-EMRSteps
 Set-Alias -Name EMR-ListSteps -Value Get-EMRSteps
 Set-Alias -Name Modify-EMRInstanceGroups -Value Edit-EMRInstanceGroup
 Set-Alias -Name EMR-ModifyInstanceGroups -Value Edit-EMRInstanceGroup
+Set-Alias -Name Put-EMRAutoScalingPolicy -Value Write-EMRAutoScalingPolicy
+Set-Alias -Name EMR-PutAutoScalingPolicy -Value Write-EMRAutoScalingPolicy
+Set-Alias -Name EMR-RemoveAutoScalingPolicy -Value Remove-EMRAutoScalingPolicy
 Set-Alias -Name Remove-EMRTags -Value Remove-EMRTag
 Set-Alias -Name EMR-RemoveTags -Value Remove-EMRTag
 Set-Alias -Name Run-EMRJobFlow -Value Start-EMRJobFlow

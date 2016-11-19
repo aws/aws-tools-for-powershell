@@ -28,6 +28,7 @@
   <ServiceOperations>
     <ServiceOperation MethodName="AddInstanceGroups" Output="Response" PositionalParameters="InstanceGroups"/>
     <ServiceOperation MethodName="AddJobFlowSteps" PositionalParameters="Steps"/>
+    <ServiceOperation MethodName="CancelSteps" PipelineParameter="ClusterId"/>
     <ServiceOperation MethodName="CreateSecurityConfiguration" PipelineParameter="SecurityConfiguration" Output="Response" />
     <ServiceOperation MethodName="DeleteSecurityConfiguration" Output="Void" />
     <ServiceOperation MethodName="DescribeCluster" />
@@ -41,6 +42,8 @@
     <ServiceOperation MethodName="ListSecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" />
     <ServiceOperation MethodName="ListSteps" Noun="Steps" PipelineParameter="ClusterId"/>
     <ServiceOperation MethodName="ModifyInstanceGroups" Output="Void" />
+    <ServiceOperation MethodName="PutAutoScalingPolicy" PipelineParameter="ClusterId" Output="Response"/>
+    <ServiceOperation MethodName="RemoveAutoScalingPolicy" PipelineParameter="ClusterId" Output="Void"/>
     <ServiceOperation MethodName="RunJobFlow" PipelineParameter="Name" PositionalParameters="Name;LogUri"/>
     <ServiceOperation MethodName="SetTerminationProtection" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="TerminationProtected"/>
     <ServiceOperation MethodName="SetVisibleToAllUsers" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="VisibleToAllUsers"/>

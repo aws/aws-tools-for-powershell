@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </para></li><li><para>
     ///  Job flows created within the last two months that are in one of the following states:
     /// <code>RUNNING</code>, <code>WAITING</code>, <code>SHUTTING_DOWN</code>, <code>STARTING</code></para></li></ul><para>
-    /// Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions.
+    /// Amazon EMR can return a maximum of 512 job flow descriptions.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EMRJobFlow")]

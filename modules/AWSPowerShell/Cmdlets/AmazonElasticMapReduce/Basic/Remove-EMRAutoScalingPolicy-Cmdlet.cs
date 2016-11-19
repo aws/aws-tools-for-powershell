@@ -28,36 +28,47 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Creates a security configuration, which is stored in the service and can be specified
-    /// when a cluster is created.
+    /// Removes an automatic scaling policy from a specified instance group within an EMR
+    /// cluster.
     /// </summary>
-    [Cmdlet("New", "EMRSecurityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse")]
-    [AWSCmdlet("Invokes the CreateSecurityConfiguration operation against Amazon Elastic MapReduce.", Operation = new[] {"CreateSecurityConfiguration"})]
-    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse",
-        "This cmdlet returns a Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EMRAutoScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the RemoveAutoScalingPolicy operation against Amazon Elastic MapReduce.", Operation = new[] {"RemoveAutoScalingPolicy"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEMRSecurityConfigurationCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class RemoveEMRAutoScalingPolicyCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The name of the security configuration.</para>
+        /// <para>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
+        /// is applied is within this cluster.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ClusterId { get; set; }
         #endregion
         
-        #region Parameter SecurityConfiguration
+        #region Parameter InstanceGroupId
         /// <summary>
         /// <para>
-        /// <para>The security configuration details in JSON format.</para>
+        /// <para>Specifies the ID of the instance group to which the scaling policy is applied.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String SecurityConfiguration { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceGroupId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ClusterId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -74,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMRSecurityConfiguration (CreateSecurityConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EMRAutoScalingPolicy (RemoveAutoScalingPolicy)"))
             {
                 return;
             }
@@ -89,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Name = this.Name;
-            context.SecurityConfiguration = this.SecurityConfiguration;
+            context.ClusterId = this.ClusterId;
+            context.InstanceGroupId = this.InstanceGroupId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -105,15 +116,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationRequest();
+            var request = new Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ClusterId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ClusterId = cmdletContext.ClusterId;
             }
-            if (cmdletContext.SecurityConfiguration != null)
+            if (cmdletContext.InstanceGroupId != null)
             {
-                request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
+                request.InstanceGroupId = cmdletContext.InstanceGroupId;
             }
             
             CmdletOutput output;
@@ -124,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ClusterId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,13 +162,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationRequest request)
+        private static Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyRequest request)
         {
             #if DESKTOP
-            return client.CreateSecurityConfiguration(request);
+            return client.RemoveAutoScalingPolicy(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateSecurityConfigurationAsync(request);
+            var task = client.RemoveAutoScalingPolicyAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -166,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.String SecurityConfiguration { get; set; }
+            public System.String ClusterId { get; set; }
+            public System.String InstanceGroupId { get; set; }
         }
         
     }

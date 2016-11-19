@@ -33,14 +33,24 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// group and the instance group ID. The call will either succeed or fail atomically.
     /// </summary>
     [Cmdlet("Edit", "EMRInstanceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig")]
+    [OutputType("None")]
     [AWSCmdlet("Invokes the ModifyInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"ModifyInstanceGroups"})]
-    [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceGroup parameter. Otherwise, this cmdlet does not return any output. " +
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class EditEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the cluster to which the instance group belongs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClusterId { get; set; }
+        #endregion
         
         #region Parameter InstanceGroup
         /// <summary>
@@ -48,18 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>Instance groups to change.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("InstanceGroups")]
         public Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig[] InstanceGroup { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the InstanceGroup parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceGroup", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterId", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EMRInstanceGroup (ModifyInstanceGroups)"))
             {
                 return;
@@ -91,6 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClusterId = this.ClusterId;
             if (this.InstanceGroup != null)
             {
                 context.InstanceGroups = new List<Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig>(this.InstanceGroup);
@@ -111,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             // create request
             var request = new Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsRequest();
             
+            if (cmdletContext.ClusterId != null)
+            {
+                request.ClusterId = cmdletContext.ClusterId;
+            }
             if (cmdletContext.InstanceGroups != null)
             {
                 request.InstanceGroups = cmdletContext.InstanceGroups;
@@ -125,8 +131,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.InstanceGroup;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -168,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ClusterId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig> InstanceGroups { get; set; }
         }
         

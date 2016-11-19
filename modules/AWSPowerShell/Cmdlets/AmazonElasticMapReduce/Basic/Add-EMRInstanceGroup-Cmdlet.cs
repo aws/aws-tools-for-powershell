@@ -28,7 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// AddInstanceGroups adds an instance group to a running cluster.
+    /// Adds one or more instance groups to a running cluster.
     /// </summary>
     [Cmdlet("Add", "EMRInstanceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter InstanceGroup
         /// <summary>
         /// <para>
-        /// <para>Instance Groups to add.</para>
+        /// <para>Instance groups to add.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

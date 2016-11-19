@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
-        /// Tags are user-defined key/value pairs that consist of a required key string with a
-        /// maximum of 128 characters, and an optional value string with a maximum of 256 characters.</para>
+        /// <para>A list of tags to associate with a cluster and propagate to EC2 instances. Tags are
+        /// user-defined key/value pairs that consist of a required key string with a maximum
+        /// of 128 characters, and an optional value string with a maximum of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

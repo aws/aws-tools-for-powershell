@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
     /// RunJobFlow creates and starts running a new job flow. The job flow will run the steps
-    /// specified. Once the job flow completes, the cluster is stopped and the HDFS partition
+    /// specified. After the job flow completes, the cluster is stopped and the HDFS partition
     /// is lost. To prevent loss of data, configure the last step of the job flow to store
     /// results in Amazon S3. If the <a>JobFlowInstancesConfig</a><code>KeepJobFlowAliveWhenNoSteps</code>
     /// parameter is set to <code>TRUE</code>, the job flow will transition to the WAITING
-    /// state rather than shutting down once the steps have completed. 
+    /// state rather than shutting down after the steps have completed. 
     /// 
     ///  
     /// <para>
@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// require more than 256 steps to process your data. You can bypass the 256-step limitation
     /// in various ways, including using the SSH shell to connect to the master node and submitting
     /// queries directly to the software running on the master node, such as Hive and Hadoop.
-    /// For more information on how to do this, go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html">Add
-    /// More than 256 Steps to a Job Flow</a> in the <i>Amazon Elastic MapReduce Developer's
-    /// Guide</i>.
+    /// For more information on how to do this, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html">Add
+    /// More than 256 Steps to a Job Flow</a> in the <i>Amazon EMR Management Guide</i>.
     /// </para><para>
     /// For long running job flows, we recommend that you periodically store your results.
     /// </para>
@@ -104,9 +103,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// in the job flow. The following values are valid:</para><ul><li><para>The version number of the AMI to use, for example, "2.0."</para></li></ul><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
         /// Hadoop 0.18 and 0.20) you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
         /// parameter to modify the version of Hadoop from the defaults shown above.</para><para>For details about the AMI versions currently supported by Amazon Elastic MapReduce,
-        /// go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported">AMI
-        /// Versions Supported in Elastic MapReduce</a> in the <i>Amazon Elastic MapReduce Developer's
-        /// Guide.</i></para>
+        /// see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported">AMI
+        /// Versions Supported in Elastic MapReduce</a> in the <i>Amazon Elastic MapReduce Developer
+        /// Guide.</i></para><note><para>Previously, the EMR AMI version API parameter options allowed you to use latest for
+        /// the latest AMI version rather than specify a numerical value. Some regions no longer
+        /// support this deprecated option as they only have a newer release label version of
+        /// EMR, which requires you to specify an EMR release label release (EMR 4.x or later).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,6 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Applications")]
         public Amazon.ElasticMapReduce.Model.Application[] Application { get; set; }
+        #endregion
+        
+        #region Parameter AutoScalingRole
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role for automatic scaling policies. The default role is <code>EMR_AutoScaling_DefaultRole</code>.
+        /// The IAM role provides permissions that the automatic scaling feature requires to launch
+        /// and terminate EC2 instances in an instance group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AutoScalingRole { get; set; }
         #endregion
         
         #region Parameter Placement_AvailabilityZone
@@ -162,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_Ec2KeyName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EC2 key pair that can be used to ssh to the master node as
-        /// the user called "hadoop."</para>
+        /// <para>The name of the EC2 key pair that can be used to ssh to the master node as the user
+        /// called "hadoop."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -222,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of Amazon EC2 instances used to execute the job flow.</para>
+        /// <para>The number of EC2 instances used to execute the job flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -322,6 +336,27 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String ReleaseLabel { get; set; }
         #endregion
         
+        #region Parameter ScaleDownBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the way that individual Amazon EC2 instances terminate when an automatic
+        /// scale-in activity occurs or an instance group is resized. <code>TERMINATE_AT_INSTANCE_HOUR</code>
+        /// indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless
+        /// of when the request to terminate the instance was submitted. This option is only available
+        /// with Amazon EMR 5.1.0 and later and is the default for clusters created using that
+        /// version. <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR blacklists
+        /// and drains tasks from nodes before terminating the Amazon EC2 instances, regardless
+        /// of the instance-hour boundary. With either behavior, Amazon EMR removes the least
+        /// active nodes first and blocks instance termination if it could lead to HDFS corruption.
+        /// <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR version 4.1.0
+        /// and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.ScaleDownBehavior")]
+        public Amazon.ElasticMapReduce.ScaleDownBehavior ScaleDownBehavior { get; set; }
+        #endregion
+        
         #region Parameter SecurityConfiguration
         /// <summary>
         /// <para>
@@ -380,7 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
         /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow. For
-        /// more information, go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
+        /// more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
         /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
         /// </para>
         /// </summary>
@@ -461,6 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 context.Applications = new List<Amazon.ElasticMapReduce.Model.Application>(this.Application);
             }
+            context.AutoScalingRole = this.AutoScalingRole;
             if (this.BootstrapAction != null)
             {
                 context.BootstrapActions = new List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig>(this.BootstrapAction);
@@ -504,6 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.NewSupportedProducts = new List<Amazon.ElasticMapReduce.Model.SupportedProductConfig>(this.NewSupportedProduct);
             }
             context.ReleaseLabel = this.ReleaseLabel;
+            context.ScaleDownBehavior = this.ScaleDownBehavior;
             context.SecurityConfiguration = this.SecurityConfiguration;
             context.ServiceRole = this.ServiceRole;
             if (this.Step != null)
@@ -547,6 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.Applications != null)
             {
                 request.Applications = cmdletContext.Applications;
+            }
+            if (cmdletContext.AutoScalingRole != null)
+            {
+                request.AutoScalingRole = cmdletContext.AutoScalingRole;
             }
             if (cmdletContext.BootstrapActions != null)
             {
@@ -750,6 +791,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.ReleaseLabel = cmdletContext.ReleaseLabel;
             }
+            if (cmdletContext.ScaleDownBehavior != null)
+            {
+                request.ScaleDownBehavior = cmdletContext.ScaleDownBehavior;
+            }
             if (cmdletContext.SecurityConfiguration != null)
             {
                 request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
@@ -828,6 +873,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String AdditionalInfo { get; set; }
             public System.String AmiVersion { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Application> Applications { get; set; }
+            public System.String AutoScalingRole { get; set; }
             public List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig> BootstrapActions { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Configuration> Configurations { get; set; }
             public List<System.String> Instances_AdditionalMasterSecurityGroups { get; set; }
@@ -850,6 +896,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProducts { get; set; }
             public System.String ReleaseLabel { get; set; }
+            public Amazon.ElasticMapReduce.ScaleDownBehavior ScaleDownBehavior { get; set; }
             public System.String SecurityConfiguration { get; set; }
             public System.String ServiceRole { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Steps { get; set; }

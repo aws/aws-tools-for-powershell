@@ -1982,6 +1982,33 @@ $ELB2_map = @{
 _awsArgumentCompleterRegistration $ELB2_Completers $ELB2_map
 
 
+# Argument completions for service Amazon Elastic MapReduce
+$EMR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ElasticMapReduce.ScaleDownBehavior
+        "Start-EMRJobFlow/ScaleDownBehavior"
+        {
+            $v = "TERMINATE_AT_INSTANCE_HOUR","TERMINATE_AT_TASK_COMPLETION"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMR_map = @{
+    "ScaleDownBehavior"=@("Start-EMRJobFlow")
+}
+
+_awsArgumentCompleterRegistration $EMR_Completers $EMR_map
+
+
 # Argument completions for service Amazon Elasticsearch
 $ES_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

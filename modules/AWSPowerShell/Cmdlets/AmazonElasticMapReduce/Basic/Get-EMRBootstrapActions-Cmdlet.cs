@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier for the bootstrap actions to list .</para>
+        /// <para>The cluster identifier for the bootstrap actions to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

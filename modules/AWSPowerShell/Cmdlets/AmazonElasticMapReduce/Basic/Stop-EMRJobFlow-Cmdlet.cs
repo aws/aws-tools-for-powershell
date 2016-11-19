@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     ///  
     /// <para>
     /// The maximum number of JobFlows allowed is 10. The call to TerminateJobFlows is asynchronous.
-    /// Depending on the configuration of the job flow, it may take up to 5-20 minutes for
+    /// Depending on the configuration of the job flow, it may take up to 1-5 minutes for
     /// the job flow to completely terminate and release allocated resources, such as Amazon
     /// EC2 instances.
     /// </para>
