@@ -89,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Handler { get; set; }
         #endregion
         
+        #region Parameter KMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment
+        /// variables. If you elect to use the AWS Lambda default service key, pass in an empty
+        /// string ("") for this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KMSKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MemorySize
         /// <summary>
         /// <para>
@@ -160,6 +172,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32 Timeout { get; set; }
         #endregion
         
+        #region Parameter Environment_Variable
+        /// <summary>
+        /// <para>
+        /// <para>The key-value pairs that represent your environment's configuration settings. The
+        /// value you specify cannot contain a ",".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Environment_Variables")]
+        public System.Collections.Hashtable Environment_Variable { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -190,8 +214,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
             PreExecutionContextLoad(context);
             
             context.Description = this.Description;
+            if (this.Environment_Variable != null)
+            {
+                context.Environment_Variables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Environment_Variable.Keys)
+                {
+                    context.Environment_Variables.Add((String)hashKey, (String)(this.Environment_Variable[hashKey]));
+                }
+            }
             context.FunctionName = this.FunctionName;
             context.Handler = this.Handler;
+            context.KMSKeyArn = this.KMSKeyArn;
             if (ParameterWasBound("MemorySize"))
                 context.MemorySize = this.MemorySize;
             context.Role = this.Role;
@@ -226,6 +259,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate Environment
+            bool requestEnvironmentIsNull = true;
+            request.Environment = new Amazon.Lambda.Model.Environment();
+            Dictionary<System.String, System.String> requestEnvironment_environment_Variable = null;
+            if (cmdletContext.Environment_Variables != null)
+            {
+                requestEnvironment_environment_Variable = cmdletContext.Environment_Variables;
+            }
+            if (requestEnvironment_environment_Variable != null)
+            {
+                request.Environment.Variables = requestEnvironment_environment_Variable;
+                requestEnvironmentIsNull = false;
+            }
+             // determine if request.Environment should be set to null
+            if (requestEnvironmentIsNull)
+            {
+                request.Environment = null;
+            }
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
@@ -233,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Handler != null)
             {
                 request.Handler = cmdletContext.Handler;
+            }
+            if (cmdletContext.KMSKeyArn != null)
+            {
+                request.KMSKeyArn = cmdletContext.KMSKeyArn;
             }
             if (cmdletContext.MemorySize != null)
             {
@@ -331,8 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public Dictionary<System.String, System.String> Environment_Variables { get; set; }
             public System.String FunctionName { get; set; }
             public System.String Handler { get; set; }
+            public System.String KMSKeyArn { get; set; }
             public System.Int32? MemorySize { get; set; }
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
