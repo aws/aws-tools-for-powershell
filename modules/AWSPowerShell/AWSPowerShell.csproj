@@ -112,7 +112,7 @@
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.3\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.0.3\lib\net35\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.1\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.0.3\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
@@ -139,16 +139,16 @@
       <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.3.0.3\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
-      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.1.2\lib\net35\AWSSDK.GameLift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.2\lib\net35\AWSSDK.GameLift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticTranscoder">
-      <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.3.0.3\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.3.1\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>..\..\packages\AWSSDK.Elasticsearch.3.3.0.3\lib\net35\AWSSDK.Elasticsearch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticMapReduce">
-      <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.1.3\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.2\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancingV2">
       <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.0.4\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
@@ -175,7 +175,7 @@
       <HintPath>..\..\packages\AWSSDK.EC2.3.3.2.3\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.0.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.1\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.1\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
@@ -259,7 +259,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.0.3\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
-      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.0.3\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.1\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.2\lib\net35\AWSSDK.APIGateway.dll</HintPath>

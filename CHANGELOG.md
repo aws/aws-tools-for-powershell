@@ -1,3 +1,16 @@
+### 3.3.22.0 (2016-11-18)
+  * Amazon Gamelift
+    - Added a new cmdlet, Get-GMLInstanceAccess (GetInstanceAccess API), providing the ability to remote access into GameLift managed servers.
+  * AWS Lambda
+    - Updated the Update-LMFunctionConfiguration cmdlet with a new parameter, -Environment_Variable, to support the new service functionality.
+  * Amazon Elastic MapReduce
+    - Added support for automatic Scaling of EMR clusters based on metrics. This update adds a new parameter -InstanceGroup to the Edit-EMRInstanceGroup cmdlet, adds parameters -AutoScalingRole and -ScaleDownBehavior to the Start-EMRJobFlow cmdlet, and adds new cmdlets Write-EMRAutoScalingPolicy (PutAutoScalingPolicy API), Stop-EMRStops (CancelSteps API) and Remove-EMRAutoScalingPolicy (RemoveAutoScalingPolicy API).
+  * Amazon Elastic Transcoder
+    - The Test-ETSRole cmdlet now emits a deprecation warning, due to the deprecation of the underlying TestRole service API.
+    - Updated the New-ETSJob cmdlet with new parameters to add support for the new service feature emabling multiple media input files to be stitched together. 
+  * Application AutoScaling
+    - Added support for setting a new target resource (EMR Instance Group) as a scalable target.
+
 ### 3.3.21.0 (2016-11-17)
   (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
   * Amazon API Gateway
