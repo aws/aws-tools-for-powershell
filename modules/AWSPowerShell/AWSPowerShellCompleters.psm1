@@ -246,7 +246,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ScalableDimension")
         }
         {
-            $v = "ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount"
+            $v = "ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
             break
         }
         
@@ -261,7 +261,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ServiceNamespace")
         }
         {
-            $v = "ec2","ecs"
+            $v = "ec2","ecs","elasticmapreduce"
             break
         }
         

@@ -28,15 +28,14 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Deletes an Application Auto Scaling scaling policy that was previously created. If
-    /// you are no longer using a scaling policy, you can delete it with this operation.
+    /// Deletes the specified Application Auto Scaling scaling policy.
     /// 
     ///  
     /// <para>
     /// Deleting a policy deletes the underlying alarm action, but does not delete the CloudWatch
     /// alarm associated with the scaling policy, even if it no longer has an associated action.
     /// </para><para>
-    /// To create a new scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
+    /// To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the scaling policy to delete.</para>
+        /// <para>The name of the scaling policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,11 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource type and unique identifier string for the resource associated with the
-        /// scaling policy. For Amazon ECS services, the resource type is <code>services</code>,
-        /// and the identifier is the cluster name and service name; for example, <code>service/default/sample-webapp</code>.
-        /// For Amazon EC2 Spot fleet requests, the resource type is <code>spot-fleet-request</code>,
-        /// and the identifier is the Spot fleet request ID; for example, <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para>
+        /// <para>The identifier of the resource associated with the scalable target. This string consists
+        /// of the resource type and unique identifier.</para><ul><li><para>ECS service - The resource type is <code>service</code> and the unique identifier
+        /// is the cluster name and service name. Example: <code>service/default/sample-webapp</code>.</para></li><li><para>Spot fleet request - The resource type is <code>spot-fleet-request</code> and the
+        /// unique identifier is the Spot fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para></li><li><para>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier
+        /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableDimension
         /// <summary>
         /// <para>
-        /// <para>The scalable dimension associated with the scaling policy. The scalable dimension
-        /// contains the service namespace, resource type, and scaling property, such as <code>ecs:service:DesiredCount</code>
-        /// for the desired task count of an Amazon ECS service, or <code>ec2:spot-fleet-request:TargetCapacity</code>
-        /// for the target capacity of an Amazon EC2 Spot fleet request.</para>
+        /// <para>The scalable dimension. This string consists of the service namespace, resource type,
+        /// and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
+        /// fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
+        /// an EMR Instance Group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for the AWS service that the scaling policy is associated with. For
-        /// more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the Amazon Web Services General Reference.</para>
+        /// <para>The namespace of the AWS service. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
+        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

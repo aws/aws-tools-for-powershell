@@ -28,15 +28,15 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Provides descriptive information for scaling policies with a specified service namespace.
+    /// Provides descriptive information about the scaling policies in the specified namespace.
     /// 
     ///  
     /// <para>
-    /// You can filter the results in a service namespace with the <code>ResourceId</code>,
-    /// <code>ScalableDimension</code>, and <code>PolicyNames</code> parameters.
+    /// You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>,
+    /// and <code>PolicyNames</code> parameters.
     /// </para><para>
-    /// To create a new scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
-    /// If you are no longer using a scaling policy, you can delete it with <a>DeleteScalingPolicy</a>.
+    /// To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
+    /// If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AASScalingPolicy")]
@@ -64,12 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The unique resource identifier string of the scalable target that the scaling policy
-        /// is associated with. For Amazon ECS services, the resource type is <code>services</code>,
-        /// and the identifier is the cluster name and service name; for example, <code>service/default/sample-webapp</code>.
-        /// For Amazon EC2 Spot fleet requests, the resource type is <code>spot-fleet-request</code>,
-        /// and the identifier is the Spot fleet request ID; for example, <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.
-        /// If you specify a scalable dimension, you must also specify a resource ID.</para>
+        /// <para>The identifier of the resource associated with the scaling policy. This string consists
+        /// of the resource type and unique identifier. If you specify a scalable dimension, you
+        /// must also specify a resource ID.</para><ul><li><para>ECS service - The resource type is <code>service</code> and the unique identifier
+        /// is the cluster name and service name. Example: <code>service/default/sample-webapp</code>.</para></li><li><para>Spot fleet request - The resource type is <code>spot-fleet-request</code> and the
+        /// unique identifier is the Spot fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para></li><li><para>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier
+        /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,12 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableDimension
         /// <summary>
         /// <para>
-        /// <para>The scalable dimension of the scalable target that the scaling policy is associated
-        /// with. The scalable dimension contains the service namespace, resource type, and scaling
-        /// property, such as <code>ecs:service:DesiredCount</code> for the desired task count
-        /// of an Amazon ECS service, or <code>ec2:spot-fleet-request:TargetCapacity</code> for
-        /// the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable
-        /// dimension, you must also specify a resource ID.</para>
+        /// <para>The scalable dimension. This string consists of the service namespace, resource type,
+        /// and scaling property. If you specify a scalable dimension, you must also specify a
+        /// resource ID.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
+        /// fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
+        /// an EMR Instance Group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The AWS service namespace of the scalable target that the scaling policy is associated
-        /// with. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the Amazon Web Services General Reference.</para>
+        /// <para>The namespace of the AWS service. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
+        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -108,13 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of scaling policy results returned by <code>DescribeScalingPolicies</code>
-        /// in paginated output. When this parameter is used, <code>DescribeScalingPolicies</code>
-        /// returns up to <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>DescribeScalingPolicies</code> request with the returned <code>NextToken</code>
-        /// value. This value can be between 1 and 50. If this parameter is not used, then <code>DescribeScalingPolicies</code>
-        /// returns up to 50 results and a <code>NextToken</code> value, if applicable.</para>
+        /// <para>The maximum number of scalable target results. This value can be between 1 and 50.
+        /// The default value is 50.</para><para>If this parameter is used, the operation returns up to <code>MaxResults</code> results
+        /// at a time, along with a <code>NextToken</code> value. To get the next set of results,
+        /// include the <code>NextToken</code> value in a subsequent call. If this parameter is
+        /// not used, the operation returns up to 50 results and a <code>NextToken</code> value,
+        /// if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,10 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value returned from a previous paginated <code>DescribeScalingPolicies</code>
-        /// request. Pagination continues from the end of the previous results that returned the
-        /// <code>NextToken</code> value. This value is <code>null</code> when there are no more
-        /// results to return.</para>
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,17 +28,17 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Registers or updates a scalable target. A scalable target is a resource that can be
-    /// scaled out or in with Application Auto Scaling. After you have registered a scalable
-    /// target, you can use this operation to update the minimum and maximum values for your
-    /// scalable dimension.
+    /// Registers or updates a scalable target. A scalable target is a resource that Application
+    /// Auto Scaling can scale out or scale in. After you have registered a scalable target,
+    /// you can use this operation to update the minimum and maximum values for your scalable
+    /// dimension.
     /// 
     ///  
     /// <para>
-    /// After you register a scalable target with Application Auto Scaling, you can create
-    /// and apply scaling policies to it with <a>PutScalingPolicy</a>. You can view the existing
-    /// scaling policies for a service namespace with <a>DescribeScalableTargets</a>. If you
-    /// are no longer using a scalable target, you can deregister it with <a>DeregisterScalableTarget</a>.
+    /// After you register a scalable target, you can create and apply scaling policies using
+    /// <a>PutScalingPolicy</a>. You can view the scaling policies for a service namespace
+    /// using <a>DescribeScalableTargets</a>. If you are no longer using a scalable target,
+    /// you can deregister it using <a>DeregisterScalableTarget</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "AASScalableTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum value for this scalable target to scale out to in response to scaling
-        /// activities. This parameter is required if you are registering a new scalable target,
-        /// and it is optional if you are updating an existing one.</para>
+        /// <para>The maximum value to scale to in response to a scale out event. This parameter is
+        /// required if you are registering a scalable target and optional if you are updating
+        /// one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum value for this scalable target to scale in to in response to scaling activities.
-        /// This parameter is required if you are registering a new scalable target, and it is
-        /// optional if you are updating an existing one.</para>
+        /// <para>The minimum value to scale to in response to a scale in event. This parameter is required
+        /// if you are registering a scalable target and optional if you are updating one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource type and unique identifier string for the resource to associate with
-        /// the scalable target. For Amazon ECS services, the resource type is <code>services</code>,
-        /// and the identifier is the cluster name and service name; for example, <code>service/default/sample-webapp</code>.
-        /// For Amazon EC2 Spot fleet requests, the resource type is <code>spot-fleet-request</code>,
-        /// and the identifier is the Spot fleet request ID; for example, <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para>
+        /// <para>The identifier of the resource associated with the scalable target. This string consists
+        /// of the resource type and unique identifier.</para><ul><li><para>ECS service - The resource type is <code>service</code> and the unique identifier
+        /// is the cluster name and service name. Example: <code>service/default/sample-webapp</code>.</para></li><li><para>Spot fleet request - The resource type is <code>spot-fleet-request</code> and the
+        /// unique identifier is the Spot fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para></li><li><para>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier
+        /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that allows Application Auto Scaling to modify your scalable
-        /// target on your behalf. This parameter is required if you are registering a new scalable
-        /// target, and it is optional if you are updating an existing one.</para>
+        /// <para>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable
+        /// target on your behalf. This parameter is required when you register a scalable target
+        /// and optional when you update one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableDimension
         /// <summary>
         /// <para>
-        /// <para>The scalable dimension associated with the scalable target. The scalable dimension
-        /// contains the service namespace, resource type, and scaling property, such as <code>ecs:service:DesiredCount</code>
-        /// for the desired task count of an Amazon ECS service, or <code>ec2:spot-fleet-request:TargetCapacity</code>
-        /// for the target capacity of an Amazon EC2 Spot fleet request.</para>
+        /// <para>The scalable dimension associated with the scalable target. This string consists of
+        /// the service namespace, resource type, and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
+        /// fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
+        /// an EMR Instance Group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,10 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for the AWS service that the scalable target is associated with. For
-        /// Amazon ECS services, the namespace value is <code>ecs</code>. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the Amazon Web Services General Reference.</para>
+        /// <para>The namespace of the AWS service. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
+        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
