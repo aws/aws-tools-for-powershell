@@ -127,7 +127,7 @@
     <ServiceOperation MethodName="PutCORSConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutLifecycleConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutObject" Exclude="true"/>
-    <ServiceOperation MethodName="RestoreObject" Output="Void" PositionalParameters="Key;Days">
+    <ServiceOperation MethodName="RestoreObject" PositionalParameters="Key;Days">
       <Params>
         <Param Name="Days" NewName="CopyLifetimeInDays" />
       </Params>

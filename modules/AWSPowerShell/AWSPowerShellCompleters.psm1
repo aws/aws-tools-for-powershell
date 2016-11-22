@@ -3075,6 +3075,16 @@ $S3_Completers = {
             break
         }
         
+        # Amazon.S3.RequestPayer
+        {
+            ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
+            ($_ -eq "Restore-S3Object/RequestPayer")
+        }
+        {
+            $v = "requester"
+            break
+        }
+        
         # Amazon.S3.S3CannedACL
         {
             ($_ -eq "Copy-S3Object/CannedACLName") -Or
@@ -3131,6 +3141,7 @@ $S3_map = @{
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Set-S3ACL","Write-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "Encoding"=@("Get-S3Object","Get-S3Version")
+    "RequestPayer"=@("Get-S3ObjectMetadata","Restore-S3Object")
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL")

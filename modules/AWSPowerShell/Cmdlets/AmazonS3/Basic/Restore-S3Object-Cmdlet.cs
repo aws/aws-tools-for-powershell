@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Restores an archived copy of an object back into Amazon S3
     /// </summary>
     [Cmdlet("Restore", "S3Object", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
+    [OutputType("Amazon.S3.RequestCharged")]
     [AWSCmdlet("Invokes the RestoreObject operation against Amazon Simple Storage Service.", Operation = new[] {"RestoreObject"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.S3.Model.RestoreObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.S3.RequestCharged",
+        "This cmdlet returns a RequestCharged object.",
+        "The service call response (type Amazon.S3.Model.RestoreObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Key { get; set; }
         #endregion
         
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// Confirms that the requester knows that she or he will be charged for the list objects request.
+        /// Bucket owners need not specify this parameter in their requests.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+        
         #region Parameter VersionId
         /// <summary>
         /// <para>
@@ -100,15 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter]
         public SwitchParameter UseDualstackEndpoint { get; set; }
         
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the BucketName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -145,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (ParameterWasBound("CopyLifetimeInDays"))
                 context.CopyLifetimeInDays = this.CopyLifetimeInDays;
             context.VersionId = this.VersionId;
+            context.RequestPayer = this.RequestPayer;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.VersionId = cmdletContext.VersionId;
             }
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
             
             CmdletOutput output;
             
@@ -186,9 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.BucketName;
+                object pipelineOutput = response.RequestCharged;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -234,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Key { get; set; }
             public System.Int32? CopyLifetimeInDays { get; set; }
             public System.String VersionId { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
         }
         
     }

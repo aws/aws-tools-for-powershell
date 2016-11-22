@@ -94,6 +94,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.DateTime ModifiedSinceDate { get; set; }
         #endregion
         
+        #region Parameter PartNumber
+        /// <summary>
+        /// <para>
+        /// Part number of the object being read. This is a positive integer between 1 and 10,000.
+        /// Effectively performs a 'ranged' HEAD request for the part specified.
+        /// Useful querying about the size of the part and the number of parts in this object.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PartNumber { get; set; }
+        #endregion
+        
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// Confirms that the requester knows that she or he will be charged for the list objects request.
+        /// Bucket owners need not specify this parameter in their requests.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+        
         #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// <para>
@@ -197,6 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
             context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
             context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
+            if (ParameterWasBound("PartNumber"))
+                context.PartNumber = this.PartNumber;
+            context.RequestPayer = this.RequestPayer;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -252,6 +279,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5 != null)
             {
                 request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+            }
+            if (cmdletContext.PartNumber != null)
+            {
+                request.PartNumber = cmdletContext.PartNumber.Value;
+            }
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
             
             CmdletOutput output;
@@ -314,6 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
             public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
             public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+            public System.Int32? PartNumber { get; set; }
+            public Amazon.S3.RequestPayer RequestPayer { get; set; }
         }
         
     }
