@@ -2,7 +2,7 @@
   * AWS CloudTrail
     - Added two new cmdlets to suppor configuring your trail with event selectors: Get-CTEventSelectors (GetEventSelectors API) and Write-CTEventSelectors (PutEventSelectors API).
   * Amazon S3
-    - Extended the et-S3ObjectMetadata and Restore-S3Object cmdlets with a new parameter to support requestor-pays.
+    - Extended the Get-S3ObjectMetadata and Restore-S3Object cmdlets with a new parameter to support requestor-pays.
 
 ### 3.3.22.0 (2016-11-18)
   * Amazon Gamelift
