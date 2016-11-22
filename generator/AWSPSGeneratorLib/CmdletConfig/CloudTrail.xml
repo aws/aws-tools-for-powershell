@@ -49,7 +49,9 @@
 		<ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="ResourceId"/>
 		<ServiceOperation MethodName="StartLogging" Output="Void" />
 		<ServiceOperation MethodName="StopLogging" Output="Void" />
-		<ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
+    <ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
+    <ServiceOperation MethodName="GetEventSelectors" Output="Response"/>
+    <ServiceOperation MethodName="PutEventSelectors" Output="Response"/>
   </ServiceOperations>
   
 </ConfigModel>

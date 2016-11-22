@@ -496,12 +496,15 @@ Set-Alias -Name Delete-CTTrail -Value Remove-CTTrail
 Set-Alias -Name CT-DeleteTrail -Value Remove-CTTrail
 Set-Alias -Name Describe-CTTrails -Value Get-CTTrail
 Set-Alias -Name CT-DescribeTrails -Value Get-CTTrail
+Set-Alias -Name CT-GetEventSelectors -Value Get-CTEventSelectors
 Set-Alias -Name CT-GetTrailStatus -Value Get-CTTrailStatus
 Set-Alias -Name List-CTPublicKeys -Value Get-CTPublicKey
 Set-Alias -Name CT-ListPublicKeys -Value Get-CTPublicKey
 Set-Alias -Name List-CTTags -Value Get-CTTag
 Set-Alias -Name CT-ListTags -Value Get-CTTag
 Set-Alias -Name CT-LookupEvents -Value Find-CTEvents
+Set-Alias -Name Put-CTEventSelectors -Value Write-CTEventSelectors
+Set-Alias -Name CT-PutEventSelectors -Value Write-CTEventSelectors
 Set-Alias -Name Remove-CTTags -Value Remove-CTTag
 Set-Alias -Name CT-RemoveTags -Value Remove-CTTag
 Set-Alias -Name CT-StartLogging -Value Start-CTLogging

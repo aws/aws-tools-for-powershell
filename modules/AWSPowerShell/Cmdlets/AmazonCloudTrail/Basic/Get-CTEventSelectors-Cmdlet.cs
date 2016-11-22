@@ -28,59 +28,45 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Deletes a trail. This operation must be called from the region in which the trail
-    /// was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated
-    /// trails in other regions) of a trail that is enabled in all regions.
+    /// Describes the settings for the event selectors that you configured for your trail.
+    /// The information returned for your event selectors includes the following:
+    /// 
+    ///  <ul><li><para>
+    /// The S3 objects that you are logging for data events.
+    /// </para></li><li><para>
+    /// If your event selector includes management events.
+    /// </para></li><li><para>
+    /// If your event selector includes read-only events, write-only events, or all. 
+    /// </para></li></ul><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html">Configuring
+    /// Event Selectors for Trails</a> in the <i>AWS CloudTrail User Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTrail operation against AWS CloudTrail.", Operation = new[] {"DeleteTrail"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudTrail.Model.DeleteTrailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CTEventSelectors")]
+    [OutputType("Amazon.CloudTrail.Model.GetEventSelectorsResponse")]
+    [AWSCmdlet("Invokes the GetEventSelectors operation against AWS CloudTrail.", Operation = new[] {"GetEventSelectors"})]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.GetEventSelectorsResponse",
+        "This cmdlet returns a Amazon.CloudTrail.Model.GetEventSelectorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class GetCTEventSelectorsCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter TrailName
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of
-        /// a trail ARN is: <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para>
+        /// <para>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
+        /// must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
+        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
+        /// and <code>my--namespace</code> are invalid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the Name parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String TrailName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CTTrail (DeleteTrail)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -91,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Name = this.Name;
+            context.TrailName = this.TrailName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudTrail.Model.DeleteTrailRequest();
+            var request = new Amazon.CloudTrail.Model.GetEventSelectorsRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.TrailName != null)
             {
-                request.Name = cmdletContext.Name;
+                request.TrailName = cmdletContext.TrailName;
             }
             
             CmdletOutput output;
@@ -121,9 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Name;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -148,13 +132,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.DeleteTrailResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DeleteTrailRequest request)
+        private static Amazon.CloudTrail.Model.GetEventSelectorsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.GetEventSelectorsRequest request)
         {
             #if DESKTOP
-            return client.DeleteTrail(request);
+            return client.GetEventSelectors(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteTrailAsync(request);
+            var task = client.GetEventSelectorsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -165,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
+            public System.String TrailName { get; set; }
         }
         
     }

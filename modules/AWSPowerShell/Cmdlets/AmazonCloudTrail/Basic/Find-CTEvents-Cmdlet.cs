@@ -31,14 +31,23 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Looks up API activity events captured by CloudTrail that create, update, or delete
     /// resources in your account. Events for a region can be looked up for the times in which
     /// you had CloudTrail turned on in that region during the last seven days. Lookup supports
-    /// five different attributes: time range (defined by a start time and end time), user
-    /// name, event name, resource type, and resource name. All attributes are optional. The
-    /// maximum number of attributes that can be specified in any one lookup request are time
-    /// range and one other attribute. The default number of results returned is 10, with
-    /// a maximum of 50 possible. The response includes a token that you can use to get the
-    /// next page of results.
+    /// the following attributes:
     /// 
-    ///  <important><para>
+    ///  <ul><li><para>
+    /// Event ID
+    /// </para></li><li><para>
+    /// Event name
+    /// </para></li><li><para>
+    /// Resource name
+    /// </para></li><li><para>
+    /// Resource type
+    /// </para></li><li><para>
+    /// User name
+    /// </para></li></ul><para>
+    /// All attributes are optional. The default number of results returned is 10, with a
+    /// maximum of 50 possible. The response includes a token that you can use to get the
+    /// next page of results.
+    /// </para><important><para>
     /// The rate of lookup requests is limited to one per second per account. If this limit
     /// is exceeded, a throttling error occurs.
     /// </para></important><important><para>
