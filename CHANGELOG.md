@@ -1,3 +1,9 @@
+### 3.3.23.0 (2016-11-21)
+  * AWS CloudTrail
+    - Added two new cmdlets to suppor configuring your trail with event selectors: Get-CTEventSelectors (GetEventSelectors API) and Write-CTEventSelectors (PutEventSelectors API).
+  * Amazon S3
+    - Extended the et-S3ObjectMetadata and Restore-S3Object cmdlets with a new parameter to support requestor-pays.
+
 ### 3.3.22.0 (2016-11-18)
   * Amazon Gamelift
     - Added a new cmdlet, Get-GMLInstanceAccess (GetInstanceAccess API), providing the ability to remote access into GameLift managed servers.
