@@ -1,3 +1,9 @@
+### 3.3.24.0 (2016-11-22)
+  * Amazon S3
+    - Added a new -Tier parameter to the Restore-S3Object cmdlet to support specifying the Amazon Glacier job retrieval tier.
+  * AWS CloudFormation
+    - Added a new cmdlet, Get-CFNImportList, to support the new ListImports API
+
 ### 3.3.23.0 (2016-11-21)
   * AWS CloudTrail
     - Added two new cmdlets to suppor configuring your trail with event selectors: Get-CTEventSelectors (GetEventSelectors API) and Write-CTEventSelectors (PutEventSelectors API).

@@ -83,6 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.RequestPayer RequestPayer { get; set; }
         #endregion
         
+        #region Parameter Tier
+        /// <summary>
+        /// <para>
+        /// Glacier retrieval tier at which the restore will be processed.
+        /// Glacier related prameters pertaining to this job.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.GlacierJobTier")]
+        public Amazon.S3.GlacierJobTier Tier { get; set; }
+        #endregion
+        
         #region Parameter VersionId
         /// <summary>
         /// <para>
@@ -149,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.CopyLifetimeInDays = this.CopyLifetimeInDays;
             context.VersionId = this.VersionId;
             context.RequestPayer = this.RequestPayer;
+            context.Tier = this.Tier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
+            }
+            if (cmdletContext.Tier != null)
+            {
+                request.Tier = cmdletContext.Tier;
             }
             
             CmdletOutput output;
@@ -241,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.Int32? CopyLifetimeInDays { get; set; }
             public System.String VersionId { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public Amazon.S3.GlacierJobTier Tier { get; set; }
         }
         
     }

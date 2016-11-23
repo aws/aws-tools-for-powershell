@@ -3075,6 +3075,13 @@ $S3_Completers = {
             break
         }
         
+        # Amazon.S3.GlacierJobTier
+        "Restore-S3Object/Tier"
+        {
+            $v = "Bulk","Expedited","Standard"
+            break
+        }
+        
         # Amazon.S3.RequestPayer
         {
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
@@ -3145,6 +3152,7 @@ $S3_map = @{
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL")
+    "Tier"=@("Restore-S3Object")
     "VersioningConfig_Status"=@("Write-S3BucketVersioning")
 }
 
