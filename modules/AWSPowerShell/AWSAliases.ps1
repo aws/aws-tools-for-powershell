@@ -389,6 +389,7 @@ Set-Alias -Name CFN-GetStackPolicy -Value Get-CFNStackPolicy
 Set-Alias -Name CFN-GetTemplateSummary -Value Get-CFNTemplateSummary
 Set-Alias -Name CFN-ListChangeSets -Value Get-CFNChangeSetList
 Set-Alias -Name CFN-ListExports -Value Get-CFNExport
+Set-Alias -Name CFN-ListImports -Value Get-CFNImportList
 Set-Alias -Name Get-CFNStackResourceSummaries -Value Get-CFNStackResourceSummary
 Set-Alias -Name CFN-ListStackResources -Value Get-CFNStackResourceSummary
 Set-Alias -Name Get-CFNStackSummaries -Value Get-CFNStackSummary

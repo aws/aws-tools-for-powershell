@@ -39,21 +39,22 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Output="Void" />    
-	<ServiceOperation MethodName="CreateChangeSet" Exclude="true"/>
-	<ServiceOperation MethodName="DeleteChangeSet" PipelineParameter="ChangeSetName" Output="Void" />
+    <ServiceOperation MethodName="CreateChangeSet" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteChangeSet" PipelineParameter="ChangeSetName" Output="Void" />
     <ServiceOperation MethodName="DeleteStack" Output="Void"/>
     <ServiceOperation MethodName="DescribeAccountLimits"/>
-	<ServiceOperation MethodName="DescribeChangeSet" PipelineParameter="ChangeSetName" Output="Response" />
+    <ServiceOperation MethodName="DescribeChangeSet" PipelineParameter="ChangeSetName" Output="Response" />
     <ServiceOperation MethodName="DescribeStackEvents"/>
     <ServiceOperation MethodName="DescribeStackResource" PositionalParameters="LogicalResourceId"/>
     <ServiceOperation MethodName="DescribeStackResources"/>
     <ServiceOperation MethodName="DescribeStacks"/>
     <ServiceOperation MethodName="EstimateTemplateCost" PipelineParameter="TemplateBody"/>
-	<ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" PipelineParameter="ChangeSetName" Output="Void" />
+    <ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" PipelineParameter="ChangeSetName" Output="Void" />
     <ServiceOperation MethodName="GetStackPolicy"/>
     <ServiceOperation MethodName="GetTemplate" Exclude="true"/>
     <ServiceOperation MethodName="GetTemplateSummary" Output="Response"/>
-	<ServiceOperation MethodName="ListChangeSets" Verb="Get" Noun="ChangeSetList"  />
+    <ServiceOperation MethodName="ListImports" Verb="Get" Noun="ImportList"/>
+    <ServiceOperation MethodName="ListChangeSets" Verb="Get" Noun="ChangeSetList"  />
     <ServiceOperation MethodName="ListStackResources" Verb="Get" Noun="StackResourceSummaries"/>
     <ServiceOperation MethodName="ListStacks" Verb="Get" Noun="StackSummaries" PipelineParameter="StackStatusFilter"/>
     <ServiceOperation MethodName="SetStackPolicy" Output="Void"/>
