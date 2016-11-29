@@ -23,6 +23,9 @@ function Test.CW
 #
 # Test group that manual iteration works
 #
+# disabled due to unreliability of Test.CW.Iteration test
+<#
+
 function Init.CW.Iteration()
 {
     $context.AllAlarms = Get-CWAlarm
@@ -50,4 +53,4 @@ function Test.CW.Iteration([switch] $Category_Smoke)
     
 	Assert $manualIter1.Count -eq $context.AllAlarms.Count
 }
-
+#>
