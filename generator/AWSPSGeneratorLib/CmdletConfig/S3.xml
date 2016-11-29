@@ -62,6 +62,9 @@
     <ServiceOperation MethodName="CopyObject" Exclude="true"/>
     <ServiceOperation MethodName="CopyPart" Exclude="true"/>
     <ServiceOperation MethodName="DeleteBucket" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteBucketAnalyticsConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="DeleteBucketMetricsConfiguration" Output="Void"/>
     <ServiceOperation MethodName="DeleteBucketPolicy" Output="Void" ShouldProcessTarget="BucketName"/>
     <ServiceOperation MethodName="DeleteBucketReplication" Output="Void" ShouldProcessTarget="BucketName"/>
     <ServiceOperation MethodName="DeleteBucketTagging" Output="Void" ShouldProcessTarget="BucketName"/>
@@ -70,6 +73,7 @@
     <ServiceOperation MethodName="DeleteLifecycleConfiguration" Output="Void" ShouldProcessTarget="BucketName"/>
     <ServiceOperation MethodName="DeleteObject" Exclude="true"/>
     <ServiceOperation MethodName="DeleteObjects" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteObjectTagging" Exclude="true"/>
 
     <!-- replaced with single PutBucketLogging operation
     <ServiceOperation MethodName="DisableBucketLogging" Output="Response"/>
@@ -78,6 +82,9 @@
     
     <ServiceOperation MethodName="GetACL" PositionalParameters="Key;VersionId"/>
     <ServiceOperation MethodName="GetBucketAccelerateConfiguration" />
+    <ServiceOperation MethodName="GetBucketAnalyticsConfiguration"/>
+    <ServiceOperation MethodName="GetBucketInventoryConfiguration"/>
+    <ServiceOperation MethodName="GetBucketMetricsConfiguration"/>
     <ServiceOperation MethodName="GetBucketLocation"/>
     <ServiceOperation MethodName="GetBucketLogging"/>
     <ServiceOperation MethodName="GetBucketNotification" Output="Response"/>
@@ -96,10 +103,14 @@
     
     <ServiceOperation MethodName="GetObject" Exclude="true"/>
     <ServiceOperation MethodName="GetObjectMetadata" Output="Response" PositionalParameters="Key"/>
+    <ServiceOperation MethodName="GetObjectTagging" Exclude="true"/>
     <ServiceOperation MethodName="GetObjectTorrent" Exclude="true"/>
     <ServiceOperation MethodName="GetPreSignedURL" Exclude="true" />
     <ServiceOperation MethodName="InitiateMultipartUpload" Exclude="true"/>
     <ServiceOperation MethodName="ListBuckets" Exclude="true"/>
+    <ServiceOperation MethodName="ListBucketAnalyticsConfigurations" Verb="Get" Noun="BucketAnalyticsConfigurationList" Output="Response"/>
+    <ServiceOperation MethodName="ListBucketInventoryConfigurations" Verb="Get" Noun="BucketInventoryConfigurationList" Output="Response"/>
+    <ServiceOperation MethodName="ListBucketMetricsConfigurations" Verb="Get" Noun="BucketMetricsConfigurationList" Output="Response"/>
     <ServiceOperation MethodName="ListMultipartUploads" Exclude="true"/>
     <ServiceOperation MethodName="ListObjects" Exclude="true"/>
     <ServiceOperation MethodName="ListObjectsV2" Exclude="true"/>
@@ -108,6 +119,9 @@
     <ServiceOperation MethodName="PutACL" Exclude="true"/>
     <ServiceOperation MethodName="PutBucket" Exclude="true"/>
     <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketInventoryConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketMetricsConfiguration" Output="Void"/>
     <ServiceOperation MethodName="PutBucketLogging" Output="Void"/>
     <ServiceOperation MethodName="PutBucketNotification" Output="Void"/>
     <ServiceOperation MethodName="PutBucketPolicy" Output="Void" PositionalParameters="Policy"/>
@@ -127,6 +141,7 @@
     <ServiceOperation MethodName="PutCORSConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutLifecycleConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutObject" Exclude="true"/>
+    <ServiceOperation MethodName="PutObjectTagging" Exclude="true"/>
     <ServiceOperation MethodName="RestoreObject" PositionalParameters="Key;Days">
       <Params>
         <Param Name="Days" NewName="CopyLifetimeInDays" />

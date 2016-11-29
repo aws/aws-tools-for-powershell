@@ -3082,6 +3082,27 @@ $S3_Completers = {
             break
         }
         
+        # Amazon.S3.InventoryFormat
+        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"
+        {
+            $v = "CSV"
+            break
+        }
+        
+        # Amazon.S3.InventoryFrequency
+        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_Schedule_Frequency"
+        {
+            $v = "Daily","Weekly"
+            break
+        }
+        
+        # Amazon.S3.InventoryIncludedObjectVersions
+        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_IncludedObjectVersions"
+        {
+            $v = "All","Current"
+            break
+        }
+        
         # Amazon.S3.RequestPayer
         {
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
@@ -3129,6 +3150,13 @@ $S3_Completers = {
             break
         }
         
+        # Amazon.S3.StorageClassAnalysisSchemaVersion
+        "Write-S3BucketAnalyticsConfiguration/AnalyticsConfiguration_StorageClassAnalysis_DataExport_OutputSchemaVersion"
+        {
+            $v = "V_1"
+            break
+        }
+        
         # Amazon.S3.VersionStatus
         "Write-S3BucketVersioning/VersioningConfig_Status"
         {
@@ -3145,9 +3173,13 @@ $S3_Completers = {
 
 $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
+    "AnalyticsConfiguration_StorageClassAnalysis_DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Set-S3ACL","Write-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "Encoding"=@("Get-S3Object","Get-S3Version")
+    "InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
+    "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
+    "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "RequestPayer"=@("Get-S3ObjectMetadata","Restore-S3Object")
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")

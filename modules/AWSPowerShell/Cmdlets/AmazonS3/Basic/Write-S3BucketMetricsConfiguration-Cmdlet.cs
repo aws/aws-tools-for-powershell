@@ -1,0 +1,275 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.S3;
+using Amazon.S3.Model;
+
+namespace Amazon.PowerShell.Cmdlets.S3
+{
+    /// <summary>
+    /// Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
+    /// </summary>
+    [Cmdlet("Write", "S3BucketMetricsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the PutBucketMetricsConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketMetricsConfiguration"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.S3.Model.PutBucketMetricsConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class WriteS3BucketMetricsConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
+    {
+        
+        #region Parameter BucketName
+        /// <summary>
+        /// <para>
+        /// The name of the bucket for which the metrics configuration is set.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter MetricsFilter_MetricsFilterPredicate
+        /// <summary>
+        /// <para>
+        /// Filter Predicate setup for specific filter types.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MetricsConfiguration_MetricsFilter_MetricsFilterPredicate")]
+        public Amazon.S3.Model.MetricsFilterPredicate MetricsFilter_MetricsFilterPredicate { get; set; }
+        #endregion
+        
+        #region Parameter MetricsId
+        /// <summary>
+        /// <para>
+        /// The ID used to identify the metrics configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MetricsId { get; set; }
+        #endregion
+        
+        #region Parameter MetricsConfiguration_MetricsId
+        /// <summary>
+        /// <para>
+        /// The ID used to identify the metrics configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MetricsConfiguration_MetricsId { get; set; }
+        #endregion
+        
+        #region Parameter UseAccelerateEndpoint
+        /// <summary>
+        /// Enables S3 accelerate by sending requests to the accelerate endpoint instead of the regular region endpoint.
+        /// To use this feature, the bucket name must be DNS compliant and must not contain periods (.). 
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseAccelerateEndpoint { get; set; }
+        
+        #endregion
+        
+        #region Parameter UseDualstackEndpoint
+        /// <summary>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
+        
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the BucketName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BucketName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3BucketMetricsConfiguration (PutBucketMetricsConfiguration)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.BucketName = this.BucketName;
+            context.MetricsId = this.MetricsId;
+            context.MetricsConfiguration_MetricsId = this.MetricsConfiguration_MetricsId;
+            context.MetricsConfiguration_MetricsFilter_MetricsFilterPredicate = this.MetricsFilter_MetricsFilterPredicate;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.S3.Model.PutBucketMetricsConfigurationRequest();
+            
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.MetricsId != null)
+            {
+                request.MetricsId = cmdletContext.MetricsId;
+            }
+            
+             // populate MetricsConfiguration
+            bool requestMetricsConfigurationIsNull = true;
+            request.MetricsConfiguration = new Amazon.S3.Model.MetricsConfiguration();
+            System.String requestMetricsConfiguration_metricsConfiguration_MetricsId = null;
+            if (cmdletContext.MetricsConfiguration_MetricsId != null)
+            {
+                requestMetricsConfiguration_metricsConfiguration_MetricsId = cmdletContext.MetricsConfiguration_MetricsId;
+            }
+            if (requestMetricsConfiguration_metricsConfiguration_MetricsId != null)
+            {
+                request.MetricsConfiguration.MetricsId = requestMetricsConfiguration_metricsConfiguration_MetricsId;
+                requestMetricsConfigurationIsNull = false;
+            }
+            Amazon.S3.Model.MetricsFilter requestMetricsConfiguration_metricsConfiguration_MetricsFilter = null;
+            
+             // populate MetricsFilter
+            bool requestMetricsConfiguration_metricsConfiguration_MetricsFilterIsNull = true;
+            requestMetricsConfiguration_metricsConfiguration_MetricsFilter = new Amazon.S3.Model.MetricsFilter();
+            Amazon.S3.Model.MetricsFilterPredicate requestMetricsConfiguration_metricsConfiguration_MetricsFilter_metricsFilter_MetricsFilterPredicate = null;
+            if (cmdletContext.MetricsConfiguration_MetricsFilter_MetricsFilterPredicate != null)
+            {
+                requestMetricsConfiguration_metricsConfiguration_MetricsFilter_metricsFilter_MetricsFilterPredicate = cmdletContext.MetricsConfiguration_MetricsFilter_MetricsFilterPredicate;
+            }
+            if (requestMetricsConfiguration_metricsConfiguration_MetricsFilter_metricsFilter_MetricsFilterPredicate != null)
+            {
+                requestMetricsConfiguration_metricsConfiguration_MetricsFilter.MetricsFilterPredicate = requestMetricsConfiguration_metricsConfiguration_MetricsFilter_metricsFilter_MetricsFilterPredicate;
+                requestMetricsConfiguration_metricsConfiguration_MetricsFilterIsNull = false;
+            }
+             // determine if requestMetricsConfiguration_metricsConfiguration_MetricsFilter should be set to null
+            if (requestMetricsConfiguration_metricsConfiguration_MetricsFilterIsNull)
+            {
+                requestMetricsConfiguration_metricsConfiguration_MetricsFilter = null;
+            }
+            if (requestMetricsConfiguration_metricsConfiguration_MetricsFilter != null)
+            {
+                request.MetricsConfiguration.MetricsFilter = requestMetricsConfiguration_metricsConfiguration_MetricsFilter;
+                requestMetricsConfigurationIsNull = false;
+            }
+             // determine if request.MetricsConfiguration should be set to null
+            if (requestMetricsConfigurationIsNull)
+            {
+                request.MetricsConfiguration = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.BucketName;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.S3.Model.PutBucketMetricsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketMetricsConfigurationRequest request)
+        {
+            #if DESKTOP
+            return client.PutBucketMetricsConfiguration(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.PutBucketMetricsConfigurationAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String BucketName { get; set; }
+            public System.String MetricsId { get; set; }
+            public System.String MetricsConfiguration_MetricsId { get; set; }
+            public Amazon.S3.Model.MetricsFilterPredicate MetricsConfiguration_MetricsFilter_MetricsFilterPredicate { get; set; }
+        }
+        
+    }
+}
