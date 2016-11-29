@@ -25,29 +25,29 @@ function Test.CW
 #
 function Init.CW.Iteration()
 {
-    $context.AllAlarms = Get-CWAlarm
+    $context.AllAlarmsCount = (Get-CWAlarm | measure).Count
 }
 function Test.CW.Iteration([switch] $Category_Smoke)
 {
-    [int]$numPerPage = $context.AllAlarms.Count / 4
+    [int]$numPerPage = $context.AllAlarmsCount / 4
 	$numPerPage = [System.Math]::Min($numPerPage, 100)
 
     # test using service api names for tokenization
-    $manualIter1 = Get-CWAlarm -MaxRecords $numPerPage
+    $manualIter1 = (Get-CWAlarm -MaxRecords $numPerPage | measure).Count
     while ($awshistory.LastServiceResponse.NextToken -ne $null)
     {
-        $manualIter1 += Get-CWAlarm -MaxRecords $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken
+        $manualIter1 += (Get-CWAlarm -MaxRecords $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken | measure).Count
     }
     
-	Assert $manualIter1.Count -eq $context.AllAlarms.Count
+	Assert $manualIter1 -eq $context.AllAlarmsCount
 
     # test using tokenization aliases
-    $manualIter2 = Get-CWAlarm -MaxItems $numPerPage
+    $manualIter2 = (Get-CWAlarm -MaxItems $numPerPage | measure).Count
     while ($awshistory.LastServiceResponse.NextToken -ne $null)
     {
-        $manualIter2 += Get-CWAlarm -MaxItems $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken
+        $manualIter2 += (Get-CWAlarm -MaxItems $numPerPage -NextToken $awshistory.LastServiceResponse.NextToken | measure).Count
     }
     
-	Assert $manualIter1.Count -eq $context.AllAlarms.Count
+	Assert $manualIter1 -eq $context.AllAlarmsCount
 }
 
