@@ -82,7 +82,7 @@
       <HintPath>..\..\packages\AWSSDK.SQS.3.3.1\lib\net35\AWSSDK.SQS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
-      <HintPath>..\..\packages\AWSSDK.Snowball.3.3.0.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Snowball.3.3.1\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
       <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.0.3\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
