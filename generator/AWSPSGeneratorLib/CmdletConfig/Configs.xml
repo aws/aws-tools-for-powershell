@@ -53,6 +53,7 @@
     <Path>KinesisAnalytics.xml</Path>
     <Path>KinesisFirehose.xml</Path>
     <Path>Lambda.xml</Path>
+    <Path>Lightsail.xml</Path>
     <Path>ML.xml</Path>
     <Path>MCA.xml</Path>
     <Path>MarketplaceMetering.xml</Path>

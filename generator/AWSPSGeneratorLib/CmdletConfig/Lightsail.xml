@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>LS</ServiceNounPrefix>
+  <ServiceName>Amazon Lightsail</ServiceName>
+  <ServiceClientInterface>IAmazonLightsail</ServiceClientInterface>
+  <ServiceClient>AmazonLightsailClient</ServiceClient>
+  <ServiceNamespace>Amazon.Lightsail</ServiceNamespace>
+
+  <AutoIterate Start="PageToken" Next="NextPageToken" />
+
+  <PipelineParameter></PipelineParameter>
+
+  <PipelineByValueProperties>
+    <Property>BlueprintId</Property>
+    <Property>BundleId</Property>
+    <Property>Arn</Property>
+    <Property>Name</Property>
+    <Property>Id</Property>
+    <Property>BlueprintName</Property>
+    <Property>InstanceName</Property>
+    <Property>DomainName</Property>
+    <Property>KeypairName</Property>
+    <Property>InstanceSnapshotName</Property>
+    <Property>StaticIpName</Property>
+    <Property>ResourceName</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AllocateStaticIp" Verb="New" />
+    <ServiceOperation MethodName="AttachStaticIp" Verb="Mount" PipelineParameter="StaticIpName" />
+    <ServiceOperation MethodName="CloseInstancePublicPorts" Noun="InstancePublicPort" PipelineParameter="InstanceName" />
+    <ServiceOperation MethodName="CreateDomain" />
+    <ServiceOperation MethodName="CreateDomainEntry" PipelineParameter="DomainName" />
+    <ServiceOperation MethodName="CreateInstanceSnapshot" PipelineParameter="InstanceName" />
+    <ServiceOperation MethodName="CreateInstances" Noun="Instance" PipelineParameter="InstanceNames" />
+    <ServiceOperation MethodName="CreateInstancesFromSnapshot" PipelineParameter="InstanceNames" />
+    <ServiceOperation MethodName="CreateKeyPair" Output="Response" />
+    <ServiceOperation MethodName="DeleteDomain" />
+    <ServiceOperation MethodName="DeleteDomainEntry" PipelineParameter="DomainName" />
+    <ServiceOperation MethodName="DeleteInstance" />
+    <ServiceOperation MethodName="DeleteInstanceSnapshot" />
+    <ServiceOperation MethodName="DeleteKeyPair" />
+    <ServiceOperation MethodName="DetachStaticIp" Verb="Dismount" />
+    <ServiceOperation MethodName="DownloadDefaultKeyPair" Output="Response" Verb="Read" />
+    <ServiceOperation MethodName="GetActiveNames" Noun="ActiveNameList" />
+    <ServiceOperation MethodName="GetBlueprints" Noun="BlueprintList" />
+    <ServiceOperation MethodName="GetBundles" Noun="BundleList" />
+    <ServiceOperation MethodName="GetDomain" />
+    <ServiceOperation MethodName="GetDomains" Noun="DomainList" />
+    <ServiceOperation MethodName="GetInstance" />
+    <ServiceOperation MethodName="GetInstanceAccessDetails" Noun="InstanceAccessDetail" PipelineParameter="InstanceName" />
+    <ServiceOperation MethodName="GetInstanceMetricData" PipelineParameter="InstanceName" Output="Response" />
+    <ServiceOperation MethodName="GetInstancePortStates" Noun="InstancePortStateList" />
+    <ServiceOperation MethodName="GetInstanceSnapshot" />
+    <ServiceOperation MethodName="GetInstanceSnapshots" Noun="InstanceSnapshotList" />
+    <ServiceOperation MethodName="GetInstanceState" />
+    <ServiceOperation MethodName="GetInstances" Noun="InstanceList" />
+    <ServiceOperation MethodName="GetKeyPair" Noun="KeyPairInfo" />
+    <ServiceOperation MethodName="GetKeyPairs" Noun="KeypairList" />
+    <ServiceOperation MethodName="GetOperation" />
+    <ServiceOperation MethodName="GetOperations" Noun="OperationList" />
+    <ServiceOperation MethodName="GetOperationsForResource" PipelineParameter="ResourceName" Noun="OperationListForResource" Output="Response" />
+    <ServiceOperation MethodName="GetRegions" Noun="RegionList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetStaticIp" />
+    <ServiceOperation MethodName="GetStaticIps" Noun="StaticIpList" />
+    <ServiceOperation MethodName="ImportKeyPair" PipelineParameter="PublicKeyBase64" />
+    <ServiceOperation MethodName="IsVpcPeered" Verb="Test" />
+    <ServiceOperation MethodName="OpenInstancePublicPorts" Noun="InstancePublicPort" PipelineParameter="InstanceName" />
+    <ServiceOperation MethodName="PeerVpc" Verb="Add" Noun="PeerVpc" />
+    <ServiceOperation MethodName="RebootInstance" Verb="Restart" />
+    <ServiceOperation MethodName="ReleaseStaticIp" Verb="Remove" />
+    <ServiceOperation MethodName="StartInstance" />
+    <ServiceOperation MethodName="StopInstance" />
+    <ServiceOperation MethodName="UnpeerVpc" Verb="Remove" Noun="PeerVpc" AnonymousShouldProcssTarget="true" />
+    <ServiceOperation MethodName="UpdateDomainEntry" PipelineParameter="DomainName" />
+  </ServiceOperations>
+
+</ConfigModel>

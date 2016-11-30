@@ -2627,6 +2627,60 @@ $LM_map = @{
 _awsArgumentCompleterRegistration $LM_Completers $LM_map
 
 
+# Argument completions for service Amazon Lightsail
+$LS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Lightsail.InstanceAccessProtocol
+        "Get-LSInstanceAccessDetail/Protocol"
+        {
+            $v = "rdp","ssh"
+            break
+        }
+        
+        # Amazon.Lightsail.InstanceMetricName
+        "Get-LSInstanceMetricData/MetricName"
+        {
+            $v = "CPUUtilization","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
+            break
+        }
+        
+        # Amazon.Lightsail.MetricUnit
+        "Get-LSInstanceMetricData/Unit"
+        {
+            $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
+            break
+        }
+        
+        # Amazon.Lightsail.NetworkProtocol
+        {
+            ($_ -eq "Close-LSInstancePublicPort/PortInfo_Protocol") -Or
+            ($_ -eq "Open-LSInstancePublicPort/PortInfo_Protocol")
+        }
+        {
+            $v = "all","tcp","udp"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LS_map = @{
+    "MetricName"=@("Get-LSInstanceMetricData")
+    "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
+    "Protocol"=@("Get-LSInstanceAccessDetail")
+    "Unit"=@("Get-LSInstanceMetricData")
+}
+
+_awsArgumentCompleterRegistration $LS_Completers $LS_map
+
+
 # Argument completions for service AWS Marketplace Commerce Analytics
 $MCA_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
