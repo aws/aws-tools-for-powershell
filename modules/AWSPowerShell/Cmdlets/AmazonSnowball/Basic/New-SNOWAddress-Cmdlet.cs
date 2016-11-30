@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_Landmark
         /// <summary>
         /// <para>
-        /// <para>A landmark listed in an address that a Snowball is to be delivered to.</para>
+        /// <para>The landmark identifying the address that the appliance will be shipped to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_PrefectureOrDistrict
         /// <summary>
         /// <para>
-        /// <para>The prefecture or district in an address that a Snowball is to be delivered to.</para>
+        /// <para>The prefecture or district that the appliance will be shipped to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

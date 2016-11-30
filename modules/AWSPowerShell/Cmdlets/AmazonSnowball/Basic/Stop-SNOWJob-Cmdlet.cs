@@ -28,7 +28,7 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Cancels the specified job. Note that you can only cancel a job before its <code>JobState</code>
+    /// Cancels the specified job. You can only cancel a job before its <code>JobState</code>
     /// value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code>
     /// or <code>DescribeJob</code> action will return a job's <code>JobState</code> as part
     /// of the response element data returned.
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The 39 character job ID for the job that you want to cancel, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The 39-character job ID for the job that you want to cancel, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

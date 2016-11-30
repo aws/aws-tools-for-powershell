@@ -28,51 +28,57 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Returns a link to an Amazon S3 presigned URL for the manifest file associated with
-    /// the specified <code>JobId</code> value. You can access the manifest file for up to
-    /// 60 minutes after this request has been made. To access the manifest file after 60
-    /// minutes have passed, you'll have to make another call to the <code>GetJobManifest</code>
-    /// action.
-    /// 
-    ///  
-    /// <para>
-    /// The manifest is an encrypted file that you can download after your job enters the
-    /// <code>WithCustomer</code> status. The manifest is decrypted by using the <code>UnlockCode</code>
-    /// code value, when you pass both values to the Snowball through the Snowball client
-    /// when the client is started for the first time.
-    /// </para><para>
-    /// As a best practice, we recommend that you don't save a copy of an <code>UnlockCode</code>
-    /// value in the same location as the manifest file for that job. Saving these separately
-    /// helps prevent unauthorized parties from gaining access to the Snowball associated
-    /// with that job.
-    /// </para><para>
-    /// The credentials of a given job, including its manifest file and unlock code, expire
-    /// 90 days after the job is created.
-    /// </para>
+    /// Cancels a cluster job. You can only cancel a cluster job while it's in the <code>AwaitingQuorum</code>
+    /// status. You'll have at least an hour after creating a cluster job to cancel it.
     /// </summary>
-    [Cmdlet("Get", "SNOWJobManifest")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetJobManifest operation against AWS Import/Export Snowball.", Operation = new[] {"GetJobManifest"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.Snowball.Model.GetJobManifestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "SNOWCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the CancelCluster operation against AWS Import/Export Snowball.", Operation = new[] {"CancelCluster"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.Snowball.Model.CancelClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSNOWJobManifestCmdlet : AmazonSnowballClientCmdlet, IExecutor
+    public partial class StopSNOWClusterCmdlet : AmazonSnowballClientCmdlet, IExecutor
     {
         
-        #region Parameter JobId
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The ID for a job that you want to get the manifest file for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</para>
+        /// <para>The 39-character ID for the cluster that you want to cancel, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String JobId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ClusterId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ClusterId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SNOWCluster (CancelCluster)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -83,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.JobId = this.JobId;
+            context.ClusterId = this.ClusterId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -98,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Snowball.Model.GetJobManifestRequest();
+            var request = new Amazon.Snowball.Model.CancelClusterRequest();
             
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.ClusterId != null)
             {
-                request.JobId = cmdletContext.JobId;
+                request.ClusterId = cmdletContext.ClusterId;
             }
             
             CmdletOutput output;
@@ -113,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ManifestURI;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ClusterId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -138,13 +146,13 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #region AWS Service Operation Call
         
-        private static Amazon.Snowball.Model.GetJobManifestResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.GetJobManifestRequest request)
+        private static Amazon.Snowball.Model.CancelClusterResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CancelClusterRequest request)
         {
             #if DESKTOP
-            return client.GetJobManifest(request);
+            return client.CancelCluster(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetJobManifestAsync(request);
+            var task = client.CancelClusterAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -155,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String JobId { get; set; }
+            public System.String ClusterId { get; set; }
         }
         
     }

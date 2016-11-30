@@ -3381,15 +3381,20 @@ $SNOW_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Snowball.JobType
-        "New-SNOWJob/JobType"
         {
-            $v = "EXPORT","IMPORT"
+            ($_ -eq "New-SNOWCluster/JobType") -Or
+            ($_ -eq "New-SNOWJob/JobType")
+        }
+        {
+            $v = "EXPORT","IMPORT","LOCAL_USE"
             break
         }
         
         # Amazon.Snowball.ShippingOption
         {
+            ($_ -eq "New-SNOWCluster/ShippingOption") -Or
             ($_ -eq "New-SNOWJob/ShippingOption") -Or
+            ($_ -eq "Update-SNOWCluster/ShippingOption") -Or
             ($_ -eq "Update-SNOWJob/ShippingOption")
         }
         {
@@ -3403,7 +3408,17 @@ $SNOW_Completers = {
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T50","T80"
+            $v = "NoPreference","T100","T50","T80"
+            break
+        }
+        
+        # Amazon.Snowball.SnowballType
+        {
+            ($_ -eq "New-SNOWCluster/SnowballType") -Or
+            ($_ -eq "New-SNOWJob/SnowballType")
+        }
+        {
+            $v = "EDGE","STANDARD"
             break
         }
         
@@ -3415,9 +3430,10 @@ $SNOW_Completers = {
 }
 
 $SNOW_map = @{
-    "JobType"=@("New-SNOWJob")
-    "ShippingOption"=@("New-SNOWJob","Update-SNOWJob")
+    "JobType"=@("New-SNOWCluster","New-SNOWJob")
+    "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
+    "SnowballType"=@("New-SNOWCluster","New-SNOWJob")
 }
 
 _awsArgumentCompleterRegistration $SNOW_Completers $SNOW_map

@@ -9,28 +9,34 @@
   <ServiceClient>AmazonSnowballClient</ServiceClient>
 
   <VerbMappings>
-	<Map From="List" To="Get" />
+    <Map From="List" To="Get" />
   </VerbMappings>
   
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
   
   <ServiceOperations>
-	<ServiceOperation MethodName="CancelJob" Output="Void" />
-	<ServiceOperation MethodName="CreateAddress" NoPipelineParameter="true" AnonymousShouldProcessTarget="true" />
-	<ServiceOperation MethodName="CreateJob" PipelineParameter="AddressId" />
-	<ServiceOperation MethodName="DescribeAddress" />
-	<ServiceOperation MethodName="DescribeAddresses" Noun="AddressList" />
-	<ServiceOperation MethodName="DescribeJob" Output="Response" />
-	<ServiceOperation MethodName="GetJobManifest" />
-	<ServiceOperation MethodName="GetJobUnlockCode" />
-	<ServiceOperation MethodName="GetSnowballUsage" Output="Response" />
-	<ServiceOperation MethodName="ListJobs" Noun="JobsList" />
-	<ServiceOperation MethodName="UpdateJob" PipelineParameter="JobId" Output="Void" />
+    <ServiceOperation MethodName="CancelJob" Output="Void" />
+    <ServiceOperation MethodName="CancelCluster" Output="Void"/>
+    <ServiceOperation MethodName="CreateAddress" NoPipelineParameter="true" AnonymousShouldProcessTarget="true" />
+    <ServiceOperation MethodName="CreateCluster" PipelineParameter="AddressId"/>
+    <ServiceOperation MethodName="CreateJob" PipelineParameter="AddressId" />
+    <ServiceOperation MethodName="DescribeAddress" />
+    <ServiceOperation MethodName="DescribeAddresses" Noun="AddressList" />
+    <ServiceOperation MethodName="DescribeCluster"/>
+    <ServiceOperation MethodName="DescribeJob" Output="Response" />
+    <ServiceOperation MethodName="GetJobManifest" />
+    <ServiceOperation MethodName="GetJobUnlockCode" />
+    <ServiceOperation MethodName="GetSnowballUsage" Output="Response" />
+    <ServiceOperation MethodName="ListJobs" Noun="JobsList" />
+    <ServiceOperation MethodName="ListClusters" Verb="Get" Noun="ClusterList"/>
+    <ServiceOperation MethodName="ListClusterJobs" Verb="Get" Noun="ClusterJobList"/>
+    <ServiceOperation MethodName="UpdateCluster" PipelineParameter="ClusterId" Output="Void"/>
+    <ServiceOperation MethodName="UpdateJob" PipelineParameter="JobId" Output="Void" />
   </ServiceOperations>
   
   <PipelineByValueProperties>
-	<Property>JobId</Property>
-	<Property>AddressId</Property>
+    <Property>JobId</Property>
+    <Property>AddressId</Property>
   </PipelineByValueProperties>
   
 </ConfigModel>

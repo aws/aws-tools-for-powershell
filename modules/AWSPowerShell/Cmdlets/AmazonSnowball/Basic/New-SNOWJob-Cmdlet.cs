@@ -29,8 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
     /// Creates a job to import or export data between Amazon S3 and your on-premises data
-    /// center. Note that your AWS account must have the right trust policies and permissions
-    /// in place to create a job for Snowball. For more information, see <a>api-reference-policies</a>.
+    /// center. Your AWS account must have the right trust policies and permissions in place
+    /// to create a job for Snowball. If you're creating a job for a node in a cluster, you
+    /// only need to provide the <code>clusterId</code> value; the other job attributes are
+    /// inherited from the cluster. .
     /// </summary>
     [Cmdlet("New", "SNOWJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -50,6 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AddressId { get; set; }
+        #endregion
+        
+        #region Parameter ClusterId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a cluster. If you're creating a job for a node in a cluster, you need to
+        /// provide only this <code>clusterId</code> value. The other job attributes are inherited
+        /// from the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClusterId { get; set; }
         #endregion
         
         #region Parameter Description
@@ -96,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String KmsKeyARN { get; set; }
         #endregion
         
+        #region Parameter Resources_LambdaResource
+        /// <summary>
+        /// <para>
+        /// <para>The Python-language Lambda functions for this job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Resources_LambdaResources")]
+        public Amazon.Snowball.Model.LambdaResource[] Resources_LambdaResource { get; set; }
+        #endregion
+        
         #region Parameter Notification_NotifyAll
         /// <summary>
         /// <para>
@@ -132,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter ShippingOption
         /// <summary>
         /// <para>
-        /// <para>The shipping speed for this job. Note that this speed does not dictate how soon you'll
-        /// get the Snowball, rather it represents how quickly the Snowball moves to its destination
-        /// while in transit. Regional shipping speeds are as follows:</para><ul><li><para>In Australia, you have access to express shipping. Typically, Snowballs shipped express
+        /// <para>The shipping speed for this job. This speed doesn't dictate how soon you'll get the
+        /// Snowball, rather it represents how quickly the Snowball moves to its destination while
+        /// in transit. Regional shipping speeds are as follows:</para><ul><li><para>In Australia, you have access to express shipping. Typically, Snowballs shipped express
         /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snowballs
         /// shipped express are delivered in about a day. In addition, most countries in the EU
         /// have access to standard shipping, which typically takes less than a week, one way.</para></li><li><para>In India, Snowballs are delivered in one to seven days.</para></li><li><para>In the US, you have access to one-day shipping and two-day shipping.</para></li></ul>
@@ -158,13 +183,25 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public Amazon.Snowball.SnowballCapacity SnowballCapacityPreference { get; set; }
         #endregion
         
+        #region Parameter SnowballType
+        /// <summary>
+        /// <para>
+        /// <para>The type of AWS Snowball appliance to use for this job. Currently, the only supported
+        /// appliance type for cluster jobs is <code>EDGE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Snowball.SnowballType")]
+        public Amazon.Snowball.SnowballType SnowballType { get; set; }
+        #endregion
+        
         #region Parameter Notification_SnsTopicARN
         /// <summary>
         /// <para>
         /// <para>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
         /// create Amazon Resource Names (ARNs) for topics by using the <a href="http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a>
-        /// Amazon SNS API action.</para><para>Note that you can subscribe email addresses to an Amazon SNS topic through the AWS
-        /// Management Console, or by using the <a href="http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a>
+        /// Amazon SNS API action.</para><para>You can subscribe email addresses to an Amazon SNS topic through the AWS Management
+        /// Console, or by using the <a href="http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a>
         /// AWS Simple Notification Service (SNS) API action.</para>
         /// </para>
         /// </summary>
@@ -202,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             PreExecutionContextLoad(context);
             
             context.AddressId = this.AddressId;
+            context.ClusterId = this.ClusterId;
             context.Description = this.Description;
             context.JobType = this.JobType;
             context.KmsKeyARN = this.KmsKeyARN;
@@ -212,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (ParameterWasBound("Notification_NotifyAll"))
                 context.Notification_NotifyAll = this.Notification_NotifyAll;
             context.Notification_SnsTopicARN = this.Notification_SnsTopicARN;
+            if (this.Resources_LambdaResource != null)
+            {
+                context.Resources_LambdaResources = new List<Amazon.Snowball.Model.LambdaResource>(this.Resources_LambdaResource);
+            }
             if (this.Resources_S3Resource != null)
             {
                 context.Resources_S3Resources = new List<Amazon.Snowball.Model.S3Resource>(this.Resources_S3Resource);
@@ -219,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.RoleARN = this.RoleARN;
             context.ShippingOption = this.ShippingOption;
             context.SnowballCapacityPreference = this.SnowballCapacityPreference;
+            context.SnowballType = this.SnowballType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -238,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (cmdletContext.AddressId != null)
             {
                 request.AddressId = cmdletContext.AddressId;
+            }
+            if (cmdletContext.ClusterId != null)
+            {
+                request.ClusterId = cmdletContext.ClusterId;
             }
             if (cmdletContext.Description != null)
             {
@@ -294,6 +341,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
              // populate Resources
             bool requestResourcesIsNull = true;
             request.Resources = new Amazon.Snowball.Model.JobResource();
+            List<Amazon.Snowball.Model.LambdaResource> requestResources_resources_LambdaResource = null;
+            if (cmdletContext.Resources_LambdaResources != null)
+            {
+                requestResources_resources_LambdaResource = cmdletContext.Resources_LambdaResources;
+            }
+            if (requestResources_resources_LambdaResource != null)
+            {
+                request.Resources.LambdaResources = requestResources_resources_LambdaResource;
+                requestResourcesIsNull = false;
+            }
             List<Amazon.Snowball.Model.S3Resource> requestResources_resources_S3Resource = null;
             if (cmdletContext.Resources_S3Resources != null)
             {
@@ -320,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (cmdletContext.SnowballCapacityPreference != null)
             {
                 request.SnowballCapacityPreference = cmdletContext.SnowballCapacityPreference;
+            }
+            if (cmdletContext.SnowballType != null)
+            {
+                request.SnowballType = cmdletContext.SnowballType;
             }
             
             CmdletOutput output;
@@ -373,16 +434,19 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         internal class CmdletContext : ExecutorContext
         {
             public System.String AddressId { get; set; }
+            public System.String ClusterId { get; set; }
             public System.String Description { get; set; }
             public Amazon.Snowball.JobType JobType { get; set; }
             public System.String KmsKeyARN { get; set; }
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }
+            public List<Amazon.Snowball.Model.LambdaResource> Resources_LambdaResources { get; set; }
             public List<Amazon.Snowball.Model.S3Resource> Resources_S3Resources { get; set; }
             public System.String RoleARN { get; set; }
             public Amazon.Snowball.ShippingOption ShippingOption { get; set; }
             public Amazon.Snowball.SnowballCapacity SnowballCapacityPreference { get; set; }
+            public Amazon.Snowball.SnowballType SnowballType { get; set; }
         }
         
     }
