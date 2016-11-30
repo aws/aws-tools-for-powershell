@@ -2552,6 +2552,15 @@ Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
+Set-Alias -Name Delete-POLLexicon -Value Remove-POLLexicon
+Set-Alias -Name POL-DeleteLexicon -Value Remove-POLLexicon
+Set-Alias -Name Describe-POLVoice -Value Get-POLVoice
+Set-Alias -Name POL-DescribeVoices -Value Get-POLVoice
+Set-Alias -Name POL-GetLexicon -Value Get-POLLexicon
+Set-Alias -Name POL-ListLexicons -Value Get-POLLexiconList
+Set-Alias -Name Put-POLLexicon -Value Write-POLLexicon
+Set-Alias -Name POL-PutLexicon -Value Write-POLLexicon
+Set-Alias -Name POL-SynthesizeSpeech -Value Get-POLSpeech
 Set-Alias -Name RDS-RestoreDBClusterFromSnapshot -Value Restore-RDSDBClusterFromSnapshot
 Set-Alias -Name RDS-RestoreDBClusterToPointInTime -Value Restore-RDSDBClusterToPointInTime
 Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot

@@ -2900,6 +2900,57 @@ $OPS_map = @{
 _awsArgumentCompleterRegistration $OPS_Completers $OPS_map
 
 
+# Argument completions for service Amazon Polly
+$POL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Polly.LanguageCode
+        "Get-POLVoice/LanguageCode"
+        {
+            $v = "cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","is-IS","it-IT","ja-JP","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
+            break
+        }
+        
+        # Amazon.Polly.OutputFormat
+        "Get-POLSpeech/OutputFormat"
+        {
+            $v = "mp3","ogg_vorbis","pcm"
+            break
+        }
+        
+        # Amazon.Polly.TextType
+        "Get-POLSpeech/TextType"
+        {
+            $v = "ssml","text"
+            break
+        }
+        
+        # Amazon.Polly.VoiceId
+        "Get-POLSpeech/VoiceId"
+        {
+            $v = "Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Tatyana","Vitoria"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$POL_map = @{
+    "LanguageCode"=@("Get-POLVoice")
+    "OutputFormat"=@("Get-POLSpeech")
+    "TextType"=@("Get-POLSpeech")
+    "VoiceId"=@("Get-POLSpeech")
+}
+
+_awsArgumentCompleterRegistration $POL_Completers $POL_map
+
+
 # Argument completions for service Amazon Relational Database Service
 $RDS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
