@@ -61,6 +61,7 @@
 		"AWSSDK.OpsWorks": "3.3.0.4",
 		"AWSSDK.RDS": "3.3.2.2",
 		"AWSSDK.Redshift": "3.3.1.3",
+		"AWSSDK.Rekognition": "3.3.0",
 		"AWSSDK.Route53": "3.3.2.1",
 		"AWSSDK.Route53Domains": "3.3.0.3",
 		"AWSSDK.S3": "3.3.4",

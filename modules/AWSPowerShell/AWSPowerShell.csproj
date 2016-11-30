@@ -57,6 +57,9 @@
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Rekognition">
+      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.0\lib\net35\AWSSDK.Rekognition.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ServerMigrationService">
       <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.2\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>

@@ -59,6 +59,7 @@
     <Path>MarketplaceMetering.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>RDS.xml</Path>
+    <Path>Rekognition.xml</Path>
     <Path>Redshift.xml</Path>
     <Path>Route53.xml</Path>
     <Path>Route53Domains.xml</Path>

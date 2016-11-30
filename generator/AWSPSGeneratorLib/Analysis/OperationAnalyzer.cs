@@ -532,10 +532,7 @@ namespace AWSPowerShellGenerator.Analysis
             // more memory streams during cmdlet execution
             if (isCmdletParameter && simpleProperty.IsMemoryStreamType && CurrentOperation.RemapMemoryStreamParameters)
             {
-                if (MemoryStreamParameters == null)
-                    MemoryStreamParameters = new HashSet<string>();
-
-                MemoryStreamParameters.Add(simpleProperty.ContextParameterName);
+                RegisterForMemoryStreamReplacement(simpleProperty);
             }
 
             if (simpleProperty.IsConstrainedToSet && isCmdletParameter)
@@ -782,6 +779,19 @@ namespace AWSPowerShellGenerator.Analysis
 
                 return AnalyzedParameters.Count(p => !iterationSettings.IsIterationParameter(p.AnalyzedName));
             }
+        }
+
+        private void RegisterForMemoryStreamReplacement(SimplePropertyInfo simpleProperty)
+        {
+            if (MemoryStreamParameters == null)
+                MemoryStreamParameters = new HashSet<string>();
+
+            // use parameter name so any renaming is taken into effect consistently
+            var customization = GetParameterCustomization(simpleProperty.AnalyzedName);
+            if (customization != null)
+                MemoryStreamParameters.Add(customization.NewName);
+            else
+                MemoryStreamParameters.Add(simpleProperty.CmdletParameterName);
         }
 
         /// <summary>

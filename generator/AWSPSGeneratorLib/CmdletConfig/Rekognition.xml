@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>REK</ServiceNounPrefix>
+  <ServiceName>Amazon Rekognition</ServiceName>
+  <ServiceClientInterface>IAmazonRekognition</ServiceClientInterface>
+  <ServiceClient>AmazonRekognitionClient</ServiceClient>
+  <ServiceNamespace>Amazon.Rekognition</ServiceNamespace>
+
+  <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" />
+
+  <PipelineParameter>CollectionId</PipelineParameter>
+
+  <PipelineByValueProperties>
+    <Property>FaceId</Property>
+    <Property>ImageId</Property>
+    <Property>ExternalImageId</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CompareFaces" 
+                      Noun="Face" 
+                      NoPipelineParameter="true" 
+                      Output="Response" 
+                      AnonymousShouldProcessTarget="true">
+      <Params>
+        <Param Name="SourceImage_S3Object_Bucket" NewName="SourceImageBucket" AutoApplyAlias="false" />
+        <Param Name="SourceImage_S3Object_Name" NewName="SourceImageName" AutoApplyAlias="false" />
+        <Param Name="SourceImage_S3Object_Version" NewName="SourceImageVersion" AutoApplyAlias="false" />
+        <Param Name="SourceImage_Bytes" NewName="SourceImageContent" AutoApplyAlias="false" />
+        <Param Name="TargetImage_S3Object_Bucket" NewName="TargetImageBucket" AutoApplyAlias="false" />
+        <Param Name="TargetImage_S3Object_Name" NewName="TargetImageName" AutoApplyAlias="false" />
+        <Param Name="TargetImage_S3Object_Version" NewName="TargetImageVersion" AutoApplyAlias="false" />
+        <Param Name="TargetImage_Bytes" NewName="TargetImageContent" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateCollection" Output="Response" />
+    <ServiceOperation MethodName="DeleteCollection" />
+    <ServiceOperation MethodName="DeleteFaces" Noun="Face" PipelineParameter="FaceId" />
+    <ServiceOperation MethodName="DetectFaces" Verb="Find" Noun="Face" NoPipelineParameter="true" Output="Response">
+        <Params>
+            <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+            <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+        </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DetectLabels" Verb="Find" Noun="Label" NoPipelineParameter="true" Output="Response">
+        <Params>
+            <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+            <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+        </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="IndexFaces" Verb="Add" Noun="DetectedFacesToCollection" Output="Response">
+        <Params>
+            <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+            <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+        </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListCollections" Verb="Get" Noun="CollectionIdList" />
+    <ServiceOperation MethodName="ListFaces" Verb="Get" Noun="FaceList" />
+    <ServiceOperation MethodName="SearchFaces" Noun="Face" Output="Response" />
+    <ServiceOperation MethodName="SearchFacesByImage" Output="Response">
+        <Params>
+            <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+            <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+            <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+        </Params>
+    </ServiceOperation>
+  </ServiceOperations>
+
+</ConfigModel>

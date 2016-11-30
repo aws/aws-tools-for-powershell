@@ -108,6 +108,7 @@ RequiredAssemblies = @(
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.RDS.dll",
   "AWSSDK.Redshift.dll",
+  "AWSSDK.Rekognition.dll",
   "AWSSDK.Route53.dll",
   "AWSSDK.Route53Domains.dll",
   "AWSSDK.S3.dll",
