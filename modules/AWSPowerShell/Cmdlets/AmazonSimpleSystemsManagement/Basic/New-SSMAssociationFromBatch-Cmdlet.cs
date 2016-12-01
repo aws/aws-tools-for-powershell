@@ -28,13 +28,13 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Associates the specified SSM document with the specified instances.
+    /// Associates the specified SSM document with the specified instances or targets.
     /// 
     ///  
     /// <para>
-    /// When you associate an SSM document with an instance, the configuration agent on the
-    /// instance (SSM agent for Linux and EC2Config service for Windows) processes the document
-    /// and configures the instance as specified.
+    /// When you associate an SSM document with one or more instances using instance IDs or
+    /// tags, the SSM agent running on the instance processes the document and configures
+    /// the instance as specified.
     /// </para><para>
     /// If you associate a document with an instance that already has an associated document,
     /// the system throws the AssociationAlreadyExists exception.

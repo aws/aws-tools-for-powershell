@@ -28,42 +28,56 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified SSM document.
+    /// Stop an Automation that is currently executing.
     /// </summary>
-    [Cmdlet("Get", "SSMDocumentDescription")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the DescribeDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeDocument"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
-        "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "SSMAutomationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the StopAutomationExecution operation against Amazon Simple Systems Management.", Operation = new[] {"StopAutomationExecution"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutomationExecutionId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMDocumentDescriptionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class StopSSMAutomationExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter DocumentVersion
+        #region Parameter AutomationExecutionId
         /// <summary>
         /// <para>
-        /// <para>The document version for which you want information. Can be a specific version or
-        /// the default version.</para>
+        /// <para>The execution ID of the Automation to stop.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String DocumentVersion { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String AutomationExecutionId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>The name of the SSM document.</para>
-        /// </para>
+        /// Returns the value passed to the AutomationExecutionId parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AutomationExecutionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SSMAutomationExecution (StopAutomationExecution)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -74,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DocumentVersion = this.DocumentVersion;
-            context.Name = this.Name;
+            context.AutomationExecutionId = this.AutomationExecutionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionRequest();
             
-            if (cmdletContext.DocumentVersion != null)
+            if (cmdletContext.AutomationExecutionId != null)
             {
-                request.DocumentVersion = cmdletContext.DocumentVersion;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.AutomationExecutionId = cmdletContext.AutomationExecutionId;
             }
             
             CmdletOutput output;
@@ -109,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Document;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.AutomationExecutionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionRequest request)
         {
             #if DESKTOP
-            return client.DescribeDocument(request);
+            return client.StopAutomationExecution(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeDocumentAsync(request);
+            var task = client.StopAutomationExecutionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DocumentVersion { get; set; }
-            public System.String Name { get; set; }
+            public System.String AutomationExecutionId { get; set; }
         }
         
     }

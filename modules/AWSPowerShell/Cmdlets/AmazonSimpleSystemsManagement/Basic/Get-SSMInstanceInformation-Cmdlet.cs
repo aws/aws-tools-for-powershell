@@ -46,13 +46,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMInstanceInformationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters. Use a filter to return a more specific list of instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.SimpleSystemsManagement.Model.InstanceInformationStringFilter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter InstanceInformationFilterList
         /// <summary>
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of instances.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter[] InstanceInformationFilterList { get; set; }
         #endregion
         
@@ -95,6 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.InstanceInformationStringFilter>(this.Filter);
+            }
             if (this.InstanceInformationFilterList != null)
             {
                 context.InstanceInformationFilterList = new List<Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter>(this.InstanceInformationFilterList);
@@ -118,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             // create request and set iteration invariants
             var request = new Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationRequest();
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
             if (cmdletContext.InstanceInformationFilterList != null)
             {
                 request.InstanceInformationFilterList = cmdletContext.InstanceInformationFilterList;
@@ -255,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleSystemsManagement.Model.InstanceInformationStringFilter> Filters { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter> InstanceInformationFilterList { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }

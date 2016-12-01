@@ -28,37 +28,37 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified SSM document.
+    /// Retrieves the details about a specific task executed as part of a Maintenance Window
+    /// execution.
     /// </summary>
-    [Cmdlet("Get", "SSMDocumentDescription")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the DescribeDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeDocument"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
-        "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMMaintenanceWindowExecutionTask")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskResponse")]
+    [AWSCmdlet("Invokes the GetMaintenanceWindowExecutionTask operation against Amazon Simple Systems Management.", Operation = new[] {"GetMaintenanceWindowExecutionTask"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMDocumentDescriptionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMMaintenanceWindowExecutionTaskCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter DocumentVersion
+        #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>The document version for which you want information. Can be a specific version or
-        /// the default version.</para>
+        /// <para>The ID of the specific task execution in the Maintenance Window task that should be
+        /// retrieved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String TaskId { get; set; }
+        #endregion
+        
+        #region Parameter WindowExecutionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Maintenance Window execution that includes the task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String DocumentVersion { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the SSM document.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        public System.String WindowExecutionId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DocumentVersion = this.DocumentVersion;
-            context.Name = this.Name;
+            context.TaskId = this.TaskId;
+            context.WindowExecutionId = this.WindowExecutionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskRequest();
             
-            if (cmdletContext.DocumentVersion != null)
+            if (cmdletContext.TaskId != null)
             {
-                request.DocumentVersion = cmdletContext.DocumentVersion;
+                request.TaskId = cmdletContext.TaskId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.WindowExecutionId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.WindowExecutionId = cmdletContext.WindowExecutionId;
             }
             
             CmdletOutput output;
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Document;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskRequest request)
         {
             #if DESKTOP
-            return client.DescribeDocument(request);
+            return client.GetMaintenanceWindowExecutionTask(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeDocumentAsync(request);
+            var task = client.GetMaintenanceWindowExecutionTaskAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DocumentVersion { get; set; }
-            public System.String Name { get; set; }
+            public System.String TaskId { get; set; }
+            public System.String WindowExecutionId { get; set; }
         }
         
     }

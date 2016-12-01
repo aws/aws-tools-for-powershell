@@ -28,46 +28,72 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the associations for the specified SSM document or instance.
+    /// A list of inventory items returned by the request.
     /// </summary>
-    [Cmdlet("Get", "SSMAssociation")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Invokes the DescribeAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAssociation"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
-        "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMInventoryEntriesList")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesResponse")]
+    [AWSCmdlet("Invokes the ListInventoryEntries operation against Amazon Simple Systems Management.", Operation = new[] {"ListInventoryEntries"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMInventoryEntriesListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter AssociationId
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The association ID for which you want information.</para>
+        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AssociationId { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.SimpleSystemsManagement.Model.InventoryFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The instance ID for which you want inventory information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The type of inventory item for which you want information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        public System.String TypeName { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxResults")]
+        public System.Int32 MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -83,9 +109,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AssociationId = this.AssociationId;
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.InventoryFilter>(this.Filter);
+            }
             context.InstanceId = this.InstanceId;
-            context.Name = this.Name;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.TypeName = this.TypeName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,19 +132,27 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesRequest();
             
-            if (cmdletContext.AssociationId != null)
+            if (cmdletContext.Filters != null)
             {
-                request.AssociationId = cmdletContext.AssociationId;
+                request.Filters = cmdletContext.Filters;
             }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.MaxResults != null)
             {
-                request.Name = cmdletContext.Name;
+                request.MaxResults = cmdletContext.MaxResults.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.TypeName != null)
+            {
+                request.TypeName = cmdletContext.TypeName;
             }
             
             CmdletOutput output;
@@ -123,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AssociationDescription;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -148,13 +188,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesRequest request)
         {
             #if DESKTOP
-            return client.DescribeAssociation(request);
+            return client.ListInventoryEntries(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeAssociationAsync(request);
+            var task = client.ListInventoryEntriesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -165,9 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AssociationId { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.InventoryFilter> Filters { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
+            public System.Int32? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String TypeName { get; set; }
         }
         
     }

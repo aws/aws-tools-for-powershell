@@ -28,54 +28,79 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates an SSM document.
-    /// 
-    ///  
-    /// <para>
-    /// After you create an SSM document, you can use CreateAssociation to associate it with
-    /// one or more running instances.
-    /// </para>
+    /// Creates a new Maintenance Window.
     /// </summary>
-    [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the CreateDocument operation against Amazon Simple Systems Management.", Operation = new[] {"CreateDocument"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
-        "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "SSMMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the CreateMaintenanceWindow operation against Amazon Simple Systems Management.", Operation = new[] {"CreateMaintenanceWindow"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateMaintenanceWindowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class NewSSMMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter Content
+        #region Parameter AllowUnassociatedTarget
         /// <summary>
         /// <para>
-        /// <para>A valid JSON string.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Content { get; set; }
-        #endregion
-        
-        #region Parameter DocumentType
-        /// <summary>
-        /// <para>
-        /// <para>The type of document to create. Valid document types include: Policy, Automation,
-        /// and Command.</para>
+        /// <para>Whether targets must be registered with the Maintenance Window before tasks can be
+        /// defined for those targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.DocumentType")]
-        public Amazon.SimpleSystemsManagement.DocumentType DocumentType { get; set; }
+        [Alias("AllowUnassociatedTargets")]
+        public System.Boolean AllowUnassociatedTarget { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>User-provided idempotency token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Cutoff
+        /// <summary>
+        /// <para>
+        /// <para>The number of hours before the end of the Maintenance Window that Systems Manager
+        /// stops scheduling new tasks for execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Cutoff { get; set; }
+        #endregion
+        
+        #region Parameter Duration
+        /// <summary>
+        /// <para>
+        /// <para>The duration of the Maintenance Window in hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Duration { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the SSM document.</para>
+        /// <para>The name of the Maintenance Window.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Schedule
+        /// <summary>
+        /// <para>
+        /// <para>The schedule of the Maintenance Window in the form of a cron or rate expression.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Schedule { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SSMDocument (CreateDocument)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SSMMaintenanceWindow (CreateMaintenanceWindow)"))
             {
                 return;
             }
@@ -107,9 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Content = this.Content;
-            context.DocumentType = this.DocumentType;
+            if (ParameterWasBound("AllowUnassociatedTarget"))
+                context.AllowUnassociatedTargets = this.AllowUnassociatedTarget;
+            context.ClientToken = this.ClientToken;
+            if (ParameterWasBound("Cutoff"))
+                context.Cutoff = this.Cutoff;
+            if (ParameterWasBound("Duration"))
+                context.Duration = this.Duration;
             context.Name = this.Name;
+            context.Schedule = this.Schedule;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,19 +155,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.CreateDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CreateMaintenanceWindowRequest();
             
-            if (cmdletContext.Content != null)
+            if (cmdletContext.AllowUnassociatedTargets != null)
             {
-                request.Content = cmdletContext.Content;
+                request.AllowUnassociatedTargets = cmdletContext.AllowUnassociatedTargets.Value;
             }
-            if (cmdletContext.DocumentType != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.DocumentType = cmdletContext.DocumentType;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Cutoff != null)
+            {
+                request.Cutoff = cmdletContext.Cutoff.Value;
+            }
+            if (cmdletContext.Duration != null)
+            {
+                request.Duration = cmdletContext.Duration.Value;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Schedule != null)
+            {
+                request.Schedule = cmdletContext.Schedule;
             }
             
             CmdletOutput output;
@@ -147,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DocumentDescription;
+                object pipelineOutput = response.WindowId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -172,13 +215,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.CreateDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateDocumentRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.CreateMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateMaintenanceWindowRequest request)
         {
             #if DESKTOP
-            return client.CreateDocument(request);
+            return client.CreateMaintenanceWindow(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateDocumentAsync(request);
+            var task = client.CreateMaintenanceWindowAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -189,9 +232,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Content { get; set; }
-            public Amazon.SimpleSystemsManagement.DocumentType DocumentType { get; set; }
+            public System.Boolean? AllowUnassociatedTargets { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.Int32? Cutoff { get; set; }
+            public System.Int32? Duration { get; set; }
             public System.String Name { get; set; }
+            public System.String Schedule { get; set; }
         }
         
     }

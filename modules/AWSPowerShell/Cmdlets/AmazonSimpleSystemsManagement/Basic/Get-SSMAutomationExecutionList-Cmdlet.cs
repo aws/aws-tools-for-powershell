@@ -28,71 +28,35 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// An invocation is copy of a command sent to a specific instance. A command can apply
-    /// to one or more instances. A command invocation applies to one instance. For example,
-    /// if a user executes SendCommand against three instances, then a command invocation
-    /// is created for each requested instance ID. ListCommandInvocations provide status about
-    /// command execution.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Provides details about all active and terminated Automation executions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SSMCommandInvocation")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.CommandInvocation")]
-    [AWSCmdlet("Invokes the ListCommandInvocations operation against Amazon Simple Systems Management.", Operation = new[] {"ListCommandInvocations"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CommandInvocation",
-        "This cmdlet returns a collection of CommandInvocation objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMAutomationExecutionList")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata")]
+    [AWSCmdlet("Invokes the DescribeAutomationExecutions operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAutomationExecutions"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata",
+        "This cmdlet returns a collection of AutomationExecutionMetadata objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSSMCommandInvocationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMAutomationExecutionListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
-        
-        #region Parameter CommandId
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) The invocations for a specific command ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CommandId { get; set; }
-        #endregion
-        
-        #region Parameter Detail
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) If set this returns the response of the command executions and any command
-        /// output. By default this is set to False. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Details")]
-        public System.Boolean Detail { get; set; }
-        #endregion
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>(Optional) One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>Filters used to limit the scope of executions that are requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
-        public Amazon.SimpleSystemsManagement.Model.CommandFilter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) The command execution details for a specific instance ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        public Amazon.SimpleSystemsManagement.Model.AutomationExecutionFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) The maximum number of items to return for this call. The call also returns
-        /// a token that you can specify in a subsequent call to get the next set of results.</para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) The token for the next set of items to return. (You received this token
-        /// from a previous call.)</para>
+        /// <para>The token for the next set of items to return. (You received this token from a previous
+        /// call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -127,14 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CommandId = this.CommandId;
-            if (ParameterWasBound("Detail"))
-                context.Details = this.Detail;
             if (this.Filter != null)
             {
-                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.CommandFilter>(this.Filter);
+                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.AutomationExecutionFilter>(this.Filter);
             }
-            context.InstanceId = this.InstanceId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -153,22 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsRequest();
-            if (cmdletContext.CommandId != null)
-            {
-                request.CommandId = cmdletContext.CommandId;
-            }
-            if (cmdletContext.Details != null)
-            {
-                request.Details = cmdletContext.Details.Value;
-            }
+            var request = new Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
             }
             
             // Initialize loop variants and commence piping
@@ -225,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.CommandInvocations;
+                        object pipelineOutput = response.AutomationExecutionMetadataList;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -234,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.CommandInvocations.Count;
+                        int _receivedThisCall = response.AutomationExecutionMetadataList.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -286,13 +234,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsRequest request)
         {
             #if DESKTOP
-            return client.ListCommandInvocations(request);
+            return client.DescribeAutomationExecutions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListCommandInvocationsAsync(request);
+            var task = client.DescribeAutomationExecutionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -303,10 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CommandId { get; set; }
-            public System.Boolean? Details { get; set; }
-            public List<Amazon.SimpleSystemsManagement.Model.CommandFilter> Filters { get; set; }
-            public System.String InstanceId { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.AutomationExecutionFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

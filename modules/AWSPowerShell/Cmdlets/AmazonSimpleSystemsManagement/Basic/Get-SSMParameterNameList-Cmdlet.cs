@@ -28,37 +28,37 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified SSM document.
+    /// Get a list of parameters used by the AWS account.&gt;
     /// </summary>
-    [Cmdlet("Get", "SSMDocumentDescription")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the DescribeDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeDocument"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
-        "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMParameterNameList")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]
+    [AWSCmdlet("Invokes the GetParameters operation against Amazon Simple Systems Management.", Operation = new[] {"GetParameters"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetParametersResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMDocumentDescriptionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMParameterNameListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
-        
-        #region Parameter DocumentVersion
-        /// <summary>
-        /// <para>
-        /// <para>The document version for which you want information. Can be a specific version or
-        /// the default version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String DocumentVersion { get; set; }
-        #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>Names of the parameters for which you want to query information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
+        #endregion
+        
+        #region Parameter WithDecryption
+        /// <summary>
+        /// <para>
+        /// <para>Return decrypted secure string value. Return decrypted values for secure string parameters.
+        /// This flag is ignored for String and StringList parameter types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean WithDecryption { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DocumentVersion = this.DocumentVersion;
-            context.Name = this.Name;
+            if (this.Name != null)
+            {
+                context.Names = new List<System.String>(this.Name);
+            }
+            if (ParameterWasBound("WithDecryption"))
+                context.WithDecryption = this.WithDecryption;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +94,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.GetParametersRequest();
             
-            if (cmdletContext.DocumentVersion != null)
+            if (cmdletContext.Names != null)
             {
-                request.DocumentVersion = cmdletContext.DocumentVersion;
+                request.Names = cmdletContext.Names;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.WithDecryption != null)
             {
-                request.Name = cmdletContext.Name;
+                request.WithDecryption = cmdletContext.WithDecryption.Value;
             }
             
             CmdletOutput output;
@@ -109,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Document;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +138,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.GetParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParametersRequest request)
         {
             #if DESKTOP
-            return client.DescribeDocument(request);
+            return client.GetParameters(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeDocumentAsync(request);
+            var task = client.GetParametersAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DocumentVersion { get; set; }
-            public System.String Name { get; set; }
+            public List<System.String> Names { get; set; }
+            public System.Boolean? WithDecryption { get; set; }
         }
         
     }

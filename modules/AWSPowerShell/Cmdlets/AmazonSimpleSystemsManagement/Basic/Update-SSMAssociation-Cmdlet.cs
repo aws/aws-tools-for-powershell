@@ -28,57 +28,37 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Associates the specified SSM document with the specified instances or targets.
-    /// 
-    ///  
-    /// <para>
-    /// When you associate an SSM document with one or more instances using instance IDs or
-    /// tags, the SSM agent running on the instance processes the document and configures
-    /// the instance as specified.
-    /// </para><para>
-    /// If you associate a document with an instance that already has an associated document,
-    /// the system throws the AssociationAlreadyExists exception.
-    /// </para>
+    /// Updates an association. You can only update the document version, schedule, parameters,
+    /// and Amazon S3 output of an association.
     /// </summary>
-    [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Invokes the CreateAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"CreateAssociation"})]
+    [AWSCmdlet("Invokes the UpdateAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateAssociation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
         "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the association you want to update. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String AssociationId { get; set; }
+        #endregion
         
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The document version you want to associate with the target(s). Can be a specific version
-        /// or the default version.</para>
+        /// <para>The document version you want update for the association. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DocumentVersion { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The instance ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the SSM document.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
         #endregion
         
         #region Parameter S3Location_OutputS3BucketName
@@ -117,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the documents runtime configuration. </para>
+        /// <para>The parameters you want to update for the association. If you create a parameter using
+        /// Parameter Store, you can reference the parameter using {{ssm:parameter-name}}</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -128,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A cron expression when the association will be applied to the target(s). Supported
+        /// <para>The cron expression used to schedule the association that you want to update. Supported
         /// expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time
         /// of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0
         /// 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every
@@ -137,19 +118,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ScheduleExpression { get; set; }
-        #endregion
-        
-        #region Parameter Target
-        /// <summary>
-        /// <para>
-        /// <para>The targets (either instances or tags) for the association. Instances are specified
-        /// using Key=instanceids,Values=&lt;instanceid1&gt;,&lt;instanceid2&gt;. Tags are specified
-        /// using Key=&lt;tag name&gt;,Values=&lt;tag value&gt;.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Targets")]
-        public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
         
         #region Parameter Force
@@ -166,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SSMAssociation (CreateAssociation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AssociationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMAssociation (UpdateAssociation)"))
             {
                 return;
             }
@@ -181,9 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AssociationId = this.AssociationId;
             context.DocumentVersion = this.DocumentVersion;
-            context.InstanceId = this.InstanceId;
-            context.Name = this.Name;
             context.OutputLocation_S3Location_OutputS3BucketName = this.S3Location_OutputS3BucketName;
             context.OutputLocation_S3Location_OutputS3KeyPrefix = this.S3Location_OutputS3KeyPrefix;
             context.OutputLocation_S3Location_OutputS3Region = this.S3Location_OutputS3Region;
@@ -208,10 +175,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 }
             }
             context.ScheduleExpression = this.ScheduleExpression;
-            if (this.Target != null)
-            {
-                context.Targets = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -226,19 +189,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.UpdateAssociationRequest();
             
+            if (cmdletContext.AssociationId != null)
+            {
+                request.AssociationId = cmdletContext.AssociationId;
+            }
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
             }
             
              // populate OutputLocation
@@ -302,10 +261,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ScheduleExpression = cmdletContext.ScheduleExpression;
             }
-            if (cmdletContext.Targets != null)
-            {
-                request.Targets = cmdletContext.Targets;
-            }
             
             CmdletOutput output;
             
@@ -340,13 +295,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateAssociationRequest request)
         {
             #if DESKTOP
-            return client.CreateAssociation(request);
+            return client.UpdateAssociation(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateAssociationAsync(request);
+            var task = client.UpdateAssociationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -357,15 +312,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AssociationId { get; set; }
             public System.String DocumentVersion { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
             public System.String OutputLocation_S3Location_OutputS3BucketName { get; set; }
             public System.String OutputLocation_S3Location_OutputS3KeyPrefix { get; set; }
             public System.String OutputLocation_S3Location_OutputS3Region { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
             public System.String ScheduleExpression { get; set; }
-            public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
         }
         
     }

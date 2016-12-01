@@ -3574,10 +3574,38 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.DocumentType
+        "New-SSMDocument/DocumentType"
+        {
+            $v = "Automation","Command","Policy"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.MaintenanceWindowResourceType
+        "Register-SSMTargetWithMaintenanceWindow/ResourceType"
+        {
+            $v = "INSTANCE"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType
+        "Register-SSMTaskWithMaintenanceWindow/TaskType"
+        {
+            $v = "RUN_COMMAND"
+            break
+        }
+        
         # Amazon.SimpleSystemsManagement.NotificationType
         "Send-SSMCommand/NotificationConfig_NotificationType"
         {
             $v = "Command","Invocation"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.ParameterType
+        "Write-SSMParameter/Type"
+        {
+            $v = "SecureString","String","StringList"
             break
         }
         
@@ -3588,7 +3616,7 @@ $SSM_Completers = {
             ($_ -eq "Remove-SSMResourceTag/ResourceType")
         }
         {
-            $v = "ManagedInstance"
+            $v = "MaintenanceWindow","ManagedInstance","Parameter"
             break
         }
         
@@ -3602,9 +3630,12 @@ $SSM_Completers = {
 $SSM_map = @{
     "AssociationStatus_Name"=@("Update-SSMAssociationStatus")
     "DocumentHashType"=@("Send-SSMCommand")
+    "DocumentType"=@("New-SSMDocument")
     "NotificationConfig_NotificationType"=@("Send-SSMCommand")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
-    "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Remove-SSMResourceTag")
+    "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
+    "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
+    "Type"=@("Write-SSMParameter")
 }
 
 _awsArgumentCompleterRegistration $SSM_Completers $SSM_map

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  
     /// <para>
-    ///  We recommend that you devise a set of tag keys that meets your needs for each resource
+    /// We recommend that you devise a set of tag keys that meets your needs for each resource
     /// type. Using a consistent set of tag keys makes it easier for you to manage your resources.
     /// You can search and filter the resources based on the tags you add. Tags don't have
     /// any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>(Optional) If provided, lists only the specified command.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CommandId { get; set; }
         #endregion
         

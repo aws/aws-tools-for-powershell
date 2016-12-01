@@ -28,51 +28,68 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the associations for the specified SSM document or instance.
+    /// Bulk update custom inventory items on one more instance. The request adds an inventory
+    /// item, if it doesn't already exist, or updates an inventory item, if it does exist.
     /// </summary>
-    [Cmdlet("Get", "SSMAssociation")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Invokes the DescribeAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAssociation"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
-        "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the PutInventory operation against Amazon Simple Systems Management.", Operation = new[] {"PutInventory"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.PutInventoryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class WriteSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
-        
-        #region Parameter AssociationId
-        /// <summary>
-        /// <para>
-        /// <para>The association ID for which you want information.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AssociationId { get; set; }
-        #endregion
         
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>One or more instance IDs where you want to add or update inventory items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Item
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The inventory items that you want to add or update on instances.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Items")]
+        public Amazon.SimpleSystemsManagement.Model.InventoryItem[] Item { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the InstanceId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SSMInventory (PutInventory)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -83,9 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AssociationId = this.AssociationId;
             context.InstanceId = this.InstanceId;
-            context.Name = this.Name;
+            if (this.Item != null)
+            {
+                context.Items = new List<Amazon.SimpleSystemsManagement.Model.InventoryItem>(this.Item);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,19 +119,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.PutInventoryRequest();
             
-            if (cmdletContext.AssociationId != null)
-            {
-                request.AssociationId = cmdletContext.AssociationId;
-            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Items != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Items = cmdletContext.Items;
             }
             
             CmdletOutput output;
@@ -123,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AssociationDescription;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.InstanceId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -148,13 +165,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.PutInventoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutInventoryRequest request)
         {
             #if DESKTOP
-            return client.DescribeAssociation(request);
+            return client.PutInventory(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeAssociationAsync(request);
+            var task = client.PutInventoryAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -165,9 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AssociationId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.InventoryItem> Items { get; set; }
         }
         
     }

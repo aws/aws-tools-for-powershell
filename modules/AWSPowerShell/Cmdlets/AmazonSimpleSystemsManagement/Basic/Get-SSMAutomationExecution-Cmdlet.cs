@@ -28,37 +28,28 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified SSM document.
+    /// Get detailed information about a particular Automation execution.
     /// </summary>
-    [Cmdlet("Get", "SSMDocumentDescription")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the DescribeDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeDocument"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
-        "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMAutomationExecution")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.AutomationExecution")]
+    [AWSCmdlet("Invokes the GetAutomationExecution operation against Amazon Simple Systems Management.", Operation = new[] {"GetAutomationExecution"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AutomationExecution",
+        "This cmdlet returns a AutomationExecution object.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetAutomationExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMDocumentDescriptionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMAutomationExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter DocumentVersion
+        #region Parameter AutomationExecutionId
         /// <summary>
         /// <para>
-        /// <para>The document version for which you want information. Can be a specific version or
-        /// the default version.</para>
+        /// <para>The unique identifier for an existing automation execution to examine. The execution
+        /// ID is returned by <code>StartAutomationExecution</code> when the execution of an Automation
+        /// document is initiated.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String DocumentVersion { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the SSM document.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String AutomationExecutionId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DocumentVersion = this.DocumentVersion;
-            context.Name = this.Name;
+            context.AutomationExecutionId = this.AutomationExecutionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.GetAutomationExecutionRequest();
             
-            if (cmdletContext.DocumentVersion != null)
+            if (cmdletContext.AutomationExecutionId != null)
             {
-                request.DocumentVersion = cmdletContext.DocumentVersion;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.AutomationExecutionId = cmdletContext.AutomationExecutionId;
             }
             
             CmdletOutput output;
@@ -109,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Document;
+                object pipelineOutput = response.AutomationExecution;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.GetAutomationExecutionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetAutomationExecutionRequest request)
         {
             #if DESKTOP
-            return client.DescribeDocument(request);
+            return client.GetAutomationExecution(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeDocumentAsync(request);
+            var task = client.GetAutomationExecutionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,8 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DocumentVersion { get; set; }
-            public System.String Name { get; set; }
+            public System.String AutomationExecutionId { get; set; }
         }
         
     }

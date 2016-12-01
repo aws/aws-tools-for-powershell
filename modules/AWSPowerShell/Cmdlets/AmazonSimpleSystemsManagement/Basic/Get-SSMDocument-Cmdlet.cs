@@ -39,13 +39,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter DocumentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The document version for which you want information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DocumentVersion { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
@@ -62,6 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -79,6 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.GetDocumentRequest();
             
+            if (cmdletContext.DocumentVersion != null)
+            {
+                request.DocumentVersion = cmdletContext.DocumentVersion;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -134,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }
         }
         

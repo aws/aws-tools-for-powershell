@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The ID of the command you want to cancel.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CommandId { get; set; }
         #endregion
         

@@ -28,23 +28,32 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified SSM document.
+    /// The document you want to update.
     /// </summary>
-    [Cmdlet("Get", "SSMDocumentDescription")]
+    [Cmdlet("Update", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the DescribeDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeDocument"})]
+    [AWSCmdlet("Invokes the UpdateDocument operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateDocument"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
         "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMDocumentDescriptionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Content
+        /// <summary>
+        /// <para>
+        /// <para>The content in a document that you want to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Content { get; set; }
+        #endregion
         
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The document version for which you want information. Can be a specific version or
-        /// the default version.</para>
+        /// <para>The version of the document that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,16 +63,32 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The name of the document that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMDocument (UpdateDocument)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -74,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.Content = this.Content;
             context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
             
@@ -90,8 +116,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.UpdateDocumentRequest();
             
+            if (cmdletContext.Content != null)
+            {
+                request.Content = cmdletContext.Content;
+            }
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
@@ -109,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Document;
+                object pipelineOutput = response.DocumentDescription;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,13 +164,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeDocumentRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateDocumentRequest request)
         {
             #if DESKTOP
-            return client.DescribeDocument(request);
+            return client.UpdateDocument(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeDocumentAsync(request);
+            var task = client.UpdateDocumentAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -151,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String Content { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }
         }

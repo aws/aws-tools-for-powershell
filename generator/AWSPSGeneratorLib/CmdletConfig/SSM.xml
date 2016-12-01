@@ -11,7 +11,7 @@
 
   <PipelineParameter>InstanceId</PipelineParameter>
   
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="25"/>
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="25" Exclusions="ListInventoryEntries" />
 
   <ServiceOperations>
     <ServiceOperation MethodName="CreateAssociation" />
@@ -46,6 +46,43 @@
 	<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
 	<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
 	
+    <ServiceOperation MethodName="CreateMaintenanceWindow" PipelineParameter="Name" />
+    <ServiceOperation MethodName="DeleteMaintenanceWindow" />
+    <ServiceOperation MethodName="DeleteParameter" Output="Void" />
+    <ServiceOperation MethodName="DeregisterTargetFromMaintenanceWindow" PipelineParameter="WindowTargetId" Output="Response" />
+    <ServiceOperation MethodName="DeregisterTaskFromMaintenanceWindow" PipelineParameter="WindowTaskId" Output="Response" />
+    <ServiceOperation MethodName="DescribeAutomationExecutions" NoPipelineParameter="true" Noun="AutomationExecutionList" />
+    <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Noun="EffectiveInstanceAssociationList" />
+    <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindows" Noun="MaintenanceWindowList" />
+    <ServiceOperation MethodName="DescribeParameters" Noun="ParameterList" />
+    <ServiceOperation MethodName="GetAutomationExecution" />
+    <ServiceOperation MethodName="GetCommandInvocation" Output="Response" Noun="CommandInvocationDetail" />
+    <ServiceOperation MethodName="GetInventory" />
+    <ServiceOperation MethodName="GetInventorySchema" PipelineParameter="TypeName" />
+    <ServiceOperation MethodName="GetMaintenanceWindow" Output="Response" />
+    <ServiceOperation MethodName="GetMaintenanceWindowExecution" Output="Response" />
+    <ServiceOperation MethodName="GetMaintenanceWindowExecutionTask" PipelineParameter="TaskId" Output="Response" />
+    <ServiceOperation MethodName="GetParameterHistory" PipelineParameter="Name" />
+    <ServiceOperation MethodName="GetParameters" Noun="ParameterNameList" NoPipelineParameter="true" Output="Response" />
+    <ServiceOperation MethodName="ListDocumentVersions" Noun="DocumentVersionList" PipelineParameter="Name" />
+    <ServiceOperation MethodName="ListInventoryEntries" Noun="InventoryEntriesList" Output="Response" />
+    <ServiceOperation MethodName="PutInventory" Output="Void" />
+    <ServiceOperation MethodName="PutParameter" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="RegisterTargetWithMaintenanceWindow" PipelineParameter="WindowId" />
+    <ServiceOperation MethodName="RegisterTaskWithMaintenanceWindow" PipelineParameter="TaskArn" />
+    <ServiceOperation MethodName="StartAutomationExecution" PipelineParameter="DocumentName" />
+    <ServiceOperation MethodName="StopAutomationExecution" Output="Void" />
+    <ServiceOperation MethodName="UpdateAssociation" PipelineParameter="AssociationId" />
+    <ServiceOperation MethodName="UpdateDocument" PipelineParameter="Content" />
+    <ServiceOperation MethodName="UpdateDocumentDefaultVersion" PipelineParameter="Name" />
+    <ServiceOperation MethodName="UpdateMaintenanceWindow" PipelineParameter="WindowId" Output="Response" />    
+    
   </ServiceOperations>
 
   <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
@@ -53,6 +90,8 @@
   <VerbMappings>
     <Map From="Associate" To="Register" />
     <Map From="Disassociate" To="Unregister" />
+    <Map From="Deregister" To="Unregister" />
+    <Map From="List" To="Get" />
   </VerbMappings>
 
   <!-- noun mappings contains service-specific noun remaps, augmenting the global map
@@ -62,6 +101,16 @@
   <PipelineByValueProperties>
     <Property>InstanceId</Property>
     <Property>Name</Property>
+    <Property>WindowId</Property>
+    <Property>WindowTargetId</Property>
+    <Property>WindowTaskId</Property>
+    <Property>AutomationExecutionId</Property>
+    <Property>CommandId</Property>
+    <Property>PluginName</Property>
+    <Property>TypeName</Property>
+    <Property>TaskArn</Property>
+    <Property>AssociationId</Property>
+    <Property>KeyId</Property>
   </PipelineByValueProperties>
 
 </ConfigModel>

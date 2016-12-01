@@ -28,59 +28,82 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Disassociates the specified SSM document from the specified instance.
-    /// 
-    ///  
-    /// <para>
-    /// When you disassociate an SSM document from an instance, it does not change the configuration
-    /// of the instance. To change the configuration state of an instance after you disassociate
-    /// a document, you must create a new document with the desired configuration and associate
-    /// it with the instance.
-    /// </para>
+    /// Add one or more paramaters to the system.
     /// </summary>
-    [Cmdlet("Remove", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteAssociation"})]
+    [AWSCmdlet("Invokes the PutParameter operation against Amazon Simple Systems Management.", Operation = new[] {"PutParameter"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.PutParameterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class WriteSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter AssociationId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The association ID that you want to delete.</para>
+        /// <para>Information about the parameter that you want to add to the system</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter KeyId
+        /// <summary>
+        /// <para>
+        /// <para>The parameter key ID that you want to add to the system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AssociationId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        public System.String KeyId { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The name of the parameter that you want to add to the system.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Overwrite
+        /// <summary>
+        /// <para>
+        /// <para>Overwrite an existing parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Overwrite { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of parameter that you want to add to the system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.ParameterType")]
+        public Amazon.SimpleSystemsManagement.ParameterType Type { get; set; }
+        #endregion
+        
+        #region Parameter Value
+        /// <summary>
+        /// <para>
+        /// <para>The parameter value that you want to add to the system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Value { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the InstanceId parameter.
+        /// Returns the value passed to the Name parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMAssociation (DeleteAssociation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SSMParameter (PutParameter)"))
             {
                 return;
             }
@@ -116,9 +139,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AssociationId = this.AssociationId;
-            context.InstanceId = this.InstanceId;
+            context.Description = this.Description;
+            context.KeyId = this.KeyId;
             context.Name = this.Name;
+            if (ParameterWasBound("Overwrite"))
+                context.Overwrite = this.Overwrite;
+            context.Type = this.Type;
+            context.Value = this.Value;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,19 +160,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DeleteAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.PutParameterRequest();
             
-            if (cmdletContext.AssociationId != null)
+            if (cmdletContext.Description != null)
             {
-                request.AssociationId = cmdletContext.AssociationId;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.KeyId != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.KeyId = cmdletContext.KeyId;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Overwrite != null)
+            {
+                request.Overwrite = cmdletContext.Overwrite.Value;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
+            }
+            if (cmdletContext.Value != null)
+            {
+                request.Value = cmdletContext.Value;
             }
             
             CmdletOutput output;
@@ -158,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.InstanceId;
+                    pipelineOutput = this.Name;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -183,13 +222,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteAssociationRequest request)
+        private static Amazon.SimpleSystemsManagement.Model.PutParameterResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.PutParameterRequest request)
         {
             #if DESKTOP
-            return client.DeleteAssociation(request);
+            return client.PutParameter(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteAssociationAsync(request);
+            var task = client.PutParameterAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,9 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AssociationId { get; set; }
-            public System.String InstanceId { get; set; }
+            public System.String Description { get; set; }
+            public System.String KeyId { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? Overwrite { get; set; }
+            public Amazon.SimpleSystemsManagement.ParameterType Type { get; set; }
+            public System.String Value { get; set; }
         }
         
     }

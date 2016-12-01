@@ -95,11 +95,43 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] InstanceId { get; set; }
         #endregion
         
+        #region Parameter MaxConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) The maximum number of instances that are allowed to execute the command
+        /// at the same time. You can specify a number such as “10” or a percentage such as “10%”.
+        /// The default value is 50. For more information about how to use <code>MaxConcurrency</code>,
+        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html">Executing
+        /// a Command Using Amazon EC2 Run Command</a> (Linux) or <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html">Executing
+        /// a Command Using Amazon EC2 Run Command</a> (Windows).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MaxConcurrency { get; set; }
+        #endregion
+        
+        #region Parameter MaxError
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of errors allowed without the command failing. When the command
+        /// fails one more time beyond the value of <code>MaxErrors</code>, the systems stops
+        /// sending the command to additional targets. You can specify a number like “10” or a
+        /// percentage like “10%”. The default value is 50. For more information about how to
+        /// use <code>MaxErrors</code>, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html">Executing
+        /// a Command Using Amazon EC2 Run Command</a> (Linux) or <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html">Executing
+        /// a Command Using Amazon EC2 Run Command</a> (Windows).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxErrors")]
+        public System.String MaxError { get; set; }
+        #endregion
+        
         #region Parameter NotificationConfig_NotificationArn
         /// <summary>
         /// <para>
-        /// <para>An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. SSM pushes
-        /// notifications about command status changes to this topic.</para>
+        /// <para>An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command
+        /// pushes notifications about command status changes to this topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -153,6 +185,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String OutputS3KeyPrefix { get; set; }
         #endregion
         
+        #region Parameter OutputS3Region
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket
+        /// is located. The default value is the region where Run Command is being called.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OutputS3Region { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
@@ -167,11 +210,27 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role that SSM uses to send notifications. </para>
+        /// <para>The IAM role that Systems Manager uses to send notifications. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Target
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) An array of search criteria that targets instances using a <code>Key</code>;<code>Value</code>
+        /// combination that you specify. <code>Targets</code> is required if you don't provide
+        /// one or more instance IDs in the call. For more information about how to use <code>Targets</code>,
+        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html">Executing
+        /// a Command Using Amazon EC2 Run Command</a> (Linux) or <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html">Executing
+        /// a Command Using Amazon EC2 Run Command</a> (Windows).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Targets")]
+        public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
         
         #region Parameter TimeoutSecond
@@ -223,6 +282,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.InstanceIds = new List<System.String>(this.InstanceId);
             }
+            context.MaxConcurrency = this.MaxConcurrency;
+            context.MaxErrors = this.MaxError;
             context.NotificationConfig_NotificationArn = this.NotificationConfig_NotificationArn;
             if (this.NotificationConfig_NotificationEvent != null)
             {
@@ -231,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.NotificationConfig_NotificationType = this.NotificationConfig_NotificationType;
             context.OutputS3BucketName = this.OutputS3BucketName;
             context.OutputS3KeyPrefix = this.OutputS3KeyPrefix;
+            context.OutputS3Region = this.OutputS3Region;
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -252,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 }
             }
             context.ServiceRoleArn = this.ServiceRoleArn;
+            if (this.Target != null)
+            {
+                context.Targets = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
+            }
             if (ParameterWasBound("TimeoutSecond"))
                 context.TimeoutSeconds = this.TimeoutSecond;
             
@@ -289,6 +355,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.InstanceIds != null)
             {
                 request.InstanceIds = cmdletContext.InstanceIds;
+            }
+            if (cmdletContext.MaxConcurrency != null)
+            {
+                request.MaxConcurrency = cmdletContext.MaxConcurrency;
+            }
+            if (cmdletContext.MaxErrors != null)
+            {
+                request.MaxErrors = cmdletContext.MaxErrors;
             }
             
              // populate NotificationConfig
@@ -337,6 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.OutputS3KeyPrefix = cmdletContext.OutputS3KeyPrefix;
             }
+            if (cmdletContext.OutputS3Region != null)
+            {
+                request.OutputS3Region = cmdletContext.OutputS3Region;
+            }
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
@@ -344,6 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ServiceRoleArn != null)
             {
                 request.ServiceRoleArn = cmdletContext.ServiceRoleArn;
+            }
+            if (cmdletContext.Targets != null)
+            {
+                request.Targets = cmdletContext.Targets;
             }
             if (cmdletContext.TimeoutSeconds != null)
             {
@@ -405,13 +487,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public Amazon.SimpleSystemsManagement.DocumentHashType DocumentHashType { get; set; }
             public System.String DocumentName { get; set; }
             public List<System.String> InstanceIds { get; set; }
+            public System.String MaxConcurrency { get; set; }
+            public System.String MaxErrors { get; set; }
             public System.String NotificationConfig_NotificationArn { get; set; }
             public List<System.String> NotificationConfig_NotificationEvents { get; set; }
             public Amazon.SimpleSystemsManagement.NotificationType NotificationConfig_NotificationType { get; set; }
             public System.String OutputS3BucketName { get; set; }
             public System.String OutputS3KeyPrefix { get; set; }
+            public System.String OutputS3Region { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
             public System.String ServiceRoleArn { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
             public System.Int32? TimeoutSeconds { get; set; }
         }
         
