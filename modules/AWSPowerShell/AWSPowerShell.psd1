@@ -123,7 +123,8 @@ RequiredAssemblies = @(
   "AWSSDK.SQS.dll",
   "AWSSDK.StorageGateway.dll",
   "AWSSDK.WAF.dll",
-  "AWSSDK.WorkSpaces.dll"
+  "AWSSDK.WorkSpaces.dll",
+  "AWSSDK.XRay.dll"
 )
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module

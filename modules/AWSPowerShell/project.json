@@ -76,7 +76,8 @@
 		"AWSSDK.SQS": "3.3.1",
 		"AWSSDK.StorageGateway": "3.3.0.3",
 		"AWSSDK.WAF": "3.3.1.4",
-		"AWSSDK.WorkSpaces": "3.3.0.3"
+		"AWSSDK.WorkSpaces": "3.3.0.3",
+		"AWSSDK.XRay": "3.3.0"
  	},
 	"buildOptions": {
 		"outputName": "AWSPowerShell.NetCore",

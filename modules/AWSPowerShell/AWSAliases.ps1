@@ -3560,4 +3560,12 @@ Set-Alias -Name WKS-RebootWorkspaces -Value Restart-WKSWorkspace
 Set-Alias -Name WKS-RebuildWorkspaces -Value Reset-WKSWorkspace
 Set-Alias -Name WKS-StartWorkspaces -Value Start-WKSWorkspace
 Set-Alias -Name WKS-TerminateWorkspaces -Value Stop-WKSWorkspace
+Set-Alias -Name XR-BatchGetTraces -Value Get-XRTraceBatch
+Set-Alias -Name XR-GetServiceGraph -Value Get-XRServiceGraph
+Set-Alias -Name XR-GetTraceGraph -Value Get-XRTraceGraph
+Set-Alias -Name XR-GetTraceSummaries -Value Get-XRTraceSummary
+Set-Alias -Name Put-XRTelemetryRecord -Value Write-XRTelemetryRecord
+Set-Alias -Name XR-PutTelemetryRecords -Value Write-XRTelemetryRecord
+Set-Alias -Name Put-XRTraceSegment -Value Write-XRTraceSegment
+Set-Alias -Name XR-PutTraceSegments -Value Write-XRTraceSegment
 
