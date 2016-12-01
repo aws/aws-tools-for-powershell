@@ -168,6 +168,7 @@
     <None Include="CmdletConfig\STS.xml" />
     <None Include="CmdletConfig\WAF.xml" />
     <None Include="CmdletConfig\WKS.xml" />
+    <None Include="CmdletConfig\Pinpoint.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ServiceResources\TypeExtensions\AmazonEC2\Image.xml" />

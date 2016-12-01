@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>PIN</ServiceNounPrefix>
+  <ServiceName>Amazon Pinpoint</ServiceName>
+  <ServiceClientInterface>IAmazonPinpoint</ServiceClientInterface>
+  <ServiceClient>AmazonPinpointClient</ServiceClient>
+  <ServiceNamespace>Amazon.Pinpoint</ServiceNamespace>
+
+  <PipelineParameter>ApplicationId</PipelineParameter>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="UpdateSegment" />
+    <ServiceOperation MethodName="CreateCampaign" />
+    <ServiceOperation MethodName="CreateImportJob" />
+    <ServiceOperation MethodName="CreateSegment" />
+    <ServiceOperation MethodName="DeleteApnsChannel"/>
+    <ServiceOperation MethodName="DeleteCampaign" />
+    <ServiceOperation MethodName="DeleteGcmChannel"/>
+    <ServiceOperation MethodName="DeleteSegment" />
+    <ServiceOperation MethodName="GetApnsChannel"/>
+    <ServiceOperation MethodName="GetApplicationSettings" Noun="ApplicationSettingList"/>
+    <ServiceOperation MethodName="GetCampaign" />
+    <ServiceOperation MethodName="GetCampaigns" Noun="CampaignList" />
+    <ServiceOperation MethodName="GetCampaignActivities" Noun="CampaignActivityList"/>
+    <ServiceOperation MethodName="GetCampaignVersion" />
+    <ServiceOperation MethodName="GetCampaignVersions" Noun="CampaignVersionList" />
+    <ServiceOperation MethodName="GetEndpoint" />
+    <ServiceOperation MethodName="GetGcmChannel"/>
+    <ServiceOperation MethodName="GetImportJob" />
+    <ServiceOperation MethodName="GetImportJobs" Noun="ImportJobList" />
+    <ServiceOperation MethodName="GetSegment" />
+    <ServiceOperation MethodName="GetSegmentImportJobs" Noun="SegmentImportJobList" />
+    <ServiceOperation MethodName="GetSegments" Noun="SegmentList" />
+    <ServiceOperation MethodName="GetSegmentVersion" />
+    <ServiceOperation MethodName="GetSegmentVersions" Noun="SegmentVersionList" />
+    <ServiceOperation MethodName="UpdateApnsChannel" />
+    <ServiceOperation MethodName="UpdateCampaign" />
+    <ServiceOperation MethodName="UpdateEndpoint" />
+    <ServiceOperation MethodName="UpdateEndpointsBatch" />
+    <ServiceOperation MethodName="UpdateGcmChannel" />
+    <ServiceOperation MethodName="UpdateApplicationSettings" Noun="ApplicationSettingList" />
+  </ServiceOperations>
+</ConfigModel>

@@ -66,6 +66,9 @@
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Pinpoint">
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.0\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.0\lib\net35\AWSSDK.Rekognition.dll</HintPath>
     </Reference>

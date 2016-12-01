@@ -62,6 +62,7 @@
 		"AWSSDK.MachineLearning": "3.3.0.3",
 		"AWSSDK.OpsWorks": "3.3.0.4",
 		"AWSSDK.OpsWorksCM": "3.3.0",
+		"AWSSDK.Pinpoint": "3.3.0",
 		"AWSSDK.Polly": "3.3.0",
 		"AWSSDK.RDS": "3.3.2.2",
 		"AWSSDK.Redshift": "3.3.1.3",
