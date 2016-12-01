@@ -72,6 +72,7 @@
 		"AWSSDK.SecurityToken": "3.3.0.3",
 		"AWSSDK.ServerMigrationService": "3.3.0.2",
 		"AWSSDK.ServiceCatalog": "3.3.2",
+		"AWSSDK.Shield": "3.3.0",
 		"AWSSDK.SimpleEmail": "3.3.1.1",
 		"AWSSDK.SimpleNotificationService": "3.3.0.3",
 		"AWSSDK.SimpleSystemsManagement": "3.3.0.3",

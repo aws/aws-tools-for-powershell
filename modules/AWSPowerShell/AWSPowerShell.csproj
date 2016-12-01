@@ -84,6 +84,9 @@
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.0\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Shield">
+      <HintPath>..\..\packages\AWSSDK.Shield.3.3.0\lib\net35\AWSSDK.Shield.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.3.0.3\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>

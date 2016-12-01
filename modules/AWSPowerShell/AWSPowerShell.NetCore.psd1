@@ -119,6 +119,7 @@ RequiredAssemblies = @(
   "AWSSDK.SecurityToken.dll",
   "AWSSDK.ServerMigrationService.dll",
   "AWSSDK.ServiceCatalog.dll",
+  "AWSSDK.Shield.dll",
   "AWSSDK.SimpleEmail.dll",
   "AWSSDK.SimpleNotificationService.dll",
   "AWSSDK.SimpleSystemsManagement.dll",
