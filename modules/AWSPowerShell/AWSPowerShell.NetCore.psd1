@@ -121,6 +121,7 @@ RequiredAssemblies = @(
   "AWSSDK.SimpleSystemsManagement.dll",
   "AWSSDK.Snowball.dll",
   "AWSSDK.SQS.dll",
+  "AWSSDK.StepFunctions.dll",
   "AWSSDK.StorageGateway.dll",
   "AWSSDK.WAF.dll",
   "AWSSDK.WorkSpaces.dll",

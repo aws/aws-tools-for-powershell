@@ -72,6 +72,9 @@
     <Reference Include="AWSSDK.Budgets">
       <HintPath>..\..\packages\AWSSDK.Budgets.3.3.0.2\lib\net35\AWSSDK.Budgets.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.StepFunctions">
+      <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.0\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.3.0.3\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>

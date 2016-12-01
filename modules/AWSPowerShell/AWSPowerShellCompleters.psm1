@@ -3471,6 +3471,33 @@ $SES_map = @{
 _awsArgumentCompleterRegistration $SES_Completers $SES_map
 
 
+# Argument completions for service Amazon Step Functions
+$SFN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.StepFunctions.ExecutionStatus
+        "Get-SFNExecutionList/StatusFilter"
+        {
+            $v = "ABORTED","FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SFN_map = @{
+    "StatusFilter"=@("Get-SFNExecutionList")
+}
+
+_awsArgumentCompleterRegistration $SFN_Completers $SFN_map
+
+
 # Argument completions for service Amazon Server Migration Service
 $SMS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
