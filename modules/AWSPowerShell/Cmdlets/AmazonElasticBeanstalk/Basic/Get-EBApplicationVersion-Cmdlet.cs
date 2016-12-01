@@ -28,8 +28,7 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage
-    /// bucket.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieve a list of application versions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EBApplicationVersion")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
@@ -45,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
-        /// ones that are associated with the specified application.</para>
+        /// <para>Specify an application name to show only application versions for that application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para>If specified, restricts the returned descriptions to only include ones that have the
-        /// specified version labels.</para>
+        /// <para>Specify a version label to show a specific application version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

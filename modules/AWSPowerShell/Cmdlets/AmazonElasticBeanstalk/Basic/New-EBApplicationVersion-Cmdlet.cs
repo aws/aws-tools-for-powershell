@@ -58,17 +58,46 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter BuildConfiguration_ArtifactName
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BuildConfiguration_ArtifactName { get; set; }
+        #endregion
+        
         #region Parameter AutoCreateApplication
         /// <summary>
         /// <para>
-        /// <para>Determines how the system behaves if the specified application for this version does
-        /// not already exist:</para><ul><li><para><code>true</code> : Automatically creates the specified application for this release
-        /// if it does not already exist.</para></li><li><para><code>false</code> : Throws an <code>InvalidParameterValue</code> if the specified
-        /// application for this release does not already exist.</para></li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <code>true</code> to create an application with the specified name if it doesn't
+        /// already exist.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoCreateApplication { get; set; }
+        #endregion
+        
+        #region Parameter BuildConfiguration_CodeBuildServiceRole
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BuildConfiguration_CodeBuildServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter BuildConfiguration_ComputeType
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.ComputeType")]
+        public Amazon.ElasticBeanstalk.ComputeType BuildConfiguration_ComputeType { get; set; }
         #endregion
         
         #region Parameter Description
@@ -79,6 +108,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter BuildConfiguration_Image
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BuildConfiguration_Image { get; set; }
         #endregion
         
         #region Parameter Process
@@ -116,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceLocation
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The repository name and commit ID, separated by a forward slash. For example, <code>my-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceRepository
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Location where the repository is stored, such as <code>CodeCommit</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -137,12 +176,23 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The type of repository, such as <code>Git</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.ElasticBeanstalk.SourceType")]
         public Amazon.ElasticBeanstalk.SourceType SourceBuildInformation_SourceType { get; set; }
+        #endregion
+        
+        #region Parameter BuildConfiguration_TimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BuildConfiguration_TimeoutInMinutes")]
+        public System.Int32 BuildConfiguration_TimeoutInMinute { get; set; }
         #endregion
         
         #region Parameter VersionLabel
@@ -189,6 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.ApplicationName = this.ApplicationName;
             if (ParameterWasBound("AutoCreateApplication"))
                 context.AutoCreateApplication = this.AutoCreateApplication;
+            context.BuildConfiguration_ArtifactName = this.BuildConfiguration_ArtifactName;
+            context.BuildConfiguration_CodeBuildServiceRole = this.BuildConfiguration_CodeBuildServiceRole;
+            context.BuildConfiguration_ComputeType = this.BuildConfiguration_ComputeType;
+            context.BuildConfiguration_Image = this.BuildConfiguration_Image;
+            if (ParameterWasBound("BuildConfiguration_TimeoutInMinute"))
+                context.BuildConfiguration_TimeoutInMinutes = this.BuildConfiguration_TimeoutInMinute;
             context.Description = this.Description;
             if (ParameterWasBound("Process"))
                 context.Process = this.Process;
@@ -221,6 +277,65 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.AutoCreateApplication != null)
             {
                 request.AutoCreateApplication = cmdletContext.AutoCreateApplication.Value;
+            }
+            
+             // populate BuildConfiguration
+            bool requestBuildConfigurationIsNull = true;
+            request.BuildConfiguration = new Amazon.ElasticBeanstalk.Model.BuildConfiguration();
+            System.String requestBuildConfiguration_buildConfiguration_ArtifactName = null;
+            if (cmdletContext.BuildConfiguration_ArtifactName != null)
+            {
+                requestBuildConfiguration_buildConfiguration_ArtifactName = cmdletContext.BuildConfiguration_ArtifactName;
+            }
+            if (requestBuildConfiguration_buildConfiguration_ArtifactName != null)
+            {
+                request.BuildConfiguration.ArtifactName = requestBuildConfiguration_buildConfiguration_ArtifactName;
+                requestBuildConfigurationIsNull = false;
+            }
+            System.String requestBuildConfiguration_buildConfiguration_CodeBuildServiceRole = null;
+            if (cmdletContext.BuildConfiguration_CodeBuildServiceRole != null)
+            {
+                requestBuildConfiguration_buildConfiguration_CodeBuildServiceRole = cmdletContext.BuildConfiguration_CodeBuildServiceRole;
+            }
+            if (requestBuildConfiguration_buildConfiguration_CodeBuildServiceRole != null)
+            {
+                request.BuildConfiguration.CodeBuildServiceRole = requestBuildConfiguration_buildConfiguration_CodeBuildServiceRole;
+                requestBuildConfigurationIsNull = false;
+            }
+            Amazon.ElasticBeanstalk.ComputeType requestBuildConfiguration_buildConfiguration_ComputeType = null;
+            if (cmdletContext.BuildConfiguration_ComputeType != null)
+            {
+                requestBuildConfiguration_buildConfiguration_ComputeType = cmdletContext.BuildConfiguration_ComputeType;
+            }
+            if (requestBuildConfiguration_buildConfiguration_ComputeType != null)
+            {
+                request.BuildConfiguration.ComputeType = requestBuildConfiguration_buildConfiguration_ComputeType;
+                requestBuildConfigurationIsNull = false;
+            }
+            System.String requestBuildConfiguration_buildConfiguration_Image = null;
+            if (cmdletContext.BuildConfiguration_Image != null)
+            {
+                requestBuildConfiguration_buildConfiguration_Image = cmdletContext.BuildConfiguration_Image;
+            }
+            if (requestBuildConfiguration_buildConfiguration_Image != null)
+            {
+                request.BuildConfiguration.Image = requestBuildConfiguration_buildConfiguration_Image;
+                requestBuildConfigurationIsNull = false;
+            }
+            System.Int32? requestBuildConfiguration_buildConfiguration_TimeoutInMinute = null;
+            if (cmdletContext.BuildConfiguration_TimeoutInMinutes != null)
+            {
+                requestBuildConfiguration_buildConfiguration_TimeoutInMinute = cmdletContext.BuildConfiguration_TimeoutInMinutes.Value;
+            }
+            if (requestBuildConfiguration_buildConfiguration_TimeoutInMinute != null)
+            {
+                request.BuildConfiguration.TimeoutInMinutes = requestBuildConfiguration_buildConfiguration_TimeoutInMinute.Value;
+                requestBuildConfigurationIsNull = false;
+            }
+             // determine if request.BuildConfiguration should be set to null
+            if (requestBuildConfigurationIsNull)
+            {
+                request.BuildConfiguration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -355,6 +470,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             public System.String ApplicationName { get; set; }
             public System.Boolean? AutoCreateApplication { get; set; }
+            public System.String BuildConfiguration_ArtifactName { get; set; }
+            public System.String BuildConfiguration_CodeBuildServiceRole { get; set; }
+            public Amazon.ElasticBeanstalk.ComputeType BuildConfiguration_ComputeType { get; set; }
+            public System.String BuildConfiguration_Image { get; set; }
+            public System.Int32? BuildConfiguration_TimeoutInMinutes { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? Process { get; set; }
             public System.String SourceBuildInformation_SourceLocation { get; set; }

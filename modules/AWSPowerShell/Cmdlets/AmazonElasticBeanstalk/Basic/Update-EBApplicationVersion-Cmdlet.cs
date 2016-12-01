@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The name of the application associated with this version.</para><para> If no application is found with this name, <code>UpdateApplication</code> returns
-        /// an <code>InvalidParameterValue</code> error. </para>
+        /// an <code>InvalidParameterValue</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A new description for this release.</para>
+        /// <para>A new description for this version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para>The name of the version to update.</para><para> If no application version is found with this label, <code>UpdateApplication</code>
+        /// <para>The name of the version to update.</para><para>If no application version is found with this label, <code>UpdateApplication</code>
         /// returns an <code>InvalidParameterValue</code> error. </para>
         /// </para>
         /// </summary>

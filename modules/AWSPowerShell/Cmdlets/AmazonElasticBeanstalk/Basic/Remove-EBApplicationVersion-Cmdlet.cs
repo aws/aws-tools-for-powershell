@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application to delete releases from.</para>
+        /// <para>The name of the application to which the version belongs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter DeleteSourceBundle
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to delete the associated source bundle from Amazon S3:</para><ul><li><para><code>true</code>: An attempt is made to delete the associated Amazon S3 source bundle
-        /// specified at time of creation.</para></li><li><para><code>false</code>: No action is taken on the Amazon S3 source bundle specified at
-        /// time of creation.</para></li></ul><para> Valid Values: <code>true</code> | <code>false</code></para>
+        /// <para>Set to <code>true</code> to delete the source bundle from your storage bucket. Otherwise,
+        /// the application version is deleted only from Elastic Beanstalk and the source bundle
+        /// remains in Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

@@ -323,6 +323,13 @@ $EB_Completers = {
             break
         }
         
+        # Amazon.ElasticBeanstalk.ComputeType
+        "New-EBApplicationVersion/BuildConfiguration_ComputeType"
+        {
+            $v = "BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
+            break
+        }
+        
         # Amazon.ElasticBeanstalk.EnvironmentInfoType
         {
             ($_ -eq "Get-EBEnvironmentInfo/InfoType") -Or
@@ -343,14 +350,14 @@ $EB_Completers = {
         # Amazon.ElasticBeanstalk.SourceRepository
         "New-EBApplicationVersion/SourceBuildInformation_SourceRepository"
         {
-            $v = "CodeCommit"
+            $v = "CodeCommit","S3"
             break
         }
         
         # Amazon.ElasticBeanstalk.SourceType
         "New-EBApplicationVersion/SourceBuildInformation_SourceType"
         {
-            $v = "Git"
+            $v = "Git","Zip"
             break
         }
         
@@ -362,6 +369,7 @@ $EB_Completers = {
 }
 
 $EB_map = @{
+    "BuildConfiguration_ComputeType"=@("New-EBApplicationVersion")
     "InfoType"=@("Get-EBEnvironmentInfo","Request-EBEnvironmentInfo")
     "Severity"=@("Get-EBEvent")
     "SourceBuildInformation_SourceRepository"=@("New-EBApplicationVersion")

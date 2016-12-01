@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>Specifies the response elements you wish to receive. If no attribute names are specified,
-        /// AWS Elastic Beanstalk only returns the name of the environment.</para>
+        /// <para>Specify the response elements to return. To retrieve all attributes, set to <code>All</code>.
+        /// If no attribute names are specified, returns the name of the environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,9 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Elastic Beanstalk environment ID.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
-        /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
-        /// error. </para>
+        /// <para>Specify the environment by ID.</para><para>You must specify either this or an EnvironmentName, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,9 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Elastic Beanstalk environment name.</para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
-        /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
-        /// error. </para>
+        /// <para>Specify the environment by name.</para><para>You must specify either this or an EnvironmentName, or both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,9 +28,9 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns more detailed information about the health of the specified instances (for
-    /// example, CPU utilization, load average, and causes). The <b>DescribeInstancesHealth</b>
-    /// operation is only available with AWS Elastic Beanstalk Enhanced Health.
+    /// Retrives detailed information about the health of instances in your AWS Elastic Beanstalk.
+    /// This operation requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
+    /// health reporting</a>.
     /// </summary>
     [Cmdlet("Get", "EBInstanceHealth")]
     [OutputType("Amazon.ElasticBeanstalk.Model.SingleInstanceHealth")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>Specifies the response elements you wish to receive. If no attribute names are specified,
-        /// AWS Elastic Beanstalk only returns a list of instances.</para>
+        /// <para>Specifies the response elements you wish to receive. To retrieve all attributes, set
+        /// to <code>All</code>. If no attribute names are specified, returns a list of instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Elastic Beanstalk environment ID.</para>
+        /// <para>Specify the AWS Elastic Beanstalk environment by ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Elastic Beanstalk environment name.</para>
+        /// <para>Specify the AWS Elastic Beanstalk environment by name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specifies the next token of the request.</para>
+        /// <para>Specify the pagination token returned by a previous call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
