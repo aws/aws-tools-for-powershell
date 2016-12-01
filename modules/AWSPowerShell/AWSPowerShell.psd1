@@ -107,6 +107,7 @@ RequiredAssemblies = @(
   "AWSSDK.Lightsail.dll",
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.OpsWorks.dll",
+  "AWSSDK.OpsWorksCM.dll",
   "AWSSDK.Polly.dll",
   "AWSSDK.RDS.dll",
   "AWSSDK.Redshift.dll",

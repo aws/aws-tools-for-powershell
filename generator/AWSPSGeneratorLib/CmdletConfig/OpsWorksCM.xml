@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>OWCM</ServiceNounPrefix>
+  <ServiceName>AWS OpsWorksCM</ServiceName>
+  <ServiceClientInterface>IAmazonOpsWorksCM</ServiceClientInterface>
+  <ServiceClient>AmazonOpsWorksCMClient</ServiceClient>
+  <ServiceNamespace>Amazon.OpsWorksCM</ServiceNamespace>
+
+  <DefaultRegion>us-east-1</DefaultRegion>
+
+  <CustomAliases>
+  </CustomAliases>
+
+  <VerbMappings>
+  </VerbMappings>
+
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+
+  <PipelineParameter>ServerName</PipelineParameter>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AssociateNode" Verb="Add"/>
+    <ServiceOperation MethodName="CreateBackup" Response="Void"/>
+    <ServiceOperation MethodName="CreateServer" />
+    <ServiceOperation MethodName="DeleteBackup" Output="Void"/>
+    <ServiceOperation MethodName="DeleteServer" Output="Void"/>
+    <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute"/>
+    <ServiceOperation MethodName="DescribeBackups" Verb="Get" Noun="BackupList"/>
+    <ServiceOperation MethodName="DescribeEvents" Verb="Get" Noun="EventList"/>
+    <ServiceOperation MethodName="DescribeNodeAssociationStatus" />
+    <ServiceOperation MethodName="DescribeServers" Verb="Get" Noun="ServerList"/>
+    <ServiceOperation MethodName="DisassociateNode" Verb="Remove"/>
+    <ServiceOperation MethodName="RestoreServer" Output="Void"/>
+    <ServiceOperation MethodName="StartMaintenance"/>
+    <ServiceOperation MethodName="UpdateServer"/>
+    <ServiceOperation MethodName="UpdateServerEngineAttributes" Noun="ServerEngineAttribute"/>
+  </ServiceOperations>
+</ConfigModel>
