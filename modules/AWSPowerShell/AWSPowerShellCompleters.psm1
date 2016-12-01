@@ -843,6 +843,128 @@ $CWL_map = @{
 _awsArgumentCompleterRegistration $CWL_Completers $CWL_map
 
 
+# Argument completions for service AWS CodeBuild
+$CB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CodeBuild.ArtifactNamespace
+        {
+            ($_ -eq "New-CBProject/Artifacts_NamespaceType") -Or
+            ($_ -eq "Update-CBProject/Artifacts_NamespaceType") -Or
+            ($_ -eq "Start-CBBuild/ArtifactsOverride_NamespaceType")
+        }
+        {
+            $v = "BUILD_ID","NONE"
+            break
+        }
+        
+        # Amazon.CodeBuild.ArtifactPackaging
+        {
+            ($_ -eq "New-CBProject/Artifacts_Packaging") -Or
+            ($_ -eq "Update-CBProject/Artifacts_Packaging") -Or
+            ($_ -eq "Start-CBBuild/ArtifactsOverride_Packaging")
+        }
+        {
+            $v = "NONE","ZIP"
+            break
+        }
+        
+        # Amazon.CodeBuild.ArtifactsType
+        {
+            ($_ -eq "New-CBProject/Artifacts_Type") -Or
+            ($_ -eq "Update-CBProject/Artifacts_Type") -Or
+            ($_ -eq "Start-CBBuild/ArtifactsOverride_Type")
+        }
+        {
+            $v = "CODEPIPELINE","NO_ARTIFACTS","S3"
+            break
+        }
+        
+        # Amazon.CodeBuild.ComputeType
+        {
+            ($_ -eq "New-CBProject/Environment_ComputeType") -Or
+            ($_ -eq "Update-CBProject/Environment_ComputeType")
+        }
+        {
+            $v = "BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
+            break
+        }
+        
+        # Amazon.CodeBuild.EnvironmentType
+        {
+            ($_ -eq "New-CBProject/Environment_Type") -Or
+            ($_ -eq "Update-CBProject/Environment_Type")
+        }
+        {
+            $v = "LINUX_CONTAINER"
+            break
+        }
+        
+        # Amazon.CodeBuild.ProjectSortByType
+        "Get-CBProjectList/SortBy"
+        {
+            $v = "CREATED_TIME","LAST_MODIFIED_TIME","NAME"
+            break
+        }
+        
+        # Amazon.CodeBuild.SortOrderType
+        {
+            ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
+            ($_ -eq "Get-CBBuildIdListForProject/SortOrder") -Or
+            ($_ -eq "Get-CBProjectList/SortOrder")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+        
+        # Amazon.CodeBuild.SourceAuthType
+        {
+            ($_ -eq "New-CBProject/Source_Auth_Type") -Or
+            ($_ -eq "Update-CBProject/Source_Auth_Type")
+        }
+        {
+            $v = "OAUTH"
+            break
+        }
+        
+        # Amazon.CodeBuild.SourceType
+        {
+            ($_ -eq "New-CBProject/Source_Type") -Or
+            ($_ -eq "Update-CBProject/Source_Type")
+        }
+        {
+            $v = "CODECOMMIT","CODEPIPELINE","GITHUB","S3"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CB_map = @{
+    "Artifacts_NamespaceType"=@("New-CBProject","Update-CBProject")
+    "Artifacts_Packaging"=@("New-CBProject","Update-CBProject")
+    "Artifacts_Type"=@("New-CBProject","Update-CBProject")
+    "ArtifactsOverride_NamespaceType"=@("Start-CBBuild")
+    "ArtifactsOverride_Packaging"=@("Start-CBBuild")
+    "ArtifactsOverride_Type"=@("Start-CBBuild")
+    "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
+    "Environment_Type"=@("New-CBProject","Update-CBProject")
+    "SortBy"=@("Get-CBProjectList")
+    "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList")
+    "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
+    "Source_Type"=@("New-CBProject","Update-CBProject")
+}
+
+_awsArgumentCompleterRegistration $CB_Completers $CB_map
+
+
 # Argument completions for service AWS CodeCommit
 $CC_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

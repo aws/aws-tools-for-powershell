@@ -70,6 +70,7 @@ RequiredAssemblies = @(
   "AWSSDK.CloudWatch.dll",
   "AWSSDK.CloudWatchEvents.dll",
   "AWSSDK.CloudWatchLogs.dll",
+  "AWSSDK.CodeBuild.dll",
   "AWSSDK.CodeCommit.dll",
   "AWSSDK.CodeDeploy.dll",
   "AWSSDK.CodePipeline.dll",

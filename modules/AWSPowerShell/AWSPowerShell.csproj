@@ -60,6 +60,9 @@
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.0\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeBuild">
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>

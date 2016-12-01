@@ -17,6 +17,7 @@
     <Path>CloudSearchDomain.xml</Path>
     -->
     <Path>CloudTrail.xml</Path>
+    <Path>CodeBuild.xml</Path>
     <Path>CodeCommit.xml</Path>
     <Path>CodeDeploy.xml</Path>
     <Path>CodePipeline.xml</Path>

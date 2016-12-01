@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CB</ServiceNounPrefix>
+  <ServiceName>AWS CodeBuild</ServiceName>
+  <ServiceNamespace>Amazon.CodeBuild</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCodeBuild</ServiceClientInterface>
+  <ServiceClient>AmazonCodeBuildClient</ServiceClient>
+
+  <PipelineParameter />
+
+  <AutoIterate Start="NextToken" Next="NextToken" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="BatchGetBuilds" Verb="Get" Noun="BuildBatch" Output="Response" />
+    <ServiceOperation MethodName="BatchGetProjects" Verb="Get" Noun="ProjectBatch" Output="Response" />
+    <ServiceOperation MethodName="CreateProject" PipelineParameter="Name" />
+    <ServiceOperation MethodName="DeleteProject" Output="Void" />
+    <ServiceOperation MethodName="ListBuilds" NoPipelineParameter="true" Verb="Get" Noun="BuildIdList" />
+    <ServiceOperation MethodName="ListBuildsForProject" PipelineParameter="ProjectName" Verb="Get" Noun="BuildIdListForProject" />
+    <ServiceOperation MethodName="ListCuratedEnvironmentImages" Verb="Get" Noun=
+    "CuratedEnvironmentImageList" />
+    <ServiceOperation MethodName="ListProjects" Verb="Get" Noun="ProjectList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="StartBuild" PipelineParameter="ProjectName" />
+    <ServiceOperation MethodName="StopBuild" />
+    <ServiceOperation MethodName="UpdateProject" PipelineParameter="Name" />
+  </ServiceOperations>
+  
+</ConfigModel>

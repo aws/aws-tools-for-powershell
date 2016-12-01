@@ -1,0 +1,683 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CodeBuild;
+using Amazon.CodeBuild.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CB
+{
+    /// <summary>
+    /// Creates a build project.
+    /// </summary>
+    [Cmdlet("New", "CBProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CodeBuild.Model.Project")]
+    [AWSCmdlet("Invokes the CreateProject operation against AWS CodeBuild.", Operation = new[] {"CreateProject"})]
+    [AWSCmdletOutput("Amazon.CodeBuild.Model.Project",
+        "This cmdlet returns a Project object.",
+        "The service call response (type Amazon.CodeBuild.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Source_Buildspec
+        /// <summary>
+        /// <para>
+        /// <para>The build spec declaration to use for this build project's related builds.</para><para>If this value is not specified, a build spec must be included along with the source
+        /// code to be built.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Source_Buildspec { get; set; }
+        #endregion
+        
+        #region Parameter Environment_ComputeType
+        /// <summary>
+        /// <para>
+        /// <para>Information about the compute resources the build project will use. Available values
+        /// include:</para><ul><li><para><code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_LARGE</code>: Use up to 15 GB memory and 8 vCPUs for builds.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ComputeType")]
+        public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A meaningful description of the build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionKey
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for
+        /// encrypting the build project's build output artifacts.</para><para>You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the
+        /// CMK's alias (using the format <code>alias/<i>alias-name</i></code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EncryptionKey { get; set; }
+        #endregion
+        
+        #region Parameter Environment_EnvironmentVariable
+        /// <summary>
+        /// <para>
+        /// <para>A set of environment variables to make available to builds for this build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Environment_EnvironmentVariables")]
+        public Amazon.CodeBuild.Model.EnvironmentVariable[] Environment_EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter Environment_Image
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Docker image to use for this build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Environment_Image { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_Location
+        /// <summary>
+        /// <para>
+        /// <para>Information about the build output artifact location, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
+        /// ignore this value if specified. This is because AWS CodePipeline manages its build
+        /// output locations instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.
+        /// If <code>path</code> is not also specified, then <code>location</code> can also specify
+        /// the path of the output artifact in the output bucket.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Artifacts_Location { get; set; }
+        #endregion
+        
+        #region Parameter Source_Location
+        /// <summary>
+        /// <para>
+        /// <para>Information about the location of the source code to be built. Valid values include:</para><ul><li><para>For source code settings that are specified in the source action of a pipeline in
+        /// AWS CodePipeline, <code>location</code> should not be specified. If it is specified,
+        /// AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings
+        /// in a pipeline's source action instead of this value.</para></li><li><para>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
+        /// that contains the source code and the build spec (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i></code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the
+        /// path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>)</para></li><li><para>For source code in a GitHub repository, the HTTPS clone URL, including the user name
+        /// and personal access token, to the repository that contains the source code and the
+        /// build spec (for example, <code>https://<i>login-user-name</i>:<i>personal-access-token</i>@github.com/<i>repo-owner-name</i>/<i>repo-name</i>.git</code>).
+        /// For more information, see <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">Creating
+        /// an Access Token for Command-Line Use</a> on the GitHub Help website.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Source_Location { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_Name
+        /// <summary>
+        /// <para>
+        /// <para>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS
+        /// CodeBuild will use to name and store the output artifact, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
+        /// ignore this value if specified. This is because AWS CodePipeline manages its build
+        /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact
+        /// object.</para></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
+        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Artifacts_Name { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The build project's name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_NamespaceType
+        /// <summary>
+        /// <para>
+        /// <para>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild
+        /// will use to determine the name and location to store the output artifact, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
+        /// ignore this value if specified. This is because AWS CodePipeline manages its build
+        /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, then valid values include:</para><ul><li><para><code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</para></li><li><para><code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code>
+        /// is not specified.</para></li></ul></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
+        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ArtifactNamespace")]
+        public Amazon.CodeBuild.ArtifactNamespace Artifacts_NamespaceType { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_Packaging
+        /// <summary>
+        /// <para>
+        /// <para>The type of build output artifact to create, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
+        /// ignore this value if specified. This is because AWS CodePipeline manages its build
+        /// output artifacts instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>NONE</code>: AWS CodeBuild will create in the output bucket a folder containing
+        /// the build output. This is the default if <code>packaging</code> is not specified.</para></li><li><para><code>ZIP</code>: AWS CodeBuild will create in the output bucket a ZIP file containing
+        /// the build output.</para></li></ul></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ArtifactPackaging")]
+        public Amazon.CodeBuild.ArtifactPackaging Artifacts_Packaging { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_Path
+        /// <summary>
+        /// <para>
+        /// <para>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS
+        /// CodeBuild will use to name and store the output artifact, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
+        /// ignore this value if specified. This is because AWS CodePipeline manages its build
+        /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the path to the output artifact.
+        /// If <code>path</code> is not specified, then <code>path</code> will not be used.</para></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// is set to <code>NONE</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
+        /// then the output artifact would be stored in the output bucket at <code>MyArtifacts/MyArtifact.zip</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Artifacts_Path { get; set; }
+        #endregion
+        
+        #region Parameter Auth_Resource
+        /// <summary>
+        /// <para>
+        /// <para>The resource value that applies to the specified authorization type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Source_Auth_Resource")]
+        public System.String Auth_Resource { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+        /// that enables AWS CodeBuild to interact with dependent AWS services on behalf of the
+        /// AWS account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A set of tags for this build project.</para><para>These tags are available for use by AWS services that support AWS CodeBuild build
+        /// project tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.CodeBuild.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing
+        /// out any related build that does not get marked as completed. The default is 60 minutes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TimeoutInMinutes")]
+        public System.Int32 TimeoutInMinute { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_Type
+        /// <summary>
+        /// <para>
+        /// <para>The build output artifact's type. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project with have build output generated through
+        /// AWS CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project will not produce any build output.</para></li><li><para><code>S3</code>: The build project will store build output in Amazon Simple Storage
+        /// Service (Amazon S3).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ArtifactsType")]
+        public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
+        #endregion
+        
+        #region Parameter Environment_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of build environment to use for related builds.</para><para>The only valid value is <code>LINUX_CONTAINER</code>, which represents a Linux-based
+        /// build environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.EnvironmentType")]
+        public Amazon.CodeBuild.EnvironmentType Environment_Type { get; set; }
+        #endregion
+        
+        #region Parameter Auth_Type
+        /// <summary>
+        /// <para>
+        /// <para>The authorization type to use. The only valid value is <code>oauth</code>, which represents
+        /// the OAuth authorization type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Source_Auth_Type")]
+        [AWSConstantClassSource("Amazon.CodeBuild.SourceAuthType")]
+        public Amazon.CodeBuild.SourceAuthType Auth_Type { get; set; }
+        #endregion
+        
+        #region Parameter Source_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
+        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
+        /// input bucket.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.SourceType")]
+        public Amazon.CodeBuild.SourceType Source_Type { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CBProject (CreateProject)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.Artifacts_Location = this.Artifacts_Location;
+            context.Artifacts_Name = this.Artifacts_Name;
+            context.Artifacts_NamespaceType = this.Artifacts_NamespaceType;
+            context.Artifacts_Packaging = this.Artifacts_Packaging;
+            context.Artifacts_Path = this.Artifacts_Path;
+            context.Artifacts_Type = this.Artifacts_Type;
+            context.Description = this.Description;
+            context.EncryptionKey = this.EncryptionKey;
+            context.Environment_ComputeType = this.Environment_ComputeType;
+            if (this.Environment_EnvironmentVariable != null)
+            {
+                context.Environment_EnvironmentVariables = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.Environment_EnvironmentVariable);
+            }
+            context.Environment_Image = this.Environment_Image;
+            context.Environment_Type = this.Environment_Type;
+            context.Name = this.Name;
+            context.ServiceRole = this.ServiceRole;
+            context.Source_Auth_Resource = this.Auth_Resource;
+            context.Source_Auth_Type = this.Auth_Type;
+            context.Source_Buildspec = this.Source_Buildspec;
+            context.Source_Location = this.Source_Location;
+            context.Source_Type = this.Source_Type;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.CodeBuild.Model.Tag>(this.Tag);
+            }
+            if (ParameterWasBound("TimeoutInMinute"))
+                context.TimeoutInMinutes = this.TimeoutInMinute;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CodeBuild.Model.CreateProjectRequest();
+            
+            
+             // populate Artifacts
+            bool requestArtifactsIsNull = true;
+            request.Artifacts = new Amazon.CodeBuild.Model.ProjectArtifacts();
+            System.String requestArtifacts_artifacts_Location = null;
+            if (cmdletContext.Artifacts_Location != null)
+            {
+                requestArtifacts_artifacts_Location = cmdletContext.Artifacts_Location;
+            }
+            if (requestArtifacts_artifacts_Location != null)
+            {
+                request.Artifacts.Location = requestArtifacts_artifacts_Location;
+                requestArtifactsIsNull = false;
+            }
+            System.String requestArtifacts_artifacts_Name = null;
+            if (cmdletContext.Artifacts_Name != null)
+            {
+                requestArtifacts_artifacts_Name = cmdletContext.Artifacts_Name;
+            }
+            if (requestArtifacts_artifacts_Name != null)
+            {
+                request.Artifacts.Name = requestArtifacts_artifacts_Name;
+                requestArtifactsIsNull = false;
+            }
+            Amazon.CodeBuild.ArtifactNamespace requestArtifacts_artifacts_NamespaceType = null;
+            if (cmdletContext.Artifacts_NamespaceType != null)
+            {
+                requestArtifacts_artifacts_NamespaceType = cmdletContext.Artifacts_NamespaceType;
+            }
+            if (requestArtifacts_artifacts_NamespaceType != null)
+            {
+                request.Artifacts.NamespaceType = requestArtifacts_artifacts_NamespaceType;
+                requestArtifactsIsNull = false;
+            }
+            Amazon.CodeBuild.ArtifactPackaging requestArtifacts_artifacts_Packaging = null;
+            if (cmdletContext.Artifacts_Packaging != null)
+            {
+                requestArtifacts_artifacts_Packaging = cmdletContext.Artifacts_Packaging;
+            }
+            if (requestArtifacts_artifacts_Packaging != null)
+            {
+                request.Artifacts.Packaging = requestArtifacts_artifacts_Packaging;
+                requestArtifactsIsNull = false;
+            }
+            System.String requestArtifacts_artifacts_Path = null;
+            if (cmdletContext.Artifacts_Path != null)
+            {
+                requestArtifacts_artifacts_Path = cmdletContext.Artifacts_Path;
+            }
+            if (requestArtifacts_artifacts_Path != null)
+            {
+                request.Artifacts.Path = requestArtifacts_artifacts_Path;
+                requestArtifactsIsNull = false;
+            }
+            Amazon.CodeBuild.ArtifactsType requestArtifacts_artifacts_Type = null;
+            if (cmdletContext.Artifacts_Type != null)
+            {
+                requestArtifacts_artifacts_Type = cmdletContext.Artifacts_Type;
+            }
+            if (requestArtifacts_artifacts_Type != null)
+            {
+                request.Artifacts.Type = requestArtifacts_artifacts_Type;
+                requestArtifactsIsNull = false;
+            }
+             // determine if request.Artifacts should be set to null
+            if (requestArtifactsIsNull)
+            {
+                request.Artifacts = null;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EncryptionKey != null)
+            {
+                request.EncryptionKey = cmdletContext.EncryptionKey;
+            }
+            
+             // populate Environment
+            bool requestEnvironmentIsNull = true;
+            request.Environment = new Amazon.CodeBuild.Model.ProjectEnvironment();
+            Amazon.CodeBuild.ComputeType requestEnvironment_environment_ComputeType = null;
+            if (cmdletContext.Environment_ComputeType != null)
+            {
+                requestEnvironment_environment_ComputeType = cmdletContext.Environment_ComputeType;
+            }
+            if (requestEnvironment_environment_ComputeType != null)
+            {
+                request.Environment.ComputeType = requestEnvironment_environment_ComputeType;
+                requestEnvironmentIsNull = false;
+            }
+            List<Amazon.CodeBuild.Model.EnvironmentVariable> requestEnvironment_environment_EnvironmentVariable = null;
+            if (cmdletContext.Environment_EnvironmentVariables != null)
+            {
+                requestEnvironment_environment_EnvironmentVariable = cmdletContext.Environment_EnvironmentVariables;
+            }
+            if (requestEnvironment_environment_EnvironmentVariable != null)
+            {
+                request.Environment.EnvironmentVariables = requestEnvironment_environment_EnvironmentVariable;
+                requestEnvironmentIsNull = false;
+            }
+            System.String requestEnvironment_environment_Image = null;
+            if (cmdletContext.Environment_Image != null)
+            {
+                requestEnvironment_environment_Image = cmdletContext.Environment_Image;
+            }
+            if (requestEnvironment_environment_Image != null)
+            {
+                request.Environment.Image = requestEnvironment_environment_Image;
+                requestEnvironmentIsNull = false;
+            }
+            Amazon.CodeBuild.EnvironmentType requestEnvironment_environment_Type = null;
+            if (cmdletContext.Environment_Type != null)
+            {
+                requestEnvironment_environment_Type = cmdletContext.Environment_Type;
+            }
+            if (requestEnvironment_environment_Type != null)
+            {
+                request.Environment.Type = requestEnvironment_environment_Type;
+                requestEnvironmentIsNull = false;
+            }
+             // determine if request.Environment should be set to null
+            if (requestEnvironmentIsNull)
+            {
+                request.Environment = null;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ServiceRole != null)
+            {
+                request.ServiceRole = cmdletContext.ServiceRole;
+            }
+            
+             // populate Source
+            bool requestSourceIsNull = true;
+            request.Source = new Amazon.CodeBuild.Model.ProjectSource();
+            System.String requestSource_source_Buildspec = null;
+            if (cmdletContext.Source_Buildspec != null)
+            {
+                requestSource_source_Buildspec = cmdletContext.Source_Buildspec;
+            }
+            if (requestSource_source_Buildspec != null)
+            {
+                request.Source.Buildspec = requestSource_source_Buildspec;
+                requestSourceIsNull = false;
+            }
+            System.String requestSource_source_Location = null;
+            if (cmdletContext.Source_Location != null)
+            {
+                requestSource_source_Location = cmdletContext.Source_Location;
+            }
+            if (requestSource_source_Location != null)
+            {
+                request.Source.Location = requestSource_source_Location;
+                requestSourceIsNull = false;
+            }
+            Amazon.CodeBuild.SourceType requestSource_source_Type = null;
+            if (cmdletContext.Source_Type != null)
+            {
+                requestSource_source_Type = cmdletContext.Source_Type;
+            }
+            if (requestSource_source_Type != null)
+            {
+                request.Source.Type = requestSource_source_Type;
+                requestSourceIsNull = false;
+            }
+            Amazon.CodeBuild.Model.SourceAuth requestSource_source_Auth = null;
+            
+             // populate Auth
+            bool requestSource_source_AuthIsNull = true;
+            requestSource_source_Auth = new Amazon.CodeBuild.Model.SourceAuth();
+            System.String requestSource_source_Auth_auth_Resource = null;
+            if (cmdletContext.Source_Auth_Resource != null)
+            {
+                requestSource_source_Auth_auth_Resource = cmdletContext.Source_Auth_Resource;
+            }
+            if (requestSource_source_Auth_auth_Resource != null)
+            {
+                requestSource_source_Auth.Resource = requestSource_source_Auth_auth_Resource;
+                requestSource_source_AuthIsNull = false;
+            }
+            Amazon.CodeBuild.SourceAuthType requestSource_source_Auth_auth_Type = null;
+            if (cmdletContext.Source_Auth_Type != null)
+            {
+                requestSource_source_Auth_auth_Type = cmdletContext.Source_Auth_Type;
+            }
+            if (requestSource_source_Auth_auth_Type != null)
+            {
+                requestSource_source_Auth.Type = requestSource_source_Auth_auth_Type;
+                requestSource_source_AuthIsNull = false;
+            }
+             // determine if requestSource_source_Auth should be set to null
+            if (requestSource_source_AuthIsNull)
+            {
+                requestSource_source_Auth = null;
+            }
+            if (requestSource_source_Auth != null)
+            {
+                request.Source.Auth = requestSource_source_Auth;
+                requestSourceIsNull = false;
+            }
+             // determine if request.Source should be set to null
+            if (requestSourceIsNull)
+            {
+                request.Source = null;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.TimeoutInMinutes != null)
+            {
+                request.TimeoutInMinutes = cmdletContext.TimeoutInMinutes.Value;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Project;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.CodeBuild.Model.CreateProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.CreateProjectRequest request)
+        {
+            #if DESKTOP
+            return client.CreateProject(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CreateProjectAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String Artifacts_Location { get; set; }
+            public System.String Artifacts_Name { get; set; }
+            public Amazon.CodeBuild.ArtifactNamespace Artifacts_NamespaceType { get; set; }
+            public Amazon.CodeBuild.ArtifactPackaging Artifacts_Packaging { get; set; }
+            public System.String Artifacts_Path { get; set; }
+            public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
+            public System.String Description { get; set; }
+            public System.String EncryptionKey { get; set; }
+            public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
+            public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariables { get; set; }
+            public System.String Environment_Image { get; set; }
+            public Amazon.CodeBuild.EnvironmentType Environment_Type { get; set; }
+            public System.String Name { get; set; }
+            public System.String ServiceRole { get; set; }
+            public System.String Source_Auth_Resource { get; set; }
+            public Amazon.CodeBuild.SourceAuthType Source_Auth_Type { get; set; }
+            public System.String Source_Buildspec { get; set; }
+            public System.String Source_Location { get; set; }
+            public Amazon.CodeBuild.SourceType Source_Type { get; set; }
+            public List<Amazon.CodeBuild.Model.Tag> Tags { get; set; }
+            public System.Int32? TimeoutInMinutes { get; set; }
+        }
+        
+    }
+}
