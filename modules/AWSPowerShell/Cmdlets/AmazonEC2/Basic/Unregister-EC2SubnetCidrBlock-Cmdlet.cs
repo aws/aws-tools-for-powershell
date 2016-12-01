@@ -28,45 +28,48 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns details about the values and term of your specified Convertible Reserved Instances.
-    /// When a target configuration is specified, it returns information about whether the
-    /// exchange is valid and can be performed.
+    /// Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6
+    /// CIDR block only. You must detach or delete all gateways and resources that are associated
+    /// with the CIDR block before you can disassociate it.
     /// </summary>
-    [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
-    [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
-    [AWSCmdlet("Invokes the GetReservedInstancesExchangeQuote operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetReservedInstancesExchangeQuote"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
-        "This cmdlet returns a Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "EC2SubnetCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse")]
+    [AWSCmdlet("Invokes the DisassociateSubnetCidrBlock operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisassociateSubnetCidrBlock"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse",
+        "This cmdlet returns a Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class UnregisterEC2SubnetCidrBlockCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ReservedInstanceId
+        #region Parameter AssociationId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para>
+        /// <para>The association ID for the CIDR block.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ReservedInstanceIds")]
-        public System.String[] ReservedInstanceId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String AssociationId { get; set; }
         #endregion
         
-        #region Parameter TargetConfiguration
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The configuration requirements of the Convertible Reserved Instances to exchange for
-        /// your current Convertible Reserved Instances.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.TargetConfigurationRequest[] TargetConfiguration { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AssociationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-EC2SubnetCidrBlock (DisassociateSubnetCidrBlock)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -77,14 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ReservedInstanceId != null)
-            {
-                context.ReservedInstanceIds = new List<System.String>(this.ReservedInstanceId);
-            }
-            if (this.TargetConfiguration != null)
-            {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.TargetConfigurationRequest>(this.TargetConfiguration);
-            }
+            context.AssociationId = this.AssociationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,15 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest();
+            var request = new Amazon.EC2.Model.DisassociateSubnetCidrBlockRequest();
             
-            if (cmdletContext.ReservedInstanceIds != null)
+            if (cmdletContext.AssociationId != null)
             {
-                request.ReservedInstanceIds = cmdletContext.ReservedInstanceIds;
-            }
-            if (cmdletContext.TargetConfigurations != null)
-            {
-                request.TargetConfigurations = cmdletContext.TargetConfigurations;
+                request.AssociationId = cmdletContext.AssociationId;
             }
             
             CmdletOutput output;
@@ -143,13 +135,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest request)
+        private static Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateSubnetCidrBlockRequest request)
         {
             #if DESKTOP
-            return client.GetReservedInstancesExchangeQuote(request);
+            return client.DisassociateSubnetCidrBlock(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetReservedInstancesExchangeQuoteAsync(request);
+            var task = client.DisassociateSubnetCidrBlockAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,8 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ReservedInstanceIds { get; set; }
-            public List<Amazon.EC2.Model.TargetConfigurationRequest> TargetConfigurations { get; set; }
+            public System.String AssociationId { get; set; }
         }
         
     }

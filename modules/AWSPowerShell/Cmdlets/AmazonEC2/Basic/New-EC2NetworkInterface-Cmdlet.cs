@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information about network interfaces, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic
-    /// Network Interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Network Interfaces</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,12 +67,38 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] Group { get; set; }
         #endregion
         
+        #region Parameter Ipv6AddressCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically
+        /// selects the IPv6 addresses from the subnet range. You can't use this option if specifying
+        /// specific IPv6 addresses. If your subnet has the <code>AssignIpv6AddressOnCreation</code>
+        /// attribute set to <code>true</code>, you can specify <code>0</code> to override this
+        /// setting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Ipv6AddressCount { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Address
+        /// <summary>
+        /// <para>
+        /// <para>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+        /// You can't use this option if you're specifying a number of IPv6 addresses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Ipv6Addresses")]
+        public Amazon.EC2.Model.InstanceIpv6Address[] Ipv6Address { get; set; }
+        #endregion
+        
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
-        /// <para>The primary private IP address of the network interface. If you don't specify an IP
-        /// address, Amazon EC2 selects one for you from the subnet range. If you specify an IP
-        /// address, you cannot indicate any IP addresses specified in <code>privateIpAddresses</code>
+        /// <para>The primary private IPv4 address of the network interface. If you don't specify an
+        /// IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If
+        /// you specify an IP address, you cannot indicate any IP addresses specified in <code>privateIpAddresses</code>
         /// as primary (only one IP address can be designated as primary).</para>
         /// </para>
         /// </summary>
@@ -83,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateIpAddressSet
         /// <summary>
         /// <para>
-        /// <para>One or more private IP addresses.</para>
+        /// <para>One or more private IPv4 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,13 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecondaryPrivateIpAddressCount
         /// <summary>
         /// <para>
-        /// <para>The number of secondary private IP addresses to assign to a network interface. When
-        /// you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses
-        /// within the subnet range. You can't specify this option and specify more than one private
-        /// IP address using <code>privateIpAddresses</code>.</para><para>The number of IP addresses you can assign to a network interface varies by instance
-        /// type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">Private
-        /// IP Addresses Per ENI Per Instance Type</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.</para>
+        /// <para>The number of secondary private IPv4 addresses to assign to a network interface. When
+        /// you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
+        /// within the subnet's IPv4 CIDR range. You can't specify this option and specify more
+        /// than one private IP address using <code>privateIpAddresses</code>.</para><para>The number of IP addresses you can assign to a network interface varies by instance
+        /// type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
+        /// Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,6 +177,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Groups = new List<System.String>(this.Group);
             }
+            if (ParameterWasBound("Ipv6AddressCount"))
+                context.Ipv6AddressCount = this.Ipv6AddressCount;
+            if (this.Ipv6Address != null)
+            {
+                context.Ipv6Addresses = new List<Amazon.EC2.Model.InstanceIpv6Address>(this.Ipv6Address);
+            }
             context.PrivateIpAddress = this.PrivateIpAddress;
             if (this.PrivateIpAddressSet != null)
             {
@@ -182,6 +214,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Groups != null)
             {
                 request.Groups = cmdletContext.Groups;
+            }
+            if (cmdletContext.Ipv6AddressCount != null)
+            {
+                request.Ipv6AddressCount = cmdletContext.Ipv6AddressCount.Value;
+            }
+            if (cmdletContext.Ipv6Addresses != null)
+            {
+                request.Ipv6Addresses = cmdletContext.Ipv6Addresses;
             }
             if (cmdletContext.PrivateIpAddress != null)
             {
@@ -252,6 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Description { get; set; }
             public List<System.String> Groups { get; set; }
+            public System.Int32? Ipv6AddressCount { get; set; }
+            public List<Amazon.EC2.Model.InstanceIpv6Address> Ipv6Addresses { get; set; }
             public System.String PrivateIpAddress { get; set; }
             public List<Amazon.EC2.Model.PrivateIpAddressSpecification> PrivateIpAddressSet { get; set; }
             public System.Int32? SecondaryPrivateIpAddressCount { get; set; }

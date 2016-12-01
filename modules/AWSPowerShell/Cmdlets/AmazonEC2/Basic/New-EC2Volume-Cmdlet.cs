@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second
-        /// (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB.</para><para>Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes </para>
+        /// (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB.</para><para>Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

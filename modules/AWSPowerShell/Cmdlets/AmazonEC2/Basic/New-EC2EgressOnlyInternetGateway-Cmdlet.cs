@@ -28,45 +28,61 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns details about the values and term of your specified Convertible Reserved Instances.
-    /// When a target configuration is specified, it returns information about whether the
-    /// exchange is valid and can be performed.
+    /// [IPv6 only] Creates an egress-only Internet gateway for your VPC. An egress-only Internet
+    /// gateway is used to enable outbound communication over IPv6 from instances in your
+    /// VPC to the Internet, and prevents hosts outside of your VPC from initiating an IPv6
+    /// connection with your instance.
     /// </summary>
-    [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
-    [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
-    [AWSCmdlet("Invokes the GetReservedInstancesExchangeQuote operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetReservedInstancesExchangeQuote"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
-        "This cmdlet returns a Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse")]
+    [AWSCmdlet("Invokes the CreateEgressOnlyInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateEgressOnlyInternetGateway"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse",
+        "This cmdlet returns a Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2EgressOnlyInternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ReservedInstanceId
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ReservedInstanceIds")]
-        public System.String[] ReservedInstanceId { get; set; }
-        #endregion
-        
-        #region Parameter TargetConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>The configuration requirements of the Convertible Reserved Instances to exchange for
-        /// your current Convertible Reserved Instances.</para>
+        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.TargetConfigurationRequest[] TargetConfiguration { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC for which to create the egress-only Internet gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String VpcId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VpcId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2EgressOnlyInternetGateway (CreateEgressOnlyInternetGateway)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -77,14 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ReservedInstanceId != null)
-            {
-                context.ReservedInstanceIds = new List<System.String>(this.ReservedInstanceId);
-            }
-            if (this.TargetConfiguration != null)
-            {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.TargetConfigurationRequest>(this.TargetConfiguration);
-            }
+            context.ClientToken = this.ClientToken;
+            context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,15 +109,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest();
+            var request = new Amazon.EC2.Model.CreateEgressOnlyInternetGatewayRequest();
             
-            if (cmdletContext.ReservedInstanceIds != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ReservedInstanceIds = cmdletContext.ReservedInstanceIds;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.TargetConfigurations != null)
+            if (cmdletContext.VpcId != null)
             {
-                request.TargetConfigurations = cmdletContext.TargetConfigurations;
+                request.VpcId = cmdletContext.VpcId;
             }
             
             CmdletOutput output;
@@ -143,13 +153,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest request)
+        private static Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateEgressOnlyInternetGatewayRequest request)
         {
             #if DESKTOP
-            return client.GetReservedInstancesExchangeQuote(request);
+            return client.CreateEgressOnlyInternetGateway(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetReservedInstancesExchangeQuoteAsync(request);
+            var task = client.CreateEgressOnlyInternetGatewayAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ReservedInstanceIds { get; set; }
-            public List<Amazon.EC2.Model.TargetConfigurationRequest> TargetConfigurations { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

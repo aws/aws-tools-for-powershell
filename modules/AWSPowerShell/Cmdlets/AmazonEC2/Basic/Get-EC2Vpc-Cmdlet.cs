@@ -43,9 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>cidr</code> - The CIDR block of the VPC. The CIDR block you specify must exactly
-        /// match the VPC's CIDR block for information to be returned for the VPC. Must contain
-        /// the slash followed by one or two digits (for example, <code>/28</code>).</para></li><li><para><code>dhcp-options-id</code> - The ID of a set of DHCP options.</para></li><li><para><code>isDefault</code> - Indicates whether the VPC is the default VPC.</para></li><li><para><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
+        /// <para>One or more filters.</para><ul><li><para><code>cidr</code> - The IPv4 CIDR block of the VPC. The CIDR block you specify must
+        /// exactly match the VPC's CIDR block for information to be returned for the VPC. Must
+        /// contain the slash followed by one or two digits (for example, <code>/28</code>).</para></li><li><para><code>dhcp-options-id</code> - The ID of a set of DHCP options.</para></li><li><para><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated
+        /// with the VPC.</para></li><li><para><code>ipv6-cidr-block-association.association-id</code> - The association ID for
+        /// an IPv6 CIDR block associated with the VPC.</para></li><li><para><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block
+        /// associated with the VPC.</para></li><li><para><code>isDefault</code> - Indicates whether the VPC is the default VPC.</para></li><li><para><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
         /// independent of the <code>tag-value</code> filter. For example, if you use both the
         /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned

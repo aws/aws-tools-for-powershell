@@ -43,12 +43,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The CIDR range for the route. The value you specify must match the CIDR for the route
-        /// exactly.</para>
+        /// <para>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the
+        /// route exactly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String DestinationCidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter DestinationIpv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the
+        /// route exactly.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DestinationIpv6CidrBlock { get; set; }
         #endregion
         
         #region Parameter RouteTableId
@@ -100,6 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.DestinationCidrBlock = this.DestinationCidrBlock;
+            context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
             context.RouteTableId = this.RouteTableId;
             
             // allow further manipulation of loaded context prior to processing
@@ -120,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
+            }
+            if (cmdletContext.DestinationIpv6CidrBlock != null)
+            {
+                request.DestinationIpv6CidrBlock = cmdletContext.DestinationIpv6CidrBlock;
             }
             if (cmdletContext.RouteTableId != null)
             {
@@ -179,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public System.String DestinationCidrBlock { get; set; }
+            public System.String DestinationIpv6CidrBlock { get; set; }
             public System.String RouteTableId { get; set; }
         }
         

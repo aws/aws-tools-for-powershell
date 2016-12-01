@@ -261,7 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchSpecification_NetworkInterface
         /// <summary>
         /// <para>
-        /// <para>One or more network interfaces.</para>
+        /// <para>One or more network interfaces. If you specify a network interface, you must specify
+        /// subnet IDs and security group IDs using the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

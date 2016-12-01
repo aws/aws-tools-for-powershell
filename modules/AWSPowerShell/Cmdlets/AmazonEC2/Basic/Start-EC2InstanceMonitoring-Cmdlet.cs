@@ -28,9 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Enables monitoring for a running instance. For more information about monitoring instances,
-    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
+    /// Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
+    /// enabled. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
     /// Your Instances and Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// To disable detailed monitoring, see .
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "EC2InstanceMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.InstanceMonitoring")]

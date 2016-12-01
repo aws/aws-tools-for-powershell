@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// Each rule consists of the protocol and the CIDR range or source security group. For
-    /// the TCP and UDP protocols, you must also specify the destination port or range of
-    /// ports. For the ICMP protocol, you must also specify the ICMP type and code.
+    /// Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security
+    /// group. For the TCP and UDP protocols, you must also specify the destination port or
+    /// range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
     /// </para><para>
     /// Rule changes are propagated to instances within the security group as quickly as possible.
     /// However, a small delay might occur.

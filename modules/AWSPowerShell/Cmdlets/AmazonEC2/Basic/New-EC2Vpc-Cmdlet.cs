@@ -28,14 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC with the specified CIDR block.
+    /// Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
+    /// uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536
+    /// IPv4 addresses). To help you decide how big to make your VPC, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
+    /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// The smallest VPC you can create uses a /28 netmask (16 IP addresses), and the largest
-    /// uses a /16 netmask (65,536 IP addresses). To help you decide how big to make your
-    /// VPC, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
-    /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6
+    /// CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses.
+    /// You cannot choose the IPv6 range for your VPC.
     /// </para><para>
     /// By default, each instance you launch in the VPC has the default DHCP options, which
     /// includes only a default DNS server that we provide (AmazonProvidedDNS). For more information
@@ -57,10 +59,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AmazonProvidedIpv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC.
+        /// You cannot specify the range of IP addresses, or the size of the CIDR block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AmazonProvidedIpv6CidrBlock { get; set; }
+        #endregion
+        
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>.</para>
+        /// <para>The IPv4 network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -112,6 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("AmazonProvidedIpv6CidrBlock"))
+                context.AmazonProvidedIpv6CidrBlock = this.AmazonProvidedIpv6CidrBlock;
             context.CidrBlock = this.CidrBlock;
             context.InstanceTenancy = this.InstanceTenancy;
             
@@ -130,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateVpcRequest();
             
+            if (cmdletContext.AmazonProvidedIpv6CidrBlock != null)
+            {
+                request.AmazonProvidedIpv6CidrBlock = cmdletContext.AmazonProvidedIpv6CidrBlock.Value;
+            }
             if (cmdletContext.CidrBlock != null)
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
@@ -189,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
             public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         }

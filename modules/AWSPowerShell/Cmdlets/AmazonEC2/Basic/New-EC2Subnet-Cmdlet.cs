@@ -34,11 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// When you create each subnet, you provide the VPC ID and the CIDR block you want for
     /// the subnet. After you create a subnet, you can't change its CIDR block. The subnet's
-    /// CIDR block can be the same as the VPC's CIDR block (assuming you want only a single
-    /// subnet in the VPC), or a subset of the VPC's CIDR block. If you create more than one
-    /// subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest subnet (and
-    /// VPC) you can create uses a /28 netmask (16 IP addresses), and the largest uses a /16
-    /// netmask (65,536 IP addresses).
+    /// IPv4 CIDR block can be the same as the VPC's IPv4 CIDR block (assuming you want only
+    /// a single subnet in the VPC), or a subset of the VPC's IPv4 CIDR block. If you create
+    /// more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest
+    /// IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the
+    /// largest uses a /16 netmask (65,536 IPv4 addresses).
+    /// </para><para>
+    /// If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with
+    /// an IPv6 CIDR block that uses a /64 prefix length. 
     /// </para><important><para>
     /// AWS reserves both the first four and the last IP address in each subnet's CIDR block.
     /// They're not available for use.
@@ -80,11 +83,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.</para>
+        /// <para>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use
+        /// a /64 prefix length.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Ipv6CidrBlock { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -128,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.AvailabilityZone = this.AvailabilityZone;
             context.CidrBlock = this.CidrBlock;
+            context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
@@ -152,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CidrBlock != null)
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
+            }
+            if (cmdletContext.Ipv6CidrBlock != null)
+            {
+                request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -210,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String AvailabilityZone { get; set; }
             public System.String CidrBlock { get; set; }
+            public System.String Ipv6CidrBlock { get; set; }
             public System.String VpcId { get; set; }
         }
         

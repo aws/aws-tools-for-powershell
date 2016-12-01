@@ -28,45 +28,57 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns details about the values and term of your specified Convertible Reserved Instances.
-    /// When a target configuration is specified, it returns information about whether the
-    /// exchange is valid and can be performed.
+    /// Unassigns one or more IPv6 addresses from a network interface.
     /// </summary>
-    [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
-    [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
-    [AWSCmdlet("Invokes the GetReservedInstancesExchangeQuote operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetReservedInstancesExchangeQuote"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
-        "This cmdlet returns a Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.UnassignIpv6AddressesResponse")]
+    [AWSCmdlet("Invokes the UnassignIpv6Addresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"UnassignIpv6Addresses"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.UnassignIpv6AddressesResponse",
+        "This cmdlet returns a Amazon.EC2.Model.UnassignIpv6AddressesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class UnregisterEC2Ipv6AddressListCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ReservedInstanceId
+        #region Parameter Ipv6Address
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ReservedInstanceIds")]
-        public System.String[] ReservedInstanceId { get; set; }
-        #endregion
-        
-        #region Parameter TargetConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>The configuration requirements of the Convertible Reserved Instances to exchange for
-        /// your current Convertible Reserved Instances.</para>
+        /// <para>The IPv6 addresses to unassign from the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.TargetConfigurationRequest[] TargetConfiguration { get; set; }
+        [Alias("Ipv6Addresses")]
+        public System.String[] Ipv6Address { get; set; }
+        #endregion
+        
+        #region Parameter NetworkInterfaceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the network interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String NetworkInterfaceId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("NetworkInterfaceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-EC2Ipv6AddressList (UnassignIpv6Addresses)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -77,14 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ReservedInstanceId != null)
+            if (this.Ipv6Address != null)
             {
-                context.ReservedInstanceIds = new List<System.String>(this.ReservedInstanceId);
+                context.Ipv6Addresses = new List<System.String>(this.Ipv6Address);
             }
-            if (this.TargetConfiguration != null)
-            {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.TargetConfigurationRequest>(this.TargetConfiguration);
-            }
+            context.NetworkInterfaceId = this.NetworkInterfaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,15 +108,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest();
+            var request = new Amazon.EC2.Model.UnassignIpv6AddressesRequest();
             
-            if (cmdletContext.ReservedInstanceIds != null)
+            if (cmdletContext.Ipv6Addresses != null)
             {
-                request.ReservedInstanceIds = cmdletContext.ReservedInstanceIds;
+                request.Ipv6Addresses = cmdletContext.Ipv6Addresses;
             }
-            if (cmdletContext.TargetConfigurations != null)
+            if (cmdletContext.NetworkInterfaceId != null)
             {
-                request.TargetConfigurations = cmdletContext.TargetConfigurations;
+                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
             }
             
             CmdletOutput output;
@@ -143,13 +152,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest request)
+        private static Amazon.EC2.Model.UnassignIpv6AddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnassignIpv6AddressesRequest request)
         {
             #if DESKTOP
-            return client.GetReservedInstancesExchangeQuote(request);
+            return client.UnassignIpv6Addresses(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetReservedInstancesExchangeQuoteAsync(request);
+            var task = client.UnassignIpv6AddressesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ReservedInstanceIds { get; set; }
-            public List<Amazon.EC2.Model.TargetConfigurationRequest> TargetConfigurations { get; set; }
+            public List<System.String> Ipv6Addresses { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
         }
         
     }

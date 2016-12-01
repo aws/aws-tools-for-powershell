@@ -367,7 +367,15 @@
 					  PipelineParameter="OfferingId" 
 					  />
 	<ServiceOperation MethodName="DescribeHostReservations" Noun="HostReservation" NoPipelineParameter="true" />
-	
+	<ServiceOperation MethodName="UnassignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
+  <ServiceOperation MethodName="DisassociateSubnetCidrBlock" Output="Response"/>
+  <ServiceOperation MethodName="DisassociateVpcCidrBlock" Output="Response"/>
+  <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" Noun="EgressOnlyInternetGatewayList" NoPipelineParameter="true"/>
+  <ServiceOperation MethodName="DeleteEgressOnlyInternetGateway" NoPipelineParameter="true" />
+  <ServiceOperation MethodName="CreateEgressOnlyInternetGateway" Output="Response" PipelineParameter="VpcId" />
+  <ServiceOperation MethodName="AssignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
+  <ServiceOperation MethodName="AssociateSubnetCidrBlock" Output="Response" PipelineParameter="SubnetId" />
+  <ServiceOperation MethodName="AssociateVpcCidrBlock" Output="Response" PipelineParameter="VpcId" />
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic

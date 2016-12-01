@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Replaces an existing route within a route table in a VPC. You must provide only one
     /// of the following: Internet gateway or virtual private gateway, NAT instance, NAT gateway,
-    /// VPC peering connection, or network interface.
+    /// VPC peering connection, network interface, or egress-only Internet gateway.
     /// 
     ///  
     /// <para>
@@ -51,12 +51,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The CIDR address block used for the destination match. The value you provide must
-        /// match the CIDR of an existing route in the table.</para>
+        /// <para>The IPv4 CIDR address block used for the destination match. The value you provide
+        /// must match the CIDR of an existing route in the table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String DestinationCidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter DestinationIpv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 CIDR address block used for the destination match. The value you provide
+        /// must match the CIDR of an existing route in the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DestinationIpv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter EgressOnlyInternetGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>[IPv6 traffic only] The ID of an egress-only Internet gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EgressOnlyInternetGatewayId { get; set; }
         #endregion
         
         #region Parameter GatewayId
@@ -82,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of a NAT gateway.</para>
+        /// <para>[IPv4 traffic only] The ID of a NAT gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,6 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.DestinationCidrBlock = this.DestinationCidrBlock;
+            context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
+            context.EgressOnlyInternetGatewayId = this.EgressOnlyInternetGatewayId;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
             context.NatGatewayId = this.NatGatewayId;
@@ -183,6 +206,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
+            }
+            if (cmdletContext.DestinationIpv6CidrBlock != null)
+            {
+                request.DestinationIpv6CidrBlock = cmdletContext.DestinationIpv6CidrBlock;
+            }
+            if (cmdletContext.EgressOnlyInternetGatewayId != null)
+            {
+                request.EgressOnlyInternetGatewayId = cmdletContext.EgressOnlyInternetGatewayId;
             }
             if (cmdletContext.GatewayId != null)
             {
@@ -262,6 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public System.String DestinationCidrBlock { get; set; }
+            public System.String DestinationIpv6CidrBlock { get; set; }
+            public System.String EgressOnlyInternetGatewayId { get; set; }
             public System.String GatewayId { get; set; }
             public System.String InstanceId { get; set; }
             public System.String NatGatewayId { get; set; }

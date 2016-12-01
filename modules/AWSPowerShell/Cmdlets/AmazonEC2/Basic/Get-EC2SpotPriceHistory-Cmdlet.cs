@@ -28,9 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the Spot price history. The prices returned are listed in chronological
-    /// order, from the oldest to the most recent, for up to the past 90 days. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot
+    /// Describes the Spot price history. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot
     /// Instance Pricing History</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
     ///  
@@ -93,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by the specified instance types.</para>
+        /// <para>Filters the results by the specified instance types. Note that T2 and HS1 instance
+        /// types are not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

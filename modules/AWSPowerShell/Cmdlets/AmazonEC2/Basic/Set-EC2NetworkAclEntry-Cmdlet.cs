@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The network range to allow or deny, in CIDR notation.</para>
+        /// <para>The IPv4 network range to allow or deny, in CIDR notation (for example <code>172.16.0.0/24</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IcmpTypeCode_Code
         /// <summary>
         /// <para>
-        /// <para>The ICMP type. A value of -1 means all types.</para>
+        /// <para>The ICMP code. A value of -1 means all codes for the specified ICMP type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32 PortRange_From { get; set; }
         #endregion
         
+        #region Parameter Ipv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 network range to allow or deny, in CIDR notation (for example <code>2001:bd8:1234:1a00::/64</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
         #region Parameter NetworkAclId
         /// <summary>
         /// <para>
@@ -96,7 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The IP protocol. You can specify <code>all</code> or <code>-1</code> to mean all protocols.</para>
+        /// <para>The IP protocol. You can specify <code>all</code> or <code>-1</code> to mean all protocols.
+        /// If you specify <code>all</code>, <code>-1</code>, or a protocol number other than
+        /// <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is
+        /// allowed, regardless of any ports or ICMP types or codes you specify. If you specify
+        /// protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all
+        /// ICMP types and codes allowed, regardless of any that you specify. If you specify protocol
+        /// <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP
+        /// type and code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -137,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IcmpTypeCode_Type
         /// <summary>
         /// <para>
-        /// <para>The ICMP code. A value of -1 means all codes for the specified ICMP type.</para>
+        /// <para>The ICMP type. A value of -1 means all types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -190,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.IcmpTypeCode_Code = this.IcmpTypeCode_Code;
             if (ParameterWasBound("IcmpTypeCode_Type"))
                 context.IcmpTypeCode_Type = this.IcmpTypeCode_Type;
+            context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.NetworkAclId = this.NetworkAclId;
             if (ParameterWasBound("PortRange_From"))
                 context.PortRange_From = this.PortRange_From;
@@ -251,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestIcmpTypeCodeIsNull)
             {
                 request.IcmpTypeCode = null;
+            }
+            if (cmdletContext.Ipv6CidrBlock != null)
+            {
+                request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
             }
             if (cmdletContext.NetworkAclId != null)
             {
@@ -354,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Egress { get; set; }
             public System.Int32? IcmpTypeCode_Code { get; set; }
             public System.Int32? IcmpTypeCode_Type { get; set; }
+            public System.String Ipv6CidrBlock { get; set; }
             public System.String NetworkAclId { get; set; }
             public System.Int32? PortRange_From { get; set; }
             public System.Int32? PortRange_To { get; set; }

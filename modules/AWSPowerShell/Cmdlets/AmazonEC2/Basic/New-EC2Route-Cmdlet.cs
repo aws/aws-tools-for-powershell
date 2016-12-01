@@ -33,11 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// You must specify one of the following targets: Internet gateway or virtual private
-    /// gateway, NAT instance, NAT gateway, VPC peering connection, or network interface.
+    /// gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or
+    /// egress-only Internet gateway.
     /// </para><para>
     /// When determining how to route traffic, we use the route with the most specific match.
-    /// For example, let's say the traffic is destined for <code>192.0.2.3</code>, and the
-    /// route table includes the following two routes:
+    /// For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and
+    /// the route table includes the following two IPv4 routes:
     /// </para><ul><li><para><code>192.0.2.0/24</code> (goes to some target A)
     /// </para></li><li><para><code>192.0.2.0/28</code> (goes to some target B)
     /// </para></li></ul><para>
@@ -62,12 +63,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The CIDR address block used for the destination match. Routing decisions are based
-        /// on the most specific match.</para>
+        /// <para>The IPv4 CIDR address block used for the destination match. Routing decisions are
+        /// based on the most specific match.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String DestinationCidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter DestinationIpv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 CIDR block used for the destination match. Routing decisions are based on
+        /// the most specific match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DestinationIpv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter EgressOnlyInternetGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>[IPv6 traffic only] The ID of an egress-only Internet gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EgressOnlyInternetGatewayId { get; set; }
         #endregion
         
         #region Parameter GatewayId
@@ -94,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NatGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of a NAT gateway.</para>
+        /// <para>[IPv4 traffic only] The ID of a NAT gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -161,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.DestinationCidrBlock = this.DestinationCidrBlock;
+            context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
+            context.EgressOnlyInternetGatewayId = this.EgressOnlyInternetGatewayId;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
             context.NatGatewayId = this.NatGatewayId;
@@ -186,6 +210,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
+            }
+            if (cmdletContext.DestinationIpv6CidrBlock != null)
+            {
+                request.DestinationIpv6CidrBlock = cmdletContext.DestinationIpv6CidrBlock;
+            }
+            if (cmdletContext.EgressOnlyInternetGatewayId != null)
+            {
+                request.EgressOnlyInternetGatewayId = cmdletContext.EgressOnlyInternetGatewayId;
             }
             if (cmdletContext.GatewayId != null)
             {
@@ -263,6 +295,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public System.String DestinationCidrBlock { get; set; }
+            public System.String DestinationIpv6CidrBlock { get; set; }
+            public System.String EgressOnlyInternetGatewayId { get; set; }
             public System.String GatewayId { get; set; }
             public System.String InstanceId { get; set; }
             public System.String NatGatewayId { get; set; }

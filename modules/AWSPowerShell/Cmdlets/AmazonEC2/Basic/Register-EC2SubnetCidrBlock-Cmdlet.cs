@@ -28,45 +28,57 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns details about the values and term of your specified Convertible Reserved Instances.
-    /// When a target configuration is specified, it returns information about whether the
-    /// exchange is valid and can be performed.
+    /// Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
+    /// block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
     /// </summary>
-    [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
-    [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
-    [AWSCmdlet("Invokes the GetReservedInstancesExchangeQuote operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetReservedInstancesExchangeQuote"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
-        "This cmdlet returns a Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "EC2SubnetCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.AssociateSubnetCidrBlockResponse")]
+    [AWSCmdlet("Invokes the AssociateSubnetCidrBlock operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssociateSubnetCidrBlock"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.AssociateSubnetCidrBlockResponse",
+        "This cmdlet returns a Amazon.EC2.Model.AssociateSubnetCidrBlockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RegisterEC2SubnetCidrBlockCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ReservedInstanceId
+        #region Parameter Ipv6CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ReservedInstanceIds")]
-        public System.String[] ReservedInstanceId { get; set; }
-        #endregion
-        
-        #region Parameter TargetConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>The configuration requirements of the Convertible Reserved Instances to exchange for
-        /// your current Convertible Reserved Instances.</para>
+        /// <para>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.TargetConfigurationRequest[] TargetConfiguration { get; set; }
+        public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of your subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SubnetId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EC2SubnetCidrBlock (AssociateSubnetCidrBlock)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -77,14 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ReservedInstanceId != null)
-            {
-                context.ReservedInstanceIds = new List<System.String>(this.ReservedInstanceId);
-            }
-            if (this.TargetConfiguration != null)
-            {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.TargetConfigurationRequest>(this.TargetConfiguration);
-            }
+            context.Ipv6CidrBlock = this.Ipv6CidrBlock;
+            context.SubnetId = this.SubnetId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,15 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest();
+            var request = new Amazon.EC2.Model.AssociateSubnetCidrBlockRequest();
             
-            if (cmdletContext.ReservedInstanceIds != null)
+            if (cmdletContext.Ipv6CidrBlock != null)
             {
-                request.ReservedInstanceIds = cmdletContext.ReservedInstanceIds;
+                request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
             }
-            if (cmdletContext.TargetConfigurations != null)
+            if (cmdletContext.SubnetId != null)
             {
-                request.TargetConfigurations = cmdletContext.TargetConfigurations;
+                request.SubnetId = cmdletContext.SubnetId;
             }
             
             CmdletOutput output;
@@ -143,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest request)
+        private static Amazon.EC2.Model.AssociateSubnetCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateSubnetCidrBlockRequest request)
         {
             #if DESKTOP
-            return client.GetReservedInstancesExchangeQuote(request);
+            return client.AssociateSubnetCidrBlock(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetReservedInstancesExchangeQuoteAsync(request);
+            var task = client.AssociateSubnetCidrBlockAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ReservedInstanceIds { get; set; }
-            public List<Amazon.EC2.Model.TargetConfigurationRequest> TargetConfigurations { get; set; }
+            public System.String Ipv6CidrBlock { get; set; }
+            public System.String SubnetId { get; set; }
         }
         
     }

@@ -28,61 +28,55 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies a subnet attribute. You can only modify one attribute at a time.
+    /// Assigns one or more IPv6 addresses to the specified network interface. You can specify
+    /// one or more specific IPv6 addresses, or you can specify the number of IPv6 addresses
+    /// to be automatically assigned from within the subnet's IPv6 CIDR block range. You can
+    /// assign as many IPv6 addresses to a network interface as you can assign private IPv4
+    /// addresses, and the limit varies per instance type. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
+    /// Addresses Per Network Interface Per Instance Type</a> in the <i>Amazon Elastic Compute
+    /// Cloud User Guide</i>.
     /// </summary>
-    [Cmdlet("Edit", "EC2SubnetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifySubnetAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifySubnetAttribute"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubnetId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.AssignIpv6AddressesResponse")]
+    [AWSCmdlet("Invokes the AssignIpv6Addresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssignIpv6Addresses"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.AssignIpv6AddressesResponse",
+        "This cmdlet returns a Amazon.EC2.Model.AssignIpv6AddressesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditEC2SubnetAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RegisterEC2Ipv6AddressListCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AssignIpv6AddressOnCreation
+        #region Parameter Ipv6AddressCount
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to indicate that network interfaces created in the specified
-        /// subnet should be assigned an IPv6 address. This includes a network interface that's
-        /// created when launching an instance into the subnet (the instance therefore receives
-        /// an IPv6 address).</para>
+        /// <para>The number of IPv6 addresses to assign to the network interface. Amazon EC2 automatically
+        /// selects the IPv6 addresses from the subnet range. You can't use this option if specifying
+        /// specific IPv6 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Boolean AssignIpv6AddressOnCreation { get; set; }
+        public System.Int32 Ipv6AddressCount { get; set; }
         #endregion
         
-        #region Parameter MapPublicIpOnLaunch
+        #region Parameter Ipv6Address
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to indicate that network interfaces created in the specified
-        /// subnet should be assigned a public IPv4 address. This includes a network interface
-        /// that's created when launching an instance into the subnet (the instance therefore
-        /// receives a public IPv4 address).</para>
+        /// <para>One or more specific IPv6 addresses to be assigned to the network interface. You can't
+        /// use this option if you're specifying a number of IPv6 addresses.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.Boolean MapPublicIpOnLaunch { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Ipv6Addresses")]
+        public System.String[] Ipv6Address { get; set; }
         #endregion
         
-        #region Parameter SubnetId
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet.</para>
+        /// <para>The ID of the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String SubnetId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the SubnetId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -99,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SubnetId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2SubnetAttribute (ModifySubnetAttribute)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("NetworkInterfaceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EC2Ipv6AddressList (AssignIpv6Addresses)"))
             {
                 return;
             }
@@ -114,11 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("AssignIpv6AddressOnCreation"))
-                context.AssignIpv6AddressOnCreation = this.AssignIpv6AddressOnCreation;
-            if (ParameterWasBound("MapPublicIpOnLaunch"))
-                context.MapPublicIpOnLaunch = this.MapPublicIpOnLaunch;
-            context.SubnetId = this.SubnetId;
+            if (ParameterWasBound("Ipv6AddressCount"))
+                context.Ipv6AddressCount = this.Ipv6AddressCount;
+            if (this.Ipv6Address != null)
+            {
+                context.Ipv6Addresses = new List<System.String>(this.Ipv6Address);
+            }
+            context.NetworkInterfaceId = this.NetworkInterfaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,19 +129,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifySubnetAttributeRequest();
+            var request = new Amazon.EC2.Model.AssignIpv6AddressesRequest();
             
-            if (cmdletContext.AssignIpv6AddressOnCreation != null)
+            if (cmdletContext.Ipv6AddressCount != null)
             {
-                request.AssignIpv6AddressOnCreation = cmdletContext.AssignIpv6AddressOnCreation.Value;
+                request.Ipv6AddressCount = cmdletContext.Ipv6AddressCount.Value;
             }
-            if (cmdletContext.MapPublicIpOnLaunch != null)
+            if (cmdletContext.Ipv6Addresses != null)
             {
-                request.MapPublicIpOnLaunch = cmdletContext.MapPublicIpOnLaunch.Value;
+                request.Ipv6Addresses = cmdletContext.Ipv6Addresses;
             }
-            if (cmdletContext.SubnetId != null)
+            if (cmdletContext.NetworkInterfaceId != null)
             {
-                request.SubnetId = cmdletContext.SubnetId;
+                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
             }
             
             CmdletOutput output;
@@ -156,9 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.SubnetId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -183,13 +177,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifySubnetAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifySubnetAttributeRequest request)
+        private static Amazon.EC2.Model.AssignIpv6AddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignIpv6AddressesRequest request)
         {
             #if DESKTOP
-            return client.ModifySubnetAttribute(request);
+            return client.AssignIpv6Addresses(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ModifySubnetAttributeAsync(request);
+            var task = client.AssignIpv6AddressesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AssignIpv6AddressOnCreation { get; set; }
-            public System.Boolean? MapPublicIpOnLaunch { get; set; }
-            public System.String SubnetId { get; set; }
+            public System.Int32? Ipv6AddressCount { get; set; }
+            public List<System.String> Ipv6Addresses { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
         }
         
     }

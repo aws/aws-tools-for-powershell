@@ -28,45 +28,47 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns details about the values and term of your specified Convertible Reserved Instances.
-    /// When a target configuration is specified, it returns information about whether the
-    /// exchange is valid and can be performed.
+    /// Deletes an egress-only Internet gateway.
     /// </summary>
-    [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
-    [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
-    [AWSCmdlet("Invokes the GetReservedInstancesExchangeQuote operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetReservedInstancesExchangeQuote"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse",
-        "This cmdlet returns a Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.Boolean")]
+    [AWSCmdlet("Invokes the DeleteEgressOnlyInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteEgressOnlyInternetGateway"})]
+    [AWSCmdletOutput("System.Boolean",
+        "This cmdlet returns a Boolean object.",
+        "The service call response (type Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2ReservedInstancesExchangeQuoteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveEC2EgressOnlyInternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ReservedInstanceId
+        #region Parameter EgressOnlyInternetGatewayId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("ReservedInstanceIds")]
-        public System.String[] ReservedInstanceId { get; set; }
-        #endregion
-        
-        #region Parameter TargetConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>The configuration requirements of the Convertible Reserved Instances to exchange for
-        /// your current Convertible Reserved Instances.</para>
+        /// <para>The ID of the egress-only Internet gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.TargetConfigurationRequest[] TargetConfiguration { get; set; }
+        public System.String EgressOnlyInternetGatewayId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EgressOnlyInternetGatewayId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2EgressOnlyInternetGateway (DeleteEgressOnlyInternetGateway)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -77,14 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ReservedInstanceId != null)
-            {
-                context.ReservedInstanceIds = new List<System.String>(this.ReservedInstanceId);
-            }
-            if (this.TargetConfiguration != null)
-            {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.TargetConfigurationRequest>(this.TargetConfiguration);
-            }
+            context.EgressOnlyInternetGatewayId = this.EgressOnlyInternetGatewayId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,15 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest();
+            var request = new Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayRequest();
             
-            if (cmdletContext.ReservedInstanceIds != null)
+            if (cmdletContext.EgressOnlyInternetGatewayId != null)
             {
-                request.ReservedInstanceIds = cmdletContext.ReservedInstanceIds;
-            }
-            if (cmdletContext.TargetConfigurations != null)
-            {
-                request.TargetConfigurations = cmdletContext.TargetConfigurations;
+                request.EgressOnlyInternetGatewayId = cmdletContext.EgressOnlyInternetGatewayId;
             }
             
             CmdletOutput output;
@@ -118,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.ReturnCode;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -143,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetReservedInstancesExchangeQuoteRequest request)
+        private static Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayRequest request)
         {
             #if DESKTOP
-            return client.GetReservedInstancesExchangeQuote(request);
+            return client.DeleteEgressOnlyInternetGateway(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetReservedInstancesExchangeQuoteAsync(request);
+            var task = client.DeleteEgressOnlyInternetGatewayAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,8 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ReservedInstanceIds { get; set; }
-            public List<Amazon.EC2.Model.TargetConfigurationRequest> TargetConfigurations { get; set; }
+            public System.String EgressOnlyInternetGatewayId { get; set; }
         }
         
     }

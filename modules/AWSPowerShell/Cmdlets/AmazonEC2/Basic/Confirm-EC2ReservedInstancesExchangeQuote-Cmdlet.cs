@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Purchases Convertible Reserved Instance offerings described in the <a>GetReservedInstancesExchangeQuote</a>
+    /// Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a>
     /// call.
     /// </summary>
     [Cmdlet("Confirm", "EC2ReservedInstancesExchangeQuote", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances that you want to exchange for other
-        /// Convertible Reserved Instances of the same or higher value.</para>
+        /// <para>The IDs of the Convertible Reserved Instances to exchange for other Convertible Reserved
+        /// Instances of the same or higher value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configurations of the Convertible Reserved Instance offerings you are purchasing
+        /// <para>The configurations of the Convertible Reserved Instance offerings that you are purchasing
         /// in this exchange.</para>
         /// </para>
         /// </summary>
