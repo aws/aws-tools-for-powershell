@@ -2352,6 +2352,7 @@ Set-Alias -Name Delete-LMEventSourceMapping -Value Remove-LMEventSourceMapping
 Set-Alias -Name LM-DeleteEventSourceMapping -Value Remove-LMEventSourceMapping
 Set-Alias -Name Delete-LMFunction -Value Remove-LMFunction
 Set-Alias -Name LM-DeleteFunction -Value Remove-LMFunction
+Set-Alias -Name LM-GetAccountSettings -Value Get-LMAccountSetting
 Set-Alias -Name LM-GetAlias -Value Get-LMAlias
 Set-Alias -Name LM-GetEventSourceMapping -Value Get-LMEventSourceMapping
 Set-Alias -Name LM-GetFunction -Value Get-LMFunction

@@ -131,6 +131,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
         #endregion
         
+        #region Parameter StartingPositionTimestamp
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp of the data record from which to start reading. Used with <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType">shard
+        /// iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist,
+        /// the iterator returned is for the next (later) record. If the timestamp is older than
+        /// the current trim horizon, the iterator returned is for the oldest untrimmed data record
+        /// (TRIM_HORIZON). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime StartingPositionTimestamp { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -167,6 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.EventSourceArn = this.EventSourceArn;
             context.FunctionName = this.FunctionName;
             context.StartingPosition = this.StartingPosition;
+            if (ParameterWasBound("StartingPositionTimestamp"))
+                context.StartingPositionTimestamp = this.StartingPositionTimestamp;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.StartingPosition != null)
             {
                 request.StartingPosition = cmdletContext.StartingPosition;
+            }
+            if (cmdletContext.StartingPositionTimestamp != null)
+            {
+                request.StartingPositionTimestamp = cmdletContext.StartingPositionTimestamp.Value;
             }
             
             CmdletOutput output;
@@ -259,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String EventSourceArn { get; set; }
             public System.String FunctionName { get; set; }
             public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
+            public System.DateTime? StartingPositionTimestamp { get; set; }
         }
         
     }

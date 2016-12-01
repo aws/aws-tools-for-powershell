@@ -130,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The runtime environment for the Lambda function.</para><para>To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime
-        /// (v0.10.42), set the value to "nodejs".</para>
+        /// (v0.10.42), set the value to "nodejs".</para><note><para>You can no longer downgrade to the v0.10.42 runtime version. This version will no
+        /// longer be supported as of early 2017.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter DeadLetterConfig_TargetArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify
+        /// as your Dead Letter Queue (DLQ).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DeadLetterConfig_TargetArn { get; set; }
         #endregion
         
         #region Parameter Timeout
@@ -213,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DeadLetterConfig_TargetArn = this.DeadLetterConfig_TargetArn;
             context.Description = this.Description;
             if (this.Environment_Variable != null)
             {
@@ -255,6 +268,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // create request
             var request = new Amazon.Lambda.Model.UpdateFunctionConfigurationRequest();
             
+            
+             // populate DeadLetterConfig
+            bool requestDeadLetterConfigIsNull = true;
+            request.DeadLetterConfig = new Amazon.Lambda.Model.DeadLetterConfig();
+            System.String requestDeadLetterConfig_deadLetterConfig_TargetArn = null;
+            if (cmdletContext.DeadLetterConfig_TargetArn != null)
+            {
+                requestDeadLetterConfig_deadLetterConfig_TargetArn = cmdletContext.DeadLetterConfig_TargetArn;
+            }
+            if (requestDeadLetterConfig_deadLetterConfig_TargetArn != null)
+            {
+                request.DeadLetterConfig.TargetArn = requestDeadLetterConfig_deadLetterConfig_TargetArn;
+                requestDeadLetterConfigIsNull = false;
+            }
+             // determine if request.DeadLetterConfig should be set to null
+            if (requestDeadLetterConfigIsNull)
+            {
+                request.DeadLetterConfig = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -386,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String DeadLetterConfig_TargetArn { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> Environment_Variables { get; set; }
             public System.String FunctionName { get; set; }

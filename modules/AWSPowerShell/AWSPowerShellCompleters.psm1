@@ -2604,7 +2604,7 @@ $LM_Completers = {
         # Amazon.Lambda.EventSourcePosition
         "New-LMEventSourceMapping/StartingPosition"
         {
-            $v = "LATEST","TRIM_HORIZON"
+            $v = "AT_TIMESTAMP","LATEST","TRIM_HORIZON"
             break
         }
         
@@ -2628,7 +2628,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "java8","nodejs","nodejs4.3","python2.7"
+            $v = "dotnetcore1.0","java8","nodejs","nodejs4.3","nodejs4.3-edge","python2.7"
             break
         }
         
