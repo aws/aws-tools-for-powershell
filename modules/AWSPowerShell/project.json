@@ -7,6 +7,7 @@
 		"AWSSDK.APIGateway": "3.3.2",
 		"AWSSDK.ApplicationAutoScaling": "3.3.1",
 		"AWSSDK.ApplicationDiscoveryService": "3.3.0.3",
+		"AWSSDK.AppStream": "3.3.0",
 		"AWSSDK.AutoScaling": "3.3.0.4",
 		"AWSSDK.AWSMarketplaceCommerceAnalytics": "3.3.0.3",
 		"AWSSDK.AWSMarketplaceMetering": "3.3.1",

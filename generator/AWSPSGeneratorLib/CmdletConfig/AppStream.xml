@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>APS</ServiceNounPrefix>
+  <ServiceName>AWS AppStream</ServiceName>
+  <ServiceClientInterface>IAmazonAppStream</ServiceClientInterface>
+  <ServiceClient>AmazonAppStreamClient</ServiceClient>
+  <ServiceNamespace>Amazon.AppStream</ServiceNamespace>
+
+  <AutoIterate Start="NextToken"
+               Next="NextToken"/>
+
+  <PipelineByValueProperties>
+  </PipelineByValueProperties>
+
+  <PipelineParameter>StackName</PipelineParameter>
+
+  <MetadataProperties />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AssociateFleet" Verb="Register" Output="Void"/>
+    <ServiceOperation MethodName="CreateFleet" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="CreateStack" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="CreateStreamingURL" Output="Response" />
+    <ServiceOperation MethodName="DeleteFleet" Output="Void" />
+    <ServiceOperation MethodName="DeleteStack" Output="Void" />
+    <ServiceOperation MethodName="DescribeFleets" Verb="Get" Noun="FleetList" />
+    <ServiceOperation MethodName="DescribeImages" Verb="Get" Noun="ImageList"/>
+    <ServiceOperation MethodName="DescribeSessions" Verb="Get" Noun="SessionList"/>
+    <ServiceOperation MethodName="DescribeStacks" Verb="Get" Noun="StackList"/>
+    <ServiceOperation MethodName="DisassociateFleet" Verb="Unregister" Noun="Fleet" Output="Void"/>
+    <ServiceOperation MethodName="ExpireSession" Verb="Revoke" Output="Void" />
+    <ServiceOperation MethodName="ListAssociatedFleets" Verb="Get" Noun="AssociatedFleetList" />
+    <ServiceOperation MethodName="ListAssociatedStacks" Verb="Get" Noun="AssociatedStackList"/>
+    <ServiceOperation MethodName="StartFleet" Output="Void"/>
+    <ServiceOperation MethodName="StopFleet" Output="Void"/>
+    <ServiceOperation MethodName="UpdateFleet" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="UpdateStack" PipelineParameter="Name"/>
+  </ServiceOperations>
+
+</ConfigModel>

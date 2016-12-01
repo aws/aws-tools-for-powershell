@@ -54,6 +54,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppStream">
+      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.0\lib\net35\AWSSDK.AppStream.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
