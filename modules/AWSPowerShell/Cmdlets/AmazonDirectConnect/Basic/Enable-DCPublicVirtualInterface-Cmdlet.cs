@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// owner by calling ConfirmPublicVirtualInterface. Until this step has been completed,
     /// the virtual interface will be in 'Confirming' state, and will not be available for
     /// handling traffic.
+    /// </para><para>
+    /// When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer
+    /// and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom
+    /// IPv6 Addresses are currently not supported.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "DCPublicVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public partial class EnableDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPublicVirtualInterfaceAllocation_AddressFamily
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectConnect.AddressFamily")]
+        public Amazon.DirectConnect.AddressFamily NewPublicVirtualInterfaceAllocation_AddressFamily { get; set; }
+        #endregion
         
         #region Parameter NewPublicVirtualInterfaceAllocation_AmazonAddress
         /// <summary>
@@ -171,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             PreExecutionContextLoad(context);
             
             context.ConnectionId = this.ConnectionId;
+            context.NewPublicVirtualInterfaceAllocation_AddressFamily = this.NewPublicVirtualInterfaceAllocation_AddressFamily;
             context.NewPublicVirtualInterfaceAllocation_AmazonAddress = this.NewPublicVirtualInterfaceAllocation_AmazonAddress;
             if (ParameterWasBound("NewPublicVirtualInterfaceAllocation_Asn"))
                 context.NewPublicVirtualInterfaceAllocation_Asn = this.NewPublicVirtualInterfaceAllocation_Asn;
@@ -208,6 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
              // populate NewPublicVirtualInterfaceAllocation
             bool requestNewPublicVirtualInterfaceAllocationIsNull = true;
             request.NewPublicVirtualInterfaceAllocation = new Amazon.DirectConnect.Model.NewPublicVirtualInterfaceAllocation();
+            Amazon.DirectConnect.AddressFamily requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AddressFamily = null;
+            if (cmdletContext.NewPublicVirtualInterfaceAllocation_AddressFamily != null)
+            {
+                requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AddressFamily = cmdletContext.NewPublicVirtualInterfaceAllocation_AddressFamily;
+            }
+            if (requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AddressFamily != null)
+            {
+                request.NewPublicVirtualInterfaceAllocation.AddressFamily = requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AddressFamily;
+                requestNewPublicVirtualInterfaceAllocationIsNull = false;
+            }
             System.String requestNewPublicVirtualInterfaceAllocation_newPublicVirtualInterfaceAllocation_AmazonAddress = null;
             if (cmdletContext.NewPublicVirtualInterfaceAllocation_AmazonAddress != null)
             {
@@ -339,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal class CmdletContext : ExecutorContext
         {
             public System.String ConnectionId { get; set; }
+            public Amazon.DirectConnect.AddressFamily NewPublicVirtualInterfaceAllocation_AddressFamily { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_AmazonAddress { get; set; }
             public System.Int32? NewPublicVirtualInterfaceAllocation_Asn { get; set; }
             public System.String NewPublicVirtualInterfaceAllocation_AuthKey { get; set; }

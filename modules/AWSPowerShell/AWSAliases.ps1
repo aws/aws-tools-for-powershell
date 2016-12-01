@@ -1008,6 +1008,8 @@ Set-Alias -Name DC-AllocatePublicVirtualInterface -Value Enable-DCPublicVirtualI
 Set-Alias -Name DC-ConfirmConnection -Value Confirm-DCConnection
 Set-Alias -Name DC-ConfirmPrivateVirtualInterface -Value Confirm-DCPrivateVirtualInterface
 Set-Alias -Name DC-ConfirmPublicVirtualInterface -Value Confirm-DCPublicVirtualInterface
+Set-Alias -Name Create-DCBGPPeer -Value New-DCBGPPeer
+Set-Alias -Name DC-CreateBGPPeer -Value New-DCBGPPeer
 Set-Alias -Name Create-DCConnection -Value New-DCConnection
 Set-Alias -Name DC-CreateConnection -Value New-DCConnection
 Set-Alias -Name Create-DCInterconnect -Value New-DCInterconnect
@@ -1016,6 +1018,8 @@ Set-Alias -Name Create-DCPrivateVirtualInterface -Value New-DCPrivateVirtualInte
 Set-Alias -Name DC-CreatePrivateVirtualInterface -Value New-DCPrivateVirtualInterface
 Set-Alias -Name Create-DCPublicVirtualInterface -Value New-DCPublicVirtualInterface
 Set-Alias -Name DC-CreatePublicVirtualInterface -Value New-DCPublicVirtualInterface
+Set-Alias -Name Delete-DCBGPPeer -Value Remove-DCBGPPeer
+Set-Alias -Name DC-DeleteBGPPeer -Value Remove-DCBGPPeer
 Set-Alias -Name Delete-DCConnection -Value Remove-DCConnection
 Set-Alias -Name DC-DeleteConnection -Value Remove-DCConnection
 Set-Alias -Name Delete-DCInterconnect -Value Remove-DCInterconnect

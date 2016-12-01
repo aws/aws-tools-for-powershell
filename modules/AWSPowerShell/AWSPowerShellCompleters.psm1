@@ -1336,6 +1336,19 @@ $DC_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DirectConnect.AddressFamily
+        {
+            ($_ -eq "New-DCBGPPeer/NewBGPPeer_AddressFamily") -Or
+            ($_ -eq "New-DCPrivateVirtualInterface/NewPrivateVirtualInterface_AddressFamily") -Or
+            ($_ -eq "Enable-DCPrivateVirtualInterface/NewPrivateVirtualInterfaceAllocation_AddressFamily") -Or
+            ($_ -eq "New-DCPublicVirtualInterface/NewPublicVirtualInterface_AddressFamily") -Or
+            ($_ -eq "Enable-DCPublicVirtualInterface/NewPublicVirtualInterfaceAllocation_AddressFamily")
+        }
+        {
+            $v = "ipv4","ipv6"
+            break
+        }
+        
         # Amazon.DirectConnect.LoaContentType
         {
             ($_ -eq "Get-DCConnectionLoa/LoaContentType") -Or
@@ -1355,6 +1368,11 @@ $DC_Completers = {
 
 $DC_map = @{
     "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa")
+    "NewBGPPeer_AddressFamily"=@("New-DCBGPPeer")
+    "NewPrivateVirtualInterface_AddressFamily"=@("New-DCPrivateVirtualInterface")
+    "NewPrivateVirtualInterfaceAllocation_AddressFamily"=@("Enable-DCPrivateVirtualInterface")
+    "NewPublicVirtualInterface_AddressFamily"=@("New-DCPublicVirtualInterface")
+    "NewPublicVirtualInterfaceAllocation_AddressFamily"=@("Enable-DCPublicVirtualInterface")
 }
 
 _awsArgumentCompleterRegistration $DC_Completers $DC_map

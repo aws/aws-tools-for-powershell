@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class EnableDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter NewPrivateVirtualInterfaceAllocation_AddressFamily
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectConnect.AddressFamily")]
+        public Amazon.DirectConnect.AddressFamily NewPrivateVirtualInterfaceAllocation_AddressFamily { get; set; }
+        #endregion
+        
         #region Parameter NewPrivateVirtualInterfaceAllocation_AmazonAddress
         /// <summary>
         /// <para>
@@ -160,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             PreExecutionContextLoad(context);
             
             context.ConnectionId = this.ConnectionId;
+            context.NewPrivateVirtualInterfaceAllocation_AddressFamily = this.NewPrivateVirtualInterfaceAllocation_AddressFamily;
             context.NewPrivateVirtualInterfaceAllocation_AmazonAddress = this.NewPrivateVirtualInterfaceAllocation_AmazonAddress;
             if (ParameterWasBound("NewPrivateVirtualInterfaceAllocation_Asn"))
                 context.NewPrivateVirtualInterfaceAllocation_Asn = this.NewPrivateVirtualInterfaceAllocation_Asn;
@@ -193,6 +205,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
              // populate NewPrivateVirtualInterfaceAllocation
             bool requestNewPrivateVirtualInterfaceAllocationIsNull = true;
             request.NewPrivateVirtualInterfaceAllocation = new Amazon.DirectConnect.Model.NewPrivateVirtualInterfaceAllocation();
+            Amazon.DirectConnect.AddressFamily requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AddressFamily = null;
+            if (cmdletContext.NewPrivateVirtualInterfaceAllocation_AddressFamily != null)
+            {
+                requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AddressFamily = cmdletContext.NewPrivateVirtualInterfaceAllocation_AddressFamily;
+            }
+            if (requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AddressFamily != null)
+            {
+                request.NewPrivateVirtualInterfaceAllocation.AddressFamily = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AddressFamily;
+                requestNewPrivateVirtualInterfaceAllocationIsNull = false;
+            }
             System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AmazonAddress = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_AmazonAddress != null)
             {
@@ -314,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal class CmdletContext : ExecutorContext
         {
             public System.String ConnectionId { get; set; }
+            public Amazon.DirectConnect.AddressFamily NewPrivateVirtualInterfaceAllocation_AddressFamily { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_AmazonAddress { get; set; }
             public System.Int32? NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
             public System.String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }

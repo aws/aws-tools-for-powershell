@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Creates a new public virtual interface. A virtual interface is the VLAN that transports
     /// AWS Direct Connect traffic. A public virtual interface supports sending traffic to
     /// public services of AWS such as Amazon Simple Storage Service (Amazon S3).
+    /// 
+    ///  
+    /// <para>
+    /// When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer
+    /// and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom
+    /// IPv6 Addresses are currently not supported.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DCPublicVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse")]
@@ -40,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public partial class NewDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPublicVirtualInterface_AddressFamily
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectConnect.AddressFamily")]
+        public Amazon.DirectConnect.AddressFamily NewPublicVirtualInterface_AddressFamily { get; set; }
+        #endregion
         
         #region Parameter NewPublicVirtualInterface_AmazonAddress
         /// <summary>
@@ -152,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             PreExecutionContextLoad(context);
             
             context.ConnectionId = this.ConnectionId;
+            context.NewPublicVirtualInterface_AddressFamily = this.NewPublicVirtualInterface_AddressFamily;
             context.NewPublicVirtualInterface_AmazonAddress = this.NewPublicVirtualInterface_AmazonAddress;
             if (ParameterWasBound("NewPublicVirtualInterface_Asn"))
                 context.NewPublicVirtualInterface_Asn = this.NewPublicVirtualInterface_Asn;
@@ -188,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
              // populate NewPublicVirtualInterface
             bool requestNewPublicVirtualInterfaceIsNull = true;
             request.NewPublicVirtualInterface = new Amazon.DirectConnect.Model.NewPublicVirtualInterface();
+            Amazon.DirectConnect.AddressFamily requestNewPublicVirtualInterface_newPublicVirtualInterface_AddressFamily = null;
+            if (cmdletContext.NewPublicVirtualInterface_AddressFamily != null)
+            {
+                requestNewPublicVirtualInterface_newPublicVirtualInterface_AddressFamily = cmdletContext.NewPublicVirtualInterface_AddressFamily;
+            }
+            if (requestNewPublicVirtualInterface_newPublicVirtualInterface_AddressFamily != null)
+            {
+                request.NewPublicVirtualInterface.AddressFamily = requestNewPublicVirtualInterface_newPublicVirtualInterface_AddressFamily;
+                requestNewPublicVirtualInterfaceIsNull = false;
+            }
             System.String requestNewPublicVirtualInterface_newPublicVirtualInterface_AmazonAddress = null;
             if (cmdletContext.NewPublicVirtualInterface_AmazonAddress != null)
             {
@@ -315,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal class CmdletContext : ExecutorContext
         {
             public System.String ConnectionId { get; set; }
+            public Amazon.DirectConnect.AddressFamily NewPublicVirtualInterface_AddressFamily { get; set; }
             public System.String NewPublicVirtualInterface_AmazonAddress { get; set; }
             public System.Int32? NewPublicVirtualInterface_Asn { get; set; }
             public System.String NewPublicVirtualInterface_AuthKey { get; set; }
