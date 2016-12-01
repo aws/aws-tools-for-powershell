@@ -28,78 +28,68 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Gets information about the current <a>ApiKeys</a> resource.
+    
     /// </summary>
-    [Cmdlet("Get", "AGApiKeyList")]
-    [OutputType("Amazon.APIGateway.Model.GetApiKeysResponse")]
-    [AWSCmdlet("Invokes the GetApiKeys operation against Amazon API Gateway.", Operation = new[] {"GetApiKeys"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.GetApiKeysResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.GetApiKeysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AGDocumentationPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.UpdateDocumentationPartResponse")]
+    [AWSCmdlet("Invokes the UpdateDocumentationPart operation against Amazon API Gateway.", Operation = new[] {"UpdateDocumentationPart"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateDocumentationPartResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.UpdateDocumentationPartResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAGApiKeyListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateAGDocumentationPartCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter CustomerId
+        #region Parameter DocumentationPartId
         /// <summary>
         /// <para>
-        /// <para>The identifier of a customer in AWS Marketplace or an external system, such as a developer
-        /// portal.</para>
+        /// <para>[Required] The identifier of the to-be-updated documentation part.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String CustomerId { get; set; }
+        public System.String DocumentationPartId { get; set; }
         #endregion
         
-        #region Parameter IncludeValue
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>)
-        /// the result contains key values.</para>
+        /// <para>A list of update operations to be applied to the specified resource and in the order
+        /// specified in this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("IncludeValues")]
-        public System.Boolean IncludeValue { get; set; }
+        [Alias("PatchOperations")]
+        public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
         #endregion
         
-        #region Parameter NameQuery
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The name of queried API keys.</para>
+        /// <para>[Required] The identifier of an API of the to-be-updated documentation part.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String NameQuery { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String RestApiId { get; set; }
         #endregion
         
-        #region Parameter Limit
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The maximum number of <a>ApiKeys</a> to get information about.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public System.Int32 Limit { get; set; }
-        #endregion
-        
-        #region Parameter Position
-        /// <summary>
-        /// <para>
-        /// <para>The position of the current <a>ApiKeys</a> resource to get information about.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
-        public System.String Position { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGDocumentationPart (UpdateDocumentationPart)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -110,13 +100,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CustomerId = this.CustomerId;
-            if (ParameterWasBound("IncludeValue"))
-                context.IncludeValues = this.IncludeValue;
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
-            context.NameQuery = this.NameQuery;
-            context.Position = this.Position;
+            context.DocumentationPartId = this.DocumentationPartId;
+            if (this.PatchOperation != null)
+            {
+                context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
+            }
+            context.RestApiId = this.RestApiId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,27 +120,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.GetApiKeysRequest();
+            var request = new Amazon.APIGateway.Model.UpdateDocumentationPartRequest();
             
-            if (cmdletContext.CustomerId != null)
+            if (cmdletContext.DocumentationPartId != null)
             {
-                request.CustomerId = cmdletContext.CustomerId;
+                request.DocumentationPartId = cmdletContext.DocumentationPartId;
             }
-            if (cmdletContext.IncludeValues != null)
+            if (cmdletContext.PatchOperations != null)
             {
-                request.IncludeValues = cmdletContext.IncludeValues.Value;
+                request.PatchOperations = cmdletContext.PatchOperations;
             }
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.RestApiId != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
-            }
-            if (cmdletContext.NameQuery != null)
-            {
-                request.NameQuery = cmdletContext.NameQuery;
-            }
-            if (cmdletContext.Position != null)
-            {
-                request.Position = cmdletContext.Position;
+                request.RestApiId = cmdletContext.RestApiId;
             }
             
             CmdletOutput output;
@@ -187,13 +168,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetApiKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetApiKeysRequest request)
+        private static Amazon.APIGateway.Model.UpdateDocumentationPartResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateDocumentationPartRequest request)
         {
             #if DESKTOP
-            return client.GetApiKeys(request);
+            return client.UpdateDocumentationPart(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetApiKeysAsync(request);
+            var task = client.UpdateDocumentationPartAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -204,11 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CustomerId { get; set; }
-            public System.Boolean? IncludeValues { get; set; }
-            public System.Int32? Limit { get; set; }
-            public System.String NameQuery { get; set; }
-            public System.String Position { get; set; }
+            public System.String DocumentationPartId { get; set; }
+            public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }
+            public System.String RestApiId { get; set; }
         }
         
     }

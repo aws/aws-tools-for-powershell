@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.APIGateway.ContentHandlingType")]
-        public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
+        [AWSConstantClassSource("Amazon.APIGateway.ContentHandlingStrategy")]
+        public Amazon.APIGateway.ContentHandlingStrategy ContentHandling { get; set; }
         #endregion
         
         #region Parameter TargetCredential
@@ -379,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public List<System.String> CacheKeyParameters { get; set; }
             public System.String CacheNamespace { get; set; }
-            public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
+            public Amazon.APIGateway.ContentHandlingStrategy ContentHandling { get; set; }
             public System.String TargetCredential { get; set; }
             public System.String HttpMethod { get; set; }
             public System.String IntegrationHttpMethod { get; set; }

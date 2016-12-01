@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.APIGateway.ContentHandlingType")]
-        public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
+        [AWSConstantClassSource("Amazon.APIGateway.ContentHandlingStrategy")]
+        public Amazon.APIGateway.ContentHandlingStrategy ContentHandling { get; set; }
         #endregion
         
         #region Parameter HttpMethod
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.APIGateway.ContentHandlingType ContentHandling { get; set; }
+            public Amazon.APIGateway.ContentHandlingStrategy ContentHandling { get; set; }
             public System.String HttpMethod { get; set; }
             public System.String ResourceId { get; set; }
             public Dictionary<System.String, System.String> ResponseParameters { get; set; }

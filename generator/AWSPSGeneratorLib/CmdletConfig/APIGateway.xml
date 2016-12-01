@@ -34,6 +34,8 @@
     <ServiceOperation MethodName="CreateApiKey" Output="Response" ShouldProcessTarget="Value" />
     <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" ShouldProcessTarget="DomainName"/>
     <ServiceOperation MethodName="CreateDeployment" Output="Response" ShouldProcessTarget="StageName"/>
+    <ServiceOperation MethodName="CreateDocumentationPart" Output="Response" />
+    <ServiceOperation MethodName="CreateDocumentationVersion" Output="Response" />
     <ServiceOperation MethodName="CreateDomainName" Output="Response" ShouldProcessTarget="DomainName"/>
     <ServiceOperation MethodName="CreateModel" Output="Response" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreateResource" Output="Response" ShouldProcessTarget="ParentId"/>
@@ -43,6 +45,8 @@
     <ServiceOperation MethodName="DeleteBasePathMapping" Output="Void"/>
     <ServiceOperation MethodName="DeleteClientCertificate" Output="Void"/>
     <ServiceOperation MethodName="DeleteDeployment" Output="Void" ShouldProcessTarget="DeploymentId"/>
+    <ServiceOperation MethodName="DeleteDocumentationPart" Output="Void"/>
+    <ServiceOperation MethodName="DeleteDocumentationVersion" Output="Void"/>
     <ServiceOperation MethodName="DeleteDomainName" Output="Void"/>
     <ServiceOperation MethodName="DeleteIntegration" Output="Void" ShouldProcessTarget="ResourceId"/>
     <ServiceOperation MethodName="DeleteIntegrationResponse" Output="Void" ShouldProcessTarget="ResourceId"/>
@@ -59,6 +63,10 @@
     <ServiceOperation MethodName="GetApiKey" Output="Response" />
     <ServiceOperation MethodName="GetBasePathMapping" Output="Response" />
     <ServiceOperation MethodName="GetClientCertificate" Output="Response" />
+    <ServiceOperation MethodName="GetDocumentationPart" Output="Response" />
+    <ServiceOperation MethodName="GetDocumentationParts" Noun="DocumentationPartList" />
+    <ServiceOperation MethodName="GetDocumentationVersion" Output="Response" />
+    <ServiceOperation MethodName="GetDocumentationVersions" Noun="DocumentationVersionList" />
     <ServiceOperation MethodName="GetDeployment" Output="Response" />
     <ServiceOperation MethodName="GetDomainName" Output="Response" />
     <ServiceOperation MethodName="GetIntegration" Output="Response" />
@@ -71,6 +79,7 @@
     <ServiceOperation MethodName="GetRestApi" Output="Response"/>
     <ServiceOperation MethodName="GetSdk" Output="Response" />
     <ServiceOperation MethodName="GetStage" Output="Response" />
+    <ServiceOperation MethodName="ImportDocumentationParts" Noun="DocumentationPartList" Output="Response" />
     <ServiceOperation MethodName="PutIntegration" Output="Response" ShouldProcessTarget="ResourceId">
       <Params>
         <Param Name="Credentials" NewName="TargetCredential" AutoApplyAlias="false" />
@@ -86,6 +95,8 @@
     <ServiceOperation MethodName="UpdateBasePathMapping" Output="Response"/>
     <ServiceOperation MethodName="UpdateClientCertificate" Output="Response"/>
     <ServiceOperation MethodName="UpdateDeployment" Output="Response" />
+    <ServiceOperation MethodName="UpdateDocumentationPart" Output="Response"/>
+    <ServiceOperation MethodName="UpdateDocumentationVersion" Output="Response" />
     <ServiceOperation MethodName="UpdateDomainName" Output="Response" />
     <ServiceOperation MethodName="UpdateIntegration" Output="Response" />
     <ServiceOperation MethodName="UpdateIntegrationResponse" Output="Response" />
@@ -95,7 +106,6 @@
     <ServiceOperation MethodName="UpdateResource" Output="Response" />
     <ServiceOperation MethodName="UpdateRestApi" Output="Response" />
     <ServiceOperation MethodName="UpdateStage" Output="Response" />
-
     <ServiceOperation MethodName="GetApiKeys"
                       Noun="ApiKeyList"
 					  Output="Response"

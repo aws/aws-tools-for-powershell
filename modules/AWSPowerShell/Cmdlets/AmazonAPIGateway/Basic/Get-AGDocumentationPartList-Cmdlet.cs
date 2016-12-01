@@ -1,0 +1,275 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
+
+namespace Amazon.PowerShell.Cmdlets.AG
+{
+    /// <summary>
+    /// <br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </summary>
+    [Cmdlet("Get", "AGDocumentationPartList")]
+    [OutputType("Amazon.APIGateway.Model.DocumentationPart")]
+    [AWSCmdlet("Invokes the GetDocumentationParts operation against Amazon API Gateway.", Operation = new[] {"GetDocumentationParts"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.DocumentationPart",
+        "This cmdlet returns a collection of DocumentationPart objects.",
+        "The service call response (type Amazon.APIGateway.Model.GetDocumentationPartsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Position (type System.String)"
+    )]
+    public partial class GetAGDocumentationPartListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    {
+        
+        #region Parameter NameQuery
+        /// <summary>
+        /// <para>
+        /// <para>The name of API entities of the to-be-retrieved documentation parts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NameQuery { get; set; }
+        #endregion
+        
+        #region Parameter Path
+        /// <summary>
+        /// <para>
+        /// <para>The path of API entities of the to-be-retrieved documentation parts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Path { get; set; }
+        #endregion
+        
+        #region Parameter RestApiId
+        /// <summary>
+        /// <para>
+        /// <para>[Required] The identifier of the API of the to-be-retrieved documentation parts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String RestApiId { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of API entities of the to-be-retrieved documentation parts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.DocumentationPartType")]
+        public Amazon.APIGateway.DocumentationPartType Type { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The size of the paged results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int Limit { get; set; }
+        #endregion
+        
+        #region Parameter Position
+        /// <summary>
+        /// <para>
+        /// <para>The position of the to-be-retrieved documentation part in the <a>DocumentationParts</a>
+        /// collection.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String Position { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
+            context.NameQuery = this.NameQuery;
+            context.Path = this.Path;
+            context.Position = this.Position;
+            context.RestApiId = this.RestApiId;
+            context.Type = this.Type;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            
+            // create request and set iteration invariants
+            var request = new Amazon.APIGateway.Model.GetDocumentationPartsRequest();
+            if (cmdletContext.NameQuery != null)
+            {
+                request.NameQuery = cmdletContext.NameQuery;
+            }
+            if (cmdletContext.Path != null)
+            {
+                request.Path = cmdletContext.Path;
+            }
+            if (cmdletContext.RestApiId != null)
+            {
+                request.RestApiId = cmdletContext.RestApiId;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
+            }
+            
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Position))
+            {
+                _nextMarker = cmdletContext.Position;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            {
+                _emitLimit = cmdletContext.Limit;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Position) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _continueIteration = true;
+            
+            try
+            {
+                do
+                {
+                    request.Position = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Items;
+                        notes = new Dictionary<string, object>();
+                        notes["Position"] = response.Position;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.Items.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Position));
+                        }
+                        
+                        _nextMarker = response.Position;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
+            }
+            finally
+            {
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
+            }
+            
+            return null;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private static Amazon.APIGateway.Model.GetDocumentationPartsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetDocumentationPartsRequest request)
+        {
+            #if DESKTOP
+            return client.GetDocumentationParts(request);
+            #elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.GetDocumentationPartsAsync(request);
+            return task.Result;
+            #else
+                    #error "Unknown build edition"
+            #endif
+        }
+        
+        #endregion
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public int? Limit { get; set; }
+            public System.String NameQuery { get; set; }
+            public System.String Path { get; set; }
+            public System.String Position { get; set; }
+            public System.String RestApiId { get; set; }
+            public Amazon.APIGateway.DocumentationPartType Type { get; set; }
+        }
+        
+    }
+}

@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version of the <a>RestApi</a>.</para>
+        /// <para>A version identifier for the API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,53 +28,21 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a>
-    /// for the API.
+    
     /// </summary>
-    [Cmdlet("New", "AGStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.APIGateway.Model.CreateStageResponse")]
-    [AWSCmdlet("Invokes the CreateStage operation against Amazon API Gateway.", Operation = new[] {"CreateStage"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.CreateStageResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.CreateStageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "AGDocumentationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.CreateDocumentationVersionResponse")]
+    [AWSCmdlet("Invokes the CreateDocumentationVersion operation against Amazon API Gateway.", Operation = new[] {"CreateDocumentationVersion"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.CreateDocumentationVersionResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.CreateDocumentationVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class NewAGDocumentationVersionCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
-        
-        #region Parameter CacheClusterEnabled
-        /// <summary>
-        /// <para>
-        /// <para>Whether cache clustering is enabled for the stage.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean CacheClusterEnabled { get; set; }
-        #endregion
-        
-        #region Parameter CacheClusterSize
-        /// <summary>
-        /// <para>
-        /// <para>The stage's cache cluster size.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.APIGateway.CacheClusterSize")]
-        public Amazon.APIGateway.CacheClusterSize CacheClusterSize { get; set; }
-        #endregion
-        
-        #region Parameter DeploymentId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DeploymentId { get; set; }
-        #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the <a>Stage</a> resource.</para>
+        /// <para>A description about the new documentation snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DocumentationVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the associated API documentation.</para>
+        /// <para>[Required] The version identifier of the new snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <a>RestApi</a> resource for the <a>Stage</a> resource to create.</para>
+        /// <para>[Required] Specifies the API identifier of the to-be-created documentation version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -104,23 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The name for the <a>Stage</a> resource.</para>
+        /// <para>The stage name to be associated with the new documentation snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StageName { get; set; }
-        #endregion
-        
-        #region Parameter Variable
-        /// <summary>
-        /// <para>
-        /// <para>A map that defines the stage variables for the new <a>Stage</a> resource. Variable
-        /// names can have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&amp;=,]+</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Variables")]
-        public System.Collections.Hashtable Variable { get; set; }
         #endregion
         
         #region Parameter Force
@@ -137,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StageName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGStage (CreateStage)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RestApiId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGDocumentationVersion (CreateDocumentationVersion)"))
             {
                 return;
             }
@@ -152,22 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("CacheClusterEnabled"))
-                context.CacheClusterEnabled = this.CacheClusterEnabled;
-            context.CacheClusterSize = this.CacheClusterSize;
-            context.DeploymentId = this.DeploymentId;
             context.Description = this.Description;
             context.DocumentationVersion = this.DocumentationVersion;
             context.RestApiId = this.RestApiId;
             context.StageName = this.StageName;
-            if (this.Variable != null)
-            {
-                context.Variables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Variable.Keys)
-                {
-                    context.Variables.Add((String)hashKey, (String)(this.Variable[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,20 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.CreateStageRequest();
+            var request = new Amazon.APIGateway.Model.CreateDocumentationVersionRequest();
             
-            if (cmdletContext.CacheClusterEnabled != null)
-            {
-                request.CacheClusterEnabled = cmdletContext.CacheClusterEnabled.Value;
-            }
-            if (cmdletContext.CacheClusterSize != null)
-            {
-                request.CacheClusterSize = cmdletContext.CacheClusterSize;
-            }
-            if (cmdletContext.DeploymentId != null)
-            {
-                request.DeploymentId = cmdletContext.DeploymentId;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -211,10 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.StageName != null)
             {
                 request.StageName = cmdletContext.StageName;
-            }
-            if (cmdletContext.Variables != null)
-            {
-                request.Variables = cmdletContext.Variables;
             }
             
             CmdletOutput output;
@@ -250,13 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.CreateStageResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateStageRequest request)
+        private static Amazon.APIGateway.Model.CreateDocumentationVersionResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateDocumentationVersionRequest request)
         {
             #if DESKTOP
-            return client.CreateStage(request);
+            return client.CreateDocumentationVersion(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateStageAsync(request);
+            var task = client.CreateDocumentationVersionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -267,14 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Boolean? CacheClusterEnabled { get; set; }
-            public Amazon.APIGateway.CacheClusterSize CacheClusterSize { get; set; }
-            public System.String DeploymentId { get; set; }
             public System.String Description { get; set; }
             public System.String DocumentationVersion { get; set; }
             public System.String RestApiId { get; set; }
             public System.String StageName { get; set; }
-            public Dictionary<System.String, System.String> Variables { get; set; }
         }
         
     }

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CustomerId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

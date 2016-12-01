@@ -158,13 +158,23 @@ $AG_Completers = {
             break
         }
         
-        # Amazon.APIGateway.ContentHandlingType
+        # Amazon.APIGateway.ContentHandlingStrategy
         {
             ($_ -eq "Write-AGIntegration/ContentHandling") -Or
             ($_ -eq "Write-AGIntegrationResponse/ContentHandling")
         }
         {
             $v = "CONVERT_TO_BINARY","CONVERT_TO_TEXT"
+            break
+        }
+        
+        # Amazon.APIGateway.DocumentationPartType
+        {
+            ($_ -eq "New-AGDocumentationPart/Location_Type") -Or
+            ($_ -eq "Get-AGDocumentationPartList/Type")
+        }
+        {
+            $v = "API","AUTHORIZER","METHOD","MODEL","PATH_PARAMETER","QUERY_PARAMETER","REQUEST_BODY","REQUEST_HEADER","RESOURCE","RESPONSE","RESPONSE_BODY","RESPONSE_HEADER"
             break
         }
         
@@ -176,7 +186,10 @@ $AG_Completers = {
         }
         
         # Amazon.APIGateway.PutMode
-        "Write-AGRestApi/Mode"
+        {
+            ($_ -eq "Import-AGDocumentationPartList/Mode") -Or
+            ($_ -eq "Write-AGRestApi/Mode")
+        }
         {
             $v = "merge","overwrite"
             break
@@ -200,9 +213,10 @@ $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
     "Format"=@("Import-AGApiKey")
-    "Mode"=@("Write-AGRestApi")
+    "Location_Type"=@("New-AGDocumentationPart")
+    "Mode"=@("Import-AGDocumentationPartList","Write-AGRestApi")
     "Quota_Period"=@("New-AGUsagePlan")
-    "Type"=@("New-AGAuthorizer","Write-AGIntegration")
+    "Type"=@("Get-AGDocumentationPartList","New-AGAuthorizer","Write-AGIntegration")
 }
 
 _awsArgumentCompleterRegistration $AG_Completers $AG_map
