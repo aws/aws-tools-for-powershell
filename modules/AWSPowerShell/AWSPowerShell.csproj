@@ -106,7 +106,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.1\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.0.3\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.1\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.3\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -142,7 +142,7 @@
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.3\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.1\lib\net35\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.2\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.0.3\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
@@ -190,7 +190,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticFileSystem.3.3.0.4\lib\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.1.2\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.2\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.2\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
@@ -202,7 +202,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.1.2\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.2.3\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.3\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.1\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -211,7 +211,7 @@
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.1\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
-      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.1.1\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.2\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.0.4\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
@@ -292,7 +292,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.1\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
-      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.2\lib\net35\AWSSDK.APIGateway.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.3\lib\net35\AWSSDK.APIGateway.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
