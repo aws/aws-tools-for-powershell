@@ -1,3 +1,40 @@
+### 3.3.27.0 (2016-12-03)
+  Roll-up release of all new features and services added during AWS re:Invent 2016:
+  * Amazon API Gateway
+    - Updated and added cmdlets to support publishing your APIs on Amazon API Gateway as products on the AWS Marketplace. You can use cmdlets to associate your APIs on API Gateway with Marketplace Product Codes. API Gateway will then send metering data to the Marketplace Metering Service on your behalf. New cmdlets also enable documenting your API.
+  * Amazon EC2
+    - Updated cmdlets with support for IPv6 new F1 Instance types.
+  * Amazon Pinpoint
+    - Added support for the new Amazon Pinpoint service. Amazon Pinpoint makes it easy to run targeted campaigns to improve user engagement. Pinpoint helps you understand your users behavior, define who to target, what messages to send, when to deliver them, and tracks the results of the campaign. Cmdlets for the new service have the noun prefix 'PIN' and can be viewed using the command 'Get-AWSCmdletName -Service PIN'.
+  * Amazon Simple Systems Management
+    - Updated cmdlets to support all new features announced during the conference.
+  * Amazon Lightsail
+    - Added support for the new Amazon Lightsail service, a simplified VM creation and management service. Cmdlets for the new service have the noun prefix 'LS' and can be viewed with the command 'Get-AWSCmdletName -Service LS'.
+  * Amazon Polly
+    - Added suport for the new Amazon Polly service. Amazon Polly service turns text into lifelike speech, making it easy to develop applications that use high-quality speech to increase engagement and accessibility. Cmdlets for this service have a noun prefix of 'POL' and can be viewed with the command 'Get-AWSCmdletName -Service POL'.
+  * Amazon Rekognition
+    - Added support for the new Amazon Rekognition service, a deep-learning based service to search, verify and organize images. With Rekognition, you can detect objects, scenes, and faces in images. You can also search and compare faces. Cmdlets for the service have the noun prefix 'REK' and can be viewed with the command 'Get-AWSCmdletName -Service REK'. 
+  * AWS AppStream
+    - Added support for AWS AppStream, a fully managed desktop application streaming service that provides users instant access to their apps from a web browser. The cmdlets for the new service have the noun prefix 'APS' and can be viewed using the command 'Get-AWSCmdletName -Service APS'.
+  * AWS CodeBuild
+    - Added support for the new AWS CodeBuild service, a fully-managed build service in the cloud. CodeBuild compiles source code, runs tests, and produces packages that are ready to deploy. Cmdlets for this service have a noun prefix of 'CB' and can be viewed with the command 'Get-AWSCmdletName -Service CB'.
+  * AWS DirectConnect
+    - Updated cmdlets to support IPv6. The update includes two new cmdlets, New-DCBGPPeer (CreateBGPPeer API) and Remove-DCBGPPeer (DeleteBGPPeer API).
+  * AWS Elastic Beanstalk
+    - Updated cmdlets to support the new integration with AWS CodeBuild.
+  * AWS Lambda
+    - Added cmdlet Get-LMAccountSetting to support the new GetAccountSettings API, added dotnetcore 1.0 as a supported runtime, and added support for DeadLetterConfig and event source mappings with Kinesis streams.
+  * AWS OpsWorksCM
+    - Added support for the new AWS OpsWorks Managed Chef service, enabling single tenant Chef Automate server. The Chef Automate server is fully managed by AWS and supports automatic backup, restore and upgrade operations. Cmdlets for the new service have the noun prefix 'OWCM' and can be viewed using the command 'Get-AWSCmdletName -Service OWCM'.
+  * AWS Shield
+    - Added support for the new AWS Shield service. AWS Shield is a managed Distributed Denial of Service (DDoS) protection for web applications running on AWS. Cmdlets for this service have a noun prefix of 'SHLD' and can be viewed with the command 'Get-AWSCmdletName -Service SHLD'.
+  * AWS StepFunctions
+    - Added support for the new AWS StepFunctions service. AWS StepFunctions allows developers to build cloud applications with breakthrough reliability using state machines. Cmdlets for the new service have the noun prefix 'SFN' and can be viewed using the command 'Get-AWSCmdletName -Service SFN'.
+  * AWS X-Ray
+    - Added support for the new AWS X-Ray service. AWS X-Ray helps developers analyze and debug distributed applications. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors. Cmdlets for the new service have the noun prefix 'XR' and can be viewed with the command 'Get-AWSCmdletName -Service XR'.
+  * AWS Import/Export Snowball
+    - Updated cmdlets to support a new job type, added cmdlets to support the new cluster apis, and the new AWS Snowball Edge device to support local compute and storage use cases.
+
 ### 3.3.24.0 (2016-11-22)
   * Amazon S3
     - Added a new -Tier parameter to the Restore-S3Object cmdlet to support specifying the Amazon Glacier job retrieval tier.
