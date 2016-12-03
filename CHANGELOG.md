@@ -1,4 +1,4 @@
-### 3.3.27.0 (2016-12-03)
+### 3.3.27.0 (2016-12-02)
   Roll-up release of all new features and services added during AWS re:Invent 2016:
   * Amazon API Gateway
     - Updated and added cmdlets to support publishing your APIs on Amazon API Gateway as products on the AWS Marketplace. You can use cmdlets to associate your APIs on API Gateway with Marketplace Product Codes. API Gateway will then send metering data to the Marketplace Metering Service on your behalf. New cmdlets also enable documenting your API.
