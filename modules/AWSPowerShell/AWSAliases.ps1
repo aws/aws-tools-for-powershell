@@ -3094,6 +3094,8 @@ Set-Alias -Name Put-S3CORSConfiguration -Value Write-S3CORSConfiguration
 Set-Alias -Name S3-PutCORSConfiguration -Value Write-S3CORSConfiguration
 Set-Alias -Name Put-S3LifecycleConfiguration -Value Write-S3LifecycleConfiguration
 Set-Alias -Name S3-PutLifecycleConfiguration -Value Write-S3LifecycleConfiguration
+Set-Alias -Name Put-S3ObjectTagSet -Value Write-S3ObjectTagSet
+Set-Alias -Name S3-PutObjectTagging -Value Write-S3ObjectTagSet
 Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
 Set-Alias -Name S3-GetBucketMetricsConfiguration -Value Get-S3BucketMetricsConfiguration
 Set-Alias -Name S3-GetBucketNotification -Value Get-S3BucketNotification
@@ -3106,6 +3108,7 @@ Set-Alias -Name S3-GetBucketWebsite -Value Get-S3BucketWebsite
 Set-Alias -Name S3-GetCORSConfiguration -Value Get-S3CORSConfiguration
 Set-Alias -Name S3-GetLifecycleConfiguration -Value Get-S3LifecycleConfiguration
 Set-Alias -Name S3-GetObjectMetadata -Value Get-S3ObjectMetadata
+Set-Alias -Name S3-GetObjectTagging -Value Get-S3ObjectTagSet
 Set-Alias -Name S3-ListBucketAnalyticsConfigurations -Value Get-S3BucketAnalyticsConfigurationList
 Set-Alias -Name S3-ListBucketInventoryConfigurations -Value Get-S3BucketInventoryConfigurationList
 Set-Alias -Name S3-ListBucketMetricsConfigurations -Value Get-S3BucketMetricsConfigurationList
@@ -3127,6 +3130,8 @@ Set-Alias -Name Delete-S3CORSConfiguration -Value Remove-S3CORSConfiguration
 Set-Alias -Name S3-DeleteCORSConfiguration -Value Remove-S3CORSConfiguration
 Set-Alias -Name Delete-S3LifecycleConfiguration -Value Remove-S3LifecycleConfiguration
 Set-Alias -Name S3-DeleteLifecycleConfiguration -Value Remove-S3LifecycleConfiguration
+Set-Alias -Name Delete-S3ObjectTagSet -Value Remove-S3ObjectTagSet
+Set-Alias -Name S3-DeleteObjectTagging -Value Remove-S3ObjectTagSet
 Set-Alias -Name S3-GetACL -Value Get-S3ACL
 Set-Alias -Name S3-GetBucketAccelerateConfiguration -Value Get-S3BucketAccelerateConfiguration
 Set-Alias -Name S3-GetBucketAnalyticsConfiguration -Value Get-S3BucketAnalyticsConfiguration

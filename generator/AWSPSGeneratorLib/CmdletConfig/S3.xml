@@ -73,7 +73,7 @@
     <ServiceOperation MethodName="DeleteLifecycleConfiguration" Output="Void" ShouldProcessTarget="BucketName"/>
     <ServiceOperation MethodName="DeleteObject" Exclude="true"/>
     <ServiceOperation MethodName="DeleteObjects" Exclude="true"/>
-    <ServiceOperation MethodName="DeleteObjectTagging" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteObjectTagging" Noun="ObjectTagSet" PipelineParameter="Key" ShouldProcessTarget="Key" />
 
     <!-- replaced with single PutBucketLogging operation
     <ServiceOperation MethodName="DisableBucketLogging" Output="Response"/>
@@ -103,7 +103,7 @@
     
     <ServiceOperation MethodName="GetObject" Exclude="true"/>
     <ServiceOperation MethodName="GetObjectMetadata" Output="Response" PositionalParameters="Key"/>
-    <ServiceOperation MethodName="GetObjectTagging" Exclude="true"/>
+    <ServiceOperation MethodName="GetObjectTagging" Noun="ObjectTagSet" PipelineParameter="Key" />
     <ServiceOperation MethodName="GetObjectTorrent" Exclude="true"/>
     <ServiceOperation MethodName="GetPreSignedURL" Exclude="true" />
     <ServiceOperation MethodName="InitiateMultipartUpload" Exclude="true"/>
@@ -141,7 +141,7 @@
     <ServiceOperation MethodName="PutCORSConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutLifecycleConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutObject" Exclude="true"/>
-    <ServiceOperation MethodName="PutObjectTagging" Exclude="true"/>
+    <ServiceOperation MethodName="PutObjectTagging" Noun="ObjectTagSet" PipelineParameter="Key" />
     <ServiceOperation MethodName="RestoreObject" PositionalParameters="Key;Days">
       <Params>
         <Param Name="Days" NewName="CopyLifetimeInDays" />
