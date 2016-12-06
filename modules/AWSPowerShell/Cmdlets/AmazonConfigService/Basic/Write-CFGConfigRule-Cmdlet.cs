@@ -57,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <code>ConfigRuleName</code>, <code>ConfigRuleId</code>, or <code>ConfigRuleArn</code>
     /// in the <code>ConfigRule</code> data type that you use in this request.
     /// </para><para>
-    /// The maximum number of rules that AWS Config supports is 25.
+    /// The maximum number of rules that AWS Config supports is 50.
+    /// </para><para>
+    /// For more information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS
+    /// Config Limits</a> in the <i>AWS General Reference Guide</i>.
     /// </para><para>
     /// For more information about developing and using AWS Config rules, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating
     /// AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.

@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DescribeConfigRuleEvaluationStatus operation against AWS Config.", Operation = new[] {"DescribeConfigRuleEvaluationStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus",
         "This cmdlet returns a collection of ConfigRuleEvaluationStatus objects.",
-        "The service call response (type Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public partial class GetCFGConfigRuleEvaluationStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -50,9 +51,32 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// Config rules that you use.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("ConfigRuleNames")]
         public System.String[] ConfigRuleName { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The number of rule evaluation results that you want returned.</para><para>This parameter is required if the rule limit for your account is more than the default
+        /// of 50 rules.</para><para>For more information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS
+        /// Config Limits</a> in the <i>AWS General Reference Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Limit { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The <code>NextToken</code> string returned on a previous page that you use to get
+        /// the next page of results in a paginated response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -72,6 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 context.ConfigRuleNames = new List<System.String>(this.ConfigRuleName);
             }
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -92,6 +119,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 request.ConfigRuleNames = cmdletContext.ConfigRuleNames;
             }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             
             CmdletOutput output;
             
@@ -102,6 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.ConfigRulesEvaluationStatus;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -144,6 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> ConfigRuleNames { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

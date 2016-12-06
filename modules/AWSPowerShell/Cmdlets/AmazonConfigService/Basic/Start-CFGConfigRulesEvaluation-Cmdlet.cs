@@ -28,12 +28,17 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Evaluates your resources against the specified Config rules. You can specify up to
-    /// 25 Config rules per request.
+    /// Runs an on-demand evaluation for the specified Config rules against the last known
+    /// configuration state of the resources. Use <code>StartConfigRulesEvaluation</code>
+    /// when you want to test a rule that you updated is working as expected. <code>StartConfigRulesEvaluation</code>
+    /// does not re-record the latest configuration state for your resources; it re-runs an
+    /// evaluation against the last known state of your resources. 
     /// 
     ///  
     /// <para>
-    /// An existing <a>StartConfigRulesEvaluation</a> call must complete for the specified
+    /// You can specify up to 25 Config rules per request. 
+    /// </para><para>
+    /// An existing <code>StartConfigRulesEvaluation</code> call must complete for the specified
     /// rules before you can call the API again. If you chose to have AWS Config stream to
     /// an Amazon SNS topic, you will receive a <code>ConfigRuleEvaluationStarted</code> notification
     /// when the evaluation starts.
