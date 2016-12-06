@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// the AWS STS APIs</a> in the <i>IAM User Guide</i>.
     /// 
     ///  <note><para>
-    ///  If you are creating a mobile-based or browser-based app that can authenticate users
+    /// If you are creating a mobile-based or browser-based app that can authenticate users
     /// using a web identity provider like Login with Amazon, Facebook, Google, or an OpenID
     /// Connect-compatible identity provider, we recommend that you use <a href="http://aws.amazon.com/cognito/">Amazon
     /// Cognito</a> or <code>AssumeRoleWithWebIdentity</code>. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para><ul><li><para>
     /// You cannot use these credentials to call any IAM APIs.
     /// </para></li><li><para>
-    /// You cannot call any STS APIs.
+    /// You cannot call any STS APIs except <code>GetCallerIdentity</code>.
     /// </para></li></ul><para><b>Permissions</b></para><para>
     /// The permissions for the temporary security credentials returned by <code>GetFederationToken</code>
     /// are determined by a combination of the following: 

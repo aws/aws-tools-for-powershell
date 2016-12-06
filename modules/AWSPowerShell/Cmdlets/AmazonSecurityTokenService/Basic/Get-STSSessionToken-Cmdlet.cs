@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// You cannot call any IAM APIs unless MFA authentication information is included in
     /// the request.
     /// </para></li><li><para>
-    /// You cannot call any STS API <i>except</i><code>AssumeRole</code>.
+    /// You cannot call any STS API <i>except</i><code>AssumeRole</code> or <code>GetCallerIdentity</code>.
     /// </para></li></ul><note><para>
     /// We recommend that you do not call <code>GetSessionToken</code> with root account credentials.
     /// Instead, follow our <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users">best
