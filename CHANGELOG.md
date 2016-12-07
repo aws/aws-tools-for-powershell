@@ -1,3 +1,11 @@
+### 3.3.28.0 (2016-12-07)
+  * Amazon S3
+    - Added support for the new object tagging apis with three new cmdlets: Get-S3ObjectTagSet (GetObjectTagging API), Write-S3ObjectTagSet (PutObjectTagging API) and Remove-S3ObjectTagSet (DeleteObjectTagging API).
+  * Amazon EC2
+    - Added argument completion support for the -InstanceType parameter for the new t2.xlarge, t2.2xlarge and R4 instance types.
+  * AWS Config Service
+    - The default number of config rules for users has been increased from 25 to 50. As part of this change the Get-CFGConfigRuleEvaluationStatus cmdlet has been extended to support pagination with the addition of -Limit and -NextToken parameters. By default the cmdlet will auto-paginate all available rules to the pipeline but if you want to manually iterate you can use these parameters to take full control of data retrieval.
+
 ### 3.3.27.0 (2016-12-02)
   Roll-up release of all new features and services added during AWS re:Invent 2016:
   * Amazon API Gateway
