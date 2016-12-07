@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Key { get; set; }
         #endregion
         
+        #region Parameter VersionId
+        /// <summary>
+        /// <para>
+        /// VersionId used to reference a specific version of the object.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionId { get; set; }
+        #endregion
+        
         #region Parameter UseAccelerateEndpoint
         /// <summary>
         /// Enables S3 accelerate by sending requests to the accelerate endpoint instead of the regular region endpoint.
@@ -96,6 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
             context.BucketName = this.BucketName;
             context.Key = this.Key;
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Key != null)
             {
                 request.Key = cmdletContext.Key;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -173,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String Key { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.Model.Tag[] Tagging_TagSet { get; set; }
         #endregion
         
+        #region Parameter VersionId
+        /// <summary>
+        /// <para>
+        /// VersionId used to reference a specific version of the object.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionId { get; set; }
+        #endregion
+        
         #region Parameter UseAccelerateEndpoint
         /// <summary>
         /// Enables S3 accelerate by sending requests to the accelerate endpoint instead of the regular region endpoint.
@@ -105,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BucketName", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Key", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3ObjectTagSet (PutObjectTagging)"))
             {
                 return;
@@ -126,6 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.Tagging_TagSet = new List<Amazon.S3.Model.Tag>(this.Tagging_TagSet);
             }
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestTaggingIsNull)
             {
                 request.Tagging = null;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -223,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public System.String Key { get; set; }
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }
