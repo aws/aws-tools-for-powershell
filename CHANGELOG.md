@@ -1,3 +1,11 @@
+### 3.3.29.0 (2016-12-08)
+  * Amazon S3
+    - Added support for specifying object version id in the new object tagging cmdlets. If not supplied the tag values are set on or retrieved from the latest object version.
+  * AWS Config Service
+    - Updated the argument completers for the service to recognize the new support for Redshift Cluster, ClusterParameterGroup, ClusterSecurityGroup, ClusterSnapshot, ClusterSubnetGroup, and EventSubscription resource types for all customers.
+  * Amazon SQS
+    - Updates to cmdlet documentation.
+
 ### 3.3.28.0 (2016-12-07)
   * Amazon S3
     - Added support for the new object tagging apis with three new cmdlets: Get-S3ObjectTagSet (GetObjectTagging API), Write-S3ObjectTagSet (PutObjectTagging API) and Remove-S3ObjectTagSet (DeleteObjectTagging API).
