@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Retrieves one or more messages, with a maximum limit of 10 messages, from the specified
     /// queue. Long poll support is enabled by using the <code>WaitTimeSeconds</code> parameter.
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
-    /// SQS Long Poll</a> in the <i>Amazon SQS Developer Guide</i>. 
+    /// SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// 
     ///  
     /// <para>
@@ -59,13 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// MD5 digest of the message attributes.
     /// </para></li></ul><para>
     ///  The receipt handle is the identifier you must provide when deleting the message.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html">Queue
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue
     /// and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// </para><para>
     ///  You can provide the <code>VisibilityTimeout</code> parameter in your request, which
     /// will be applied to the messages that Amazon SQS returns in the response. If you don't
     /// include the parameter, the overall visibility timeout for the queue is used for the
-    /// returned messages. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility
+    /// returned messages. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
     /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// </para><para>
     ///  A message that is not deleted or a message whose visibility is not extended before
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</para></li><li><para>You can retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code>
         /// if none of the messages have been modified (deleted or had their visibility changes).</para></li><li><para>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code>
         /// return the same messages and receipt handles. If a retry occurs within the deduplication
-        /// interval, it resets the visibility timeout. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility
+        /// interval, it resets the visibility timeout. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
         /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><important><para>If a caller of the <code>ReceiveMessage</code> action is still processing messages
         /// when the visibility timeout expires and messages become visible, another worker reading
         /// from the same queue can receive the same messages and therefore process duplicates.
