@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>WAFR</ServiceNounPrefix>
+  <ServiceName>AWS WAF Regional</ServiceName>
+  <ServiceNamespace>Amazon.WAFRegional</ServiceNamespace>
+  <ServiceClientInterface>IAmazonWAFRegional</ServiceClientInterface>
+  <ServiceClient>AmazonWAFRegionalClient</ServiceClient>
+  
+  <AutoIterate EmitLimit="Limit"
+               Start="NextMarker"
+               Next="NextMarker"
+               ServicePageSize="100"/>
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+
+  <ServiceOperations>
+     <ServiceOperation MethodName="AssociateWebACL" Verb="Register" Output="Void" PipelineParameter="WebACLId"/>
+     <ServiceOperation MethodName="DisassociateWebACL" Verb="Unregister" Output="Void"/>
+     <ServiceOperation MethodName="ListByteMatchSets" Noun="ByteMatchSetList" />
+     <ServiceOperation MethodName="ListResourcesForWebACL" Noun="ResourceForWebACLList" />
+     <ServiceOperation MethodName="ListRules" Noun="RuleList" />
+     <ServiceOperation MethodName="ListSqlInjectionMatchSets" Noun="SqlInjectionMatchSetList" />
+     <ServiceOperation MethodName="ListWebACLs" Noun="WebACLList" />
+     <ServiceOperation MethodName="ListIPSets" Noun="IPSetList" />
+ 
+     <ServiceOperation MethodName="CreateByteMatchSet" Output="Response" NoPipelineParameter="true" />
+     <ServiceOperation MethodName="DeleteByteMatchSet" PipelineParameter="ByteMatchSetId" />
+     <ServiceOperation MethodName="GetByteMatchSet" />
+     <ServiceOperation MethodName="UpdateByteMatchSet" PipelineParameter="ByteMatchSetId" />
+ 
+     <ServiceOperation MethodName="CreateRule" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true" />
+     <ServiceOperation MethodName="DeleteRule" PipelineParameter="RuleId" />
+     <ServiceOperation MethodName="GetRule" />
+     <ServiceOperation MethodName="UpdateRule" PipelineParameter="RuleId" />
+ 
+     <ServiceOperation MethodName="CreateSqlInjectionMatchSet" Output="Response" NoPipelineParameter="true" />
+     <ServiceOperation MethodName="DeleteSqlInjectionMatchSet" PipelineParameter="SqlInjectionMatchSetId" />
+     <ServiceOperation MethodName="GetSqlInjectionMatchSet" />
+     <ServiceOperation MethodName="UpdateSqlInjectionMatchSet" PipelineParameter="SqlInjectionMatchSetId" />
+ 
+     <ServiceOperation MethodName="CreateWebACL" Output="Response" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" />
+     <ServiceOperation MethodName="DeleteWebACL" PipelineParameter="WebACLId" />
+     <ServiceOperation MethodName="GetWebACL" />
+     <ServiceOperation MethodName="GetWebACLForResource" />
+     <ServiceOperation MethodName="UpdateWebACL" PipelineParameter="WebACLId" />
+    
+     <ServiceOperation MethodName="CreateIPSet" Output="Response" NoPipelineParameter="true" />
+     <ServiceOperation MethodName="DeleteIPSet" PipelineParameter="IPSetId" />
+     <ServiceOperation MethodName="GetIPSet" />
+     <ServiceOperation MethodName="UpdateIPSet" PipelineParameter="IPSetId" />
+ 
+     <ServiceOperation MethodName="GetChangeToken" />
+     <ServiceOperation MethodName="GetChangeTokenStatus" />
+     <ServiceOperation MethodName="GetSampledRequests" Noun="SampledRequestList" Output="Response" PipelineParameter="WebACLId" />
+ 
+     <ServiceOperation MethodName="ListSizeConstraintSets" Noun="SizeConstraintSetList" />
+     <ServiceOperation MethodName="UpdateSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />    
+     <ServiceOperation MethodName="CreateSizeConstraintSet" PipelineParameter="ChangeToken" Output="Response" ShouldProcessTarget="Name"/>    
+     <ServiceOperation MethodName="DeleteSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />    
+     <ServiceOperation MethodName="GetSizeConstraintSet" />    
+
+     <ServiceOperation MethodName="GetXssMatchSet" />
+     <ServiceOperation MethodName="ListXssMatchSets" Noun="XssMatchSetList" />
+     <ServiceOperation MethodName="UpdateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
+     <ServiceOperation MethodName="CreateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="Name" Output="Response"/>
+     <ServiceOperation MethodName="DeleteXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
+  
+  </ServiceOperations>
+  
+</ConfigModel>

@@ -129,6 +129,7 @@ RequiredAssemblies = @(
   "AWSSDK.StepFunctions.dll",
   "AWSSDK.StorageGateway.dll",
   "AWSSDK.WAF.dll",
+  "AWSSDK.WAFRegional.dll",
   "AWSSDK.WorkSpaces.dll",
   "AWSSDK.XRay.dll"
 )

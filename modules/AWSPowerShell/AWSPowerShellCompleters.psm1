@@ -3971,6 +3971,36 @@ $WAF_map = @{
 _awsArgumentCompleterRegistration $WAF_Completers $WAF_map
 
 
+# Argument completions for service AWS WAF Regional
+$WAFR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WAFRegional.WafActionType
+        {
+            ($_ -eq "New-WAFRWebACL/DefaultAction_Type") -Or
+            ($_ -eq "Update-WAFRWebACL/DefaultAction_Type")
+        }
+        {
+            $v = "ALLOW","BLOCK","COUNT"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WAFR_map = @{
+    "DefaultAction_Type"=@("New-WAFRWebACL","Update-WAFRWebACL")
+}
+
+_awsArgumentCompleterRegistration $WAFR_Completers $WAFR_map
+
+
 # Argument completions for service Amazon WorkSpaces
 $WKS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

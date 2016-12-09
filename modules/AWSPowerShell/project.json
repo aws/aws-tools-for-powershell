@@ -82,6 +82,7 @@
 		"AWSSDK.StepFunctions": "3.3.0.1",
 		"AWSSDK.StorageGateway": "3.3.0.4",
 		"AWSSDK.WAF": "3.3.1.5",
+		"AWSSDK.WAFRegional": "3.3.0",
 		"AWSSDK.WorkSpaces": "3.3.0.4",
 		"AWSSDK.XRay": "3.3.0.1"
  	},

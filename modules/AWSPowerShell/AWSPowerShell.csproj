@@ -75,6 +75,9 @@
     <Reference Include="AWSSDK.Polly">
       <HintPath>..\..\packages\AWSSDK.Polly.3.3.0.1\lib\net35\AWSSDK.Polly.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WAFRegional">
+      <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.0\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>..\..\packages\AWSSDK.XRay.3.3.0.1\lib\net35\AWSSDK.XRay.dll</HintPath>
     </Reference>
