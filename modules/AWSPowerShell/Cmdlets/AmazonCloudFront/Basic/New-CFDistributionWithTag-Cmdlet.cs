@@ -42,10 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_ACMCertificateArn
         /// <summary>
         /// <para>
-        /// <para>If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name in your object URLs (for example, <code>https://example.com/logo.jpg)</code>,
-        /// specify the ACM certificate ARN of the custom viewer certificate for this distribution.
-        /// Specify either this value, <code>IAMCertificateId</code>, or <code>CloudFrontDefaultCertificate</code>.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -137,10 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
         /// <summary>
         /// <para>
-        /// <para>If you want viewers to use HTTPS to request your objects and you're using the CloudFront
-        /// domain name of your distribution in your object URLs (for example, <code>https://d111111abcdef8.cloudfront.net/logo.jpg</code>),
-        /// set to <code>true</code>. Omit this value if you are setting an <code>ACMCertificateArn</code>
-        /// or <code>IAMCertificateId</code>.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -288,10 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// <para>If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name in your object URLs (for example, <code>https://example.com/logo.jpg)</code>,
-        /// specify the IAM certificate identifier of the custom viewer certificate for this distribution.
-        /// Specify either this value, <code>ACMCertificateArn</code>, or <code>CloudFrontDefaultCertificate</code>.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -440,6 +431,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items")]
         public System.String[] QueryStringCacheKeys_Item { get; set; }
+        #endregion
+        
+        #region Parameter LambdaFunctionAssociations_Item
+        /// <summary>
+        /// <para>
+        /// <para><b>Optional</b>: A complex type that contains <code>LambdaFunctionAssociation</code>
+        /// items for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can
+        /// omit <code>Items</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items")]
+        public Amazon.CloudFront.Model.LambdaFunctionAssociation[] LambdaFunctionAssociations_Item { get; set; }
         #endregion
         
         #region Parameter TrustedSigners_Item
@@ -684,6 +688,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity")]
         public System.Int32 QueryStringCacheKeys_Quantity { get; set; }
+        #endregion
+        
+        #region Parameter LambdaFunctionAssociations_Quantity
+        /// <summary>
+        /// <para>
+        /// <para>The number of Lambda function associations for this cache behavior.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity")]
+        public System.Int32 LambdaFunctionAssociations_Quantity { get; set; }
         #endregion
         
         #region Parameter TrustedSigners_Quantity
@@ -941,6 +956,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             if (ParameterWasBound("QueryStringCacheKeys_Quantity"))
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity = this.QueryStringCacheKeys_Quantity;
+            if (this.LambdaFunctionAssociations_Item != null)
+            {
+                context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items = new List<Amazon.CloudFront.Model.LambdaFunctionAssociation>(this.LambdaFunctionAssociations_Item);
+            }
+            if (ParameterWasBound("LambdaFunctionAssociations_Quantity"))
+                context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity = this.LambdaFunctionAssociations_Quantity;
             if (ParameterWasBound("DefaultCacheBehavior_MaxTTL"))
                 context.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MaxTTL = this.DefaultCacheBehavior_MaxTTL;
             if (ParameterWasBound("DefaultCacheBehavior_MinTTL"))
@@ -1541,6 +1562,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.ViewerProtocolPolicy = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            Amazon.CloudFront.Model.LambdaFunctionAssociations requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations = null;
+            
+             // populate LambdaFunctionAssociations
+            bool requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociationsIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations = new Amazon.CloudFront.Model.LambdaFunctionAssociations();
+            List<Amazon.CloudFront.Model.LambdaFunctionAssociation> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Item = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Item = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Item != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations.Items = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Item;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociationsIsNull = false;
+            }
+            System.Int32? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Quantity = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Quantity = cmdletContext.DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations.Quantity = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_lambdaFunctionAssociations_Quantity.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociationsIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociationsIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.LambdaFunctionAssociations = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             Amazon.CloudFront.Model.AllowedMethods requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_AllowedMethods = null;
             
              // populate AllowedMethods
@@ -1909,6 +1965,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString { get; set; }
             public List<System.String> DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Items { get; set; }
             public System.Int32? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryStringCacheKeys_Quantity { get; set; }
+            public List<Amazon.CloudFront.Model.LambdaFunctionAssociation> DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Items { get; set; }
+            public System.Int32? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_LambdaFunctionAssociations_Quantity { get; set; }
             public System.Int64? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MaxTTL { get; set; }
             public System.Int64? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_MinTTL { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_SmoothStreaming { get; set; }
