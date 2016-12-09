@@ -26,27 +26,37 @@
                Next="NextToken" />
     </ServiceOperation>          
     <ServiceOperation MethodName="ModifyWorkspaceProperties" Noun="WorkspaceProperty" Output="Void" PipelineParameter="WorkspaceId" />
-    <ServiceOperation MethodName="RebootWorkspaces" Verb="Restart" Noun="Workspace">
+    <ServiceOperation MethodName="RebootWorkspaces" Verb="Restart" Noun="Workspace" Exclude="true">
       <Params>
-        <Param Name="RebootWorkspaceRequests" NewName="Request" />
+        <Param Name="RebootWorkspaceRequests" NewName="Request" Alias="RebootWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="RebuildWorkspaces" Verb="Reset" Noun="Workspace">
+    <ServiceOperation MethodName="RebuildWorkspaces" Verb="Reset" Noun="Workspace" Exclude="true">
       <Params>
-        <Param Name="RebuildWorkspaceRequests" NewName="Request" />
+        <Param Name="RebuildWorkspaceRequests" NewName="Request" Alias="RebuildWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="StartWorkspaces" Noun="Workspace" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="StopWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true" />
-    <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace">
+    <ServiceOperation MethodName="StartWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true" >
       <Params>
-        <Param Name="TerminateWorkspaceRequests" NewName="Request" />
+        <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
     </ServiceOperation>
-
     <ServiceOperation MethodName="CreateTags" Output="Void" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DeleteTags" Output="Void" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeTags" />
+    
+    <ServiceOperation MethodName="StopWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true">
+      <Params>
+        <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" AutoApplyAlias="true" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace" Exclude="true" >
+      <Params>
+        <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" AutoApplyAlias="true" />
+      </Params>
+    </ServiceOperation>
+
+    
   </ServiceOperations>
   
 </ConfigModel>

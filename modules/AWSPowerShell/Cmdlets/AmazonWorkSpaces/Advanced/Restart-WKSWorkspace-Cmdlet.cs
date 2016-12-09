@@ -28,30 +28,56 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Starts the specified WorkSpaces. The API only works with WorkSpaces that have RunningMode
-    /// configured as AutoStop and the State set to “STOPPED.”
+    /// Reboots the specified WorkSpaces. You can specify the Workspaces using either the
+    /// <code>-WorkspaceId</code> or <code>-Request</code> parameters.
+    /// <para>
+    /// To be able to reboot a WorkSpace, the WorkSpace must have a <b>State</b> of <code>AVAILABLE</code>,
+    /// <code>IMPAIRED</code>, or <code>INOPERABLE</code>.
+    /// </para><note><para>
+    /// This operation is asynchronous and returns before the WorkSpaces have rebooted.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Start", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Restart", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = RequestObjectParameterSet)]
     [OutputType("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest")]
-    [AWSCmdlet("Invokes the StartWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"StartWorkspaces"})]
+    [AWSCmdlet("Invokes the RebootWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"RebootWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest",
         "This cmdlet returns a collection of FailedWorkspaceChangeRequest objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.StartWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.RebootWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class RestartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        const string RequestObjectParameterSet = "RequestObjectSet";
+        const string WorkspaceIdParameterSet = "IdParameterSet";
         
-        #region Parameter StartWorkspaceRequest
+        #region Parameter Request
         /// <summary>
         /// <para>
-        /// <para>The requests.</para>
+        /// <para>An array of structures that specify the WorkSpaces to reboot.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("StartWorkspaceRequests")]
-        public Amazon.WorkSpaces.Model.StartRequest[] StartWorkspaceRequest { get; set; }
+        [System.Management.Automation.Parameter(Position = 0,
+                                                ValueFromPipeline = true,
+                                                Mandatory = true,
+                                                ParameterSetName = RequestObjectParameterSet)]
+        [Alias("RebootWorkspaceRequests", "RebootWorkspaceRequest")]
+        public Amazon.WorkSpaces.Model.RebootRequest[] Request { get; set; }
         #endregion
-        
+
+        // todo: move this parameter into a partial class and bind into the context, as Request objects, using 
+        // PostExecutionContextLoad() when we resume auto-generating this cmdlet.
+
+        #region Parameter WorkspaceId
+        /// <summary>
+        /// The IDs of one or more WorkSpaces to reboot.
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0,
+                                                ValueFromPipeline = true,
+                                                ValueFromPipelineByPropertyName = true,
+                                                Mandatory = true,
+                                                ParameterSetName = WorkspaceIdParameterSet)]
+        public string[] WorkspaceId { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -65,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StartWorkspaceRequest", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-WKSWorkspace (StartWorkspaces)"))
+
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(this.Request != null ? "Request" : "WorkspaceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-WKSWorkspace (RebootWorkspaces)"))
             {
                 return;
             }
@@ -81,9 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.StartWorkspaceRequest != null)
+            if (this.Request != null)
             {
-                context.StartWorkspaceRequests = new List<Amazon.WorkSpaces.Model.StartRequest>(this.StartWorkspaceRequest);
+                context.Request = new List<Amazon.WorkSpaces.Model.RebootRequest>(this.Request);
+            }
+            else
+            {
+                var rebootRequests = new List<Amazon.WorkSpaces.Model.RebootRequest>();
+                foreach (var id in this.WorkspaceId)
+                {
+                    rebootRequests.Add(new RebootRequest { WorkspaceId = id });
+                }
+                context.Request = rebootRequests;
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -99,11 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.StartWorkspacesRequest();
+            var request = new Amazon.WorkSpaces.Model.RebootWorkspacesRequest();
             
-            if (cmdletContext.StartWorkspaceRequests != null)
+            if (cmdletContext.Request != null)
             {
-                request.StartWorkspaceRequests = cmdletContext.StartWorkspaceRequests;
+                request.RebootWorkspaceRequests = cmdletContext.Request;
             }
             
             CmdletOutput output;
@@ -139,13 +174,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.StartWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.StartWorkspacesRequest request)
+        private static Amazon.WorkSpaces.Model.RebootWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.RebootWorkspacesRequest request)
         {
             #if DESKTOP
-            return client.StartWorkspaces(request);
+            return client.RebootWorkspaces(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StartWorkspacesAsync(request);
+            var task = client.RebootWorkspacesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -156,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.WorkSpaces.Model.StartRequest> StartWorkspaceRequests { get; set; }
+            public List<Amazon.WorkSpaces.Model.RebootRequest> Request { get; set; }
         }
         
     }

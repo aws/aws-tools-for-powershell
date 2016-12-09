@@ -3898,10 +3898,6 @@ Set-Alias -Name Describe-WKSWorkspacesConnectionStatus -Value Get-WKSWorkspacesC
 Set-Alias -Name WKS-DescribeWorkspacesConnectionStatus -Value Get-WKSWorkspacesConnectionStatus
 Set-Alias -Name Modify-WKSWorkspaceProperty -Value Edit-WKSWorkspaceProperty
 Set-Alias -Name WKS-ModifyWorkspaceProperties -Value Edit-WKSWorkspaceProperty
-Set-Alias -Name WKS-RebootWorkspaces -Value Restart-WKSWorkspace
-Set-Alias -Name WKS-RebuildWorkspaces -Value Reset-WKSWorkspace
-Set-Alias -Name WKS-StartWorkspaces -Value Start-WKSWorkspace
-Set-Alias -Name WKS-TerminateWorkspaces -Value Stop-WKSWorkspace
 Set-Alias -Name XR-BatchGetTraces -Value Get-XRTraceBatch
 Set-Alias -Name XR-GetServiceGraph -Value Get-XRServiceGraph
 Set-Alias -Name XR-GetTraceGraph -Value Get-XRTraceGraph

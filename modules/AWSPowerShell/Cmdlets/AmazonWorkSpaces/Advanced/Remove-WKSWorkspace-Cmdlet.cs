@@ -28,54 +28,65 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Rebuilds the specified WorkSpaces.
-    /// 
-    ///  
+    /// Terminates the specified WorkSpaces. You can specify the Workspaces using either the
+    /// <code>-WorkspaceId</code> or <code>-Request</code> parameters.
     /// <para>
-    /// Rebuilding a WorkSpace is a potentially destructive action that can result in the
-    /// loss of data. Rebuilding a WorkSpace causes the following to occur:
-    /// </para><ul><li><para>
-    /// The system is restored to the image of the bundle that the WorkSpace is created from.
-    /// Any applications that have been installed, or system settings that have been made
-    /// since the WorkSpace was created will be lost.
-    /// </para></li><li><para>
-    /// The data drive (D drive) is re-created from the last automatic snapshot taken of the
-    /// data drive. The current contents of the data drive are overwritten. Automatic snapshots
-    /// of the data drive are taken every 12 hours, so the snapshot can be as much as 12 hours
-    /// old.
-    /// </para></li></ul><para>
-    /// To be able to rebuild a WorkSpace, the WorkSpace must have a <b>State</b> of <code>AVAILABLE</code>
-    /// or <code>ERROR</code>.
-    /// </para><note><para>
+    /// Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
+    /// is not maintained and will be destroyed. If you need to archive any user data, contact
+    /// Amazon Web Services <b>before</b> terminating the WorkSpace.
+    /// </para>
+    /// <para>
+    /// You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.
+    /// </para>
+    /// <note>
+    /// <para>
     /// This operation is asynchronous and returns before the WorkSpaces have been completely
-    /// rebuilt.
-    /// </para></note>
+    /// terminated.
+    /// </para>
+    /// </note>
     /// </summary>
-    [Cmdlet("Reset", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High, DefaultParameterSetName = RequestObjectParameterSet)]
     [OutputType("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest")]
-    [AWSCmdlet("Invokes the RebuildWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"RebuildWorkspaces"})]
+    [AWSCmdlet("Invokes the TerminateWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"TerminateWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest",
         "This cmdlet returns a collection of FailedWorkspaceChangeRequest objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.RebuildWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.TerminateWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ResetWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class RemoveWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
-        
+        const string RequestObjectParameterSet = "RequestObjectSet";
+        const string WorkspaceIdParameterSet = "IdParameterSet";
+
         #region Parameter Request
         /// <summary>
-        /// <para>
-        /// <para>An array of structures that specify the WorkSpaces to rebuild.</para>
-        /// </para>
+        /// An array of TerminateRequest objects specifying the WorkSpaces to be terminated.
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("RebuildWorkspaceRequests")]
-        public Amazon.WorkSpaces.Model.RebuildRequest[] Request { get; set; }
+        [System.Management.Automation.Parameter(Position = 0,
+                                                ValueFromPipeline = true,
+                                                Mandatory = true,
+                                                ParameterSetName = RequestObjectParameterSet)]
+        [Alias("TerminateWorkspaceRequests", "TerminateWorkspaceRequest")]
+        public Amazon.WorkSpaces.Model.TerminateRequest[] Request { get; set; }
+        #endregion
+
+        // todo: move this parameter into a partial class and bind into the context, as Request objects, using 
+        // PostExecutionContextLoad() when we resume auto-generating this cmdlet.
+
+        #region Parameter WorkspaceId
+        /// <summary>
+        /// The IDs of one or more WorkSpaces to terminate.
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0,
+                                                ValueFromPipeline = true,
+                                                ValueFromPipelineByPropertyName = true,
+                                                Mandatory = true,
+                                                ParameterSetName = WorkspaceIdParameterSet)]
+        public string[] WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Force
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
+        /// This parameter overrides confirmation prompts to force the cmdlet to continue its operation. This parameter should always
         /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Request", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-WKSWorkspace (RebuildWorkspaces)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(this.Request != null ? "Request" : "WorkspaceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSWorkspace (TerminateWorkspaces)"))
             {
                 return;
             }
@@ -100,10 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
-            
+
             if (this.Request != null)
+                context.Request =  new List<TerminateRequest>(this.Request);
+            else
             {
-                context.Request = new List<Amazon.WorkSpaces.Model.RebuildRequest>(this.Request);
+                var terminateRequests = new List<Amazon.WorkSpaces.Model.TerminateRequest>();
+                foreach (var id in this.WorkspaceId)
+                {
+                    terminateRequests.Add(new TerminateRequest { WorkspaceId = id });
+                }
+                context.Request = terminateRequests;
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -119,12 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.RebuildWorkspacesRequest();
-            
-            if (cmdletContext.Request != null)
+            var request = new Amazon.WorkSpaces.Model.TerminateWorkspacesRequest
             {
-                request.RebuildWorkspaceRequests = cmdletContext.Request;
-            }
+                TerminateWorkspaceRequests = cmdletContext.Request
+            };
             
             CmdletOutput output;
             
@@ -159,13 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.RebuildWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.RebuildWorkspacesRequest request)
+        private static Amazon.WorkSpaces.Model.TerminateWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.TerminateWorkspacesRequest request)
         {
             #if DESKTOP
-            return client.RebuildWorkspaces(request);
+            return client.TerminateWorkspaces(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RebuildWorkspacesAsync(request);
+            var task = client.TerminateWorkspacesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -176,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.WorkSpaces.Model.RebuildRequest> Request { get; set; }
+            public List<Amazon.WorkSpaces.Model.TerminateRequest> Request { get; set; }
         }
         
     }

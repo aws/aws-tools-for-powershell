@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>Restart-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID"}</code>
-        <description>Reboot a workpace.</description>
+        <code>Restart-WKSWorkspace -WorkspaceId "ws-1a2b3c4d"</code>
+        <description>Reboots the specified WorkSpace.</description>
     </example>
   <example>
-    <code>Restart-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID1"},@{"WorkspaceId" = "ws-ID2"}</code>
-    <description>Reboot multiple workspaces.</description>
+    <code>Restart-WKSWorkspace -WorkspaceId "ws-1a2b3c4d","ws-5a6b7c8d"</code>
+    <description>Reboots multiple WorkSpaces.</description>
+  </example>
+  <example>
+      <code>Get-WKSWorkspaces | Restart-WKSWorkspace</code>
+      <description>Retrieves the collection of all your WorkSpaces and pipes the IDs to the -WorkSpaceId parameter of Restart-WKSWorkspace, causing the WorkSpaces to be restarted.</description>
   </example>
 </examples>

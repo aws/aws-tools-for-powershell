@@ -1,11 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <examples>
     <example>
-        <code>Stop-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID"}</code>
-        <description>Terminate a workspace.</description>
+        <code>Stop-WKSWorkspace -WorkspaceId "ws-1a2b3c4d5","ws-6a7b8c9d0"</code>
+        <description>Stops multiple WorkSpaces.</description>
     </example>
-  <example>
-    <code>Stop-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID1"},@{"WorkspaceId" = "ws-ID2"}</code>
-    <description>Terminate multiple workspaces.</description>
-  </example>
+    <example>
+        <code>Get-WKSWorkspaces | Stop-WKSWorkspace</code>
+        <description>Retrieves the collection of all your WorkSpaces and pipes the IDs to the -WorkSpaceId parameter of Stop-WKSWorkspace causing the WorkSpaces to be stopped.</description>
+    </example>
+    <example>
+        <code>
+$arrRequest = @()
+$request1 = New-Object Amazon.WorkSpaces.Model.StopRequest
+$request1.WorkspaceId = 'ws-12345678'
+$arrRequest += $request1
+$request2 = New-Object Amazon.WorkSpaces.Model.StopRequest
+$request2.WorkspaceId = 'ws-abcdefgh'
+$arrRequest += $request2
+Stop-WKSWorkspace -Request $arrRequest
+        </code>
+        <description>This example shows how to pass StopRequest objects defining the WorkSpaces to be stopped.</description>
+    </example>
 </examples>
