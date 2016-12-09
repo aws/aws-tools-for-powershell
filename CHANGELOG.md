@@ -1,3 +1,12 @@
+### 3.3.30.0 (2016-12-09)
+  * Added support for the new Canada (Central) region, ca-central-1.
+  * AWS WAF Regional
+    - Added support for the new AWS WAF Regional service, enabling customers to use AWS WAF directly on Application Load Balancers in a VPC within available regions to protect their websites and web services from malicious attacks such as SQL injection, Cross Site Scripting, bad bots, etc. Cmdlets for this service have the noun prefix 'WAFR' and can be viewed using the command 'Get-AWSCmdletName -Service WAFR'.
+  * Amazon CloudFront
+    - Updated the New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution cmdlets with support for adding Lambda function associations to cache behaviors.  
+  * Amazon Relation Database Service
+    - Updates in the underlying AWS SDK for .NET support for Amazon RDS enable you to now specify cluster creation time in the DBCluster API cmdlets.
+
 ### 3.3.29.0 (2016-12-08)
   * Amazon S3
     - Added support for specifying object version id in the new object tagging cmdlets. If not supplied the tag values are set on or retrieved from the latest object version.
