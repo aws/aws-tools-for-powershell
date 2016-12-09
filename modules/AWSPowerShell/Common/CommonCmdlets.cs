@@ -1,5 +1,5 @@
 ﻿/*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -26,6 +26,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using Amazon.Util.Internal;
+using Amazon.Util;
 
 namespace Amazon.PowerShell.Common
 {
@@ -124,6 +125,7 @@ namespace Amazon.PowerShell.Common
             if (shouldSaveCredentials || shouldSaveRegion)
             {
                 var userSuppliedProfileName = commonArguments != null && !string.IsNullOrEmpty(commonArguments.ProfileName);
+                var useSharedFileOnly = commonArguments != null && !string.IsNullOrEmpty(commonArguments.ProfilesLocation);
 
                 // if we loaded credentials (AWS or SAML) from a profile, use the copy function to
                 // set them as default otherwise we can end up with mixed settings data. If credentials
@@ -132,10 +134,15 @@ namespace Amazon.PowerShell.Common
                 // and clean it out to avoid a mix. Note that we get 'saved' source type for credentials
                 // the user just entered, so we have to do a check to see if the profile previously
                 // existed...
-                if (defaultCredentials.Source == CredentialsSource.Profile && userSuppliedProfileName)
+                if (!useSharedFileOnly && ProfileManager.IsAvailable && defaultCredentials.Source == CredentialsSource.Profile &&
+                    userSuppliedProfileName && ProfileManager.IsProfileKnown(commonArguments.ProfileName))
+                {
+                    // It's from and to the credentials store.
                     SettingsStore.SaveFromProfile(commonArguments.ProfileName, SettingsStore.PSDefaultSettingName, region);
+                }
                 else
                 {
+                    // It's either from the shared file, or to the shared file. No special copying necessary.
                     var filename = SettingsStore.SaveAWSCredentialProfile(defaultCredentials.Credentials,
                                                                           SettingsStore.PSDefaultSettingName,
                                                                           commonArguments.ProfilesLocation,

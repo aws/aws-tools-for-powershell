@@ -1,5 +1,5 @@
 ﻿/*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -25,6 +25,8 @@ using System.Collections.ObjectModel;
 
 using Amazon.Runtime;
 using Amazon.Util;
+using Amazon.Runtime.Internal.Auth;
+using System.IO;
 
 #if DESKTOP
 using Amazon.SecurityToken.SAML;
@@ -237,13 +239,41 @@ namespace Amazon.PowerShell.Common
         [Alias("ListStoredCredentials")]
         public SwitchParameter ListProfiles { get; set; }
 
+        /// <summary>
+        /// If set, indicated to look in the specified location for the shared credentials file.
+        /// If not set the default location, &lt;user home directory&gt;/.aws/credentials , is searched.
+        /// </summary>
+        [Parameter(Position = 3)]
+        public string ProfilesLocation { get; set; }
+
         protected override void ProcessRecord()
         {
+            // If ProfilesLocation is set, assume the intent is to use the shared file.
+            var useSharedFileOnly = !string.IsNullOrEmpty(ProfilesLocation);
+
+            var sharedCredentialsFilePath = string.IsNullOrEmpty(ProfilesLocation) ?
+                SettingsStore.GetCredentialsFilePath() : ProfilesLocation;
+
+            var sharedCredentialsFile = new SharedCredentialsFile(sharedCredentialsFilePath);
+
             if (ListProfiles.IsPresent)
             {
-                var names = SettingsStore.GetDisplayNames();
-                if (names != null)
+                var names = new HashSet<string>();
+
+                var sharedNames = sharedCredentialsFile.ListProfileNames();
+                if (sharedNames != null)
+                    names.UnionWith(sharedNames);
+
+                if (!useSharedFileOnly)
+                {
+                    var storeNames = SettingsStore.GetDisplayNames();
+                    if (storeNames != null)
+                        names.UnionWith(storeNames);
+                }
+
+                if (names.Count > 0)
                     WriteObject(names);
+
                 return;
             }
 
@@ -255,9 +285,34 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                var creds = SettingsStore.Load(ProfileName).Credentials;
-                if (creds != null)
-                    WriteObject(creds);
+                AWSCredentials sharedAWSCreds = null;
+                ImmutableCredentials sharedImmutableCreds = null;
+                if (sharedCredentialsFile.TryGetCredentials(ProfileName, out sharedImmutableCreds))
+                {
+                    if (sharedImmutableCreds.UseToken)
+                        sharedAWSCreds = new SessionAWSCredentials(sharedImmutableCreds.AccessKey,
+                            sharedImmutableCreds.SecretKey, sharedImmutableCreds.Token);
+                    else
+                        sharedAWSCreds = new BasicAWSCredentials(sharedImmutableCreds.AccessKey,
+                            sharedImmutableCreds.SecretKey);
+                }
+
+                if (useSharedFileOnly)
+                {
+                    if (sharedAWSCreds != null)
+                        WriteObject(sharedAWSCreds);
+                }
+                else
+                {
+                    var storeSettings = SettingsStore.Load(ProfileName);
+                    var storeAWSCreds = storeSettings == null ? null : storeSettings.Credentials;
+
+                    // when we're using both we prefer the profile store
+                    if (storeAWSCreds != null)
+                        WriteObject(storeAWSCreds);
+                    else if (sharedAWSCreds != null)
+                        WriteObject(sharedAWSCreds);
+                }
             }
         }
     }

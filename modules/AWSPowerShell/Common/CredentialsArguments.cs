@@ -1,5 +1,5 @@
 ﻿/*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -857,14 +857,7 @@ namespace Amazon.PowerShell.Common
             string credentialsFileLocation = profilesLocation;
             if (string.IsNullOrEmpty(credentialsFileLocation) && !ProfileManager.IsAvailable)
             {
-                // NanoServer doesn't have HOME set
-                var homePath = Environment.GetEnvironmentVariable("HOME");
-                if (string.IsNullOrEmpty(homePath))
-                    homePath = Environment.GetEnvironmentVariable("USERPROFILE");
-                else
-                    homePath = Directory.GetCurrentDirectory(); // so we save somewhere predictable, assuming write access
-
-                credentialsFileLocation = Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
+                credentialsFileLocation = GetCredentialsFilePath();
             }
 
             if (string.IsNullOrEmpty(credentialsFileLocation))
@@ -904,6 +897,21 @@ namespace Amazon.PowerShell.Common
             }
 
             return credentialsFileLocation;
+        }
+
+        internal static string GetCredentialsFilePath()
+        {
+            // NanoServer doesn't have HOME set
+            var homePath = Environment.GetEnvironmentVariable("HOME");
+
+            if (string.IsNullOrEmpty(homePath))
+                Environment.GetEnvironmentVariable("USERPROFILE");
+
+            // so we save somewhere predictable, assuming write access
+            if (string.IsNullOrEmpty(homePath))
+                homePath = Directory.GetCurrentDirectory();
+
+            return Path.Combine(homePath, StoredProfileCredentials.DefaultSharedCredentialLocation);
         }
 
         /// <summary>
