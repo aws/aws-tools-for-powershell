@@ -55,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>This parameter is not currently supported.</para>
+        /// <para>A filter that specifies one or more DB instances to describe.</para><para>Supported filters:</para><ul><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance Amazon
+        /// Resource Names (ARNs). The results list will only include information about the DB
+        /// instances identified by these ARNs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
