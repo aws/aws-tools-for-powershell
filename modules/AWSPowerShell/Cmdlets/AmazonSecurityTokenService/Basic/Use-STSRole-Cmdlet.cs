@@ -149,9 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// a role to the customer who created it. For more information about the external ID,
         /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
         /// to Use an External ID When Granting Access to Your AWS Resources to a Third Party</a>
-        /// in the <i>IAM User Guide</i>.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
-        /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include underscores or any of the following characters: =,.@:\/-</para>
+        /// in the <i>IAM User Guide</i>.</para><para>The regex used to validated this parameter is a string of characters consisting of
+        /// upper- and lower-case alphanumeric characters with no spaces. You can also include
+        /// underscores or any of the following characters: =,.@:\/-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -200,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// role session name is visible to, and can be logged by the account that owns the role.
         /// The role session name is also used in the ARN of the assumed role principal. This
         /// means that subsequent cross-account API requests using the temporary security credentials
-        /// will expose the role session name to the external account in their CloudTrail logs.</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
-        /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include underscores or any of the following characters: =,.@-</para>
+        /// will expose the role session name to the external account in their CloudTrail logs.</para><para>The regex used to validate this parameter is a string of characters consisting of
+        /// upper- and lower-case alphanumeric characters with no spaces. You can also include
+        /// underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -216,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// making the <code>AssumeRole</code> call. Specify this value if the trust policy of
         /// the role being assumed includes a condition that requires MFA authentication. The
         /// value is either the serial number for a hardware device (such as <code>GAHT12345678</code>)
-        /// or an Amazon Resource Name (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).</para><para>The format for this parameter, as described by its regex pattern, is a string of characters
-        /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include underscores or any of the following characters: =,.@-</para>
+        /// or an Amazon Resource Name (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).</para><para>The regex used to validate this parameter is a string of characters consisting of
+        /// upper- and lower-case alphanumeric characters with no spaces. You can also include
+        /// underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

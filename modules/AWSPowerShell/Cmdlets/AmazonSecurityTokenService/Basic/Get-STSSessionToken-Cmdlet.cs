@@ -111,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// for a hardware device (such as <code>GAHT12345678</code>) or an Amazon Resource Name
         /// (ARN) for a virtual device (such as <code>arn:aws:iam::123456789012:mfa/user</code>).
         /// You can find the device for an IAM user by going to the AWS Management Console and
-        /// viewing the user's security credentials. </para><para>The format for this parameter, as described by its regex pattern, is a string of characters
-        /// consisting of upper- and lower-case alphanumeric characters with no spaces. You can
-        /// also include underscores or any of the following characters: =,.@-</para>
+        /// viewing the user's security credentials. </para><para>The regex used to validate this parameter is a string of characters consisting of
+        /// upper- and lower-case alphanumeric characters with no spaces. You can also include
+        /// underscores or any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
