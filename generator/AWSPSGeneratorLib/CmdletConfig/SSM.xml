@@ -83,6 +83,25 @@
     <ServiceOperation MethodName="UpdateDocumentDefaultVersion" PipelineParameter="Name" />
     <ServiceOperation MethodName="UpdateMaintenanceWindow" PipelineParameter="WindowId" Output="Response" />    
     
+    <ServiceOperation MethodName="GetPatchBaselineForPatchGroup" Output="Response" />
+    <ServiceOperation MethodName="RegisterDefaultPatchBaseline" />
+    <ServiceOperation MethodName="RegisterPatchBaselineForPatchGroup" PipelineParameter="BaselineId" Output="Response" />
+    <ServiceOperation MethodName="UpdatePatchBaseline" PipelineParameter="BaselineId" Output="Response" />
+    <ServiceOperation MethodName="DescribeInstancePatches" Noun="InstancePatch" />
+    <ServiceOperation MethodName="DescribeInstancePatchStates" Noun="InstancePatchState" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup" />
+    <ServiceOperation MethodName="DescribePatchBaselines" NoPipelineParameter="true" Noun="PatchBaseline" />
+    <ServiceOperation MethodName="DescribePatchGroups" Noun="PatchGroup" />
+    <ServiceOperation MethodName="DescribePatchGroupState" Output="Response" />
+    <ServiceOperation MethodName="GetDefaultPatchBaseline" />
+    <ServiceOperation MethodName="GetDeployablePatchSnapshotForInstance" PipelineParameter="SnapshotId" Output="Response" />
+    <ServiceOperation MethodName="GetPatchBaseline" Noun="PatchBaselineDetail" Output="Response" />
+    <ServiceOperation MethodName="CreatePatchBaseline" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeletePatchBaseline" />
+    <ServiceOperation MethodName="DeregisterPatchBaselineForPatchGroup" PipelineParameter="PatchGroup" Output="Response" />
+    <ServiceOperation MethodName="DescribeAvailablePatches" Noun="AvailablePatch" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" />
+
   </ServiceOperations>
 
   <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
@@ -111,6 +130,9 @@
     <Property>TaskArn</Property>
     <Property>AssociationId</Property>
     <Property>KeyId</Property>
+    <Property>BaselineId</Property>
+    <Property>PatchGroup</Property>
+    <Property>SnapshotId</Property>
   </PipelineByValueProperties>
 
 </ConfigModel>
