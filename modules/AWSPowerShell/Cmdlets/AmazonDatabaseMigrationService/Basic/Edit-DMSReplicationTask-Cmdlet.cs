@@ -28,16 +28,22 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Creates a replication task using the specified parameters.
+    /// Modifies the specified replication task.
+    /// 
+    ///  
+    /// <para>
+    /// You can't modify the task endpoints. The task must be stopped before you can modify
+    /// it. 
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Edit", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]
-    [AWSCmdlet("Invokes the CreateReplicationTask operation against AWS Database Migration Service.", Operation = new[] {"CreateReplicationTask"})]
+    [AWSCmdlet("Invokes the ModifyReplicationTask operation against AWS Database Migration Service.", Operation = new[] {"ModifyReplicationTask"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationTask",
         "This cmdlet returns a ReplicationTask object.",
-        "The service call response (type Amazon.DatabaseMigrationService.Model.CreateReplicationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyReplicationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
+    public partial class EditDMSReplicationTaskCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
         #region Parameter CdcStartTime
@@ -53,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MigrationType
         /// <summary>
         /// <para>
-        /// <para>The migration type.</para>
+        /// <para>The migration type.</para><para>Valid values: full-load | cdc | full-load-and-cdc</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,14 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.MigrationTypeValue MigrationType { get; set; }
         #endregion
         
-        #region Parameter ReplicationInstanceArn
+        #region Parameter ReplicationTaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
+        /// <para>The Amazon Resource Name (ARN) of the replication task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReplicationInstanceArn { get; set; }
+        public System.String ReplicationTaskArn { get; set; }
         #endregion
         
         #region Parameter ReplicationTaskIdentifier
@@ -84,24 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskSetting
         /// <summary>
         /// <para>
-        /// <para>Settings for the task, such as target metadata settings. For a complete list of task
-        /// settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Task
-        /// Settings for AWS Database Migration Service Tasks</a>.</para>
+        /// <para>JSON file that contains settings for the task, such as target metadata settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ReplicationTaskSettings")]
         public System.String ReplicationTaskSetting { get; set; }
-        #endregion
-        
-        #region Parameter SourceEndpointArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SourceEndpointArn { get; set; }
         #endregion
         
         #region Parameter TableMapping
@@ -114,27 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter]
         [Alias("TableMappings")]
         public System.String TableMapping { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Tags to be added to the replication instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
-        #endregion
-        
-        #region Parameter TargetEndpointArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String TargetEndpointArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -151,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReplicationInstanceArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DMSReplicationTask (CreateReplicationTask)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReplicationTaskArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-DMSReplicationTask (ModifyReplicationTask)"))
             {
                 return;
             }
@@ -169,16 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (ParameterWasBound("CdcStartTime"))
                 context.CdcStartTime = this.CdcStartTime;
             context.MigrationType = this.MigrationType;
-            context.ReplicationInstanceArn = this.ReplicationInstanceArn;
+            context.ReplicationTaskArn = this.ReplicationTaskArn;
             context.ReplicationTaskIdentifier = this.ReplicationTaskIdentifier;
             context.ReplicationTaskSettings = this.ReplicationTaskSetting;
-            context.SourceEndpointArn = this.SourceEndpointArn;
             context.TableMappings = this.TableMapping;
-            if (this.Tag != null)
-            {
-                context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
-            }
-            context.TargetEndpointArn = this.TargetEndpointArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DatabaseMigrationService.Model.CreateReplicationTaskRequest();
+            var request = new Amazon.DatabaseMigrationService.Model.ModifyReplicationTaskRequest();
             
             if (cmdletContext.CdcStartTime != null)
             {
@@ -203,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.MigrationType = cmdletContext.MigrationType;
             }
-            if (cmdletContext.ReplicationInstanceArn != null)
+            if (cmdletContext.ReplicationTaskArn != null)
             {
-                request.ReplicationInstanceArn = cmdletContext.ReplicationInstanceArn;
+                request.ReplicationTaskArn = cmdletContext.ReplicationTaskArn;
             }
             if (cmdletContext.ReplicationTaskIdentifier != null)
             {
@@ -215,21 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.ReplicationTaskSettings = cmdletContext.ReplicationTaskSettings;
             }
-            if (cmdletContext.SourceEndpointArn != null)
-            {
-                request.SourceEndpointArn = cmdletContext.SourceEndpointArn;
-            }
             if (cmdletContext.TableMappings != null)
             {
                 request.TableMappings = cmdletContext.TableMappings;
-            }
-            if (cmdletContext.Tags != null)
-            {
-                request.Tags = cmdletContext.Tags;
-            }
-            if (cmdletContext.TargetEndpointArn != null)
-            {
-                request.TargetEndpointArn = cmdletContext.TargetEndpointArn;
             }
             
             CmdletOutput output;
@@ -265,13 +220,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.CreateReplicationTaskResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.CreateReplicationTaskRequest request)
+        private static Amazon.DatabaseMigrationService.Model.ModifyReplicationTaskResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ModifyReplicationTaskRequest request)
         {
             #if DESKTOP
-            return client.CreateReplicationTask(request);
+            return client.ModifyReplicationTask(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateReplicationTaskAsync(request);
+            var task = client.ModifyReplicationTaskAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -284,13 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             public System.DateTime? CdcStartTime { get; set; }
             public Amazon.DatabaseMigrationService.MigrationTypeValue MigrationType { get; set; }
-            public System.String ReplicationInstanceArn { get; set; }
+            public System.String ReplicationTaskArn { get; set; }
             public System.String ReplicationTaskIdentifier { get; set; }
             public System.String ReplicationTaskSettings { get; set; }
-            public System.String SourceEndpointArn { get; set; }
             public System.String TableMappings { get; set; }
-            public List<Amazon.DatabaseMigrationService.Model.Tag> Tags { get; set; }
-            public System.String TargetEndpointArn { get; set; }
         }
         
     }

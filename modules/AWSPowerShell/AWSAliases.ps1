@@ -861,6 +861,7 @@ Set-Alias -Name CFG-PutEvaluations -Value Write-CFGEvaluations
 Set-Alias -Name CFG-StartConfigRulesEvaluation -Value Start-CFGConfigRulesEvaluation
 Set-Alias -Name CFG-StartConfigurationRecorder -Value Start-CFGConfigurationRecorder
 Set-Alias -Name CFG-StopConfigurationRecorder -Value Stop-CFGConfigurationRecorder
+Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
 Set-Alias -Name DMS-StopReplicationTask -Value Stop-DMSReplicationTask
 Set-Alias -Name DMS-TestConnection -Value Test-DMSConnection
@@ -915,8 +916,9 @@ Set-Alias -Name Modify-DMSReplicationInstance -Value Edit-DMSReplicationInstance
 Set-Alias -Name DMS-ModifyReplicationInstance -Value Edit-DMSReplicationInstance
 Set-Alias -Name Modify-DMSReplicationSubnetGroup -Value Edit-DMSReplicationSubnetGroup
 Set-Alias -Name DMS-ModifyReplicationSubnetGroup -Value Edit-DMSReplicationSubnetGroup
+Set-Alias -Name Modify-DMSReplicationTask -Value Edit-DMSReplicationTask
+Set-Alias -Name DMS-ModifyReplicationTask -Value Edit-DMSReplicationTask
 Set-Alias -Name DMS-RefreshSchemas -Value Invoke-DMSSchemaRefresh
-Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name Activate-DPPipeline -Value Enable-DPPipeline
 Set-Alias -Name DP-ActivatePipeline -Value Enable-DPPipeline
 Set-Alias -Name DP-AddTags -Value Add-DPTags

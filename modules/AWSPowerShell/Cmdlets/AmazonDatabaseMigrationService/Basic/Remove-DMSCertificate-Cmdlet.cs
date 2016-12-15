@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>the Amazon Resource Name (ARN) of the deleted certificate.</para>
+        /// <para>The Amazon Resource Name (ARN) of the deleted certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

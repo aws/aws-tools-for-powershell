@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES,
-        /// MARIADB, AURORA, REDSHIFT, and SQLSERVER.</para>
+        /// MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,6 +146,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServerName { get; set; }
+        #endregion
+        
+        #region Parameter ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter SslMode
@@ -220,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.ServerName = this.ServerName;
+            context.ServiceAccessRoleArn = this.ServiceAccessRoleArn;
             context.SslMode = this.SslMode;
             if (this.Tag != null)
             {
@@ -281,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ServerName != null)
             {
                 request.ServerName = cmdletContext.ServerName;
+            }
+            if (cmdletContext.ServiceAccessRoleArn != null)
+            {
+                request.ServiceAccessRoleArn = cmdletContext.ServiceAccessRoleArn;
             }
             if (cmdletContext.SslMode != null)
             {
@@ -355,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
             public System.String ServerName { get; set; }
+            public System.String ServiceAccessRoleArn { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tags { get; set; }
             public System.String Username { get; set; }

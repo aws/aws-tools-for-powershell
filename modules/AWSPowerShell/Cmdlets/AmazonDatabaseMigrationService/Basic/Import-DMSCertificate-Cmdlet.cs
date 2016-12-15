@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The customer-assigned name of the certificate. Valid characters are [A-z_0-9].</para>
+        /// <para>The customer-assigned name of the certificate. Valid characters are A-z and 0-9.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,11 +53,21 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificatePem
         /// <summary>
         /// <para>
-        /// <para>The contents of the .pem X.509 certificate file.</para>
+        /// <para>The contents of the .pem X.509 certificate file for the certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CertificatePem { get; set; }
+        #endregion
+        
+        #region Parameter CertificateWallet
+        /// <summary>
+        /// <para>
+        /// <para>The location of the imported Oracle Wallet certificate for use with SSL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public byte[] CertificateWallet { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,6 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             
             context.CertificateIdentifier = this.CertificateIdentifier;
             context.CertificatePem = this.CertificatePem;
+            context.CertificateWallet = this.CertificateWallet;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,41 +114,58 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.DatabaseMigrationService.Model.ImportCertificateRequest();
+            System.IO.MemoryStream _CertificateWalletStream = null;
             
-            if (cmdletContext.CertificateIdentifier != null)
-            {
-                request.CertificateIdentifier = cmdletContext.CertificateIdentifier;
-            }
-            if (cmdletContext.CertificatePem != null)
-            {
-                request.CertificatePem = cmdletContext.CertificatePem;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Certificate;
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.DatabaseMigrationService.Model.ImportCertificateRequest();
+                
+                if (cmdletContext.CertificateIdentifier != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.CertificateIdentifier = cmdletContext.CertificateIdentifier;
+                }
+                if (cmdletContext.CertificatePem != null)
+                {
+                    request.CertificatePem = cmdletContext.CertificatePem;
+                }
+                if (cmdletContext.CertificateWallet != null)
+                {
+                    _CertificateWalletStream = new System.IO.MemoryStream(cmdletContext.CertificateWallet);
+                    request.CertificateWallet = _CertificateWalletStream;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    Dictionary<string, object> notes = null;
+                    object pipelineOutput = response.Certificate;
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response,
+                        Notes = notes
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _CertificateWalletStream != null)
+                {
+                    _CertificateWalletStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -168,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             public System.String CertificateIdentifier { get; set; }
             public System.String CertificatePem { get; set; }
+            public byte[] CertificateWallet { get; set; }
         }
         
     }

@@ -73,6 +73,7 @@
 	  <ServiceOperation MethodName="ModifyEndpoint" />
 	  <ServiceOperation MethodName="ModifyReplicationInstance" PipelineParameter="ReplicationInstanceArn"/>
 	  <ServiceOperation MethodName="ModifyReplicationSubnetGroup" PipelineParameter="ReplicationSubnetGroupIdentifier"/>
+	  <ServiceOperation MethodName="ModifyReplicationTask" PipelineParameter="ReplicationTaskArn"/>
 	  <ServiceOperation MethodName="RefreshSchemas" Verb="Invoke" Noun="SchemaRefresh" />
 	  <ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceArn" />
 	  <ServiceOperation MethodName="StartReplicationTask" PipelineParameter="ReplicationTaskArn" />

@@ -1321,7 +1321,10 @@ $DMS_Completers = {
         }
         
         # Amazon.DatabaseMigrationService.MigrationTypeValue
-        "New-DMSReplicationTask/MigrationType"
+        {
+            ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
+            ($_ -eq "New-DMSReplicationTask/MigrationType")
+        }
         {
             $v = "cdc","full-load","full-load-and-cdc"
             break
@@ -1353,7 +1356,7 @@ $DMS_Completers = {
 
 $DMS_map = @{
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "MigrationType"=@("New-DMSReplicationTask")
+    "MigrationType"=@("Edit-DMSReplicationTask","New-DMSReplicationTask")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
 }
