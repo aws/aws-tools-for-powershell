@@ -28,9 +28,20 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Creates an application version for the specified application.
+    /// Creates an application version for the specified application. You can create an application
+    /// version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the output
+    /// of an AWS CodeBuild build as follows:
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Specify a commit in an AWS CodeCommit repository with <code>SourceBuildInformation</code>.
+    /// </para><para>
+    /// Specify a build in an AWS CodeBuild with <code>SourceBuildInformation</code> and <code>BuildConfiguration</code>.
+    /// </para><para>
+    /// Specify a source bundle in S3 with <code>SourceBundle</code></para><para>
+    /// Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use
+    /// the default sample application.
+    /// </para><note><para>
     /// Once you create an application version with a specified Amazon S3 bucket and key location,
     /// you cannot change that Amazon S3 location. If you change the Amazon S3 location, you
     /// receive an exception when you attempt to launch an environment from the application
@@ -61,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_ArtifactName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores
+        /// the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip.
+        /// If not provided, Elastic Beanstalk stores the build artifact in the S3 location <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_CodeBuildServiceRole
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+        /// that enables AWS CodeBuild to interact with dependent AWS services on behalf of the
+        /// AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_ComputeType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Information about the compute resources the build project will use.</para><ul><li><para><code>BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds</code></para></li><li><para><code>BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds</code></para></li><li><para><code>BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_Image
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the Docker image to use for this build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -155,7 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceLocation
         /// <summary>
         /// <para>
-        /// <para>The repository name and commit ID, separated by a forward slash. For example, <code>my-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</para>
+        /// <para>The location of the source code, as a formatted string, depending on the value of
+        /// <code>SourceRepository</code></para><ul><li><para>For <code>CodeCommit</code>, the format is the repository name and commit ID, separated
+        /// by a forward slash. For example, <code>my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a</code>.</para></li><li><para>For <code>S3</code>, the format is the S3 bucket name and object key, separated by
+        /// a forward slash. For example, <code>my-s3-bucket/Folders/my-source-file</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -165,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceRepository
         /// <summary>
         /// <para>
-        /// <para>Location where the repository is stored, such as <code>CodeCommit</code>.</para>
+        /// <para>Location where the repository is stored.</para><ul><li><para><code>CodeCommit</code></para></li><li><para><code>S3</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -176,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SourceBuildInformation_SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of repository, such as <code>Git</code>.</para>
+        /// <para>The type of repository.</para><ul><li><para><code>Git</code></para></li><li><para><code>Zip</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,7 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter BuildConfiguration_TimeoutInMinute
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing
+        /// out any related build that does not get marked as completed. The default is 60 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
