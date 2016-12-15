@@ -57,6 +57,9 @@
     <Reference Include="AWSSDK.AppStream">
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.0.2\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Batch">
+      <HintPath>..\..\packages\AWSSDK.Batch.3.3.0\lib\net35\AWSSDK.Batch.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.0.2\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>

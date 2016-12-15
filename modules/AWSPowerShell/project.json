@@ -12,6 +12,7 @@
 		"AWSSDK.AWSMarketplaceCommerceAnalytics": "3.3.0.5",
 		"AWSSDK.AWSMarketplaceMetering": "3.3.1.2",
 		"AWSSDK.AWSSupport": "3.3.0.5",
+		"AWSSDK.Batch": "3.3.0",
 		"AWSSDK.Budgets": "3.3.0.4",
 		"AWSSDK.CertificateManager": "3.3.1.4",
 		"AWSSDK.CloudFormation": "3.3.3.2",

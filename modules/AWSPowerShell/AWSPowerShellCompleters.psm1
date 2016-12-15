@@ -324,6 +324,77 @@ $ADS_map = @{
 _awsArgumentCompleterRegistration $ADS_Completers $ADS_map
 
 
+# Argument completions for service AWS Batch
+$BAT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Batch.CEState
+        {
+            ($_ -eq "New-BATComputeEnvironment/State") -Or
+            ($_ -eq "Update-BATComputeEnvironment/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
+        # Amazon.Batch.CEType
+        "New-BATComputeEnvironment/Type"
+        {
+            $v = "MANAGED","UNMANAGED"
+            break
+        }
+        
+        # Amazon.Batch.CRType
+        "New-BATComputeEnvironment/ComputeResources_Type"
+        {
+            $v = "EC2","SPOT"
+            break
+        }
+        
+        # Amazon.Batch.JobDefinitionType
+        "Register-BATJobDefinition/Type"
+        {
+            $v = "container"
+            break
+        }
+        
+        # Amazon.Batch.JobStatus
+        "Get-BATJobsList/JobStatus"
+        {
+            $v = "FAILED","PENDING","RUNNABLE","RUNNING","STARTING","SUBMITTED","SUCCEEDED"
+            break
+        }
+        
+        # Amazon.Batch.JQState
+        {
+            ($_ -eq "New-BATJobQueue/State") -Or
+            ($_ -eq "Update-BATJobQueue/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAT_map = @{
+    "ComputeResources_Type"=@("New-BATComputeEnvironment")
+    "JobStatus"=@("Get-BATJobsList")
+    "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
+    "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")
+}
+
+_awsArgumentCompleterRegistration $BAT_Completers $BAT_map
+
+
 # Argument completions for service AWS Elastic Beanstalk
 $EB_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

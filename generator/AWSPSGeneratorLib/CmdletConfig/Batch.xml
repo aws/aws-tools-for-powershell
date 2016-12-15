@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>BAT</ServiceNounPrefix>
+  <ServiceName>AWS Batch</ServiceName>
+  <ServiceClientInterface>IAmazonBatch</ServiceClientInterface>
+  <ServiceClient>AmazonBatchClient</ServiceClient>
+  <ServiceNamespace>Amazon.Batch</ServiceNamespace>
+
+  <AutoIterate EmitLimit="MaxResults"
+               Start="NextToken"
+               Next="NextToken" 
+			         />
+
+  <PipelineByValueProperties>
+    <Property>ComputeEnvironment</Property>
+    <Property>JobQueueArn</Property>
+    <Property>JobQueueName</Property>
+    <Property>JobId</Property>
+  </PipelineByValueProperties>
+
+  <PipelineParameter>JobId</PipelineParameter>
+
+  <MetadataProperties />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CancelJob" Output="Void" />
+    <ServiceOperation MethodName="CreateComputeEnvironment" NoPipelineParameter="true" Output="Response" ShouldProcessTarget="ComputeEnvironmentName" />
+    <ServiceOperation MethodName="CreateJobQueue" NoPipelineParameter="true" Output="Response" />
+    <ServiceOperation MethodName="DeleteComputeEnvironment" Output="Void" />
+    <ServiceOperation MethodName="DeleteJobQueue" Output="Void" />
+    <ServiceOperation MethodName="DeregisterJobDefinition" Verb="Unregister" Output="Void" />
+    <ServiceOperation MethodName="DescribeComputeEnvironments" Noun="ComputeEnvironment" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeJobDefinitions" Noun="JobDefinition" PipelineParameter="JobDefinitionName" />
+    <ServiceOperation MethodName="DescribeJobQueues" Noun="JobQueue" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeJobs" Noun="JobDetail" />
+    <ServiceOperation MethodName="ListJobs" Verb="Get" Noun="JobsList" PipelineParameter="JobQueue" />
+    <ServiceOperation MethodName="RegisterJobDefinition" PipelineParameter="JobDefinitionName" Output="Response" />
+    <ServiceOperation MethodName="SubmitJob" PipelineParameter="JobName" Output="Response" />
+    <ServiceOperation MethodName="TerminateJob" Verb="Remove" Output="Void" />
+    <ServiceOperation MethodName="UpdateComputeEnvironment" PipelineParameter="ComputeEnvironment" Output="Response" />
+    <ServiceOperation MethodName="UpdateJobQueue" PipelineParameter="JobQueue" Output="Response" />
+  </ServiceOperations>
+
+</ConfigModel>
