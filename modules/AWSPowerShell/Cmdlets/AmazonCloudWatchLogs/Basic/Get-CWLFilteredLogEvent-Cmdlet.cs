@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range. Events with a timestamp later than this time are not returned.</para>
+        /// <para>The end of the time range, expressed as the number of milliseconds since Jan 1, 1970
+        /// 00:00:00 UTC. Events with a timestamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time range. Events with a timestamp prior to this time are not returned.</para>
+        /// <para>The start of the time range, expressed as the number of milliseconds since Jan 1,
+        /// 1970 00:00:00 UTC. Events with a timestamp prior to this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -814,6 +814,13 @@ $CWL_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatchLogs.Distribution
+        "Write-CWLSubscriptionFilter/Distribution"
+        {
+            $v = "ByLogStream","Random"
+            break
+        }
+        
         # Amazon.CloudWatchLogs.ExportTaskStatusCode
         "Get-CWLExportTasks/StatusCode"
         {
@@ -836,6 +843,7 @@ $CWL_Completers = {
 }
 
 $CWL_map = @{
+    "Distribution"=@("Write-CWLSubscriptionFilter")
     "OrderBy"=@("Get-CWLLogStreams")
     "StatusCode"=@("Get-CWLExportTasks")
 }

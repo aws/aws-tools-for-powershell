@@ -73,6 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String DestinationArn { get; set; }
         #endregion
         
+        #region Parameter Distribution
+        /// <summary>
+        /// <para>
+        /// <para>The method used to distribute log data to the destination, when the destination is
+        /// an Amazon Kinesis stream. By default, log data is grouped by log stream. For a more
+        /// even distribution, you can group log data randomly.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.Distribution")]
+        public Amazon.CloudWatchLogs.Distribution Distribution { get; set; }
+        #endregion
+        
         #region Parameter FilterName
         /// <summary>
         /// <para>
@@ -154,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             PreExecutionContextLoad(context);
             
             context.DestinationArn = this.DestinationArn;
+            context.Distribution = this.Distribution;
             context.FilterName = this.FilterName;
             context.FilterPattern = this.FilterPattern;
             context.LogGroupName = this.LogGroupName;
@@ -177,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.DestinationArn != null)
             {
                 request.DestinationArn = cmdletContext.DestinationArn;
+            }
+            if (cmdletContext.Distribution != null)
+            {
+                request.Distribution = cmdletContext.Distribution;
             }
             if (cmdletContext.FilterName != null)
             {
@@ -248,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal class CmdletContext : ExecutorContext
         {
             public System.String DestinationArn { get; set; }
+            public Amazon.CloudWatchLogs.Distribution Distribution { get; set; }
             public System.String FilterName { get; set; }
             public System.String FilterPattern { get; set; }
             public System.String LogGroupName { get; set; }

@@ -28,30 +28,21 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a log group with the specified name.
+    /// Lists the tags for the specified log group.
     /// 
     ///  
     /// <para>
-    /// You can create up to 5000 log groups per account.
-    /// </para><para>
-    /// You must use the following guidelines when naming a log group:
-    /// </para><ul><li><para>
-    /// Log group names must be unique within a region for an AWS account.
-    /// </para></li><li><para>
-    /// Log group names can be between 1 and 512 characters long.
-    /// </para></li><li><para>
-    /// Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore),
-    /// '-' (hyphen), '/' (forward slash), and '.' (period).
-    /// </para></li></ul>
+    /// To add tags, use <a>TagLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "CWLLogGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateLogGroup operation against Amazon CloudWatch Logs.", Operation = new[] {"CreateLogGroup"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudWatchLogs.Model.CreateLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWLLogGroupTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListTagsLogGroup operation against Amazon CloudWatch Logs.", Operation = new[] {"ListTagsLogGroup"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         #region Parameter LogGroupName
@@ -64,45 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String LogGroupName { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The key-value pairs to use for the tags.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the LogGroupName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LogGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CWLLogGroup (CreateLogGroup)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -114,14 +69,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             PreExecutionContextLoad(context);
             
             context.LogGroupName = this.LogGroupName;
-            if (this.Tag != null)
-            {
-                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,15 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.CreateLogGroupRequest();
+            var request = new Amazon.CloudWatchLogs.Model.ListTagsLogGroupRequest();
             
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
-            }
-            if (cmdletContext.Tags != null)
-            {
-                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -155,9 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.LogGroupName;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -182,13 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.CreateLogGroupResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CreateLogGroupRequest request)
+        private static Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.ListTagsLogGroupRequest request)
         {
             #if DESKTOP
-            return client.CreateLogGroup(request);
+            return client.ListTagsLogGroup(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateLogGroupAsync(request);
+            var task = client.ListTagsLogGroupAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -200,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal class CmdletContext : ExecutorContext
         {
             public System.String LogGroupName { get; set; }
-            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Lists the specified metric filters. You can list all the metric filters or filter
-    /// the results by log name, prefix, metric name, or metric namespace. The results are
+    /// the results by log name, prefix, metric name, and metric namespace. The results are
     /// ASCII-sorted by filter name.
     /// </summary>
     [Cmdlet("Get", "CWLMetricFilters")]

@@ -618,6 +618,7 @@ Set-Alias -Name Describe-CWLSubscriptionFilters -Value Get-CWLSubscriptionFilter
 Set-Alias -Name CWL-DescribeSubscriptionFilters -Value Get-CWLSubscriptionFilters
 Set-Alias -Name CWL-FilterLogEvents -Value Get-CWLFilteredLogEvent
 Set-Alias -Name CWL-GetLogEvents -Value Get-CWLLogEvents
+Set-Alias -Name CWL-ListTagsLogGroup -Value Get-CWLLogGroupTag
 Set-Alias -Name Put-CWLDestination -Value Write-CWLDestination
 Set-Alias -Name CWL-PutDestination -Value Write-CWLDestination
 Set-Alias -Name Put-CWLDestinationPolicy -Value Write-CWLDestinationPolicy
@@ -630,7 +631,9 @@ Set-Alias -Name Put-CWLRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name CWL-PutRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name Put-CWLSubscriptionFilter -Value Write-CWLSubscriptionFilter
 Set-Alias -Name CWL-PutSubscriptionFilter -Value Write-CWLSubscriptionFilter
+Set-Alias -Name CWL-TagLogGroup -Value Add-CWLLogGroupTag
 Set-Alias -Name CWL-TestMetricFilter -Value Test-CWLMetricFilter
+Set-Alias -Name CWL-UntagLogGroup -Value Remove-CWLLogGroupTag
 Set-Alias -Name CB-BatchGetBuilds -Value Get-CBBuildBatch
 Set-Alias -Name CB-BatchGetProjects -Value Get-CBProjectBatch
 Set-Alias -Name Create-CBProject -Value New-CBProject
