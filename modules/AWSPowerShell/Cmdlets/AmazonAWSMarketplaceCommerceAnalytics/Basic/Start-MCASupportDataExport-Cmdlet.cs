@@ -66,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// <para>
         /// <para> Specifies the data set type to be written to the output csv file. The data set types
         /// customer_support_contacts_data and test_customer_support_contacts_data both result
-        /// in a csv file containing the following fields: Product Id, Customer Guid, Subscription
-        /// Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname,
-        /// Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type, and Operation
-        /// Time. Currently, only the test_customer_support_contacts_data value is supported </para><para><ul><li><i>customer_support_contacts_data</i> Customer support contact data. The
+        /// in a csv file containing the following fields: Product Id, Product Code, Customer
+        /// Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given
+        /// Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type,
+        /// and Operation Time. </para><para><ul><li><i>customer_support_contacts_data</i> Customer support contact data. The
         /// data set will contain all changes (Creates, Updates, and Deletes) to customer support
         /// contact data from the date specified in the from_date parameter.</li><li><i>test_customer_support_contacts_data</i>
         /// An example data set containing static test data in the same format as customer_support_contacts_data</li></ul></para>
@@ -110,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// <summary>
         /// <para>
         /// The start date from which to retrieve the data
-        /// set. This parameter only affects the customer_support_contacts_data data set type.
+        /// set in UTC. This parameter only affects the customer_support_contacts_data data set
+        /// type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

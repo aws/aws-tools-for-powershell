@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>customer_profile_by_industry</i>
         /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>customer_profile_by_revenue</i>
         /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>customer_profile_by_geography</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li></ul></para>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>sales_compensation_billed_revenue</i>
+        /// - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2016-12.</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -2852,7 +2852,7 @@ $MCA_Completers = {
         # Amazon.AWSMarketplaceCommerceAnalytics.DataSetType
         "New-MCADataSet/DataSetType"
         {
-            $v = "customer_profile_by_geography","customer_profile_by_industry","customer_profile_by_revenue","customer_subscriber_annual_subscriptions","customer_subscriber_hourly_monthly_subscriptions","daily_business_canceled_product_subscribers","daily_business_fees","daily_business_free_trial_conversions","daily_business_new_instances","daily_business_new_product_subscribers","daily_business_usage_by_instance_type","disbursed_amount_by_age_of_disbursed_funds","disbursed_amount_by_age_of_uncollected_funds","disbursed_amount_by_customer_geo","disbursed_amount_by_product","disbursed_amount_by_product_with_uncollected_funds","monthly_revenue_annual_subscriptions","monthly_revenue_billing_and_revenue_data"
+            $v = "customer_profile_by_geography","customer_profile_by_industry","customer_profile_by_revenue","customer_subscriber_annual_subscriptions","customer_subscriber_hourly_monthly_subscriptions","daily_business_canceled_product_subscribers","daily_business_fees","daily_business_free_trial_conversions","daily_business_new_instances","daily_business_new_product_subscribers","daily_business_usage_by_instance_type","disbursed_amount_by_age_of_disbursed_funds","disbursed_amount_by_age_of_uncollected_funds","disbursed_amount_by_customer_geo","disbursed_amount_by_product","disbursed_amount_by_product_with_uncollected_funds","monthly_revenue_annual_subscriptions","monthly_revenue_billing_and_revenue_data","sales_compensation_billed_revenue"
             break
         }
         
