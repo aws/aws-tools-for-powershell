@@ -45,6 +45,13 @@ namespace Amazon.PowerShell.Common
                 return null;
 
 #if CORECLR
+            // later versions of PowerShell 6 fixed the reflection-only context issue and we can cast directly
+            // as the attribute type (attempting to cast to CustomAttributeData fails with a null exception in 
+            // those later versions)
+            var awsCmdletAttributeInstance = customAttributes[0] as AWSCmdletAttribute;
+            if (awsCmdletAttributeInstance != null)
+                return awsCmdletAttributeInstance;
+
             return ConstructFromReflectionOnlyContext(customAttributes[0] as CustomAttributeData);
 #else
             return customAttributes[0] as AWSCmdletAttribute;
@@ -133,6 +140,13 @@ namespace Amazon.PowerShell.Common
                 return null;
 
 #if CORECLR
+            // later versions of PowerShell 6 fixed the reflection-only context issue and we can cast directly
+            // as the attribute type (attempting to cast to CustomAttributeData fails with a null exception in 
+            // those later versions)
+            var awsClientCmdletAttributeInstance = customAttributes[0] as AWSClientCmdletAttribute;
+            if (awsClientCmdletAttributeInstance != null)
+                return awsClientCmdletAttributeInstance;
+
             return ConstructFromReflectionOnlyContext(customAttributes[0] as CustomAttributeData);
 #else
             return customAttributes[0] as AWSClientCmdletAttribute;
