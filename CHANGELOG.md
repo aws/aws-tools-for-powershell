@@ -1,3 +1,14 @@
+### 3.3.31.0 (2016-12-16)
+  * AWS Batch
+    - Added support for the new AWS Batch service, a batch computing service that lets customers define queues and compute environments and then submit work as batch jobs. Cmdlets for the service have the noun prefix 'BAT' and can be viewed using the command 'Get-AWSCmdletName -Service BAT'.
+  * Amazon Simple System Management
+    - Added new cmdlets to support the new patch baseline and patch compliance apis.
+  * Amazon CloudWatch Logs
+    - Added support for associating log groups with tags with new cmdlets: Add-CWLLogGroupTag (TagLogGroup API), Get-CWLLogGroupTag (ListTagLogGroups API) and Remove-CWLLogGroupTag (UntagLogGroup API). New-CWLLogGroup was also extended to support adding tags during group creation.
+    - Extended the Write-CWLSubscriptionFilter cmdlet with a new parameter, -Distribution, enabling grouping of log data to an Amazon Kinesis stream in a more random distribution than the default grouping by log stream.
+  * Amazon Relation Database Service
+    - Added support for SSL enabled Oracle endpoints and task modification.
+
 ### 3.3.30.0 (2016-12-09)
   * Added support for the new Canada (Central) region, ca-central-1.
   * AWS WAF Regional
