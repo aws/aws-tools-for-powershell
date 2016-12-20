@@ -28,8 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieves a list of configurations items according to the criteria you specify in
-    /// a filter. The filter criteria identify relationship requirements.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list of configuration items according to criteria you specify in a filter.
+    /// The filter criteria identify relationship requirements.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSConfigurationList")]
     [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
@@ -56,12 +56,27 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>You can filter the list using a <i>key</i>-<i>value</i> format. For example: </para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>You can separate these items by using logical operators. </para>
+        /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
+        /// format. For example: </para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>For a complete list of filter options and guidance about using them with this action,
+        /// see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations">Querying
+        /// Discovered Configuration Items</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.ApplicationDiscoveryService.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter OrderBy
+        /// <summary>
+        /// <para>
+        /// <para>Certain filter criteria return output that can be sorted in ascending or descending
+        /// order. For a list of output characteristics for each filter, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations">Querying
+        /// Discovered Configuration Items</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.ApplicationDiscoveryService.Model.OrderByElement[] OrderBy { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -78,7 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to start the list. Use this token to get the next set of results.</para>
+        /// <para>Token to retrieve the next set of results. For example, if a previous call to ListConfigurations
+        /// returned 100 items, but you set <code>ListConfigurationsRequest$maxResults</code>
+        /// to 10, you received a set of 10 results along with a token. Use that token in this
+        /// query to get the next set of 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -109,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.OrderBy != null)
+            {
+                context.OrderBy = new List<Amazon.ApplicationDiscoveryService.Model.OrderByElement>(this.OrderBy);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.OrderBy != null)
+            {
+                request.OrderBy = cmdletContext.OrderBy;
             }
             
             // Initialize loop variants and commence piping
@@ -270,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             public List<Amazon.ApplicationDiscoveryService.Model.Filter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.ApplicationDiscoveryService.Model.OrderByElement> OrderBy { get; set; }
         }
         
     }

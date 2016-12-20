@@ -28,8 +28,8 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Returns a list of your queues that have the RedrivePolicy queue attribute configured
-    /// with a dead letter queue.
+    /// Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute
+    /// configured with a dead letter queue.
     /// 
     ///  
     /// <para>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The queue URL of a dead letter queue.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of a dead letter queue.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

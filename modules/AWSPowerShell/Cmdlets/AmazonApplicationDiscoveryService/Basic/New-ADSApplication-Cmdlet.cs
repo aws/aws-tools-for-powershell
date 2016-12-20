@@ -22,41 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentity;
-using Amazon.CognitoIdentity.Model;
+using Amazon.ApplicationDiscoveryService;
+using Amazon.ApplicationDiscoveryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGI
+namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Gets the roles for an identity pool.
-    /// 
-    ///  
-    /// <para>
-    /// You must use AWS Developer credentials to call this API.
-    /// </para>
+    /// Creates an application with the given name and description.
     /// </summary>
-    [Cmdlet("Get", "CGIIdentityPoolRole")]
-    [OutputType("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse")]
-    [AWSCmdlet("Invokes the GetIdentityPoolRoles operation against Amazon Cognito Identity.", Operation = new[] {"GetIdentityPoolRoles"})]
-    [AWSCmdletOutput("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse",
-        "This cmdlet returns a Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "ADSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the CreateApplication operation against Application Discovery Service.", Operation = new[] {"CreateApplication"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
+    public partial class NewADSApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter IdentityPoolId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An identity pool ID in the format REGION:GUID.</para>
+        /// <para>Description of the application to be created.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String IdentityPoolId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Name of the application to be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ADSApplication (CreateApplication)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -67,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.IdentityPoolId = this.IdentityPoolId;
+            context.Description = this.Description;
+            context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -82,11 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentity.Model.GetIdentityPoolRolesRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.CreateApplicationRequest();
             
-            if (cmdletContext.IdentityPoolId != null)
+            if (cmdletContext.Description != null)
             {
-                request.IdentityPoolId = cmdletContext.IdentityPoolId;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -97,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.ConfigurationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -122,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.GetIdentityPoolRolesRequest request)
+        private static Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.CreateApplicationRequest request)
         {
             #if DESKTOP
-            return client.GetIdentityPoolRoles(request);
+            return client.CreateApplication(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetIdentityPoolRolesAsync(request);
+            var task = client.CreateApplicationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -139,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String IdentityPoolId { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

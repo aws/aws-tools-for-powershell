@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// <summary>
     /// Lists all of the Cognito identity pools registered for your account.
     /// 
-    /// 
+    ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of identities to return.
+        /// <para>The maximum number of identities to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// A pagination token.
+        /// <para>A pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

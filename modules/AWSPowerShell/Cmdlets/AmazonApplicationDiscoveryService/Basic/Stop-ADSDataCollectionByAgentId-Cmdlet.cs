@@ -28,7 +28,7 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Instructs the specified agents to stop collecting data.
+    /// Instructs the specified agents or Connectors to stop collecting data.
     /// </summary>
     [Cmdlet("Stop", "ADSDataCollectionByAgentId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the agents that you want to stop collecting data.</para>
+        /// <para>The IDs of the agents or Connectors that you want to stop collecting data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

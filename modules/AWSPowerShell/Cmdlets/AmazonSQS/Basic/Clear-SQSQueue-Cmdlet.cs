@@ -28,17 +28,17 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Deletes the messages in a queue specified by the <b>queue URL</b>.
+    /// Deletes the messages in a queue specified by the <code>QueueURL</code> parameter.
     /// 
     ///  <important><para>
-    /// When you use the <code>PurgeQueue</code> API, the deleted messages in the queue can't
-    /// be retrieved.
+    /// When you use the <code>PurgeQueue</code> action, you can't retrieve a message deleted
+    /// from a queue.
     /// </para></important><para>
     /// When you purge a queue, the message deletion process takes up to 60 seconds. All messages
-    /// sent to the queue before calling <code>PurgeQueue</code> will be deleted; messages
+    /// sent to the queue before calling the <code>PurgeQueue</code> action are deleted. Messages
     /// sent to the queue while it is being purged might be deleted. While the queue is being
-    /// purged, messages sent to the queue before <code>PurgeQueue</code> was called might
-    /// be received, but will be deleted within the next minute.
+    /// purged, messages sent to the queue before <code>PurgeQueue</code> is called might
+    /// be received, but are deleted within the next minute.
     /// </para>
     /// </summary>
     [Cmdlet("Clear", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The queue URL of the queue to delete the messages from when using the <code>PurgeQueue</code>
-        /// API.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the queue from which the <code>PurgeQueue</code> action deletes messages.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

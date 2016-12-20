@@ -28,8 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Lists AWS agents by ID or lists all agents associated with your user account if you
-    /// did not specify an agent ID.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists agents or the Connector by ID or lists all agents/Connectors associated with
+    /// your user account if you did not specify an ID.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSAgent")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentInfo")]
@@ -45,19 +45,36 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>The agent IDs for which you want information. If you specify no IDs, the system returns
-        /// information about all agents associated with your AWS user account.</para>
+        /// <para>The agent or the Connector IDs for which you want information. If you specify no IDs,
+        /// the system returns information about all agents/Connectors associated with your AWS
+        /// user account.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AgentIds")]
         public System.String[] AgentId { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
+        /// format. For example: </para><para><code>{"key": "collectionStatus", "value": "STARTED"}</code></para><para>For a complete list of filter options and guidance about using them with this action,
+        /// see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agent.html">Managing
+        /// AWS Application Discovery Service Agents and the AWS Application Discovery Connector
+        /// </a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.ApplicationDiscoveryService.Model.Filter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of agents to return. The maximum value is 100.</para>
+        /// <para>The total number of agents/Connectors to return in a single page of output. The maximum
+        /// value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,7 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to start the list. Use this token to get the next set of results.</para>
+        /// <para>Token to retrieve the next set of results. For example, if you previously specified
+        /// 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code>
+        /// to 10, you received a set of 10 results along with a token. Use that token in this
+        /// query to get the next set of 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -95,6 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 context.AgentIds = new List<System.String>(this.AgentId);
             }
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.ApplicationDiscoveryService.Model.Filter>(this.Filter);
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -117,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (cmdletContext.AgentIds != null)
             {
                 request.AgentIds = cmdletContext.AgentIds;
+            }
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
             }
             
             // Initialize loop variants and commence piping
@@ -252,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> AgentIds { get; set; }
+            public List<Amazon.ApplicationDiscoveryService.Model.Filter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

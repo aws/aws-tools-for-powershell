@@ -28,10 +28,10 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Sets the roles for an identity pool. These roles are used when making calls to <code>GetCredentialsForIdentity</code>
+    /// Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a>
     /// action.
     /// 
-    /// 
+    ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para>
@@ -54,6 +54,19 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IdentityPoolId { get; set; }
+        #endregion
+        
+        #region Parameter RoleMapping
+        /// <summary>
+        /// <para>
+        /// <para>How users for a specific identity provider are to mapped to roles. This is a string
+        /// to <a>RoleMapping</a> object map. The string identifies the identity provider, for
+        /// example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</para><para>Up to 25 rules can be specified per identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RoleMappings")]
+        public System.Collections.Hashtable RoleMapping { get; set; }
         #endregion
         
         #region Parameter Role
@@ -107,6 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             PreExecutionContextLoad(context);
             
             context.IdentityPoolId = this.IdentityPoolId;
+            if (this.RoleMapping != null)
+            {
+                context.RoleMappings = new Dictionary<System.String, Amazon.CognitoIdentity.Model.RoleMapping>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RoleMapping.Keys)
+                {
+                    context.RoleMappings.Add((String)hashKey, (RoleMapping)(this.RoleMapping[hashKey]));
+                }
+            }
             if (this.Role != null)
             {
                 context.Roles = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -134,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             if (cmdletContext.IdentityPoolId != null)
             {
                 request.IdentityPoolId = cmdletContext.IdentityPoolId;
+            }
+            if (cmdletContext.RoleMappings != null)
+            {
+                request.RoleMappings = cmdletContext.RoleMappings;
             }
             if (cmdletContext.Roles != null)
             {
@@ -193,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         internal class CmdletContext : ExecutorContext
         {
             public System.String IdentityPoolId { get; set; }
+            public Dictionary<System.String, Amazon.CognitoIdentity.Model.RoleMapping> RoleMappings { get; set; }
             public Dictionary<System.String, System.String> Roles { get; set; }
         }
         

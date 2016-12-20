@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>A token to get the next set of results. For example, if you specified 100 IDs for
-        /// <code>DescribeConfigurationsRequest$configurationIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code>
+        /// <code>DescribeExportConfigurationsRequest$exportIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code>
         /// to 10, you will get results in a set of 10. Use the token in the query to get the
         /// next set of 10.</para>
         /// </para>

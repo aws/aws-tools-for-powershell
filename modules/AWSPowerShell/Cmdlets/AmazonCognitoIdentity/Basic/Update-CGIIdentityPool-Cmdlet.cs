@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// <summary>
     /// Updates a user pool.
     /// 
-    /// 
+    ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para>
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter AllowUnauthenticatedIdentity
         /// <summary>
         /// <para>
-        /// TRUE if the identity pool
-        /// supports unauthenticated logins.
+        /// <para>TRUE if the identity pool supports unauthenticated logins.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
-        /// An identity pool ID in the format REGION:GUID.
+        /// <para>An identity pool ID in the format REGION:GUID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

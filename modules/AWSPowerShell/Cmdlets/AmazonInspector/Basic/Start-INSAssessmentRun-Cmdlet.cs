@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentRunName
         /// <summary>
         /// <para>
-        /// <para>You can specify the name for the assessment run, or you can use the auto-generated
-        /// name that is based on the assessment template name. The name must be unique for the
-        /// assessment template.</para>
+        /// <para>You can specify the name for the assessment run. The name must be unique for the assessment
+        /// template whose ARN is used to start the assessment run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

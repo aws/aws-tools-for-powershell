@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// Deletes a user pool. Once a pool is deleted, users will not be able to authenticate
     /// with the pool.
     /// 
-    /// 
+    ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
-        /// An identity pool ID in the format REGION:GUID.
+        /// <para>An identity pool ID in the format REGION:GUID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

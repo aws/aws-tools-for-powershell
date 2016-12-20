@@ -28,33 +28,55 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Instructs the specified agents or Connectors to start collecting data.
+    /// Updates metadata about an application.
     /// </summary>
-    [Cmdlet("Start", "ADSDataCollectionByAgentId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus")]
-    [AWSCmdlet("Invokes the StartDataCollectionByAgentIds operation against Application Discovery Service.", Operation = new[] {"StartDataCollectionByAgentIds"})]
-    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus",
-        "This cmdlet returns a collection of AgentConfigurationStatus objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "ADSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the UpdateApplication operation against Application Discovery Service.", Operation = new[] {"UpdateApplication"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class UpdateADSApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter AgentId
+        #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the agents or Connectors that you want to start collecting data. If you
-        /// send a request to an agent/Connector ID that you do not have permission to contact,
-        /// according to your AWS account, the service does not throw an exception. Instead, it
-        /// returns the error in the <i>Description</i> field. If you send a request to multiple
-        /// agents/Connectors and you do not have permission to contact some of those agents/Connectors,
-        /// the system does not throw an exception. Instead, the system shows <code>Failed</code>
-        /// in the <i>Description</i> field.</para>
+        /// <para>Configuration ID of the application to be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("AgentIds")]
-        public System.String[] AgentId { get; set; }
+        public System.String ConfigurationId { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>New description of the application to be updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>New name of the application to be updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ConfigurationId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -71,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AgentId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ADSDataCollectionByAgentId (StartDataCollectionByAgentIds)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConfigurationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ADSApplication (UpdateApplication)"))
             {
                 return;
             }
@@ -86,10 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.AgentId != null)
-            {
-                context.AgentIds = new List<System.String>(this.AgentId);
-            }
+            context.ConfigurationId = this.ConfigurationId;
+            context.Description = this.Description;
+            context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -104,11 +125,19 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.UpdateApplicationRequest();
             
-            if (cmdletContext.AgentIds != null)
+            if (cmdletContext.ConfigurationId != null)
             {
-                request.AgentIds = cmdletContext.AgentIds;
+                request.ConfigurationId = cmdletContext.ConfigurationId;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -119,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AgentsConfigurationStatus;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ConfigurationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -144,13 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest request)
+        private static Amazon.ApplicationDiscoveryService.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.UpdateApplicationRequest request)
         {
             #if DESKTOP
-            return client.StartDataCollectionByAgentIds(request);
+            return client.UpdateApplication(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StartDataCollectionByAgentIdsAsync(request);
+            var task = client.UpdateApplicationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -161,7 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> AgentIds { get; set; }
+            public System.String ConfigurationId { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

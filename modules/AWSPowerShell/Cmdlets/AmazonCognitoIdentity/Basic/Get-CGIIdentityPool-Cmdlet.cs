@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// Gets details about a particular identity pool, including the pool name, ID description,
     /// creation date, and current number of users.
     /// 
-    /// 
+    ///  
     /// <para>
     /// You must use AWS Developer credentials to call this API.
     /// </para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
-        /// An identity pool ID in the format REGION:GUID.
+        /// <para>An identity pool ID in the format REGION:GUID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

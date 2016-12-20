@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// <para>The identification of the permission to remove. This is the label added with the <a>AddPermission</a>
-        /// action.</para>
+        /// <para>The identification of the permission to remove. This is the label added using the
+        /// <code><a>AddPermission</a></code> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue from which permissions are removed.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

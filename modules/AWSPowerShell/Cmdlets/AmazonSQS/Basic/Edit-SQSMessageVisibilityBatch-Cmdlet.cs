@@ -28,20 +28,18 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Changes the visibility timeout of multiple messages. This is a batch version of <a>ChangeMessageVisibility</a>.
-    /// The result of the action on each message is reported individually in the response.
-    /// You can send up to 10 <a>ChangeMessageVisibility</a> requests with each <code>ChangeMessageVisibilityBatch</code>
-    /// action.
+    /// Changes the visibility timeout of multiple messages. This is a batch version of <code><a>ChangeMessageVisibility</a></code>. The result of the action on each message is
+    /// reported individually in the response. You can send up to 10 <code><a>ChangeMessageVisibility</a></code> requests with each <code>ChangeMessageVisibilityBatch</code> action.
     /// 
     ///  <important><para>
     /// Because the batch request can result in a combination of successful and unsuccessful
     /// actions, you should check for batch errors even when the call returns an HTTP status
-    /// code of 200.
+    /// code of <code>200</code>.
     /// </para></important><note><para>
-    /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para></note><para><code>&amp;amp;Attribute.1=this</code></para><para><code>&amp;amp;Attribute.2=that</code></para>
+    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
     /// </summary>
     [Cmdlet("Edit", "SQSMessageVisibilityBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse")]
@@ -67,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue whose messages' visibility is changed.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

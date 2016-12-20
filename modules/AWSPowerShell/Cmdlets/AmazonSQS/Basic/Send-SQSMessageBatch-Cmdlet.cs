@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// The result of sending each message is reported individually in the response. Because
     /// the batch request can result in a combination of successful and unsuccessful actions,
     /// you should check for batch errors even when the call returns an HTTP status code of
-    /// 200.
+    /// <code>200</code>.
     /// </para><para>
     /// The maximum allowed individual message size and the maximum total payload size (the
     /// sum of the individual lengths of all of the batched messages) are both 256 KB (262,144
@@ -44,20 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para><important><para>
     /// The following list shows the characters (in Unicode) that are allowed in your message,
     /// according to the W3C XML specification:
-    /// </para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | [<code>#x20</code> to <code>#xD7FF</code>]
-    /// | [<code>#xE000</code> to <code>#xFFFD</code>] | [<code>#x10000</code> to <code>#x10FFFF</code>]
-    /// </para><para>
+    /// </para><ul><li><para><code>#x9</code></para></li><li><para><code>#xA</code></para></li><li><para><code>#xD</code></para></li><li><para><code>#x20</code> to <code>#xD7FF</code></para></li><li><para><code>#xE000</code> to <code>#xFFFD</code></para></li><li><para><code>#x10000</code> to <code>#x10FFFF</code></para></li></ul><para>
     /// For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
-    /// If you send any characters that aren't included in this list, your request will be
-    /// rejected.
+    /// If you send any characters that aren't included in this list, your request is rejected.
     /// </para></important><para>
     /// If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon
-    /// SQS uses the default for the queue.
+    /// SQS uses the default value for the queue.
     /// </para><note><para>
-    /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
-    /// list with two elements looks like this: 
-    /// </para></note><para><code>&amp;amp;Attribute.1=this</code></para><para><code>&amp;amp;Attribute.2=that</code></para>
+    /// list with two elements looks like this:
+    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
     /// </summary>
     [Cmdlet("Send", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SQS.Model.SendMessageBatchResponse")]
@@ -71,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para>A list of <a>SendMessageBatchRequestEntry</a> items.</para>
+        /// <para>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to which batched messages are sent.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

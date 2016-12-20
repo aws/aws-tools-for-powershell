@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// 
     ///  
     /// <para>
-    ///  To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code>
+    /// To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code>
     /// parameter to specify the account ID of the queue's owner. The queue's owner must grant
     /// you permission to access the queue. For more information about shared queue access,
-    /// see <a>AddPermission</a> or see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
+    /// see <code><a>AddPermission</a></code> or see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
     /// Queues</a> in the <i>Amazon SQS Developer Guide</i>. 
     /// </para>
     /// </summary>
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueName
         /// <summary>
         /// <para>
-        /// <para>The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric
-        /// characters, hyphens (-), and underscores (_) are allowed.</para><para>Queue names are case-sensitive.</para>
+        /// <para>The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values:
+        /// alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</para><para>Queue names are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,42 +28,67 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieves attributes for a list of configuration item IDs. All of the supplied IDs
-    /// must be for the same asset type (server, application, process, or connection). Output
-    /// fields are specific to the asset type selected. For example, the output for a <i>server</i>
-    /// configuration item includes a list of attributes about the server, such as host name,
-    /// operating system, and number of network cards.
-    /// 
-    ///  
-    /// <para>
-    /// For a complete list of outputs for each asset type, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#DescribeConfigurations">Querying
-    /// Discovered Configuration Items</a>.
-    /// </para>
+    /// Disassociates one or more configuration items from an application.
     /// </summary>
-    [Cmdlet("Get", "ADSConfiguration")]
-    [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
-    [AWSCmdlet("Invokes the DescribeConfigurations operation against Application Discovery Service.", Operation = new[] {"DescribeConfigurations"})]
-    [AWSCmdletOutput("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
-        "This cmdlet returns a collection of Dictionary`2 objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ADSConfigurationItemsFromApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DisassociateConfigurationItemsFromApplication operation against Application Discovery Service.", Operation = new[] {"DisassociateConfigurationItemsFromApplication"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ApplicationDiscoveryService.Model.DisassociateConfigurationItemsFromApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetADSConfigurationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class RemoveADSConfigurationItemsFromApplicationCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationConfigurationId
+        /// <summary>
+        /// <para>
+        /// <para>Configuration ID of an application from which each item will be disassociated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ApplicationConfigurationId { get; set; }
+        #endregion
         
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>One or more configuration IDs.</para>
+        /// <para>Configuration ID of each item be be disassociated from an application.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ConfigurationIds")]
         public System.String[] ConfigurationId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ApplicationConfigurationId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationConfigurationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ADSConfigurationItemsFromApplication (DisassociateConfigurationItemsFromApplication)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -74,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ApplicationConfigurationId = this.ApplicationConfigurationId;
             if (this.ConfigurationId != null)
             {
                 context.ConfigurationIds = new List<System.String>(this.ConfigurationId);
@@ -92,8 +118,12 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.DisassociateConfigurationItemsFromApplicationRequest();
             
+            if (cmdletContext.ApplicationConfigurationId != null)
+            {
+                request.ApplicationConfigurationId = cmdletContext.ApplicationConfigurationId;
+            }
             if (cmdletContext.ConfigurationIds != null)
             {
                 request.ConfigurationIds = cmdletContext.ConfigurationIds;
@@ -107,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Configurations;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ApplicationConfigurationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -132,13 +164,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsRequest request)
+        private static Amazon.ApplicationDiscoveryService.Model.DisassociateConfigurationItemsFromApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DisassociateConfigurationItemsFromApplicationRequest request)
         {
             #if DESKTOP
-            return client.DescribeConfigurations(request);
+            return client.DisassociateConfigurationItemsFromApplication(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeConfigurationsAsync(request);
+            var task = client.DisassociateConfigurationItemsFromApplicationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -149,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ApplicationConfigurationId { get; set; }
             public List<System.String> ConfigurationIds { get; set; }
         }
         

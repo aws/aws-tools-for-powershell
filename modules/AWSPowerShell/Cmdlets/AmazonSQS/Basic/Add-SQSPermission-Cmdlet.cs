@@ -29,23 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Adds a permission to a queue for a specific <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>.
-    /// This allows for sharing access to the queue.
+    /// This allows sharing access to the queue.
     /// 
     ///  
     /// <para>
-    /// When you create a queue, you have full control access rights for the queue. Only you
-    /// (as owner of the queue) can grant or deny permissions to the queue. For more information
+    /// When you create a queue, you have full control access rights for the queue. Only you,
+    /// the owner of the queue, can grant or deny permissions to the queue. For more information
     /// about these permissions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
     /// Queues</a> in the <i>Amazon SQS Developer Guide</i>.
-    /// </para><note><para><code>AddPermission</code> writes an Amazon SQS-generated policy. If you want to
-    /// write your own policy, use <a>SetQueueAttributes</a> to upload your policy. For more
-    /// information about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html">Using
+    /// </para><note><para><code>AddPermission</code> writes an Amazon-SQS-generated policy. If you want to
+    /// write your own policy, use <code><a>SetQueueAttributes</a></code> to upload your
+    /// policy. For more information about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html">Using
     /// The Access Policy Language</a> in the <i>Amazon SQS Developer Guide</i>.
-    /// </para></note><note><para>
-    /// Some API actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// </para><para>
+    /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para></note><para><code>&amp;amp;Attribute.1=this</code></para><para><code>&amp;amp;Attribute.2=that</code></para>
+    /// </para><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para></note>
     /// </summary>
     [Cmdlet("Add", "SQSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -60,12 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The action the client wants to allow for the specified principal. The following are
-        /// valid values: <code>* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility
-        /// | GetQueueAttributes | GetQueueUrl</code>. For more information about these actions,
-        /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding
+        /// <para>The action the client wants to allow for the specified principal. The following values
+        /// are valid:</para><ul><li><para><code>*</code></para></li><li><para><code>ChangeMessageVisibility</code></para></li><li><para><code>DeleteMessage</code></para></li><li><para><code>GetQueueAttributes</code></para></li><li><para><code>GetQueueUrl</code></para></li><li><para><code>ReceiveMessage</code></para></li><li><para><code>SendMessage</code></para></li></ul><para>For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding
         /// Permissions</a> in the <i>Amazon SQS Developer Guide</i>.</para><para>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code>
-        /// for the <code>ActionName.n</code> also grants permissions for the corresponding batch
+        /// for <code>ActionName.n</code> also grants permissions for the corresponding batch
         /// versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>,
         /// and <code>ChangeMessageVisibilityBatch</code>.</para>
         /// </para>
@@ -79,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The AWS account number of the <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>
-        /// who will be given permission. The principal must have an AWS account, but does not
-        /// need to be signed up for Amazon SQS. For information about locating the AWS account
-        /// identification, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html">Your
+        /// who is given permission. The principal must have an AWS account, but does not need
+        /// to be signed up for Amazon SQS. For information about locating the AWS account identification,
+        /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html">Your
         /// AWS Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -93,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter Label
         /// <summary>
         /// <para>
-        /// <para>The unique identification of the permission you're setting (e.g., <code>AliceSendMessage</code>).
-        /// Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores
-        /// (_) are allowed.</para>
+        /// <para>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>).
+        /// Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens
+        /// (<code>-</code>), and underscores (<code>_</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -105,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to which permissions are added.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

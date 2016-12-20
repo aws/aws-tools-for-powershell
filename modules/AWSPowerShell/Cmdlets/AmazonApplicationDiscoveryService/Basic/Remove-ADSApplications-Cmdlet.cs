@@ -22,41 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentity;
-using Amazon.CognitoIdentity.Model;
+using Amazon.ApplicationDiscoveryService;
+using Amazon.ApplicationDiscoveryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGI
+namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Gets the roles for an identity pool.
-    /// 
-    ///  
-    /// <para>
-    /// You must use AWS Developer credentials to call this API.
-    /// </para>
+    /// Deletes a list of applications and their associations with configuration items.
     /// </summary>
-    [Cmdlet("Get", "CGIIdentityPoolRole")]
-    [OutputType("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse")]
-    [AWSCmdlet("Invokes the GetIdentityPoolRoles operation against Amazon Cognito Identity.", Operation = new[] {"GetIdentityPoolRoles"})]
-    [AWSCmdletOutput("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse",
-        "This cmdlet returns a Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ADSApplications", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteApplications operation against Application Discovery Service.", Operation = new[] {"DeleteApplications"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
+    public partial class RemoveADSApplicationsCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter IdentityPoolId
+        #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>An identity pool ID in the format REGION:GUID.</para>
+        /// <para>Configuration ID of an application to be deleted.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String IdentityPoolId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Alias("ConfigurationIds")]
+        public System.String[] ConfigurationId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ConfigurationId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConfigurationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ADSApplications (DeleteApplications)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -67,7 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.IdentityPoolId = this.IdentityPoolId;
+            if (this.ConfigurationId != null)
+            {
+                context.ConfigurationIds = new List<System.String>(this.ConfigurationId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -82,11 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentity.Model.GetIdentityPoolRolesRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsRequest();
             
-            if (cmdletContext.IdentityPoolId != null)
+            if (cmdletContext.ConfigurationIds != null)
             {
-                request.IdentityPoolId = cmdletContext.IdentityPoolId;
+                request.ConfigurationIds = cmdletContext.ConfigurationIds;
             }
             
             CmdletOutput output;
@@ -97,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ConfigurationId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -122,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.GetIdentityPoolRolesRequest request)
+        private static Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsRequest request)
         {
             #if DESKTOP
-            return client.GetIdentityPoolRoles(request);
+            return client.DeleteApplications(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetIdentityPoolRolesAsync(request);
+            var task = client.DeleteApplicationsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -139,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String IdentityPoolId { get; set; }
+            public List<System.String> ConfigurationIds { get; set; }
         }
         
     }

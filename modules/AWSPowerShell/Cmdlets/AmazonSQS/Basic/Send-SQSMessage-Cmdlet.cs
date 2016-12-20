@@ -33,12 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     ///  <important><para>
     /// The following list shows the characters (in Unicode) that are allowed in your message,
     /// according to the W3C XML specification:
-    /// </para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | [<code>#x20</code> to <code>#xD7FF</code>]
-    /// | [<code>#xE000</code> to <code>#xFFFD</code>] | [<code>#x10000</code> to <code>#x10FFFF</code>]
-    /// </para><para>
+    /// </para><ul><li><para><code>#x9</code></para></li><li><para><code>#xA</code></para></li><li><para><code>#xD</code></para></li><li><para><code>#x20</code> to <code>#xD7FF</code></para></li><li><para><code>#xE000</code> to <code>#xFFFD</code></para></li><li><para><code>#x10000</code> to <code>#x10FFFF</code></para></li></ul><para>
     /// For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
-    /// If you send any characters that aren't included in this list, your request will be
-    /// rejected.
+    /// If you send any characters that aren't included in this list, your request is rejected.
     /// </para></important>
     /// </summary>
     [Cmdlet("Send", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,10 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter DelayInSeconds
         /// <summary>
         /// <para>
-        /// <para> The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages
-        /// with a positive <code>DelaySeconds</code> value become available for processing after
-        /// the delay time is finished. If you don't specify a value, the default value for the
-        /// queue applies. </para><note><para>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message.
+        /// <para> The number of seconds to delay a specific message. Valid values: 0 to 900. Maximum:
+        /// 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available
+        /// for processing after the delay period is finished. If you don't specify a value, the
+        /// default value for the queue applies. </para><note><para>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message.
         /// You can set this parameter only on a queue level.</para></note>
         /// </para>
         /// </summary>
@@ -68,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter MessageAttribute
         /// <summary>
         /// <para>
-        /// <para>Each message attribute consists of a Name, Type, and Value. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation">Message
+        /// <para>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation">Message
         /// Attribute Items and Validation</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -81,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter MessageBody
         /// <summary>
         /// <para>
-        /// <para>The message to send. String maximum 256 KB in size. For a list of allowed characters,
-        /// see the preceding note.</para>
+        /// <para>The message to send. The maximum string size is 256 KB.</para><important><para>The following list shows the characters (in Unicode) that are allowed in your message,
+        /// according to the W3C XML specification:</para><ul><li><para><code>#x9</code></para></li><li><para><code>#xA</code></para></li><li><para><code>#xD</code></para></li><li><para><code>#x20</code> to <code>#xD7FF</code></para></li><li><para><code>#xE000</code> to <code>#xFFFD</code></para></li><li><para><code>#x10000</code> to <code>#x10FFFF</code></para></li></ul><para>For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
+        /// If you send any characters that aren't included in this list, your request is rejected.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -108,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// another message with a <code>MessageDeduplicationId</code> that is the same as the
         /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
         /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul><note><para>The <code>MessageDeduplicationId</code> is available to the recipient of the message
-        /// (this can be useful for troubleshooting delivery issues).</para><para>If a message is sent successfully but the acknowledgdment is lost and the message
+        /// (this can be useful for troubleshooting delivery issues).</para><para>If a message is sent successfully but the acknowledgement is lost and the message
         /// is resent with the same <code>MessageDeduplicationId</code> after the deduplication
         /// interval, Amazon SQS can't detect duplicate messages.</para></note><para>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code>
         /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
@@ -144,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of the Amazon SQS queue to take action on.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the Amazon SQS queue to which a message is sent.</para><para>Queue URLs are case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

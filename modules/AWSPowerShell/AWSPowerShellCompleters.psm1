@@ -306,7 +306,7 @@ $ADS_Completers = {
         # Amazon.ApplicationDiscoveryService.ConfigurationItemType
         "Get-ADSConfigurationList/ConfigurationType"
         {
-            $v = "CONNECTION","PROCESS","SERVER"
+            $v = "APPLICATION","CONNECTION","PROCESS","SERVER"
             break
         }
         

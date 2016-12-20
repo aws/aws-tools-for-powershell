@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         #region Parameter AssessmentTemplateArn
         /// <summary>
         /// <para>
-        /// <para>The ARN that specifiesthe assessment templates that you want to describe.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

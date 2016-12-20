@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// Exports all discovered configuration data to an Amazon S3 bucket or an application
     /// that enables you to view and evaluate the data. Data includes tags and tag associations,
     /// processes, connections, servers, and system performance. This API returns an export
-    /// ID which you can query using the <i>GetExportStatus</i> API. The system imposes a
-    /// limit of two configuration exports in six hours.
+    /// ID which you can query using the <i>DescribeExportConfigurations</i> API. The system
+    /// imposes a limit of two configuration exports in six hours.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfigurationsId")]
     [OutputType("System.String")]
