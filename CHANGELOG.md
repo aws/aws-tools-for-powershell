@@ -1,3 +1,7 @@
+### 3.3.32.0 (2016-12-19)
+  * AWS Application Discovery Service
+    - Added cmdlets to support new APIs for grouping discovered servers into Applications with summary and neighbor data. Added support for additional filters enabled on the service's ListConfigurations and DescribeAgents APIs.
+
 ### 3.3.31.1 (2016-12-16)
   * Added support for the new EU West (London) region, eu-west-2.
   * AWS Batch
