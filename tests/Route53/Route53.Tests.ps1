@@ -13,7 +13,7 @@ Describe -Tag "Smoke" "Route53" {
                 $zones.Count | Should BeGreaterThan 0
 
                 foreach ($z in $zones) {
-                    $zone = Get-R53HostedZone
+                    $zone = Get-R53HostedZone -Id $z.Id
                     $zone | Should Not Be $null
                     $zone.HostedZone | Should Not Be $null
                     $zone.DelegationSet | Should Not Be $null
