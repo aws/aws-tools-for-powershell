@@ -905,7 +905,7 @@ namespace Amazon.PowerShell.Common
             var homePath = Environment.GetEnvironmentVariable("HOME");
 
             if (string.IsNullOrEmpty(homePath))
-                Environment.GetEnvironmentVariable("USERPROFILE");
+                homePath = Environment.GetEnvironmentVariable("USERPROFILE");
 
             // so we save somewhere predictable, assuming write access
             if (string.IsNullOrEmpty(homePath))
