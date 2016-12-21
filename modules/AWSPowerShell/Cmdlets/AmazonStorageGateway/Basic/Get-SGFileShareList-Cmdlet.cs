@@ -28,35 +28,25 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The
-    /// response includes only the volume ARNs. If you want additional volume information,
-    /// use the <a>DescribeStorediSCSIVolumes</a> or the <a>DescribeCachediSCSIVolumes</a>
-    /// API.
-    /// 
-    ///  
-    /// <para>
-    /// The operation supports pagination. By default, the operation returns a maximum of
-    /// up to 100 volumes. You can optionally specify the <code>Limit</code> field in the
-    /// body to limit the number of volumes in the response. If the number of volumes returned
-    /// in the response is truncated, the response includes a Marker field. You can use this
-    /// Marker value in your subsequent request to retrieve the next set of volumes.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets a list of the file shares for a specific file gateway, or the list of file shares
+    /// that belong to the calling user account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SGVolume")]
-    [OutputType("Amazon.StorageGateway.Model.VolumeInfo")]
-    [AWSCmdlet("Invokes the ListVolumes operation against AWS Storage Gateway.", Operation = new[] {"ListVolumes"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.VolumeInfo",
-        "This cmdlet returns a collection of VolumeInfo objects.",
-        "The service call response (type Amazon.StorageGateway.Model.ListVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: GatewayARN (type System.String), Marker (type System.String)"
+    [Cmdlet("Get", "SGFileShareList")]
+    [OutputType("Amazon.StorageGateway.Model.FileShareInfo")]
+    [AWSCmdlet("Invokes the ListFileShares operation against AWS Storage Gateway.", Operation = new[] {"ListFileShares"})]
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.FileShareInfo",
+        "This cmdlet returns a collection of FileShareInfo objects.",
+        "The service call response (type Amazon.StorageGateway.Model.ListFileSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), NextMarker (type System.String)"
     )]
-    public partial class GetSGVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetSGFileShareListCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon resource Name (ARN) of the gateway whose file shares you want to list.
+        /// If this field is not present, all file shares under your account are listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Specifies that the list of volumes returned be limited to the specified number of
-        /// items.</para>
+        /// <para>The maximum number of file shares to return in the response. The value must be an
+        /// integer with a value greater than zero. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>A string that indicates the position at which to begin the returned list of volumes.
-        /// Obtain the marker from the response of a previous List iSCSI Volumes request.</para>
+        /// <para>Opaque pagination token returned from a previous ListFileShares operation. If present,
+        /// <code>Marker</code> specifies where to continue the list from after a previous call
+        /// to ListFileShares. Optional.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -122,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.StorageGateway.Model.ListVolumesRequest();
+            var request = new Amazon.StorageGateway.Model.ListFileSharesRequest();
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
@@ -161,17 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.VolumeInfos;
+                        object pipelineOutput = response.FileShareInfoList;
                         notes = new Dictionary<string, object>();
-                        notes["GatewayARN"] = response.GatewayARN;
                         notes["Marker"] = response.Marker;
+                        notes["NextMarker"] = response.NextMarker;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.VolumeInfos.Count;
+                        int _receivedThisCall = response.FileShareInfoList.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -214,13 +205,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ListVolumesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListVolumesRequest request)
+        private static Amazon.StorageGateway.Model.ListFileSharesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListFileSharesRequest request)
         {
             #if DESKTOP
-            return client.ListVolumes(request);
+            return client.ListFileShares(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListVolumesAsync(request);
+            var task = client.ListFileSharesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"

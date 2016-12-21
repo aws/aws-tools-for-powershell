@@ -38,8 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// In the request, you must specify the gateway, size of the volume in bytes, the iSCSI
     /// target name, an IP address on which to expose the target, and a unique client token.
     /// In response, AWS Storage Gateway creates the volume and returns information about
-    /// it such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN
-    /// that initiators can use to connect to the volume target.
+    /// it. This information includes the volume Amazon Resource Name (ARN), its size, and
+    /// the iSCSI target ARN that initiators can use to connect to the volume target.
+    /// </para><para>
+    /// Optionally, you can provide the ARN for an existing volume as the <code>SourceVolumeARN</code>
+    /// for this cached volume, which creates an exact copy of the existing volume’s latest
+    /// recovery point. The <code>VolumeSizeInBytes</code> value must be equal to or larger
+    /// than the size of the copied volume, in bytes.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SGCachediSCSIVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,6 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotId { get; set; }
+        #endregion
+        
+        #region Parameter SourceVolumeARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for an existing volume. Specifying this ARN makes the new volume into an exact
+        /// copy of the specified existing volume's latest recovery point. The <code>VolumeSizeInBytes</code>
+        /// value for this new volume must be equal to or larger than the size of the existing
+        /// volume, in bytes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceVolumeARN { get; set; }
         #endregion
         
         #region Parameter TargetName
@@ -144,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.GatewayARN = this.GatewayARN;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.SnapshotId = this.SnapshotId;
+            context.SourceVolumeARN = this.SourceVolumeARN;
             context.TargetName = this.TargetName;
             if (ParameterWasBound("VolumeSizeInBytes"))
                 context.VolumeSizeInBytes = this.VolumeSizeInBytes;
@@ -178,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.SnapshotId != null)
             {
                 request.SnapshotId = cmdletContext.SnapshotId;
+            }
+            if (cmdletContext.SourceVolumeARN != null)
+            {
+                request.SourceVolumeARN = cmdletContext.SourceVolumeARN;
             }
             if (cmdletContext.TargetName != null)
             {
@@ -242,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String GatewayARN { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String SnapshotId { get; set; }
+            public System.String SourceVolumeARN { get; set; }
             public System.String TargetName { get; set; }
             public System.Int64? VolumeSizeInBytes { get; set; }
         }

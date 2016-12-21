@@ -28,61 +28,32 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
-    /// download bandwidth rate limit, or you can delete both. If you delete only one of the
-    /// limits, the other limit remains unchanged. To specify which gateway to work with,
-    /// use the Amazon Resource Name (ARN) of the gateway in your request.
+    /// Gets a description for one or more file shares from a file gateway.
     /// </summary>
-    [Cmdlet("Remove", "SGBandwidthRateLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteBandwidthRateLimit operation against AWS Storage Gateway.", Operation = new[] {"DeleteBandwidthRateLimit"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DeleteBandwidthRateLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SGNFSFileShareList")]
+    [OutputType("Amazon.StorageGateway.Model.NFSFileShareInfo")]
+    [AWSCmdlet("Invokes the DescribeNFSFileShares operation against AWS Storage Gateway.", Operation = new[] {"DescribeNFSFileShares"})]
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.NFSFileShareInfo",
+        "This cmdlet returns a collection of NFSFileShareInfo objects.",
+        "The service call response (type Amazon.StorageGateway.Model.DescribeNFSFileSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetSGNFSFileShareListCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter BandwidthType
+        #region Parameter FileShareARNList
         /// <summary>
         /// <para>
-        /// <para>One of the BandwidthType values that indicates the gateway bandwidth rate limit to
-        /// delete.</para><para>Valid Values: <code>Upload</code>, <code>Download</code>, <code>All</code>.</para>
+        /// <para>An array containing the Amazon Resource Name (ARN) of each file share to be described.
+        /// </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String BandwidthType { get; set; }
-        #endregion
-        
-        #region Parameter GatewayARN
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GatewayARN { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String[] FileShareARNList { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BandwidthType", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SGBandwidthRateLimit (DeleteBandwidthRateLimit)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -93,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.BandwidthType = this.BandwidthType;
-            context.GatewayARN = this.GatewayARN;
+            if (this.FileShareARNList != null)
+            {
+                context.FileShareARNList = new List<System.String>(this.FileShareARNList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.DeleteBandwidthRateLimitRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeNFSFileSharesRequest();
             
-            if (cmdletContext.BandwidthType != null)
+            if (cmdletContext.FileShareARNList != null)
             {
-                request.BandwidthType = cmdletContext.BandwidthType;
-            }
-            if (cmdletContext.GatewayARN != null)
-            {
-                request.GatewayARN = cmdletContext.GatewayARN;
+                request.FileShareARNList = cmdletContext.FileShareARNList;
             }
             
             CmdletOutput output;
@@ -128,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.GatewayARN;
+                object pipelineOutput = response.NFSFileShareInfoList;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,13 +122,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteBandwidthRateLimitResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteBandwidthRateLimitRequest request)
+        private static Amazon.StorageGateway.Model.DescribeNFSFileSharesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeNFSFileSharesRequest request)
         {
             #if DESKTOP
-            return client.DeleteBandwidthRateLimit(request);
+            return client.DescribeNFSFileShares(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteBandwidthRateLimitAsync(request);
+            var task = client.DescribeNFSFileSharesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -170,8 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String BandwidthType { get; set; }
-            public System.String GatewayARN { get; set; }
+            public List<System.String> FileShareARNList { get; set; }
         }
         
     }

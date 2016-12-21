@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DayOfWeek
         /// <summary>
         /// <para>
-        /// <para>The maintenance start time day of the week.</para>
+        /// <para>The maintenance start time day of the week represented as an ordinal number from 0
+        /// to 6, where 0 represents Sunday and 6 Saturday.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

@@ -3601,6 +3601,15 @@ Set-Alias -Name Describe-SSMEffectiveInstanceAssociationList -Value Get-SSMEffec
 Set-Alias -Name SSM-DescribeEffectiveInstanceAssociations -Value Get-SSMEffectiveInstanceAssociationList
 Set-Alias -Name Describe-SSMEffectivePatchesForPatchBaseline -Value Get-SSMEffectivePatchesForPatchBaseline
 Set-Alias -Name SSM-DescribeEffectivePatchesForPatchBaseline -Value Get-SSMEffectivePatchesForPatchBaseline
+Set-Alias -Name SG-UpdateGatewaySoftwareNow -Value Update-SGGatewaySoftwareNow
+Set-Alias -Name SG-UpdateMaintenanceStartTime -Value Update-SGMaintenanceStartTime
+Set-Alias -Name SG-UpdateNFSFileShare -Value Update-SGNFSFileShare
+Set-Alias -Name SG-UpdateSnapshotSchedule -Value Update-SGSnapshotSchedule
+Set-Alias -Name SG-UpdateVTLDeviceType -Value Update-SGVTLDeviceType
+Set-Alias -Name Describe-SGSnapshotSchedule -Value Get-SGSnapshotSchedule
+Set-Alias -Name SG-DescribeSnapshotSchedule -Value Get-SGSnapshotSchedule
+Set-Alias -Name Describe-SGStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
+Set-Alias -Name SG-DescribeStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
 Set-Alias -Name Describe-SGTapeArchives -Value Get-SGTapeArchives
 Set-Alias -Name SG-DescribeTapeArchives -Value Get-SGTapeArchives
 Set-Alias -Name Describe-SGTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
@@ -3614,6 +3623,7 @@ Set-Alias -Name SG-DescribeVTLDevices -Value Get-SGVTLDevices
 Set-Alias -Name Describe-SGWorkingStorage -Value Get-SGWorkingStorage
 Set-Alias -Name SG-DescribeWorkingStorage -Value Get-SGWorkingStorage
 Set-Alias -Name SG-DisableGateway -Value Disable-SGGateway
+Set-Alias -Name SG-ListFileShares -Value Get-SGFileShareList
 Set-Alias -Name List-SGGateways -Value Get-SGGateway
 Set-Alias -Name SG-ListGateways -Value Get-SGGateway
 Set-Alias -Name List-SGLocalDisks -Value Get-SGLocalDisk
@@ -3641,10 +3651,6 @@ Set-Alias -Name SG-StartGateway -Value Start-SGGateway
 Set-Alias -Name SG-UpdateBandwidthRateLimit -Value Update-SGBandwidthRateLimit
 Set-Alias -Name SG-UpdateChapCredentials -Value Update-SGChapCredentials
 Set-Alias -Name SG-UpdateGatewayInformation -Value Update-SGGatewayInformation
-Set-Alias -Name SG-UpdateGatewaySoftwareNow -Value Update-SGGatewaySoftwareNow
-Set-Alias -Name SG-UpdateMaintenanceStartTime -Value Update-SGMaintenanceStartTime
-Set-Alias -Name SG-UpdateSnapshotSchedule -Value Update-SGSnapshotSchedule
-Set-Alias -Name SG-UpdateVTLDeviceType -Value Update-SGVTLDeviceType
 Set-Alias -Name Activate-SGGateway -Value Enable-SGGateway
 Set-Alias -Name SG-ActivateGateway -Value Enable-SGGateway
 Set-Alias -Name SG-AddCache -Value Add-SGCache
@@ -3657,6 +3663,8 @@ Set-Alias -Name Cancel-SGRetrieval -Value Stop-SGRetrieval
 Set-Alias -Name SG-CancelRetrieval -Value Stop-SGRetrieval
 Set-Alias -Name Create-SGCachediSCSIVolume -Value New-SGCachediSCSIVolume
 Set-Alias -Name SG-CreateCachediSCSIVolume -Value New-SGCachediSCSIVolume
+Set-Alias -Name Create-SGNFSFileShare -Value New-SGNFSFileShare
+Set-Alias -Name SG-CreateNFSFileShare -Value New-SGNFSFileShare
 Set-Alias -Name Create-SGSnapshot -Value New-SGSnapshot
 Set-Alias -Name SG-CreateSnapshot -Value New-SGSnapshot
 Set-Alias -Name Create-SGSnapshotFromVolumeRecoveryPoint -Value New-SGSnapshotFromVolumeRecoveryPoint
@@ -3671,6 +3679,8 @@ Set-Alias -Name Delete-SGBandwidthRateLimit -Value Remove-SGBandwidthRateLimit
 Set-Alias -Name SG-DeleteBandwidthRateLimit -Value Remove-SGBandwidthRateLimit
 Set-Alias -Name Delete-SGChapCredentials -Value Remove-SGChapCredentials
 Set-Alias -Name SG-DeleteChapCredentials -Value Remove-SGChapCredentials
+Set-Alias -Name Delete-SGFileShare -Value Remove-SGFileShare
+Set-Alias -Name SG-DeleteFileShare -Value Remove-SGFileShare
 Set-Alias -Name Delete-SGGateway -Value Remove-SGGateway
 Set-Alias -Name SG-DeleteGateway -Value Remove-SGGateway
 Set-Alias -Name Delete-SGSnapshotSchedule -Value Remove-SGSnapshotSchedule
@@ -3693,10 +3703,8 @@ Set-Alias -Name Describe-SGGatewayInformation -Value Get-SGGatewayInformation
 Set-Alias -Name SG-DescribeGatewayInformation -Value Get-SGGatewayInformation
 Set-Alias -Name Describe-SGMaintenanceStartTime -Value Get-SGMaintenanceStartTime
 Set-Alias -Name SG-DescribeMaintenanceStartTime -Value Get-SGMaintenanceStartTime
-Set-Alias -Name Describe-SGSnapshotSchedule -Value Get-SGSnapshotSchedule
-Set-Alias -Name SG-DescribeSnapshotSchedule -Value Get-SGSnapshotSchedule
-Set-Alias -Name Describe-SGStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
-Set-Alias -Name SG-DescribeStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
+Set-Alias -Name Describe-SGNFSFileShareList -Value Get-SGNFSFileShareList
+Set-Alias -Name SG-DescribeNFSFileShares -Value Get-SGNFSFileShareList
 Set-Alias -Name STS-AssumeRole -Value Use-STSRole
 Set-Alias -Name Assume-STSRole -Value Use-STSRole
 Set-Alias -Name STS-AssumeRoleWithSAML -Value Use-STSRoleWithSAML

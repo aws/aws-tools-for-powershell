@@ -46,6 +46,7 @@
         <Param Name="VolumeSizeInBytes" AutoRename="false" /> <!-- stops rename thru singularization -->
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="CreateNFSFileShare" ShouldProcessTarget="GatewayARN"/>
     <ServiceOperation MethodName="CreateSnapshot" Output="Response" PipelineParameter="VolumeARN" PositionalParameters="SnapshotDescription"/>
     <ServiceOperation MethodName="CreateSnapshotFromVolumeRecoveryPoint" Output="Response" PipelineParameter="VolumeARN" PositionalParameters="SnapshotDescription"/>
     <ServiceOperation MethodName="CreateStorediSCSIVolume" Output="Response" 
@@ -54,6 +55,7 @@
     <ServiceOperation MethodName="CreateTapeWithBarcode" PositionalParameters="TapeBarcode"/>
     <ServiceOperation MethodName="DeleteBandwidthRateLimit" ShouldProcessTarget="BandwidthType" PositionalParameters="BandwidthType"/>
     <ServiceOperation MethodName="DeleteChapCredentials" Output="Response" ShouldProcessTarget="InitiatorName" PipelineParameter="TargetARN" PositionalParameters="InitiatorName"/>
+    <ServiceOperation MethodName="DeleteFileShare"/>
     <ServiceOperation MethodName="DeleteGateway"/>
     <ServiceOperation MethodName="DeleteSnapshotSchedule" />
     <ServiceOperation MethodName="DeleteVolume" />
@@ -61,12 +63,14 @@
     <ServiceOperation MethodName="DescribeCache" Output="Response"/>
     <ServiceOperation MethodName="DescribeCachediSCSIVolumes" />
     <ServiceOperation MethodName="DescribeChapCredentials" />
+    <ServiceOperation MethodName="DescribeNFSFileShares" Noun="NFSFileShareList"/>
     <ServiceOperation MethodName="DescribeGatewayInformation" Output="Response"/>
     <ServiceOperation MethodName="DescribeMaintenanceStartTime" Output="Response"/>
     <ServiceOperation MethodName="DescribeSnapshotSchedule" Output="Response" />
     <ServiceOperation MethodName="DescribeStorediSCSIVolumes" />
     <ServiceOperation MethodName="DescribeUploadBuffer" Output="Response"/>
     <ServiceOperation MethodName="DescribeWorkingStorage" Output="Response"/>
+    <ServiceOperation MethodName="ListFileShares" Verb="Get" Noun="FileShareList"/>
     <ServiceOperation MethodName="ListGateways"/>
     <ServiceOperation MethodName="ListLocalDisks" Output="Response"/>
 	<ServiceOperation MethodName="ListVolumeInitiators"  PositionalParameters="VolumeARN"/>
@@ -87,6 +91,7 @@
     <ServiceOperation MethodName="UpdateGatewayInformation" PositionalParameters="GatewayName;GatewayTimezone" Output="Response"/>
     <ServiceOperation MethodName="UpdateGatewaySoftwareNow"/>
     <ServiceOperation MethodName="UpdateMaintenanceStartTime" PositionalParameters="HourOfDay;MinuteOfHour;DayOfWeek"/>
+    <ServiceOperation MethodName="UpdateNFSFileShare" ShouldProcessTarget="FileShareARN"/>
     <ServiceOperation MethodName="UpdateSnapshotSchedule" PipelineParameter="VolumeARN" PositionalParameters="StartAt;RecurrenceInHours;Description">
       <Params>
         <Param Name="RecurrenceInHours" AutoRename="false" /> <!-- stops rename thru singularization -->
@@ -116,6 +121,7 @@
 
   <PipelineByValueProperties>
     <Property>GatewayARN</Property>
+    <Property>FileShareARN</Property>
     <Property>VolumeARN</Property>
     <Property>DiskId</Property>
     <Property>SnapshotId</Property>
