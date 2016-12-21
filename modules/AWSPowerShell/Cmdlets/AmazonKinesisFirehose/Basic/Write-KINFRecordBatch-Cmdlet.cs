@@ -35,14 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 
     ///  
     /// <para>
+    /// By default, each delivery stream can take in up to 2,000 transactions per second,
+    /// 5,000 records per second, or 5 MB per second. Note that if you use <a>PutRecord</a>
+    /// and <a>PutRecordBatch</a>, the limits are an aggregate across these two operations
+    /// for each delivery stream. For more information about limits, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon
+    /// Kinesis Firehose Limits</a>.
+    /// </para><para>
     /// Each <a>PutRecordBatch</a> request supports up to 500 records. Each record in the
     /// request can be as large as 1,000 KB (before 64-bit encoding), up to a limit of 4 MB
-    /// for the entire request. By default, each delivery stream can take in up to 2,000 transactions
-    /// per second, 5,000 records per second, or 5 MB per second. Note that if you use <a>PutRecord</a>
-    /// and <a>PutRecordBatch</a>, the limits are an aggregate across these two operations
-    /// for each delivery stream. For more information about limits and how to request an
-    /// increase, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon
-    /// Kinesis Firehose Limits</a>. 
+    /// for the entire request. These limits cannot be changed.
     /// </para><para>
     /// You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>.
     /// The data record consists of a data blob that can be up to 1,000 KB in size, and any
@@ -55,31 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// This allows the consumer application(s) to parse individual data items when reading
     /// the data from the destination.
     /// </para><para>
-    /// The <a>PutRecordBatch</a> response includes a count of any failed records, <b>FailedPutCount</b>,
-    /// and an array of responses, <b>RequestResponses</b>. The <b>FailedPutCount</b> value
-    /// is a count of records that failed. Each entry in the <b>RequestResponses</b> array
-    /// gives additional information of the processed record. Each entry in <b>RequestResponses</b>
-    /// directly correlates with a record in the request array using the same ordering, from
-    /// the top to the bottom of the request and response. <b>RequestResponses</b> always
-    /// includes the same number of records as the request array. <b>RequestResponses</b>
-    /// both successfully and unsuccessfully processed records. Firehose attempts to process
-    /// all records in each <a>PutRecordBatch</a> request. A single record failure does not
-    /// stop the processing of subsequent records.
+    /// The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>,
+    /// and an array of responses, <b>RequestResponses</b>. Each entry in the <b>RequestResponses</b>
+    /// array provides additional information about the processed record, and directly correlates
+    /// with a record in the request array using the same ordering, from the top to the bottom.
+    /// The response array always includes the same number of records as the request array.
+    /// <b>RequestResponses</b> includes both successfully and unsuccessfully processed records.
+    /// Firehose attempts to process all records in each <a>PutRecordBatch</a> request. A
+    /// single record failure does not stop the processing of subsequent records.
     /// </para><para>
-    /// A successfully processed record includes a <b>RecordId</b> value, which is a unique
-    /// value identified for the record. An unsuccessfully processed record includes <b>ErrorCode</b>
-    /// and <b>ErrorMessage</b> values. <b>ErrorCode</b> reflects the type of error and is
-    /// one of the following values: <code>ServiceUnavailable</code> or <code>InternalFailure</code>.
-    /// <code>ErrorMessage</code> provides more detailed information about the error.
+    /// A successfully processed record includes a <b>RecordId</b> value, which is unique
+    /// for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b>
+    /// values. <b>ErrorCode</b> reflects the type of error, and is one of the following values:
+    /// <code>ServiceUnavailable</code> or <code>InternalFailure</code>. <b>ErrorMessage</b>
+    /// provides more detailed information about the error.
     /// </para><para>
-    /// If <b>FailedPutCount</b> is greater than 0 (zero), retry the request. A retry of the
-    /// entire batch of records is possible; however, we strongly recommend that you inspect
-    /// the entire response and resend only those records that failed processing. This minimizes
-    /// duplicate records and also reduces the total bytes sent (and corresponding charges).
+    /// If there is an internal server error or a timeout, the write might have completed
+    /// or it might have failed. If <b>FailedPutCount</b> is greater than 0, retry the request,
+    /// resending only those records that might have failed processing. This minimizes the
+    /// possible duplicate records and also reduces the total bytes sent (and corresponding
+    /// charges). We recommend that you handle any duplicates at the destination.
     /// </para><para>
-    /// If the <a>PutRecordBatch</a> operation throws a <b>ServiceUnavailableException</b>,
-    /// back off and retry. If the exception persists, it is possible that the throughput
-    /// limits have been exceeded for the delivery stream.
+    /// If <a>PutRecordBatch</a> throws <b>ServiceUnavailableException</b>, back off and retry.
+    /// If the exception persists, it is possible that the throughput limits have been exceeded
+    /// for the delivery stream.
     /// </para><para>
     /// Data records sent to Firehose are stored for 24 hours from the time they are added
     /// to a delivery stream as it attempts to send the records to the destination. If the

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ExclusiveStartDestinationId
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination ID to start returning the destination information. Currently
+        /// <para>The ID of the destination to start returning the destination information. Currently
         /// Firehose supports one destination per delivery stream.</para>
         /// </para>
         /// </summary>

@@ -10,13 +10,12 @@
 
   <ServiceOperations>
 
-    <ServiceOperation MethodName="CreateDeliveryStream" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
+    <ServiceOperation MethodName="CreateDeliveryStream" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" Exclude="true"/>
     <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" />
     <ServiceOperation MethodName="DescribeDeliveryStream" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="ListDeliveryStreams" Verb="Get" Noun="DeliveryStreamList" NoPipelineParameter="true" Output="Response"/>
     <ServiceOperation MethodName="PutRecord" Exclude="true" />
     <ServiceOperation MethodName="PutRecordBatch" PipelineParameter="Records" Output="Response"/>
-    <ServiceOperation MethodName="UpdateDestination" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName"/>
-
+    <ServiceOperation MethodName="UpdateDestination" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" Exclude="true"/>
   </ServiceOperations>
 </ConfigModel>
