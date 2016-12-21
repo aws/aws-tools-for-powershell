@@ -37,7 +37,44 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// must be the Amazon Resource Name (ARN) of the shared DB snapshot.
     /// </para><para>
     /// You can not copy an encrypted DB snapshot from another AWS region.
-    /// </para>
+    /// </para><para>
+    /// You can copy an encrypted DB snapshot from another AWS region. In that case, the region
+    /// where you call the <code>CopyDBSnapshot</code> action is the destination region for
+    /// the encrypted DB snapshot to be copied to. To copy an encrypted DB snapshot from another
+    /// region, you must provide the following values:
+    /// </para><ul><li><para><code>KmsKeyId</code> - the AWS Key Management System (KMS) key identifier for the
+    /// key to use to encrypt the copy of the DB snapshot in the destination region.
+    /// </para></li><li><para><code>PreSignedUrl</code> - a URL that contains a Signature Version 4 signed request
+    /// for the <code>CopyDBSnapshot</code> action to be called in the source region where
+    /// the DB snapshot will be copied from. The pre-signed URL must be a valid request for
+    /// the <code>CopyDBSnapshot</code> API action that can be executed in the source region
+    /// that contains the encrypted DB snapshot to be copied.
+    /// </para><para>
+    /// The pre-signed URL request must contain the following parameter values:
+    /// </para><ul><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
+    /// copy of the DB snapshot in the destination region. This is the same identifier for
+    /// both the <code>CopyDBSnapshot</code> action that is called in the destination region,
+    /// and the action contained in the pre-signed URL.
+    /// </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - the DB snapshot identifier for the encrypted
+    /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
+    /// for the source region. For example, if you are copying an encrypted DB snapshot from
+    /// the us-west-2 region, then your <code>SourceDBSnapshotIdentifier</code> would look
+    /// like Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.
+    /// </para></li></ul><para>
+    /// To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
+    /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+    /// <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
+    /// Signature Version 4 Signing Process</a>.
+    /// </para></li><li><para><code>TargetDBSnapshotIdentifier</code> - the identifier for the new copy of the
+    /// DB snapshot in the destination region.
+    /// </para></li><li><para><code>SourceDBSnapshotIdentifier</code> - the DB snapshot identifier for the encrypted
+    /// snapshot to be copied. This identifier must be in the ARN format for the source region
+    /// and is the same value as the <code>SourceDBSnapshotIdentifier</code> in the pre-signed
+    /// URL. 
+    /// </para></li></ul><para>
+    /// For more information on copying encrypted snapshots from one region to another, see
+    /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Encrypted.CrossRegion">
+    /// Copying an Encrypted DB Snapshot to Another Region in the Amazon RDS User Guide.</a></para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]
@@ -70,8 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// key. </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
         /// for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
         /// don't specify a value for <code>KmsKeyId</code>, then the copy of the DB snapshot
-        /// is encrypted with the same KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
-        /// you must specify a value for <code>KmsKeyId</code>. </para>
+        /// is encrypted with the same KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
+        /// for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
+        /// don't specify a value for <code>KmsKeyId</code>, then the copy of the DB snapshot
+        /// is encrypted with the same KMS key as the source DB snapshot. If you copy an encrypted
+        /// snapshot to a different AWS region, then you must specify a KMS key for the destination
+        /// AWS region.</para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
+        /// you must specify a value for <code>KmsKeyId</code>. </para><para>To copy an encrypted DB snapshot to another region, you must set <code>KmsKeyId</code>
+        /// to the KMS key ID used to encrypt the copy of the DB snapshot in the destination region.
+        /// KMS encryption keys are specific to the region that they are created in, and you cannot
+        /// use encryption keys from one region in another region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,24 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CopyDBSnapshot</code>
         /// API action in the AWS region that contains the source DB snapshot to copy. The <code>PreSignedUrl</code>
-        /// parameter is used when copying an encrypted DB snapshot from another AWS region.</para><para>If <code>PreSignedUrl</code> is not supplied when copying an encrypted DB snapshot
-        /// from another AWS region, then a pre-signed URL is automatically generated for you.
-        /// You can also generate your own pre-signed URL. </para><para>The pre-signed URL must be a valid request for the <code>CopyDBSnapshot</code> API
+        /// parameter must be used when copying an encrypted DB snapshot from another AWS region.</para><para>The pre-signed URL must be a valid request for the <code>CopyDBSnapshot</code> API
         /// action that can be executed in the source region that contains the encrypted DB snapshot
-        /// to be copied. The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>DestinationRegion</code> - The AWS region that the encrypted DB snapshot will
-        /// be copied to. This is the same region where the <code>CopyDBSnapshot</code> action
-        /// is called that contains this pre-signed URL. </para><para>For example, if you are copying an encrypted DB snapshot from the us-west-2 region
-        /// to the us-east-1 region, then you will call the <code>CopyDBSnapshot</code> action
-        /// in the us-east-1 region and provide a pre-signed URL that contains a call to the <code>CopyDBSnapshot</code>
-        /// action in the us-west-2 region. The <code>DestinationRegion</code> in the pre-signed
-        /// URL must be set to the us-east-1 region.</para></li><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
+        /// to be copied. The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
         /// copy of the DB snapshot in the destination region. This is the same identifier for
         /// both the <code>CopyDBSnapshot</code> action that is called in the destination region,
         /// and the action contained in the pre-signed URL.</para></li><li><para><code>SourceDBSnapshotIdentifier</code> - the DB snapshot identifier for the encrypted
         /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
-        /// for the source region. For example, if are copying an encrypted DB snapshot from the
-        /// us-west-2 region, then your <code>SourceDBSnapshotIdentifier</code> would look like
-        /// Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.</para></li></ul>
+        /// for the source region. For example, if you are copying an encrypted DB snapshot from
+        /// the us-west-2 region, then your <code>SourceDBSnapshotIdentifier</code> would look
+        /// like Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
+        /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+        /// <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
+        /// Signature Version 4 Signing Process</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,6 +159,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceDBSnapshotIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter SourceRegion
+        /// <summary>
+        /// <para>
+        ///  The SourceRegion for generating the PreSignedUrl property.
+        /// 
+        ///  If SourceRegion is set and the PreSignedUrl property is not,
+        ///  then PreSignedUrl will be automatically generated by the client.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceRegion { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -171,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.SourceRegion = this.SourceRegion;
             if (ParameterWasBound("CopyTag"))
                 context.CopyTags = this.CopyTag;
             context.KmsKeyId = this.KmsKeyId;
@@ -197,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.CopyDBSnapshotRequest();
             
+            if (cmdletContext.SourceRegion != null)
+            {
+                request.SourceRegion = cmdletContext.SourceRegion;
+            }
             if (cmdletContext.CopyTags != null)
             {
                 request.CopyTags = cmdletContext.CopyTags.Value;
@@ -272,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String SourceRegion { get; set; }
             public System.Boolean? CopyTags { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String PreSignedUrl { get; set; }
