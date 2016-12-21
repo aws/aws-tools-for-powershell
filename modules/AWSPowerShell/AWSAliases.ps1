@@ -2359,6 +2359,8 @@ Set-Alias -Name KINA-DiscoverInputSchema -Value Find-KINAInputSchema
 Set-Alias -Name KINA-StartApplication -Value Start-KINAApplication
 Set-Alias -Name KINA-StopApplication -Value Stop-KINAApplication
 Set-Alias -Name KINA-UpdateApplication -Value Update-KINAApplication
+Set-Alias -Name Create-KINFDeliveryStream -Value New-KINFDeliveryStream
+Set-Alias -Name KINF-CreateDeliveryStream -Value New-KINFDeliveryStream
 Set-Alias -Name Delete-KINFDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name KINF-DeleteDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name Describe-KINFDeliveryStream -Value Get-KINFDeliveryStream
@@ -2366,6 +2368,7 @@ Set-Alias -Name KINF-DescribeDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-ListDeliveryStreams -Value Get-KINFDeliveryStreamList
 Set-Alias -Name Put-KINFRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-PutRecordBatch -Value Write-KINFRecordBatch
+Set-Alias -Name KINF-UpdateDestination -Value Update-KINFDestination
 Set-Alias -Name KMS-ListRetirableGrants -Value Get-KMSRetirableGrant
 Set-Alias -Name Put-KMSKeyPolicy -Value Write-KMSKeyPolicy
 Set-Alias -Name KMS-PutKeyPolicy -Value Write-KMSKeyPolicy

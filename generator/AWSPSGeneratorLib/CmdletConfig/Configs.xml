@@ -111,6 +111,8 @@
     <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
     <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate</Type>
     <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
+    <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration</Type>
+    <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate</Type>
   </TypesNotToFlatten>
 
   <MetadataProperties>

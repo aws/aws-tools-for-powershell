@@ -103,7 +103,7 @@
       <HintPath>..\..\packages\AWSSDK.WAF.3.3.1.7\lib\net35\AWSSDK.WAF.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StorageGateway">
-      <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.0.6\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.1\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>..\..\packages\AWSSDK.SQS.3.3.1.5\lib\net35\AWSSDK.SQS.dll</HintPath>
@@ -133,7 +133,7 @@
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.6\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.3.2.4\lib\net35\AWSSDK.Route53.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53.3.3.3\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.1.6\lib\net35\AWSSDK.Redshift.dll</HintPath>
@@ -151,7 +151,7 @@
       <HintPath>..\..\packages\AWSSDK.Lambda.3.3.2.3\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
-      <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.0.6\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.1\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisAnalytics">
       <HintPath>..\..\packages\AWSSDK.KinesisAnalytics.3.3.0.7\lib\net35\AWSSDK.KinesisAnalytics.dll</HintPath>

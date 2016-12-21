@@ -2708,6 +2708,45 @@ $KINA_map = @{
 _awsArgumentCompleterRegistration $KINA_Completers $KINA_map
 
 
+# Argument completions for service Amazon Kinesis Firehose
+$KINF_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod
+        {
+            ($_ -eq "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_IndexRotationPeriod") -Or
+            ($_ -eq "Update-KINFDestination/ElasticsearchDestinationUpdate_IndexRotationPeriod")
+        }
+        {
+            $v = "NoRotation","OneDay","OneHour","OneMonth","OneWeek"
+            break
+        }
+        
+        # Amazon.KinesisFirehose.ElasticsearchS3BackupMode
+        "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_S3BackupMode"
+        {
+            $v = "AllDocuments","FailedDocumentsOnly"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KINF_map = @{
+    "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
+    "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
+}
+
+_awsArgumentCompleterRegistration $KINF_Completers $KINF_map
+
+
 # Argument completions for service AWS Key Management Service
 $KMS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
