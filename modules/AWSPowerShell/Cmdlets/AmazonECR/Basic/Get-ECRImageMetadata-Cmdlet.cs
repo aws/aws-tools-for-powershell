@@ -28,8 +28,8 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Returns metadata about the images in a repository, including image size and creation
-    /// date.
+    /// Returns metadata about the images in a repository, including image size, image tags,
+    /// and creation date.
     /// 
     ///  <note><para>
     /// Beginning with Docker version 1.9, the Docker client compresses image layers before
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The AWS account ID associated with the registry that contains the repository in which
-        /// to list images. If you do not specify a registry, the default registry is assumed.</para>
+        /// to describe images. If you do not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

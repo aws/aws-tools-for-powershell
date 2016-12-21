@@ -28,11 +28,12 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Creates or updates the image manifest associated with an image.
+    /// Creates or updates the image manifest and tags associated with an image.
     /// 
     ///  <note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general
-    /// use by customers. Use the <code>docker</code> CLI to pull, tag, and push images.
+    /// use by customers for pulling and pushing images. In most cases, you should use the
+    /// <code>docker</code> CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "ECRImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ImageManifest { get; set; }
+        #endregion
+        
+        #region Parameter ImageTag
+        /// <summary>
+        /// <para>
+        /// <para>The tag to associate with the image. This parameter is required for images that use
+        /// the Docker Image Manifest V2 Schema 2 or OCI formats.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ImageTag { get; set; }
         #endregion
         
         #region Parameter RegistryId
@@ -106,6 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             PreExecutionContextLoad(context);
             
             context.ImageManifest = this.ImageManifest;
+            context.ImageTag = this.ImageTag;
             context.RegistryId = this.RegistryId;
             context.RepositoryName = this.RepositoryName;
             
@@ -127,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (cmdletContext.ImageManifest != null)
             {
                 request.ImageManifest = cmdletContext.ImageManifest;
+            }
+            if (cmdletContext.ImageTag != null)
+            {
+                request.ImageTag = cmdletContext.ImageTag;
             }
             if (cmdletContext.RegistryId != null)
             {
@@ -188,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         internal class CmdletContext : ExecutorContext
         {
             public System.String ImageManifest { get; set; }
+            public System.String ImageTag { get; set; }
             public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }
         }
