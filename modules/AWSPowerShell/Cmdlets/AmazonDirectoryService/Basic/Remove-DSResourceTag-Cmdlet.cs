@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Removes tags from an Amazon Directory Services directory.
+    /// Removes tags from a directory.
     /// </summary>
     [Cmdlet("Remove", "DSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

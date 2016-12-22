@@ -73,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter LdifContent
         /// <summary>
         /// <para>
-        /// <para>The LDIF file represented as a string. The file size can be no larger than 1MB.</para>
+        /// <para>The LDIF file represented as a string. To construct the LdifContent string, precede
+        /// each line as it would be formatted in an ldif file with \n. See the example request
+        /// below for more details. The file size can be no larger than 1MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

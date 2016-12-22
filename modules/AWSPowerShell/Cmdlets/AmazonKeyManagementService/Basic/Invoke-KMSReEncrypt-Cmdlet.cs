@@ -28,18 +28,20 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Encrypts data on the server side with a new customer master key without exposing the
-    /// plaintext of the data on the client side. The data is first decrypted and then encrypted.
-    /// This operation can also be used to change the encryption context of a ciphertext.
+    /// Encrypts data on the server side with a new customer master key (CMK) without exposing
+    /// the plaintext of the data on the client side. The data is first decrypted and then
+    /// reencrypted. You can also use this operation to change the encryption context of a
+    /// ciphertext.
     /// 
     ///  
     /// <para>
-    /// Unlike other actions, <code>ReEncrypt</code> is authorized twice - once as <code>ReEncryptFrom</code>
-    /// on the source key and once as <code>ReEncryptTo</code> on the destination key. We
-    /// therefore recommend that you include the <code>"action":"kms:ReEncrypt*"</code> statement
-    /// in your key policies to permit re-encryption from or to the key. The statement is
-    /// included automatically when you authorize use of the key through the console but must
-    /// be included manually when you set a policy by using the <a>PutKeyPolicy</a> function.
+    /// Unlike other operations, <code>ReEncrypt</code> is authorized twice, once as <code>ReEncryptFrom</code>
+    /// on the source CMK and once as <code>ReEncryptTo</code> on the destination CMK. We
+    /// recommend that you include the <code>"kms:ReEncrypt*"</code> permission in your <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
+    /// policies</a> to permit reencryption from or to the CMK. This permission is automatically
+    /// included in the key policy when you create a CMK through the console, but you must
+    /// include it manually when you create a CMK programmatically or when you set a key policy
+    /// with the <a>PutKeyPolicy</a> operation.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSReEncrypt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter CiphertextBlob
         /// <summary>
         /// <para>
-        /// <para>Ciphertext of the data to re-encrypt.</para>
+        /// <para>Ciphertext of the data to reencrypt.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DestinationEncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Encryption context to be used when the data is re-encrypted.</para>
+        /// <para>Encryption context to use when the data is reencrypted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DestinationKeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key used to re-encrypt the data. This
-        /// value can be a globally unique identifier, a fully specified ARN to either an alias
-        /// or a key, or an alias name prefixed by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
+        /// <para>A unique identifier for the CMK to use to reencrypt the data. This value can be a
+        /// globally unique identifier, a fully specified ARN to either an alias or a key, or
+        /// an alias name prefixed by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

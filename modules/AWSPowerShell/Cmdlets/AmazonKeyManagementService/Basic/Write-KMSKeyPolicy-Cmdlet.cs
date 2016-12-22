@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the CMK.</para><para>Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:</para><ul><li><para>Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para></li><li><para>ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul>
+        /// <para>A unique identifier for the CMK.</para><para>Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:</para><ul><li><para>Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para></li><li><para>ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

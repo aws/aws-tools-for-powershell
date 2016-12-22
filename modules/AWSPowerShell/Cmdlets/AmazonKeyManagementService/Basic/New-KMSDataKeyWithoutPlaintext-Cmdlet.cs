@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The identifier of the CMK under which to generate and encrypt the data encryption
         /// key.</para><para>A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK,
-        /// or the alias name or ARN of an alias that points to the CMK. Examples:</para><ul><li><para>Unique key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>CMK ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// or the alias name or ARN of an alias that refers to the CMK. Examples:</para><ul><li><para>Unique key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>CMK ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

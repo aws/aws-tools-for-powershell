@@ -28,7 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Updates the description of a key.
+    /// Updates the description of a customer master key (CMK).
     /// </summary>
     [Cmdlet("Update", "KMSKeyDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>New description for the key.</para>
+        /// <para>New description for the CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier or the fully specified ARN to a key.</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li></ul>
+        /// <para>A unique identifier for the CMK. This value can be a globally unique identifier or
+        /// the fully specified ARN to a key.</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

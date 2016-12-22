@@ -28,9 +28,9 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified Amazon Directory Services directory.
-    /// Each directory can have a maximum of 50 tags. Each tag consists of a key and optional
-    /// value. Tag keys must be unique to each resource.
+    /// Adds or overwrites one or more tags for the specified directory. Each directory can
+    /// have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys
+    /// must be unique to each resource.
     /// </summary>
     [Cmdlet("Add", "DSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the Amazon Directory Services directory.</para>
+        /// <para>The tags to be assigned to the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

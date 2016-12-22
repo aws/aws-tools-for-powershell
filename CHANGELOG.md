@@ -1,5 +1,13 @@
+### 3.3.35.0 (2016-12-22)
+  * Amazon API Gateway
+    - Added cmdlets to support the new service feature for generating SDKs in more languages. This update introduces two new operations used to dynamically discover these SDK types and what configuration each type accepts. The new cmdlets are: Get-AGSdkType (GetSdkType API), Get-AGSdkTypeList (GetSdkTypes API). In addition the existing cmdlet Write-AGMethod has been updated with a new parameter, -OperationName, enabling users to set a human-friendly operation identifier for the method.
+  * AWS Identity and Access Management
+    - Added new cmdlets to support service-specific credentials for IAM users. This makes it easier to onboard AWS CodeCommit customers. Service-specific credentials are username/password credentials that work with a single service (currently only AWS CodeCommit). The new cmdlets are: Get-IAMServiceSpecificCredentialList (ListServiceSpecificCredentials API), New-IAMServiceSpecificCredential (CreateServiceSpecificCredential API), Remove-IAMServiceSpecificCredential (DeleteServiceSpecificCredential API), Reset-IAMServiceSpecificCredential (ResetServiceSpecificCredential API) and Update-IAMServiceSpecificCredential (UpdateServiceSpecificCredential API). 
+  * AWS Elastic Beanstalk
+    - Added a new cmdlet, Update-EBApplicationResourceLifecycle, to support the new UpdateApplicationVersionResourceLifecycle API.
+
 ### 3.3.34.0 (2016-12-22)
-  * ECR
+  * Amazon EC2 Container Registry
     - Updated cmdlets to support the service update to implement Docker Image Manifest V2, Schema 2 providing the ability to use multiple tags per image, support for storing Windows container images, and compatibility with the Open Container Initiative (OCI) image format. With this update, customers can also add tags to an image via PutImage and delete tags using BatchDeleteImage.
   * Amazon Relation Database Service
     - Updated the Copy-RDSDBSnapshot cmdlet to add support for cross region encrypted snapshot copying.

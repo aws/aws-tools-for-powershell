@@ -133,8 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>A list of operations that the grant permits. The list can contain any combination
-        /// of one or more of the following values:</para><ul><li><para><a>Decrypt</a></para></li><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li><li><para><a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html">ReEncryptFrom</a></para></li><li><para><a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html">ReEncryptTo</a></para></li><li><para><a>CreateGrant</a></para></li><li><para><a>RetireGrant</a></para></li><li><para><a>DescribeKey</a></para></li></ul>
+        /// <para>A list of operations that the grant permits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// of the CMK changes to <code>PendingDeletion</code>. Before the waiting period ends,
     /// you can use <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After the
     /// waiting period ends, AWS KMS deletes the CMK and all AWS KMS data associated with
-    /// it, including all aliases that point to it.
+    /// it, including all aliases that refer to it.
     /// 
     ///  <important><para>
     /// Deleting a CMK is a destructive and potentially dangerous operation. When a CMK is
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the customer master key (CMK) to delete.</para><para>To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of
-        /// the CMK. Examples:</para><ul><li><para>Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para></li><li><para>Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul><para>To obtain the unique key ID and key ARN for a given CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// the CMK. Examples:</para><ul><li><para>Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para></li><li><para>Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul><para>To obtain the unique key ID and key ARN for a given CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,21 +28,22 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Retires a grant. You can retire a grant when you're done using it to clean up. You
+    /// Retires a grant. To clean up, you can retire a grant when you're done using it. You
     /// should revoke a grant when you intend to actively deny operations that depend on it.
     /// The following are permitted to call this API:
     /// 
     ///  <ul><li><para>
-    /// The account that created the grant
+    /// The AWS account (root user) under which the grant was created
     /// </para></li><li><para>
-    /// The <code>RetiringPrincipal</code>, if present
+    /// The <code>RetiringPrincipal</code>, if present in the grant
     /// </para></li><li><para>
-    /// The <code>GranteePrincipal</code>, if <code>RetireGrant</code> is a grantee operation
+    /// The <code>GranteePrincipal</code>, if <code>RetireGrant</code> is an operation specified
+    /// in the grant
     /// </para></li></ul><para>
-    /// The grant to retire must be identified by its grant token or by a combination of the
-    /// key ARN and the grant ID. A grant token is a unique variable-length base64-encoded
-    /// string. A grant ID is a 64 character unique identifier of a grant. Both are returned
-    /// by the <code>CreateGrant</code> function.
+    /// You must identify the grant to retire by its grant token or by a combination of the
+    /// grant ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant
+    /// token is a unique variable-length base64-encoded string. A grant ID is a 64 character
+    /// unique identifier of a grant. The <a>CreateGrant</a> operation returns both.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GrantId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the grant to be retired. The grant ID is returned by the <code>CreateGrant</code>
-        /// function.</para><ul><li><para>Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123</para></li></ul>
+        /// <para>Unique identifier of the grant to retire. The grant ID is returned in the response
+        /// to a <code>CreateGrant</code> operation.</para><ul><li><para>Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key associated with the grant. This value
-        /// can be a globally unique identifier or a fully specified ARN of the key.</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li></ul>
+        /// <para>The Amazon Resource Name of the CMK associated with the grant. Example:</para><ul><li><para>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
