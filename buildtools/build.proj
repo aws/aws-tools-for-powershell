@@ -256,6 +256,16 @@
             AssemblyInfoPaths="modules\AWSPowerShell"
 			VersionNumber="$(AWSPowerShellVersionNumber)"
 			/>
+
+        <!-- emit the version data into a json file that gets uploaded to S3. EC2 then
+             reads this to know if it needs to update EC2 images during image prep.
+        -->
+        <PropertyGroup>
+            <VersionFileArgs>$(AWSPowerShellVersionNumber) $(Deployment)\awspowershell_versioninfo.json</VersionFileArgs>
+        </PropertyGroup>
+
+        <Exec LogStandardErrorAsError="true"
+              Command="$(powershell) -ExecutionPolicy Unrestricted -NoProfile -File $(MSBuildProjectDirectory)\WriteVersionsFile.ps1 $(VersionFileArgs)"/>			
 	</Target>
 
 	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
