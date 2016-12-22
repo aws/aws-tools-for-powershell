@@ -80,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String HttpMethod { get; set; }
         #endregion
         
+        #region Parameter OperationName
+        /// <summary>
+        /// <para>
+        /// <para>A human-friendly operation identifier for the method. For example, you can assign
+        /// the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code>
+        /// method in <a href="http://petstore-demo-endpoint.execute-api.com/petstore/pets">PetStore</a>
+        /// example.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OperationName { get; set; }
+        #endregion
+        
         #region Parameter RequestModel
         /// <summary>
         /// <para>
@@ -166,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.AuthorizationType = this.AuthorizationType;
             context.AuthorizerId = this.AuthorizerId;
             context.HttpMethod = this.HttpMethod;
+            context.OperationName = this.OperationName;
             if (this.RequestModel != null)
             {
                 context.RequestModels = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -215,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.HttpMethod != null)
             {
                 request.HttpMethod = cmdletContext.HttpMethod;
+            }
+            if (cmdletContext.OperationName != null)
+            {
+                request.OperationName = cmdletContext.OperationName;
             }
             if (cmdletContext.RequestModels != null)
             {
@@ -287,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String AuthorizationType { get; set; }
             public System.String AuthorizerId { get; set; }
             public System.String HttpMethod { get; set; }
+            public System.String OperationName { get; set; }
             public Dictionary<System.String, System.String> RequestModels { get; set; }
             public Dictionary<System.String, System.Boolean> RequestParameters { get; set; }
             public System.String ResourceId { get; set; }

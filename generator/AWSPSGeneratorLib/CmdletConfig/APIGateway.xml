@@ -78,6 +78,8 @@
     <ServiceOperation MethodName="GetResource" Output="Response" />
     <ServiceOperation MethodName="GetRestApi" Output="Response"/>
     <ServiceOperation MethodName="GetSdk" Output="Response" />
+    <ServiceOperation MethodName="GetSdkType" Output="Response" />
+    <ServiceOperation MethodName="GetSdkTypes" Noun="SdkTypeList"/>
     <ServiceOperation MethodName="GetStage" Output="Response" />
     <ServiceOperation MethodName="ImportDocumentationParts" Noun="DocumentationPartList" Output="Response" />
     <ServiceOperation MethodName="PutIntegration" Output="Response" ShouldProcessTarget="ResourceId">

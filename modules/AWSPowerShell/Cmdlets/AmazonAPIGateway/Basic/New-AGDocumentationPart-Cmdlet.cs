@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,
         /// <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and
         /// <code>RESPONSE_BODY</code>. The default value is <code>*</code> for any method. When
-        /// an applicable child API entity inherits the content of an entity of the same type
-        /// with more general specifications of the <code>location</code>, the child entity's
-        /// <code>method</code> attribute must match that of the parent entity exactly.</para>
+        /// an applicable child entity inherits the content of an entity of the same type with
+        /// more general specifications of the other <code>location</code> attributes, the child
+        /// entity's <code>method</code> attribute must match that of the parent entity exactly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,9 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,
         /// <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and
         /// <code>RESPONSE_BODY</code>. The default value is <code>/</code> for the root resource.
-        /// When an applicable child API entity inherits the content of an entity of the same
-        /// type with more general specifications of the <code>location</code>, the child entity's
-        /// <code>path</code> attribute must contain that of the parent entity as a prefix.</para>
+        /// When an applicable child entity inherits the content of another entity of the same
+        /// type with more general specifications of the other <code>location</code> attributes,
+        /// the child entity's <code>path</code> attribute must match that of the parent entity
+        /// as a prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>The HTTP status code of a response. It is a valid field for the API entity types of
         /// <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>.
         /// The default value is <code>*</code> for any status code. When an applicable child
-        /// API entity inherits the content of an entity of the same type with more general specifications
-        /// of the <code>location</code>, the child entity's <code>statusCode</code> attribute
-        /// must match that of the parent entity exactly.</para>
+        /// entity inherits the content of an entity of the same type with more general specifications
+        /// of the other <code>location</code> attributes, the child entity's <code>statusCode</code>
+        /// attribute must match that of the parent entity exactly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>,
         /// <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>.
         /// Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHROZER</code>,
-        /// <code>MODEL</code>, <code>METHOD</code>, or <code>RESOURCE</code> type.</para>
+        /// <code>MODEL</code>, or <code>RESOURCE</code> type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -1,3 +1,5 @@
+Set-Alias -Name AG-UpdateAuthorizer -Value Update-AGAuthorizer
+Set-Alias -Name AG-UpdateBasePathMapping -Value Update-AGBasePathMapping
 Set-Alias -Name AG-UpdateClientCertificate -Value Update-AGClientCertificate
 Set-Alias -Name AG-UpdateDeployment -Value Update-AGDeployment
 Set-Alias -Name AG-UpdateDocumentationPart -Value Update-AGDocumentationPart
@@ -20,6 +22,8 @@ Set-Alias -Name AG-GetResources -Value Get-AGResourceList
 Set-Alias -Name AG-GetRestApi -Value Get-AGRestApi
 Set-Alias -Name AG-GetRestApis -Value Get-AGRestApiList
 Set-Alias -Name AG-GetSdk -Value Get-AGSdk
+Set-Alias -Name AG-GetSdkType -Value Get-AGSdkType
+Set-Alias -Name AG-GetSdkTypes -Value Get-AGSdkTypeList
 Set-Alias -Name AG-GetStage -Value Get-AGStage
 Set-Alias -Name AG-GetStages -Value Get-AGStageList
 Set-Alias -Name AG-GetUsage -Value Get-AGUsage
@@ -44,8 +48,6 @@ Set-Alias -Name AG-TestInvokeAuthorizer -Value Test-AGInvokeAuthorizer
 Set-Alias -Name AG-TestInvokeMethod -Value Test-AGInvokeMethod
 Set-Alias -Name AG-UpdateAccount -Value Update-AGAccount
 Set-Alias -Name AG-UpdateApiKey -Value Update-AGApiKey
-Set-Alias -Name AG-UpdateAuthorizer -Value Update-AGAuthorizer
-Set-Alias -Name AG-UpdateBasePathMapping -Value Update-AGBasePathMapping
 Set-Alias -Name Delete-AGUsagePlan -Value Remove-AGUsagePlan
 Set-Alias -Name AG-DeleteUsagePlan -Value Remove-AGUsagePlan
 Set-Alias -Name Delete-AGUsagePlanKey -Value Remove-AGUsagePlanKey
