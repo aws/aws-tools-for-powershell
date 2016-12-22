@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AccessKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an access key.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters that can consist of any upper or lowercased letter or digit.</para>
+        /// <para>The identifier of an access key.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters that can consist of any upper or lowercased letter or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

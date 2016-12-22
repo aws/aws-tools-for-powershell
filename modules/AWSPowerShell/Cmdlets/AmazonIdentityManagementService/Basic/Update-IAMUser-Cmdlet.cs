@@ -57,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>New path for the IAM user. Include this parameter only if you're changing the user's
-        /// path.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of either a forward slash (/) by itself or a
-        /// string that must begin and end with forward slashes, containing any ASCII character
-        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// path.</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of either a forward slash (/) by itself or a string
+        /// that must begin and end with forward slashes, containing any ASCII character from
+        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
         /// digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NewUserName
         /// <summary>
         /// <para>
-        /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Name of the user to update. If you're changing the name of the user, this is the original
-        /// user name.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// user name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

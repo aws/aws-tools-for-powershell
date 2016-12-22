@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the role to list policies for.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The name of the role to list policies for.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,13 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Use this only when paginating results to indicate the maximum number of items you
-        /// want in the response. If additional items exist beyond the maximum you specify, the
-        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
-        /// IAM might return fewer results, even when there are more results available. In that
-        /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
-        /// <code>Marker</code> contains a value to include in the subsequent call that tells
-        /// the service where to continue from.</para>
+        /// <para>(Optional) Use this only when paginating results to indicate the maximum number of
+        /// items you want in the response. If additional items exist beyond the maximum you specify,
+        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, it defaults to 100. Note that IAM might return
+        /// fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
+        /// response element returns <code>true</code> and <code>Marker</code> contains a value
+        /// to include in the subsequent call that tells the service where to continue from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

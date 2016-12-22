@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose password you want to delete.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The name of the user whose password you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

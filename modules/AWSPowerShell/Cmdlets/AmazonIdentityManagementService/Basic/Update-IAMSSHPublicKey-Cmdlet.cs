@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter SSHPublicKeyId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the SSH public key.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters that can consist of any upper or lowercased letter or digit.</para>
+        /// <para>The unique identifier for the SSH public key.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters that can consist of any upper or lowercased letter or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM user associated with the SSH public key.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The name of the IAM user associated with the SSH public key.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

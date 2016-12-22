@@ -2481,6 +2481,7 @@ $IAM_Completers = {
         # Amazon.IdentityManagement.StatusType
         {
             ($_ -eq "Update-IAMAccessKey/Status") -Or
+            ($_ -eq "Update-IAMServiceSpecificCredential/Status") -Or
             ($_ -eq "Update-IAMSigningCertificate/Status") -Or
             ($_ -eq "Update-IAMSSHPublicKey/Status")
         }
@@ -2501,7 +2502,7 @@ $IAM_map = @{
     "Encoding"=@("Get-IAMSSHPublicKey")
     "EntityFilter"=@("Get-IAMEntitiesForPolicy")
     "Scope"=@("Get-IAMPolicies")
-    "Status"=@("Update-IAMAccessKey","Update-IAMSigningCertificate","Update-IAMSSHPublicKey")
+    "Status"=@("Update-IAMAccessKey","Update-IAMServiceSpecificCredential","Update-IAMSigningCertificate","Update-IAMSSHPublicKey")
 }
 
 _awsArgumentCompleterRegistration $IAM_Completers $IAM_map

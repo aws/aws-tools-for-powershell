@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Name of the IAM group to update. If you're changing the name of the group, this is
-        /// the original name.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// the original name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NewGroupName
         /// <summary>
         /// <para>
-        /// <para>New name for the IAM group. Only include this if changing the group's name.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>New name for the IAM group. Only include this if changing the group's name.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -80,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter NewPath
         /// <summary>
         /// <para>
-        /// <para>New path for the IAM group. Only include this if changing the group's path.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of either a forward slash (/) by itself or a
-        /// string that must begin and end with forward slashes, containing any ASCII character
-        /// from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
+        /// <para>New path for the IAM group. Only include this if changing the group's path.</para><para>This paramater allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of either a forward slash (/) by itself or a string
+        /// that must begin and end with forward slashes, containing any ASCII character from
+        /// the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters,
         /// digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>

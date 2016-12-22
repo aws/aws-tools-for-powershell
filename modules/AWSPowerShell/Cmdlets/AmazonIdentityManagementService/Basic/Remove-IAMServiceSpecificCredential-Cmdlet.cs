@@ -28,54 +28,47 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the specified inline policy that is embedded in the specified IAM group.
-    /// 
-    ///  
-    /// <para>
-    /// A group can also have managed policies attached to it. To detach a managed policy
-    /// from a group, use <a>DetachGroupPolicy</a>. For more information about policies, refer
-    /// to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
-    /// </para>
+    /// Deletes the specified service-specific credential.
     /// </summary>
-    [Cmdlet("Remove", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteGroupPolicy operation against AWS Identity and Access Management.", Operation = new[] {"DeleteGroupPolicy"})]
+    [AWSCmdlet("Invokes the DeleteServiceSpecificCredential operation against AWS Identity and Access Management.", Operation = new[] {"DeleteServiceSpecificCredential"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteGroupPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceSpecificCredentialId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IdentityManagement.Model.DeleteServiceSpecificCredentialResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveIAMGroupPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class RemoveIAMServiceSpecificCredentialCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter GroupName
+        #region Parameter ServiceSpecificCredentialId
         /// <summary>
         /// <para>
-        /// <para>The name (friendly name, not ARN) identifying the group that the policy is embedded
-        /// in.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The unique identifier of the service-specific credential. You can get this value by
+        /// calling <a>ListServiceSpecificCredentials</a>.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters that can consist of any upper or lowercased letter or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GroupName { get; set; }
+        public System.String ServiceSpecificCredentialId { get; set; }
         #endregion
         
-        #region Parameter PolicyName
+        #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name identifying the policy document to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// <para>The name of the IAM user associated with the service-specific credential. If this
+        /// value is not specified, then the operation assumes the user whose credentials are
+        /// used to call the operation.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
         /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String PolicyName { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserName { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the GroupName parameter.
+        /// Returns the value passed to the ServiceSpecificCredentialId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PolicyName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMGroupPolicy (DeleteGroupPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ServiceSpecificCredentialId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMServiceSpecificCredential (DeleteServiceSpecificCredential)"))
             {
                 return;
             }
@@ -111,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GroupName = this.GroupName;
-            context.PolicyName = this.PolicyName;
+            context.ServiceSpecificCredentialId = this.ServiceSpecificCredentialId;
+            context.UserName = this.UserName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.DeleteGroupPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteServiceSpecificCredentialRequest();
             
-            if (cmdletContext.GroupName != null)
+            if (cmdletContext.ServiceSpecificCredentialId != null)
             {
-                request.GroupName = cmdletContext.GroupName;
+                request.ServiceSpecificCredentialId = cmdletContext.ServiceSpecificCredentialId;
             }
-            if (cmdletContext.PolicyName != null)
+            if (cmdletContext.UserName != null)
             {
-                request.PolicyName = cmdletContext.PolicyName;
+                request.UserName = cmdletContext.UserName;
             }
             
             CmdletOutput output;
@@ -148,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.GroupName;
+                    pipelineOutput = this.ServiceSpecificCredentialId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -173,13 +166,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteGroupPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteGroupPolicyRequest request)
+        private static Amazon.IdentityManagement.Model.DeleteServiceSpecificCredentialResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteServiceSpecificCredentialRequest request)
         {
             #if DESKTOP
-            return client.DeleteGroupPolicy(request);
+            return client.DeleteServiceSpecificCredential(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteGroupPolicyAsync(request);
+            var task = client.DeleteServiceSpecificCredentialAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -190,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String GroupName { get; set; }
-            public System.String PolicyName { get; set; }
+            public System.String ServiceSpecificCredentialId { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

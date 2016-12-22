@@ -2001,7 +2001,12 @@ Set-Alias -Name HSM-ModifyHsm -Value Edit-HSMItem
 Set-Alias -Name Modify-HSMLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-ModifyLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-RemoveTagsFromResource -Value Remove-HSMResourceTag
+Set-Alias -Name IAM-UpdateGroup -Value Update-IAMGroup
+Set-Alias -Name IAM-UpdateLoginProfile -Value Update-IAMLoginProfile
+Set-Alias -Name IAM-UpdateOpenIDConnectProviderThumbprint -Value Update-IAMOpenIDConnectProviderThumbprint
+Set-Alias -Name IAM-UpdateSAMLProvider -Value Update-IAMSAMLProvider
 Set-Alias -Name IAM-UpdateServerCertificate -Value Update-IAMServerCertificate
+Set-Alias -Name IAM-UpdateServiceSpecificCredential -Value Update-IAMServiceSpecificCredential
 Set-Alias -Name IAM-UpdateSigningCertificate -Value Update-IAMSigningCertificate
 Set-Alias -Name IAM-UpdateSSHPublicKey -Value Update-IAMSSHPublicKey
 Set-Alias -Name IAM-UpdateUser -Value Update-IAMUser
@@ -2011,6 +2016,10 @@ Set-Alias -Name Upload-IAMSigningCertificate -Value Publish-IAMSigningCertificat
 Set-Alias -Name IAM-UploadSigningCertificate -Value Publish-IAMSigningCertificate
 Set-Alias -Name Upload-IAMSSHPublicKey -Value Publish-IAMSSHPublicKey
 Set-Alias -Name IAM-UploadSSHPublicKey -Value Publish-IAMSSHPublicKey
+Set-Alias -Name List-IAMPolicies -Value Get-IAMPolicies
+Set-Alias -Name IAM-ListPolicies -Value Get-IAMPolicies
+Set-Alias -Name List-IAMPolicyVersions -Value Get-IAMPolicyVersions
+Set-Alias -Name IAM-ListPolicyVersions -Value Get-IAMPolicyVersions
 Set-Alias -Name List-IAMRolePolicies -Value Get-IAMRolePolicies
 Set-Alias -Name IAM-ListRolePolicies -Value Get-IAMRolePolicies
 Set-Alias -Name List-IAMRoles -Value Get-IAMRoles
@@ -2019,6 +2028,7 @@ Set-Alias -Name List-IAMSAMLProviders -Value Get-IAMSAMLProviders
 Set-Alias -Name IAM-ListSAMLProviders -Value Get-IAMSAMLProviders
 Set-Alias -Name List-IAMServerCertificates -Value Get-IAMServerCertificates
 Set-Alias -Name IAM-ListServerCertificates -Value Get-IAMServerCertificates
+Set-Alias -Name IAM-ListServiceSpecificCredentials -Value Get-IAMServiceSpecificCredentialList
 Set-Alias -Name List-IAMSigningCertificates -Value Get-IAMSigningCertificate
 Set-Alias -Name IAM-ListSigningCertificates -Value Get-IAMSigningCertificate
 Set-Alias -Name List-IAMSSHPublicKeyList -Value Get-IAMSSHPublicKeyList
@@ -2038,6 +2048,7 @@ Set-Alias -Name IAM-PutUserPolicy -Value Write-IAMUserPolicy
 Set-Alias -Name IAM-RemoveClientIDFromOpenIDConnectProvider -Value Remove-IAMClientIDFromOpenIDConnectProvider
 Set-Alias -Name IAM-RemoveRoleFromInstanceProfile -Value Remove-IAMRoleFromInstanceProfile
 Set-Alias -Name IAM-RemoveUserFromGroup -Value Remove-IAMUserFromGroup
+Set-Alias -Name IAM-ResetServiceSpecificCredential -Value Reset-IAMServiceSpecificCredential
 Set-Alias -Name Resync-IAMMFADevice -Value Sync-IAMMFADevice
 Set-Alias -Name IAM-ResyncMFADevice -Value Sync-IAMMFADevice
 Set-Alias -Name IAM-SetDefaultPolicyVersion -Value Set-IAMDefaultPolicyVersion
@@ -2048,10 +2059,8 @@ Set-Alias -Name IAM-SimulatePrincipalPolicy -Value Test-IAMPrincipalPolicy
 Set-Alias -Name IAM-UpdateAccessKey -Value Update-IAMAccessKey
 Set-Alias -Name IAM-UpdateAccountPasswordPolicy -Value Update-IAMAccountPasswordPolicy
 Set-Alias -Name IAM-UpdateAssumeRolePolicy -Value Update-IAMAssumeRolePolicy
-Set-Alias -Name IAM-UpdateGroup -Value Update-IAMGroup
-Set-Alias -Name IAM-UpdateLoginProfile -Value Update-IAMLoginProfile
-Set-Alias -Name IAM-UpdateOpenIDConnectProviderThumbprint -Value Update-IAMOpenIDConnectProviderThumbprint
-Set-Alias -Name IAM-UpdateSAMLProvider -Value Update-IAMSAMLProvider
+Set-Alias -Name IAM-GetGroupPolicy -Value Get-IAMGroupPolicy
+Set-Alias -Name IAM-GetInstanceProfile -Value Get-IAMInstanceProfile
 Set-Alias -Name IAM-GetLoginProfile -Value Get-IAMLoginProfile
 Set-Alias -Name IAM-GetOpenIDConnectProvider -Value Get-IAMOpenIDConnectProvider
 Set-Alias -Name IAM-GetPolicy -Value Get-IAMPolicy
@@ -2089,10 +2098,8 @@ Set-Alias -Name List-IAMMFADevices -Value Get-IAMMFADevice
 Set-Alias -Name IAM-ListMFADevices -Value Get-IAMMFADevice
 Set-Alias -Name List-IAMOpenIDConnectProviders -Value Get-IAMOpenIDConnectProviders
 Set-Alias -Name IAM-ListOpenIDConnectProviders -Value Get-IAMOpenIDConnectProviders
-Set-Alias -Name List-IAMPolicies -Value Get-IAMPolicies
-Set-Alias -Name IAM-ListPolicies -Value Get-IAMPolicies
-Set-Alias -Name List-IAMPolicyVersions -Value Get-IAMPolicyVersions
-Set-Alias -Name IAM-ListPolicyVersions -Value Get-IAMPolicyVersions
+Set-Alias -Name Delete-IAMOpenIDConnectProvider -Value Remove-IAMOpenIDConnectProvider
+Set-Alias -Name IAM-DeleteOpenIDConnectProvider -Value Remove-IAMOpenIDConnectProvider
 Set-Alias -Name Delete-IAMPolicy -Value Remove-IAMPolicy
 Set-Alias -Name IAM-DeletePolicy -Value Remove-IAMPolicy
 Set-Alias -Name Delete-IAMPolicyVersion -Value Remove-IAMPolicyVersion
@@ -2105,6 +2112,8 @@ Set-Alias -Name Delete-IAMSAMLProvider -Value Remove-IAMSAMLProvider
 Set-Alias -Name IAM-DeleteSAMLProvider -Value Remove-IAMSAMLProvider
 Set-Alias -Name Delete-IAMServerCertificate -Value Remove-IAMServerCertificate
 Set-Alias -Name IAM-DeleteServerCertificate -Value Remove-IAMServerCertificate
+Set-Alias -Name Delete-IAMServiceSpecificCredential -Value Remove-IAMServiceSpecificCredential
+Set-Alias -Name IAM-DeleteServiceSpecificCredential -Value Remove-IAMServiceSpecificCredential
 Set-Alias -Name Delete-IAMSigningCertificate -Value Remove-IAMSigningCertificate
 Set-Alias -Name IAM-DeleteSigningCertificate -Value Remove-IAMSigningCertificate
 Set-Alias -Name Delete-IAMSSHPublicKey -Value Remove-IAMSSHPublicKey
@@ -2127,8 +2136,6 @@ Set-Alias -Name IAM-GetAccountSummary -Value Get-IAMAccountSummary
 Set-Alias -Name IAM-GetContextKeysForCustomPolicy -Value Get-IAMContextKeysForCustomPolicy
 Set-Alias -Name IAM-GetContextKeysForPrincipalPolicy -Value Get-IAMContextKeysForPrincipalPolicy
 Set-Alias -Name IAM-GetGroup -Value Get-IAMGroup
-Set-Alias -Name IAM-GetGroupPolicy -Value Get-IAMGroupPolicy
-Set-Alias -Name IAM-GetInstanceProfile -Value Get-IAMInstanceProfile
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider
 Set-Alias -Name IAM-AddRoleToInstanceProfile -Value Add-IAMRoleToInstanceProfile
 Set-Alias -Name IAM-AddUserToGroup -Value Add-IAMUserToGroup
@@ -2157,6 +2164,8 @@ Set-Alias -Name Create-IAMRole -Value New-IAMRole
 Set-Alias -Name IAM-CreateRole -Value New-IAMRole
 Set-Alias -Name Create-IAMSAMLProvider -Value New-IAMSAMLProvider
 Set-Alias -Name IAM-CreateSAMLProvider -Value New-IAMSAMLProvider
+Set-Alias -Name Create-IAMServiceSpecificCredential -Value New-IAMServiceSpecificCredential
+Set-Alias -Name IAM-CreateServiceSpecificCredential -Value New-IAMServiceSpecificCredential
 Set-Alias -Name Create-IAMUser -Value New-IAMUser
 Set-Alias -Name IAM-CreateUser -Value New-IAMUser
 Set-Alias -Name Create-IAMVirtualMFADevice -Value New-IAMVirtualMFADevice
@@ -2177,8 +2186,6 @@ Set-Alias -Name Delete-IAMInstanceProfile -Value Remove-IAMInstanceProfile
 Set-Alias -Name IAM-DeleteInstanceProfile -Value Remove-IAMInstanceProfile
 Set-Alias -Name Delete-IAMLoginProfile -Value Remove-IAMLoginProfile
 Set-Alias -Name IAM-DeleteLoginProfile -Value Remove-IAMLoginProfile
-Set-Alias -Name Delete-IAMOpenIDConnectProvider -Value Remove-IAMOpenIDConnectProvider
-Set-Alias -Name IAM-DeleteOpenIDConnectProvider -Value Remove-IAMOpenIDConnectProvider
 Set-Alias -Name Cancel-IEJob -Value Stop-IEJob
 Set-Alias -Name IE-CancelJob -Value Stop-IEJob
 Set-Alias -Name Create-IEJob -Value New-IEJob

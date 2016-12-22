@@ -68,11 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The JSON policy document that you want to use as the content for this new version
-        /// of the policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of any printable ASCII character ranging from
-        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
-        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
-        /// return (\u000D).</para>
+        /// of the policy.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of any printable ASCII character ranging from the
+        /// space character (\u0020) through end of the ASCII character range (\u00FF). It also
+        /// includes the special characters tab (\u0009), line feed (\u000A), and carriage return
+        /// (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

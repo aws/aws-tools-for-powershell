@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The policy that grants an entity permission to assume the role.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of any printable ASCII character ranging from
-        /// the space character (\u0020) through end of the ASCII character range (\u00FF). It
-        /// also includes the special characters tab (\u0009), line feed (\u000A), and carriage
-        /// return (\u000D).</para>
+        /// <para>The policy that grants an entity permission to assume the role.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of any printable ASCII character ranging from the
+        /// space character (\u0020) through end of the ASCII character range (\u00FF). It also
+        /// includes the special characters tab (\u0009), line feed (\u000A), and carriage return
+        /// (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the role to update with the new policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter
-        /// is a string of characters consisting of upper and lowercase alphanumeric characters
-        /// with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// <para>The name of the role to update with the new policy.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// a string of characters consisting of upper and lowercase alphanumeric characters with
+        /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

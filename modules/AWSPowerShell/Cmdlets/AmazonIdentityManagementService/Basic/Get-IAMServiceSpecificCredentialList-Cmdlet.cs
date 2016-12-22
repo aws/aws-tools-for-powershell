@@ -28,41 +28,40 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Deletes the access key pair associated with the specified IAM user.
-    /// 
-    ///  
-    /// <para>
-    /// If you do not specify a user name, IAM determines the user name implicitly based on
-    /// the AWS access key ID signing the request. Because this action works for access keys
-    /// under the AWS account, you can use this action to manage root credentials even if
-    /// the AWS account has no associated users.
-    /// </para>
+    /// Returns information about the service-specific credentials associated with the specified
+    /// IAM user. If there are none, the action returns an empty list. The service-specific
+    /// credentials returned by this action are used only for authenticating the IAM user
+    /// to a specific service. For more information about using service-specific credentials
+    /// to authenticate to an AWS service, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set
+    /// Up service-specific credentials</a> in the AWS CodeCommit User Guide.
     /// </summary>
-    [Cmdlet("Remove", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteAccessKey operation against AWS Identity and Access Management.", Operation = new[] {"DeleteAccessKey"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IdentityManagement.Model.DeleteAccessKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IAMServiceSpecificCredentialList")]
+    [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredentialMetadata")]
+    [AWSCmdlet("Invokes the ListServiceSpecificCredentials operation against AWS Identity and Access Management.", Operation = new[] {"ListServiceSpecificCredentials"})]
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServiceSpecificCredentialMetadata",
+        "This cmdlet returns a collection of ServiceSpecificCredentialMetadata objects.",
+        "The service call response (type Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveIAMAccessKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public partial class GetIAMServiceSpecificCredentialListCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter AccessKeyId
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The access key ID for the access key ID and secret access key you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters that can consist of any upper or lowercased letter or digit.</para>
+        /// <para>Filters the returned results to only those for the specified AWS service. If not specified,
+        /// then AWS returns service-specific credentials for all services.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String AccessKeyId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String ServiceName { get; set; }
         #endregion
         
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose access key pair you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+        /// <para>The name of the user whose service-specific credentials you want information about.
+        /// If this value is not specified then the operation assumes the user whose credentials
+        /// are used to call the operation.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
         /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
@@ -71,34 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String UserName { get; set; }
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the UserName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AccessKeyId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IAMAccessKey (DeleteAccessKey)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -109,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AccessKeyId = this.AccessKeyId;
+            context.ServiceName = this.ServiceName;
             context.UserName = this.UserName;
             
             // allow further manipulation of loaded context prior to processing
@@ -125,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IdentityManagement.Model.DeleteAccessKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsRequest();
             
-            if (cmdletContext.AccessKeyId != null)
+            if (cmdletContext.ServiceName != null)
             {
-                request.AccessKeyId = cmdletContext.AccessKeyId;
+                request.ServiceName = cmdletContext.ServiceName;
             }
             if (cmdletContext.UserName != null)
             {
@@ -144,9 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.UserName;
+                object pipelineOutput = response.ServiceSpecificCredentials;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -171,13 +143,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteAccessKeyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteAccessKeyRequest request)
+        private static Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsRequest request)
         {
             #if DESKTOP
-            return client.DeleteAccessKey(request);
+            return client.ListServiceSpecificCredentials(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteAccessKeyAsync(request);
+            var task = client.ListServiceSpecificCredentialsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -188,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AccessKeyId { get; set; }
+            public System.String ServiceName { get; set; }
             public System.String UserName { get; set; }
         }
         
