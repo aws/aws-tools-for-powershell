@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class GetECRImageBatchCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        #region Parameter AcceptedMediaType
+        /// <summary>
+        /// <para>
+        /// <para>The accepted media types for the request.</para><para>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> |
+        /// <code>application/vnd.docker.distribution.manifest.v2+json</code> | <code>application/vnd.oci.image.manifest.v1+json</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AcceptedMediaTypes")]
+        public System.String[] AcceptedMediaType { get; set; }
+        #endregion
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>
@@ -86,6 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AcceptedMediaType != null)
+            {
+                context.AcceptedMediaTypes = new List<System.String>(this.AcceptedMediaType);
+            }
             if (this.ImageId != null)
             {
                 context.ImageIds = new List<Amazon.ECR.Model.ImageIdentifier>(this.ImageId);
@@ -108,6 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // create request
             var request = new Amazon.ECR.Model.BatchGetImageRequest();
             
+            if (cmdletContext.AcceptedMediaTypes != null)
+            {
+                request.AcceptedMediaTypes = cmdletContext.AcceptedMediaTypes;
+            }
             if (cmdletContext.ImageIds != null)
             {
                 request.ImageIds = cmdletContext.ImageIds;
@@ -171,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> AcceptedMediaTypes { get; set; }
             public List<Amazon.ECR.Model.ImageIdentifier> ImageIds { get; set; }
             public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }
