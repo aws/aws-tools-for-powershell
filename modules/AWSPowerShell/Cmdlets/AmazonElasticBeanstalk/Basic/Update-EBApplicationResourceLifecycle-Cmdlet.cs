@@ -28,24 +28,21 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Creates an application that has one configuration template named <code>default</code>
-    /// and no application versions.
+    /// Modifies lifecycle settings for an application.
     /// </summary>
-    [Cmdlet("New", "EBApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationDescription")]
-    [AWSCmdlet("Invokes the CreateApplication operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateApplication"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription",
-        "This cmdlet returns a ApplicationDescription object.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "EBApplicationResourceLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse")]
+    [AWSCmdlet("Invokes the UpdateApplicationResourceLifecycle operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateApplicationResourceLifecycle"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse",
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class UpdateEBApplicationResourceLifecycleCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application.</para><para>Constraint: This name must be unique within your account. If the specified name already
-        /// exists, the action returns an <code>InvalidParameterValue</code> error.</para>
+        /// <para>The name of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,16 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_DeleteSourceFromS3")]
         public System.Boolean MaxCountRule_DeleteSourceFromS3 { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>Describes the application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String Description { get; set; }
         #endregion
         
         #region Parameter MaxAgeRule_Enabled
@@ -155,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EBApplication (CreateApplication)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EBApplicationResourceLifecycle (UpdateApplicationResourceLifecycle)"))
             {
                 return;
             }
@@ -170,7 +157,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             PreExecutionContextLoad(context);
             
             context.ApplicationName = this.ApplicationName;
-            context.Description = this.Description;
             context.ResourceLifecycleConfig_ServiceRole = this.ResourceLifecycleConfig_ServiceRole;
             if (ParameterWasBound("MaxAgeRule_DeleteSourceFromS3"))
                 context.ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_DeleteSourceFromS3 = this.MaxAgeRule_DeleteSourceFromS3;
@@ -198,15 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticBeanstalk.Model.CreateApplicationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
             }
             
              // populate ResourceLifecycleConfig
@@ -341,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Application;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -366,13 +348,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.CreateApplicationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CreateApplicationRequest request)
+        private static Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleRequest request)
         {
             #if DESKTOP
-            return client.CreateApplication(request);
+            return client.UpdateApplicationResourceLifecycle(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateApplicationAsync(request);
+            var task = client.UpdateApplicationResourceLifecycleAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -384,7 +366,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
-            public System.String Description { get; set; }
             public System.String ResourceLifecycleConfig_ServiceRole { get; set; }
             public System.Boolean? ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_DeleteSourceFromS3 { get; set; }
             public System.Boolean? ResourceLifecycleConfig_VersionLifecycleConfig_MaxAgeRule_Enabled { get; set; }

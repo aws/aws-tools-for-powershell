@@ -346,6 +346,7 @@ Set-Alias -Name EB-SwapEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name Terminate-EBEnvironment -Value Stop-EBEnvironment
 Set-Alias -Name EB-TerminateEnvironment -Value Stop-EBEnvironment
 Set-Alias -Name EB-UpdateApplication -Value Update-EBApplication
+Set-Alias -Name EB-UpdateApplicationResourceLifecycle -Value Update-EBApplicationResourceLifecycle
 Set-Alias -Name EB-UpdateApplicationVersion -Value Update-EBApplicationVersion
 Set-Alias -Name EB-UpdateConfigurationTemplate -Value Update-EBConfigurationTemplate
 Set-Alias -Name EB-UpdateEnvironment -Value Update-EBEnvironment

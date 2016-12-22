@@ -105,6 +105,9 @@
     <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Output="Void" PipelineParameter="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName"/>
     <ServiceOperation MethodName="TerminateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;TerminateResources"/>
     <ServiceOperation MethodName="UpdateApplication" PositionalParameters="Description"/>
+
+    <ServiceOperation MethodName="UpdateApplicationResourceLifecycle" Output="Response" />
+    
     <ServiceOperation MethodName="UpdateApplicationVersion" PositionalParameters="VersionLabel;Description"/>
     <ServiceOperation MethodName="UpdateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove"/>
     <ServiceOperation MethodName="UpdateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description"/>
