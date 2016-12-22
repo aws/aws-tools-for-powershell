@@ -1,3 +1,19 @@
+### 3.3.34.0 (2016-12-22)
+  * ECR
+    - Updated cmdlets to support the service update to implement Docker Image Manifest V2, Schema 2 providing the ability to use multiple tags per image, support for storing Windows container images, and compatibility with the Open Container Initiative (OCI) image format. With this update, customers can also add tags to an image via PutImage and delete tags using BatchDeleteImage.
+  * Amazon Relation Database Service
+    - Updated the Copy-RDSDBSnapshot cmdlet to add support for cross region encrypted snapshot copying.
+
+### 3.3.33.1 (2016-12-20)
+  (This version was only released as part of the combined AWS SDK and Tools Windows Installer, and not published to the PowerShell Gallery.)
+  * Bug fix: Fixed issue with finding shared credentials file in user's home folder via %USERPROFILE% on some systems.
+  * Amazon Kinesis Firehose
+    - Extended the New-KINFDeliveryStream and Update-KINFDestination cmdlets to support the new service capability enabling users to process and modify records before Amazon Firehose delivers them to destinations.
+  * Amazon Route53
+    - Added enumeration completion for the new eu-west-2 and ca-central-1 regions.
+  * AWS Storage Gateway
+    - Added cmdlets to support the new File Gateway mode. File gateway is a new mode that supports a file interface into S3, alongside the current block-based volume and VTL storage. File gateway combines a service and virtual software appliance, enabling you to store and retrieve objects in Amazon S3 using industry standard file protocols such as NFS. The software appliance, or gateway, is deployed into your on-premises environment as a virtual machine (VM) running on VMware ESXi. The gateway provides access to objects in S3 as files on a Network File System (NFS) mount point. The new cmdlets are Get-SGFileShareList (ListFileShares API), Get-SGNFSFileShareList (DescribeNFSFileShares API), New-SGNFSFileShare (CreateNFSFileShare API), Remove-SGFileShare (DeleteFileShare API) and Update-SGNFSFileShare (UpdateNFSFileShare API). The existing New-SGCachediSCSIVolume cmdlet was also updated with a new parameter, -SourceVolumeARN, as part of this feature.
+
 ### 3.3.32.0 (2016-12-19)
   * AWS Application Discovery Service
     - Added cmdlets to support new APIs for grouping discovered servers into Applications with summary and neighbor data. Added support for additional filters enabled on the service's ListConfigurations and DescribeAgents APIs.
