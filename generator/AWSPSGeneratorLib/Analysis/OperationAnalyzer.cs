@@ -515,8 +515,7 @@ namespace AWSPowerShellGenerator.Analysis
             else
                 propertyTypeFullName = property.PropertyType.FullName;
 
-            if (AllModels.TypesNotToFlatten.Contains(propertyTypeFullName, StringComparer.Ordinal))
-                shouldFlatten = false;
+            shouldFlatten = ShouldFlattenType(propertyTypeFullName);
 
             var propertyTypeName = GetPropertyTypeName(property.Name, property.PropertyType);
             var simpleProperty = new SimplePropertyInfo(property,
@@ -575,6 +574,23 @@ namespace AWSPowerShellGenerator.Analysis
                 }
             }
             return simpleProperty;
+        }
+
+        /// <summary>
+        /// Checks to see if the specified type has been designated as non-flattenable. By
+        /// default we flatten all complex types to individual parameters during codegen.
+        /// </summary>
+        /// <param name="propertyTypeFullName">The full typename of the property being considered</param>
+        /// <returns>True if the type can be flattened, false if we should emit a parameter of complex type.</returns>
+        public bool ShouldFlattenType(string propertyTypeFullName)
+        {
+            if (this.CurrentModel.TypesNotToFlatten.Contains(propertyTypeFullName, StringComparer.Ordinal))
+                return false;
+
+            if (AllModels.TypesNotToFlatten.Contains(propertyTypeFullName, StringComparer.Ordinal))
+                return false;
+
+            return true;
         }
 
         public static bool IsEmitLimiter(string propertyName, AutoIteration autoIterationSettings, string methodName)

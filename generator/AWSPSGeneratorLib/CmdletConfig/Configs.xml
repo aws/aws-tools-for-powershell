@@ -106,13 +106,6 @@
     <Type>System.IO.MemoryStream</Type>
     <Type>System.Collections.Generic.List`1</Type>
     <Type>System.Collections.Generic.Dictionary`2</Type>
-    <Type>Amazon.CodePipeline.Model.PipelineDeclaration</Type>
-    <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate</Type>
-    <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
-    <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate</Type>
   </TypesNotToFlatten>
 
   <MetadataProperties>

@@ -58,8 +58,10 @@ namespace AWSPowerShellGenerator.CmdletConfig
         }
 
         /// <summary>
-        /// Member types that we should not attempt to flatten to 'typename_membername' during
-        /// codegen
+        /// Global list of member types that we should not attempt to flatten to 'typename_membername' during
+        /// codegen. The global list should really be restricted to just types external to AWS services - 
+        /// non-flatting types at the service level can be declared in the service config files, and are fused
+        /// with this collection automatically.
         /// </summary>
         [XmlArray("TypesNotToFlatten")]
         [XmlArrayItem("Type")]
@@ -641,6 +643,16 @@ namespace AWSPowerShellGenerator.CmdletConfig
                 return _requiresAnonymousServiceCmdletClass.Value;
             }
         }
+
+        /// <summary>
+        /// Service-specific collection of type names that will not be flattened
+        /// during parameter generation. This collection is fused with the global
+        /// collection automatically during codegen.
+        /// </summary>
+        [XmlArray("TypesNotToFlatten")]
+        [XmlArrayItem("Type")]
+        public List<string> TypesNotToFlatten { get; set; }
+
         #endregion
 
         #region Generated Output Properties
@@ -682,6 +694,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public ConfigModel()
         {
             ArgumentCompleters = new ArgumentCompleterDetails();
+            TypesNotToFlatten = new List<string>();
         }
     }
 
