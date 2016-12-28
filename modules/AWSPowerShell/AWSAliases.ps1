@@ -3562,7 +3562,7 @@ Set-Alias -Name SSM-GetMaintenanceWindow -Value Get-SSMMaintenanceWindow
 Set-Alias -Name SSM-GetMaintenanceWindowExecution -Value Get-SSMMaintenanceWindowExecution
 Set-Alias -Name SSM-GetMaintenanceWindowExecutionTask -Value Get-SSMMaintenanceWindowExecutionTask
 Set-Alias -Name SSM-GetParameterHistory -Value Get-SSMParameterHistory
-Set-Alias -Name SSM-GetParameters -Value Get-SSMParameterNameList
+Set-Alias -Name SSM-GetParameters -Value Get-SSMParameterValue
 Set-Alias -Name SSM-GetPatchBaseline -Value Get-SSMPatchBaselineDetail
 Set-Alias -Name SSM-AddTagsToResource -Value Add-SSMResourceTag
 Set-Alias -Name Cancel-SSMCommand -Value Stop-SSMCommand

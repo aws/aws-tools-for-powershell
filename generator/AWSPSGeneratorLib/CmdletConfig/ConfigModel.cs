@@ -964,6 +964,22 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlAttribute]
         public bool RemapMemoryStreamParameters { get; set; }
 
+        /// <summary>
+        /// <para>
+        /// If specified, the legacy cmdlet name for which a Set-Alias entry will be added to
+        /// the AWSPowerShellLegacyAliases.psm1 file during generation. 
+        /// </para>
+        /// <para>
+        /// This mechanism allows us to rename cmdlets going forward without introducing a 
+        /// breaking change (the psm1 file is auto-loaded when our module loads). The value 
+        /// of the attribute is the old name of the cmdlet - this will be used as the -Name 
+        /// value to the Set-Alias cmdlet. The -Value for Set-Alias will be the current name 
+        /// of the cmdlet.
+        /// </para>
+        /// </summary>
+        [XmlAttribute]
+        public string LegacyAlias { get; set; }
+
         #region Data constructed during generation
 
         /// <summary>

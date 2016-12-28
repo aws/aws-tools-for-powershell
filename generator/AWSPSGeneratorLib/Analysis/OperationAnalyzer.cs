@@ -467,6 +467,12 @@ namespace AWSPowerShellGenerator.Analysis
             DeterminePassThruRequirement(generator);
             TestForCollectablePipelineParameter(generator);
 
+            if (!string.IsNullOrEmpty(CurrentOperation.LegacyAlias))
+            {
+                generator.AddLegacyAlias(CurrentOperation.LegacyAlias,
+                                         string.Format("{0}-{1}", CurrentOperation.SelectedVerb, CurrentOperation.SelectedNoun));
+            }
+
             LogAnalysisResults();
         }
 

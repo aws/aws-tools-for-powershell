@@ -189,6 +189,8 @@
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1"
               DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellLegacyAliases.psm1"
+              DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
     </Target>
 
@@ -225,6 +227,8 @@
 		<Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1"
         	  DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 			
+		<Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellLegacyAliases.psm1"
+        	  DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 	
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
