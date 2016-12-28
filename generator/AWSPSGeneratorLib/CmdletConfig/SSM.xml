@@ -69,7 +69,7 @@
     <ServiceOperation MethodName="GetMaintenanceWindowExecution" Output="Response" />
     <ServiceOperation MethodName="GetMaintenanceWindowExecutionTask" PipelineParameter="TaskId" Output="Response" />
     <ServiceOperation MethodName="GetParameterHistory" PipelineParameter="Name" />
-    <ServiceOperation MethodName="GetParameters" Noun="ParameterNameList" NoPipelineParameter="true" Output="Response" />
+    <ServiceOperation MethodName="GetParameters" Noun="ParameterValue" NoPipelineParameter="true" Output="Response" LegacyAlias="Get-SSMParameterNameList" />
     <ServiceOperation MethodName="ListDocumentVersions" Noun="DocumentVersionList" PipelineParameter="Name" />
     <ServiceOperation MethodName="ListInventoryEntries" Noun="InventoryEntriesList" Output="Response" />
     <ServiceOperation MethodName="PutInventory" Output="Void" />

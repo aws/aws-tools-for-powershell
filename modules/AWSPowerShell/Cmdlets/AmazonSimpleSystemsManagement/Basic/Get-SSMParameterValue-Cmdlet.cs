@@ -30,13 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Get a list of parameters used by the AWS account.&gt;
     /// </summary>
-    [Cmdlet("Get", "SSMParameterNameList")]
+    [Cmdlet("Get", "SSMParameterValue")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]
     [AWSCmdlet("Invokes the GetParameters operation against Amazon Simple Systems Management.", Operation = new[] {"GetParameters"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetParametersResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMParameterNameListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMParameterValueCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter Name

@@ -126,6 +126,12 @@ namespace AWSPowerShellGenerator.Generators
 
 		public const string ArgumentCompleterScriptModuleFilename = "AWSPowerShellCompleters.psm1";
 
+        // the legacy aliases file is where we rename cmdlets without incurring breaking changes;
+        // the module is auto-loaded when our main module loads
+        public const string LegacyAliasesScriptModuleFilename = "AWSPowerShellLegacyAliases.psm1";
+
+        // this aliases file maps from service_opname to cmdletname; it's not the same as the legacy
+        // aliases file and is not loaded by default
         public const string AliasesFilename = "AWSAliases.ps1";
 
         public string Aliases
@@ -176,6 +182,39 @@ namespace AWSPowerShellGenerator.Generators
         public string GetArgumentCompletionScriptContent()
         {
             return _argumentCompletionScript.ToString();
+        }
+
+        /// <summary>
+        /// Contains the legacy aliases we encounter on service operations, to be
+        ///  emitted into the AWSPowerShellLegacyAliases.psm1 nested module.
+        /// </summary>
+        private Dictionary<string, string> LegacyAliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+        public void AddLegacyAlias(string legacyName, string currentName)
+        {
+            if (LegacyAliases.ContainsKey(legacyName))
+                throw new ArgumentException(string.Format("Legacy alias '{0}' has been added already, mapped to '{1}'", legacyName, currentName));
+
+            LegacyAliases.Add(legacyName, currentName);
+        }
+
+        /// <summary>
+        /// Returns the ordered set of Set-Alias commands to install our legacy
+        /// aliases into the current shell when our main module loads.
+        /// </summary>
+        /// <returns></returns>
+        public string GetLegacyAliasesContent()
+        {
+            var sb = new StringBuilder();
+
+            var aliases = LegacyAliases.Keys.ToList();
+            aliases.Sort();
+            foreach (var alias in aliases)
+            {
+                sb.AppendLine(string.Format("Set-Alias -Name {0} -Value {1}", alias, LegacyAliases[alias]));
+            }
+
+            return sb.ToString();
         }
 
         /// <summary>
@@ -278,7 +317,11 @@ namespace AWSPowerShellGenerator.Generators
             var argumentCompleterScriptModuleFile = Path.Combine(OutputFolder, ArgumentCompleterScriptModuleFilename);
             SourceArtifacts.WriteCompletionScriptsFile(argumentCompleterScriptModuleFile, GetArgumentCompletionScriptContent());
 
-            Console.WriteLine("...updating aliases file");
+            Console.WriteLine("...updating legacy aliases module");
+            var legacyAliasesScriptModuleFile = Path.Combine(OutputFolder, LegacyAliasesScriptModuleFilename);
+            SourceArtifacts.WriteLegacyAliasesFile(legacyAliasesScriptModuleFile, GetLegacyAliasesContent());
+
+            Console.WriteLine("...updating service_operation -> cmdlet name aliases file");
             var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
             using (var sw = new StreamWriter(aliasSourceFile, false, new System.Text.UTF8Encoding(false)))
             {

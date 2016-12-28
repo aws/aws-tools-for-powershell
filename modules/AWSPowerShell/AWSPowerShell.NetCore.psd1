@@ -145,7 +145,10 @@ TypesToProcess = @('AWSPowerShell.TypeExtensions.ps1xml')
 FormatsToProcess = @('AWSPowerShell.Format.ps1xml')
 
 # Modules to import as nested modules of the module specified in ModuleToProcess
-NestedModules = @("AWSPowerShellCompleters.psm1")
+NestedModules = @(
+  'AWSPowerShellCompleters.psm1'
+  'AWSPowerShellLegacyAliases.psm1'
+)
 
 # Functions to export from this module
 FunctionsToExport = ''

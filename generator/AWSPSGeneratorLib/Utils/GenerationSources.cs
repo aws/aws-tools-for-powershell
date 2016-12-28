@@ -131,7 +131,7 @@ namespace AWSPowerShellGenerator.Utils
             const string completionScriptsStartMarker = "# begin auto-generated service completers";
             const string completionScriptsEndMarker = "# end auto-generated service completers";
 
-            var moduleContent = File.ReadAllText(completorsScriptModuleFile);
+            var moduleContent = File.ReadAllText(completorsScriptModuleFile, Encoding.UTF8);
             var completionScriptsStart = moduleContent.IndexOf(completionScriptsStartMarker, StringComparison.Ordinal);
             if (completionScriptsStart < 0)
                 throw new Exception("Unable to locate " + completionScriptsStartMarker + " in module.");
@@ -146,13 +146,43 @@ namespace AWSPowerShellGenerator.Utils
             if (!moduleContent.Equals(replacementScript, StringComparison.Ordinal))
             {
                 Console.WriteLine("......new completion script functions detected, updating {0} script module", completorsScriptModuleFile);
-                File.WriteAllText(completorsScriptModuleFile, replacementScript);
+                File.WriteAllText(completorsScriptModuleFile, replacementScript, Encoding.UTF8);
             }
             else
             {
                 Console.WriteLine("......no new completion script functions, skipping {0} script module update", completorsScriptModuleFile);
             }
 
+        }
+
+        /// <summary>
+        /// Writes the AWSPowerShellLegacyAliases.psm1 nested module file, containing a set of
+        /// Set-Alias commands to map legacy cmdlet names to the current names.
+        /// </summary>
+        /// <param name="legacyAliasesScriptModuleFile"></param>
+        /// <param name="legacyAliasesContent"></param>
+        public void WriteLegacyAliasesFile(string legacyAliasesScriptModuleFile, string legacyAliasesContent)
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("# Auto-generated aliases for backwards compatibility.");
+            sb.AppendLine("# Do not modify this file; it may be overwritten during version upgrades.");
+            sb.AppendLine();
+
+            sb.AppendLine(legacyAliasesContent);
+
+            var content = sb.ToString();
+
+            var moduleContent = File.ReadAllText(legacyAliasesScriptModuleFile, Encoding.UTF8);
+            if (!moduleContent.Equals(content, StringComparison.Ordinal))
+            {
+                Console.WriteLine("......new legacy aliases detected, updating {0} script module", legacyAliasesScriptModuleFile);
+                File.WriteAllText(legacyAliasesScriptModuleFile, content, Encoding.UTF8);
+            }
+            else
+            {
+                Console.WriteLine("......no new legacy aliases, skipping {0} script module update", legacyAliasesScriptModuleFile);
+            }
         }
 
         /// <summary>
