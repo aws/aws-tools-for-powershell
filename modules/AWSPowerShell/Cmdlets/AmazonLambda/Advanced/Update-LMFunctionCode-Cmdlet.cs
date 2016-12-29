@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// action.
     /// </para>
     /// </summary>
-    [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = ParamSet_CodeFromLocalZipFile)]
     [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
     [AWSCmdlet("Invokes the UpdateFunctionCode operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionCode"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        const string ParamSet_CodeFromLocalZipFile = "CodeFromLocalZipFile";
+        const string ParamSet_CodeFromS3Location = "CodeFromS3Location";
         
         #region Parameter FunctionName
         /// <summary>
@@ -65,47 +67,33 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
         #endregion
-        
-        #region Parameter Publish
+
+        #region Parameter BucketName
         /// <summary>
-        /// <para>
-        /// <para>This boolean parameter can be used to request AWS Lambda to update the Lambda function
-        /// and publish a version as an atomic operation.</para>
-        /// </para>
+        /// Amazon S3 bucket name where the .zip file containing your deployment package is stored.
+        /// This bucket must reside in the same AWS region as the existing Lambda function.
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean Publish { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [Alias("S3Bucket", "FunctionCode_S3Bucket")]
+        public string BucketName { get; set; }
         #endregion
-        
-        #region Parameter S3Bucket
+
+        #region Parameter Key
         /// <summary>
-        /// <para>
-        /// <para>Amazon S3 bucket name where the .zip file containing your deployment package is stored.
-        /// This bucket must reside in the same AWS region where you are creating the Lambda function.</para>
-        /// </para>
+        /// The key name of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String S3Bucket { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [Alias("S3Key", "FunctionCode_S3Key")]
+        public string Key { get; set; }
         #endregion
-        
-        #region Parameter S3Key
+
+        #region Parameter VersionId
         /// <summary>
-        /// <para>
-        /// <para>The Amazon S3 object (the deployment package) key name you want to upload.</para>
-        /// </para>
+        /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lamba.
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String S3Key { get; set; }
-        #endregion
-        
-        #region Parameter S3ObjectVersion
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon S3 object (the deployment package) version you want to upload.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String S3ObjectVersion { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [Alias("S3ObjectVersion", "FunctionCode_S3ObjectVersion")]
+        public string VersionId { get; set; }
         #endregion
         
         #region Parameter ZipFile
@@ -116,19 +104,30 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.IO.MemoryStream ZipFile { get; set; }
+        [System.Management.Automation.Parameter(ParameterSetName = ParamSet_CodeFromLocalZipFile)]
+        [Alias("ZipFile")]
+        public System.IO.MemoryStream ZipFileContent { get; set; }
         #endregion
 
-        #region Parameter ZipFilename
+        #region Parameter FunctionZip
         /// <summary>
         /// <para>
-        /// The path to a zip file containing your deployment package. Use this parameter, or -ZipFile, to
-        /// specify the code to be deployed.
+        /// The path to a zip file containing your deployment package. Use this parameter, or -ZipFileContent, 
+        /// or the S3 bucket and key parameters to specify the code to be deployed.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ParameterSetName = ParamSet_CodeFromLocalZipFile)]
+        [Alias("FunctionZip")]
         public System.String ZipFilename { get; set; }
+        #endregion
+
+        #region Parameter Publish
+        /// <summary>
+        /// If set requests that AWS Lambda update the Lambda function and publish a version as an 
+        /// atomic operation.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Publish { get; set; }
         #endregion
 
         #region Parameter Force
@@ -163,10 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.FunctionName = this.FunctionName;
             if (ParameterWasBound("Publish"))
                 context.Publish = this.Publish;
-            context.S3Bucket = this.S3Bucket;
-            context.S3Key = this.S3Key;
-            context.S3ObjectVersion = this.S3ObjectVersion;
-            context.ZipFile = this.ZipFile;
+            context.BucketName = this.BucketName;
+            context.Key = this.Key;
+            context.VersionId = this.VersionId;
+            context.ZipFileContent = this.ZipFileContent;
             context.ZipFilename = this.ZipFilename;
             
             // allow further manipulation of loaded context prior to processing
@@ -180,11 +179,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest();
+            System.IO.MemoryStream _ZipFilenameStream = null;
+
             try
             {
+                var cmdletContext = context as CmdletContext;
+                var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest();
+
                 if (cmdletContext.FunctionName != null)
                 {
                     request.FunctionName = cmdletContext.FunctionName;
@@ -193,31 +194,33 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 {
                     request.Publish = cmdletContext.Publish.Value;
                 }
-                if (cmdletContext.S3Bucket != null)
-                {
-                    request.S3Bucket = cmdletContext.S3Bucket;
-                }
-                if (cmdletContext.S3Key != null)
-                {
-                    request.S3Key = cmdletContext.S3Key;
-                }
-                if (cmdletContext.S3ObjectVersion != null)
-                {
-                    request.S3ObjectVersion = cmdletContext.S3ObjectVersion;
-                }
 
-                if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                if (!string.IsNullOrEmpty(cmdletContext.BucketName))
                 {
-                    var content = File.ReadAllBytes(cmdletContext.ZipFilename);
-                    var ms = new MemoryStream(content);
-                    request.ZipFile = ms;
+                    request.S3Bucket = cmdletContext.BucketName;
+                    request.S3Key = cmdletContext.Key;
+                    request.S3ObjectVersion = cmdletContext.VersionId;
                 }
                 else
-                    request.ZipFile = cmdletContext.ZipFile;
+                {
+                    if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                    {
+                        var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
+                        if (!File.Exists(fqZipFilename))
+                        {
+                            this.ThrowArgumentError(string.Format("'{0}' ('{1}') is not a valid file path for the ZipFilename parameter.", this.ZipFilename, fqZipFilename), this);
+                        }
+
+                        var content = File.ReadAllBytes(fqZipFilename);
+                        _ZipFilenameStream = new MemoryStream(content);
+                        request.ZipFile = _ZipFilenameStream;
+                    }
+                    else
+                        request.ZipFile = cmdletContext.ZipFileContent;
+                }
 
                 CmdletOutput output;
 
-                // issue call
                 var client = Client ?? CreateClient(context.Credentials, context.Region);
                 try
                 {
@@ -240,9 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             finally
             {
-                if(!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                if (_ZipFilenameStream != null)
                 {
-                    request.ZipFile.Dispose();
+                    _ZipFilenameStream.Dispose();
                 }
             }
         }
@@ -275,10 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             public System.String FunctionName { get; set; }
             public System.Boolean? Publish { get; set; }
-            public System.String S3Bucket { get; set; }
-            public System.String S3Key { get; set; }
-            public System.String S3ObjectVersion { get; set; }
-            public System.IO.MemoryStream ZipFile { get; set; }
+            public string BucketName { get; set; }
+            public string Key { get; set; }
+            public string VersionId { get; set; }
+            public System.IO.MemoryStream ZipFileContent { get; set; }
             public System.String ZipFilename { get; set; }
         }
         

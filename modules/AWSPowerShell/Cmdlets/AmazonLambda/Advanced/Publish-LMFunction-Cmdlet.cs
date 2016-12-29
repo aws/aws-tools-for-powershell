@@ -25,6 +25,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Lambda;
 using Amazon.Lambda.Model;
+using System.Collections;
 
 namespace Amazon.PowerShell.Cmdlets.LM
 {
@@ -35,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// This operation requires permission for the <code>lambda:CreateFunction</code> action.
     /// </para>
     /// </summary>
-    [Cmdlet("Publish", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Publish", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = ParamSet_CodeFromLocalZipFile)]
     [OutputType("Amazon.Lambda.Model.CreateFunctionResult")]
     [AWSCmdlet("Invokes the CreateFunction operation against Amazon Lambda.", Operation = new [] {"CreateFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateFunctionResult",
@@ -43,12 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        const string ParamSet_CodeFromLocalZipFile = "CodeFromLocalZipFile";
+        const string ParamSet_CodeFromS3Location = "CodeFromS3Location";
+
         #region Parameter Description
         /// <summary>
         /// A short user-defined function description. Lambda does not use this value. Assign
         /// a meaningful description as you see fit.
         /// </summary>
-        [Parameter]
+        [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
         #endregion
 
@@ -66,17 +70,45 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Pattern: (arn:aws:lambda:)?([a-z]{2}-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?
         /// </para>
         /// </summary>
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         public System.String FunctionName { get; set; }
+        #endregion
+
+        #region Parameter BucketName
+        /// <summary>
+        /// Amazon S3 bucket name where the .zip file containing your deployment package is stored.
+        /// This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [Alias("S3Bucket", "FunctionCode_S3Bucket")]
+        public string BucketName { get; set; }
+        #endregion
+
+        #region Parameter Key
+        /// <summary>
+        /// The key name of the Amazon S3 object (the deployment package) you want to upload to Lambda.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [Alias("S3Key", "FunctionCode_S3Key")]
+        public string Key { get; set; }
+        #endregion
+
+        #region Parameter VersionId
+        /// <summary>
+        /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lamba.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [Alias("S3ObjectVersion", "FunctionCode_S3ObjectVersion")]
+        public string VersionId { get; set; }
         #endregion
 
         #region Parameter FunctionZip
         /// <summary>
         /// A file path to the zip file containing your packaged source code.
         /// </summary>
-        [Parameter(Position = 1, Mandatory = true)]
-        [Alias("ZipFilename")]
-        public System.String FunctionZip { get; set; }
+        [System.Management.Automation.Parameter(Position = 1, Mandatory = true, ParameterSetName = ParamSet_CodeFromLocalZipFile)]
+        [Alias("FunctionZip")]
+        public System.String ZipFilename { get; set; }
         #endregion
 
         #region Parameter Handler
@@ -95,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Pattern: [^\s]+
         /// </para>
         /// </summary>
-        [Parameter(Position = 2, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 2, Mandatory = true)]
         public System.String Handler { get; set; }
         #endregion
 
@@ -112,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Valid range: Minimum value of 128. Maximum value of 1536.
         /// </para>
         /// </summary>
-        [Parameter]
+        [System.Management.Automation.Parameter]
         public System.Int32? MemorySize { get; set; }
         #endregion
 
@@ -128,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Pattern: arn:aws:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+
         /// </para>
         /// </summary>
-        [Parameter(Position = 4, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 4, Mandatory = true)]
         public System.String Role { get; set; }
         #endregion
 
@@ -142,10 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
 		/// runtime (v0.10.42), set the value to "nodejs".
 		/// </para>
 		/// <para>
-		/// Valid Values: nodejs | nodejs4.3 | java8 | python2.7
+        /// Valid Values: dotnetcore1.0 | nodejs | nodejs4.3 | nodejs4.3-edge | java8 | python2.7
 		/// </para>
         /// </summary>
-        [Parameter(Position = 3)]
+        [System.Management.Automation.Parameter(Position = 3)]
         [AWSConstantClassSource("Amazon.Lambda.Runtime")]
         public Amazon.Lambda.Runtime Runtime { get; set; }
         #endregion
@@ -161,8 +193,76 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Valid range: Minimum value of 1. Maximum value of 300.
         /// </para>
         /// </summary>
-        [Parameter]
+        [System.Management.Automation.Parameter]
         public System.Int32? Timeout { get; set; }
+        #endregion
+
+        #region Parameter DeadLetterConfig_TargetArn
+        /// <summary>
+        /// The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify
+        /// as your Dead Letter Queue (DLQ).
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public string DeadLetterConfig_TargetArn { get; set; }
+        #endregion
+
+        #region Parameter Environment_Variable
+        /// <summary>
+        /// Environment variable key-value pairs that represent your environment's configuration settings. The
+        /// value(s) you specify cannot contain a ",".
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Hashtable Environment_Variable { get; set; }
+        #endregion
+
+        #region Parameter KMSKeyArn
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment
+        /// variables. If not provided, AWS Lambda will use a default service key.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public string KMSKeyArn { get; set;}
+        #endregion
+
+        #region Parameter Publish
+        /// <summary>
+        /// If set requests that AWS Lambda create the Lambda function and publish a version as an 
+        /// atomic operation.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Publish { get; set; }
+        #endregion
+
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// If your Lambda function accesses resources in a VPC, you provide this parameter identifying
+        /// the list of security group IDs. The security groups and subnets specified via the 
+        /// VpcConfig_SubnetId parameter must belong to the same VPC.
+        /// If you specify one or more security groups you must also provide at least one subnet ID.
+        /// </para>
+        /// <para>
+        /// A list of one or more security groups IDs in your VPC.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public string[] VpcConfig_SecurityGroupId { get; set;}
+        #endregion
+
+        #region Parameter VpcConfig_SubnetId
+        /// <summary>
+        /// <para>
+        /// If your Lambda function accesses resources in a VPC, you provide this parameter identifying
+        /// the list of subnet IDs. The security groups and subnets specified via the 
+        /// VpcConfig_SecurityGroupId parameter must belong to the same VPC.
+        /// If you specify one or more subnets you must also provide at least one security group ID.
+        /// </para>
+        /// <para>
+        /// A list of one or more subnet IDs in your VPC.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public string[] VpcConfig_SubnetId { get; set;}
         #endregion
 
         #region Parameter Force
@@ -171,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// the cmdlet to continue its operation. This parameter should always
         /// be used with caution.
         /// </summary>
-        [Parameter]
+        [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
         #endregion
 
@@ -187,14 +287,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Region = this.Region,
                 Credentials = this.CurrentCredentials, 
                 Description = this.Description, 
-                FunctionName = this.FunctionName, 
-                FunctionZip = this.FunctionZip, 
+                FunctionName = this.FunctionName,
+                ZipFilename = this.ZipFilename, 
                 Handler = this.Handler, 
                 MemorySize = this.MemorySize, 
                 Role = this.Role, 
                 Runtime = this.Runtime, 
-                Timeout = this.Timeout
+                Timeout = this.Timeout,
+                BucketName = this.BucketName,
+                Key= this.Key,
+                VersionId = this.VersionId,
+                DeadLetterQueue_TargetArn = this.DeadLetterConfig_TargetArn,
+                KMSKeyArn = this.KMSKeyArn,
+                Environment_Variable = this.Environment_Variable,
+                VpcConfig_SecurityGroupId = this.VpcConfig_SecurityGroupId,
+                VpcConfig_SubnetId = this.VpcConfig_SubnetId
             };
+
+            if (ParameterWasBound("Publish"))
+                context.Publish = true;
 
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -204,63 +315,112 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new CreateFunctionRequest();
+            System.IO.MemoryStream _ZipFilenameStream = null;
+
+            try
+            {
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new CreateFunctionRequest();
             
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.FunctionName != null)
-            {
-                request.FunctionName = cmdletContext.FunctionName;
-            }
-            if (cmdletContext.Handler != null)
-            {
-                request.Handler = cmdletContext.Handler;
-            }
-            if (cmdletContext.MemorySize != null)
-            {
-                request.MemorySize = cmdletContext.MemorySize.Value;
-            }
-            if (cmdletContext.Role != null)
-            {
-                request.Role = cmdletContext.Role;
-            }
-            if (cmdletContext.Runtime != null)
-            {
-                request.Runtime = cmdletContext.Runtime;
-            }
-            if (cmdletContext.Timeout != null)
-            {
-                request.Timeout = cmdletContext.Timeout.Value;
-            }
-
-            if (string.IsNullOrEmpty(cmdletContext.FunctionZip))
-            {
-                this.ThrowArgumentError("FunctionZip is a required parameter which should be a valid filepath to zip file containing the source code", this);
-            }
-            if (!File.Exists(cmdletContext.FunctionZip))
-            {
-                this.ThrowArgumentError(string.Format("\"{0}\" is not a valid file path for the FunctionZip parameter.", this.FunctionZip), this);
-            }
-
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
-            CmdletOutput output;
-
-            using (var stream = new FileStream(cmdletContext.FunctionZip, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                var ms = new MemoryStream();
-                Amazon.PowerShell.Utils.Common.CopyStream(stream, ms);
-                ms.Position = 0;
-
-                request.Code = new FunctionCode
+                if (cmdletContext.Description != null)
                 {
-                    ZipFile = ms
-                };
+                    request.Description = cmdletContext.Description;
+                }
+                if (cmdletContext.FunctionName != null)
+                {
+                    request.FunctionName = cmdletContext.FunctionName;
+                }
+                if (cmdletContext.Handler != null)
+                {
+                    request.Handler = cmdletContext.Handler;
+                }
 
-                // issue call
+                if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                {
+                    var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
+                    if (!File.Exists(fqZipFilename))
+                    {
+                        this.ThrowArgumentError(string.Format("'{0}' ('{1}') is not a valid file path for the ZipFilename parameter.", this.ZipFilename, fqZipFilename), this);
+                    }
+
+                    var content = File.ReadAllBytes(fqZipFilename);
+                    _ZipFilenameStream = new MemoryStream(content);
+
+                    request.Code = new FunctionCode
+                    {
+                        ZipFile = _ZipFilenameStream
+                    };
+                }
+                else
+                {
+                    request.Code = new FunctionCode
+                    {
+                       S3Bucket = cmdletContext.BucketName,
+                       S3Key = cmdletContext.Key,
+                       S3ObjectVersion = cmdletContext.VersionId
+                    };
+                }
+
+                if (cmdletContext.MemorySize != null)
+                {
+                    request.MemorySize = cmdletContext.MemorySize.Value;
+                }
+                if (cmdletContext.Role != null)
+                {
+                    request.Role = cmdletContext.Role;
+                }
+                if (cmdletContext.Runtime != null)
+                {
+                    request.Runtime = cmdletContext.Runtime;
+                }
+                if (cmdletContext.Timeout != null)
+                {
+                    request.Timeout = cmdletContext.Timeout.Value;
+                }
+                if (!string.IsNullOrEmpty(cmdletContext.KMSKeyArn))
+                {
+                    request.KMSKeyArn = cmdletContext.KMSKeyArn;
+                }
+                if (!string.IsNullOrEmpty(cmdletContext.DeadLetterQueue_TargetArn))
+                {
+                    request.DeadLetterConfig = new DeadLetterConfig
+                    {
+                        TargetArn = cmdletContext.DeadLetterQueue_TargetArn
+                    };
+                }
+
+                // let the service error if the user provided one and not the other
+                if (cmdletContext.VpcConfig_SecurityGroupId != null || cmdletContext.VpcConfig_SubnetId != null)
+                {
+                    request.VpcConfig = new VpcConfig
+                    {
+                        SecurityGroupIds = new List<string>(cmdletContext.VpcConfig_SecurityGroupId),
+                        SubnetIds = new List<string>(cmdletContext.VpcConfig_SubnetId)
+                    };
+                }
+
+                if (cmdletContext.Environment_Variable != null)
+                {
+                    request.Environment = new Lambda.Model.Environment
+                    {
+                        Variables = new Dictionary<string, string>()
+                    };
+
+                    foreach (var key in cmdletContext.Environment_Variable.Keys)
+                    {
+                        request.Environment.Variables.Add(key.ToString(), cmdletContext.Environment_Variable[key].ToString());
+                    }
+                }
+
+                if (cmdletContext.Publish.HasValue)
+                {
+                    request.Publish = cmdletContext.Publish.GetValueOrDefault();
+                }
+
+                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                CmdletOutput output;
+
                 try
                 {
                     var response = CallAWSServiceOperation(client, request);
@@ -279,6 +439,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
 
                 return output;
+            }
+            finally
+            {
+                if (_ZipFilenameStream != null)
+                {
+                    _ZipFilenameStream.Dispose();
+                }
             }
         }
         
@@ -310,12 +477,21 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             public String Description { get; set; }
             public String FunctionName { get; set; }
-            public String FunctionZip { get; set; }
+            public String ZipFilename { get; set; }
             public String Handler { get; set; }
             public Int32? MemorySize { get; set; }
             public String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
             public Int32? Timeout { get; set; }
+            public string BucketName { get; set; }
+            public string Key { get; set; }
+            public string VersionId { get; set; }
+            public string DeadLetterQueue_TargetArn { get; set; }
+            public string KMSKeyArn { get; set; }
+            public bool? Publish { get; set; }
+            public Hashtable Environment_Variable { get; set; }
+            public string[] VpcConfig_SecurityGroupId { get; set; }
+            public string[] VpcConfig_SubnetId { get; set; }
         }
         
     }
