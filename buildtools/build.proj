@@ -317,12 +317,14 @@
             <FileException Include="Deployment\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml" />
             <FileException Include="Deployment\AWSPowerShell\AWSPowerShell.Format.ps1xml" />
             <FileException Include="Deployment\AWSPowerShell\AWSPowerShellCompleters.psm1" />
+            <FileException Include="Deployment\AWSPowerShell\AWSPowerShellLegacyAliases.psm1" />
             <FileException Include="Deployment\AWSPowerShell\AWSAliases.ps1" />
 			
             <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.psd1" />
             <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.TypeExtensions.ps1xml" />
             <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.Format.ps1xml" />
             <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShellCompleters.psm1" />
+            <FileException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShellLegacyAliases.psm1" />
             <FileException Include="Deployment\AWSPowerShell.NetCore\AWSAliases.ps1" />
         </ItemGroup>
         
