@@ -1,4 +1,4 @@
-# Auto-generated argument completers for parameters of SDK ConstantClass-derived type used in cmdlets.
+﻿# Auto-generated argument completers for parameters of SDK ConstantClass-derived type used in cmdlets.
 # Do not modify this file; it may be overwritten during version upgrades.
 
 $psMajorVersion = $PSVersionTable.PSVersion.Major
@@ -2088,6 +2088,13 @@ $ECS_Completers = {
             break
         }
         
+        # Amazon.ECS.TargetType
+        "Get-ECSAttributeList/TargetType"
+        {
+            $v = "container-instance"
+            break
+        }
+        
         # Amazon.ECS.TaskDefinitionFamilyStatus
         "Get-ECSTaskDefinitionFamilies/Status"
         {
@@ -2114,6 +2121,7 @@ $ECS_map = @{
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "Sort"=@("Get-ECSTaskDefinitions")
     "Status"=@("Get-ECSTaskDefinitionFamilies","Get-ECSTaskDefinitions")
+    "TargetType"=@("Get-ECSAttributeList")
 }
 
 _awsArgumentCompleterRegistration $ECS_Completers $ECS_map

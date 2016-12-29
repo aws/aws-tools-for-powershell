@@ -28,13 +28,18 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Start a task using random placement and the default Amazon ECS scheduler. To use your
-    /// own scheduler or place a task on a specific container instance, use <code>StartTask</code>
-    /// instead.
+    /// Starts a new task using the specified task definition.
     /// 
-    ///  <important><para>
-    /// The <code>count</code> parameter is limited to 10 tasks per call.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
+    /// places tasks using placement constraints and placement strategies. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
+    /// Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// </para><para>
+    /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
+    /// manually on specific container instances.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.RunTaskResponse")]
@@ -70,11 +75,47 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Count
         /// <summary>
         /// <para>
-        /// <para>The number of instantiations of the specified task to place on your cluster.</para><important><para>The <code>count</code> parameter is limited to 10 tasks per call.</para></important>
+        /// <para>The number of instantiations of the specified task to place on your cluster. You can
+        /// specify up to 10 tasks per call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Count { get; set; }
+        #endregion
+        
+        #region Parameter Group
+        /// <summary>
+        /// <para>
+        /// <para>The task group to associate with the task. By default, if you do not specify a task
+        /// group, the group <code>family:TASKDEF-FAMILY</code> is applied. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Group { get; set; }
+        #endregion
+        
+        #region Parameter PlacementConstraint
+        /// <summary>
+        /// <para>
+        /// <para>An array of placement constraint objects to use for the task. You can specify up to
+        /// 10 constraints per task (including constraints in the task definition and those specified
+        /// at run time).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PlacementConstraints")]
+        public Amazon.ECS.Model.PlacementConstraint[] PlacementConstraint { get; set; }
+        #endregion
+        
+        #region Parameter PlacementStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The placement strategy objects to use for the task. You can specify a maximum of 5
+        /// strategy rules per task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.ECS.Model.PlacementStrategy[] PlacementStrategy { get; set; }
         #endregion
         
         #region Parameter StartedBy
@@ -149,11 +190,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             if (ParameterWasBound("Count"))
                 context.Count = this.Count;
+            context.Group = this.Group;
             if (this.Overrides_ContainerOverride != null)
             {
                 context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
             context.Overrides_TaskRoleArn = this.Overrides_TaskRoleArn;
+            if (this.PlacementConstraint != null)
+            {
+                context.PlacementConstraints = new List<Amazon.ECS.Model.PlacementConstraint>(this.PlacementConstraint);
+            }
+            if (this.PlacementStrategy != null)
+            {
+                context.PlacementStrategy = new List<Amazon.ECS.Model.PlacementStrategy>(this.PlacementStrategy);
+            }
             context.StartedBy = this.StartedBy;
             context.TaskDefinition = this.TaskDefinition;
             
@@ -179,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Count != null)
             {
                 request.Count = cmdletContext.Count.Value;
+            }
+            if (cmdletContext.Group != null)
+            {
+                request.Group = cmdletContext.Group;
             }
             
              // populate Overrides
@@ -208,6 +262,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestOverridesIsNull)
             {
                 request.Overrides = null;
+            }
+            if (cmdletContext.PlacementConstraints != null)
+            {
+                request.PlacementConstraints = cmdletContext.PlacementConstraints;
+            }
+            if (cmdletContext.PlacementStrategy != null)
+            {
+                request.PlacementStrategy = cmdletContext.PlacementStrategy;
             }
             if (cmdletContext.StartedBy != null)
             {
@@ -270,8 +332,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
+            public System.String Group { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
             public System.String Overrides_TaskRoleArn { get; set; }
+            public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }
+            public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
             public System.String StartedBy { get; set; }
             public System.String TaskDefinition { get; set; }
         }

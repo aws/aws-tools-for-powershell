@@ -1577,6 +1577,8 @@ Set-Alias -Name Create-ECSCluster -Value New-ECSCluster
 Set-Alias -Name ECS-CreateCluster -Value New-ECSCluster
 Set-Alias -Name Create-ECSService -Value New-ECSService
 Set-Alias -Name ECS-CreateService -Value New-ECSService
+Set-Alias -Name Delete-ECSAttribute -Value Remove-ECSAttribute
+Set-Alias -Name ECS-DeleteAttributes -Value Remove-ECSAttribute
 Set-Alias -Name Delete-ECSCluster -Value Remove-ECSCluster
 Set-Alias -Name ECS-DeleteCluster -Value Remove-ECSCluster
 Set-Alias -Name Delete-ECSService -Value Remove-ECSService
@@ -1595,6 +1597,8 @@ Set-Alias -Name Describe-ECSTaskDefinitionDetail -Value Get-ECSTaskDefinitionDet
 Set-Alias -Name ECS-DescribeTaskDefinition -Value Get-ECSTaskDefinitionDetail
 Set-Alias -Name Describe-ECSTaskDetail -Value Get-ECSTaskDetail
 Set-Alias -Name ECS-DescribeTasks -Value Get-ECSTaskDetail
+Set-Alias -Name List-ECSAttributeList -Value Get-ECSAttributeList
+Set-Alias -Name ECS-ListAttributes -Value Get-ECSAttributeList
 Set-Alias -Name List-ECSClusters -Value Get-ECSClusters
 Set-Alias -Name ECS-ListClusters -Value Get-ECSClusters
 Set-Alias -Name List-ECSContainerInstances -Value Get-ECSContainerInstances
@@ -1607,6 +1611,8 @@ Set-Alias -Name List-ECSTaskDefinitions -Value Get-ECSTaskDefinitions
 Set-Alias -Name ECS-ListTaskDefinitions -Value Get-ECSTaskDefinitions
 Set-Alias -Name List-ECSTasks -Value Get-ECSTasks
 Set-Alias -Name ECS-ListTasks -Value Get-ECSTasks
+Set-Alias -Name Put-ECSAttribute -Value Write-ECSAttribute
+Set-Alias -Name ECS-PutAttributes -Value Write-ECSAttribute
 Set-Alias -Name ECS-RegisterTaskDefinition -Value Register-ECSTaskDefinition
 Set-Alias -Name Run-ECSTask -Value New-ECSTask
 Set-Alias -Name ECS-RunTask -Value New-ECSTask

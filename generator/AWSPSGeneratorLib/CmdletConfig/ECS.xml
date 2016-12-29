@@ -12,6 +12,7 @@
   <ServiceOperations>
     <ServiceOperation MethodName="CreateCluster"/>
     <ServiceOperation MethodName="CreateService"/>
+    <ServiceOperation MethodName="DeleteAttributes" Noun="Attribute"/>
     <ServiceOperation MethodName="DeleteCluster" ShouldProcessTarget="Cluster" />
     <ServiceOperation MethodName="DeleteService" ShouldProcessTarget="Service" />
     <ServiceOperation MethodName="DeregisterContainerInstance" ShouldProcessTarget="Cluster">
@@ -25,15 +26,16 @@
     <ServiceOperation MethodName="DescribeServices" Noun="Service" Output="Response"/>
     <ServiceOperation MethodName="DescribeContainerInstances" Noun="ContainerInstanceDetail" Output="Response"/>
     <ServiceOperation MethodName="DescribeTaskDefinition" Noun="TaskDefinitionDetail"/>
-    <ServiceOperation MethodName="DescribeTasks" Noun="TaskDetail" Output="Response" />    
-    
+    <ServiceOperation MethodName="DescribeTasks" Noun="TaskDetail" Output="Response" />
+
+    <ServiceOperation MethodName="ListAttributes" Noun="AttributeList"/>
     <ServiceOperation MethodName="ListClusters"/>
     <ServiceOperation MethodName="ListServices" Noun="ClusterService"/>
     <ServiceOperation MethodName="ListContainerInstances"/>
     <ServiceOperation MethodName="ListTaskDefinitions"/>
     <ServiceOperation MethodName="ListTaskDefinitionFamilies"/>
     <ServiceOperation MethodName="ListTasks"/>
-    
+    <ServiceOperation MethodName="PutAttributes" Noun="Attribute"/>    
     <ServiceOperation MethodName="RegisterTaskDefinition" ShouldProcessTarget="Family"/>
     
     <ServiceOperation MethodName="RunTask" Output="Response" ShouldProcessTarget="Cluster" />

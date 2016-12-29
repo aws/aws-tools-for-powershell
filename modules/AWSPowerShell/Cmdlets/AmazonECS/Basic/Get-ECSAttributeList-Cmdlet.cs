@@ -28,55 +28,77 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Returns a list of container instances in a specified cluster. You can filter the results
-    /// of a <code>ListContainerInstances</code> operation with cluster query language statements
-    /// inside the <code>filter</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-    /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the attributes for Amazon ECS resources within a specified target type and cluster.
+    /// When you specify a target type and cluster, <code>LisAttributes</code> returns a list
+    /// of attribute objects, one for each attribute on each resource. You can filter the
+    /// list of results to a single attribute name to only return results that have that name.
+    /// You can also filter the results by attribute name and value, for example, to see which
+    /// container instances in a cluster are running a Linux AMI (<code>ecs.os-type=linux</code>).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "ECSContainerInstances")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListContainerInstances operation against Amazon EC2 Container Service.", Operation = new[] {"ListContainerInstances"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.ECS.Model.ListContainerInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "ECSAttributeList")]
+    [OutputType("Amazon.ECS.Model.Attribute")]
+    [AWSCmdlet("Invokes the ListAttributes operation against Amazon EC2 Container Service.", Operation = new[] {"ListAttributes"})]
+    [AWSCmdletOutput("Amazon.ECS.Model.Attribute",
+        "This cmdlet returns a collection of Attribute objects.",
+        "The service call response (type Amazon.ECS.Model.ListAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetECSContainerInstancesCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class GetECSAttributeListCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the attribute with which to filter the results. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AttributeName { get; set; }
+        #endregion
+        
+        #region Parameter AttributeValue
+        /// <summary>
+        /// <para>
+        /// <para>The value of the attribute with which to filter results. You must also specify an
+        /// attribute name to use this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AttributeValue { get; set; }
+        #endregion
         
         #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container
-        /// instances to list. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster to list attributes.
+        /// If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
         #endregion
         
-        #region Parameter Filter
+        #region Parameter TargetType
         /// <summary>
         /// <para>
-        /// <para>You can filter the results of a <code>ListContainerInstances</code> operation with
-        /// cluster query language statements. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-        /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.</para>
+        /// <para>The type of the target with which to list attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Filter { get; set; }
+        [AWSConstantClassSource("Amazon.ECS.TargetType")]
+        public Amazon.ECS.TargetType TargetType { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of container instance results returned by <code>ListContainerInstances</code>
-        /// in paginated output. When this parameter is used, <code>ListContainerInstances</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListContainerInstances</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>ListContainerInstances</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of cluster results returned by <code>ListAttributes</code> in paginated
+        /// output. When this parameter is used, <code>ListAttributes</code> only returns <code>maxResults</code>
+        /// results in a single page along with a <code>nextToken</code> response element. The
+        /// remaining results of the initial request can be seen by sending another <code>ListAttributes</code>
+        /// request with the returned <code>nextToken</code> value. This value can be between
+        /// 1 and 100. If this parameter is not used, then <code>ListAttributes</code> returns
+        /// up to 100 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListContainerInstances</code>
+        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListAttributes</code>
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
@@ -115,11 +137,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AttributeName = this.AttributeName;
+            context.AttributeValue = this.AttributeValue;
             context.Cluster = this.Cluster;
-            context.Filter = this.Filter;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.TargetType = this.TargetType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -135,14 +159,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ECS.Model.ListContainerInstancesRequest();
+            var request = new Amazon.ECS.Model.ListAttributesRequest();
+            if (cmdletContext.AttributeName != null)
+            {
+                request.AttributeName = cmdletContext.AttributeName;
+            }
+            if (cmdletContext.AttributeValue != null)
+            {
+                request.AttributeValue = cmdletContext.AttributeValue;
+            }
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
             }
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.TargetType != null)
             {
-                request.Filter = cmdletContext.Filter;
+                request.TargetType = cmdletContext.TargetType;
             }
             
             // Initialize loop variants and commence piping
@@ -178,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ContainerInstanceArns;
+                        object pipelineOutput = response.Attributes;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -187,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ContainerInstanceArns.Count;
+                        int _receivedThisCall = response.Attributes.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -230,13 +262,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.ListContainerInstancesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListContainerInstancesRequest request)
+        private static Amazon.ECS.Model.ListAttributesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListAttributesRequest request)
         {
             #if DESKTOP
-            return client.ListContainerInstances(request);
+            return client.ListAttributes(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListContainerInstancesAsync(request);
+            var task = client.ListAttributesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -247,10 +279,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AttributeName { get; set; }
+            public System.String AttributeValue { get; set; }
             public System.String Cluster { get; set; }
-            public System.String Filter { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.ECS.TargetType TargetType { get; set; }
         }
         
     }

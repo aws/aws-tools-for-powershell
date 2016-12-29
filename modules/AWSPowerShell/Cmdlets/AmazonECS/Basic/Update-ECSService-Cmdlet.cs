@@ -67,13 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// are forcibly stopped. If the container handles the <code>SIGTERM</code> gracefully
     /// and exits within 30 seconds from receiving it, no <code>SIGKILL</code> is sent.
     /// </para><para>
-    /// When the service scheduler launches new tasks, it attempts to balance them across
-    /// the Availability Zones in your cluster with the following logic:
+    /// When the service scheduler launches new tasks, it determines task placement in your
+    /// cluster with the following logic:
     /// </para><ul><li><para>
     /// Determine which of the container instances in your cluster can support your service's
     /// task definition (for example, they have the required CPU, memory, ports, and container
     /// instance attributes).
     /// </para></li><li><para>
+    /// By default, the service scheduler attempts to balance tasks across Availability Zones
+    /// in this manner (although you can choose a different placement strategy with the <code>placementStrategy</code>
+    /// parameter):
+    /// </para><ul><li><para>
     /// Sort the valid container instances by the fewest number of running tasks for this
     /// service in the same Availability Zone as the instance. For example, if zone A has
     /// one running service task and zones B and C each have zero, valid container instances
@@ -82,6 +86,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Place the new service task on a valid container instance in an optimal Availability
     /// Zone (based on the previous steps), favoring container instances with the fewest number
     /// of running tasks for this service.
+    /// </para></li></ul></li></ul><para>
+    /// When the service scheduler stops running tasks, it attempts to maintain balance across
+    /// the Availability Zones in your cluster with the following logic: 
+    /// </para><ul><li><para>
+    /// Sort the container instances by the largest number of running tasks for this service
+    /// in the same Availability Zone as the instance. For example, if zone A has one running
+    /// service task and zones B and C each have two, container instances in either zone B
+    /// or C are considered optimal for termination.
+    /// </para></li><li><para>
+    /// Stop the task on a container instance in an optimal Availability Zone (based on the
+    /// previous steps), favoring container instances with the largest number of running tasks
+    /// for this service.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

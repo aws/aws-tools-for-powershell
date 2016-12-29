@@ -104,6 +104,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.NetworkMode NetworkMode { get; set; }
         #endregion
         
+        #region Parameter PlacementConstraint
+        /// <summary>
+        /// <para>
+        /// <para>An array of placement constraint objects to use for the task. You can specify a maximum
+        /// of 10 constraints per task (this limit includes constraints in the task definition
+        /// and those specified at run time).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PlacementConstraints")]
+        public Amazon.ECS.Model.TaskDefinitionPlacementConstraint[] PlacementConstraint { get; set; }
+        #endregion
+        
         #region Parameter TaskRoleArn
         /// <summary>
         /// <para>
@@ -163,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             context.Family = this.Family;
             context.NetworkMode = this.NetworkMode;
+            if (this.PlacementConstraint != null)
+            {
+                context.PlacementConstraints = new List<Amazon.ECS.Model.TaskDefinitionPlacementConstraint>(this.PlacementConstraint);
+            }
             context.TaskRoleArn = this.TaskRoleArn;
             if (this.Volume != null)
             {
@@ -195,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.NetworkMode != null)
             {
                 request.NetworkMode = cmdletContext.NetworkMode;
+            }
+            if (cmdletContext.PlacementConstraints != null)
+            {
+                request.PlacementConstraints = cmdletContext.PlacementConstraints;
             }
             if (cmdletContext.TaskRoleArn != null)
             {
@@ -258,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinitions { get; set; }
             public System.String Family { get; set; }
             public Amazon.ECS.NetworkMode NetworkMode { get; set; }
+            public List<Amazon.ECS.Model.TaskDefinitionPlacementConstraint> PlacementConstraints { get; set; }
             public System.String TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.Volume> Volumes { get; set; }
         }

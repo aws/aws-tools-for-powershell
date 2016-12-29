@@ -67,13 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// tasks before stopping the four older tasks (provided that the cluster resources required
     /// to do this are available). The default value for <code>maximumPercent</code> is 200%.
     /// </para><para>
-    /// When the service scheduler launches new tasks, it attempts to balance them across
-    /// the Availability Zones in your cluster with the following logic:
+    /// When the service scheduler launches new tasks, it determines task placement in your
+    /// cluster with the following logic:
     /// </para><ul><li><para>
     /// Determine which of the container instances in your cluster can support your service's
     /// task definition (for example, they have the required CPU, memory, ports, and container
     /// instance attributes).
     /// </para></li><li><para>
+    /// By default, the service scheduler attempts to balance tasks across Availability Zones
+    /// in this manner (although you can choose a different placement strategy with the <code>placementStrategy</code>
+    /// parameter):
+    /// </para><ul><li><para>
     /// Sort the valid container instances by the fewest number of running tasks for this
     /// service in the same Availability Zone as the instance. For example, if zone A has
     /// one running service task and zones B and C each have zero, valid container instances
@@ -82,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Place the new service task on a valid container instance in an optimal Availability
     /// Zone (based on the previous steps), favoring container instances with the fewest number
     /// of running tasks for this service.
-    /// </para></li></ul>
+    /// </para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("New", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Service")]
@@ -131,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>A load balancer object representing the load balancer to use with your service. Currently,
-        /// you are limited to one load balancer per service. After you create a service, the
-        /// load balancer name, container name, and container port specified in the service definition
-        /// are immutable.</para><para>For Elastic Load Balancing Classic load balancers, this object must contain the load
+        /// you are limited to one load balancer or target group per service. After you create
+        /// a service, the load balancer name or target group ARN, container name, and container
+        /// port specified in the service definition are immutable.</para><para>For Elastic Load Balancing Classic load balancers, this object must contain the load
         /// balancer name, the container name (as it appears in a container definition), and the
         /// container port to access from the load balancer. When a task from this service is
         /// placed on a container instance, the container instance is registered with the load
@@ -175,6 +179,30 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DeploymentConfiguration_MinimumHealthyPercent { get; set; }
+        #endregion
+        
+        #region Parameter PlacementConstraint
+        /// <summary>
+        /// <para>
+        /// <para>An array of placement constraint objects to use for tasks in your service. You can
+        /// specify a maximum of 10 constraints per task (this limit includes constraints in the
+        /// task definition and those specified at run time). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PlacementConstraints")]
+        public Amazon.ECS.Model.PlacementConstraint[] PlacementConstraint { get; set; }
+        #endregion
+        
+        #region Parameter PlacementStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The placement strategy objects to use for tasks in your service. You can specify a
+        /// maximum of 5 strategy rules per service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.ECS.Model.PlacementStrategy[] PlacementStrategy { get; set; }
         #endregion
         
         #region Parameter Role
@@ -263,6 +291,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.LoadBalancers = new List<Amazon.ECS.Model.LoadBalancer>(this.LoadBalancer);
             }
+            if (this.PlacementConstraint != null)
+            {
+                context.PlacementConstraints = new List<Amazon.ECS.Model.PlacementConstraint>(this.PlacementConstraint);
+            }
+            if (this.PlacementStrategy != null)
+            {
+                context.PlacementStrategy = new List<Amazon.ECS.Model.PlacementStrategy>(this.PlacementStrategy);
+            }
             context.Role = this.Role;
             context.ServiceName = this.ServiceName;
             context.TaskDefinition = this.TaskDefinition;
@@ -326,6 +362,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.LoadBalancers != null)
             {
                 request.LoadBalancers = cmdletContext.LoadBalancers;
+            }
+            if (cmdletContext.PlacementConstraints != null)
+            {
+                request.PlacementConstraints = cmdletContext.PlacementConstraints;
+            }
+            if (cmdletContext.PlacementStrategy != null)
+            {
+                request.PlacementStrategy = cmdletContext.PlacementStrategy;
             }
             if (cmdletContext.Role != null)
             {
@@ -396,6 +440,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancers { get; set; }
+            public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }
+            public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
             public System.String Role { get; set; }
             public System.String ServiceName { get; set; }
             public System.String TaskDefinition { get; set; }

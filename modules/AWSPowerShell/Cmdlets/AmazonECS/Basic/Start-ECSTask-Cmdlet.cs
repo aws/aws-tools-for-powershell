@@ -29,12 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Starts a new task from the specified task definition on the specified container instance
-    /// or instances. To use the default Amazon ECS scheduler to place your task, use <code>RunTask</code>
-    /// instead.
+    /// or instances.
     /// 
-    ///  <important><para>
-    /// The list of container instances to start tasks on is limited to 10.
-    /// </para></important>
+    ///  
+    /// <para>
+    /// Alternatively, you can use <a>RunTask</a> to place tasks for you. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
+    /// Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.StartTaskResponse")]
@@ -60,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The container instance IDs or full Amazon Resource Name (ARN) entries for the container
-        /// instances on which you would like to place your task.</para><important><para>The list of container instances to start tasks on is limited to 10.</para></important>
+        /// instances on which you would like to place your task. You can specify up to 10 container
+        /// instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Overrides_ContainerOverrides")]
         public Amazon.ECS.Model.ContainerOverride[] Overrides_ContainerOverride { get; set; }
+        #endregion
+        
+        #region Parameter Group
+        /// <summary>
+        /// <para>
+        /// <para>The task group to associate with the task. By default, if you do not specify a task
+        /// group, the default group is <code>family:TASKDEF-FAMILY</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Group { get; set; }
         #endregion
         
         #region Parameter StartedBy
@@ -153,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.ContainerInstances = new List<System.String>(this.ContainerInstance);
             }
+            context.Group = this.Group;
             if (this.Overrides_ContainerOverride != null)
             {
                 context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
@@ -183,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ContainerInstances != null)
             {
                 request.ContainerInstances = cmdletContext.ContainerInstances;
+            }
+            if (cmdletContext.Group != null)
+            {
+                request.Group = cmdletContext.Group;
             }
             
              // populate Overrides
@@ -274,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String Cluster { get; set; }
             public List<System.String> ContainerInstances { get; set; }
+            public System.String Group { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
             public System.String Overrides_TaskRoleArn { get; set; }
             public System.String StartedBy { get; set; }
