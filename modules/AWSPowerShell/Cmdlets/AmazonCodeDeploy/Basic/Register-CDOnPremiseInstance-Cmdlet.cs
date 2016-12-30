@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// Registers an on-premises instance.
+    /// 
+    ///  <note><para>
+    /// Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request.
+    /// You cannot use both.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Register", "CDOnPremiseInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +44,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public partial class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamSessionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM session to associate with the on-premises instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String IamSessionArn { get; set; }
+        #endregion
         
         #region Parameter IamUserArn
         /// <summary>
@@ -89,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.IamSessionArn = this.IamSessionArn;
             context.IamUserArn = this.IamUserArn;
             context.InstanceName = this.InstanceName;
             
@@ -107,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // create request
             var request = new Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceRequest();
             
+            if (cmdletContext.IamSessionArn != null)
+            {
+                request.IamSessionArn = cmdletContext.IamSessionArn;
+            }
             if (cmdletContext.IamUserArn != null)
             {
                 request.IamUserArn = cmdletContext.IamUserArn;
@@ -166,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String IamSessionArn { get; set; }
             public System.String IamUserArn { get; set; }
             public System.String InstanceName { get; set; }
         }

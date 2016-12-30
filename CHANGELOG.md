@@ -1,3 +1,11 @@
+### 3.3.36.0 (2016-12-29)
+  * AWS CodeDeploy
+    - Updated the Register-CDOnPremiseInstance cmdlet with a new parameter, -IamSessionArn, to support association of on-premise instances with IAM sessions.
+  * Amazon EC2 Container Service (ECS)
+    - Added and updated cmdlets to support the new service capability enabling placement of tasks on container instances and setting attributes on ECS resources. The new cmdlets are Get-ECSAttributeList (ListAttributes API), Remove-ECSAttribute (DeleteAttributes API) and Write-ECSAttribute (PutAttributes API).
+  * Amazon Simple Systems Management
+    - To better reflect its operation, the cmdlet Get-SSMParameterNameList has been renamed to Get-SSMParameterValue. An aliases submodule (AWSPowerShellLegacyAliases.psm1) has been added to the module that sets up a backwards compatible alias on module load for scripts that rely on the original cmdlet name.
+
 ### 3.3.35.0 (2016-12-22)
   * Amazon API Gateway
     - Added cmdlets to support the new service feature for generating SDKs in more languages. This update introduces two new operations used to dynamically discover these SDK types and what configuration each type accepts. The new cmdlets are: Get-AGSdkType (GetSdkType API), Get-AGSdkTypeList (GetSdkTypes API). In addition the existing cmdlet Write-AGMethod has been updated with a new parameter, -OperationName, enabling users to set a human-friendly operation identifier for the method.

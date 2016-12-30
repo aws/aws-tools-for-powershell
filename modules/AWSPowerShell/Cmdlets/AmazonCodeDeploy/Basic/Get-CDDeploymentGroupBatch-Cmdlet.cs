@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Get information about one or more deployment groups.
+    /// Gets information about one or more deployment groups.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentGroupBatch")]
     [OutputType("Amazon.CodeDeploy.Model.BatchGetDeploymentGroupsResponse")]
