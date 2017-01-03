@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
         #region Parameter VersionId
         /// <summary>
-        /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lamba.
+        /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_CodeFromS3Location)]
         [Alias("S3ObjectVersion", "FunctionCode_S3ObjectVersion")]
@@ -195,28 +195,34 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     request.Publish = cmdletContext.Publish.Value;
                 }
 
-                if (!string.IsNullOrEmpty(cmdletContext.BucketName))
+                switch (this.ParameterSetName)
                 {
-                    request.S3Bucket = cmdletContext.BucketName;
-                    request.S3Key = cmdletContext.Key;
-                    request.S3ObjectVersion = cmdletContext.VersionId;
-                }
-                else
-                {
-                    if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
-                    {
-                        var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
-                        if (!File.Exists(fqZipFilename))
+                    case ParamSet_CodeFromLocalZipFile:
                         {
-                            this.ThrowArgumentError(string.Format("'{0}' ('{1}') is not a valid file path for the ZipFilename parameter.", this.ZipFilename, fqZipFilename), this);
-                        }
+                            if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                            {
+                                var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
+                                if (!File.Exists(fqZipFilename))
+                                {
+                                    this.ThrowArgumentError(string.Format("'{0}' ('{1}') is not a valid file path for the ZipFilename parameter.", this.ZipFilename, fqZipFilename), this);
+                                }
 
-                        var content = File.ReadAllBytes(fqZipFilename);
-                        _ZipFilenameStream = new MemoryStream(content);
-                        request.ZipFile = _ZipFilenameStream;
-                    }
-                    else
-                        request.ZipFile = cmdletContext.ZipFileContent;
+                                var content = File.ReadAllBytes(fqZipFilename);
+                                _ZipFilenameStream = new MemoryStream(content);
+                                request.ZipFile = _ZipFilenameStream;
+                            }
+                            else
+                                request.ZipFile = cmdletContext.ZipFileContent;
+                        }
+                        break;
+
+                    case ParamSet_CodeFromS3Location:
+                        {
+                            request.S3Bucket = cmdletContext.BucketName;
+                            request.S3Key = cmdletContext.Key;
+                            request.S3ObjectVersion = cmdletContext.VersionId;
+                        }
+                        break;
                 }
 
                 CmdletOutput output;

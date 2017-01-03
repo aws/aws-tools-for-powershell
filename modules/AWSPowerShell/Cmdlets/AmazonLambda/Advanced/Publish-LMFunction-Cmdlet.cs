@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
         #region Parameter VersionId
         /// <summary>
-        /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lamba.
+        /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_CodeFromS3Location)]
         [Alias("S3ObjectVersion", "FunctionCode_S3ObjectVersion")]
@@ -336,30 +336,36 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     request.Handler = cmdletContext.Handler;
                 }
 
-                if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
+                switch (this.ParameterSetName)
                 {
-                    var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
-                    if (!File.Exists(fqZipFilename))
-                    {
-                        this.ThrowArgumentError(string.Format("'{0}' ('{1}') is not a valid file path for the ZipFilename parameter.", this.ZipFilename, fqZipFilename), this);
-                    }
+                    case ParamSet_CodeFromLocalZipFile:
+                        {
+                            var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
+                            if (!File.Exists(fqZipFilename))
+                            {
+                                this.ThrowArgumentError(string.Format("'{0}' ('{1}') is not a valid file path for the ZipFilename parameter.", this.ZipFilename, fqZipFilename), this);
+                            }
 
-                    var content = File.ReadAllBytes(fqZipFilename);
-                    _ZipFilenameStream = new MemoryStream(content);
+                            var content = File.ReadAllBytes(fqZipFilename);
+                            _ZipFilenameStream = new MemoryStream(content);
 
-                    request.Code = new FunctionCode
-                    {
-                        ZipFile = _ZipFilenameStream
-                    };
-                }
-                else
-                {
-                    request.Code = new FunctionCode
-                    {
-                       S3Bucket = cmdletContext.BucketName,
-                       S3Key = cmdletContext.Key,
-                       S3ObjectVersion = cmdletContext.VersionId
-                    };
+                            request.Code = new FunctionCode
+                            {
+                                ZipFile = _ZipFilenameStream
+                            };
+                        }
+                        break;
+
+                    case ParamSet_CodeFromS3Location:
+                        {
+                            request.Code = new FunctionCode
+                            {
+                                S3Bucket = cmdletContext.BucketName,
+                                S3Key = cmdletContext.Key,
+                                S3ObjectVersion = cmdletContext.VersionId
+                            };
+                        }
+                        break;
                 }
 
                 if (cmdletContext.MemorySize != null)
