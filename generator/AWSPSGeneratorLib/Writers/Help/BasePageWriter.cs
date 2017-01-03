@@ -62,7 +62,7 @@ namespace AWSPowerShellGenerator.Writers.Help
 
                         // every page needs a title, meta description and canonical url to satisfy indexing
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
-                        writer.WriteLine("<title>{0} | AWS Tools for Windows PowerShell</title>", GetTitle());
+                        writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());
                         writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/latest/reference/index.html?page={0}&tocid={1}\"/>",
                                          this.GenerateFilename(),
                                          this.GetTOCID());
@@ -175,7 +175,7 @@ namespace AWSPowerShellGenerator.Writers.Help
         private string GenerateFeedbackHTML()
         {
             string filename = Path.GetFileNameWithoutExtension(GenerateFilename());
-            string baseUrl = "https://aws-portal.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_04";
+            string baseUrl = "https://docs.aws.amazon.com/forms/aws-doc-feedback";
             string queryString = string.Format("?service_name={0}&amp;file_name={1}",
                 "PowerShell-Ref",  // service_name
                 filename   // guide_name

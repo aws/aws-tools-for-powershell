@@ -189,7 +189,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             
             var sb = new StringBuilder();
             sb.Append("<div class=\"versioninfo\">");
-            sb.Append("<p><strong>AWS Tools for Windows PowerShell: </strong><span id=\"assemblyVersion\">2.x.y.z</span></p>");
+            sb.Append("<p><strong>AWS Tools for PowerShell: </strong><span id=\"assemblyVersion\">2.x.y.z</span></p>");
             sb.Append("</div");
             writer.WriteLine(sb);
 
