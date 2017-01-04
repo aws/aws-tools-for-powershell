@@ -172,7 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for the new instance.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// <para>The database engine to use for the new instance.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source. You can restore a MariaDB
+        /// 10.1 DB instance from a MySQL 5.6 snapshot.</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
         /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
         /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code> |
         /// <code>aurora</code></para>

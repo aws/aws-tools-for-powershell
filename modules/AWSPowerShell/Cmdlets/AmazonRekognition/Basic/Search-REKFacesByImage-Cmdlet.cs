@@ -33,19 +33,19 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// the input face with faces in the specified collection. 
     /// 
     ///  <note><para>
-    ///  To search for all faces in an input image, you might first call the API, and then
-    /// use the face IDs returned in subsequent calls to the API. 
+    ///  To search for all faces in an input image, you might first call the operation, and
+    /// then use the face IDs returned in subsequent calls to the operation. 
     /// </para><para>
-    ///  You can also call the <code>DetectFaces</code> API and use the bounding boxes in
-    /// the response to make face crops, which then you can pass in to the <code>SearchFacesByImage</code>
-    /// API. 
+    ///  You can also call the <code>DetectFaces</code> operation and use the bounding boxes
+    /// in the response to make face crops, which then you can pass in to the <code>SearchFacesByImage</code>
+    /// operation. 
     /// </para></note><para>
     ///  The response returns an array of faces that match, ordered by similarity score with
     /// the highest similarity first. More specifically, it is an array of metadata for each
     /// face match found. Along with the metadata, the response also includes a <code>similarity</code>
-    /// indicating how similar the face is to the input face. In the response, the API also
-    /// returns the bounding box (and a confidence level that the bounding box contains a
-    /// face) of the face that Rekognition used for the input image. 
+    /// indicating how similar the face is to the input face. In the response, the operation
+    /// also returns the bounding box (and a confidence level that the bounding box contains
+    /// a face) of the face that Amazon Rekognition used for the input image. 
     /// </para><para>
     /// For an example, see <a>example3</a>.
     /// </para><para>

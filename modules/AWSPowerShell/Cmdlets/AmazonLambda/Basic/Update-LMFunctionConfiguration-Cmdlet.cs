@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter DeadLetterConfig_TargetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify
+        /// <para>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify
         /// as your Dead Letter Queue (DLQ).</para>
         /// </para>
         /// </summary>

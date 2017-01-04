@@ -91,15 +91,15 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// Sets the <code>requesterManaged</code> property of the network interface to <code>true</code>,
     /// and the <code>requesterId</code> value to <code>EFS</code>.
     /// </para></li></ul><para>
-    /// Each Amazon EFS mount target has one corresponding requestor-managed EC2 network interface.
+    /// Each Amazon EFS mount target has one corresponding requester-managed EC2 network interface.
     /// After the network interface is created, Amazon EFS sets the <code>NetworkInterfaceId</code>
     /// field in the mount target's description to the network interface ID, and the <code>IpAddress</code>
     /// field to its address. If network interface creation fails, the entire <code>CreateMountTarget</code>
     /// operation fails.
     /// </para></li></ul><note><para>
     /// The <code>CreateMountTarget</code> call returns only after creating the network interface,
-    /// but while the mount target state is still <code>creating</code>. You can check the
-    /// mount target creation status by calling the <a>DescribeFileSystems</a> operation,
+    /// but while the mount target state is still <code>creating</code>, you can check the
+    /// mount target creation status by calling the <a>DescribeMountTargets</a> operation,
     /// which among other things returns the mount target state.
     /// </para></note><para>
     /// We recommend you create a mount target in each of the Availability Zones. There are

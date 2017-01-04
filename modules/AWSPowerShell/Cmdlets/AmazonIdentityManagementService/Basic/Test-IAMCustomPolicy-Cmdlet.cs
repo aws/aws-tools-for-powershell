@@ -108,11 +108,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
         /// policies, such as you could include in a call to <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
         /// or one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
-        /// APIs to restrict what a user can do while using the temporary credentials.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of any printable ASCII character ranging from the
-        /// space character (\u0020) through end of the ASCII character range (\u00FF). It also
-        /// includes the special characters tab (\u0009), line feed (\u000A), and carriage return
-        /// (\u000D).</para>
+        /// APIs to restrict what a user can do while using the temporary credentials.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
+        /// parameter is a string of characters consisting of any printable ASCII character ranging
+        /// from the space character (\u0020) through end of the ASCII character range as well
+        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
+        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
+        /// (\u000A), and carriage return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -181,11 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
         /// in the simulation is treated as if it had this policy attached. You can include only
-        /// one resource-based policy in a simulation.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of any printable ASCII character ranging from the
-        /// space character (\u0020) through end of the ASCII character range (\u00FF). It also
-        /// includes the special characters tab (\u0009), line feed (\u000A), and carriage return
-        /// (\u000D).</para>
+        /// one resource-based policy in a simulation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
+        /// parameter is a string of characters consisting of any printable ASCII character ranging
+        /// from the space character (\u0020) through end of the ASCII character range as well
+        /// as the printable characters in the Basic Latin and Latin-1 Supplement character set
+        /// (through \u00FF). It also includes the special characters tab (\u0009), line feed
+        /// (\u000A), and carriage return (\u000D).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

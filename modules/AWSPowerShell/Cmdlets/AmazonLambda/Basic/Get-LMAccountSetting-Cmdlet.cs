@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// You can use this operation to retrieve Lambda limit information such as code size
-    /// and concurrency limits. For more information on limits, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS
-    /// Lambda Limits</a>. You can also retrieve resource usage statistics such as code storage
+    /// You can use this operation to retrieve Lambda limits information, such as code size
+    /// and concurrency limits. For more information about limits, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS
+    /// Lambda Limits</a>. You can also retrieve resource usage statistics, such as code storage
     /// usage and function count.
     /// </para>
     /// </summary>

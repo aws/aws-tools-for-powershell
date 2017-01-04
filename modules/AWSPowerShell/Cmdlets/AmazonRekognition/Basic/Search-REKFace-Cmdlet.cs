@@ -28,10 +28,10 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// For a given input face ID, searches the specified collection for matching faces. You
-    /// get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation.
-    /// The operation compares the features of the input face with faces in the specified
-    /// collection. 
+    /// For a given input face ID, searches for matching faces in the collection the face
+    /// belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a>
+    /// operation. The operation compares the features of the input face with faces in the
+    /// specified collection. 
     /// 
     ///  <note><para>
     /// You can also search faces without indexing faces by using the <code>SearchFacesByImage</code>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter CollectionId
         /// <summary>
         /// <para>
-        /// <para>ID of the collection to search.</para>
+        /// <para>ID of the collection the face belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxFace
         /// <summary>
         /// <para>
-        /// <para>Maximum number of faces to return. The API will return the maximum number of faces
+        /// <para>Maximum number of faces to return. The operation returns the maximum number of faces
         /// with the highest confidence in the match.</para>
         /// </para>
         /// </summary>

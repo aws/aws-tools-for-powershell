@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// source mapping.
     /// </para><important><para>
     /// This event source mapping is relevant only in the AWS Lambda pull model, where AWS
-    /// Lambda invokes the function. For more information, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
+    /// Lambda invokes the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
     /// Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.
     /// </para></important><para>
     /// You provide mapping information (for example, which stream to read from and which
@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter StartingPosition
         /// <summary>
         /// <para>
-        /// <para>The position in the stream where AWS Lambda should start reading. For more information,
-        /// go to <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType">ShardIteratorType</a>
+        /// <para>The position in the stream where AWS Lambda should start reading. Valid only for Kinesis
+        /// streams. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType">ShardIteratorType</a>
         /// in the <i>Amazon Kinesis API Reference</i>. </para>
         /// </para>
         /// </summary>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// iterator type</a> AT_TIMESTAMP. If a record with this exact timestamp does not exist,
         /// the iterator returned is for the next (later) record. If the timestamp is older than
         /// the current trim horizon, the iterator returned is for the oldest untrimmed data record
-        /// (TRIM_HORIZON). </para>
+        /// (TRIM_HORIZON). Valid only for Kinesis streams. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

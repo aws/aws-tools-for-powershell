@@ -49,10 +49,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// bounding box contains a face), a face ID assigned by the service for each face that
     /// is detected and stored, and an image ID assigned by the service for the input image
     /// If you request all facial attributes (using the <code>detectionAttributes</code> parameter,
-    /// Rekognition returns detailed facial attributes such as facial landmarks (for example,
-    /// location of eye and mount) and other facial attributes such gender. If you provide
-    /// the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code>
-    /// operation, Rekognition doesn't save duplicate face metadata. 
+    /// Amazon Rekognition returns detailed facial attributes such as facial landmarks (for
+    /// example, location of eye and mount) and other facial attributes such gender. If you
+    /// provide the same image, specify the same collection, and use the same external ID
+    /// in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
+    /// face metadata. 
     /// </para><para>
     /// For an example, see <a>example2</a>.
     /// </para><para>
@@ -105,9 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>(Optional) Returns detailed attributes of indexed faces. By default, the operation
         /// returns a subset of the facial attributes. </para><para>For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide
-        /// both, ["ALL", "DEFAULT"], Rekognition uses the logical AND operator to determine which
-        /// attributes to return (in this case, it is all attributes). If you specify all attributes,
-        /// the service performs additional detection, in addition to the default. </para>
+        /// both, ["ALL", "DEFAULT"], Amazon Rekognition uses the logical AND operator to determine
+        /// which attributes to return (in this case, it is all attributes). If you specify all
+        /// attributes, the service performs additional detection, in addition to the default.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
