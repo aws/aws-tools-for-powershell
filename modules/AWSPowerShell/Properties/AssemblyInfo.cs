@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 #endif	
 	
 [assembly: AssemblyCompany("Amazon.com, Inc")]
-[assembly: AssemblyCopyright("Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
+[assembly: AssemblyCopyright("Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDescription("")]
