@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public string VersionId { get; set; }
         #endregion
 
-        #region Parameter FunctionZip
+        #region Parameter ZipFilename
         /// <summary>
         /// A file path to the zip file containing your packaged source code.
         /// </summary>

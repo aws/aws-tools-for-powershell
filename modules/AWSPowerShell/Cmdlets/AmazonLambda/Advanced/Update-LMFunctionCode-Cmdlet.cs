@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public string VersionId { get; set; }
         #endregion
         
-        #region Parameter ZipFile
+        #region Parameter ZipFileContent
         /// <summary>
         /// <para>
         /// <para>The contents of your zip file containing your deployment package.
@@ -105,11 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ParameterSetName = ParamSet_CodeFromLocalZipFile)]
-        [Alias("ZipFile")]
+        [Alias("ZipContent")]
         public System.IO.MemoryStream ZipFileContent { get; set; }
         #endregion
 
-        #region Parameter FunctionZip
+        #region Parameter ZipFilename
         /// <summary>
         /// <para>
         /// The path to a zip file containing your deployment package. Use this parameter, or -ZipFileContent, 
