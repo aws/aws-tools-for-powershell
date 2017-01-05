@@ -1,3 +1,9 @@
+### 3.3.37.0 (2017-01-05)
+  * AWS Lambda
+    - Updated the Publish-LMFunction and Update-LMFunctionCode with new parameters to support the latest features in these APIs (e.g. environment variable support, VPC configuration etc) and made both cmdlets consistent with support for specifying the function code to upload using an object in an Amazon S3 bucket. The parameter names used in both cmdlets have also been made consistent, with aliases applied for backwards compatibility. Help examples for the two cmdlets have also been added.
+  * AWS Marketplace Commerce Analytics
+    - Added argument completion support for the new data set disbursed_amount_by_instance_hours, with historical data available starting 2012-09-04. New data is published to this data set every 30 days. 
+
 ### 3.3.36.0 (2016-12-29)
   * AWS CodeDeploy
     - Updated the Register-CDOnPremiseInstance cmdlet with a new parameter, -IamSessionArn, to support association of on-premise instances with IAM sessions.
