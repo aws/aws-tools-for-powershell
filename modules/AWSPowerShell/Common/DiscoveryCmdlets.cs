@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Common
     /// </summary>
     [Cmdlet("Get", "AWSCmdletName", DefaultParameterSetName = ByApiOperationOrServiceParameterSet)]
     [AWSCmdlet("Searches for cmdlets that invoke a Amazon Web Services service operation, map to an AWS CLI command, or lists all cmdlets"
-                + " that belong to a service identified by one or more words in its name or its cmdlet noun prefix."
+                + " that belong to a service identified by one or more words in its name or its cmdlet noun prefix. If no service name or pattern is given all service cmdlets are output."
         )]
     [OutputType(typeof(PSObject))]
     [AWSCmdletOutput("PSObject",
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Common
                 foundCmdlets = FindCmdletsByOperationOrCommand();
 
             if (foundCmdlets != null && foundCmdlets.Any())
-                WriteObject(foundCmdlets);
+                WriteObject(foundCmdlets, true);
             else
                 WriteVerbose("The specified parameters did not match any service.");
         }
@@ -294,15 +294,28 @@ namespace Amazon.PowerShell.Common
                             .ToList();
 
             const RegexOptions options = RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline;
-            var regex = new Regex(searchText, options);
-
-            WriteVerbose("...attempting to match cmdlet prefixes or service names against search pattern: " + searchText);
+            Regex regex = null;
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                regex = new Regex(searchText, options);
+                WriteVerbose("...attempting to match cmdlet prefixes or service names against search pattern: " + searchText);
+            }
+            else
+            {
+                WriteVerbose("...no service name or name pattern given, yielding all available service cmdlets for output");
+            }
 
             foreach (var sct in serviceClientTypes)
             {
                 var awsClientCmdletAttribute = AWSClientCmdletAttribute.GetAttributeInstanceOnType(sct, true);
                 if (awsClientCmdletAttribute == null)
                     continue;
+
+                if (regex == null)
+                {
+                    servicePrefixes.Add(awsClientCmdletAttribute.ServicePrefix);
+                    continue;
+                }
 
                 if (awsClientCmdletAttribute.ServicePrefix.Equals(searchText, StringComparison.OrdinalIgnoreCase)
                         || regex.IsMatch(awsClientCmdletAttribute.ServiceName))

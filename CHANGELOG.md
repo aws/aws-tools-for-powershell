@@ -1,6 +1,8 @@
 ### 3.3.37.1 (2017-01-09)
   * AWS Health
     - Added support for the AWS Health service. The AWS Health API serves as the primary source for you to receive personalized information related to your AWS infrastructure, guiding your through scheduled changes, and accelerating the troubleshooting of issues impacting your AWS resources and accounts. Cmdlets for the service have the noun prefix 'HLTH' and can be viewed using the command 'Get-AWSCmdletName -Service HLTH'.
+  * Get-AWSCmdletName
+    - Fixed bug when invoking the cmdlet with no parameters. Instead of outputting the set of all service cmdlets an error 'Value cannot be null' was displayed.
 
 ### 3.3.37.0 (2017-01-05)
   * AWS Lambda
