@@ -529,11 +529,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             }
             else
             {
+                // simplest to always emit types with full name, especially as some SDK types can collide with framework
                 switch (property.CollectionType)
                 {
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericList:
                         {
-                            // simplest to always emit types with full name, especially as some SDK types can collide with framework
                             writer.WriteLine("public {0}[] {1} {{ get; set; }}", property.GenericCollectionTypes[0].FullName, property.CmdletParameterName);
                         }
                         break;
@@ -542,6 +542,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             // HashTable is the underlying hash type for PS and more convenient to emit as the param
                             // type as users can then use inline hash syntax @{key=value, key=value} to populate
                             writer.WriteLine("public System.Collections.Hashtable {0} {{ get; set; }}", property.CmdletParameterName);
+                        }
+                        break;
+                    case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary:
+                        {
+                            writer.WriteLine("public System.Collections.Hashtable[] {0} {{ get; set; }}", property.CmdletParameterName);
                         }
                         break;
                 }
@@ -782,11 +787,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                         writer.WriteLine("foreach (var hashKey in this.{0}.Keys)", property.CmdletParameterName);
                                         writer.OpenRegion();
                                         {
-                                            // Some api's use a List<T> inner type, not a simple type. Thankfully no service owner has yet
-                                            // gone as far as a nested dictionary type! We must hope the Hashtable value is enumerable
-                                            if (property.GenericCollectionTypes[1].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
-                                                throw new InvalidOperationException("Found nested Dictionary<K, Dictionary<K,V>> type processing parameter " + property.AnalyzedName + ", not supported!");
-
+                                            // this handles List<T> where T is a simple type. List<T> where T is a generic dictionary
+                                            // is handled in the IsGenericListOfGenericDictionary switch case. We must hope the Hashtable 
+                                            // value is enumerable
                                             if (!property.GenericCollectionTypes[1].Name.StartsWith("List`", StringComparison.Ordinal))
                                             {
                                                 writer.WriteLine("context.{0}.Add(({1})hashKey, ({2})(this.{3}[hashKey]));",
@@ -826,6 +829,80 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                                                     property.GenericCollectionTypes[0].Name);
                                             }
                                         }
+                                        writer.CloseRegion();
+                                    }
+                                    writer.CloseRegion();
+                                }
+                                break;
+
+                            case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary:
+                                {
+                                    /* generates code pattern of:
+                                        context.PROPERTY = new List<Dictionary<T1,T2>();
+                                        foreach (var hashTable in this.PROPERTY)
+                                        {
+                                            var d = new Dictionary<T1, T2>();
+                                            foreach (var key in hashTable.Keys)
+                                            {
+                                                d.Add((T1)key, (T2)hashTable[key]);
+                                            }
+
+                                            context.PROPERTY.Add(d);
+                                        }
+                                    */
+                                    writer.WriteLine("if (this.{0} != null)", property.CmdletParameterName);
+                                    writer.OpenRegion();
+                                    {
+                                        // simple property info ctor has already dived down to get the inner types for us
+                                        var innerDictionaryTypes = property.GenericCollectionTypes;
+
+                                        writer.WriteLine("context.{0} = new {1}();", property.ContextParameterName, property.PropertyTypeName);
+
+                                        writer.WriteLine("foreach (var hashTable in this.{0})", property.CmdletParameterName);
+                                        writer.OpenRegion();
+                                        {
+                                            writer.WriteLine("var d = new Dictionary<{0}, {1}>();", innerDictionaryTypes[0].FullName, innerDictionaryTypes[1].FullName);
+
+                                            writer.WriteLine("foreach (var hashKey in hashTable.Keys)");
+                                            writer.OpenRegion();
+                                            {
+                                                if (!innerDictionaryTypes[1].Name.StartsWith("List`", StringComparison.Ordinal))
+                                                {
+                                                    writer.WriteLine("d.Add(({0})hashKey, ({1})(hashTable[hashKey]));",
+                                                                     innerDictionaryTypes[0].Name,
+                                                                     innerDictionaryTypes[1].Name);
+                                                }
+                                                else
+                                                {
+                                                    // need to do some clunky manipulation with non-genericized IEnumerable though, cast to
+                                                    // IEnumerable<T> yields exception on hashValue
+                                                    writer.WriteLine("object hashValue = hashTable[hashKey];");
+                                                    // have to dig deeper to get the real type, and not "List`1"
+                                                    string valueSetItemType = ((innerDictionaryTypes[1]).GetGenericArguments())[0].Name;
+
+                                                    writer.WriteLine("if (hashValue == null)");
+                                                    writer.OpenRegion();
+                                                    {
+                                                        writer.WriteLine("d.Add(({0})hashKey, null);", innerDictionaryTypes[0].Name);
+                                                        writer.WriteLine("continue;");
+                                                    }
+                                                    writer.CloseRegion();
+
+                                                    writer.WriteLine("var enumerable = SafeEnumerable(hashValue);");
+                                                    writer.WriteLine("var valueSet = new List<{0}>();", valueSetItemType);
+                                                    writer.WriteLine("foreach (var s in enumerable)");
+                                                    writer.OpenRegion();
+                                                    {
+                                                        writer.WriteLine("valueSet.Add(({0})s);", valueSetItemType);
+                                                    }
+                                                    writer.CloseRegion();
+                                                    writer.WriteLine("d.Add(({0})hashKey, valueSet);", innerDictionaryTypes[0].Name);
+                                                }
+                                            }
+                                            writer.CloseRegion();
+                                        }
+
+                                        writer.WriteLine("context.{0}.Add(d);", property.ContextParameterName);
                                         writer.CloseRegion();
                                     }
                                     writer.CloseRegion();

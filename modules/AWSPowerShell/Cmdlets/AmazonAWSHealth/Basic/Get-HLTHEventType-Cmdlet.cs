@@ -43,14 +43,26 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     public partial class GetHLTHEventTypeCmdlet : AmazonAWSHealthClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
+        #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Amazon.AWSHealth.Model.EventTypeFilter Filter { get; set; }
+        [Alias("Filter_EventTypeCategories")]
+        public System.String[] Filter_EventTypeCategory { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EventTypeCode
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EventTypeCodes")]
+        public System.String[] Filter_EventTypeCode { get; set; }
         #endregion
         
         #region Parameter Locale
@@ -61,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Locale { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Service
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_Services")]
+        public System.String[] Filter_Service { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -104,7 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Filter = this.Filter;
+            if (this.Filter_EventTypeCategory != null)
+            {
+                context.Filter_EventTypeCategories = new List<System.String>(this.Filter_EventTypeCategory);
+            }
+            if (this.Filter_EventTypeCode != null)
+            {
+                context.Filter_EventTypeCodes = new List<System.String>(this.Filter_EventTypeCode);
+            }
+            if (this.Filter_Service != null)
+            {
+                context.Filter_Services = new List<System.String>(this.Filter_Service);
+            }
             context.Locale = this.Locale;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -125,9 +159,44 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             
             // create request and set iteration invariants
             var request = new Amazon.AWSHealth.Model.DescribeEventTypesRequest();
-            if (cmdletContext.Filter != null)
+            
+             // populate Filter
+            bool requestFilterIsNull = true;
+            request.Filter = new Amazon.AWSHealth.Model.EventTypeFilter();
+            List<System.String> requestFilter_filter_EventTypeCategory = null;
+            if (cmdletContext.Filter_EventTypeCategories != null)
             {
-                request.Filter = cmdletContext.Filter;
+                requestFilter_filter_EventTypeCategory = cmdletContext.Filter_EventTypeCategories;
+            }
+            if (requestFilter_filter_EventTypeCategory != null)
+            {
+                request.Filter.EventTypeCategories = requestFilter_filter_EventTypeCategory;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EventTypeCode = null;
+            if (cmdletContext.Filter_EventTypeCodes != null)
+            {
+                requestFilter_filter_EventTypeCode = cmdletContext.Filter_EventTypeCodes;
+            }
+            if (requestFilter_filter_EventTypeCode != null)
+            {
+                request.Filter.EventTypeCodes = requestFilter_filter_EventTypeCode;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Service = null;
+            if (cmdletContext.Filter_Services != null)
+            {
+                requestFilter_filter_Service = cmdletContext.Filter_Services;
+            }
+            if (requestFilter_filter_Service != null)
+            {
+                request.Filter.Services = requestFilter_filter_Service;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             if (cmdletContext.Locale != null)
             {
@@ -236,7 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.AWSHealth.Model.EventTypeFilter Filter { get; set; }
+            public List<System.String> Filter_EventTypeCategories { get; set; }
+            public List<System.String> Filter_EventTypeCodes { get; set; }
+            public List<System.String> Filter_Services { get; set; }
             public System.String Locale { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }

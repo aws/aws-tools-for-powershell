@@ -20,7 +20,8 @@ namespace AWSPowerShellGenerator.Generators
         {
             NoCollection = 0,
             IsGenericList,
-            IsGenericDictionary
+            IsGenericDictionary,
+            IsGenericListOfGenericDictionary
         }
 
         public PropertyInfo BaseProperty { get; private set; }

@@ -185,7 +185,7 @@ namespace AWSPowerShellGenerator
                 ShortName = "svc", 
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.Services = argValue.Split(','), 
-                HelpText = "Comma-delimited set of service names to process. If not specified all services are processed during generation."
+                HelpText = "Comma-delimited set of service name prefixes to process. If not specified all services are processed during generation."
             },
             new ArgDeclaration
             {

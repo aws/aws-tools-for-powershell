@@ -508,7 +508,15 @@ namespace AWSPowerShellGenerator.Analysis
                 if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`"))
                 {
                     genericCollectionTypes = property.PropertyType.GetGenericArguments();
-                    collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
+                    if (genericCollectionTypes[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
+                    {
+                        genericCollectionTypes = genericCollectionTypes[0].GetGenericArguments();
+                        collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary;
+                    }
+                    else
+                    {
+                        collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
+                    }
                 }
                 else if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("Dictionary`"))
                 {

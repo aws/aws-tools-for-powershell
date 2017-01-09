@@ -7,8 +7,6 @@
   <ServiceClientInterface>IAmazonAWSHealth</ServiceClientInterface>
   <ServiceClient>AmazonAWSHealthClient</ServiceClient>
 
-  <PipelineParameter></PipelineParameter>
-  
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
   
   <ServiceOperations>
@@ -20,9 +18,4 @@
     <ServiceOperation MethodName="DescribeEventTypes" Noun="EventType" NoPipelineParameter="true" />
   </ServiceOperations>
   
-  <TypesNotToFlatten>
-    <Type>Amazon.AWSHealth.Model.EntityFilter</Type>
-    <Type>Amazon.AWSHealth.Model.EventFilter</Type>
-    <Type>Amazon.AWSHealth.Model.EventTypeFilter</Type>
-  </TypesNotToFlatten>
 </ConfigModel>

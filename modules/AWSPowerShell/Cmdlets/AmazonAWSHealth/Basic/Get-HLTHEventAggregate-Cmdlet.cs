@@ -52,14 +52,147 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         public Amazon.AWSHealth.EventAggregateField AggregateField { get; set; }
         #endregion
         
-        #region Parameter Filter
+        #region Parameter Filter_AvailabilityZone
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Amazon.AWSHealth.Model.EventFilter Filter { get; set; }
+        [Alias("Filter_AvailabilityZones")]
+        public System.String[] Filter_AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EndTime
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EndTimes")]
+        public Amazon.AWSHealth.Model.DateTimeRange[] Filter_EndTime { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EntityArn
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EntityArns")]
+        public System.String[] Filter_EntityArn { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EntityValue
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EntityValues")]
+        public System.String[] Filter_EntityValue { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EventArn
+        /// <summary>
+        /// <para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <code>arn:aws:silvermine:<i>region</i>:<i>service</i>:event/<i>123453434</i></code>.)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EventArns")]
+        public System.String[] Filter_EventArn { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EventStatusCode
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EventStatusCodes")]
+        public System.String[] Filter_EventStatusCode { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EventTypeCategory
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EventTypeCategories")]
+        public System.String[] Filter_EventTypeCategory { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EventTypeCode
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_EventTypeCodes")]
+        public System.String[] Filter_EventTypeCode { get; set; }
+        #endregion
+        
+        #region Parameter Filter_LastUpdatedTime
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_LastUpdatedTimes")]
+        public Amazon.AWSHealth.Model.DateTimeRange[] Filter_LastUpdatedTime { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Region
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_Regions")]
+        public System.String[] Filter_Region { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Service
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_Services")]
+        public System.String[] Filter_Service { get; set; }
+        #endregion
+        
+        #region Parameter Filter_StartTime
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_StartTimes")]
+        public Amazon.AWSHealth.Model.DateTimeRange[] Filter_StartTime { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map of entity tags attached to the affected entity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filter_Tags")]
+        public System.Collections.Hashtable[] Filter_Tag { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -104,7 +237,67 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             PreExecutionContextLoad(context);
             
             context.AggregateField = this.AggregateField;
-            context.Filter = this.Filter;
+            if (this.Filter_AvailabilityZone != null)
+            {
+                context.Filter_AvailabilityZones = new List<System.String>(this.Filter_AvailabilityZone);
+            }
+            if (this.Filter_EndTime != null)
+            {
+                context.Filter_EndTimes = new List<Amazon.AWSHealth.Model.DateTimeRange>(this.Filter_EndTime);
+            }
+            if (this.Filter_EntityArn != null)
+            {
+                context.Filter_EntityArns = new List<System.String>(this.Filter_EntityArn);
+            }
+            if (this.Filter_EntityValue != null)
+            {
+                context.Filter_EntityValues = new List<System.String>(this.Filter_EntityValue);
+            }
+            if (this.Filter_EventArn != null)
+            {
+                context.Filter_EventArns = new List<System.String>(this.Filter_EventArn);
+            }
+            if (this.Filter_EventStatusCode != null)
+            {
+                context.Filter_EventStatusCodes = new List<System.String>(this.Filter_EventStatusCode);
+            }
+            if (this.Filter_EventTypeCategory != null)
+            {
+                context.Filter_EventTypeCategories = new List<System.String>(this.Filter_EventTypeCategory);
+            }
+            if (this.Filter_EventTypeCode != null)
+            {
+                context.Filter_EventTypeCodes = new List<System.String>(this.Filter_EventTypeCode);
+            }
+            if (this.Filter_LastUpdatedTime != null)
+            {
+                context.Filter_LastUpdatedTimes = new List<Amazon.AWSHealth.Model.DateTimeRange>(this.Filter_LastUpdatedTime);
+            }
+            if (this.Filter_Region != null)
+            {
+                context.Filter_Regions = new List<System.String>(this.Filter_Region);
+            }
+            if (this.Filter_Service != null)
+            {
+                context.Filter_Services = new List<System.String>(this.Filter_Service);
+            }
+            if (this.Filter_StartTime != null)
+            {
+                context.Filter_StartTimes = new List<Amazon.AWSHealth.Model.DateTimeRange>(this.Filter_StartTime);
+            }
+            if (this.Filter_Tag != null)
+            {
+                context.Filter_Tags = new List<Dictionary<System.String, System.String>>();
+                foreach (var hashTable in this.Filter_Tag)
+                {
+                    var d = new Dictionary<System.String, System.String>();
+                    foreach (var hashKey in hashTable.Keys)
+                    {
+                        d.Add((String)hashKey, (String)(hashTable[hashKey]));
+                    }
+                    context.Filter_Tags.Add(d);
+                }
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -128,9 +321,144 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
             {
                 request.AggregateField = cmdletContext.AggregateField;
             }
-            if (cmdletContext.Filter != null)
+            
+             // populate Filter
+            bool requestFilterIsNull = true;
+            request.Filter = new Amazon.AWSHealth.Model.EventFilter();
+            List<System.String> requestFilter_filter_AvailabilityZone = null;
+            if (cmdletContext.Filter_AvailabilityZones != null)
             {
-                request.Filter = cmdletContext.Filter;
+                requestFilter_filter_AvailabilityZone = cmdletContext.Filter_AvailabilityZones;
+            }
+            if (requestFilter_filter_AvailabilityZone != null)
+            {
+                request.Filter.AvailabilityZones = requestFilter_filter_AvailabilityZone;
+                requestFilterIsNull = false;
+            }
+            List<Amazon.AWSHealth.Model.DateTimeRange> requestFilter_filter_EndTime = null;
+            if (cmdletContext.Filter_EndTimes != null)
+            {
+                requestFilter_filter_EndTime = cmdletContext.Filter_EndTimes;
+            }
+            if (requestFilter_filter_EndTime != null)
+            {
+                request.Filter.EndTimes = requestFilter_filter_EndTime;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EntityArn = null;
+            if (cmdletContext.Filter_EntityArns != null)
+            {
+                requestFilter_filter_EntityArn = cmdletContext.Filter_EntityArns;
+            }
+            if (requestFilter_filter_EntityArn != null)
+            {
+                request.Filter.EntityArns = requestFilter_filter_EntityArn;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EntityValue = null;
+            if (cmdletContext.Filter_EntityValues != null)
+            {
+                requestFilter_filter_EntityValue = cmdletContext.Filter_EntityValues;
+            }
+            if (requestFilter_filter_EntityValue != null)
+            {
+                request.Filter.EntityValues = requestFilter_filter_EntityValue;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EventArn = null;
+            if (cmdletContext.Filter_EventArns != null)
+            {
+                requestFilter_filter_EventArn = cmdletContext.Filter_EventArns;
+            }
+            if (requestFilter_filter_EventArn != null)
+            {
+                request.Filter.EventArns = requestFilter_filter_EventArn;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EventStatusCode = null;
+            if (cmdletContext.Filter_EventStatusCodes != null)
+            {
+                requestFilter_filter_EventStatusCode = cmdletContext.Filter_EventStatusCodes;
+            }
+            if (requestFilter_filter_EventStatusCode != null)
+            {
+                request.Filter.EventStatusCodes = requestFilter_filter_EventStatusCode;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EventTypeCategory = null;
+            if (cmdletContext.Filter_EventTypeCategories != null)
+            {
+                requestFilter_filter_EventTypeCategory = cmdletContext.Filter_EventTypeCategories;
+            }
+            if (requestFilter_filter_EventTypeCategory != null)
+            {
+                request.Filter.EventTypeCategories = requestFilter_filter_EventTypeCategory;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EventTypeCode = null;
+            if (cmdletContext.Filter_EventTypeCodes != null)
+            {
+                requestFilter_filter_EventTypeCode = cmdletContext.Filter_EventTypeCodes;
+            }
+            if (requestFilter_filter_EventTypeCode != null)
+            {
+                request.Filter.EventTypeCodes = requestFilter_filter_EventTypeCode;
+                requestFilterIsNull = false;
+            }
+            List<Amazon.AWSHealth.Model.DateTimeRange> requestFilter_filter_LastUpdatedTime = null;
+            if (cmdletContext.Filter_LastUpdatedTimes != null)
+            {
+                requestFilter_filter_LastUpdatedTime = cmdletContext.Filter_LastUpdatedTimes;
+            }
+            if (requestFilter_filter_LastUpdatedTime != null)
+            {
+                request.Filter.LastUpdatedTimes = requestFilter_filter_LastUpdatedTime;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Region = null;
+            if (cmdletContext.Filter_Regions != null)
+            {
+                requestFilter_filter_Region = cmdletContext.Filter_Regions;
+            }
+            if (requestFilter_filter_Region != null)
+            {
+                request.Filter.Regions = requestFilter_filter_Region;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Service = null;
+            if (cmdletContext.Filter_Services != null)
+            {
+                requestFilter_filter_Service = cmdletContext.Filter_Services;
+            }
+            if (requestFilter_filter_Service != null)
+            {
+                request.Filter.Services = requestFilter_filter_Service;
+                requestFilterIsNull = false;
+            }
+            List<Amazon.AWSHealth.Model.DateTimeRange> requestFilter_filter_StartTime = null;
+            if (cmdletContext.Filter_StartTimes != null)
+            {
+                requestFilter_filter_StartTime = cmdletContext.Filter_StartTimes;
+            }
+            if (requestFilter_filter_StartTime != null)
+            {
+                request.Filter.StartTimes = requestFilter_filter_StartTime;
+                requestFilterIsNull = false;
+            }
+            List<Dictionary<System.String, System.String>> requestFilter_filter_Tag = null;
+            if (cmdletContext.Filter_Tags != null)
+            {
+                requestFilter_filter_Tag = cmdletContext.Filter_Tags;
+            }
+            if (requestFilter_filter_Tag != null)
+            {
+                request.Filter.Tags = requestFilter_filter_Tag;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
             }
             
             // Initialize loop variants and commence piping
@@ -236,7 +564,19 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         internal class CmdletContext : ExecutorContext
         {
             public Amazon.AWSHealth.EventAggregateField AggregateField { get; set; }
-            public Amazon.AWSHealth.Model.EventFilter Filter { get; set; }
+            public List<System.String> Filter_AvailabilityZones { get; set; }
+            public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_EndTimes { get; set; }
+            public List<System.String> Filter_EntityArns { get; set; }
+            public List<System.String> Filter_EntityValues { get; set; }
+            public List<System.String> Filter_EventArns { get; set; }
+            public List<System.String> Filter_EventStatusCodes { get; set; }
+            public List<System.String> Filter_EventTypeCategories { get; set; }
+            public List<System.String> Filter_EventTypeCodes { get; set; }
+            public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_LastUpdatedTimes { get; set; }
+            public List<System.String> Filter_Regions { get; set; }
+            public List<System.String> Filter_Services { get; set; }
+            public List<Amazon.AWSHealth.Model.DateTimeRange> Filter_StartTimes { get; set; }
+            public List<Dictionary<System.String, System.String>> Filter_Tags { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }
