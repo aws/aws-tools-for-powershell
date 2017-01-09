@@ -56,6 +56,7 @@ RequiredAssemblies = @(
   "AWSSDK.ApplicationDiscoveryService.dll",
   "AWSSDK.AppStream.dll",
   "AWSSDK.AutoScaling.dll",
+  "AWSSDK.AWSHealth.dll",
   "AWSSDK.AWSMarketplaceCommerceAnalytics.dll",
   "AWSSDK.AWSMarketplaceMetering.dll",
   "AWSSDK.AWSSupport.dll",

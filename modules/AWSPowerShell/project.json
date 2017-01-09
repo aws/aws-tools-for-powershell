@@ -9,6 +9,7 @@
 		"AWSSDK.ApplicationDiscoveryService": "3.3.1",
 		"AWSSDK.AppStream": "3.3.0.4",
 		"AWSSDK.AutoScaling": "3.3.0.7",
+		"AWSSDK.AWSHealth": "3.3.0.4",
 		"AWSSDK.AWSMarketplaceCommerceAnalytics": "3.3.2",
 		"AWSSDK.AWSMarketplaceMetering": "3.3.1.3",
 		"AWSSDK.AWSSupport": "3.3.0.6",

@@ -57,6 +57,9 @@
     <Reference Include="AWSSDK.AppStream">
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.0.4\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AWSHealth">
+      <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.0.4\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.0.1\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>

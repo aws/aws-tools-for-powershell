@@ -2417,6 +2417,33 @@ $GML_map = @{
 _awsArgumentCompleterRegistration $GML_Completers $GML_map
 
 
+# Argument completions for service AWS Health
+$HLTH_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AWSHealth.EventAggregateField
+        "Get-HLTHEventAggregate/AggregateField"
+        {
+            $v = "eventTypeCategory"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$HLTH_map = @{
+    "AggregateField"=@("Get-HLTHEventAggregate")
+}
+
+_awsArgumentCompleterRegistration $HLTH_Completers $HLTH_map
+
+
 # Argument completions for service AWS Cloud HSM
 $HSM_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

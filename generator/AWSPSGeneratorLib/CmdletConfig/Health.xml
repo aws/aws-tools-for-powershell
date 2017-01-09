@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>HLTH</ServiceNounPrefix>
+  <ServiceName>AWS Health</ServiceName>
+  <ServiceNamespace>Amazon.AWSHealth</ServiceNamespace>
+  <ServiceClientInterface>IAmazonAWSHealth</ServiceClientInterface>
+  <ServiceClient>AmazonAWSHealthClient</ServiceClient>
+
+  <PipelineParameter></PipelineParameter>
+  
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="DescribeAffectedEntities" Noun="AffectedEntity" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeEntityAggregates" Noun="EntityAggregate" />
+    <ServiceOperation MethodName="DescribeEventAggregates" Noun="EventAggregate" PipelineParameter="AggregateField" />
+    <ServiceOperation MethodName="DescribeEventDetails" Noun="EventDetail" PipelineParameter="EventArns" Output="Response" />
+    <ServiceOperation MethodName="DescribeEvents" Noun="Event" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeEventTypes" Noun="EventType" NoPipelineParameter="true" />
+  </ServiceOperations>
+  
+  <TypesNotToFlatten>
+    <Type>Amazon.AWSHealth.Model.EntityFilter</Type>
+    <Type>Amazon.AWSHealth.Model.EventFilter</Type>
+    <Type>Amazon.AWSHealth.Model.EventTypeFilter</Type>
+  </TypesNotToFlatten>
+</ConfigModel>

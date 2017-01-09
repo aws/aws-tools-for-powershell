@@ -46,6 +46,7 @@
     <Path>ES.xml</Path>
     <Path>ETS.xml</Path>
     <Path>GML.xml</Path>
+    <Path>Health.xml</Path>
     <Path>HSM.xml</Path>
     <Path>IAM.xml</Path>
     <Path>IoT.xml</Path>
