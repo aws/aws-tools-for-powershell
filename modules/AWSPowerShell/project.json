@@ -33,6 +33,7 @@
 		"AWSSDK.CognitoIdentityProvider": "3.3.2.3",
 		"AWSSDK.ConfigService": "3.3.4",
 		"AWSSDK.Core": "3.3.7.1",
+		"AWSSDK.CostAndUsageReport": "3.3.0",
 		"AWSSDK.DatabaseMigrationService": "3.3.1.1",
 		"AWSSDK.DataPipeline": "3.3.0.6",
 		"AWSSDK.DeviceFarm": "3.3.0.7",

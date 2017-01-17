@@ -1383,6 +1383,57 @@ $CFG_map = @{
 _awsArgumentCompleterRegistration $CFG_Completers $CFG_map
 
 
+# Argument completions for service AWS Cost and Usage Report
+$CUR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CostAndUsageReport.AWSRegion
+        "Write-CURReportDefinition/ReportDefinition_S3Region"
+        {
+            $v = "ap-northeast-1","ap-southeast-1","ap-southeast-2","eu-central-1","eu-west-1","us-east-1","us-west-1","us-west-2"
+            break
+        }
+        
+        # Amazon.CostAndUsageReport.CompressionFormat
+        "Write-CURReportDefinition/ReportDefinition_Compression"
+        {
+            $v = "GZIP","ZIP"
+            break
+        }
+        
+        # Amazon.CostAndUsageReport.ReportFormat
+        "Write-CURReportDefinition/ReportDefinition_Format"
+        {
+            $v = "textORcsv"
+            break
+        }
+        
+        # Amazon.CostAndUsageReport.TimeUnit
+        "Write-CURReportDefinition/ReportDefinition_TimeUnit"
+        {
+            $v = "DAILY","HOURLY"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CUR_map = @{
+    "ReportDefinition_Compression"=@("Write-CURReportDefinition")
+    "ReportDefinition_Format"=@("Write-CURReportDefinition")
+    "ReportDefinition_S3Region"=@("Write-CURReportDefinition")
+    "ReportDefinition_TimeUnit"=@("Write-CURReportDefinition")
+}
+
+_awsArgumentCompleterRegistration $CUR_Completers $CUR_map
+
+
 # Argument completions for service AWS Database Migration Service
 $DMS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

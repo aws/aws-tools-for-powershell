@@ -901,6 +901,12 @@ Set-Alias -Name CFG-PutEvaluations -Value Write-CFGEvaluations
 Set-Alias -Name CFG-StartConfigRulesEvaluation -Value Start-CFGConfigRulesEvaluation
 Set-Alias -Name CFG-StartConfigurationRecorder -Value Start-CFGConfigurationRecorder
 Set-Alias -Name CFG-StopConfigurationRecorder -Value Stop-CFGConfigurationRecorder
+Set-Alias -Name Delete-CURReportDefinition -Value Remove-CURReportDefinition
+Set-Alias -Name CUR-DeleteReportDefinition -Value Remove-CURReportDefinition
+Set-Alias -Name Describe-CURReportDefinitions -Value Get-CURReportDefinitions
+Set-Alias -Name CUR-DescribeReportDefinitions -Value Get-CURReportDefinitions
+Set-Alias -Name Put-CURReportDefinition -Value Write-CURReportDefinition
+Set-Alias -Name CUR-PutReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
 Set-Alias -Name DMS-StopReplicationTask -Value Stop-DMSReplicationTask

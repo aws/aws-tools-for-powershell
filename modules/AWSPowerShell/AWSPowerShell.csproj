@@ -63,6 +63,9 @@
     <Reference Include="AWSSDK.Batch">
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.0.1\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CostAndUsageReport">
+      <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.0.3\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
