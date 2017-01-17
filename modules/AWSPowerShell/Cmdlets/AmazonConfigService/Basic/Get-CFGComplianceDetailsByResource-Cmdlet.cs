@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
+        /// <para>The <code>NextToken</code> string returned on a previous page that you use to get
         /// the next page of results in a paginated response.</para>
         /// </para>
         /// </summary>
