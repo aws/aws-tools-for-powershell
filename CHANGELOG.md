@@ -1,3 +1,7 @@
+### 3.3.38.0 (2017-01-16)
+  * AWS Cost and Usage Report
+    - Added support for the new AWS Cost and Usage Report service. This service API allows you to enable and disable the Cost & Usage report, as well as modify the report name, the data granularity, and the delivery preferences. Cmdlets for this service have the noun prefix 'CUR' and can be viewed by running the command 'Get-AWSCmdletName -Service CUR'.
+
 ### 3.3.37.2 (2017-01-12)
   * Amazon EC2
     - Added new keys to the Get-EC2ImageByName cmdlet to support querying for Windows Server 2012R2 images with SQL Server 2016.
