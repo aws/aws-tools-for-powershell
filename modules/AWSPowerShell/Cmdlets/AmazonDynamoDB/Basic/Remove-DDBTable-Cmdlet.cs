@@ -28,18 +28,18 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// The <i>DeleteTable</i> operation deletes a table and all of its items. After a <i>DeleteTable</i>
-    /// request, the specified table is in the <code>DELETING</code> state until DynamoDB
-    /// completes the deletion. If the table is in the <code>ACTIVE</code> state, you can
-    /// delete it. If a table is in <code>CREATING</code> or <code>UPDATING</code> states,
-    /// then DynamoDB returns a <i>ResourceInUseException</i>. If the specified table does
-    /// not exist, DynamoDB returns a <i>ResourceNotFoundException</i>. If table is already
-    /// in the <code>DELETING</code> state, no error is returned. 
+    /// The <code>DeleteTable</code> operation deletes a table and all of its items. After
+    /// a <code>DeleteTable</code> request, the specified table is in the <code>DELETING</code>
+    /// state until DynamoDB completes the deletion. If the table is in the <code>ACTIVE</code>
+    /// state, you can delete it. If a table is in <code>CREATING</code> or <code>UPDATING</code>
+    /// states, then DynamoDB returns a <code>ResourceInUseException</code>. If the specified
+    /// table does not exist, DynamoDB returns a <code>ResourceNotFoundException</code>. If
+    /// table is already in the <code>DELETING</code> state, no error is returned. 
     /// 
     ///  <note><para>
-    /// DynamoDB might continue to accept data read and write operations, such as <i>GetItem</i>
-    /// and <i>PutItem</i>, on a table in the <code>DELETING</code> state until the table
-    /// deletion is complete.
+    /// DynamoDB might continue to accept data read and write operations, such as <code>GetItem</code>
+    /// and <code>PutItem</code>, on a table in the <code>DELETING</code> state until the
+    /// table deletion is complete.
     /// </para></note><para>
     /// When you delete a table, any indexes on that table are also deleted.
     /// </para><para>
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// that table goes into the <code>DISABLED</code> state, and the stream is automatically
     /// deleted after 24 hours.
     /// </para><para>
-    /// Use the <i>DescribeTable</i> API to check the status of the table. 
+    /// Use the <code>DescribeTable</code> action to check the status of the table. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

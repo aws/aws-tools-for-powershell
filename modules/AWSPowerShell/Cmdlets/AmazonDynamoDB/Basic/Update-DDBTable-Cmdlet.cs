@@ -42,11 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Remove a global secondary index from the table.
     /// </para></li><li><para>
     /// Create a new global secondary index on the table. Once the index begins backfilling,
-    /// you can use <i>UpdateTable</i> to perform other operations.
-    /// </para></li></ul><para><i>UpdateTable</i> is an asynchronous operation; while it is executing, the table
-    /// status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is <code>UPDATING</code>,
-    /// you cannot issue another <i>UpdateTable</i> request. When the table returns to the
-    /// <code>ACTIVE</code> state, the <i>UpdateTable</i> operation is complete.
+    /// you can use <code>UpdateTable</code> to perform other operations.
+    /// </para></li></ul><para><code>UpdateTable</code> is an asynchronous operation; while it is executing, the
+    /// table status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is
+    /// <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request.
+    /// When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code>
+    /// operation is complete.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>An array of attributes that describe the key schema for the table and indexes. If
-        /// you are adding a new global secondary index to the table, <i>AttributeDefinitions</i>
+        /// you are adding a new global secondary index to the table, <code>AttributeDefinitions</code>
         /// must include the key element(s) of the new index.</para>
         /// </para>
         /// </summary>
@@ -76,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
-        /// the array, you can request one action:</para><ul><li><para><i>Create</i> - add a new global secondary index to the table.</para></li><li><para><i>Update</i> - modify the provisioned throughput settings of an existing global
-        /// secondary index.</para></li><li><para><i>Delete</i> - remove a global secondary index from the table.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+        /// the array, you can request one action:</para><ul><li><para><code>Create</code> - add a new global secondary index to the table.</para></li><li><para><code>Update</code> - modify the provisioned throughput settings of an existing global
+        /// secondary index.</para></li><li><para><code>Delete</code> - remove a global secondary index from the table.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
         /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
-        /// returns a <i>ThrottlingException</i>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
+        /// returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
         /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -112,14 +113,13 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter StreamSpecification_StreamViewType
         /// <summary>
         /// <para>
-        /// <para>The DynamoDB Streams settings for the table. These settings consist of:</para><ul><li><para><i>StreamEnabled</i> - Indicates whether DynamoDB Streams is enabled (true) or disabled
-        /// (false) on the table.</para></li><li><para><i>StreamViewType</i> - When an item in the table is modified, <i>StreamViewType</i>
-        /// determines what information is written to the stream for this table. Valid values
-        /// for <i>StreamViewType</i> are:</para><ul><li><para><i>KEYS_ONLY</i> - Only the key attributes of the modified item are written to the
-        /// stream.</para></li><li><para><i>NEW_IMAGE</i> - The entire item, as it appears after it was modified, is written
-        /// to the stream.</para></li><li><para><i>OLD_IMAGE</i> - The entire item, as it appeared before it was modified, is written
-        /// to the stream.</para></li><li><para><i>NEW_AND_OLD_IMAGES</i> - Both the new and the old item images of the item are
-        /// written to the stream.</para></li></ul></li></ul>
+        /// <para> When an item in the table is modified, <code>StreamViewType</code> determines what
+        /// information is written to the stream for this table. Valid values for <code>StreamViewType</code>
+        /// are:</para><ul><li><para><code>KEYS_ONLY</code> - Only the key attributes of the modified item are written
+        /// to the stream.</para></li><li><para><code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is
+        /// written to the stream.</para></li><li><para><code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified,
+        /// is written to the stream.</para></li><li><para><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item
+        /// are written to the stream.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter WriteCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <i>ThrottlingException</i>.
+        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
         /// For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
         /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>

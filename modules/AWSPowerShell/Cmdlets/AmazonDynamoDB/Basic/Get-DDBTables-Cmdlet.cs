@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Returns an array of table names associated with the current account and endpoint.
-    /// The output from <i>ListTables</i> is paginated, with each page returning a maximum
+    /// The output from <code>ListTables</code> is paginated, with each page returning a maximum
     /// of 100 table names.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DDBTables")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The first table name that this operation will evaluate. Use the value that was returned
-        /// for <i>LastEvaluatedTableName</i> in a previous operation, so that you can obtain
+        /// for <code>LastEvaluatedTableName</code> in a previous operation, so that you can obtain
         /// the next page of results.</para>
         /// </para>
         /// </summary>
