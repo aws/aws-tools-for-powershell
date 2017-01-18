@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-    /// cluster as a Read Replica of another DB cluster.
+    /// cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance.
     /// </para><para>
     /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
     /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
@@ -234,8 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ReplicationSourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is created
-        /// as a Read Replica.</para>
+        /// <para>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
+        /// cluster is created as a Read Replica.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
