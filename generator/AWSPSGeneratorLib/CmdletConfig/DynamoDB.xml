@@ -35,6 +35,9 @@
         <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" />
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="ListTagsOfResource" Verb="Get" Noun="ResourceTag"/>
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" Output="Void"/>
+    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" Output="Void"/>
   </ServiceOperations>
 
 	<MetadataProperties>
