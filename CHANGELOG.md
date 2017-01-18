@@ -1,3 +1,7 @@
+### 3.3.39.0 (2017-01-17)
+  * Amazon DynamoDB
+    - Added support for the new APIs to tag tables and indexes with three new cmdlets: Add-DDBResourceTag (TagResource API), Get-DDBResourceTag (ListTagsOfResource API) and Remove-DDBResourceTag (UntagResource API).
+
 ### 3.3.38.0 (2017-01-16)
   * AWS Cost and Usage Report
     - Added support for the new AWS Cost and Usage Report service. This service API allows you to enable and disable the Cost & Usage report, as well as modify the report name, the data granularity, and the delivery preferences. Cmdlets for this service have the noun prefix 'CUR' and can be viewed by running the command 'Get-AWSCmdletName -Service CUR'.
