@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family of the offering (e.g., <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>No Upfront</code> | <code>Partial
-        /// Upfront</code> | <code>All Upfront</code>).</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><code>instance-family</code> - The instance family of the offering (e.g., <code>m4</code>).</para></li><li><para><code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code>
+        /// | <code>AllUpfront</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

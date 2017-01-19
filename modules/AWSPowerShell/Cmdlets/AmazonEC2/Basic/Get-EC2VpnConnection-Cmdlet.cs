@@ -57,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// routes only. Used for devices that do not support Border Gateway Protocol (BGP).</para></li><li><para><code>route.destination-cidr-block</code> - The destination CIDR block. This corresponds
         /// to the subnet used in a customer data center.</para></li><li><para><code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with a BGP
         /// device.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// to the resource. Specify the key of the tag in the filter name and the value of the
+        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
+        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
         /// independent of the <code>tag-value</code> filter. For example, if you use both the
         /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
         /// both the tag key Purpose (regardless of what the tag's value is), and the tag value

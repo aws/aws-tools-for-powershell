@@ -2003,6 +2003,7 @@ $EC2_Completers = {
         {
             ($_ -eq "Get-EC2ReservedInstancesOffering/InstanceTenancy") -Or
             ($_ -eq "New-EC2Vpc/InstanceTenancy") -Or
+            ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_Placement_Tenancy") -Or
             ($_ -eq "New-EC2Instance/Tenancy")
         }
         {
@@ -2060,6 +2061,7 @@ $EC2_map = @{
     "InstanceTenancy"=@("Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
+    "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")

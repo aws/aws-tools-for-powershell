@@ -70,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// available (for example, the specified gateway isn't attached to the VPC, the specified
         /// NAT instance has been terminated, and so on).</para></li><li><para><code>route.vpc-peering-connection-id</code> - The ID of a VPC peering connection
         /// specified in a route in the table.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// to the resource. Specify the key of the tag in the filter name and the value of the
+        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
+        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
         /// independent of the <code>tag-value</code> filter. For example, if you use both the
         /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
         /// both the tag key Purpose (regardless of what the tag's value is), and the tag value

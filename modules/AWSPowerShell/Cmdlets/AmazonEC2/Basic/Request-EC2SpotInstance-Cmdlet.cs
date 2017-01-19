@@ -311,6 +311,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LaunchSpecification_SubnetId { get; set; }
         #endregion
         
+        #region Parameter Placement_Tenancy
+        /// <summary>
+        /// <para>
+        /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
+        /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
+        /// tenancy is not supported for Spot instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LaunchSpecification_Placement_Tenancy")]
+        [AWSConstantClassSource("Amazon.EC2.Tenancy")]
+        public Amazon.EC2.Tenancy Placement_Tenancy { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -421,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.LaunchSpecification_Placement_AvailabilityZone = this.Placement_AvailabilityZone;
             context.LaunchSpecification_Placement_GroupName = this.Placement_GroupName;
+            context.LaunchSpecification_Placement_Tenancy = this.Placement_Tenancy;
             context.LaunchSpecification_RamdiskId = this.LaunchSpecification_RamdiskId;
             if (this.LaunchSpecification_SecurityGroup != null)
             {
@@ -674,6 +689,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestLaunchSpecification_launchSpecification_Placement.GroupName = requestLaunchSpecification_launchSpecification_Placement_placement_GroupName;
                 requestLaunchSpecification_launchSpecification_PlacementIsNull = false;
             }
+            Amazon.EC2.Tenancy requestLaunchSpecification_launchSpecification_Placement_placement_Tenancy = null;
+            if (cmdletContext.LaunchSpecification_Placement_Tenancy != null)
+            {
+                requestLaunchSpecification_launchSpecification_Placement_placement_Tenancy = cmdletContext.LaunchSpecification_Placement_Tenancy;
+            }
+            if (requestLaunchSpecification_launchSpecification_Placement_placement_Tenancy != null)
+            {
+                requestLaunchSpecification_launchSpecification_Placement.Tenancy = requestLaunchSpecification_launchSpecification_Placement_placement_Tenancy;
+                requestLaunchSpecification_launchSpecification_PlacementIsNull = false;
+            }
              // determine if requestLaunchSpecification_launchSpecification_Placement should be set to null
             if (requestLaunchSpecification_launchSpecification_PlacementIsNull)
             {
@@ -775,6 +800,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> LaunchSpecification_NetworkInterfaces { get; set; }
             public System.String LaunchSpecification_Placement_AvailabilityZone { get; set; }
             public System.String LaunchSpecification_Placement_GroupName { get; set; }
+            public Amazon.EC2.Tenancy LaunchSpecification_Placement_Tenancy { get; set; }
             public System.String LaunchSpecification_RamdiskId { get; set; }
             public List<System.String> LaunchSpecification_SecurityGroups { get; set; }
             public System.String LaunchSpecification_SubnetId { get; set; }

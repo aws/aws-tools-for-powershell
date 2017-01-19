@@ -77,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <code>/dev/sda1</code>).</para></li><li><para><code>root-device-type</code> - The type of the root device volume (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
         /// | <code>failed</code>).</para></li><li><para><code>state-reason-code</code> - The reason code for the state change.</para></li><li><para><code>state-reason-message</code> - The message for the state change.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
+        /// to the resource. Specify the key of the tag in the filter name and the value of the
+        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
+        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
         /// independent of the tag-value filter. For example, if you use both the filter "tag-key=Purpose"
         /// and the filter "tag-value=X", you get any resources assigned both the tag key Purpose
         /// (regardless of what the tag's value is), and the tag value X (regardless of what the

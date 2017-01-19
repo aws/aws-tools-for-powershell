@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// Currently, only endpoints to Amazon S3 are supported.
+    /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported AWS services.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

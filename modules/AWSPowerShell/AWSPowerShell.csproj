@@ -145,7 +145,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.1.6\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.4.2\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.5\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.0.7\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
