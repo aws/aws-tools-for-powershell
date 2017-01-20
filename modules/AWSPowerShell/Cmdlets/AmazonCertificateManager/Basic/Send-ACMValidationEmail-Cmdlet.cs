@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The Fully Qualified Domain Name (FQDN) of the certificate that needs to be validated.</para>
+        /// <para>The fully qualified domain name (FQDN) of the certificate that needs to be validated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

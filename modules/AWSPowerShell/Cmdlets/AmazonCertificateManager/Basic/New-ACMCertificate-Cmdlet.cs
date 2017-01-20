@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>Fully qualified domain name (FQDN), such as www.example.com, of the site you want
-        /// to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate
+        /// <para>Fully qualified domain name (FQDN), such as www.example.com, of the site that you
+        /// want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate
         /// that protects several sites in the same domain. For example, *.example.com protects
         /// www.example.com, site.example.com, and images.example.com.</para>
         /// </para>
@@ -62,12 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainValidationOption
         /// <summary>
         /// <para>
-        /// <para>The base validation domain that will act as the suffix of the email addresses that
-        /// are used to send the emails. This must be the same as the <code>Domain</code> value
-        /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
-        /// certificate for <code>test.example.com</code> and specify <b>DomainValidationOptions</b>
-        /// of <code>example.com</code>, ACM sends email to the domain registrant, technical contact,
-        /// and administrative contact in WHOIS and the following five addresses:</para><ul><li><para>admin@example.com</para></li><li><para>administrator@example.com</para></li><li><para>hostmaster@example.com</para></li><li><para>postmaster@example.com</para></li><li><para>webmaster@example.com</para></li></ul>
+        /// <para>The domain name that you want ACM to use to send you emails to validate your ownership
+        /// of the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
