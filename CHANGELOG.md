@@ -1,3 +1,12 @@
+### 3.3.41.0 (2017-01-19)
+  * Amazon EC2
+    - Extended the Request-EC2SpotInstance cmdlet with a new parameter, Placement_Tenacy, to support the new service feature for dedicated tenancy, providing the ability to run Spot instances single-tenant manner on physically isolated hardware within a VPC to satisfy security, privacy, or other compliance requirements. Dedicated Spot instances can be requested using RequestSpotInstances and RequestSpotFleet.
+  * AWS Health
+    - Updated the parameter documentation for several cmdlets to match latest service documentation updates.
+
+### 3.3.40.0 (2017-01-18)
+  * This release contained only changes in the underlying AWS SDK for .NET and was not published to the gallery.
+
 ### 3.3.39.0 (2017-01-17)
   * Amazon DynamoDB
     - Added support for the new APIs to tag tables and indexes with three new cmdlets: Add-DDBResourceTag (TagResource API), Get-DDBResourceTag (ListTagsOfResource API) and Remove-DDBResourceTag (UntagResource API).

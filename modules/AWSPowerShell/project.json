@@ -40,7 +40,7 @@
 		"AWSSDK.DirectConnect": "3.3.2.3",
 		"AWSSDK.DirectoryService": "3.3.1.5",
 		"AWSSDK.DynamoDBv2": "3.3.2",
-		"AWSSDK.EC2": "3.3.4.5",
+		"AWSSDK.EC2": "3.3.5",
 		"AWSSDK.ECR": "3.3.2.1",
 		"AWSSDK.ECS": "3.3.2",
 		"AWSSDK.ElastiCache": "3.3.2.4",
