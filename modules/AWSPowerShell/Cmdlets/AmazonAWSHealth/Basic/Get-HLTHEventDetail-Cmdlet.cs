@@ -28,9 +28,16 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Gets detailed event information (excluding AffectedEntities) of an event that is affecting/has
-    /// affected the caller. This will include a detailed description pertaining to the event,
-    /// as well as any public metadata provided by the service-team that created the event.
+    /// Returns detailed information about one or more specified events. Information includes
+    /// standard event data (region, service, etc., as returned by <a>DescribeEvents</a>),
+    /// a detailed event description, and possible additional metadata that depends upon the
+    /// nature of the event. Affected entities are not included; to retrieve those, use the
+    /// <a>DescribeAffectedEntities</a> operation.
+    /// 
+    ///  
+    /// <para>
+    /// If a specified event cannot be retrieved, an error message is returned for that event.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "HLTHEventDetail")]
     [OutputType("Amazon.AWSHealth.Model.DescribeEventDetailsResponse")]
@@ -44,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>arn:aws:silvermine:<i>region</i>:<i>service</i>:event/<i>123453434</i></code>.)</para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331",
+        /// "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale (language) to return information in.</para>
+        /// <para>The locale (language) to return information in. English (en) is the default and the
+        /// only supported value at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,13 +28,17 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Gets a list of entities that have been attached to events, based on the specified
-    /// filter criteria. Entities can refer to individual customer resources, groups of customer
-    /// resources, or any other construct, depending on the AWS service. Events that have
-    /// impact beyond that of the attached entities, or where the extent of impact is unknown,
-    /// include at least one entity indicating this. If no filter criteria are specified,
-    /// all entities are returned. Results are sorted by the <code>lastUpdatedTime</code>
-    /// of the entity, starting with the most recent.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of entities that have been affected by the specified events, based
+    /// on the specified filter criteria. Entities can refer to individual customer resources,
+    /// groups of customer resources, or any other construct, depending on the AWS service.
+    /// Events that have impact beyond that of the affected entities, or where the extent
+    /// of impact is unknown, include at least one entity indicating this.
+    /// 
+    ///  
+    /// <para>
+    /// At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code>
+    /// of the entity, starting with the most recent.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "HLTHAffectedEntity")]
     [OutputType("Amazon.AWSHealth.Model.AffectedEntity")]
@@ -50,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of entity ARNs (unique identifiers).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityValue
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of IDs for affected entities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>arn:aws:silvermine:<i>region</i>:<i>service</i>:event/<i>123453434</i></code>.)</para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331",
+        /// "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_LastUpdatedTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of the most recent dates and times that the entity was updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale (language) to return information in.</para>
+        /// <para>The locale (language) to return information in. English (en) is the default and the
+        /// only supported value at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_StatusCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
+        /// <code>UNKNOWN</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch.</para>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

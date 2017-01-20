@@ -28,9 +28,8 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Gets a list of the event types that can be reported by Silvermine, based on the specified
-    /// filter criteria. If no filter criteria are specified, all event types are returned,
-    /// in no particular order.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns the event types that meet the specified filter criteria. If no filter criteria
+    /// are specified, all event types are returned, in no particular order.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "HLTHEventType")]
     [OutputType("Amazon.AWSHealth.Model.EventType")]
@@ -46,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
+        /// or <code>accountNotification</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of event type codes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale (language) to return information in.</para>
+        /// <para>The locale (language) to return information in. English (en) is the default and the
+        /// only supported value at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch.</para>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

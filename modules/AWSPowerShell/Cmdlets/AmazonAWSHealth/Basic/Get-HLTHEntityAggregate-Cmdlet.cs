@@ -28,7 +28,8 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    
+    /// Returns the number of entities that are affected by each of the specified events.
+    /// If no events are specified, the counts of all affected entities are returned.
     /// </summary>
     [Cmdlet("Get", "HLTHEntityAggregate")]
     [OutputType("Amazon.AWSHealth.Model.EntityAggregate")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>arn:aws:silvermine:<i>region</i>:<i>service</i>:event/<i>123453434</i></code>.)</para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331",
+        /// "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

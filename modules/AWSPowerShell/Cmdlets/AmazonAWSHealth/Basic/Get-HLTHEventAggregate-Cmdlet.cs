@@ -28,7 +28,9 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// <br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns the number of events of each event type (issue, scheduled change, and account
+    /// notification). If no filter is specified, the counts of all events in each category
+    /// are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "HLTHEventAggregate")]
     [OutputType("Amazon.AWSHealth.Model.EventAggregate")]
@@ -44,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter AggregateField
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The only currently supported value is <code>eventTypeCategory</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_AvailabilityZone
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of AWS availability zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EndTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of dates and times that the event ended.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of entity ARNs (unique identifiers).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityValue
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or
+        /// EBS volumes (<code>vol-426ab23e</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>arn:aws:silvermine:<i>region</i>:<i>service</i>:event/<i>123453434</i></code>.)</para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331",
+        /// "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventStatusCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of event status codes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -121,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
+        /// or <code>accountNotification</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_LastUpdatedTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of dates and times that the event was last updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Region
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of AWS regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -165,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -176,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_StartTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of dates and times that the event began.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -198,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch.</para>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,12 +28,17 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Gets a list of events, based on the specified filter criteria. Events are returned
-    /// in a summary form and do not include attached resources (if they exist) nor publicly
-    /// exposed metadata included by the service-team that posted the event. Filters allow
-    /// for a single event to be retrieved, or multiple events matching the provided criteria.
+    /// Returns information about events that meet the specified filter criteria. Events are
+    /// returned in a summary form and do not include the detailed description, any additional
+    /// metadata that depends on the event type, or any affected resources. To retrieve that
+    /// information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a>
+    /// operations.
+    /// 
+    ///  
+    /// <para>
     /// If no filter criteria are specified, all events are returned. Results are sorted by
-    /// <code>lastModifiedTime</code>, starting with the the most recent.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// <code>lastModifiedTime</code>, starting with the most recent.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "HLTHEvent")]
     [OutputType("Amazon.AWSHealth.Model.Event")]
@@ -49,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_AvailabilityZone
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of AWS availability zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EndTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of dates and times that the event ended.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of entity ARNs (unique identifiers).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityValue
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or
+        /// EBS volumes (<code>vol-426ab23e</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventArn
         /// <summary>
         /// <para>
-        /// <para>A list of event ARNs (unique identifiers). For example: <code>arn:aws:silvermine:<i>region</i>:<i>service</i>:event/<i>123453434</i></code>.)</para>
+        /// <para>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331",
+        /// "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventStatusCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of event status codes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
+        /// or <code>accountNotification</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -137,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_LastUpdatedTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of dates and times that the event was last updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -148,7 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale (language) to return information in.</para>
+        /// <para>The locale (language) to return information in. English (en) is the default and the
+        /// only supported value at this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Region
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of AWS regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -180,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_StartTime
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A list of dates and times that the event began.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -202,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch.</para>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
