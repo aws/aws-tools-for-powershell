@@ -1,4 +1,12 @@
+### 3.3.42.0 (2017-01-20)
+  * This version was only distributed in the downloadable AWS Tools for Windows msi installer.
+  * AWS Health
+    - Updated the parameter documentation for several cmdlets to match latest service documentation updates.
+  * AWS Certificate Manager  
+    - Updated the parameter documentation for several cmdlets to match latest service documentation updates.
+
 ### 3.3.41.0 (2017-01-19)
+  * This version was only distributed in the downloadable AWS Tools for Windows msi installer.
   * Amazon EC2
     - Extended the Request-EC2SpotInstance cmdlet with a new parameter, Placement_Tenacy, to support the new service feature for dedicated tenancy, providing the ability to run Spot instances single-tenant manner on physically isolated hardware within a VPC to satisfy security, privacy, or other compliance requirements. Dedicated Spot instances can be requested using RequestSpotInstances and RequestSpotFleet.
   * AWS Health
