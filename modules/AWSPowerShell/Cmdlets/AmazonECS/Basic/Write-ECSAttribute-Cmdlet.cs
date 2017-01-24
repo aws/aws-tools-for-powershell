@@ -29,8 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Create or update an attribute on an Amazon ECS resource. If the attribute does not
-    /// already exist on the given target, it is created; if it does exist, it is replaced
-    /// with the new value.
+    /// exist, it is created. If the attribute exists, its value is replaced with the specified
+    /// value. To delete an attribute, use <a>DeleteAttributes</a>. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a>
+    /// in the <i>Amazon EC2 Container Service Developer Guide</i>.
     /// </summary>
     [Cmdlet("Write", "ECSAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Attribute")]

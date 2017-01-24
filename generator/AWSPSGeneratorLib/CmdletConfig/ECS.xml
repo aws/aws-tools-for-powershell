@@ -43,6 +43,7 @@
     <ServiceOperation MethodName="StopTask"/>
 
     <ServiceOperation MethodName="UpdateContainerAgent" />
+    <ServiceOperation MethodName="UpdateContainerInstancesState" Output="Response"/>
     <ServiceOperation MethodName="UpdateService" ShouldProcessTarget="Service"/>
   </ServiceOperations>
 

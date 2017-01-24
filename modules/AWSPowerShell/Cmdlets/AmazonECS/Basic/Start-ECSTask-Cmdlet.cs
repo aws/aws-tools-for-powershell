@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The task group to associate with the task. By default, if you do not specify a task
-        /// group, the default group is <code>family:TASKDEF-FAMILY</code>.</para>
+        /// <para>The name of the task group to associate with the task. The default value is the family
+        /// name of the task definition (for example, family:my-family-name).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

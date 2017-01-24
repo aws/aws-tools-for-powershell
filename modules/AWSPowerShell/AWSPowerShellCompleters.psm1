@@ -2120,6 +2120,16 @@ $ECS_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ECS.ContainerInstanceStatus
+        {
+            ($_ -eq "Get-ECSContainerInstances/Status") -Or
+            ($_ -eq "Update-ECSContainerInstancesState/Status")
+        }
+        {
+            $v = "ACTIVE","DRAINING"
+            break
+        }
+        
         # Amazon.ECS.DesiredStatus
         "Get-ECSTasks/DesiredStatus"
         {
@@ -2173,7 +2183,7 @@ $ECS_map = @{
     "DesiredStatus"=@("Get-ECSTasks")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "Sort"=@("Get-ECSTaskDefinitions")
-    "Status"=@("Get-ECSTaskDefinitionFamilies","Get-ECSTaskDefinitions")
+    "Status"=@("Get-ECSContainerInstances","Get-ECSTaskDefinitionFamilies","Get-ECSTaskDefinitions","Update-ECSContainerInstancesState")
     "TargetType"=@("Get-ECSAttributeList")
 }
 

@@ -28,7 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Deletes one or more attributes from an Amazon ECS resource.
+    /// Deletes one or more custom attributes from an Amazon ECS resource.
     /// </summary>
     [Cmdlet("Remove", "ECSAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.Attribute")]

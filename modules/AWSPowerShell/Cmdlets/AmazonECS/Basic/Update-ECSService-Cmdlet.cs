@@ -44,23 +44,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// triggered by updating the task definition of a service, the service scheduler uses
     /// the deployment configuration parameters, <code>minimumHealthyPercent</code> and <code>maximumPercent</code>,
     /// to determine the deployment strategy.
-    /// </para><para>
-    /// If the <code>minimumHealthyPercent</code> is below 100%, the scheduler can ignore
-    /// the <code>desiredCount</code> temporarily during a deployment. For example, if your
-    /// service has a <code>desiredCount</code> of four tasks, a <code>minimumHealthyPercent</code>
-    /// of 50% allows the scheduler to stop two existing tasks before starting two new tasks.
-    /// Tasks for services that <i>do not</i> use a load balancer are considered healthy if
-    /// they are in the <code>RUNNING</code> state; tasks for services that <i>do</i> use
-    /// a load balancer are considered healthy if they are in the <code>RUNNING</code> state
-    /// and the container instance it is hosted on is reported as healthy by the load balancer.
-    /// </para><para>
+    /// </para><ul><li><para>
+    /// If <code>minimumHealthyPercent</code> is below 100%, the scheduler can ignore <code>desiredCount</code>
+    /// temporarily during a deployment. For example, if <code>desiredCount</code> is four
+    /// tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting
+    /// two new tasks. Tasks for services that do not use a load balancer are considered healthy
+    /// if they are in the <code>RUNNING</code> state. Tasks for services that use a load
+    /// balancer are considered healthy if they are in the <code>RUNNING</code> state and
+    /// the container instance they are hosted on is reported as healthy by the load balancer.
+    /// </para></li><li><para>
     /// The <code>maximumPercent</code> parameter represents an upper limit on the number
     /// of running tasks during a deployment, which enables you to define the deployment batch
-    /// size. For example, if your service has a <code>desiredCount</code> of four tasks,
-    /// a <code>maximumPercent</code> value of 200% starts four new tasks before stopping
-    /// the four older tasks (provided that the cluster resources required to do this are
-    /// available).
-    /// </para><para>
+    /// size. For example, if <code>desiredCount</code> is four tasks, a maximum of 200% starts
+    /// four new tasks before stopping the four older tasks (provided that the cluster resources
+    /// required to do this are available).
+    /// </para></li></ul><para>
     /// When <a>UpdateService</a> stops a task during a deployment, the equivalent of <code>docker
     /// stop</code> is issued to the containers running in the task. This results in a <code>SIGTERM</code>
     /// and a 30-second timeout, after which <code>SIGKILL</code> is sent and the containers
@@ -75,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// instance attributes).
     /// </para></li><li><para>
     /// By default, the service scheduler attempts to balance tasks across Availability Zones
-    /// in this manner (although you can choose a different placement strategy with the <code>placementStrategy</code>
-    /// parameter):
+    /// in this manner (although you can choose a different placement strategy):
     /// </para><ul><li><para>
     /// Sort the valid container instances by the fewest number of running tasks for this
     /// service in the same Availability Zone as the instance. For example, if zone A has
@@ -88,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// of running tasks for this service.
     /// </para></li></ul></li></ul><para>
     /// When the service scheduler stops running tasks, it attempts to maintain balance across
-    /// the Availability Zones in your cluster with the following logic: 
+    /// the Availability Zones in your cluster using the following logic: 
     /// </para><ul><li><para>
     /// Sort the container instances by the largest number of running tasks for this service
     /// in the same Availability Zone as the instance. For example, if zone A has one running
@@ -137,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The upper limit (as a percentage of the service's <code>desiredCount</code>) of the
         /// number of tasks that are allowed in the <code>RUNNING</code> or <code>PENDING</code>
         /// state in a service during a deployment. The maximum number of tasks during a deployment
-        /// is the <code>desiredCount</code> multiplied by the <code>maximumPercent</code>/100,
-        /// rounded down to the nearest integer value.</para>
+        /// is the <code>desiredCount</code> multiplied by <code>maximumPercent</code>/100, rounded
+        /// down to the nearest integer value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The lower limit (as a percentage of the service's <code>desiredCount</code>) of the
         /// number of running tasks that must remain in the <code>RUNNING</code> state in a service
         /// during a deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code>
-        /// multiplied by the <code>minimumHealthyPercent</code>/100, rounded up to the nearest
-        /// integer value.</para>
+        /// multiplied by <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer
+        /// value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

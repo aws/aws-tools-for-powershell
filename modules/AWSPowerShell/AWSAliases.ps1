@@ -1628,6 +1628,7 @@ Set-Alias -Name ECS-RunTask -Value New-ECSTask
 Set-Alias -Name ECS-StartTask -Value Start-ECSTask
 Set-Alias -Name ECS-StopTask -Value Stop-ECSTask
 Set-Alias -Name ECS-UpdateContainerAgent -Value Update-ECSContainerAgent
+Set-Alias -Name ECS-UpdateContainerInstancesState -Value Update-ECSContainerInstancesState
 Set-Alias -Name ECS-UpdateService -Value Update-ECSService
 Set-Alias -Name Create-EFSFileSystem -Value New-EFSFileSystem
 Set-Alias -Name EFS-CreateFileSystem -Value New-EFSFileSystem
