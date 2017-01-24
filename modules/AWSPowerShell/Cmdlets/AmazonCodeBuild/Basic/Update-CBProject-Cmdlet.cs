@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Changes the settings of an existing build project.
+    /// Changes the settings of a build project.
     /// </summary>
     [Cmdlet("Update", "CBProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.Project")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Source_Buildspec
         /// <summary>
         /// <para>
-        /// <para>The build spec declaration to use for this build project's related builds.</para><para>If this value is not specified, a build spec must be included along with the source
+        /// <para>The build spec declaration to use for the builds in this build project.</para><para>If this value is not specified, a build spec must be included along with the source
         /// code to be built.</para>
         /// </para>
         /// </summary>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to
-        /// be used for encrypting the build project's build output artifacts.</para><para>You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the
+        /// be used for encrypting the build output artifacts.</para><para>You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the
         /// CMK's alias (using the format <code>alias/<i>alias-name</i></code>).</para>
         /// </para>
         /// </summary>
@@ -112,9 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>Information about the build output artifact location, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
         /// ignore this value if specified. This is because AWS CodePipeline manages its build
         /// output locations instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.
-        /// If <code>path</code> is not also specified, then <code>location</code> can also specify
-        /// the path of the output artifact in the output bucket.</para></li></ul>
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,11 +127,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings
         /// in a pipeline's source action instead of this value.</para></li><li><para>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
         /// that contains the source code and the build spec (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i></code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the
-        /// path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>)</para></li><li><para>For source code in a GitHub repository, the HTTPS clone URL, including the user name
-        /// and personal access token, to the repository that contains the source code and the
-        /// build spec (for example, <code>https://<i>login-user-name</i>:<i>personal-access-token</i>@github.com/<i>repo-owner-name</i>/<i>repo-name</i>.git</code>).
-        /// For more information, see <a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">Creating
-        /// an Access Token for Command-Line Use</a> on the GitHub Help website.</para></li></ul>
+        /// path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>)</para></li><li><para>For source code in a GitHub repository, instead of specifying a value here, you connect
+        /// your AWS account to your GitHub account. To do this, use the AWS CodeBuild console
+        /// to begin creating a build project, and follow the on-screen instructions to complete
+        /// the connection. (After you have connected to your GitHub account, you do not need
+        /// to finish creating the build project, and you may then leave the AWS CodeBuild console.)
+        /// To instruct AWS CodeBuild to then use this connection, in the <code>source</code>
+        /// object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the existing build project to change settings.</para><note><para>You cannot change an existing build project's name.</para></note>
+        /// <para>The name of the build project.</para><note><para>You cannot change a build project's name.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -232,9 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The replacement Amazon Resource Name (ARN) of the AWS Identity and Access Management
-        /// (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf
-        /// of the AWS account.</para>
+        /// <para>The replacement ARN of the AWS Identity and Access Management (IAM) role that enables
+        /// AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -257,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait
-        /// to timeout any related build that did not get marked as completed.</para>
+        /// before timing out any related build that did not get marked as completed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -268,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Artifacts_Type
         /// <summary>
         /// <para>
-        /// <para>The build output artifact's type. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project with have build output generated through
+        /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project will have build output generated through
         /// AWS CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project will not produce any build output.</para></li><li><para><code>S3</code>: The build project will store build output in Amazon Simple Storage
         /// Service (Amazon S3).</para></li></ul>
         /// </para>
@@ -281,8 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_Type
         /// <summary>
         /// <para>
-        /// <para>The type of build environment to use for related builds.</para><para>The only valid value is <code>LINUX_CONTAINER</code>, which represents a Linux-based
-        /// build environment.</para>
+        /// <para>The type of build environment to use for related builds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -293,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Auth_Type
         /// <summary>
         /// <para>
-        /// <para>The authorization type to use. The only valid value is <code>oauth</code>, which represents
+        /// <para>The authorization type to use. The only valid value is <code>OAUTH</code>, which represents
         /// the OAuth authorization type.</para>
         /// </para>
         /// </summary>

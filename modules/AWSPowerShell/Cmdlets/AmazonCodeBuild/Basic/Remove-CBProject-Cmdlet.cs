@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the build project to delete.</para>
+        /// <para>The name of the build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

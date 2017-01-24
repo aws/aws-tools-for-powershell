@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A build spec declaration that overrides, for this build only, the latest one already
-        /// defined in the corresponding build project.</para>
+        /// defined in the build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A set of environment variables that overrides, for this build only, the latest ones
-        /// already defined in the corresponding build project.</para>
+        /// already defined in the build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,9 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>Information about the build output artifact location, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
         /// ignore this value if specified. This is because AWS CodePipeline manages its build
         /// output locations instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.
-        /// If <code>path</code> is not also specified, then <code>location</code> can also specify
-        /// the path of the output artifact in the output bucket.</para></li></ul>
+        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -170,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter TimeoutInMinutesOverride
         /// <summary>
         /// <para>
-        /// <para>The number of build timeout minutes, from 5 to 480 (8 hours) that overrides, for this
-        /// build only, the latest setting already defined in the corresponding build project.</para>
+        /// <para>The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for
+        /// this build only, the latest setting already defined in the build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -181,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Type
         /// <summary>
         /// <para>
-        /// <para>The build output artifact's type. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project with have build output generated through
+        /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project will have build output generated through
         /// AWS CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project will not produce any build output.</para></li><li><para><code>S3</code>: The build project will store build output in Amazon Simple Storage
         /// Service (Amazon S3).</para></li></ul>
         /// </para>

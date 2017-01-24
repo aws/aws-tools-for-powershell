@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
     /// Attempts to stop running a build.
-    /// 
-    ///  <note><para>
-    /// Completed builds cannot be stopped.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "CBBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.Build")]
@@ -47,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the build to attempt to stop running.</para>
+        /// <para>The ID of the build.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

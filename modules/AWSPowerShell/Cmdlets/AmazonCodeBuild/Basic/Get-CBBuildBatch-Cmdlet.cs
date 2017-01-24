@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Gets information about one or more builds.
+    /// Gets information about builds.
     /// </summary>
     [Cmdlet("Get", "CBBuildBatch")]
     [OutputType("Amazon.CodeBuild.Model.BatchGetBuildsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The IDs of the builds to get information about.</para>
+        /// <para>The IDs of the builds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

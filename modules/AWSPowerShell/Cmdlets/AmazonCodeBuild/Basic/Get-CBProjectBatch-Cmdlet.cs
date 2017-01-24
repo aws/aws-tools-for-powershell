@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Gets information about one or more build projects.
+    /// Gets information about build projects.
     /// </summary>
     [Cmdlet("Get", "CBProjectBatch")]
     [OutputType("Amazon.CodeBuild.Model.BatchGetProjectsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The names of the build projects to get information about.</para>
+        /// <para>The names of the build projects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
