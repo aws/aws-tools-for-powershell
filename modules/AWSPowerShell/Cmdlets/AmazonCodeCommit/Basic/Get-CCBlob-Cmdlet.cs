@@ -28,53 +28,41 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Deletes a repository. If a specified repository was already deleted, a null repository
-    /// ID will be returned.
-    /// 
-    ///  <important><para>
-    /// Deleting a repository also deletes all associated objects and metadata. After a repository
-    /// is deleted, all future push calls to the deleted repository will fail.
-    /// </para></important>
+    /// Returns the base-64 encoded content of an individual blob within a repository.
     /// </summary>
-    [Cmdlet("Remove", "CCRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteRepository operation against AWS CodeCommit.", Operation = new[] {"DeleteRepository"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.CodeCommit.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CCBlob")]
+    [OutputType("System.IO.MemoryStream")]
+    [AWSCmdlet("Invokes the GetBlob operation against AWS CodeCommit.", Operation = new[] {"GetBlob"})]
+    [AWSCmdletOutput("System.IO.MemoryStream",
+        "This cmdlet returns a MemoryStream object.",
+        "The service call response (type Amazon.CodeCommit.Model.GetBlobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class GetCCBlobCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter BlobId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the blob, which is its SHA-1 pointer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BlobId { get; set; }
+        #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository to delete.</para>
+        /// <para>The name of the repository that contains the blob.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RepositoryName { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RepositoryName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCRepository (DeleteRepository)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -85,6 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.BlobId = this.BlobId;
             context.RepositoryName = this.RepositoryName;
             
             // allow further manipulation of loaded context prior to processing
@@ -100,8 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeCommit.Model.DeleteRepositoryRequest();
+            var request = new Amazon.CodeCommit.Model.GetBlobRequest();
             
+            if (cmdletContext.BlobId != null)
+            {
+                request.BlobId = cmdletContext.BlobId;
+            }
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
@@ -115,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.RepositoryId;
+                object pipelineOutput = response.Content;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -140,13 +133,13 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.DeleteRepositoryResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.DeleteRepositoryRequest request)
+        private static Amazon.CodeCommit.Model.GetBlobResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetBlobRequest request)
         {
             #if DESKTOP
-            return client.DeleteRepository(request);
+            return client.GetBlob(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteRepositoryAsync(request);
+            var task = client.GetBlobAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -157,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String BlobId { get; set; }
             public System.String RepositoryName { get; set; }
         }
         

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository where you want to create or update the trigger. </para>
+        /// <para>The name of the repository where you want to create or update the trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Trigger
         /// <summary>
         /// <para>
-        /// <para>The JSON block of configuration information for each trigger. </para>
+        /// <para>The JSON block of configuration information for each trigger.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

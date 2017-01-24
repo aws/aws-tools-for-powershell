@@ -9,14 +9,18 @@
   <ServiceClient>AmazonCodeCommitClient</ServiceClient>
 
   <PipelineParameter>RepositoryName</PipelineParameter>
+
+  <AutoIterate Start="NextToken" Next="NextToken" />
   
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetRepositories" Verb="Get" Noun="RepositoryBatch" Output="Response"/>
     <ServiceOperation MethodName="CreateBranch" Output="Void" />
     <ServiceOperation MethodName="CreateRepository"/>
     <ServiceOperation MethodName="DeleteRepository" ShouldProcessTarget="RepositoryName"/>
-	<ServiceOperation MethodName="GetBranch"/>
-	<ServiceOperation MethodName="GetCommit" PipelineParameter="CommitId" />
+    <ServiceOperation MethodName="GetBlob"/>
+    <ServiceOperation MethodName="GetBranch"/>
+    <ServiceOperation MethodName="GetCommit" PipelineParameter="CommitId" />
+    <ServiceOperation MethodName="GetDifferences" Noun="DifferenceList"/>
     <ServiceOperation MethodName="GetRepository"/>
     <ServiceOperation MethodName="GetRepositoryTriggers" Noun="RepositoryTrigger" Output="Response" />
     <ServiceOperation MethodName="ListBranches" Verb="Get" Noun="BranchList"/>

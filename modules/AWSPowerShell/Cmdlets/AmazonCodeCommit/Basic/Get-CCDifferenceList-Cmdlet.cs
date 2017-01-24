@@ -28,39 +28,100 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Gets information about one or more branches in a repository.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns information about the differences in a valid commit specifier (such as a branch,
+    /// tag, HEAD, commit ID or other fully qualified reference). Results can be limited to
+    /// a specified path.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "CCBranchList")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListBranches operation against AWS CodeCommit.", Operation = new[] {"ListBranches"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.CodeCommit.Model.ListBranchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CCDifferenceList")]
+    [OutputType("Amazon.CodeCommit.Model.Difference")]
+    [AWSCmdlet("Invokes the GetDifferences operation against AWS CodeCommit.", Operation = new[] {"GetDifferences"})]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.Difference",
+        "This cmdlet returns a collection of Difference objects.",
+        "The service call response (type Amazon.CodeCommit.Model.GetDifferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetCCBranchListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
+    public partial class GetCCDifferenceListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter AfterCommitSpecifier
+        /// <summary>
+        /// <para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AfterCommitSpecifier { get; set; }
+        #endregion
+        
+        #region Parameter AfterPath
+        /// <summary>
+        /// <para>
+        /// <para>The file path in which to check differences. Limits the results to this path. Can
+        /// also be used to specify the changed name of a directory or folder, if it has changed.
+        /// If not specified, differences will be shown for all paths.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AfterPath { get; set; }
+        #endregion
+        
+        #region Parameter BeforeCommitSpecifier
+        /// <summary>
+        /// <para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
+        /// For example, the full commit ID. Optional. If not specified, all changes prior to
+        /// the <code>afterCommitSpecifier</code> value will be shown. If you do not use <code>beforeCommitSpecifier</code>
+        /// in your request, consider limiting the results with <code>maxResults</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BeforeCommitSpecifier { get; set; }
+        #endregion
+        
+        #region Parameter BeforePath
+        /// <summary>
+        /// <para>
+        /// <para>The file path in which to check for differences. Limits the results to this path.
+        /// Can also be used to specify the previous name of a directory or folder. If <code>beforePath</code>
+        /// and <code>afterPath</code> are not specified, differences will be shown for all paths.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BeforePath { get; set; }
+        #endregion
         
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository that contains the branches.</para>
+        /// <para>The name of the repository where you want to get differences.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String RepositoryName { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>A non-negative integer used to limit the number of returned results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String RepositoryName { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that allows the operation to batch the results.</para>
+        /// <para>An enumeration token that when provided in a request, returns the next batch of the
+        /// results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
         #endregion
         
@@ -77,6 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.CC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AfterCommitSpecifier = this.AfterCommitSpecifier;
+            context.AfterPath = this.AfterPath;
+            context.BeforeCommitSpecifier = this.BeforeCommitSpecifier;
+            context.BeforePath = this.BeforePath;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             context.RepositoryName = this.RepositoryName;
             
@@ -94,8 +161,28 @@ namespace Amazon.PowerShell.Cmdlets.CC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CodeCommit.Model.ListBranchesRequest();
+            var request = new Amazon.CodeCommit.Model.GetDifferencesRequest();
             
+            if (cmdletContext.AfterCommitSpecifier != null)
+            {
+                request.AfterCommitSpecifier = cmdletContext.AfterCommitSpecifier;
+            }
+            if (cmdletContext.AfterPath != null)
+            {
+                request.AfterPath = cmdletContext.AfterPath;
+            }
+            if (cmdletContext.BeforeCommitSpecifier != null)
+            {
+                request.BeforeCommitSpecifier = cmdletContext.BeforeCommitSpecifier;
+            }
+            if (cmdletContext.BeforePath != null)
+            {
+                request.BeforePath = cmdletContext.BeforePath;
+            }
+            if (cmdletContext.MaxResults != null)
+            {
+                request.MaxResults = cmdletContext.MaxResults.Value;
+            }
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
@@ -125,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Branches;
+                        object pipelineOutput = response.Differences;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -136,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Branches.Count;
+                            int _receivedThisCall = response.Differences.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -171,13 +258,13 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.ListBranchesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.ListBranchesRequest request)
+        private static Amazon.CodeCommit.Model.GetDifferencesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetDifferencesRequest request)
         {
             #if DESKTOP
-            return client.ListBranches(request);
+            return client.GetDifferences(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListBranchesAsync(request);
+            var task = client.GetDifferencesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -188,6 +275,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AfterCommitSpecifier { get; set; }
+            public System.String AfterPath { get; set; }
+            public System.String BeforeCommitSpecifier { get; set; }
+            public System.String BeforePath { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String RepositoryName { get; set; }
         }
