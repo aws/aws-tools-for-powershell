@@ -1,7 +1,7 @@
 ### 3.3.43.0 (2017-01-24)
   * AWS CodeCommit
     - Added new cmdlets Get-CCBlob (GetBlob API) and Get-CCDifferenceList (GetDifferences API) to support the new service feature for viewing differences between commits. The existing Get-CCBranchList and get-CCRepositoryList cmdlets have also been extended to support automatic pagination of all results now that it is supported on these API calls by the service.
-  * Amazon EC2
+  * Amazon EC2 Container Service (ECS)
     - Added a new cmdlet, Update-ECSContainerInstancesState (UpdateContainerInstancesState API) to support the new service feature enabling state for container instances that can be used to drain a container instance in preparation for maintenance or cluster scale down.
 
 ### 3.3.42.0 (2017-01-20)
