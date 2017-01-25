@@ -57,7 +57,8 @@ namespace AWSPowerShellGenerator.Generators
         private static readonly Dictionary<string, string[]> _specialCmdletsMap = new Dictionary<string, string[]>
         {
             { "Amazon DynamoDB", new string[] { "NewDDBTableSchemaCmdlet", "AddDDBKeySchemaCmdlet", "AddDDBIndexSchemaCmdlet" } },
-            { "Amazon CloudFront", new string[] { "NewCFSignedUrlCmdlet", "NewCFSignedCookieCmdlet" } }
+            { "Amazon CloudFront", new string[] { "NewCFSignedUrlCmdlet", "NewCFSignedCookieCmdlet" } },
+            { "AWS Security Token Service", new string[] { "Use-STSRoleWithSAML", "Use-STSWebIdentityRole" } }
         };
 
         protected override void GenerateHelper()

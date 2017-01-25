@@ -3750,7 +3750,6 @@ Set-Alias -Name Describe-SGNFSFileShareList -Value Get-SGNFSFileShareList
 Set-Alias -Name SG-DescribeNFSFileShares -Value Get-SGNFSFileShareList
 Set-Alias -Name STS-AssumeRole -Value Use-STSRole
 Set-Alias -Name Assume-STSRole -Value Use-STSRole
-Set-Alias -Name STS-AssumeRoleWithSAML -Value Use-STSRoleWithSAML
 Set-Alias -Name Decode-STSAuthorizationMessage -Value Convert-STSAuthorizationMessage
 Set-Alias -Name STS-DecodeAuthorizationMessage -Value Convert-STSAuthorizationMessage
 Set-Alias -Name STS-GetCallerIdentity -Value Get-STSCallerIdentity

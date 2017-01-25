@@ -37,7 +37,7 @@
         <Param Name="DurationSeconds" NewName="DurationInSeconds" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="AssumeRoleWithSAML" Output="Response" Verb="Use" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn">
+    <ServiceOperation MethodName="AssumeRoleWithSAML" Exclude="true" Output="Response" Verb="Use" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn">
       <Params>
         <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
         <Param Name="DurationSeconds" NewName="DurationInSeconds" />

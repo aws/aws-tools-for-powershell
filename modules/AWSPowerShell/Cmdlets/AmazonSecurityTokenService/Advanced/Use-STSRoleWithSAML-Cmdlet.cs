@@ -100,9 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse",
         "This cmdlet returns a Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UseSTSRoleWithSAMLCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
+    public partial class UseSTSRoleWithSAMLCmdlet : BaseCmdlet, IExecutor
     {
-        
+        protected IAmazonSecurityTokenService Client { get; private set; }
+
         #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
@@ -187,6 +188,35 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
         #endregion
+
+        #region Parameter Region
+        /// <summary>
+        /// The region to use. STS has a single endpoint irrespective of region, though STS in GovCloud and China (Beijing) has its own endpoint.
+        /// </summary>
+        [Parameter]
+        public System.String Region { get; set; }
+        #endregion
+
+        protected IAmazonSecurityTokenService CreateClient(string region)
+        {
+            AmazonSecurityTokenServiceClient client;
+            if (string.IsNullOrEmpty(region))
+            {
+                client = new AmazonSecurityTokenServiceClient(new AnonymousAWSCredentials());
+            }
+            else
+            {
+                var regionEndpoint = string.IsNullOrEmpty(this.Region)
+                        ? RegionEndpoint.USEast1
+                        : RegionEndpoint.GetBySystemName(this.Region);
+                client = new AmazonSecurityTokenServiceClient(new AnonymousAWSCredentials(), regionEndpoint);
+            }
+
+            client.BeforeRequestEvent += RequestEventHandler;
+            client.AfterResponseEvent += ResponseEventHandler;
+
+            return client;
+        }
         
         protected override void ProcessRecord()
         {
@@ -197,11 +227,12 @@ namespace Amazon.PowerShell.Cmdlets.STS
             {
                 return;
             }
-            
+
+            Client = CreateClient(this.Region);
+
             var context = new CmdletContext
             {
-                Region = this.Region,
-                Credentials = this.CurrentCredentials
+                Region = this.Region
             };
             
             // allow for manipulation of parameters prior to loading into context
@@ -253,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            var client = Client ?? CreateClient(this.Region);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
@@ -305,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             public System.String PrincipalArn { get; set; }
             public System.String RoleArn { get; set; }
             public System.String SAMLAssertion { get; set; }
+            public new String Region { get; set; }
         }
         
     }

@@ -48,7 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [Cmdlet("Use", "STSWebIdentityRole")]
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult")]
     [AWSCmdlet("Invokes the AssumeRoleWithWebIdentity operation against AWS Security Token Service.", Operation = new [] {"AssumeRoleWithWebIdentity"})]
-    [AWSClientCmdlet("AWS Security Token Service", "STS", "2011-06-15")]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult",
         "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult instance. The service response (type Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -140,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
 
         #region Parameter Region
         /// <summary>
-        /// The region to use. STS has a single endpoint irrespective of region, though STS in GovCloud has its own endpoint.
+        /// The region to use. STS has a single endpoint irrespective of region, though STS in GovCloud and China (Beijing) has its own endpoint.
         /// </summary>
         [Parameter]
         public System.String Region { get; set; }
@@ -155,8 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
             }
             else
             {
-                var regionEndpoint = RegionEndpoint.GetBySystemName(region);
-                client = new AmazonSecurityTokenServiceClient(new AnonymousAWSCredentials(), regionEndpoint);   
+                var regionEndpoint = string.IsNullOrEmpty(this.Region) 
+                        ? RegionEndpoint.USEast1 
+                        : RegionEndpoint.GetBySystemName(this.Region);
+                client = new AmazonSecurityTokenServiceClient(new AnonymousAWSCredentials(), regionEndpoint);
             }
 
             client.BeforeRequestEvent += RequestEventHandler;
