@@ -115,12 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// key. </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
         /// for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
         /// don't specify a value for <code>KmsKeyId</code>, then the copy of the DB snapshot
-        /// is encrypted with the same KMS key as the source DB snapshot. </para><para>If you copy an encrypted DB snapshot from your AWS account, you can specify a value
-        /// for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
-        /// don't specify a value for <code>KmsKeyId</code>, then the copy of the DB snapshot
-        /// is encrypted with the same KMS key as the source DB snapshot. If you copy an encrypted
-        /// snapshot to a different AWS region, then you must specify a KMS key for the destination
-        /// AWS region.</para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
+        /// is encrypted with the same KMS key as the source DB snapshot. </para><para>If you copy an encrypted snapshot to a different AWS region, then you must specify
+        /// a KMS key for the destination AWS region.</para><para>If you copy an encrypted DB snapshot that is shared from another AWS account, then
         /// you must specify a value for <code>KmsKeyId</code>. </para><para>To copy an encrypted DB snapshot to another region, you must set <code>KmsKeyId</code>
         /// to the KMS key ID used to encrypt the copy of the DB snapshot in the destination region.
         /// KMS encryption keys are specific to the region that they are created in, and you cannot
@@ -151,10 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
         /// for the source region. For example, if you are copying an encrypted DB snapshot from
         /// the us-west-2 region, then your <code>SourceDBSnapshotIdentifier</code> would look
-        /// like Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
+        /// like Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
         /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
-        /// <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-        /// Signature Version 4 Signing Process</a>.</para>
+        /// <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html"> Signature
+        /// Version 4 Signing Process</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

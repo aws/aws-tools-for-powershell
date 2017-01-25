@@ -158,7 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The new compute and memory capacity of the DB instance. To determine the instance
         /// classes that are available for a particular DB engine, use the <a>DescribeOrderableDBInstanceOptions</a>
-        /// action. </para><para> Passing a value for this setting causes an outage during the change and is applied
+        /// action. Note that not all instance classes are available in all regions for all DB
+        /// engines. </para><para> Passing a value for this setting causes an outage during the change and is applied
         /// during the next maintenance window, unless <code>ApplyImmediately</code> is specified
         /// as <code>true</code> for this request. </para><para>Default: Uses existing setting</para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
