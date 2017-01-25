@@ -68,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>A condition. Each condition has the field <code>path-pattern</code> and specifies
-        /// one path pattern. A path pattern is case sensitive, can be up to 255 characters in
-        /// length, and can contain any of the following characters:</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>_ - . $ / ~ " ' @ : +</para></li><li><para>&amp; (using &amp;amp;)</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul>
+        /// one path pattern. A path pattern is case sensitive, can be up to 128 characters in
+        /// length, and can contain any of the following characters. Note that you can include
+        /// up to three wildcard characters in a path pattern.</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>_ - . $ / ~ " ' @ : +</para></li><li><para>&amp; (using &amp;amp;)</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

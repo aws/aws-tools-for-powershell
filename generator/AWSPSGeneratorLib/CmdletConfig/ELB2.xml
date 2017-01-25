@@ -51,6 +51,7 @@
 	<ServiceOperation MethodName="ModifyTargetGroupAttributes" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" />
 	<ServiceOperation MethodName="RegisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
 	<ServiceOperation MethodName="RemoveTags" NoPipelineParameter="true" Output="Void" />
+	<ServiceOperation MethodName="SetIpAddressType" PipelineParameter="LoadBalancerArn"/>
 	<ServiceOperation MethodName="SetRulePriorities" Noun="RulePriority" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="SetSecurityGroups" PipelineParameter="LoadBalancerArn" Noun="SecurityGroup" />
 	<ServiceOperation MethodName="SetSubnets" PipelineParameter="LoadBalancerArn" />

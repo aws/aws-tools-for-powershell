@@ -2261,6 +2261,16 @@ $ELB2_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticLoadBalancingV2.IpAddressType
+        {
+            ($_ -eq "New-ELB2LoadBalancer/IpAddressType") -Or
+            ($_ -eq "Set-ELB2IpAddressType/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+        
         # Amazon.ElasticLoadBalancingV2.LoadBalancerSchemeEnum
         "New-ELB2LoadBalancer/Scheme"
         {
@@ -2290,6 +2300,7 @@ $ELB2_Completers = {
 
 $ELB2_map = @{
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
+    "IpAddressType"=@("New-ELB2LoadBalancer","Set-ELB2IpAddressType")
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
 }

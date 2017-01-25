@@ -28,61 +28,40 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Registers the specified targets with the specified target group.
-    /// 
-    ///  
-    /// <para>
-    /// By default, the load balancer routes requests to registered targets using the protocol
-    /// and port number for the target group. Alternatively, you can override the port for
-    /// a target when you register it.
-    /// </para><para>
-    /// The target must be in the virtual private cloud (VPC) that you specified for the target
-    /// group. If the target is an EC2 instance, it must be in the <code>running</code> state
-    /// when you register it.
-    /// </para><para>
-    /// To remove a target from a target group, use <a>DeregisterTargets</a>.
-    /// </para>
+    /// Sets the type of IP addresses used by the subnets of the specified Application Load
+    /// Balancer.
     /// </summary>
-    [Cmdlet("Register", "ELB2Target", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RegisterTargets operation against Elastic Load Balancing V2.", Operation = new[] {"RegisterTargets"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetGroupArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "ELB2IpAddressType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticLoadBalancingV2.IpAddressType")]
+    [AWSCmdlet("Invokes the SetIpAddressType operation against Elastic Load Balancing V2.", Operation = new[] {"SetIpAddressType"})]
+    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.IpAddressType",
+        "This cmdlet returns a IpAddressType object.",
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterELB2TargetCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class SetELB2IpAddressTypeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter TargetGroupArn
+        #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the target group.</para>
+        /// <para>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses)
+        /// and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers
+        /// must use <code>ipv4</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.IpAddressType")]
+        public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
+        #region Parameter LoadBalancerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String TargetGroupArn { get; set; }
-        #endregion
-        
-        #region Parameter Target
-        /// <summary>
-        /// <para>
-        /// <para>The targets. The default port for a target is the port for the target group. You can
-        /// specify a port override. If a target is already registered, you can register it again
-        /// using a different port.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Targets")]
-        public Amazon.ElasticLoadBalancingV2.Model.TargetDescription[] Target { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the TargetGroupArn parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String LoadBalancerArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -99,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TargetGroupArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-ELB2Target (RegisterTargets)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-ELB2IpAddressType (SetIpAddressType)"))
             {
                 return;
             }
@@ -114,11 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.TargetGroupArn = this.TargetGroupArn;
-            if (this.Target != null)
-            {
-                context.Targets = new List<Amazon.ElasticLoadBalancingV2.Model.TargetDescription>(this.Target);
-            }
+            context.IpAddressType = this.IpAddressType;
+            context.LoadBalancerArn = this.LoadBalancerArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,15 +109,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsRequest();
+            var request = new Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeRequest();
             
-            if (cmdletContext.TargetGroupArn != null)
+            if (cmdletContext.IpAddressType != null)
             {
-                request.TargetGroupArn = cmdletContext.TargetGroupArn;
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
-            if (cmdletContext.Targets != null)
+            if (cmdletContext.LoadBalancerArn != null)
             {
-                request.Targets = cmdletContext.Targets;
+                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
             }
             
             CmdletOutput output;
@@ -152,9 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.TargetGroupArn;
+                object pipelineOutput = response.IpAddressType;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -179,13 +153,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsRequest request)
+        private static Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeRequest request)
         {
             #if DESKTOP
-            return client.RegisterTargets(request);
+            return client.SetIpAddressType(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RegisterTargetsAsync(request);
+            var task = client.SetIpAddressTypeAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -196,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String TargetGroupArn { get; set; }
-            public List<Amazon.ElasticLoadBalancingV2.Model.TargetDescription> Targets { get; set; }
+            public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
+            public System.String LoadBalancerArn { get; set; }
         }
         
     }

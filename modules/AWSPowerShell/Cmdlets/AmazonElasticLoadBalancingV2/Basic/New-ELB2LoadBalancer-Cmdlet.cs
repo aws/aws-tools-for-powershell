@@ -32,12 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// To create listeners for your load balancer, use <a>CreateListener</a>. You can add
-    /// security groups, subnets, and tags when you create your load balancer, or you can
-    /// add them later using <a>SetSecurityGroups</a>, <a>SetSubnets</a>, and <a>AddTags</a>.
+    /// When you create a load balancer, you can specify security groups, subnets, IP address
+    /// type, and tags. Otherwise, you could do so later using <a>SetSecurityGroups</a>, <a>SetSubnets</a>,
+    /// <a>SetIpAddressType</a>, and <a>AddTags</a>.
     /// </para><para>
-    /// To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you
-    /// are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.
+    /// To create listeners for your load balancer, use <a>CreateListener</a>. To describe
+    /// your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished
+    /// with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.
     /// </para><para>
     /// You can create up to 20 load balancers per region per account. You can request an
     /// increase for the number of load balancers for your account. For more information,
@@ -57,6 +58,19 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     )]
     public partial class NewELB2LoadBalancerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The type of IP addresses used by the subnets for your load balancer. The possible
+        /// values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for
+        /// IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.IpAddressType")]
+        public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
+        #endregion
         
         #region Parameter Name
         /// <summary>
@@ -150,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             context.Scheme = this.Scheme;
             if (this.SecurityGroup != null)
@@ -180,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request
             var request = new Amazon.ElasticLoadBalancingV2.Model.CreateLoadBalancerRequest();
             
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -251,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public Amazon.ElasticLoadBalancingV2.LoadBalancerSchemeEnum Scheme { get; set; }
             public List<System.String> SecurityGroups { get; set; }

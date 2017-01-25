@@ -1776,6 +1776,8 @@ Set-Alias -Name Set-ELBLoadBalancerPoliciesForBackendServer -Value Set-ELBLoadBa
 Set-Alias -Name ELB-SetLoadBalancerPoliciesForBackendServer -Value Set-ELBLoadBalancerPolicyForBackendServer
 Set-Alias -Name Set-ELBLoadBalancerPoliciesOfListener -Value Set-ELBLoadBalancerPolicyOfListener
 Set-Alias -Name ELB-SetLoadBalancerPoliciesOfListener -Value Set-ELBLoadBalancerPolicyOfListener
+Set-Alias -Name Set-ELB2Subnets -Value Set-ELB2Subnet
+Set-Alias -Name ELB2-SetSubnets -Value Set-ELB2Subnet
 Set-Alias -Name Add-ELB2Tags -Value Add-ELB2Tag
 Set-Alias -Name ELB2-AddTags -Value Add-ELB2Tag
 Set-Alias -Name Create-ELB2Listener -Value New-ELB2Listener
@@ -1828,10 +1830,9 @@ Set-Alias -Name Register-ELB2Targets -Value Register-ELB2Target
 Set-Alias -Name ELB2-RegisterTargets -Value Register-ELB2Target
 Set-Alias -Name Remove-ELB2Tags -Value Remove-ELB2Tag
 Set-Alias -Name ELB2-RemoveTags -Value Remove-ELB2Tag
+Set-Alias -Name ELB2-SetIpAddressType -Value Set-ELB2IpAddressType
 Set-Alias -Name ELB2-SetRulePriorities -Value Set-ELB2RulePriority
 Set-Alias -Name ELB2-SetSecurityGroups -Value Set-ELB2SecurityGroup
-Set-Alias -Name Set-ELB2Subnets -Value Set-ELB2Subnet
-Set-Alias -Name ELB2-SetSubnets -Value Set-ELB2Subnet
 Set-Alias -Name Add-EMRInstanceGroups -Value Add-EMRInstanceGroup
 Set-Alias -Name EMR-AddInstanceGroups -Value Add-EMRInstanceGroup
 Set-Alias -Name Add-EMRJobFlowSteps -Value Add-EMRJobFlowStep
