@@ -70,7 +70,7 @@
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.0.4\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0.5\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0.6\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0.5\lib\net35\AWSSDK.Lightsail.dll</HintPath>
@@ -208,7 +208,7 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.2.5\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.2.1\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.3\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.2\lib\net35\AWSSDK.ECR.dll</HintPath>
@@ -253,7 +253,7 @@
       <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.2.1\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
-      <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.0.7\lib\net35\AWSSDK.CodeCommit.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.1\lib\net35\AWSSDK.CodeCommit.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.2.2\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
