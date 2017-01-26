@@ -127,6 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.SpotFleetLaunchSpecification[] SpotFleetRequestConfig_LaunchSpecification { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_ReplaceUnhealthyInstance
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether Spot fleet should replace unhealthy instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SpotFleetRequestConfig_ReplaceUnhealthyInstances")]
+        public System.Boolean SpotFleetRequestConfig_ReplaceUnhealthyInstance { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_SpotPrice
         /// <summary>
         /// <para>
@@ -240,6 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SpotFleetRequestConfig_LaunchSpecifications = new List<Amazon.EC2.Model.SpotFleetLaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
             }
+            if (ParameterWasBound("SpotFleetRequestConfig_ReplaceUnhealthyInstance"))
+                context.SpotFleetRequestConfig_ReplaceUnhealthyInstances = this.SpotFleetRequestConfig_ReplaceUnhealthyInstance;
             context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
             if (ParameterWasBound("SpotFleetRequestConfig_TargetCapacity"))
                 context.SpotFleetRequestConfig_TargetCapacity = this.SpotFleetRequestConfig_TargetCapacity;
@@ -328,6 +341,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification != null)
             {
                 request.SpotFleetRequestConfig.LaunchSpecifications = requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            System.Boolean? requestSpotFleetRequestConfig_spotFleetRequestConfig_ReplaceUnhealthyInstance = null;
+            if (cmdletContext.SpotFleetRequestConfig_ReplaceUnhealthyInstances != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_ReplaceUnhealthyInstance = cmdletContext.SpotFleetRequestConfig_ReplaceUnhealthyInstances.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ReplaceUnhealthyInstance != null)
+            {
+                request.SpotFleetRequestConfig.ReplaceUnhealthyInstances = requestSpotFleetRequestConfig_spotFleetRequestConfig_ReplaceUnhealthyInstance.Value;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             System.String requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice = null;
@@ -452,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Double? SpotFleetRequestConfig_FulfilledCapacity { get; set; }
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public List<Amazon.EC2.Model.SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
+            public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstances { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
             public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
