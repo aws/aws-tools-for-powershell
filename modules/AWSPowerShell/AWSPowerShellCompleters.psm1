@@ -561,6 +561,62 @@ $BGT_map = @{
 _awsArgumentCompleterRegistration $BGT_Completers $BGT_map
 
 
+# Argument completions for service AWS Cloud Directory
+$CDIR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudDirectory.ConsistencyLevel
+        {
+            ($_ -eq "Get-CDIRIndex/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectAttribute/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectChild/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectIndex/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectInformation/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectParent/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRObjectPolicy/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIRPolicyAttachment/ConsistencyLevel") -Or
+            ($_ -eq "Read-CDIRDirectoryBatch/ConsistencyLevel")
+        }
+        {
+            $v = "EVENTUAL","SERIALIZABLE"
+            break
+        }
+        
+        # Amazon.CloudDirectory.DirectoryState
+        "Get-CDIRDirectory/State"
+        {
+            $v = "DELETED","DISABLED","ENABLED"
+            break
+        }
+        
+        # Amazon.CloudDirectory.ObjectType
+        {
+            ($_ -eq "New-CDIRFacet/ObjectType") -Or
+            ($_ -eq "Update-CDIRFacet/ObjectType")
+        }
+        {
+            $v = "INDEX","LEAF_NODE","NODE","POLICY"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CDIR_map = @{
+    "ConsistencyLevel"=@("Get-CDIRIndex","Get-CDIRObjectAttribute","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
+    "ObjectType"=@("New-CDIRFacet","Update-CDIRFacet")
+    "State"=@("Get-CDIRDirectory")
+}
+
+_awsArgumentCompleterRegistration $CDIR_Completers $CDIR_map
+
+
 # Argument completions for service AWS CloudFormation
 $CFN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
