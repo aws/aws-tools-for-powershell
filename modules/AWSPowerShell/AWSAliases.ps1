@@ -2849,6 +2849,7 @@ Set-Alias -Name POL-ListLexicons -Value Get-POLLexiconList
 Set-Alias -Name Put-POLLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-PutLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-SynthesizeSpeech -Value Get-POLSpeech
+Set-Alias -Name RDS-RestoreDBClusterFromS3 -Value Restore-RDSDBClusterFromS3
 Set-Alias -Name RDS-RestoreDBClusterFromSnapshot -Value Restore-RDSDBClusterFromSnapshot
 Set-Alias -Name RDS-RestoreDBClusterToPointInTime -Value Restore-RDSDBClusterToPointInTime
 Set-Alias -Name RDS-RestoreDBInstanceFromDBSnapshot -Value Restore-RDSDBInstanceFromDBSnapshot
@@ -2881,6 +2882,8 @@ Set-Alias -Name Modify-RDSDBInstance -Value Edit-RDSDBInstance
 Set-Alias -Name RDS-ModifyDBInstance -Value Edit-RDSDBInstance
 Set-Alias -Name Modify-RDSDBParameterGroup -Value Edit-RDSDBParameterGroup
 Set-Alias -Name RDS-ModifyDBParameterGroup -Value Edit-RDSDBParameterGroup
+Set-Alias -Name Modify-RDSDBSnapshot -Value Edit-RDSDBSnapshot
+Set-Alias -Name RDS-ModifyDBSnapshot -Value Edit-RDSDBSnapshot
 Set-Alias -Name Modify-RDSDBSnapshotAttribute -Value Edit-RDSDBSnapshotAttribute
 Set-Alias -Name RDS-ModifyDBSnapshotAttribute -Value Edit-RDSDBSnapshotAttribute
 Set-Alias -Name Modify-RDSDBSubnetGroup -Value Edit-RDSDBSubnetGroup
@@ -2900,7 +2903,6 @@ Set-Alias -Name Remove-RDSTagsFromResource -Value Remove-RDSTagFromResource
 Set-Alias -Name RDS-RemoveTagsFromResource -Value Remove-RDSTagFromResource
 Set-Alias -Name RDS-ResetDBClusterParameterGroup -Value Reset-RDSDBClusterParameterGroup
 Set-Alias -Name RDS-ResetDBParameterGroup -Value Reset-RDSDBParameterGroup
-Set-Alias -Name RDS-RestoreDBClusterFromS3 -Value Restore-RDSDBClusterFromS3
 Set-Alias -Name Delete-RDSEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name RDS-DeleteEventSubscription -Value Remove-RDSEventSubscription
 Set-Alias -Name Delete-RDSOptionGroup -Value Remove-RDSOptionGroup

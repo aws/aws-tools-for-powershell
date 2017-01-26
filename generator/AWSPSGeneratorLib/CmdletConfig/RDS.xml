@@ -108,6 +108,7 @@
     <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceName"/>
     <ServiceOperation MethodName="ModifyDBInstance" ShouldProcessTarget="DBInstanceIdentifier"/>
     <ServiceOperation MethodName="ModifyDBParameterGroup" PipelineParameter="DBParameterGroupName" PositionalParameters="Parameters"/>
+    <ServiceOperation MethodName="ModifyDBSnapshot" PipelineParameter="DBSnapshotIdentifier"/>
     <ServiceOperation MethodName="ModifyDBSnapshotAttribute" PipelineParameter="DBSnapshotIdentifier"/>
     <ServiceOperation MethodName="ModifyDBSubnetGroup" PipelineParameter="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds"/>
     <ServiceOperation MethodName="ModifyEventSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SnsTopicArn"/>
