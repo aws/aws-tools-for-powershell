@@ -778,10 +778,12 @@ Set-Alias -Name CC-TestRepositoryTriggers -Value Test-CCRepositoryTrigger
 Set-Alias -Name CC-UpdateDefaultBranch -Value Update-CCDefaultBranch
 Set-Alias -Name CC-UpdateRepositoryDescription -Value Update-CCRepositoryDescription
 Set-Alias -Name CC-UpdateRepositoryName -Value Update-CCRepositoryName
+Set-Alias -Name CD-ListDeployments -Value Get-CDDeploymentList
 Set-Alias -Name CD-ListOnPremisesInstances -Value Get-CDOnPremiseInstanceList
 Set-Alias -Name CD-RegisterApplicationRevision -Value Register-CDApplicationRevision
 Set-Alias -Name CD-RegisterOnPremisesInstance -Value Register-CDOnPremiseInstance
 Set-Alias -Name CD-RemoveTagsFromOnPremisesInstances -Value Remove-CDOnPremiseInstanceTag
+Set-Alias -Name CD-SkipWaitTimeForInstanceTermination -Value Skip-CDWaitTimeForInstanceTermination
 Set-Alias -Name CD-StopDeployment -Value Stop-CDDeployment
 Set-Alias -Name CD-UpdateApplication -Value Update-CDApplication
 Set-Alias -Name CD-UpdateDeploymentGroup -Value Update-CDDeploymentGroup
@@ -792,6 +794,7 @@ Set-Alias -Name CD-BatchGetDeploymentGroups -Value Get-CDDeploymentGroupBatch
 Set-Alias -Name CD-BatchGetDeploymentInstances -Value Get-CDDeploymentInstanceBatch
 Set-Alias -Name CD-BatchGetDeployments -Value Get-CDDeployments
 Set-Alias -Name CD-BatchGetOnPremisesInstances -Value Get-CDOnPremiseInstanceBatch
+Set-Alias -Name CD-ContinueDeployment -Value Resume-CDDeployment
 Set-Alias -Name Create-CDApplication -Value New-CDApplication
 Set-Alias -Name CD-CreateApplication -Value New-CDApplication
 Set-Alias -Name Create-CDDeployment -Value New-CDDeployment
@@ -820,7 +823,6 @@ Set-Alias -Name CD-ListApplications -Value Get-CDApplicationList
 Set-Alias -Name CD-ListDeploymentConfigs -Value Get-CDDeploymentConfigList
 Set-Alias -Name CD-ListDeploymentGroups -Value Get-CDDeploymentGroupList
 Set-Alias -Name CD-ListDeploymentInstances -Value Get-CDDeploymentInstanceList
-Set-Alias -Name CD-ListDeployments -Value Get-CDDeploymentList
 Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
 Set-Alias -Name CP-AcknowledgeJob -Value Confirm-CPJob

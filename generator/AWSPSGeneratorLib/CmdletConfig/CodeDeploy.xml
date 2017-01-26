@@ -21,6 +21,7 @@
     <ServiceOperation MethodName="BatchGetDeploymentInstances" Output="Response" Verb="Get" Noun="DeploymentInstanceBatch" PipelineParameter="DeploymentId"/>
     <ServiceOperation MethodName="BatchGetDeploymentGroups" Output="Response" Verb="Get" Noun="DeploymentGroupBatch" />
     <ServiceOperation MethodName="BatchGetDeployments"  Verb="Get" Noun="Deployments"/>
+    <ServiceOperation MethodName="ContinueDeployment" Verb="Resume" Output="Void"/>
     <ServiceOperation MethodName="CreateApplication" />
     <ServiceOperation MethodName="CreateDeployment"/>
     <ServiceOperation MethodName="CreateDeploymentConfig" />
@@ -41,6 +42,7 @@
     <ServiceOperation MethodName="ListDeploymentInstances"  Verb="Get" Noun="DeploymentInstanceList"/>
     <ServiceOperation MethodName="ListDeployments"          Verb="Get" Noun="DeploymentList"/>
     <ServiceOperation MethodName="RegisterApplicationRevision" Output="Void"/>
+    <ServiceOperation MethodName="SkipWaitTimeForInstanceTermination" Output="Void"/>
     <ServiceOperation MethodName="StopDeployment" Output="Response" />
     <ServiceOperation MethodName="UpdateApplication" Output="Void" />
     <ServiceOperation MethodName="UpdateDeploymentGroup" />

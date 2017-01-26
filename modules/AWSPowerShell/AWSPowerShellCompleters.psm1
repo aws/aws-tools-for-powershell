@@ -1159,6 +1159,56 @@ $CD_Completers = {
             break
         }
         
+        # Amazon.CodeDeploy.DeploymentOption
+        {
+            ($_ -eq "New-CDDeploymentGroup/DeploymentStyle_DeploymentOption") -Or
+            ($_ -eq "Update-CDDeploymentGroup/DeploymentStyle_DeploymentOption")
+        }
+        {
+            $v = "WITHOUT_TRAFFIC_CONTROL","WITH_TRAFFIC_CONTROL"
+            break
+        }
+        
+        # Amazon.CodeDeploy.DeploymentReadyAction
+        {
+            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout") -Or
+            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout")
+        }
+        {
+            $v = "CONTINUE_DEPLOYMENT","STOP_DEPLOYMENT"
+            break
+        }
+        
+        # Amazon.CodeDeploy.DeploymentType
+        {
+            ($_ -eq "New-CDDeploymentGroup/DeploymentStyle_DeploymentType") -Or
+            ($_ -eq "Update-CDDeploymentGroup/DeploymentStyle_DeploymentType")
+        }
+        {
+            $v = "BLUE_GREEN","IN_PLACE"
+            break
+        }
+        
+        # Amazon.CodeDeploy.GreenFleetProvisioningAction
+        {
+            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action") -Or
+            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action")
+        }
+        {
+            $v = "COPY_AUTO_SCALING_GROUP","DISCOVER_EXISTING"
+            break
+        }
+        
+        # Amazon.CodeDeploy.InstanceAction
+        {
+            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action") -Or
+            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action")
+        }
+        {
+            $v = "KEEP_ALIVE","TERMINATE"
+            break
+        }
+        
         # Amazon.CodeDeploy.ListStateFilterAction
         "Get-CDApplicationRevisionList/Deployed"
         {
@@ -1206,7 +1256,12 @@ $CD_Completers = {
 }
 
 $CD_map = @{
+    "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "Deployed"=@("Get-CDApplicationRevisionList")
+    "DeploymentStyle_DeploymentOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "DeploymentStyle_DeploymentType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "MinimumHealthyHosts_Type"=@("New-CDDeploymentConfig")
     "RegistrationStatus"=@("Get-CDOnPremiseInstanceList")
     "Revision_RevisionType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")

@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter TargetInstances_AutoScalingGroup
+        /// <summary>
+        /// <para>
+        /// <para>The names of one or more Auto Scaling groups to identify a replacement environment
+        /// for a blue/green deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetInstances_AutoScalingGroups")]
+        public System.String[] TargetInstances_AutoScalingGroup { get; set; }
+        #endregion
+        
         #region Parameter S3Location_Bucket
         /// <summary>
         /// <para>
@@ -191,6 +203,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
         #endregion
         
+        #region Parameter TargetInstances_TagFilter
+        /// <summary>
+        /// <para>
+        /// <para>The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement
+        /// environment for a blue/green deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetInstances_TagFilters")]
+        public Amazon.CodeDeploy.Model.EC2TagFilter[] TargetInstances_TagFilter { get; set; }
+        #endregion
+        
         #region Parameter UpdateOutdatedInstancesOnly
         /// <summary>
         /// <para>
@@ -276,6 +300,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.Revision_S3Location_ETag = this.S3Location_ETag;
             context.Revision_S3Location_Key = this.S3Location_Key;
             context.Revision_S3Location_Version = this.S3Location_Version;
+            if (this.TargetInstances_AutoScalingGroup != null)
+            {
+                context.TargetInstances_AutoScalingGroups = new List<System.String>(this.TargetInstances_AutoScalingGroup);
+            }
+            if (this.TargetInstances_TagFilter != null)
+            {
+                context.TargetInstances_TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.TargetInstances_TagFilter);
+            }
             if (ParameterWasBound("UpdateOutdatedInstancesOnly"))
                 context.UpdateOutdatedInstancesOnly = this.UpdateOutdatedInstancesOnly;
             
@@ -462,6 +494,35 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.Revision = null;
             }
+            
+             // populate TargetInstances
+            bool requestTargetInstancesIsNull = true;
+            request.TargetInstances = new Amazon.CodeDeploy.Model.TargetInstances();
+            List<System.String> requestTargetInstances_targetInstances_AutoScalingGroup = null;
+            if (cmdletContext.TargetInstances_AutoScalingGroups != null)
+            {
+                requestTargetInstances_targetInstances_AutoScalingGroup = cmdletContext.TargetInstances_AutoScalingGroups;
+            }
+            if (requestTargetInstances_targetInstances_AutoScalingGroup != null)
+            {
+                request.TargetInstances.AutoScalingGroups = requestTargetInstances_targetInstances_AutoScalingGroup;
+                requestTargetInstancesIsNull = false;
+            }
+            List<Amazon.CodeDeploy.Model.EC2TagFilter> requestTargetInstances_targetInstances_TagFilter = null;
+            if (cmdletContext.TargetInstances_TagFilters != null)
+            {
+                requestTargetInstances_targetInstances_TagFilter = cmdletContext.TargetInstances_TagFilters;
+            }
+            if (requestTargetInstances_targetInstances_TagFilter != null)
+            {
+                request.TargetInstances.TagFilters = requestTargetInstances_targetInstances_TagFilter;
+                requestTargetInstancesIsNull = false;
+            }
+             // determine if request.TargetInstances should be set to null
+            if (requestTargetInstancesIsNull)
+            {
+                request.TargetInstances = null;
+            }
             if (cmdletContext.UpdateOutdatedInstancesOnly != null)
             {
                 request.UpdateOutdatedInstancesOnly = cmdletContext.UpdateOutdatedInstancesOnly.Value;
@@ -532,6 +593,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String Revision_S3Location_ETag { get; set; }
             public System.String Revision_S3Location_Key { get; set; }
             public System.String Revision_S3Location_Version { get; set; }
+            public List<System.String> TargetInstances_AutoScalingGroups { get; set; }
+            public List<Amazon.CodeDeploy.Model.EC2TagFilter> TargetInstances_TagFilters { get; set; }
             public System.Boolean? UpdateOutdatedInstancesOnly { get; set; }
         }
         

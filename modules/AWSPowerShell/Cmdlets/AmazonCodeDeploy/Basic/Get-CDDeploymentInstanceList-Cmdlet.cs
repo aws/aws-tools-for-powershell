@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String[] InstanceStatusFilter { get; set; }
         #endregion
         
+        #region Parameter InstanceTypeFilter
+        /// <summary>
+        /// <para>
+        /// <para>The set of instances in a blue/green deployment, either those in the original environment
+        /// ("BLUE") or those in the replacement environment ("GREEN"), for which you want to
+        /// view instance information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] InstanceTypeFilter { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -94,6 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 context.InstanceStatusFilter = new List<System.String>(this.InstanceStatusFilter);
             }
+            if (this.InstanceTypeFilter != null)
+            {
+                context.InstanceTypeFilter = new List<System.String>(this.InstanceTypeFilter);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -119,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.InstanceStatusFilter != null)
             {
                 request.InstanceStatusFilter = cmdletContext.InstanceStatusFilter;
+            }
+            if (cmdletContext.InstanceTypeFilter != null)
+            {
+                request.InstanceTypeFilter = cmdletContext.InstanceTypeFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -210,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             public System.String DeploymentId { get; set; }
             public List<System.String> InstanceStatusFilter { get; set; }
+            public List<System.String> InstanceTypeFilter { get; set; }
             public System.String NextToken { get; set; }
         }
         

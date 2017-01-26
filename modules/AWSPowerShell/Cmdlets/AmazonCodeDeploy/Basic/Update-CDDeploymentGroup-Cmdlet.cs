@@ -40,6 +40,49 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class UpdateCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        #region Parameter GreenFleetProvisioningOption_Action
+        /// <summary>
+        /// <para>
+        /// <para>The method used to add instances to a replacement environment.</para><ul><li><para>DISCOVER_EXISTING: Use instances that already exist or will be created manually.</para></li><li><para>COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define
+        /// and create instances in a new Auto Scaling group.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action")]
+        [AWSConstantClassSource("Amazon.CodeDeploy.GreenFleetProvisioningAction")]
+        public Amazon.CodeDeploy.GreenFleetProvisioningAction GreenFleetProvisioningOption_Action { get; set; }
+        #endregion
+        
+        #region Parameter TerminateBlueInstancesOnDeploymentSuccess_Action
+        /// <summary>
+        /// <para>
+        /// <para>The action to take on instances in the original environment after a successful blue/green
+        /// deployment.</para><ul><li><para>TERMINATE: Instances are terminated after a specified wait time.</para></li><li><para>KEEP_ALIVE: Instances are left running after they are deregistered from the load balancer
+        /// and removed from the deployment group.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action")]
+        [AWSConstantClassSource("Amazon.CodeDeploy.InstanceAction")]
+        public Amazon.CodeDeploy.InstanceAction TerminateBlueInstancesOnDeploymentSuccess_Action { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentReadyOption_ActionOnTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Information about when to reroute traffic from an original environment to a replacement
+        /// environment in a blue/green deployment.</para><ul><li><para>CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after
+        /// the new application revision is installed on the instances in the replacement environment.</para></li><li><para>STOP_DEPLOYMENT: Do not register new instances with load balancer unless traffic is
+        /// rerouted manually. If traffic is not rerouted manually before the end of the specified
+        /// wait period, the deployment status is changed to Stopped.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout")]
+        [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentReadyAction")]
+        public Amazon.CodeDeploy.DeploymentReadyAction DeploymentReadyOption_ActionOnTimeout { get; set; }
+        #endregion
+        
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>
@@ -95,6 +138,28 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String DeploymentConfigName { get; set; }
         #endregion
         
+        #region Parameter DeploymentStyle_DeploymentOption
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to route deployment traffic behind a load balancer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentOption")]
+        public Amazon.CodeDeploy.DeploymentOption DeploymentStyle_DeploymentOption { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentStyle_DeploymentType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to run a standard deployment or a blue/green deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentType")]
+        public Amazon.CodeDeploy.DeploymentType DeploymentStyle_DeploymentType { get; set; }
+        #endregion
+        
         #region Parameter Ec2TagFilter
         /// <summary>
         /// <para>
@@ -106,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Ec2TagFilters")]
         public Amazon.CodeDeploy.Model.EC2TagFilter[] Ec2TagFilter { get; set; }
+        #endregion
+        
+        #region Parameter LoadBalancerInfo_ElbInfoList
+        /// <summary>
+        /// <para>
+        /// <para>An array containing information about the load balancer in Elastic Load Balancing
+        /// to use in a blue/green deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.ELBInfo[] LoadBalancerInfo_ElbInfoList { get; set; }
         #endregion
         
         #region Parameter AlarmConfiguration_Enabled
@@ -185,6 +261,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String ServiceRoleArn { get; set; }
         #endregion
         
+        #region Parameter TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes to wait after a successful blue/green deployment before terminating
+        /// instances from the original environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes")]
+        public System.Int32 TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute { get; set; }
+        #endregion
+        
         #region Parameter TriggerConfiguration
         /// <summary>
         /// <para>
@@ -196,6 +284,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("TriggerConfigurations")]
         public Amazon.CodeDeploy.Model.TriggerConfig[] TriggerConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentReadyOption_WaitTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes to wait before the status of a blue/green deployment changed
+        /// to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT
+        /// option for actionOnTimeout</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes")]
+        public System.Int32 DeploymentReadyOption_WaitTimeInMinute { get; set; }
         #endregion
         
         #region Parameter Force
@@ -246,11 +347,24 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 context.AutoScalingGroups = new List<System.String>(this.AutoScalingGroup);
             }
+            context.BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout = this.DeploymentReadyOption_ActionOnTimeout;
+            if (ParameterWasBound("DeploymentReadyOption_WaitTimeInMinute"))
+                context.BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes = this.DeploymentReadyOption_WaitTimeInMinute;
+            context.BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action = this.GreenFleetProvisioningOption_Action;
+            context.BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action = this.TerminateBlueInstancesOnDeploymentSuccess_Action;
+            if (ParameterWasBound("TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"))
+                context.BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes = this.TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute;
             context.CurrentDeploymentGroupName = this.CurrentDeploymentGroupName;
             context.DeploymentConfigName = this.DeploymentConfigName;
+            context.DeploymentStyle_DeploymentOption = this.DeploymentStyle_DeploymentOption;
+            context.DeploymentStyle_DeploymentType = this.DeploymentStyle_DeploymentType;
             if (this.Ec2TagFilter != null)
             {
                 context.Ec2TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.Ec2TagFilter);
+            }
+            if (this.LoadBalancerInfo_ElbInfoList != null)
+            {
+                context.LoadBalancerInfo_ElbInfoList = new List<Amazon.CodeDeploy.Model.ELBInfo>(this.LoadBalancerInfo_ElbInfoList);
             }
             context.NewDeploymentGroupName = this.NewDeploymentGroupName;
             if (this.OnPremisesInstanceTagFilter != null)
@@ -354,6 +468,110 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.AutoScalingGroups = cmdletContext.AutoScalingGroups;
             }
+            
+             // populate BlueGreenDeploymentConfiguration
+            bool requestBlueGreenDeploymentConfigurationIsNull = true;
+            request.BlueGreenDeploymentConfiguration = new Amazon.CodeDeploy.Model.BlueGreenDeploymentConfiguration();
+            Amazon.CodeDeploy.Model.GreenFleetProvisioningOption requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption = null;
+            
+             // populate GreenFleetProvisioningOption
+            bool requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOptionIsNull = true;
+            requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption = new Amazon.CodeDeploy.Model.GreenFleetProvisioningOption();
+            Amazon.CodeDeploy.GreenFleetProvisioningAction requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action = null;
+            if (cmdletContext.BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action = cmdletContext.BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption.Action = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOptionIsNull = false;
+            }
+             // determine if requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption should be set to null
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOptionIsNull)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption = null;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption != null)
+            {
+                request.BlueGreenDeploymentConfiguration.GreenFleetProvisioningOption = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption;
+                requestBlueGreenDeploymentConfigurationIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.DeploymentReadyOption requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption = null;
+            
+             // populate DeploymentReadyOption
+            bool requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOptionIsNull = true;
+            requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption = new Amazon.CodeDeploy.Model.DeploymentReadyOption();
+            Amazon.CodeDeploy.DeploymentReadyAction requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_ActionOnTimeout = null;
+            if (cmdletContext.BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_ActionOnTimeout = cmdletContext.BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_ActionOnTimeout != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption.ActionOnTimeout = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_ActionOnTimeout;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOptionIsNull = false;
+            }
+            System.Int32? requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_WaitTimeInMinute = null;
+            if (cmdletContext.BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_WaitTimeInMinute = cmdletContext.BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes.Value;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_WaitTimeInMinute != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption.WaitTimeInMinutes = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption_deploymentReadyOption_WaitTimeInMinute.Value;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOptionIsNull = false;
+            }
+             // determine if requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption should be set to null
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOptionIsNull)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption = null;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption != null)
+            {
+                request.BlueGreenDeploymentConfiguration.DeploymentReadyOption = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_DeploymentReadyOption;
+                requestBlueGreenDeploymentConfigurationIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.BlueInstanceTerminationOption requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess = null;
+            
+             // populate TerminateBlueInstancesOnDeploymentSuccess
+            bool requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccessIsNull = true;
+            requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess = new Amazon.CodeDeploy.Model.BlueInstanceTerminationOption();
+            Amazon.CodeDeploy.InstanceAction requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_Action = null;
+            if (cmdletContext.BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_Action = cmdletContext.BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_Action != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess.Action = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_Action;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccessIsNull = false;
+            }
+            System.Int32? requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute = null;
+            if (cmdletContext.BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute = cmdletContext.BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes.Value;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute != null)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess.TerminationWaitTimeInMinutes = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_terminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute.Value;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccessIsNull = false;
+            }
+             // determine if requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess should be set to null
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccessIsNull)
+            {
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess = null;
+            }
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess != null)
+            {
+                request.BlueGreenDeploymentConfiguration.TerminateBlueInstancesOnDeploymentSuccess = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess;
+                requestBlueGreenDeploymentConfigurationIsNull = false;
+            }
+             // determine if request.BlueGreenDeploymentConfiguration should be set to null
+            if (requestBlueGreenDeploymentConfigurationIsNull)
+            {
+                request.BlueGreenDeploymentConfiguration = null;
+            }
             if (cmdletContext.CurrentDeploymentGroupName != null)
             {
                 request.CurrentDeploymentGroupName = cmdletContext.CurrentDeploymentGroupName;
@@ -362,9 +580,57 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.DeploymentConfigName = cmdletContext.DeploymentConfigName;
             }
+            
+             // populate DeploymentStyle
+            bool requestDeploymentStyleIsNull = true;
+            request.DeploymentStyle = new Amazon.CodeDeploy.Model.DeploymentStyle();
+            Amazon.CodeDeploy.DeploymentOption requestDeploymentStyle_deploymentStyle_DeploymentOption = null;
+            if (cmdletContext.DeploymentStyle_DeploymentOption != null)
+            {
+                requestDeploymentStyle_deploymentStyle_DeploymentOption = cmdletContext.DeploymentStyle_DeploymentOption;
+            }
+            if (requestDeploymentStyle_deploymentStyle_DeploymentOption != null)
+            {
+                request.DeploymentStyle.DeploymentOption = requestDeploymentStyle_deploymentStyle_DeploymentOption;
+                requestDeploymentStyleIsNull = false;
+            }
+            Amazon.CodeDeploy.DeploymentType requestDeploymentStyle_deploymentStyle_DeploymentType = null;
+            if (cmdletContext.DeploymentStyle_DeploymentType != null)
+            {
+                requestDeploymentStyle_deploymentStyle_DeploymentType = cmdletContext.DeploymentStyle_DeploymentType;
+            }
+            if (requestDeploymentStyle_deploymentStyle_DeploymentType != null)
+            {
+                request.DeploymentStyle.DeploymentType = requestDeploymentStyle_deploymentStyle_DeploymentType;
+                requestDeploymentStyleIsNull = false;
+            }
+             // determine if request.DeploymentStyle should be set to null
+            if (requestDeploymentStyleIsNull)
+            {
+                request.DeploymentStyle = null;
+            }
             if (cmdletContext.Ec2TagFilters != null)
             {
                 request.Ec2TagFilters = cmdletContext.Ec2TagFilters;
+            }
+            
+             // populate LoadBalancerInfo
+            bool requestLoadBalancerInfoIsNull = true;
+            request.LoadBalancerInfo = new Amazon.CodeDeploy.Model.LoadBalancerInfo();
+            List<Amazon.CodeDeploy.Model.ELBInfo> requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList = null;
+            if (cmdletContext.LoadBalancerInfo_ElbInfoList != null)
+            {
+                requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList = cmdletContext.LoadBalancerInfo_ElbInfoList;
+            }
+            if (requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList != null)
+            {
+                request.LoadBalancerInfo.ElbInfoList = requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList;
+                requestLoadBalancerInfoIsNull = false;
+            }
+             // determine if request.LoadBalancerInfo should be set to null
+            if (requestLoadBalancerInfoIsNull)
+            {
+                request.LoadBalancerInfo = null;
             }
             if (cmdletContext.NewDeploymentGroupName != null)
             {
@@ -440,9 +706,17 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.Boolean? AutoRollbackConfiguration_Enabled { get; set; }
             public List<System.String> AutoRollbackConfiguration_Events { get; set; }
             public List<System.String> AutoScalingGroups { get; set; }
+            public Amazon.CodeDeploy.DeploymentReadyAction BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout { get; set; }
+            public System.Int32? BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes { get; set; }
+            public Amazon.CodeDeploy.GreenFleetProvisioningAction BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action { get; set; }
+            public Amazon.CodeDeploy.InstanceAction BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action { get; set; }
+            public System.Int32? BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes { get; set; }
             public System.String CurrentDeploymentGroupName { get; set; }
             public System.String DeploymentConfigName { get; set; }
+            public Amazon.CodeDeploy.DeploymentOption DeploymentStyle_DeploymentOption { get; set; }
+            public Amazon.CodeDeploy.DeploymentType DeploymentStyle_DeploymentType { get; set; }
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
+            public List<Amazon.CodeDeploy.Model.ELBInfo> LoadBalancerInfo_ElbInfoList { get; set; }
             public System.String NewDeploymentGroupName { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
             public System.String ServiceRoleArn { get; set; }
