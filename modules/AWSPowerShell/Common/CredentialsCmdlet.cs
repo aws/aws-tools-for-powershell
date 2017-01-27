@@ -470,6 +470,20 @@ namespace Amazon.PowerShell.Common
         [Parameter(Mandatory = true, ParameterSetName = StoreAllRolesParameterSet)]
         public SwitchParameter StoreAllRoles { get; set; }
 
+        /// <summary>
+        /// <para>
+        /// Specifies the region to be used when making calls to STS to obtain temporary credentials
+        /// after successful authentication. 
+        /// </para>
+        /// <para>
+        /// This parameter is only needed in regions where a specific regional endpoint for STS must 
+        /// be used (eg cn-north-1). In all regions where the global sts.amazonaws.com endpoint can be 
+        /// used this parameter should not be specified.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        public string STSEndpointRegion { get; set; }
+
         protected override void ProcessRecord()
         {
             try
@@ -495,6 +509,10 @@ namespace Amazon.PowerShell.Common
 
                 var samlAssertion = authenticationController.GetSAMLAssertion(endpointSettings.Endpoint, networkCredential, endpointSettings.AuthenticationType);
 
+                RegionEndpoint stsRegionEndpoint = null;
+                if (!string.IsNullOrEmpty(STSEndpointRegion))
+                    stsRegionEndpoint = RegionEndpoint.GetBySystemName(STSEndpointRegion);
+
                 if (StoreAllRoles)
                 {
                     string domainUser = null;
@@ -514,14 +532,14 @@ namespace Amazon.PowerShell.Common
                         selectedRoleARN = availableRoles[roleName];
                         WriteVerbose(string.Format("Saving role '{0}' to profile '{1}'.", selectedRoleARN, roleName));
 
-                        SettingsStore.SaveSAMLRoleProfile(roleName, EndpointName, selectedRoleARN, domainUser, null);
+                        SettingsStore.SaveSAMLRoleProfile(roleName, EndpointName, selectedRoleARN, domainUser, stsRegionEndpoint);
 
                         WriteObject(roleName);
                     }
                 }
                 else
                 {
-                    var profileName = SelectAndStoreProfileForRole(samlAssertion.RoleSet, selectedRoleARN, networkCredential);
+                    var profileName = SelectAndStoreProfileForRole(samlAssertion.RoleSet, selectedRoleARN, networkCredential, stsRegionEndpoint);
                     WriteObject(profileName);
                 }
             }
@@ -554,7 +572,10 @@ namespace Amazon.PowerShell.Common
             return false;
         }
 
-        private string SelectAndStoreProfileForRole(IDictionary<string, string> availableRoles, string preselectedRoleARN, NetworkCredential networkCredential)
+        private string SelectAndStoreProfileForRole(IDictionary<string, string> availableRoles, 
+                                                    string preselectedRoleARN, 
+                                                    NetworkCredential networkCredential,
+                                                    RegionEndpoint stsEndpointRegion)
         {
             var selectedRoleARN = preselectedRoleARN;
             var roleSelectionNeeded = true;
@@ -603,7 +624,8 @@ namespace Amazon.PowerShell.Common
             string domainUser = null;
             if (networkCredential != null)
                 domainUser = string.Concat(networkCredential.Domain, "\\", networkCredential.UserName);
-            SettingsStore.SaveSAMLRoleProfile(StoreAs, EndpointName, selectedRoleARN, domainUser, null);
+
+            SettingsStore.SaveSAMLRoleProfile(StoreAs, EndpointName, selectedRoleARN, domainUser, stsEndpointRegion);
 
             return StoreAs;
         }

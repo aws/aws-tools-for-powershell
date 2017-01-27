@@ -939,10 +939,7 @@ namespace Amazon.PowerShell.Common
             if (string.IsNullOrEmpty(roleArn)) throw new ArgumentNullException("roleArn");
 
             var profileExisted = ProfileManager.IsProfileKnown(name);
-            ProfileManager.RegisterSAMLRoleProfile(name, endpointName, roleArn, userIdentity);
-
-            if (region != null)
-                SetProfileRegion(name, region.SystemName);
+            ProfileManager.RegisterSAMLRoleProfile(name, endpointName, roleArn, userIdentity, region.SystemName);
 
             // if we just overwrote an AWS credential profile, remove any AWS-related keys that may be
             // present so we avoid mixed data
