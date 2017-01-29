@@ -147,9 +147,9 @@
     <Target Name="run-tests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
         
-        <RemoveDir Directories="$(RootPath)\test\results" />
-        <MakeDir Directories="$(RootPath)\test\results" />
-        <Exec Command="powershell -NoProfile $(RootPath)\test\RunTests.ps1" WorkingDirectory="$(RootPath)\test" />
+        <RemoveDir Directories="$(RootPath)\tests\results" />
+        <MakeDir Directories="$(RootPath)\tests\results" />
+        <Exec Command="powershell -NoProfile $(RootPath)\tests\RunTests.ps1" WorkingDirectory="$(RootPath)\tests" />
         
         <ItemGroup>
             <TestResults Include="$(RootPath)\test\results\*.*"/>

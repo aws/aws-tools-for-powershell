@@ -28,4 +28,6 @@ AWSPowerShell.Src_*.zip
 
 test/results/
 test/temp/**
+tests/Results/
+tests/Temp/**
 

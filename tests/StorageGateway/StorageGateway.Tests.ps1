@@ -1,4 +1,4 @@
-Describe -Tag "Smoke" "StorageGateway" {
+Describe -Tag "Smoke","Disabled" "StorageGateway" {
 
     BeforeAll {
         Set-AWSCredentials default
