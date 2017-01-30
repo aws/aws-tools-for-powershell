@@ -14,6 +14,7 @@ namespace AWSPowerShellGenerator.Writers.Help
         public string CmdletName { get; set; }
         public string Synopsis { get; set; }
         public string TOCId { get; set; }
+        public string LegacyAlias { get; set; }
     }
 
     public class TOCWriter : BaseTemplateWriter
@@ -29,7 +30,7 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         // target page is synthesized from the cmdlet name once we emit the overall TOC; we will also
         // generate a summary page of cmdlets with their synopsis for the service
-        public void AddServiceCmdlet(string serviceName, string cmdletName, string tocId, string synopsis)
+        public void AddServiceCmdlet(string serviceName, string cmdletName, string tocId, string synopsis, string legacyAlias)
         {
             List<TOCCmdletEntry> cmdlets = null;
 
@@ -49,7 +50,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                     return;
             }
 
-            cmdlets.Add(new TOCCmdletEntry { CmdletName = cmdletName, TOCId = tocId, Synopsis = synopsis });
+            cmdlets.Add(new TOCCmdletEntry { CmdletName = cmdletName, TOCId = tocId, Synopsis = synopsis, LegacyAlias = legacyAlias });
         }
 
         protected override string GetTemplateName()
@@ -87,6 +88,9 @@ namespace AWSPowerShellGenerator.Writers.Help
         {
             var cmdlets = _cmdletsByService[serviceName];
 
+            // want legacy aliases to come at the bottom for each service
+            var deferredAliases = new List<TOCCmdletEntry>();
+
             // emit the summary page for the service
             var summaryPageWriter = new ServiceCmdletsPageWriter(Options, OutputFolder, serviceName, cmdlets);
             summaryPageWriter.Write();
@@ -104,6 +108,18 @@ namespace AWSPowerShellGenerator.Writers.Help
                              cmdletPage, 
                              cmdlet.CmdletName,
                              cmdlet.TOCId);
+
+                if (!string.IsNullOrEmpty(cmdlet.LegacyAlias))
+                    deferredAliases.Add(cmdlet);
+            }
+
+            foreach (var cmdlet in deferredAliases.OrderBy(x => x.LegacyAlias))
+            {
+                var cmdletPage = string.Format("{0}.html", cmdlet.CmdletName.Replace(' ', '_'));
+                writer.Write("<li id=\"{2}_alias\" class=\"nav leaf\"><a class=\"nav\" href=\"./items/{0}\" onclick=\"updateContentPane('./items/{0}')\" target=\"contentpane\">[alias] {1}</a></li>",
+                                cmdletPage,
+                                cmdlet.LegacyAlias,
+                                cmdlet.TOCId);
             }
 
             writer.Write("</ul></li>");

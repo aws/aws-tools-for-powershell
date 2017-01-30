@@ -302,7 +302,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (Operation.RequiresAnonymousAuthentication)
                 synopsis.Append(" This operation uses anonymous authentication and does not require credential parameters to be supplied.");
 
-            writer.WriteLine("[AWSCmdlet(\"{0}\", Operation = new[] {{\"{1}\"}})]", synopsis, Operation.MethodName);
+            var awsCmdletAttribute = new StringBuilder(); 
+            awsCmdletAttribute.AppendFormat("AWSCmdlet(\"{0}\", Operation = new[] {{\"{1}\"}}", synopsis, Operation.MethodName);
+            if (!string.IsNullOrEmpty(Operation.LegacyAlias))
+            {
+                awsCmdletAttribute.AppendFormat(", LegacyAlias=\"{0}\"", Operation.LegacyAlias);
+            }
+            awsCmdletAttribute.Append(")");
+
+            writer.WriteLine("[{0}]", awsCmdletAttribute.ToString());
 
             var analyzedResult = MethodAnalysis.AnalyzedResult;
             string returnTypeName;

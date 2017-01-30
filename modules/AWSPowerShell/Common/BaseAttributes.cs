@@ -26,8 +26,9 @@ namespace Amazon.PowerShell.Common
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class AWSCmdletAttribute : Attribute
     {
-        public string[] Operation { get; set; }
         public string Synopsis { get; private set; }
+        public string[] Operation { get; set; }
+        public string LegacyAlias { get; set; }
 
         public AWSCmdletAttribute(string synopsis)
         {

@@ -153,25 +153,41 @@ namespace AWSPowerShellGenerator.Generators
                             WriteRelatedLinks(cmdletPageWriter, serviceAbbreviation, cmdletName);
 
                             cmdletPageWriter.Write();
-                            tocWriter.AddServiceCmdlet(owningService, cmdletName, cmdletPageWriter.GetTOCID(), synopsis);
+
+                            var legacyAlias = ExtractLegacyAlias(AWSCmdletAttribute);
+                            tocWriter.AddServiceCmdlet(owningService, cmdletName, cmdletPageWriter.GetTOCID(), synopsis, legacyAlias);
                         }
                     }
 
                     tocWriter.Write();
                 }
             }
-            finally
+            finally                               
             {
                 Console.SetOut(oldWriter);
             }
         }
 
-        private static void WriteDetails(CmdletPageWriter writer, CmdletAttribute cmdletAttribute, string typeDocumentation, string cmdletName, string synopsis)
+        private void WriteDetails(CmdletPageWriter writer, CmdletAttribute cmdletAttribute, string typeDocumentation, string cmdletName, string synopsis)
         {
             if (!string.IsNullOrEmpty(synopsis))
                 writer.AddPageElement(CmdletPageWriter.SynopsisElementKey, synopsis);
+
+            var doc = new StringBuilder();
             if (!string.IsNullOrEmpty(typeDocumentation))
-                writer.AddPageElement(CmdletPageWriter.DescriptionElementKey, typeDocumentation);
+                doc.Append(typeDocumentation);
+
+            var legacyAlias = ExtractLegacyAlias(AWSCmdletAttribute);
+            if (!string.IsNullOrEmpty(legacyAlias))
+            {
+                doc.AppendLine("<br/>");
+                doc.AppendLine("<br/>");
+                doc.AppendFormat("Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias, <i>{0}</i>.",
+                                legacyAlias);
+            }
+
+            if (doc.Length > 0)
+                writer.AddPageElement(CmdletPageWriter.DescriptionElementKey, doc.ToString());
         }
 
         private static void WriteSyntax(CmdletPageWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
@@ -601,6 +617,15 @@ namespace AWSPowerShellGenerator.Generators
             {
                 Console.WriteLine("WARNING: Failed to clean web help output folder '{0}'", outputFolder);
             }
+        }
+
+        private static string ExtractLegacyAlias(object awsCmdletAttribute)
+        {
+            if (awsCmdletAttribute == null)
+                return null;
+
+            var awsCmdletAttributeType = awsCmdletAttribute.GetType();
+            return awsCmdletAttributeType.GetProperty("LegacyAlias").GetValue(awsCmdletAttribute, null) as string;
         }
 
     }

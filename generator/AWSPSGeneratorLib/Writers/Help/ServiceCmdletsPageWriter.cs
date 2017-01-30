@@ -56,13 +56,27 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         void AddCmdlets(TextWriter writer)
         {
+            var legacyAliases = new List<TOCCmdletEntry>();
+
             // might want sectioned output in future, eg to document type extensions
             AddMemberTableSectionHeader(writer, "Cmdlets", false);
             foreach (var cmdlet in _cmdlets.OrderBy(x => x.CmdletName))
             {
                 AddRow(writer, cmdlet, "class");
+                if (!string.IsNullOrEmpty(cmdlet.LegacyAlias))
+                    legacyAliases.Add(cmdlet);
             }
             AddMemberTableSectionClosing(writer);
+
+            if (legacyAliases.Count > 0)
+            {
+                AddMemberTableSectionHeader(writer, "Aliases", false);
+                foreach (var cmdlet in legacyAliases.OrderBy(x => x.LegacyAlias))
+                {
+                    AddLegacyAliasRow(writer, cmdlet, "class");
+                }
+                AddMemberTableSectionClosing(writer);
+            }
         }
 
         void AddRow(TextWriter writer, TOCCmdletEntry cmdlet, string cssImageClass)
@@ -71,6 +85,21 @@ namespace AWSPowerShellGenerator.Writers.Help
 
             writer.WriteLine("<td>");
             writer.WriteLine("<a href=\"./{0}.html\">{0}</a>", cmdlet.CmdletName);
+            writer.WriteLine("</td>");
+
+            writer.WriteLine("<td>");
+            writer.WriteLine(cmdlet.Synopsis);
+            writer.WriteLine("</td>");
+
+            writer.WriteLine("</tr>");
+        }
+
+        void AddLegacyAliasRow(TextWriter writer, TOCCmdletEntry cmdlet, string cssImageClass)
+        {
+            writer.WriteLine("<tr>");
+
+            writer.WriteLine("<td>");
+            writer.WriteLine("<a href=\"./{0}.html\">{1}</a>", cmdlet.CmdletName, cmdlet.LegacyAlias);
             writer.WriteLine("</td>");
 
             writer.WriteLine("<td>");
