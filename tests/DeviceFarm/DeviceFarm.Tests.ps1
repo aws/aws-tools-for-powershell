@@ -1,11 +1,11 @@
-Describe -Tag "Smoke","Disabled" "DeviceFarm" {
+Describe -Tag "Smoke" "DeviceFarm" {
     Context "Projects" {
         It "Can list projects" {
-            $projects = Get-DFProjectList
+            $projects = Get-DFProjectList -Region us-west-2
             if ($projects) {
                 $projects.Count | Should BeGreaterThan 0
 
-                $project = Get-DFProject -Arn $projects[0].Arn
+                $project = Get-DFProject -Arn $projects[0].Arn -Region us-west-2
 
                 $project.Name | Should Be $projects[0].Name
             }
