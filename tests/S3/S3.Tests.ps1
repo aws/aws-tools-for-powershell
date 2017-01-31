@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "S3" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Buckets" {
 
         It "Can list buckets" {

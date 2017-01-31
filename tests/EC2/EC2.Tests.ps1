@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "EC2" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Images" {
 
         It "Can get a filtered list of images" {

@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "Route53" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Hosted Zones" {
 
         It "Can list and enumerate hosted zones" {

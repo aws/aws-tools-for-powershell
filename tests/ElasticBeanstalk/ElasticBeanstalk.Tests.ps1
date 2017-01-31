@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "ElasticBeanstalk" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Applications and Environments" {
 
         It "Can list and read applications and environments" {

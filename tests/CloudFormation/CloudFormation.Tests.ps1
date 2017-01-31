@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "CloudFormation" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Stacks" {
 
         It "Can call Get-CFNStack to get all stacks" {

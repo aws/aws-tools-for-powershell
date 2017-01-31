@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "MachineLearning" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Models" {
 
         It "Can list and read models" {

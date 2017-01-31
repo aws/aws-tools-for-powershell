@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "DynamoDB" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Tables" {
 
         It "Can list and describe tables" {

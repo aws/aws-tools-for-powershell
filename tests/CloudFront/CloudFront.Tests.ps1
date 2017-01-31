@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "CloudFront" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
 	Context "Distributions" {
 
 		It "Can list distributions" {

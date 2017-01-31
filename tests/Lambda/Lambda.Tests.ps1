@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "Lambda" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Functions" {
 
         It "Can list and read functions" {

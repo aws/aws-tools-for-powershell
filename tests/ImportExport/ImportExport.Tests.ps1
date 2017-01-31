@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "ImportExport" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Jobs" {
 
         It "Can list jobs and get job status" {

@@ -1,10 +1,4 @@
 Describe -Tag "Smoke","Disabled" "ElasticMapReduce" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Clusters" {
 
         It "Can read clusters" {

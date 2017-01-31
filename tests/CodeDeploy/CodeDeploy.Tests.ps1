@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "CodeDeploy" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Applications" {
 
         It "Can list applications" {

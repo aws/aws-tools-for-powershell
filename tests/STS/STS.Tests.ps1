@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "STS" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Temporary Credentials" {
 
         It "Can get temporary credentials" {

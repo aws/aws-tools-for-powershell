@@ -1,10 +1,4 @@
 Describe -Tag "Smoke","Disabled" "StorageGateway" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Gateways" {
 
         $script:firstActiveGatway = $null

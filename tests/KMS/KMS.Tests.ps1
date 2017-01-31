@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "KMS" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Keys" {
 
         It "Can list and read keys" {

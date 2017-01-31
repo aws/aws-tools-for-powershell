@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "SES" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Send statistics" {
 
         It "Can get send statistics" {

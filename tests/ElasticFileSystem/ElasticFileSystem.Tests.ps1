@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "ElasticFileSystem" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-west-2
-    }
-
     Context "File Systems" {
 
         It "Can list file systems" {

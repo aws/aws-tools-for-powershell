@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "SNS" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Topics" {
 
         $script:newTopicArn = $null

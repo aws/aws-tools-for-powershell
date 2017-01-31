@@ -59,6 +59,7 @@ Describe -Tag "Smoke" "Credentials" {
 
     AfterAll {
         $env:HOME = $originalHome
+        Set-AWSCredentials -AccessKey $testCreds.AccessKey -SecretKey $testCreds.SecretKey
     }
 
     Context "Get-S3Bucket" {

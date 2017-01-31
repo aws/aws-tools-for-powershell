@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "CloudWatch" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Metrics" {
 
         It "Can list metrics" {

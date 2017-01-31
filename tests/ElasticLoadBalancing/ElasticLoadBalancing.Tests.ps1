@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "ElasticLoadBalancing" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Load Balancers" {
 
         It "Can list and get load balancers" {

@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "CloudSearch" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "List and Enumerate Domains" {
 
         It "Can list domains" {

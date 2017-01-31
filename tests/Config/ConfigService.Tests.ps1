@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "ConfigService" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Recorders" {
 
         It "Can list recorders" {

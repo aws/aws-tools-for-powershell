@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "CodeCommit" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Repositories" {
 
         It "Can list repositories" {

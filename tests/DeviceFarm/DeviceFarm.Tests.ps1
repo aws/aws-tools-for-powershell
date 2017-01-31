@@ -1,12 +1,5 @@
-Describe -Tag "Smoke" "DeviceFarm" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-west-2
-    }
-
+Describe -Tag "Smoke","Disabled" "DeviceFarm" {
     Context "Projects" {
-
         It "Can list projects" {
             $projects = Get-DFProjectList
             if ($projects) {
@@ -17,6 +10,5 @@ Describe -Tag "Smoke" "DeviceFarm" {
                 $project.Name | Should Be $projects[0].Name
             }
         }
-
     }
 }

@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "Route53Domains" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Domains" {
 
         It "Can check domain availability" {

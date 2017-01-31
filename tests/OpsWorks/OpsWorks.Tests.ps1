@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "OpsWorks" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Stacks" {
 
         It "Can list and summarize stacks" {

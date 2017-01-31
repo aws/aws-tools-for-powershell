@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "DirectConnect" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Virtual gateways" {
         It "Can list gateways" {
             $gateways = Get-DCVirtualGateway

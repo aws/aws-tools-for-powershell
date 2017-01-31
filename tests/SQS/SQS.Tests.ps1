@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "SQS" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Queues" {
 
         $script:QueueUrl = $null

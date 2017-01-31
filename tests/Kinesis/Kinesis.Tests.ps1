@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "Kinesis" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Streams" {
 
         It "Can list and read streams" {

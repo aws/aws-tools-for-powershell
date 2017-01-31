@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "SSM" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Documents" {
 
         It "Can list and read documents" {

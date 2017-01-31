@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "IAM" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Roles" {
 
         It "Can list and read roles" {

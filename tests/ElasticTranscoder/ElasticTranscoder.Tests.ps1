@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "ElasticTranscoder" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Pipelines" {
 
         It "Can list and read pipelines" {

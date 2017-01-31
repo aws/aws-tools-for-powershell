@@ -1,10 +1,4 @@
 Describe -Tag "Smoke" "EC2ContainerService" {
-
-    BeforeAll {
-        Set-AWSCredentials default
-        Set-DefaultAWSRegion us-east-1
-    }
-
     Context "Clusters" {
 
         It "Can list and read clusters" {
