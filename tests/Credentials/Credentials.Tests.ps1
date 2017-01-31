@@ -58,6 +58,7 @@ Describe -Tag "Smoke" "Credentials" {
     }
 
     AfterAll {
+        if (Test-Path $awsDirectory) { Remove-Item -Recurse -Force -Path $awsDirectory }
         $env:HOME = $originalHome
         Set-AWSCredentials -AccessKey $testCreds.AccessKey -SecretKey $testCreds.SecretKey
     }
