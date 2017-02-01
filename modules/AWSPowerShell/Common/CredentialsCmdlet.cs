@@ -254,15 +254,20 @@ namespace Amazon.PowerShell.Common
             var sharedCredentialsFilePath = string.IsNullOrEmpty(ProfilesLocation) ?
                 SettingsStore.GetCredentialsFilePath() : ProfilesLocation;
 
-            var sharedCredentialsFile = new SharedCredentialsFile(sharedCredentialsFilePath);
+            SharedCredentialsFile sharedCredentialsFile = null;
+            if (File.Exists(sharedCredentialsFilePath))
+                sharedCredentialsFile = new SharedCredentialsFile(sharedCredentialsFilePath);
 
             if (ListProfiles.IsPresent)
             {
                 var names = new HashSet<string>();
 
-                var sharedNames = sharedCredentialsFile.ListProfileNames();
-                if (sharedNames != null)
-                    names.UnionWith(sharedNames);
+                if (sharedCredentialsFile != null)
+                {
+                    var sharedNames = sharedCredentialsFile.ListProfileNames();
+                    if (sharedNames != null)
+                        names.UnionWith(sharedNames);
+                }
 
                 if (!useSharedFileOnly)
                 {
