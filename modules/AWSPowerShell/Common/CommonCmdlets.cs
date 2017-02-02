@@ -27,6 +27,7 @@ using System.IO;
 using System.Reflection;
 using Amazon.Util.Internal;
 using Amazon.Util;
+using Amazon.PowerShell.Utils;
 
 namespace Amazon.PowerShell.Common
 {
@@ -67,7 +68,7 @@ namespace Amazon.PowerShell.Common
                 + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
-    public class InitializeDefaultsCmdlet : BaseCmdlet, IDynamicParameters
+    public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
     {
         private object Parameters { get; set; }
 
@@ -110,51 +111,35 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
-            var defaultSettings = SettingsStore.Load(SettingsStore.PSDefaultSettingName);
+            PersistedCredentialProfile persistedProfile;
+            AWSPSCredentials defaultAWSPSCredentials = null;
+            RegionEndpoint region = null;
+            if (SettingsStore.TryGetPersistedProfile(SettingsStore.PSDefaultSettingName, commonArguments.ProfilesLocation, out persistedProfile))
+            {
+                AWSCredentials defaultAWSCredentials;
+                if (persistedProfile.TryGetAWSCredentials(out defaultAWSCredentials))
+                {
+                    defaultAWSPSCredentials = new AWSPSCredentials(defaultAWSCredentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
+                }
+                region = persistedProfile.Profile.Region;
+            }
 
-            var defaultCredentials 
-                = defaultSettings == null ? null 
-                                          : new AWSPSCredentials(defaultSettings.Credentials, 
-                                                                 SettingsStore.PSDefaultSettingName, 
-                                                                 CredentialsSource.Profile);
-            var shouldSaveCredentials = GetCredentials(passedCredentials, ref defaultCredentials);
-
-            var region = defaultSettings == null ? null : defaultSettings.Region;
+            var shouldSaveCredentials = GetCredentials(passedCredentials, commonArguments.ProfilesLocation, ref defaultAWSPSCredentials);
             var shouldSaveRegion = GetRegion(passedRegion, ref region);
 
             if (shouldSaveCredentials || shouldSaveRegion)
             {
-                var userSuppliedProfileName = commonArguments != null && !string.IsNullOrEmpty(commonArguments.ProfileName);
-                var useSharedFileOnly = commonArguments != null && !string.IsNullOrEmpty(commonArguments.ProfilesLocation);
-
-                // if we loaded credentials (AWS or SAML) from a profile, use the copy function to
-                // set them as default otherwise we can end up with mixed settings data. If credentials
-                // were loaded from key parameters or instance profile, then we know they are AWS
-                // credentials but we still need to check for SAML data in the 'default' profile
-                // and clean it out to avoid a mix. Note that we get 'saved' source type for credentials
-                // the user just entered, so we have to do a check to see if the profile previously
-                // existed...
-                if (!useSharedFileOnly && ProfileManager.IsAvailable && defaultCredentials.Source == CredentialsSource.Profile &&
-                    userSuppliedProfileName && ProfileManager.IsProfileKnown(commonArguments.ProfileName))
-                {
-                    // It's from and to the credentials store.
-                    SettingsStore.SaveFromProfile(commonArguments.ProfileName, SettingsStore.PSDefaultSettingName, region);
-                }
+                SettingsStore.SaveAWSCredentialProfile(commonArguments.GetCredentialProfileOptions(),
+                    SettingsStore.PSDefaultSettingName, commonArguments.ProfilesLocation, region);
+                if (string.IsNullOrEmpty(commonArguments.ProfilesLocation))
+                    WriteVerbose("Updated SDK profile store.");
                 else
-                {
-                    // It's either from the shared file, or to the shared file. No special copying necessary.
-                    var filename = SettingsStore.SaveAWSCredentialProfile(defaultCredentials.Credentials,
-                                                                          SettingsStore.PSDefaultSettingName,
-                                                                          commonArguments.ProfilesLocation,
-                                                                          region);
-                    if (!string.IsNullOrEmpty(filename))
-                        WriteVerbose("Updated credential file at " + filename);
-                }
+                    WriteVerbose("Updated credential file at " + commonArguments.ProfilesLocation);
 
                 WriteVerbose(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
             }
 
-            this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, defaultCredentials);
+            this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, defaultAWSPSCredentials);
             this.SessionState.PSVariable.Set(SessionKeys.AWSRegionVariableName, region.SystemName);
         }
 
@@ -202,7 +187,7 @@ namespace Amazon.PowerShell.Common
             return true;
         }
 
-        private bool GetCredentials(AWSPSCredentials passedCredentials, ref AWSPSCredentials credentialsToUse)
+        private bool GetCredentials(AWSPSCredentials passedCredentials, string profilesLocation, ref AWSPSCredentials credentialsToUse)
         {
             // If default is already set and no credentials are passed in, exit
             if (credentialsToUse != null && passedCredentials == null)
@@ -218,7 +203,7 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                var storedCredentials = SettingsStore.GetDisplayNames();
+                var storedCredentials = SettingsStore.GetDisplayNames(profilesLocation);
                 if (storedCredentials.Any())
                 {
                     // If there are stored credentials, ask user which ones to use, or enter new ones
@@ -233,8 +218,15 @@ namespace Amazon.PowerShell.Common
                     if (choice != 0)
                     {
                         var chosenCredentials = choices[choice];
-                        var credentials = SettingsStore.Load(chosenCredentials.Label).Credentials;
-                        credentialsToUse = new AWSPSCredentials(credentials, chosenCredentials.Label, CredentialsSource.Profile);
+                        PersistedCredentialProfile persistedProfile = null;
+                        if (SettingsStore.TryGetPersistedProfile(chosenCredentials.Label, profilesLocation, out persistedProfile))
+                        {
+                            AWSCredentials awsCredentials;
+                            if (persistedProfile.TryGetAWSCredentials(out awsCredentials))
+                            {
+                                credentialsToUse = new AWSPSCredentials(awsCredentials, chosenCredentials.Label, CredentialsSource.Profile);
+                            }
+                        }
                     }
                 }
 
@@ -265,7 +257,7 @@ namespace Amazon.PowerShell.Common
 
         public object GetDynamicParameters()
         {
-            Parameters = new AWSCommonArguments(this.SessionState);
+            Parameters = new AWSCommonArgumentsFull(this.SessionState);
 
             return Parameters;
         }
@@ -294,15 +286,37 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         public SwitchParameter SkipProfileStore { get; set; }
 
+        /// <summary>
+        /// <para>
+        /// Used to specify the name and location of the ini-format credential file (shared with
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
+        /// folder location.
+        /// </para>
+        /// <para>
+        /// When the ini-format credential file uses the default filename ('credentials') and is
+        /// placed in the default search location ('.aws' folder in the current user's profile folder,
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
+        /// when the profile to be used is contained in the encrypted credential file shared with the
+        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// </para>
+        /// <para>
+        /// As the current folder can vary in a shell or during script execution it is advised
+        /// that you use specify a fully qualified path instead of a relative path.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        [Alias("AWSProfilesLocation", "ProfileLocation")]
+        public string ProfilesLocation { get; set; }
+
         protected override void ProcessRecord()
         {
             if (!SkipProfileStore.IsPresent)
             {
                 // Remove stored credentials
-                SettingsStore.Delete(SettingsStore.PSDefaultSettingName);
+                SettingsStore.Delete(SettingsStore.PSDefaultSettingName, ProfilesLocation);
 
                 // Remove stored legacy credentials
-                SettingsStore.Delete(SettingsStore.PSLegacyDefaultSettingName);
+                SettingsStore.Delete(SettingsStore.PSLegacyDefaultSettingName, ProfilesLocation);
             }
 
             if (!SkipShell.IsPresent)

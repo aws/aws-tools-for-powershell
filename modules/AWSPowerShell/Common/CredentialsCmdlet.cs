@@ -27,6 +27,9 @@ using Amazon.Runtime;
 using Amazon.Util;
 using Amazon.Runtime.Internal.Auth;
 using System.IO;
+using Amazon.PowerShell.Utils;
+using Amazon.Runtime.Internal;
+using Amazon.Runtime.CredentialManagement;
 
 #if DESKTOP
 using Amazon.SecurityToken.SAML;
@@ -159,12 +162,12 @@ namespace Amazon.PowerShell.Common
                     this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
                 else
                 {
-                    var filename = SettingsStore.SaveAWSCredentialProfile(currentCredentials.Credentials,
+                    SettingsStore.SaveAWSCredentialProfile(currentCredentials.Credentials,
                                                                           StoreAs,
                                                                           commonArguments.ProfilesLocation,
                                                                           null);
-                    if (!string.IsNullOrEmpty(filename))
-                        WriteVerbose("Updated credential file at " + filename);
+                    if (!string.IsNullOrEmpty(commonArguments.ProfilesLocation))
+                        WriteVerbose("Updated credential file at " + commonArguments.ProfilesLocation);
                 }
             }
         }
@@ -198,6 +201,28 @@ namespace Amazon.PowerShell.Common
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
 
+        /// <summary>
+        /// <para>
+        /// Used to specify the name and location of the ini-format credential file (shared with
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
+        /// folder location.
+        /// </para>
+        /// <para>
+        /// When the ini-format credential file uses the default filename ('credentials') and is
+        /// placed in the default search location ('.aws' folder in the current user's profile folder,
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
+        /// when the profile to be used is contained in the encrypted credential file shared with the
+        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// </para>
+        /// <para>
+        /// As the current folder can vary in a shell or during script execution it is advised
+        /// that you use specify a fully qualified path instead of a relative path.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        [Alias("AWSProfilesLocation", "ProfileLocation")]
+        public string ProfilesLocation { get; set; }
+
         protected override void ProcessRecord()
         {
             if (string.IsNullOrEmpty(ProfileName))
@@ -208,7 +233,7 @@ namespace Amazon.PowerShell.Common
             else
             {
                 // clear credentials from credentials store
-                SettingsStore.Delete(ProfileName);
+                SettingsStore.Delete(ProfileName, ProfilesLocation);
             }
         }
     }
@@ -233,52 +258,39 @@ namespace Amazon.PowerShell.Common
         public string ProfileName { get; set; }
 
         /// <summary>
+        /// <para>
+        /// Used to specify the name and location of the ini-format credential file (shared with
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
+        /// folder location.
+        /// </para>
+        /// <para>
+        /// When the ini-format credential file uses the default filename ('credentials') and is
+        /// placed in the default search location ('.aws' folder in the current user's profile folder,
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
+        /// when the profile to be used is contained in the encrypted credential file shared with the
+        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// </para>
+        /// <para>
+        /// As the current folder can vary in a shell or during script execution it is advised
+        /// that you use specify a fully qualified path instead of a relative path.
+        /// </para>
+        /// </summary>
+        [Parameter(Position = 3)]
+        [Alias("AWSProfilesLocation", "ProfileLocation")]
+        public string ProfilesLocation { get; set; }
+
+        /// <summary>
         /// Lists the names of all credentials data sets saved in local storage
         /// </summary>
         [Parameter(Position = 2)]
         [Alias("ListStoredCredentials")]
         public SwitchParameter ListProfiles { get; set; }
 
-        /// <summary>
-        /// If set, indicated to look in the specified location for the shared credentials file.
-        /// If not set the default location, &lt;user home directory&gt;/.aws/credentials , is searched.
-        /// </summary>
-        [Parameter(Position = 3)]
-        public string ProfilesLocation { get; set; }
-
         protected override void ProcessRecord()
         {
-            // If ProfilesLocation is set, assume the intent is to use the shared file.
-            var useSharedFileOnly = !string.IsNullOrEmpty(ProfilesLocation);
-
-            var sharedCredentialsFilePath = string.IsNullOrEmpty(ProfilesLocation) ?
-                SettingsStore.GetCredentialsFilePath() : ProfilesLocation;
-
-            SharedCredentialsFile sharedCredentialsFile = null;
-            if (File.Exists(sharedCredentialsFilePath))
-                sharedCredentialsFile = new SharedCredentialsFile(sharedCredentialsFilePath);
-
             if (ListProfiles.IsPresent)
             {
-                var names = new HashSet<string>();
-
-                if (sharedCredentialsFile != null)
-                {
-                    var sharedNames = sharedCredentialsFile.ListProfileNames();
-                    if (sharedNames != null)
-                        names.UnionWith(sharedNames);
-                }
-
-                if (!useSharedFileOnly)
-                {
-                    var storeNames = SettingsStore.GetDisplayNames();
-                    if (storeNames != null)
-                        names.UnionWith(storeNames);
-                }
-
-                if (names.Count > 0)
-                    WriteObject(names, true);
-
+                WriteObject(SettingsStore.GetDisplayNames(ProfilesLocation));
                 return;
             }
 
@@ -290,36 +302,10 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                AWSCredentials sharedAWSCreds = null;
-                if (sharedCredentialsFile != null)
+                PersistedCredentialProfile persistedProfile;
+                if (SettingsStore.TryGetPersistedProfile(ProfileName, ProfilesLocation, out persistedProfile))
                 {
-                    ImmutableCredentials sharedImmutableCreds;
-                    if (sharedCredentialsFile.TryGetCredentials(ProfileName, out sharedImmutableCreds))
-                    {
-                        if (sharedImmutableCreds.UseToken)
-                            sharedAWSCreds = new SessionAWSCredentials(sharedImmutableCreds.AccessKey,
-                                sharedImmutableCreds.SecretKey, sharedImmutableCreds.Token);
-                        else
-                            sharedAWSCreds = new BasicAWSCredentials(sharedImmutableCreds.AccessKey,
-                                sharedImmutableCreds.SecretKey);
-                    }
-                }
-
-                if (useSharedFileOnly)
-                {
-                    if (sharedAWSCreds != null)
-                        WriteObject(sharedAWSCreds);
-                }
-                else
-                {
-                    var storeSettings = SettingsStore.Load(ProfileName);
-                    var storeAWSCreds = storeSettings == null ? null : storeSettings.Credentials;
-
-                    // when we're using both we prefer the profile store
-                    if (storeAWSCreds != null)
-                        WriteObject(storeAWSCreds);
-                    else if (sharedAWSCreds != null)
-                        WriteObject(sharedAWSCreds);
+                    WriteObject(persistedProfile.Profile.GetAWSCredentials(persistedProfile.Store));
                 }
             }
         }
@@ -365,10 +351,20 @@ namespace Amazon.PowerShell.Common
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            var samlEndpointManager = new SAMLEndpointManager();
+            SAMLEndpoint samlEndpoint;
+            if (ParameterWasBound("AuthenticationType"))
+            {
+                var authenticationType = (SAMLAuthenticationType)(Enum.Parse(typeof(SAMLAuthenticationType), AuthenticationType));
+                samlEndpoint = new SAMLEndpoint(StoreAs, Endpoint, authenticationType);
+            }
+            else
+            {
+                samlEndpoint = new SAMLEndpoint(StoreAs, Endpoint);
+            }
 
-            ProfileManager.RegisterSAMLEndpoint(StoreAs,
-                                                Endpoint,
-                                                ParameterWasBound("AuthenticationType") ? AuthenticationType : null);
+            samlEndpointManager.RegisterEndpoint(samlEndpoint);
+
             WriteObject(StoreAs);
         }
     }
@@ -492,11 +488,30 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         public string STSEndpointRegion { get; set; }
 
+        /// Used to specify the name and location of the ini-format credential file (shared with
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
+        /// folder location.
+        /// </para>
+        /// <para>
+        /// When the ini-format credential file uses the default filename ('credentials') and is
+        /// placed in the default search location ('.aws' folder in the current user's profile folder,
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
+        /// when the profile to be used is contained in the encrypted credential file shared with the
+        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// </para>
+        /// <para>
+        /// As the current folder can vary in a shell or during script execution it is advised
+        /// that you use specify a fully qualified path instead of a relative path.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        [Alias("AWSProfilesLocation", "ProfileLocation")]
+        public string ProfilesLocation { get; set; }
+
         protected override void ProcessRecord()
         {
             try
             {
-                SAMLEndpointSettings endpointSettings;
                 string selectedRoleARN = null;
                 NetworkCredential networkCredential = null;
                 if (this.NetworkCredential != null)
@@ -511,11 +526,12 @@ namespace Amazon.PowerShell.Common
                     selectedRoleARN = string.Concat(PrincipalARN, ",", RoleARN);
 
                 WriteVerbose("Authenticating with endpoint to verify role data...");
-                endpointSettings = ProfileManager.GetSAMLEndpoint(EndpointName);
+                var samlEndpoint = (new SAMLEndpointManager()).GetEndpoint(EndpointName);
 
                 var authenticationController = new SAMLAuthenticationController();
 
-                var samlAssertion = authenticationController.GetSAMLAssertion(endpointSettings.Endpoint, networkCredential, endpointSettings.AuthenticationType);
+                var samlAssertion = authenticationController.GetSAMLAssertion(samlEndpoint.EndpointUri.ToString(),
+                    networkCredential, samlEndpoint.AuthenticationType.ToString());
 
                 RegionEndpoint stsRegionEndpoint = null;
                 if (!string.IsNullOrEmpty(STSEndpointRegion))
@@ -540,7 +556,7 @@ namespace Amazon.PowerShell.Common
                         selectedRoleARN = availableRoles[roleName];
                         WriteVerbose(string.Format("Saving role '{0}' to profile '{1}'.", selectedRoleARN, roleName));
 
-                        SettingsStore.SaveSAMLRoleProfile(roleName, EndpointName, selectedRoleARN, domainUser, stsRegionEndpoint);
+                        SettingsStore.SaveSAMLRoleProfile(roleName, EndpointName, selectedRoleARN, domainUser, stsRegionEndpoint, ProfilesLocation);
 
                         WriteObject(roleName);
                     }
@@ -632,8 +648,7 @@ namespace Amazon.PowerShell.Common
             string domainUser = null;
             if (networkCredential != null)
                 domainUser = string.Concat(networkCredential.Domain, "\\", networkCredential.UserName);
-
-            SettingsStore.SaveSAMLRoleProfile(StoreAs, EndpointName, selectedRoleARN, domainUser, stsEndpointRegion);
+            SettingsStore.SaveSAMLRoleProfile(StoreAs, EndpointName, selectedRoleARN, domainUser, stsEndpointRegion, ProfilesLocation);
 
             return StoreAs;
         }
