@@ -1,3 +1,4 @@
+. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestIncludes.ps1")
 Describe -Tag "Smoke" "SES" {
     Context "Send statistics" {
 

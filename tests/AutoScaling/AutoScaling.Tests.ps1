@@ -1,4 +1,5 @@
-﻿Describe -Tag "Smoke" "AutoScaling" {
+﻿. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestIncludes.ps1")
+Describe -Tag "Smoke" "AutoScaling" {
     Context "Launch Configurations" {
 
         $script:launchConfigName = "PShellLaunchConfigTest" + (Get-Date).Ticks

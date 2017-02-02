@@ -1,3 +1,4 @@
+. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestIncludes.ps1")
 Describe -Tag "Smoke" "DeviceFarm" {
     Context "Projects" {
         It "Can list projects" {

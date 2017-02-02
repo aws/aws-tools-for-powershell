@@ -149,7 +149,7 @@
         
         <RemoveDir Directories="$(RootPath)\tests\results" />
         <MakeDir Directories="$(RootPath)\tests\results" />
-        <Exec Command="powershell -NoProfile $(RootPath)\tests\RunTests.ps1" WorkingDirectory="$(RootPath)\tests" />
+        <Exec Command="powershell -NoProfile Invoke-Pester -EnableExit -OutputFile results\PesterResults.xml -OutputFormat NUnitXML -ExcludeTag Disabled" WorkingDirectory="$(RootPath)\tests" />
         
         <ItemGroup>
             <TestResults Include="$(RootPath)\test\results\*.*"/>
