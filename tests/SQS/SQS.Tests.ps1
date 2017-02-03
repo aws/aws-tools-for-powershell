@@ -1,5 +1,16 @@
-. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestIncludes.ps1")
+. (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
+. (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
+. (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+$helper = New-Object ServiceTestHelper
+
 Describe -Tag "Smoke" "SQS" {
+    BeforeAll {
+        $helper.BeforeAll()
+    }
+    AfterAll {
+        $helper.AfterAll()
+    }
+
     Context "Queues" {
 
         $script:QueueUrl = $null
