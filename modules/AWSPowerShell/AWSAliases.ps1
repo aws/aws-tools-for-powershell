@@ -2562,6 +2562,7 @@ Set-Alias -Name LM-RemovePermission -Value Remove-LMPermission
 Set-Alias -Name LM-UpdateAlias -Value Update-LMAlias
 Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
+Set-Alias -Name LEX-PostText -Value Send-LEXText
 Set-Alias -Name LS-GetKeyPair -Value Get-LSKeyPairInfo
 Set-Alias -Name LS-GetKeyPairs -Value Get-LSKeypairList
 Set-Alias -Name LS-GetOperation -Value Get-LSOperation

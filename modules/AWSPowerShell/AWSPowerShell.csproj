@@ -69,6 +69,9 @@
     <Reference Include="AWSSDK.CostAndUsageReport">
       <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.1\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Lex">
+      <HintPath>..\..\packages\AWSSDK.Lex.3.3.0\lib\net35\AWSSDK.Lex.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.0.4\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>

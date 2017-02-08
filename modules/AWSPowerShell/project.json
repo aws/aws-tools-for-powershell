@@ -62,6 +62,7 @@
 		"AWSSDK.KinesisAnalytics": "3.3.0.8",
 		"AWSSDK.KinesisFirehose": "3.3.1.2",
 		"AWSSDK.Lambda": "3.3.2.6",
+		"AWSSDK.Lex": "3.3.0",
 		"AWSSDK.Lightsail": "3.3.0.6",
 		"AWSSDK.MachineLearning": "3.3.0.7",
 		"AWSSDK.OpsWorks": "3.3.0.8",
