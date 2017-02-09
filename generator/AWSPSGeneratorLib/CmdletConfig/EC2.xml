@@ -376,6 +376,10 @@
   <ServiceOperation MethodName="AssignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
   <ServiceOperation MethodName="AssociateSubnetCidrBlock" Output="Response" PipelineParameter="SubnetId" />
   <ServiceOperation MethodName="AssociateVpcCidrBlock" Output="Response" PipelineParameter="VpcId" />
+  <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" ShouldProcessTarget="AssociationId"/>
+  <ServiceOperation MethodName="DisassociateIamInstanceProfile" />
+  <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Noun="IamInstanceProfileAssociation"/>
+  <ServiceOperation MethodName="AssociateIamInstanceProfile" />
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic
