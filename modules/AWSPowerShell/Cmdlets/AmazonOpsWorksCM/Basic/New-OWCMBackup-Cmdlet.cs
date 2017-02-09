@@ -28,21 +28,20 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Creates an application-level backup of a server. While the server is <code>BACKING_UP</code>,
-    /// the server can not be modified and no additional backup can be created. 
+    /// Creates an application-level backup of a server. While the server is in the <code>BACKING_UP</code>
+    /// state, the server cannot be changed, and no additional backup can be created. 
     /// 
     ///  
     /// <para>
-    ///  Backups can be created for <code>RUNNING</code>, <code>HEALTHY</code> and <code>UNHEALTHY</code>
-    /// servers. 
+    ///  Backups can be created for servers in <code>RUNNING</code>, <code>HEALTHY</code>,
+    /// and <code>UNHEALTHY</code> states. By default, you can create a maximum of 50 manual
+    /// backups. 
     /// </para><para>
-    ///  This operation is asnychronous. 
+    ///  This operation is asynchronous. 
     /// </para><para>
-    ///  By default 50 manual backups can be created. 
-    /// </para><para>
-    ///  A <code>LimitExceededException</code> is thrown then the maximum number of manual
-    /// backup is reached. A <code>InvalidStateException</code> is thrown when the server
-    /// is not in any of RUNNING, HEALTHY, UNHEALTHY. A <code>ResourceNotFoundException</code>
+    ///  A <code>LimitExceededException</code> is thrown when the maximum number of manual
+    /// backups is reached. An <code>InvalidStateException</code> is thrown when the server
+    /// is not in any of the following states: RUNNING, HEALTHY, or UNHEALTHY. A <code>ResourceNotFoundException</code>
     /// is thrown when the server is not found. A <code>ValidationException</code> is thrown
     /// when parameters of the request are not valid. 
     /// </para>
