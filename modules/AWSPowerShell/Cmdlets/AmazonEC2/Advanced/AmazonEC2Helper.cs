@@ -55,6 +55,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         continue;
                     }
 
+                    // PSObject type can be obtained if the user does this:
+                    //    PS C:\> $instanceid = Get-EC2InstanceMetadata -Category InstanceId
+                    //    (or $instanceid = Invoke-RestMethod 'http://169.254.169.254/latest/meta-data/instance-id')
+                    //    PS C:\> Get-EC2Instance -InstanceId $instanceid
+                    // $instanceid appears as a string when inspected, but the 'as string' cast
+                    // fails. If they quote surround $instanceid though, the 'as string' 
+                    // cast succeeds (as you'd hope). Calling ToString on the PSObject
+                    // gets us what we need.
+                    var psobject = o as System.Management.Automation.PSObject;
+                    if (psobject != null)
+                    {
+                        ids.Add(psobject.ToString());
+                        continue;
+                    }
+
                     var id = o as string;
                     if (id != null)
                     {
