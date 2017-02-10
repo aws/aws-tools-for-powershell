@@ -1,3 +1,11 @@
+### 3.3.48.0 (2017-02-07)
+  * Amazon EC2
+    - Fixed issue with the Get-EC2Instance cmdlet not accepting instance IDs that were supplied as PSObject types. The cast to string on the supplied PSObject(s) failed, resulting in the cmdlet listing all instances on output, not the requested instances.
+    - Added support for a new feature enabling users to associate an IAM profile with running instances that were not launched with a profile. The new cmdlets are Get-EC2IamInstanceProfileAssociation (DescribeIamInstanceProfileAssociations API), Register-EC2IamInstanceProfile (AssociateIamInstanceProfile API), Set-EC2IamInstanceProfileAssociation (ReplaceIamInstanceProfileAssociation API) and Unregister-EC2IamInstanceProfileAssociation (DisassociateIamInstanceProfileAssociation API).
+
+### 3.3.47.0
+  * This build was not released.
+
 ### 3.3.46.0 (2017-02-07)
   * Fixed issue with the Get-AWSCredentials cmdlet reporting a 'could not find part of path' error attempting to access the %userprofile%\.aws folder (default folder of the shared credentials file) when run on systems where the shared credential file was not in use and the folder did not exist. The cmdlet should instead have tested for folder existence and silently skipped over it when not present.
   * Fixed issue with using SAML credential profiles in regions where a region-specific Security Token Service endpoint is required, eg China (Beijing). After successfully authenticating with the ADFS endpoint the tools request temporary credentials from STS and this call was always directed against the global sts.amazonaws.com endpoint, not the regional endpoint, thus failing to obtain credentials. To enable SAML role profiles to specify that a regional endpoint must be used, the Set-AWSSAMLRoleProfile cmdlet has been extended with a new parameter, -STSEndpointRegion, that can be used to specify the region system name (eg -STSEndpointRegion cn-north-1), resulting in the correct STS endpoint being used to obtain credentials.
