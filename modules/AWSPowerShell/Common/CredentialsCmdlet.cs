@@ -291,15 +291,18 @@ namespace Amazon.PowerShell.Common
             else
             {
                 AWSCredentials sharedAWSCreds = null;
-                ImmutableCredentials sharedImmutableCreds = null;
-                if (sharedCredentialsFile.TryGetCredentials(ProfileName, out sharedImmutableCreds))
+                if (sharedCredentialsFile != null)
                 {
-                    if (sharedImmutableCreds.UseToken)
-                        sharedAWSCreds = new SessionAWSCredentials(sharedImmutableCreds.AccessKey,
-                            sharedImmutableCreds.SecretKey, sharedImmutableCreds.Token);
-                    else
-                        sharedAWSCreds = new BasicAWSCredentials(sharedImmutableCreds.AccessKey,
-                            sharedImmutableCreds.SecretKey);
+                    ImmutableCredentials sharedImmutableCreds;
+                    if (sharedCredentialsFile.TryGetCredentials(ProfileName, out sharedImmutableCreds))
+                    {
+                        if (sharedImmutableCreds.UseToken)
+                            sharedAWSCreds = new SessionAWSCredentials(sharedImmutableCreds.AccessKey,
+                                sharedImmutableCreds.SecretKey, sharedImmutableCreds.Token);
+                        else
+                            sharedAWSCreds = new BasicAWSCredentials(sharedImmutableCreds.AccessKey,
+                                sharedImmutableCreds.SecretKey);
+                    }
                 }
 
                 if (useSharedFileOnly)
