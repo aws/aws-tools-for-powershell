@@ -28,16 +28,7 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Returns the current status of an existing association or disassociation request.
-    /// 
-    /// 
-    ///  
-    /// <para>
-    ///  A <code>ResourceNotFoundException</code> is thrown when no recent association or
-    /// disassociation request with the specified token is found, or when the server does
-    /// not exist. A <code>ValidationException</code> is raised when parameters of the request
-    /// are not valid. 
-    /// </para>
+    
     /// </summary>
     [Cmdlet("Get", "OWCMNodeAssociationStatus")]
     [OutputType("Amazon.OpsWorksCM.NodeAssociationStatus")]
@@ -62,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ServerName
         /// <summary>
         /// <para>
-        /// <para>The name of the server from which to disassociate the node. </para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

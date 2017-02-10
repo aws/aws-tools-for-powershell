@@ -28,25 +28,26 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Creates and immedately starts a new server. The server is ready to use when it is
-    /// in the <code>HEALTHY</code> state. By default, you can create a maximum of 10 servers.
-    /// 
+    /// Creates and immedately starts a new Server. The server can be used once it has reached
+    /// the <code>HEALTHY</code> state. 
     /// 
     ///  
     /// <para>
-    ///  This operation is asynchronous. 
+    ///  This operation is asnychronous. 
     /// </para><para>
-    ///  A <code>LimitExceededException</code> is thrown when you have created the maximum
-    /// number of servers (10). A <code>ResourceAlreadyExistsException</code> is thrown when
-    /// a server with the same name already exists in the account. A <code>ResourceNotFoundException</code>
-    /// is thrown when you specify a backup ID that is not valid or is for a backup that does
-    /// not exist. A <code>ValidationException</code> is thrown when parameters of the request
-    /// are not valid. 
+    ///  A <code>LimitExceededException</code> is thrown then the maximum number of server
+    /// backup is reached. A <code>ResourceAlreadyExistsException</code> is raise when a server
+    /// with the same name already exists in the account. A <code>ResourceNotFoundException</code>
+    /// is thrown when a backupId is passed, but the backup does not exist. A <code>ValidationException</code>
+    /// is thrown when parameters of the request are not valid. 
     /// </para><para>
-    ///  If you do not specify a security group by adding the <code>SecurityGroupIds</code>
-    /// parameter, AWS OpsWorks creates a new security group. The default security group opens
-    /// the Chef server to the world on TCP port 443. If a KeyName is present, AWS OpsWorks
-    /// enables SSH access. SSH is also open to the world on TCP port 22. 
+    ///  By default 10 servers can be created. A <code>LimitExceededException</code> is raised
+    /// when the limit is exceeded. 
+    /// </para><para>
+    ///  When no security groups are provided by using <code>SecurityGroupIds</code>, AWS
+    /// OpsWorks creates a new security group. This security group opens the Chef server to
+    /// the world on TCP port 443. If a KeyName is present, SSH access is enabled. SSH is
+    /// also open to the world on TCP port 22. 
     /// </para><para>
     /// By default, the Chef Server is accessible from any IP address. We recommend that you
     /// update your security group rules to allow access from known IP addresses and address
@@ -63,18 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     )]
     public partial class NewOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
-        
-        #region Parameter AssociatePublicIpAddress
-        /// <summary>
-        /// <para>
-        /// <para> Associate a public IP address with a server that you are launching. Valid values
-        /// are <code>true</code> or <code>false</code>. The default value is <code>true</code>.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean AssociatePublicIpAddress { get; set; }
-        #endregion
         
         #region Parameter BackupId
         /// <summary>
@@ -157,11 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The ARN of the instance profile that your Amazon EC2 instances use. Although the
-        /// AWS OpsWorks console typically creates the instance profile for you, if you are using
-        /// API commands instead, run the service-role-creation.yaml AWS CloudFormation template,
-        /// located at https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml.
-        /// This template creates a CloudFormation stack that includes the instance profile you
-        /// need. </para>
+        /// AWS OpsWorks console typically creates the instance profile for you, in this release
+        /// of AWS OpsWorks for Chef Automate, run the service-role-creation.yaml AWS CloudFormation
+        /// template, located at https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml.
+        /// This template creates a stack that includes the instance profile you need. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -172,8 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The Amazon EC2 instance type to use. Valid values must be specified in the following
-        /// format: <code>^([cm][34]|t2).*</code> For example, <code>m4.large</code>. Valid values
-        /// are <code>t2.medium</code>, <code>m4.large</code>, or <code>m4.2xlarge</code>. </para>
+        /// format: <code>^([cm][34]|t2).*</code> For example, <code>c3.large</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter KeyPair
         /// <summary>
         /// <para>
-        /// <para> The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired,
-        /// you may specify this parameter to connect to your instances by using SSH. </para>
+        /// <para> The Amazon EC2 key pair to set for the instance. You may specify this parameter to
+        /// connect to your instances by using SSH. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -195,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The start time for a one-hour period during which AWS OpsWorks for Chef Automate
-        /// backs up application-level data on your server if automated backups are enabled. Valid
-        /// values must be specified in one of the following formats: </para><ul><li><para><code>HH:MM</code> for daily backups</para></li><li><para><code>DDD:HH:MM</code> for weekly backups</para></li></ul><para>The specified time is in coordinated universal time (UTC). The default value is a
+        /// backs up application-level data on your server if backups are enabled. Valid values
+        /// must be specified in one of the following formats: </para><ul><li><para><code>HH:MM</code> for daily backups</para></li><li><para><code>DDD:HH:MM</code> for weekly backups</para></li></ul><para>The specified time is in coordinated universal time (UTC). The default value is a
         /// random, daily start time.</para><para><b>Example:</b><code>08:00</code>, which represents a daily start time of 08:00
         /// UTC.</para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
         /// at 08:00 UTC. (8:00 a.m.)</para>
@@ -240,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para> The name of the server. The server name must be unique within your AWS account, within
         /// each region. Server names must start with a letter; then letters, numbers, or hyphens
-        /// (-) are allowed, up to a maximum of 40 characters. </para>
+        /// (-) are allowed, up to a maximum of 32 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -251,11 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The service role that the AWS OpsWorks for Chef Automate service backend uses to
-        /// work with your account. Although the AWS OpsWorks management console typically creates
-        /// the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml
+        /// work with your account. Although the AWS OpsWorks console typically creates the service
+        /// role for you, in this release of AWS OpsWorks for Chef Automate, run the service-role-creation.yaml
         /// AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml.
-        /// This template creates a CloudFormation stack that includes the service role that you
-        /// need. </para>
+        /// This template creates a stack that includes the service role that you need. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -306,8 +292,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("AssociatePublicIpAddress"))
-                context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             context.BackupId = this.BackupId;
             if (ParameterWasBound("BackupRetentionCount"))
                 context.BackupRetentionCount = this.BackupRetentionCount;
@@ -351,10 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             // create request
             var request = new Amazon.OpsWorksCM.Model.CreateServerRequest();
             
-            if (cmdletContext.AssociatePublicIpAddress != null)
-            {
-                request.AssociatePublicIpAddress = cmdletContext.AssociatePublicIpAddress.Value;
-            }
             if (cmdletContext.BackupId != null)
             {
                 request.BackupId = cmdletContext.BackupId;
@@ -470,7 +450,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AssociatePublicIpAddress { get; set; }
             public System.String BackupId { get; set; }
             public System.Int32? BackupRetentionCount { get; set; }
             public System.Boolean? DisableAutomatedBackup { get; set; }
