@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class NewSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientList
+        /// <summary>
+        /// <para>
+        /// <para>The list of clients that are allowed to access the file gateway. The list must contain
+        /// either valid IP addresses or valid CIDR blocks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] ClientList { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -192,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.ClientList != null)
+            {
+                context.ClientList = new List<System.String>(this.ClientList);
+            }
             context.ClientToken = this.ClientToken;
             context.DefaultStorageClass = this.DefaultStorageClass;
             context.GatewayARN = this.GatewayARN;
@@ -222,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.CreateNFSFileShareRequest();
             
+            if (cmdletContext.ClientList != null)
+            {
+                request.ClientList = cmdletContext.ClientList;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -350,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> ClientList { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String GatewayARN { get; set; }

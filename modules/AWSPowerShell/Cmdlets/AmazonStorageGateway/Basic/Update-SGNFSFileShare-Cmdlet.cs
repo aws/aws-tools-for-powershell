@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientList
+        /// <summary>
+        /// <para>
+        /// <para>The list of clients that are allowed to access the file gateway. The list must contain
+        /// either valid IP addresses or valid CIDR blocks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] ClientList { get; set; }
+        #endregion
+        
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
@@ -161,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.ClientList != null)
+            {
+                context.ClientList = new List<System.String>(this.ClientList);
+            }
             context.DefaultStorageClass = this.DefaultStorageClass;
             context.FileShareARN = this.FileShareARN;
             if (ParameterWasBound("KMSEncrypted"))
@@ -188,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.UpdateNFSFileShareRequest();
             
+            if (cmdletContext.ClientList != null)
+            {
+                request.ClientList = cmdletContext.ClientList;
+            }
             if (cmdletContext.DefaultStorageClass != null)
             {
                 request.DefaultStorageClass = cmdletContext.DefaultStorageClass;
@@ -304,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> ClientList { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String FileShareARN { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }
