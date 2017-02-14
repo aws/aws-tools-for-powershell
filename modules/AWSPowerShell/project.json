@@ -85,7 +85,7 @@
 		"AWSSDK.Snowball": "3.3.1.5",
 		"AWSSDK.SQS": "3.3.1.7",
 		"AWSSDK.StepFunctions": "3.3.0.5",
-		"AWSSDK.StorageGateway": "3.3.1.2",
+		"AWSSDK.StorageGateway": "3.3.2",
 		"AWSSDK.WAF": "3.3.1.8",
 		"AWSSDK.WAFRegional": "3.3.0.3",
 		"AWSSDK.WorkSpaces": "3.3.0.7",

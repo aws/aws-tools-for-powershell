@@ -187,6 +187,7 @@
     <ServiceOperation MethodName="DescribeTags" />
     <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" PipelineParameter="VolumeId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeVolumes" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVolumesModifications" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVolumeStatus" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVpcAttribute" Output="Response" PipelineParameter="VpcId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeVpcEndpoints" Noun="VpcEndpoint" PipelineParameter="VpcEndpointIds" PositionalParameters="Filters"/>
@@ -269,6 +270,7 @@
         <Param Name="GroupNames" Alias="UserGroup" /> <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="ModifyVolume" PipelineParameter="VolumeId"/>
     <ServiceOperation MethodName="ModifyVolumeAttribute" Output="Void" PipelineParameter="VolumeId" PositionalParameters="AutoEnableIO"/>
     <ServiceOperation MethodName="ModifyVpcAttribute" Exclude="true"/>
     <ServiceOperation MethodName="ModifyVpcPeeringConnectionOptions" Noun="VpcPeeringConnectionOption" PipelineParameter="VpcPeeringConnectionId" Output="Response" />

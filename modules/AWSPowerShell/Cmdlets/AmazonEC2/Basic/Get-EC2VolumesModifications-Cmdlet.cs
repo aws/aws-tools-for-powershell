@@ -28,53 +28,42 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the specified EBS volumes.
+    /// Reports the current modification status of EBS volumes.
     /// 
     ///  
     /// <para>
-    /// If you are describing a long list of volumes, you can paginate the output to make
-    /// the list more manageable. The <code>MaxResults</code> parameter sets the maximum number
-    /// of results returned in a single page. If the list of results exceeds your <code>MaxResults</code>
-    /// value, then that number of results is returned along with a <code>NextToken</code>
-    /// value that can be passed to a subsequent <code>DescribeVolumes</code> request to retrieve
-    /// the remaining results.
+    /// Current-generation EBS volumes support modification of attributes including type,
+    /// size, and (for <code>io1</code> volumes) IOPS provisioning while either attached to
+    /// or detached from an instance. Following an action from the API or the console to modify
+    /// a volume, the status of the modification may be <code>modifying</code>, <code>optimizing</code>,
+    /// <code>completed</code>, or <code>failed</code>. If a volume has never been modified,
+    /// then certain elements of the returned <code>VolumeModification</code> objects are
+    /// null. 
     /// </para><para>
-    /// For more information about EBS volumes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon
-    /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    ///  You can also use CloudWatch Events to check the status of a modification to an EBS
+    /// volume. For information about CloudWatch Events, see the <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/AmazonCloudWatch/latest/events/WhatIsCloudWatchEvents.html">Amazon
+    /// CloudWatch Events User Guide</a>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
+    /// Volume Modifications"</a>. 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EC2Volume")]
-    [OutputType("Amazon.EC2.Model.Volume")]
-    [AWSCmdlet("Invokes the DescribeVolumes operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVolumes"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.Volume",
-        "This cmdlet returns a collection of Volume objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "EC2VolumesModifications")]
+    [OutputType("Amazon.EC2.Model.VolumeModification")]
+    [AWSCmdlet("Invokes the DescribeVolumesModifications operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVolumesModifications"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.VolumeModification",
+        "This cmdlet returns a collection of VolumeModification objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeVolumesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2VolumesModificationsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</para></li><li><para><code>attachment.delete-on-termination</code> - Whether the volume is deleted on
-        /// instance termination.</para></li><li><para><code>attachment.device</code> - The device name that is exposed to the instance
-        /// (for example, <code>/dev/sda1</code>).</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance the volume is attached
-        /// to.</para></li><li><para><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code>
-        /// | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone in which the volume was created.</para></li><li><para><code>create-time</code> - The time stamp when the volume was created.</para></li><li><para><code>encrypted</code> - The encryption status of the volume.</para></li><li><para><code>size</code> - The size of the volume, in GiB.</para></li><li><para><code>snapshot-id</code> - The snapshot from which the volume was created.</para></li><li><para><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code>
-        /// | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
-        /// to the resource. Specify the key of the tag in the filter name and the value of the
-        /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
-        /// for the filter name and <code>X</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is
-        /// independent of the <code>tag-value</code> filter. For example, if you use both the
-        /// filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned
-        /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
-        /// X (regardless of what the tag's key is). If you want to list only resources where
-        /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
-        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>volume-id</code> - The volume ID.</para></li><li><para><code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code>
-        /// for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code>
-        /// for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code>
-        /// for Magnetic volumes.</para></li></ul>
+        /// <para>One or more filters. Supported filters: <code>volume-id</code>, <code>modification-state</code>,
+        /// <code>target-size</code>, <code>target-iops</code>, <code>target-volume-type</code>,
+        /// <code>original-size</code>, <code>original-iops</code>, <code>original-volume-type</code>,
+        /// <code>start-time</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -85,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>One or more volume IDs.</para>
+        /// <para>One or more volume IDs for which in-progress modifications will be described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -96,15 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
-        /// output. When this parameter is used, <code>DescribeVolumes</code> only returns <code>MaxResults</code>
-        /// results in a single page along with a <code>NextToken</code> response element. The
-        /// remaining results of the initial request can be seen by sending another <code>DescribeVolumes</code>
-        /// request with the returned <code>NextToken</code> value. This value can be between
-        /// 5 and 500; if <code>MaxResults</code> is given a value larger than 500, only 500 results
-        /// are returned. If this parameter is not used, then <code>DescribeVolumes</code> returns
-        /// all results. You cannot specify this parameter and the volume IDs parameter in the
-        /// same request.</para>
+        /// <para>The maximum number of results (up to a limit of 500) to be returned in a paginated
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,11 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value returned from a previous paginated <code>DescribeVolumes</code>
-        /// request where <code>MaxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>NextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para>
+        /// <para>The <code>nextToken</code> value returned by a previous paginated request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -168,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeVolumesRequest();
+            var request = new Amazon.EC2.Model.DescribeVolumesModificationsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -211,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Volumes;
+                        object pipelineOutput = response.VolumesModifications;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -220,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Volumes.Count;
+                        int _receivedThisCall = response.VolumesModifications.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -263,13 +241,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeVolumesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVolumesRequest request)
+        private static Amazon.EC2.Model.DescribeVolumesModificationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeVolumesModificationsRequest request)
         {
             #if DESKTOP
-            return client.DescribeVolumes(request);
+            return client.DescribeVolumesModifications(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeVolumesAsync(request);
+            var task = client.DescribeVolumesModificationsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"

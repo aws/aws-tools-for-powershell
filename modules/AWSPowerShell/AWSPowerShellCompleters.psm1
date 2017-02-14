@@ -2137,7 +2137,10 @@ $EC2_Completers = {
         }
         
         # Amazon.EC2.VolumeType
-        "New-EC2Volume/VolumeType"
+        {
+            ($_ -eq "Edit-EC2Volume/VolumeType") -Or
+            ($_ -eq "New-EC2Volume/VolumeType")
+        }
         {
             $v = "gp2","io1","sc1","st1","standard"
             break
@@ -2189,7 +2192,7 @@ $EC2_map = @{
     "Tenancy"=@("Edit-EC2InstancePlacement","New-EC2Instance")
     "TrafficType"=@("New-EC2FlowLogs")
     "Type"=@("New-EC2CustomerGateway","New-EC2VpnGateway","Request-EC2SpotInstance")
-    "VolumeType"=@("New-EC2Volume")
+    "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
 }
 
 _awsArgumentCompleterRegistration $EC2_Completers $EC2_map

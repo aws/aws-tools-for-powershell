@@ -1252,6 +1252,8 @@ Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name EC2-ResetNetworkInterfaceAttribute -Value Reset-EC2NetworkInterfaceAttribute
+Set-Alias -Name EC2-ResetSnapshotAttribute -Value Reset-EC2SnapshotAttribute
 Set-Alias -Name EC2-RestoreAddressToClassic -Value Restore-EC2AddressToClassic
 Set-Alias -Name EC2-RevokeSecurityGroupEgress -Value Revoke-EC2SecurityGroupEgress
 Set-Alias -Name EC2-RevokeSecurityGroupIngress -Value Revoke-EC2SecurityGroupIngress
@@ -1264,10 +1266,14 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name Modify-EC2SnapshotAttribute -Value Edit-EC2SnapshotAttribute
+Set-Alias -Name EC2-ModifySnapshotAttribute -Value Edit-EC2SnapshotAttribute
 Set-Alias -Name Modify-EC2SpotFleetRequest -Value Edit-EC2SpotFleetRequest
 Set-Alias -Name EC2-ModifySpotFleetRequest -Value Edit-EC2SpotFleetRequest
 Set-Alias -Name Modify-EC2SubnetAttribute -Value Edit-EC2SubnetAttribute
 Set-Alias -Name EC2-ModifySubnetAttribute -Value Edit-EC2SubnetAttribute
+Set-Alias -Name Modify-EC2Volume -Value Edit-EC2Volume
+Set-Alias -Name EC2-ModifyVolume -Value Edit-EC2Volume
 Set-Alias -Name Modify-EC2VolumeAttribute -Value Edit-EC2VolumeAttribute
 Set-Alias -Name EC2-ModifyVolumeAttribute -Value Edit-EC2VolumeAttribute
 Set-Alias -Name Modify-EC2VpcEndpoint -Value Edit-EC2VpcEndpoint
@@ -1304,8 +1310,7 @@ Set-Alias -Name Request-EC2SpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name EC2-RequestSpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name EC2-ResetImageAttribute -Value Reset-EC2ImageAttribute
 Set-Alias -Name EC2-ResetInstanceAttribute -Value Reset-EC2InstanceAttribute
-Set-Alias -Name EC2-ResetNetworkInterfaceAttribute -Value Reset-EC2NetworkInterfaceAttribute
-Set-Alias -Name EC2-ResetSnapshotAttribute -Value Reset-EC2SnapshotAttribute
+Set-Alias -Name EC2-DisableVpcClassicLinkDnsSupport -Value Disable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Disassociate-EC2Address -Value Unregister-EC2Address
 Set-Alias -Name EC2-DisassociateAddress -Value Unregister-EC2Address
 Set-Alias -Name Disassociate-EC2IamInstanceProfile -Value Unregister-EC2IamInstanceProfile
@@ -1343,8 +1348,6 @@ Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterf
 Set-Alias -Name EC2-ModifyNetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name Modify-EC2ReservedInstances -Value Edit-EC2ReservedInstance
 Set-Alias -Name EC2-ModifyReservedInstances -Value Edit-EC2ReservedInstance
-Set-Alias -Name Modify-EC2SnapshotAttribute -Value Edit-EC2SnapshotAttribute
-Set-Alias -Name EC2-ModifySnapshotAttribute -Value Edit-EC2SnapshotAttribute
 Set-Alias -Name Describe-EC2SpotInstanceRequests -Value Get-EC2SpotInstanceRequest
 Set-Alias -Name EC2-DescribeSpotInstanceRequests -Value Get-EC2SpotInstanceRequest
 Set-Alias -Name Describe-EC2SpotPriceHistory -Value Get-EC2SpotPriceHistory
@@ -1359,6 +1362,8 @@ Set-Alias -Name Describe-EC2VolumeAttribute -Value Get-EC2VolumeAttribute
 Set-Alias -Name EC2-DescribeVolumeAttribute -Value Get-EC2VolumeAttribute
 Set-Alias -Name Describe-EC2Volumes -Value Get-EC2Volume
 Set-Alias -Name EC2-DescribeVolumes -Value Get-EC2Volume
+Set-Alias -Name Describe-EC2VolumesModifications -Value Get-EC2VolumesModifications
+Set-Alias -Name EC2-DescribeVolumesModifications -Value Get-EC2VolumesModifications
 Set-Alias -Name Describe-EC2VolumeStatus -Value Get-EC2VolumeStatus
 Set-Alias -Name EC2-DescribeVolumeStatus -Value Get-EC2VolumeStatus
 Set-Alias -Name Describe-EC2VpcAttribute -Value Get-EC2VpcAttribute
@@ -1391,7 +1396,6 @@ Set-Alias -Name Detach-EC2VpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DetachVpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DisableVgwRoutePropagation -Value Disable-EC2VgwRoutePropagation
 Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
-Set-Alias -Name EC2-DisableVpcClassicLinkDnsSupport -Value Disable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Describe-EC2KeyPairs -Value Get-EC2KeyPair
 Set-Alias -Name EC2-DescribeKeyPairs -Value Get-EC2KeyPair
 Set-Alias -Name Describe-EC2MovingAddress -Value Get-EC2MovingAddress
