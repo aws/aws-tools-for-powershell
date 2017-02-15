@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>When paginating results, specify the maximum number of items to return in the response.
-        /// If additional items exist beyond the number you specify, the <code>Truncated</code>
-        /// element in the response is set to true.</para><para>This value is optional. If you include a value, it must be between 1 and 100, inclusive.
+        /// <para>Use this parameter to specify the maximum number of items to return. When this value
+        /// is present, AWS KMS does not return more than the specified number of items, but it
+        /// might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 100, inclusive.
         /// If you do not include a value, it defaults to 50.</para>
         /// </para>
         /// </summary>
@@ -69,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Use this parameter only when paginating results and only in a subsequent request after
-        /// you receive a response with truncated results. Set it to the value of <code>NextMarker</code>
-        /// from the response you just received.</para>
+        /// <para>Use this parameter in a subsequent request after you receive a response with truncated
+        /// results. Set it to the value of <code>NextMarker</code> from the truncated response
+        /// you just received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

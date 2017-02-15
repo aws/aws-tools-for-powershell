@@ -2505,6 +2505,8 @@ Set-Alias -Name KMS-ReEncrypt -Value Invoke-KMSReEncrypt
 Set-Alias -Name KMS-RetireGrant -Value Disable-KMSGrant
 Set-Alias -Name KMS-RevokeGrant -Value Revoke-KMSGrant
 Set-Alias -Name KMS-ScheduleKeyDeletion -Value Request-KMSKeyDeletion
+Set-Alias -Name KMS-TagResource -Value Add-KMSResourceTag
+Set-Alias -Name KMS-UntagResource -Value Remove-KMSResourceTag
 Set-Alias -Name KMS-UpdateAlias -Value Update-KMSAlias
 Set-Alias -Name KMS-UpdateKeyDescription -Value Update-KMSKeyDescription
 Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
@@ -2544,6 +2546,8 @@ Set-Alias -Name List-KMSKeyPolicies -Value Get-KMSKeyPolicies
 Set-Alias -Name KMS-ListKeyPolicies -Value Get-KMSKeyPolicies
 Set-Alias -Name List-KMSKeys -Value Get-KMSKeys
 Set-Alias -Name KMS-ListKeys -Value Get-KMSKeys
+Set-Alias -Name List-KMSResourceTag -Value Get-KMSResourceTag
+Set-Alias -Name KMS-ListResourceTags -Value Get-KMSResourceTag
 Set-Alias -Name LM-AddPermission -Value Add-LMPermission
 Set-Alias -Name Create-LMAlias -Value New-LMAlias
 Set-Alias -Name LM-CreateAlias -Value New-LMAlias

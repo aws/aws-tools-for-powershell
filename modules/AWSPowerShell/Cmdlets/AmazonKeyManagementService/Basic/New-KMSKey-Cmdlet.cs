@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>A flag to indicate whether to bypass the key policy lockout safety check.</para><important><para>Setting this value to true increases the likelihood that the CMK becomes unmanageable.
         /// Do not set this value to true indiscriminately.</para><para>For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
         /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you include a policy in the request and you intend to
-        /// prevent the principal making the request from making a subsequent <a>PutKeyPolicy</a>
+        /// prevent the principal that is making the request from making a subsequent <a>PutKeyPolicy</a>
         /// request on the CMK.</para><para>The default value is false.</para>
         /// </para>
         /// </summary>
@@ -107,11 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>The key policy to attach to the CMK.</para><para>If you specify a policy and do not set <code>BypassPolicyLockoutSafetyCheck</code>
-        /// to true, the policy must meet the following criteria:</para><ul><li><para>It must allow the principal making the <code>CreateKey</code> request to make a subsequent
-        /// <a>PutKeyPolicy</a> request on the CMK. This reduces the likelihood that the CMK becomes
-        /// unmanageable. For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
-        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></li><li><para>The principal(s) specified in the key policy must exist and be visible to AWS KMS.
-        /// When you create a new AWS principal (for example, an IAM user or role), you might
+        /// to true, the policy must meet the following criteria:</para><ul><li><para>It must allow the principal that is making the <code>CreateKey</code> request to make
+        /// a subsequent <a>PutKeyPolicy</a> request on the CMK. This reduces the likelihood that
+        /// the CMK becomes unmanageable. For more information, refer to the scenario in the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.</para></li><li><para>The principals that are specified in the key policy must exist and be visible to AWS
+        /// KMS. When you create a new AWS principal (for example, an IAM user or role), you might
         /// need to enforce a delay before specifying the new principal in a key policy because
         /// the new principal might not immediately be visible to AWS KMS. For more information,
         /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
@@ -122,6 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Policy { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags. Each tag consists of a tag key and a tag value. Tag keys and tag
+        /// values are both required, but tag values can be empty (null) strings.</para><para>Use this parameter to tag the CMK when it is created. Alternately, you can omit this
+        /// parameter and instead tag the CMK after it is created using <a>TagResource</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.KeyManagementService.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -159,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.KeyUsage = this.KeyUsage;
             context.Origin = this.Origin;
             context.Policy = this.Policy;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.KeyManagementService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.Policy != null)
             {
                 request.Policy = cmdletContext.Policy;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -251,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
             public Amazon.KeyManagementService.OriginType Origin { get; set; }
             public System.String Policy { get; set; }
+            public List<Amazon.KeyManagementService.Model.Tag> Tags { get; set; }
         }
         
     }

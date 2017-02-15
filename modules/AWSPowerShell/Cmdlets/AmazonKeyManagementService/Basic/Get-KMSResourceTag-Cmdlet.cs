@@ -28,39 +28,28 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns a list of all grants for which the grant's <code>RetiringPrincipal</code>
-    /// matches the one specified.
-    /// 
-    ///  
-    /// <para>
-    /// A typical use is to list all grants that you are able to retire. To retire a grant,
-    /// use <a>RetireGrant</a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of all tags for the specified customer master key (CMK).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "KMSRetirableGrant")]
-    [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]
-    [AWSCmdlet("Invokes the ListRetirableGrants operation against AWS Key Management Service.", Operation = new[] {"ListRetirableGrants"})]
-    [AWSCmdletOutput("Amazon.KeyManagementService.Model.GrantListEntry",
-        "This cmdlet returns a collection of GrantListEntry objects.",
-        "The service call response (type Amazon.KeyManagementService.Model.ListRetirableGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "KMSResourceTag")]
+    [OutputType("Amazon.KeyManagementService.Model.Tag")]
+    [AWSCmdlet("Invokes the ListResourceTags operation against AWS Key Management Service.", Operation = new[] {"ListResourceTags"})]
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.Tag",
+        "This cmdlet returns a collection of Tag objects.",
+        "The service call response (type Amazon.KeyManagementService.Model.ListResourceTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String), Truncated (type System.Boolean)"
     )]
-    public partial class GetKMSRetirableGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class GetKMSResourceTagCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter RetiringPrincipal
+        #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The retiring principal for which to list grants.</para><para>To specify the retiring principal, use the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an AWS principal. Valid AWS principals include AWS accounts
-        /// (root), IAM users, federated users, and assumed role users. For examples of the ARN
-        /// syntax for specifying a principal, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS
-        /// Identity and Access Management (IAM)</a> in the Example ARNs section of the <i>Amazon
-        /// Web Services General Reference</i>.</para>
+        /// <para>A unique identifier for the CMK whose tags you are listing. You can use the unique
+        /// key ID or the Amazon Resource Name (ARN) of the CMK. Examples:</para><ul><li><para>Unique key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String RetiringPrincipal { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String KeyId { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -68,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Use this parameter to specify the maximum number of items to return. When this value
         /// is present, AWS KMS does not return more than the specified number of items, but it
-        /// might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 100, inclusive.
+        /// might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 50, inclusive.
         /// If you do not include a value, it defaults to 50.</para>
         /// </para>
         /// </summary>
@@ -82,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Use this parameter in a subsequent request after you receive a response with truncated
         /// results. Set it to the value of <code>NextMarker</code> from the truncated response
-        /// you just received.</para>
+        /// you just received.</para><para>Do not attempt to construct this value. Use only the value of <code>NextMarker</code>
+        /// from the truncated response you just received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.KeyId = this.KeyId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
-            context.RetiringPrincipal = this.RetiringPrincipal;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.KeyManagementService.Model.ListRetirableGrantsRequest();
-            if (cmdletContext.RetiringPrincipal != null)
+            var request = new Amazon.KeyManagementService.Model.ListResourceTagsRequest();
+            if (cmdletContext.KeyId != null)
             {
-                request.RetiringPrincipal = cmdletContext.RetiringPrincipal;
+                request.KeyId = cmdletContext.KeyId;
             }
             
             // Initialize loop variants and commence piping
@@ -161,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Grants;
+                        object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
                         notes["NextMarker"] = response.NextMarker;
                         notes["Truncated"] = response.Truncated;
@@ -171,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Grants.Count;
+                        int _receivedThisCall = response.Tags.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -214,13 +204,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.ListRetirableGrantsResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListRetirableGrantsRequest request)
+        private static Amazon.KeyManagementService.Model.ListResourceTagsResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListResourceTagsRequest request)
         {
             #if DESKTOP
-            return client.ListRetirableGrants(request);
+            return client.ListResourceTags(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListRetirableGrantsAsync(request);
+            var task = client.ListResourceTagsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -231,9 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String KeyId { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
-            public System.String RetiringPrincipal { get; set; }
         }
         
     }

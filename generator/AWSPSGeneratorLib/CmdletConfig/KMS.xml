@@ -49,6 +49,10 @@
     <ServiceOperation MethodName="DisableKeyRotation" Output="Void" />
     <ServiceOperation MethodName="EnableKeyRotation" Output="Void" />
     <ServiceOperation MethodName="GetKeyRotationStatus" />
+	
+	<ServiceOperation MethodName="TagResource" PipelineParameter="KeyId" Output="Void" Verb="Add" Noun="ResourceTag" />
+	<ServiceOperation MethodName="UntagResource" PipelineParameter="KeyId" Output="Void" Verb="Remove" Noun="ResourceTag" />
+	<ServiceOperation MethodName="ListResourceTags" Noun="ResourceTag" />
 
     <ServiceOperation MethodName="Decrypt" Verb="Invoke" Noun="Decrypt" 
                       Output="Response" 
