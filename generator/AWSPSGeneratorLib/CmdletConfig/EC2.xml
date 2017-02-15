@@ -187,7 +187,7 @@
     <ServiceOperation MethodName="DescribeTags" />
     <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" PipelineParameter="VolumeId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeVolumes" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVolumesModifications" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVolumesModifications" Noun="VolumeModification" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVolumeStatus" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVpcAttribute" Output="Response" PipelineParameter="VpcId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeVpcEndpoints" Noun="VpcEndpoint" PipelineParameter="VpcEndpointIds" PositionalParameters="Filters"/>

@@ -1,3 +1,9 @@
+### 3.3.50.1 (2017-02-14)
+  * Amazon EC2
+    - Added cmdlet support for the new Modify Volumes APIs. This includes two new cmdlets, Edit-EC2Volume (ModifyVolume API) and Get-EC2VolumeModification (DescribeVolumesModification API).
+  * AWS Storage Gateway
+    - Updated the New-SGNFSFileShare and Update-SGNFSFileShare cmdlets to support acess to objects in S3 as files on a Network File System (NFS) mount point. Customers can restrict the clients that have read/write access to the gateway by specifying the list of clients as a list of IP addresses or CIDR blocks to the new -ClientList parameter on these cmdlets.
+
 ### 3.3.48.0 (2017-02-09)
   * Amazon EC2
     - Fixed issue with the Get-EC2Instance cmdlet not accepting instance IDs that were supplied as PSObject types. The cast to string on the supplied PSObject(s) failed, resulting in the cmdlet listing all instances on output, not the requested instances.

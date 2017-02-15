@@ -1362,8 +1362,8 @@ Set-Alias -Name Describe-EC2VolumeAttribute -Value Get-EC2VolumeAttribute
 Set-Alias -Name EC2-DescribeVolumeAttribute -Value Get-EC2VolumeAttribute
 Set-Alias -Name Describe-EC2Volumes -Value Get-EC2Volume
 Set-Alias -Name EC2-DescribeVolumes -Value Get-EC2Volume
-Set-Alias -Name Describe-EC2VolumesModifications -Value Get-EC2VolumesModifications
-Set-Alias -Name EC2-DescribeVolumesModifications -Value Get-EC2VolumesModifications
+Set-Alias -Name Describe-EC2VolumeModification -Value Get-EC2VolumeModification
+Set-Alias -Name EC2-DescribeVolumesModifications -Value Get-EC2VolumeModification
 Set-Alias -Name Describe-EC2VolumeStatus -Value Get-EC2VolumeStatus
 Set-Alias -Name EC2-DescribeVolumeStatus -Value Get-EC2VolumeStatus
 Set-Alias -Name Describe-EC2VpcAttribute -Value Get-EC2VpcAttribute
