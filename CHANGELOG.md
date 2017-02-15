@@ -1,6 +1,8 @@
-### 3.3.50.1 (2017-02-14)
+### 3.3.51.0 (2017-02-15)
   * Amazon EC2
     - Added cmdlet support for the new Modify Volumes APIs. This includes two new cmdlets, Edit-EC2Volume (ModifyVolume API) and Get-EC2VolumeModification (DescribeVolumesModification API).
+  * AWS Key Management Service
+    - Added support for the new tagging apis with three new cmdlets: Add-KMSResourceTag (TagResource API), Get-KMSResourceTag (ListResourceTags API) and Remove-KMSResourceTag (UntagResource API). The New-KMSKey cmdlet was also extended to support a -Tag parameter.
   * AWS Storage Gateway
     - Updated the New-SGNFSFileShare and Update-SGNFSFileShare cmdlets to support acess to objects in S3 as files on a Network File System (NFS) mount point. Customers can restrict the clients that have read/write access to the gateway by specifying the list of clients as a list of IP addresses or CIDR blocks to the new -ClientList parameter on these cmdlets.
 
