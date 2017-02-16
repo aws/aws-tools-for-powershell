@@ -21,8 +21,6 @@ namespace Amazon.PowerShell.Common
         /// <summary>
         /// The AWS access key for the user account. This can be a temporary access key
         /// if the corresponding session token is supplied to the -SessionToken parameter.
-        /// Temporary session credentials can be set for the current shell instance only
-        /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("AK")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = BasicOrSessionSet)]
@@ -47,31 +45,25 @@ namespace Amazon.PowerShell.Common
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = BasicOrSessionSet)]
         public string SessionToken { get; set; }
 
-        [Alias("EI")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AssumeRoleSet)]
         public string ExternalID { get; set; }
 
-        [Alias("MS")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AssumeRoleSet)]
         public string MfaSerial { get; set; }
 
-        [Alias("RA")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = AssumeRoleSet)]
 #if DESKTOP
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FederatedSet)]
 #endif
         public string RoleArn { get; set; }
 
-        [Alias("SP")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = AssumeRoleSet)]
         public string SourceProfile { get; set; }
 
 #if DESKTOP
-        [Alias("EN")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FederatedSet)]
         public string EndpointName { get; set; }
 
-        [Alias("UI")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
         public string UserIdentity { get; set; }
 #endif

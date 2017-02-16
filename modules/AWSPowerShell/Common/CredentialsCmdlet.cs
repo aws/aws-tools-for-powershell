@@ -122,10 +122,12 @@ namespace Amazon.PowerShell.Common
             if (Parameters.TryGetCredentials(Host, out currentCredentials))
             {
                 WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
-                SetUpIfFederatedCredentials(currentCredentials, Parameters);
 
                 if (string.IsNullOrEmpty(Parameters.StoreAs))
+                {
+                    SetUpIfFederatedCredentials(currentCredentials, Parameters);
                     this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
+                }
                 else
                 {
                     if (Parameters.Credential == null)
@@ -260,9 +262,7 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                this.ThrowTerminatingError(new ErrorRecord(
-                    new InvalidOperationException("This Cmdlet no longer supports the ProfileName parameter.  Please use the Remove-AWSCredentialProfile Cmdlet instead."),
-                    "ArgumentException", ErrorCategory.InvalidOperation, this));
+                WriteWarning("Please use the Remove-AWSCredentialProfile Cmdlet to delete Credential Profiles.  The ProfileName parameter will be removed from the Cmdlet in a future release");
             }
         }
     }

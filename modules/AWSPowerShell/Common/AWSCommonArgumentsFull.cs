@@ -18,10 +18,10 @@ namespace Amazon.PowerShell.Common
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = RegionOnlySet)]
         public object Region { get; set; }
 
