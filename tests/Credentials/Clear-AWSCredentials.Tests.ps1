@@ -32,36 +32,8 @@ Describe -Tag "Smoke" "Clear-AWSCredentials" {
             (Get-Variable StoredAWSCredentials).Value | Should BeNullOrEmpty
         }
 
-
-        It "should delete from the right location depending on the -ProfileLocation parameter" {
-
-            $helper.RegisterProfile("clearme", "accessShared", "secretShared", $helper.DefaultSharedPath)
-            $helper.RegisterProfile("clearme", "accessCustom", "secretCustom", $helper.CustomSharedPath)
-            $helper.RegisterProfile("clearme", "accessNet", "secretNet", $null)
-
-            (Get-Content $helper.NetSDKPath | Out-String).Trim() | Should Not BeNullOrEmpty
-            (Get-Content $helper.DefaultSharedPath | Out-String).Trim() | Should Not BeNullOrEmpty
-            (Get-Content $helper.CustomSharedPath | Out-String).Trim() | Should Not BeNullOrEmpty
-
-            Clear-AWSCredentials -ProfileName clearme -ProfileLocation $helper.CustomSharedpath
-
-            (Get-Content $helper.NetSDKPath | Out-String).Trim() | Should Not BeNullOrEmpty
-            (Get-Content $helper.DefaultSharedPath | Out-String).Trim() | Should Not BeNullOrEmpty
-            (Get-Content $helper.CustomSharedPath | Out-String).Trim() | Should BeNullOrEmpty
-
-            Clear-AWSCredentials -ProfileName clearme
-
-            (Test-Path -Path $helper.NetSDKPath)| Should Be $false
-            (Get-Content $helper.DefaultSharedPath | Out-String).Trim() | Should Not BeNullOrEmpty
-            (Get-Content $helper.CustomSharedPath | Out-String).Trim() | Should BeNullOrEmpty
-
-            Clear-AWSCredentials -ProfileName clearme
-
-            (Test-Path -Path $helper.NetSDKPath)| Should Be $false
-            (Get-Content $helper.DefaultSharedPath | Out-String).Trim() | Should BeNullOrEmpty
-            (Get-Content $helper.CustomSharedPath | Out-String).Trim() | Should BeNullOrEmpty
+        It "should throw if the ProfileName parameter is used" {
+            { Clear-AWSCredentials -ProfileName clearme } | Should Throw "Please use the Remove-AWSCredentialProfile Cmdlet instead"
         }
-
-
     }
 }

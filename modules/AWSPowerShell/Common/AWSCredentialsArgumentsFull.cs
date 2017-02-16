@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Common
         /// The user-defined name of an AWS credentials or SAML-based role profile containing
         /// credential information. The profile is expected to be found in the secure credential
         /// file shared with the AWS SDK for .NET and AWS Toolkit for Visual Studio. You can also
-        /// specify the name of a profile stored in the .ini-format credential file used with 
+        /// specify the name of a profile stored in the .ini-format credential file used with
         /// the AWS CLI and other AWS SDKs.
         /// </summary>
         [Alias("StoredCredentials", "AWSProfileName")]
@@ -88,19 +88,19 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// <para>
-        /// Used to specify the name and location of the ini-format credential file (shared with 
-        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
+        /// Used to specify the name and location of the ini-format credential file (shared with
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
         /// folder location.
         /// </para>
         /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is 
-        /// placed in the default search location ('.aws' folder in the current user's profile folder, 
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
-        /// when the profile to be used is contained in the encrypted credential file shared with the 
+        /// When the ini-format credential file uses the default filename ('credentials') and is
+        /// placed in the default search location ('.aws' folder in the current user's profile folder,
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
+        /// when the profile to be used is contained in the encrypted credential file shared with the
         /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
         /// </para>
         /// <para>
-        /// As the current folder can vary in a shell or during script execution it is advised 
+        /// As the current folder can vary in a shell or during script execution it is advised
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>

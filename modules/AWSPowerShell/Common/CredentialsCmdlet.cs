@@ -260,8 +260,9 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                // clear credentials from credentials store
-                SettingsStore.UnregisterProfile(ProfileName, ProfileLocation);
+                this.ThrowTerminatingError(new ErrorRecord(
+                    new InvalidOperationException("This Cmdlet no longer supports the ProfileName parameter.  Please use the Remove-AWSCredentialProfile Cmdlet instead."),
+                    "ArgumentException", ErrorCategory.InvalidOperation, this));
             }
         }
     }

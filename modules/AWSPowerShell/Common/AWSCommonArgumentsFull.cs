@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
@@ -10,17 +10,19 @@ namespace Amazon.PowerShell.Common
 {
     internal class AWSCommonArgumentsFull : AWSCredentialsArgumentsFull, IAWSCommonArgumentsFull
     {
+        private const string RegionOnlySet = "RegionOnly";
+
         /// <summary>
         /// The system name of an AWS region or an AWSRegion instance. This governs
-        /// the sendpoint that will be used when calling service operations. Note that 
+        /// the sendpoint that will be used when calling service operations. Note that
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = "Basic")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = "Session")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = "AssumeRole")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = "Federated")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = "Credentials")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "RegionOnly")]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = RegionOnlySet)]
         public object Region { get; set; }
 
         public AWSCommonArgumentsFull(SessionState sessionState) : base(sessionState)
