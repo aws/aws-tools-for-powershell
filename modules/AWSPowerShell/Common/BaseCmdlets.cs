@@ -467,7 +467,7 @@ namespace Amazon.PowerShell.Common
                 case CredentialsSource.Profile:
                     return String.Format("stored profile named '{0}'", creds.Name);
                 case CredentialsSource.Session:
-                    return "shell variable $" + SessionKeys.AWSRegionVariableName;
+                    return "shell variable $" + SessionKeys.AWSCredentialsVariableName;
                 case CredentialsSource.Strings:
                     return "the supplied key parameters";
             }

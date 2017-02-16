@@ -2,8 +2,8 @@
 . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
 . (Join-Path (Join-Path (Get-Location) "Credentials") "CredentialsTestHelper.ps1")
 $helper = New-Object CredentialsTestHelper
-        
-Describe -Tag "Smoke" "Credentials" {
+
+Describe -Tag "Smoke" "Get-AWSCredentials" {
 
     BeforeAll {
         $helper.BeforeAll()
@@ -15,20 +15,54 @@ Describe -Tag "Smoke" "Credentials" {
 
     Context "Get-AWSCredentials" {
 
-        BeforeEach { 
+        BeforeEach {
             $helper.ClearAllCreds()
         }
 
         AfterEach {
-            $helper.ClearAllCreds()
-        }       
-        
+           $helper.ClearAllCreds()
+        }
+
         It "should return null with no arguments" {
             (Get-AWSCredentials) | Should BeNullOrEmpty
         }
 
+        It "should work with no .aws directory" {
+            Remove-Item -Recurse -Force $helper.AwsDirectory
+
+            $awsCreds = (Get-AWSCredentials default)
+
+            New-Item -ItemType Directory $helper.AwsDirectory
+        }
+
+        It "should be able to return AssumeRoleCredentials" {
+
+            # register a source profile
+            $helper.RegisterProfile("default", "access", "secret", $null);
+             $store = (New-Object Amazon.Runtime.CredentialManagement.NetSdkCredentialsFile)
+            [Amazon.Runtime.CredentialManagement.CredentialProfile] $profile = $null
+
+            # create assume role credentials that point to the source profile
+            $options = $helper.NewOptions()
+            $options.RoleArn = "roleArn"
+            $options.SourceProfile = "default"
+            $awsCredentials = $helper.GetAWSCredentials($options, $null)
+
+            # create the AWSPSCredentials and put it in the session
+            $awsPSCredentials = $helper.GetAWSPSCredentials($awsCredentials, "awspscreds", "Profile")
+            Set-Variable "StoredAWSCredentials" $awsPSCredentials
+
+            # get the AWSPSCredentials using the cmdlet
+            $creds = Get-AWSCredentials
+
+            $creds | Should Not BeNullOrEmpty
+            $creds.GetType().Name | Should Be "AssumeRoleAWSCredentials"
+            { $creds.GetCredentials() } | Should Throw "Error calling AssumeRole for role roleArn"
+        }
+
         It "should return session credentials if there are any" {
-            Set-AWSCredentials -AccessKey accessSession -SecretKey secretSession   
+            $awsCredentials = New-Object Amazon.Runtime.BasicAWSCredentials("accessSession","secretSession")
+            Set-Variable "StoredAWSCredentials" $helper.GetAWSPSCredentials($awsCredentials, "awspscreds", "Profile")
 
             $creds = Get-AWSCredentials
 
@@ -46,15 +80,15 @@ Describe -Tag "Smoke" "Credentials" {
             $creds.GetCredentials().SecretKey | Should Be "secretNet"
         }
 
-        It "should go to the shared file if .net credentials doesn't have the profile" {  
+        It "should go to the shared file if .net credentials doesn't have the profile" {
             $helper.RegisterProfile("preference", "accessShared", "secretShared", $helper.DefaultSharedPath)
-            
+
             $creds = (Get-AWSCredentials preference)
 
             $creds.GetCredentials().AccessKey | Should Be "accessShared"
             $creds.GetCredentials().SecretKey | Should Be "secretShared"
         }
-        
+
         It "should go to the custom shared file if -ProfilesLocation is specified" {
             $helper.RegisterProfile("preference", "accessCustom", "secretCustom", $helper.CustomSharedPath)
             $helper.RegisterProfile("preference", "accessShared", "secretShared", $helper.DefaultSharedPath)
@@ -66,5 +100,38 @@ Describe -Tag "Smoke" "Credentials" {
             $creds.GetCredentials().SecretKey | Should Be "secretCustom"
         }
 
+        It "should list profiles from the correct places if -ListProfile is specified" {
+            $helper.RegisterProfile("net", "accessNet", "secretNet", $null)
+            $helper.RegisterProfile("default", "accessShared", "secretShared", $helper.DefaultSharedPath)
+            $helper.RegisterProfile("custom", "accessCustom", "secretCustom", $helper.CustomSharedPath)
+
+            $profileInfos = (Get-AWSCredentials -ListProfile)
+
+            $profileInfos[0].ProfileName | Should Be "net"
+            $profileInfos[0].StoreTypeName | Should Be "NetSDKCredentialsFile"
+            $profileInfos[0].ProfileLocation | Should BeNullOrEmpty
+
+            $profileInfos[1].ProfileName | Should Be "default"
+            $profileInfos[1].StoreTypeName | Should Be "SharedCredentialsFile"
+            $profileInfos[1].ProfileLocation | Should Be $helper.DefaultSharedPath
+
+            $profileInfos.Count | Should Be 2
+
+            $profileInfos = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.CustomSharedPath)
+
+            $profileInfos[0].ProfileName | Should Be "custom"
+            $profileInfos[0].StoreTypeName | Should Be "SharedCredentialsFile"
+            $profileInfos[0].ProfileLocation | Should Be $helper.CustomSharedPath
+
+            $profileInfos.Count | Should Be 1
+
+            $profileInfos = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.DefaultSharedPath)
+
+            $profileInfos[0].ProfileName | Should Be "default"
+            $profileInfos[0].StoreTypeName | Should Be "SharedCredentialsFile"
+            $profileInfos[0].ProfileLocation | Should Be $helper.DefaultSharedPath
+
+            $profileInfos.Count | Should Be 1
+        }
     }
 }

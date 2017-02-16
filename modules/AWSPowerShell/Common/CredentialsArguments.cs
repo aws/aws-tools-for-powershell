@@ -35,13 +35,14 @@ using System.IO;
 using Amazon.Runtime.Internal;
 using System.Globalization;
 using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime.CredentialManagement.Internal;
 
 namespace Amazon.PowerShell.Common
 {
-    #region ProfilesLocation argument
-    internal interface IAWSProfilesLocationArgument
+    #region ProfileLocation argument
+    internal interface IAWSProfileLocationArgument
     {
-        string ProfilesLocation { get; }
+        string ProfileLocation { get; }
     }
     #endregion
 
@@ -52,7 +53,7 @@ namespace Amazon.PowerShell.Common
         Strings, Profile, CredentialsObject, Session, Environment, Container, InstanceProfile, Unknown
     }
 
-    internal interface IAWSCredentialsArguments : IAWSProfilesLocationArgument
+    internal interface IAWSCredentialsArguments : IAWSProfileLocationArgument
     {
         SessionState SessionState { get; }
 
@@ -126,7 +127,7 @@ namespace Amazon.PowerShell.Common
             var source = CredentialsSource.Unknown;
             var userSpecifiedProfile = !string.IsNullOrEmpty(self.ProfileName);
 
-            var profileChain = new CredentialProfileChain(self.ProfilesLocation);
+            var profileChain = new CredentialProfileStoreChain(self.ProfileLocation);
 
             // we probe for credentials by first checking the bound parameters to see if explicit credentials 
             // were supplied (keys, profile name, credential object), overriding anything in the shell environment
@@ -263,7 +264,7 @@ namespace Amazon.PowerShell.Common
         private static void SetProxyAndCallbackIfNecessary(AWSCredentials innerCredentials, IAWSCredentialsArguments self, PSHost psHost)
         {
 #if DESKTOP
-            SetupIfSAMLCredentials(innerCredentials, psHost, self);
+            SetupIfFederatedCredentials(innerCredentials, psHost, self);
 #endif
             SetupIfAssumeRoleCredentials(innerCredentials, self);
         }
@@ -275,7 +276,7 @@ namespace Amazon.PowerShell.Common
             return proxySettings != null ? proxySettings.GetWebProxy() : null;
         }
 
-        private static void SetupIfSAMLCredentials(AWSCredentials credentials, PSHost psHost, IAWSCredentialsArguments self)
+        private static void SetupIfFederatedCredentials(AWSCredentials credentials, PSHost psHost, IAWSCredentialsArguments self)
         {
             // if we have picked up a SAML-based credentials profile, make sure the callback
             // to authenticate the user is set. The underlying SDK will then call us back
@@ -423,7 +424,7 @@ namespace Amazon.PowerShell.Common
         String, Saved, RegionObject, Session, Environment, InstanceMetadata, Unknown
     }
 
-    internal interface IAWSRegionArguments : IAWSProfilesLocationArgument
+    internal interface IAWSRegionArguments : IAWSProfileLocationArgument
     {
         SessionState SessionState { get; }
         object Region { get; }
@@ -489,8 +490,8 @@ namespace Amazon.PowerShell.Common
             // region set in profile store (including legacy key name)?
             if (region == null)
             {
-                if (!TryLoad(SettingsStore.PSDefaultSettingName, self.ProfilesLocation, ref region, ref source))
-                    TryLoad(SettingsStore.PSLegacyDefaultSettingName, self.ProfilesLocation, ref region, ref source);
+                if (!TryLoad(SettingsStore.PSDefaultSettingName, self.ProfileLocation, ref region, ref source))
+                    TryLoad(SettingsStore.PSLegacyDefaultSettingName, self.ProfileLocation, ref region, ref source);
             }
 
             // region set in environment variables?
@@ -520,10 +521,10 @@ namespace Amazon.PowerShell.Common
             return (region != null && source != RegionSource.Unknown);
         }
 
-        private static bool TryLoad(string name, string profilesLocation, ref RegionEndpoint region, ref RegionSource source)
+        private static bool TryLoad(string name, string profileLocation, ref RegionEndpoint region, ref RegionSource source)
         {
             PersistedCredentialProfile persistedProfile;
-            if (SettingsStore.TryGetPersistedProfile(name, profilesLocation, out persistedProfile) &&
+            if (SettingsStore.TryGetPersistedProfile(name, profileLocation, out persistedProfile) &&
                 persistedProfile.Profile.Region != null)
             {
                 region = persistedProfile.Profile.Region;
@@ -548,7 +549,7 @@ namespace Amazon.PowerShell.Common
 
     #region Common arguments
 
-    internal interface IAWSCommonArguments : IAWSRegionArguments, IAWSCredentialsArguments, IAWSProfilesLocationArgument
+    internal interface IAWSCommonArguments : IAWSRegionArguments, IAWSCredentialsArguments, IAWSProfileLocationArgument
     {
     }
 
@@ -624,8 +625,8 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter(Position = 201)]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
 
         /// <summary>
         /// An AWSCredentials object instance containing access and secret key information,
@@ -668,9 +669,9 @@ namespace Amazon.PowerShell.Common
         /// the sendpoint that will be used when calling service operations. Note that 
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
-        [Parameter(Mandatory = false, 
-                   ValueFromPipeline=true, 
-                   ValueFromPipelineByPropertyName=true, 
+        [Parameter(Mandatory = false,
+                   ValueFromPipeline=true,
+                   ValueFromPipelineByPropertyName=true,
                    Position = 210)]
         public object Region { get; set; }
 
@@ -693,8 +694,8 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter(Position = 211)]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public String ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public String ProfileLocation { get; set; }
 
         public AWSRegionArguments(SessionState sessionState)
         {
@@ -773,8 +774,8 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
 
         /// <summary>
         /// An AWSCredentials object instance containing access and secret key information,
@@ -815,157 +816,59 @@ namespace Amazon.PowerShell.Common
 
     internal static class SettingsStore
     {
-        public class Settings
-        {
-            public CredentialProfile Profile { get; set; }
-            public AWSCredentials Credentials { get; set; }
-            public RegionEndpoint Region { get; set; }
-            public string Name { get; set; }
-        }
-
         public const string PSDefaultSettingName = "default";
         public const string PSLegacyDefaultSettingName = "AWS PS Default";
-        private const string CredentialsTypeField = "CredentialsType";
 
-        public static IEnumerable<string> GetDisplayNames(string profilesLocation)
+        public static List<ProfileInfo> GetProfileInfo(string profileLocation)
         {
-            return (new CredentialProfileChain(profilesLocation)).ListProfileNames();
+            var persistedProfiles = (new CredentialProfileStoreChain(profileLocation)).ListPersistedProfiles();
+            var result = new List<ProfileInfo>();
+            foreach (var persistedProfile in persistedProfiles)
+            {
+                string location = null;
+                var sharedCredentialsFile = persistedProfile.Store as SharedCredentialsFile;
+                if (sharedCredentialsFile == null)
+                {
+                    var netsSDKCredentialsFile = persistedProfile.Store as NetSDKCredentialsFile;
+                    if (netsSDKCredentialsFile != null)
+                    {
+                        location = null;
+                    }
+                }
+                else
+                {
+                    location = sharedCredentialsFile.FilePath;
+                }
+                result.Add(new ProfileInfo
+                {
+                    ProfileLocation = location,
+                    ProfileName = persistedProfile.Profile.Name,
+                    StoreTypeName = persistedProfile.Store.GetType().Name
+                });
+            }
+            return result;
         }
 
-        public static bool TryGetPersistedProfile(string name, string profilesLocation, out PersistedCredentialProfile persistedProfile)
+        public static bool TryGetPersistedProfile(string name, string profileLocation, out PersistedCredentialProfile persistedProfile)
         {
-            var profileChain = new CredentialProfileChain(profilesLocation);
-            return profileChain.TryGetPersistedProfile(name, out persistedProfile);
+            return new CredentialProfileStoreChain(profileLocation).TryGetPersistedProfile(name, out persistedProfile);
         }
 
-        public static IEnumerable<PersistedCredentialProfile> ListPersistedProfiles(string profilesLocation)
+        public static IEnumerable<PersistedCredentialProfile> ListPersistedProfiles(string profileLocation)
         {
-            return new CredentialProfileChain(profilesLocation).ListPersistedProfiles();
+            return new CredentialProfileStoreChain(profileLocation).ListPersistedProfiles();
         }
 
-        internal static void SaveAWSCredentialProfile(CredentialProfileOptions profileOptions, string name, string profilesLocation, RegionEndpoint region)
+        internal static void RegisterProfile(CredentialProfileOptions profileOptions, string name, string profileLocation, RegionEndpoint region)
         {
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
-            if (profileOptions == null)
-                throw new ArgumentNullException("profileOptions");
-
             var profile = new CredentialProfile(name, profileOptions);
             profile.Region = region;
-
-            new CredentialProfileChain(profilesLocation).RegisterProfile(profile);
+            new CredentialProfileStoreChain(profileLocation).RegisterProfile(profile);
         }
 
-        /// <summary>
-        /// Creates or updates a profile to hold AWS credentials. As a precaution against mixing
-        /// profile data, this routine erases any pre-existing SAML credential data that may exist in
-        /// the updated now-AWS-credentials profile.
-        /// </summary>
-        /// <param name="credentials">The access and secret key data to store in the profile</param>
-        /// <param name="name">The name of the profile to create/update</param>
-        /// <param name="profilesLocation">
-        /// Optional location to shared credentials file to update. If not specified:
-        /// * if we are running on Windows we update the SDK credential store
-        /// * if we are running on a non-Windows platform we update the default shared credentials file
-        ///   stored in ~/.aws/credentials.
-        /// </param>
-        /// <param name="region">Optional region data to also store in the profile</param>
-        /// <returns>
-        /// The location of the updated credential file. If null, this can be interpreted as meaning the encrypted sdk store file was updated.
-        /// </returns>
-        internal static void SaveAWSCredentialProfile(AWSCredentials credentials, string name, string profilesLocation, RegionEndpoint region)
+        public static void UnregisterProfile(string name, string profileLocation)
         {
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
-            if (credentials == null)
-                throw new ArgumentNullException("credentials");
-
-            var credentialKeys = ExtractCredentialKeys(credentials);  // throws if incompatible
-
-            if (credentialKeys != null)
-            {
-                var profileChain = new CredentialProfileChain(profilesLocation);
-                var options = new CredentialProfileOptions()
-                {
-                    AccessKey = credentialKeys.AccessKey,
-                    SecretKey = credentialKeys.SecretKey,
-                    Token = credentialKeys.Token
-                };
-                var profile = new CredentialProfile(name, options);
-                profile.Region = region;
-
-                profileChain.RegisterProfile(profile);
-            }
-        }
-
-#if DESKTOP
-        /// <summary>
-        /// Creates or updates a SAML role profile.
-        /// </summary>
-        /// <param name="name">The name for the role profile</param>
-        /// <param name="endpointName">
-        /// The name of an existing endpoint settings collection containing the endpoint details.
-        /// </param>
-        /// <param name="roleArn">
-        /// The arn of the role that should be assumed when this profile is used
-        /// </param>
-        /// <param name="userIdentity">
-        /// Optional. Used if non-default network credentials should be used during authentication
-        /// </param>
-        /// <param name="region">
-        /// Null or custom region to set the STS endpoint when calling to obtain credentials.
-        /// </param>
-        /// <param name="profilesLocation">Location of the shared credentials file, or null to use the default location</param>
-        public static void SaveSAMLRoleProfile(string name, 
-                                               string endpointName, 
-                                               string roleArn,
-                                               string userIdentity,
-                                               RegionEndpoint region,
-                                               string profilesLocation)
-        {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
-            if (string.IsNullOrEmpty(endpointName)) throw new ArgumentNullException("endpointName");
-            if (string.IsNullOrEmpty(roleArn)) throw new ArgumentNullException("roleArn");
-
-            var profileStore = new NetSDKCredentialsFile();
-            var options = new CredentialProfileOptions()
-            {
-                EndpointName = endpointName,
-                RoleArn = roleArn,
-                UserIdentity = userIdentity
-            };
-            var profile = new CredentialProfile(name, options);
-            profile.Region = region;
-
-            profileStore.RegisterProfile(profile);
-        }
-#endif
-        private static ImmutableCredentials ExtractCredentialKeys(AWSCredentials credentials)
-        {
-            if (credentials is BasicAWSCredentials)
-                return credentials.GetCredentials();
-
-            if (credentials is InstanceProfileAWSCredentials)
-                return null;
-
-#if DESKTOP
-            if (credentials is StoredProfileFederatedCredentials)
-                return null;
-#endif
-
-            if (credentials is SessionAWSCredentials)
-                throw new InvalidOperationException("Cannot save session credentials");
-#if DESKTOP
-            else if (credentials is EnvironmentAWSCredentials)
-                throw new InvalidOperationException("Cannot save environmental credentials");
-            else
-#endif
-                throw new InvalidOperationException("Unrecognized credentials type");
-        }
-
-        public static void Delete(string name, string profilesLocation)
-        {
-            new CredentialProfileChain(profilesLocation).UnregisterProfile(name);
+            new CredentialProfileStoreChain(profileLocation).UnregisterProfile(name);
         }
     }
 
@@ -977,5 +880,58 @@ namespace Amazon.PowerShell.Common
         public const string AWSProxyVariableName = "AWSProxy";
     }
 
-#endregion
+    internal static class CredentialProfileOptionsExtractor
+    {
+        private static HashSet<Type> PassThroughExtractTypes = new HashSet<Type>
+        {
+            typeof(InstanceProfileAWSCredentials),
+#if DESKTOP
+            typeof(StoredProfileFederatedCredentials),
+            typeof(FederatedAWSCredentials),
+#endif
+        };
+
+        private static HashSet<Type> ThrowExtractTypes = new HashSet<Type>
+        {
+            typeof(AssumeRoleAWSCredentials),
+            typeof(URIBasedRefreshingCredentialHelper),
+            typeof(AnonymousAWSCredentials),
+            typeof(ECSTaskCredentials),
+            typeof(EnvironmentVariablesAWSCredentials),
+            typeof(StoredProfileAWSCredentials),
+#if DESKTOP
+            typeof(EnvironmentAWSCredentials),
+            typeof(EnvironmentVariablesAWSCredentials)
+#endif
+        };
+
+        public static CredentialProfileOptions ExtractProfileOptions(AWSCredentials credentials)
+        {
+            var type = credentials.GetType();
+            if (type == typeof(BasicAWSCredentials) || type == typeof(SessionAWSCredentials))
+            {
+                var immutableCredentials = credentials.GetCredentials();
+                return new CredentialProfileOptions
+                {
+                    AccessKey = immutableCredentials.AccessKey,
+                    SecretKey = immutableCredentials.SecretKey,
+                    Token = immutableCredentials.Token
+                };
+            }
+            else if (PassThroughExtractTypes.Contains(type))
+                return null;
+            else if (ThrowExtractTypes.Contains(type))
+                throw new InvalidOperationException("Cannot save credentials of type " + type.Name);
+            else
+                throw new InvalidOperationException("Unrecognized credentials type: " + type.Name);
+        }
+    }
+
+    internal class ProfileInfo
+    {
+        public string ProfileName { get; set; }
+        public string StoreTypeName { get; set; }
+        public string ProfileLocation { get; set; }
+    }
+    #endregion
 }

@@ -30,6 +30,7 @@ using System.IO;
 using Amazon.PowerShell.Utils;
 using Amazon.Runtime.Internal;
 using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime.CredentialManagement.Internal;
 
 #if DESKTOP
 using Amazon.SecurityToken.SAML;
@@ -46,34 +47,21 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("AWSCredentials", "AWSCredentials instance containing AWS credentials data.")]
     public class NewCredentialsCmdlet : PSCmdlet, IDynamicParameters
     {
-        private object Parameters { get; set; }
+        private AWSCredentialsArgumentsFull Parameters { get; set; }
 
         protected override void ProcessRecord()
         {
             AWSPSCredentials currentCredentials = null;
-            var commonArguments = Parameters as IAWSCredentialsArguments;
-            if (commonArguments != null)
+            if (Parameters.TryGetCredentials(Host, out currentCredentials))
             {
-                if (!commonArguments.TryGetCredentials(Host, out currentCredentials))
-                {
-                    this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Cannot determine credentials from supplied parameters"),
-                                                                "ArgumentException",
-                                                                ErrorCategory.InvalidArgument,
-                                                                this));
-                }
-                else
-                {
-                    // used to be equivalent of write-host but got customer feedback that the inability to
-                    // suppress it interfered with console output (https://forums.aws.amazon.com/thread.jspa?threadID=211600&tstart=0).
-                    WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
-                }
+                // used to be equivalent of write-host but got customer feedback that the inability to
+                // suppress it interfered with console output (https://forums.aws.amazon.com/thread.jspa?threadID=211600&tstart=0).
+                WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
             }
             else
             {
-                this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Unrecognized arguments"),
-                                                            "ArgumentException",
-                                                            ErrorCategory.InvalidArgument,
-                                                            this));
+                this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Cannot determine credentials from supplied parameters"),
+                    "ArgumentException", ErrorCategory.InvalidArgument, this));
             }
 
             if (currentCredentials != null)
@@ -84,8 +72,7 @@ namespace Amazon.PowerShell.Common
 
         public object GetDynamicParameters()
         {
-            Parameters = new AWSCredentialsArguments(this.SessionState);
-
+            Parameters = new AWSCredentialsArgumentsFull(this.SessionState);
             return Parameters;
         }
 
@@ -102,82 +89,123 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class SetCredentialsCmdlet : PSCmdlet, IDynamicParameters
     {
-        /// <summary>
-        /// <para>
-        /// The name to be used to identity the credentials in local storage. Use this with the -ProfileName parameter
-        /// on cmdlets to load the stored credentials.
-        /// </para>
-        /// <para>
-        /// Temporary session credentials, identified by use of the -SessionToken parameter, cannot be stored.
-        /// Specifying this parameter in addition to -SessionToken will result in an error message.
-        /// </para>
-        /// </summary>
-        [Parameter]
-        public string StoreAs { get; set; }
+        private class SetCredentialsParameters : AWSCredentialsArgumentsFull
+        {
+            /// <summary>
+            /// <para>
+            /// The name to be used to identity the credentials in local storage. Use this with the -ProfileName parameter
+            /// on cmdlets to load the stored credentials.
+            /// </para>
+            /// <para>
+            /// Temporary session credentials, identified by use of the -SessionToken parameter, cannot be stored.
+            /// Specifying this parameter in addition to -SessionToken will result in an error message.
+            /// </para>
+            /// </summary>
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
+            public string StoreAs { get; set; }
 
-        private object Parameters { get; set; }
+            public SetCredentialsParameters(SessionState sessionState) : base(sessionState)
+            {
+            }
+        }
+
+        private SetCredentialsParameters Parameters { get; set; }
 
         protected override void ProcessRecord()
         {
             AWSPSCredentials currentCredentials = null;
-            var commonArguments = Parameters as IAWSCredentialsArguments;
-            if (commonArguments != null)
+
+            if (Parameters.TryGetCredentials(Host, out currentCredentials))
             {
-                if (!commonArguments.TryGetCredentials(Host, out currentCredentials))
-                {
-                    this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Cannot determine credentials from supplied parameters"),
-                                                                "ArgumentException",
-                                                                ErrorCategory.InvalidArgument,
-                                                                this));
-                }
+                WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                SetUpIfFederatedCredentials(currentCredentials, Parameters);
+
+                if (string.IsNullOrEmpty(Parameters.StoreAs))
+                    this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
                 else
-                    WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                {
+                    if (Parameters.Credential == null)
+                    {
+                        if (string.Equals(AWSCredentialsArgumentsFull.StoredProfileSet, ParameterSetName, StringComparison.Ordinal))
+                        {
+                            // We're copying from one profile to another.
+                            var chain = new CredentialProfileStoreChain(Parameters.ProfileLocation);
+                            PersistedCredentialProfile persistedProfile;
+                            if (chain.TryGetPersistedProfile(Parameters.ProfileName, out persistedProfile))
+                            {
+                                persistedProfile.Store.CopyProfile(Parameters.ProfileName, Parameters.StoreAs);
+                            }
+                            else
+                                // Parameters.TryGetCredentials has already tested for this but...
+                                this.ThrowTerminatingError(new ErrorRecord(
+                                    new ArgumentException("Cannot determine credentials from supplied parameters"),
+                                    "ArgumentException", ErrorCategory.InvalidArgument, this));
+                        }
+                        else
+                        {
+                            // We're storing from individual command line values to a credentials file.
+                            SettingsStore.RegisterProfile(Parameters.GetCredentialProfileOptions(), Parameters.StoreAs, Parameters.ProfileLocation, null);
+                        }
+                    }
+                    else
+                    {
+                        // We're storing from the -Credential parameter to a credentials file.
+                        // Only some types of AWSCredentials are supported.
+                        var options = CredentialProfileOptionsExtractor.ExtractProfileOptions(currentCredentials.Credentials);
+                        if (options != null)
+                        {
+                            SettingsStore.RegisterProfile(options, Parameters.StoreAs, Parameters.ProfileLocation, null);
+                        }
+                    }
+
+                    if (string.IsNullOrEmpty(Parameters.ProfileLocation))
+                        WriteVerbose("Updated .NET credentials file.");
+                    else
+                        WriteVerbose("Updated shared credentials file at " + Parameters.ProfileLocation);
+                }
             }
             else
             {
-                this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Unrecognized arguments"),
+                this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Cannot determine credentials from supplied parameters"),
                                                             "ArgumentException",
                                                             ErrorCategory.InvalidArgument,
                                                             this));
             }
-
-            if (currentCredentials != null)
-            {
-#if DESKTOP
-                var samlCredentials = currentCredentials.Credentials as StoredProfileFederatedCredentials;
-                if (samlCredentials != null)
-                {
-                    // update the custom state we have applied to hold the host and any network credential 
-                    // the user has supplied to us as a shell default to fall back on if we get called to 
-                    // show the password dialog
-                    var callbackState = samlCredentials.CustomCallbackState as SAMLCredentialCallbackState;
-                    if (callbackState != null) // is our callback that's attached
-                    {
-                        callbackState.ShellNetworkCredentialParameter
-                            = commonArguments != null ? commonArguments.NetworkCredential : null;
-                    }
-                }
-#endif
-                if (string.IsNullOrEmpty(StoreAs))
-                    this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
-                else
-                {
-                    SettingsStore.SaveAWSCredentialProfile(currentCredentials.Credentials,
-                                                                          StoreAs,
-                                                                          commonArguments.ProfilesLocation,
-                                                                          null);
-                    if (!string.IsNullOrEmpty(commonArguments.ProfilesLocation))
-                        WriteVerbose("Updated credential file at " + commonArguments.ProfilesLocation);
-                }
-            }
         }
 
-#region IDynamicParameters Members
+        /// <summary>
+        /// update the custom state we have applied to hold the host and any network credential
+        /// the user has supplied to us as a shell default to fall back on if we get called to
+        /// show the password dialog
+        /// </summary>
+        /// <param name="currentCredentials"></param>
+        /// <param name="credentialsArguments"></param>
+        private static void SetUpIfFederatedCredentials(AWSPSCredentials currentCredentials, IAWSCredentialsArguments credentialsArguments)
+        {
+#if DESKTOP
+            SAMLCredentialCallbackState callbackState = null;
+            var legacyFederatedCredentials = currentCredentials.Credentials as StoredProfileFederatedCredentials;
+            var federatedCredentials = currentCredentials.Credentials as FederatedAWSCredentials;
+
+            if (legacyFederatedCredentials != null)
+                callbackState = legacyFederatedCredentials.CustomCallbackState as SAMLCredentialCallbackState;
+            else if (federatedCredentials != null)
+                callbackState = federatedCredentials.Options.CustomCallbackState as SAMLCredentialCallbackState;
+
+            if (callbackState != null) // is our callback that's attached
+                callbackState.ShellNetworkCredentialParameter = credentialsArguments != null ? credentialsArguments.NetworkCredential : null;
+#endif
+        }
+
+        #region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
-            Parameters = new AWSCredentialsArguments(this.SessionState);
-
+            Parameters = new SetCredentialsParameters(this.SessionState);
             return Parameters;
         }
 
@@ -220,8 +248,8 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
 
         protected override void ProcessRecord()
         {
@@ -233,7 +261,7 @@ namespace Amazon.PowerShell.Common
             else
             {
                 // clear credentials from credentials store
-                SettingsStore.Delete(ProfileName, ProfilesLocation);
+                SettingsStore.UnregisterProfile(ProfileName, ProfileLocation);
             }
         }
     }
@@ -276,21 +304,21 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter(Position = 3)]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
 
         /// <summary>
         /// Lists the names of all credentials data sets saved in local storage
         /// </summary>
         [Parameter(Position = 2)]
-        [Alias("ListStoredCredentials")]
-        public SwitchParameter ListProfiles { get; set; }
+        [Alias("ListStoredCredentials", "ListProfiles")]
+        public SwitchParameter ListProfile { get; set; }
 
         protected override void ProcessRecord()
         {
-            if (ListProfiles.IsPresent)
+            if (ListProfile.IsPresent)
             {
-                WriteObject(SettingsStore.GetDisplayNames(ProfilesLocation));
+                WriteObject(SettingsStore.GetProfileInfo(ProfileLocation));
                 return;
             }
 
@@ -303,7 +331,7 @@ namespace Amazon.PowerShell.Common
             else
             {
                 PersistedCredentialProfile persistedProfile;
-                if (SettingsStore.TryGetPersistedProfile(ProfileName, ProfilesLocation, out persistedProfile))
+                if (SettingsStore.TryGetPersistedProfile(ProfileName, ProfileLocation, out persistedProfile))
                 {
                     WriteObject(persistedProfile.Profile.GetAWSCredentials(persistedProfile.Store));
                 }
@@ -505,8 +533,8 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
 
         protected override void ProcessRecord()
         {
@@ -556,7 +584,13 @@ namespace Amazon.PowerShell.Common
                         selectedRoleARN = availableRoles[roleName];
                         WriteVerbose(string.Format("Saving role '{0}' to profile '{1}'.", selectedRoleARN, roleName));
 
-                        SettingsStore.SaveSAMLRoleProfile(roleName, EndpointName, selectedRoleARN, domainUser, stsRegionEndpoint, ProfilesLocation);
+                        var options = new CredentialProfileOptions()
+                        {
+                            EndpointName = EndpointName,
+                            RoleArn = selectedRoleARN,
+                            UserIdentity = domainUser
+                        };
+                        SettingsStore.RegisterProfile(options, roleName, ProfileLocation, stsRegionEndpoint);
 
                         WriteObject(roleName);
                     }
@@ -648,7 +682,14 @@ namespace Amazon.PowerShell.Common
             string domainUser = null;
             if (networkCredential != null)
                 domainUser = string.Concat(networkCredential.Domain, "\\", networkCredential.UserName);
-            SettingsStore.SaveSAMLRoleProfile(StoreAs, EndpointName, selectedRoleARN, domainUser, stsEndpointRegion, ProfilesLocation);
+
+            var options = new CredentialProfileOptions()
+            {
+                EndpointName = EndpointName,
+                RoleArn = selectedRoleARN,
+                UserIdentity = domainUser
+            };
+            SettingsStore.RegisterProfile(options, StoreAs, ProfileLocation, stsEndpointRegion);
 
             return StoreAs;
         }

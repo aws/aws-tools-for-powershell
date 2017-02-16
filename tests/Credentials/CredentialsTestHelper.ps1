@@ -1,29 +1,33 @@
-﻿class CredentialsTestHelper : TestHelper
+class CredentialsTestHelper : TestHelper
 {
     [string] $DefaultSharedPath
     [string] $CustomSharedPath
     [string] $NetSDKPath
-    
+    [string] $AwsDirectory
+
 
     hidden [string] $AccessKeyEnv
     hidden [string] $SecretKeyEnv
+    hidden [string] $RegionEnv
     hidden [string] $TempDir
-    hidden [string] $AwsDirectory
     hidden [string] $OriginalSettingsStoreFolder
     hidden [string] $OriginalCredentialsPath
+    hidden [string] $OriginalInstanceProfileServer
 
     # Constructor
     CredentialsTestHelper()
-    { 
+    {
     }
 
     [Void] BeforeAll()
     {
         ([TestHelper]$this).BeforeAll()
+
         # save credentials environment variables so we can revert them after the tests
         $this.AccessKeyEnv = $env:AWS_ACCESS_KEY_ID
         $this.SecretKeyEnv = $env:AWS_SECRET_ACCESS_KEY
-        
+        $this.RegionEnv = $env:AWS_REGION
+
         # set up the directories we need to run with
         $this.TempDir = (Join-Path (Get-Location) Temp)
         $this.AwsDirectory = (Join-Path $this.TempDir .aws)
@@ -39,31 +43,41 @@
         {
            New-Item $this.AwsDirectory -Type directory
         }
-        
+
         #mock the sdk credentials folder and the default shared credentials folder to be the Temp\.aws directory
         $this.OriginalSettingsStoreFolder = $this.MockSetingsStoreFolder($this.AwsDirectory);
         $this.OriginalCredentialsPath = $this.MockCredentialsPath($this.DefaultSharedPath);
+
+        #mock the instance profile server url to cause a fast-fail when no credentials are available
+        $this.OriginalInstanceProfileServer = $this.MockInstanceProfileServer("http://127.0.0.1")
     }
 
     [Void] AfterAll()
     {
-        if ($this.OriginalSettingsStoreFolder -ne $null) {
+        if ($this.OriginalSettingsStoreFolder -ne $null)
+        {
             $this.UnMockSettingsStoreFolder($this.OriginalSettingsStoreFolder)
         }
 
-        if ($this.OriginalCredentialsPath -ne $null) {
+        if ($this.OriginalCredentialsPath -ne $null)
+        {
             $this.UnMockCredentialsPath($this.OriginalCredentialsPath )
-        }   
-        
+        }
+
         $env:AWS_ACCESS_KEY_ID = $this.AccessKeyEnv
-        $env:AWS_SECRET_ACCESS_KEY = $this.SecretKeyEnv 
-        
+        $env:AWS_SECRET_ACCESS_KEY = $this.SecretKeyEnv
+        $env:AWS_REGION = $this.RegionEnv
+
         # this is necessary to remove any plaintext credentials from the build directory
 	    if (Test-Path $this.AwsDirectory) { Remove-Item -Recurse -Force -Path $this.AwsDirectory }
 
+        #unmock the instance profile server
+        $this.UnMockInstanceProfileServer($this.OriginalInstanceProfileServer)
+
+        # call base implementation
         ([TestHelper]$this).AfterAll()
     }
-    
+
     [Void] ClearAllCreds()
     {
         # delete credentials files
@@ -73,13 +87,31 @@
 
         # clear any session credentials
         Clear-AWSCredentials
-        
+
         # clear out credentials environment variables
         $env:AWS_ACCESS_KEY_ID = $null
         $env:AWS_SECRET_ACCESS_KEY = $null
+        $env:AWS_REGION = $null
     }
 
-    [string] MockSetingsStoreFolder($newSettingsStoreFolder) {
+    [string] MockInstanceProfileServer($newServer)
+    {
+        $bindingFlags = [Reflection.BindingFlags] "NonPublic,Static"
+        $privateField = [Amazon.Runtime.InstanceProfileAWSCredentials].GetField("Server", $bindingFlags);
+        $result = $privateField.GetValue($null);
+        $privateField.SetValue($null, $newServer);
+        return $result
+    }
+
+    [Void] UnMockInstanceProfileServer($originalServer)
+    {
+        $bindingFlags = [Reflection.BindingFlags] "NonPublic,Static"
+        $privateField = [Amazon.Runtime.InstanceProfileAWSCredentials].GetField("Server", $bindingFlags);
+        $privateField.SetValue($null, $originalServer);
+    }
+
+    [string] MockSetingsStoreFolder($newSettingsStoreFolder)
+    {
         $bindingFlags = [Reflection.BindingFlags] "NonPublic,Public,Static"
         $privateField = [Amazon.Runtime.Internal.Settings.PersistenceManager].GetField("SettingsStoreFolder", $bindingFlags);
         $result = $privateField.GetValue($null);
@@ -87,32 +119,33 @@
         return $result
     }
 
-    [Void] UnMockSettingsStoreFolder($originalSettingsStoreFolder) {
+    [Void] UnMockSettingsStoreFolder($originalSettingsStoreFolder)
+    {
         $bindingFlags = [Reflection.BindingFlags] "NonPublic,Public,Static"
         $privateField = [Amazon.Runtime.Internal.Settings.PersistenceManager].GetField("SettingsStoreFolder", $bindingFlags);
         $privateField.SetValue($null, $originalSettingsStoreFolder);
     }
 
-    [string] MockCredentialsPath($newCredentialsPath) {
-    
+    [string] MockCredentialsPath($newCredentialsPath)
+    {
+
         $bindingFlags = [Reflection.BindingFlags] "NonPublic,Public,Static"
         $privateField = [Amazon.Runtime.CredentialManagement.SharedCredentialsFile].GetField("DefaultFilePath", $bindingFlags);
         $result = $privateField.GetValue($null);
-        $privateField.SetValue($null, $newCredentialsPath); 
-        return $result          
+        $privateField.SetValue($null, $newCredentialsPath);
+        return $result
     }
 
-    [Void] UnMockCredentialsPath($originalCredentialsPath) {
+    [Void] UnMockCredentialsPath($originalCredentialsPath)
+    {
         $bindingFlags = [Reflection.BindingFlags] "NonPublic,Public,Static"
         $privateField = [Amazon.Runtime.CredentialManagement.SharedCredentialsFile].GetField("DefaultFilePath", $bindingFlags);
         $privateField.SetValue($null, $originalCredentialsPath);
     }
 
 
-    [Void] RegisterProfile($profileName, $accessKey, $secretKey, $profilesLocation) {
-        [Amazon.Runtime.CredentialManagement.CredentialProfileOptions]$options = (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileOptions)
-        $options.AccessKey = $accessKey
-        $options.SecretKey = $secretKey
+    [Void] RegisterProfile($profileName, $profilesLocation, $options)
+    {
         [Amazon.Runtime.CredentialManagement.CredentialProfile]$credentialProfile = New-Object -TypeName "Amazon.Runtime.CredentialManagement.CredentialProfile" ($profileName, $options)
         if ($profilesLocation -eq $null)
         {
@@ -124,7 +157,47 @@
         }
     }
 
-    [Void] UnRegisterProfile($profileName, $profilesLocation) {
+    [Void] RegisterProfile($profileName, $accessKey, $secretKey, $profilesLocation)
+    {
+        $this.RegisterProfile($profileName, $accessKey, $secretKey, $null, $profilesLocation)
+    }
+
+    [Void] RegisterProfile($profileName, $accessKey, $secretKey, $region, $profilesLocation)
+    {
+        [Amazon.Runtime.CredentialManagement.CredentialProfileOptions]$options = (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileOptions)
+        $options.AccessKey = $accessKey
+        $options.SecretKey = $secretKey
+        [Amazon.Runtime.CredentialManagement.CredentialProfile]$credentialProfile = New-Object -TypeName "Amazon.Runtime.CredentialManagement.CredentialProfile" ($profileName, $options)
+
+        if ($region -ne $null)
+        {
+            $credentialProfile.Region = [Amazon.RegionEndpoint]::GetBySystemName($region)
+        }
+
+        if ($profilesLocation -eq $null)
+        {
+            (New-Object Amazon.Runtime.CredentialManagement.NetSdkCredentialsFile).RegisterProfile($credentialProfile)
+        }
+        else
+        {
+            (New-Object Amazon.Runtime.CredentialManagement.SharedCredentialsFile ($profilesLocation)).RegisterProfile($credentialProfile)
+        }
+    }
+
+    [Amazon.Runtime.CredentialManagement.Internal.ICredentialProfileStore] GetProfileStore($profilesLocation)
+    {
+        if ($profilesLocation -eq $null)
+        {
+            return (New-Object Amazon.Runtime.CredentialManagement.NetSdkCredentialsFile)
+        }
+        else
+        {
+            return (New-Object Amazon.Runtime.CredentialManagement.SharedCredentialsFile ($profilesLocation))
+        }
+    }
+
+    [Void] UnRegisterProfile($profileName, $profilesLocation)
+    {
         if ($profilesLocation -eq $null)
         {
             (New-Object Amazon.Runtime.CredentialManagement.NetSdkCredentialsFile).UnRegisterProfile($profileName)
@@ -134,9 +207,54 @@
             (New-Object Amazon.Runtime.CredentialManagement.SharedCredentialsFile ($profilesLocation)).UnRegisterProfile($profileName)
         }
     }
+
+    [Amazon.Runtime.CredentialManagement.CredentialProfileOptions] NewOptions()
+    {
+        return (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileOptions)
+    }
+
+    [Amazon.Runtime.CredentialManagement.CredentialProfile] GetCredentialProfile($profileLocation, $profileName)
+    {
+        if ($profileLocation -eq $null)
+        {
+            $store = (New-Object Amazon.Runtime.CredentialManagement.NetSdkCredentialsFile)
+        }
+        else
+        {
+            $store = (New-Object Amazon.Runtime.CredentialManagement.SharedCredentialsFile ($profileLocation))
+        }
+
+        [Amazon.Runtime.CredentialManagement.CredentialProfile] $profile = $null
+
+        $store.TryGetProfile($profileName, [ref] $profile)
+
+        return $profile
+    }
+
+    [Amazon.Runtime.AWSCredentials] GetAWSCredentials([Amazon.Runtime.CredentialManagement.CredentialProfileOptions] $options, $profilesLocation)
+    {
+        if ($profilesLocation -eq $null)
+        {
+            $store = (New-Object Amazon.Runtime.CredentialManagement.NetSdkCredentialsFile)
+        }
+        else
+        {
+            $store = (New-Object Amazon.Runtime.CredentialManagement.SharedCredentialsFile ($profilesLocation))
+        }
+
+        return [Amazon.Runtime.CredentialManagement.AWSCredentialsFactory]::GetAWSCredentials($options, $store)
+    }
+
+    [Amazon.PowerShell.Common.AWSPSCredentials] GetAWSPSCredentials([Amazon.Runtime.AWSCredentials] $credentials, [string] $name, [string] $source)
+    {
+        [System.Type[]] $types = @([Amazon.Runtime.AWSCredentials], [string], [Amazon.PowerShell.Common.CredentialsSource])
+        $constructor = [Amazon.PowerShell.Common.AWSPSCredentials].GetConstructor([Reflection.BindingFlags] "NonPublic,Instance", $null, $types, $null)
+        return $constructor.Invoke(@($credentials, $name, [Amazon.PowerShell.Common.CredentialsSource] $source))
+    }
+
+    [Void] RegisterSAMLEndpoint($name, $endpointUri, $authenticationType)
+    {
+        $endpoint = New-Object Amazon.Runtime.CredentialManagement.SAMLEndpoint($name, $endpointUri, $authenticationType)
+        (New-Object Amazon.Runtime.CredentialManagement.SAMLEndpointManager).RegisterEndpoint($endpoint)
+    }
 }
-
-
-
-
-

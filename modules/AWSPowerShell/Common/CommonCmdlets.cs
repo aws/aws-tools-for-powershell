@@ -28,6 +28,7 @@ using System.Reflection;
 using Amazon.Util.Internal;
 using Amazon.Util;
 using Amazon.PowerShell.Utils;
+using Amazon.Runtime.CredentialManagement.Internal;
 
 namespace Amazon.PowerShell.Common
 {
@@ -38,7 +39,7 @@ namespace Amazon.PowerShell.Common
     /// from:
     /// <ul>
     /// <li>Supplied access and secret key parameters for AWS credentials</li>
-    /// <li>A pre-existing profile (an AWS credentials or SAML role profile can be specified)</li>
+    /// <li>A pre-existing profile</li>
     /// <li>A credentials object</li>
     /// <li>Active credentials in the current shell (in the variable $StoredAWSCredentials)</li>
     /// <li>EC2 role metadata (for instances launched with instance profiles)</li>
@@ -63,14 +64,14 @@ namespace Amazon.PowerShell.Common
     /// The active region can be found in the variable $StoredAWSRegion.
     /// </para>
     /// </summary>
-    [Cmdlet("Initialize", "AWSDefaults")]
+    [Cmdlet("Initialize", "AWSDefaults", DefaultParameterSetName = "RegionOnly")]
     [AWSCmdlet("Creates or updates the credential profile named 'default' using supplied keys, existing credentials or profile,"
                 + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
     {
-        private object Parameters { get; set; }
+        private AWSCommonArgumentsFull Parameters { get; set; }
 
         public const string CredentialsPrompt = "Please choose one of the following stored credentials to use";
         public const string RegionPrompt = "Please choose one of the following regions to use or specify one by system name";
@@ -90,31 +91,26 @@ namespace Amazon.PowerShell.Common
             // Retrieve credentials if passed in (or from Instance Profile)
             RegionEndpoint passedRegion = null;
             AWSPSCredentials passedCredentials = null;
-            var commonArguments = Parameters as IAWSCommonArguments;
-            if (commonArguments != null)
+            if (Parameters.TryGetCredentials(Host, out passedCredentials))
             {
-                if (commonArguments.TryGetCredentials(Host, out passedCredentials))
-                {
-                    WriteVerbose(string.Format("{0}: Credentials for this shell were set from {1}",
-                                               MyInvocation.MyCommand.Name,
-                                               ServiceCmdlet.FormatCredentialSourceForDisplay(passedCredentials)));
-                }
+                WriteVerbose(string.Format("{0}: Credentials for this shell were set from {1}",
+                                            MyInvocation.MyCommand.Name,
+                                            ServiceCmdlet.FormatCredentialSourceForDisplay(passedCredentials)));
+            }
 
-
-                RegionSource regionSource;
-                if (commonArguments.TryGetRegion(true, out passedRegion, out regionSource))
-                {
-                    WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell from {2}",
-                                                MyInvocation.MyCommand.Name,
-                                                passedRegion.SystemName,
-                                                ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
-                }
+            RegionSource regionSource;
+            if (Parameters.TryGetRegion(true, out passedRegion, out regionSource))
+            {
+                WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell from {2}",
+                                            MyInvocation.MyCommand.Name,
+                                            passedRegion.SystemName,
+                                            ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
             }
 
             PersistedCredentialProfile persistedProfile;
             AWSPSCredentials defaultAWSPSCredentials = null;
             RegionEndpoint region = null;
-            if (SettingsStore.TryGetPersistedProfile(SettingsStore.PSDefaultSettingName, commonArguments.ProfilesLocation, out persistedProfile))
+            if (SettingsStore.TryGetPersistedProfile(SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, out persistedProfile))
             {
                 AWSCredentials defaultAWSCredentials;
                 if (persistedProfile.TryGetAWSCredentials(out defaultAWSCredentials))
@@ -124,17 +120,17 @@ namespace Amazon.PowerShell.Common
                 region = persistedProfile.Profile.Region;
             }
 
-            var shouldSaveCredentials = GetCredentials(passedCredentials, commonArguments.ProfilesLocation, ref defaultAWSPSCredentials);
+            var shouldSaveCredentials = GetCredentials(passedCredentials, Parameters.ProfileLocation, ref defaultAWSPSCredentials);
             var shouldSaveRegion = GetRegion(passedRegion, ref region);
 
             if (shouldSaveCredentials || shouldSaveRegion)
             {
-                SettingsStore.SaveAWSCredentialProfile(commonArguments.GetCredentialProfileOptions(),
-                    SettingsStore.PSDefaultSettingName, commonArguments.ProfilesLocation, region);
-                if (string.IsNullOrEmpty(commonArguments.ProfilesLocation))
+                SettingsStore.RegisterProfile(Parameters.GetCredentialProfileOptions(),
+                    SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, region);
+                if (string.IsNullOrEmpty(Parameters.ProfileLocation))
                     WriteVerbose("Updated SDK profile store.");
                 else
-                    WriteVerbose("Updated credential file at " + commonArguments.ProfilesLocation);
+                    WriteVerbose("Updated credential file at " + Parameters.ProfileLocation);
 
                 WriteVerbose(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
             }
@@ -187,7 +183,7 @@ namespace Amazon.PowerShell.Common
             return true;
         }
 
-        private bool GetCredentials(AWSPSCredentials passedCredentials, string profilesLocation, ref AWSPSCredentials credentialsToUse)
+        private bool GetCredentials(AWSPSCredentials passedCredentials, string profileLocation, ref AWSPSCredentials credentialsToUse)
         {
             // If default is already set and no credentials are passed in, exit
             if (credentialsToUse != null && passedCredentials == null)
@@ -203,15 +199,15 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                var storedCredentials = SettingsStore.GetDisplayNames(profilesLocation);
+                var storedCredentials = SettingsStore.GetProfileInfo(profileLocation);
                 if (storedCredentials.Any())
                 {
                     // If there are stored credentials, ask user which ones to use, or enter new ones
                     var choices = new Collection<ChoiceDescription>();
                     choices.Add(new ChoiceDescription("<Create new credentials set>"));
-                    foreach (var cred in storedCredentials)
+                    foreach (var profileInfo in storedCredentials)
                     {
-                        choices.Add(new ChoiceDescription(cred));
+                        choices.Add(new ChoiceDescription(profileInfo.ProfileName, profileInfo.ProfileLocation));
                     }
 
                     var choice = Host.UI.PromptForChoice("Saved credentials found", CredentialsPrompt, choices, 0);
@@ -219,7 +215,7 @@ namespace Amazon.PowerShell.Common
                     {
                         var chosenCredentials = choices[choice];
                         PersistedCredentialProfile persistedProfile = null;
-                        if (SettingsStore.TryGetPersistedProfile(chosenCredentials.Label, profilesLocation, out persistedProfile))
+                        if (SettingsStore.TryGetPersistedProfile(chosenCredentials.Label, profileLocation, out persistedProfile))
                         {
                             AWSCredentials awsCredentials;
                             if (persistedProfile.TryGetAWSCredentials(out awsCredentials))
@@ -305,18 +301,18 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Parameter]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
 
         protected override void ProcessRecord()
         {
             if (!SkipProfileStore.IsPresent)
             {
                 // Remove stored credentials
-                SettingsStore.Delete(SettingsStore.PSDefaultSettingName, ProfilesLocation);
+                SettingsStore.UnregisterProfile(SettingsStore.PSDefaultSettingName, ProfileLocation);
 
                 // Remove stored legacy credentials
-                SettingsStore.Delete(SettingsStore.PSLegacyDefaultSettingName, ProfilesLocation);
+                SettingsStore.UnregisterProfile(SettingsStore.PSLegacyDefaultSettingName, ProfileLocation);
             }
 
             if (!SkipShell.IsPresent)

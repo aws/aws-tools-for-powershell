@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PemFile { get; set; }
         #endregion
 
-        #region Parameter ProfilesLocation
+        #region Parameter ProfileLocation
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        [Alias("AWSProfilesLocation", "ProfileLocation")]
-        public string ProfilesLocation { get; set; }
+        [Alias("AWSProfilesLocation", "ProfilesLocation")]
+        public string ProfileLocation { get; set; }
         #endregion
 
         protected override void ProcessRecord()
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                                   InstanceId = this.InstanceId,
                                   Decrypt = this.Decrypt.IsPresent || !string.IsNullOrEmpty(this.PemFile),
                                   PemFile = this.PemFile,
-                                  ProfilesLocation = this.ProfilesLocation
+                                  ProfileLocation = this.ProfileLocation
                               };
 
             // specifying a pem file implies the user wants the password decrypted
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     output = new CmdletOutput
                     {
                         PipelineOutput = string.IsNullOrEmpty(cmdletContext.PemFile)
-                            ? DecryptViaPemDiscovery(cmdletContext.InstanceId, response, cmdletContext.ProfilesLocation)
+                            ? DecryptViaPemDiscovery(cmdletContext.InstanceId, response, cmdletContext.ProfileLocation)
                             : DecryptViaPemFile(cmdletContext.PemFile, response)
                     };
                 }
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <param name="instanceId">The instance the user wants the password for</param>
         /// <param name="passwordDataResponse">Encrypted password data retrieved from the instance</param>
         /// <returns>The decrypted password</returns>
-        string DecryptViaPemDiscovery(string instanceId, GetPasswordDataResponse passwordDataResponse, string profilesLocation)
+        string DecryptViaPemDiscovery(string instanceId, GetPasswordDataResponse passwordDataResponse, string profileLocation)
         {
             string decryptedPassword = null;
             try
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 string keyName = response.Reservations[0].Instances[0].KeyName;
 
                 WriteVerbose(string.Format("Retrieved keyname {0}, decrypting password data", keyName));
-                string accountSettingsKey = LookupAccountSettingsKey(this.CurrentCredentials.GetCredentials().AccessKey, profilesLocation);
+                string accountSettingsKey = LookupAccountSettingsKey(this.CurrentCredentials.GetCredentials().AccessKey, profileLocation);
                 if (string.IsNullOrEmpty(accountSettingsKey))
                     throw new InvalidOperationException("Unable to determine stored account settings from access key");
 
@@ -244,11 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// access key
         /// </summary>
         /// <param name="accessKey"></param>
-        /// <param name="profilesLocation"></param>
+        /// <param name="profileLocation"></param>
         /// <returns></returns>
-        string LookupAccountSettingsKey(string accessKey, string profilesLocation)
+        string LookupAccountSettingsKey(string accessKey, string profileLocation)
         {
-            var persistedProfile = SettingsStore.ListPersistedProfiles(profilesLocation).Where(
+            var persistedProfile = SettingsStore.ListPersistedProfiles(profileLocation).Where(
                 p => p.Profile.CanCreateAWSCredentials && string.Equals(p.Profile.Options.AccessKey, accessKey, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             if (persistedProfile != null)
@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public String InstanceId { get; set; }
             public bool Decrypt { get; set; }
             public string PemFile { get; set; }
-            public string ProfilesLocation { get; set; }
+            public string ProfileLocation { get; set; }
         }
     }
 }
