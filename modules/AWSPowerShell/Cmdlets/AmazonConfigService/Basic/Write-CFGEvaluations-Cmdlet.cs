@@ -65,6 +65,21 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String ResultToken { get; set; }
         #endregion
         
+        #region Parameter TestMode
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to specify a test run for <code>PutEvaluations</code>. You can
+        /// verify whether your AWS Lambda function will deliver evaluation results to AWS Config.
+        /// No updates occur to your existing evaluations, and evaluation results are not sent
+        /// to AWS Config.</para><note><para>When <code>TestMode</code> is <code>true</code>, <code>PutEvaluations</code> doesn't
+        /// require a valid value for the <code>ResultToken</code> parameter, but the value cannot
+        /// be null.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean TestMode { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -99,6 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.Evaluations = new List<Amazon.ConfigService.Model.Evaluation>(this.Evaluation);
             }
             context.ResultToken = this.ResultToken;
+            if (ParameterWasBound("TestMode"))
+                context.TestMode = this.TestMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.ResultToken != null)
             {
                 request.ResultToken = cmdletContext.ResultToken;
+            }
+            if (cmdletContext.TestMode != null)
+            {
+                request.TestMode = cmdletContext.TestMode.Value;
             }
             
             CmdletOutput output;
@@ -176,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             public List<Amazon.ConfigService.Model.Evaluation> Evaluations { get; set; }
             public System.String ResultToken { get; set; }
+            public System.Boolean? TestMode { get; set; }
         }
         
     }
