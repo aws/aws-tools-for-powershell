@@ -28,10 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a hosted connection on an interconnect.
+    /// Deprecated in favor of <a>AllocateHostedConnection</a>.
     /// 
     ///  
     /// <para>
+    /// Creates a hosted connection on an interconnect.
+    /// </para><para>
     /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
     /// on the given interconnect.
     /// </para><note><para>
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para><para>Values: 50M, 100M, 200M, 300M, 400M, or 500M</para>
+        /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para><para>Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

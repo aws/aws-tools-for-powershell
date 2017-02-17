@@ -28,65 +28,64 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deprecated in favor of <a>DescribeLoa</a>.
+    /// Associates a hosted connection and its virtual interfaces with a link aggregation
+    /// group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
+    /// connection with a conflicting VLAN number or IP address, the operation fails. This
+    /// action temporarily interrupts the hosted connection's connectivity to AWS as it is
+    /// being migrated.
     /// 
-    ///  
-    /// <para>
-    /// Returns the LOA-CFA for an Interconnect.
-    /// </para><para>
-    /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
-    /// that is used when establishing your cross connect to AWS at the colocation facility.
-    /// For more information, see <a href="http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
-    /// Cross Connects at AWS Direct Connect Locations</a> in the AWS Direct Connect user
-    /// guide.
-    /// </para>
+    ///  <note><para>
+    /// This is intended for use by AWS Direct Connect partners only.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "DCInterconnectLoa")]
-    [OutputType("Amazon.DirectConnect.Model.Loa")]
-    [AWSCmdlet("Invokes the DescribeInterconnectLoa operation against AWS Direct Connect.", Operation = new[] {"DescribeInterconnectLoa"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.Loa",
-        "This cmdlet returns a Loa object.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DirectConnect.Model.AssociateHostedConnectionResponse")]
+    [AWSCmdlet("Invokes the AssociateHostedConnection operation against AWS Direct Connect.", Operation = new[] {"AssociateHostedConnection"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateHostedConnectionResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.AssociateHostedConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDCInterconnectLoaCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class RegisterDCHostedConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter InterconnectId
+        #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the hosted connection.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InterconnectId { get; set; }
+        public System.String ConnectionId { get; set; }
         #endregion
         
-        #region Parameter LoaContentType
+        #region Parameter ParentConnectionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the interconnect or the LAG.</para><para>Example: dxcon-abc123 or dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.DirectConnect.LoaContentType")]
-        public Amazon.DirectConnect.LoaContentType LoaContentType { get; set; }
+        public System.String ParentConnectionId { get; set; }
         #endregion
         
-        #region Parameter ProviderName
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The name of the service provider who establishes connectivity on your behalf. If you
-        /// supply this parameter, the LOA-CFA lists the provider name alongside your company
-        /// name as the requester of the cross connect.</para><para>Default: None</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProviderName { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConnectionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-DCHostedConnection (AssociateHostedConnection)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -97,9 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.InterconnectId = this.InterconnectId;
-            context.LoaContentType = this.LoaContentType;
-            context.ProviderName = this.ProviderName;
+            context.ConnectionId = this.ConnectionId;
+            context.ParentConnectionId = this.ParentConnectionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -114,19 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.DescribeInterconnectLoaRequest();
+            var request = new Amazon.DirectConnect.Model.AssociateHostedConnectionRequest();
             
-            if (cmdletContext.InterconnectId != null)
+            if (cmdletContext.ConnectionId != null)
             {
-                request.InterconnectId = cmdletContext.InterconnectId;
+                request.ConnectionId = cmdletContext.ConnectionId;
             }
-            if (cmdletContext.LoaContentType != null)
+            if (cmdletContext.ParentConnectionId != null)
             {
-                request.LoaContentType = cmdletContext.LoaContentType;
-            }
-            if (cmdletContext.ProviderName != null)
-            {
-                request.ProviderName = cmdletContext.ProviderName;
+                request.ParentConnectionId = cmdletContext.ParentConnectionId;
             }
             
             CmdletOutput output;
@@ -137,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Loa;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -162,13 +156,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeInterconnectLoaRequest request)
+        private static Amazon.DirectConnect.Model.AssociateHostedConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateHostedConnectionRequest request)
         {
             #if DESKTOP
-            return client.DescribeInterconnectLoa(request);
+            return client.AssociateHostedConnection(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeInterconnectLoaAsync(request);
+            var task = client.AssociateHostedConnectionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -179,9 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InterconnectId { get; set; }
-            public Amazon.DirectConnect.LoaContentType LoaContentType { get; set; }
-            public System.String ProviderName { get; set; }
+            public System.String ConnectionId { get; set; }
+            public System.String ParentConnectionId { get; set; }
         }
         
     }

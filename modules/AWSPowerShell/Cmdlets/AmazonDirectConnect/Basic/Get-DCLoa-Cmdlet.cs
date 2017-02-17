@@ -28,12 +28,10 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deprecated in favor of <a>DescribeLoa</a>.
+    /// Returns the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).
     /// 
     ///  
     /// <para>
-    /// Returns the LOA-CFA for an Interconnect.
-    /// </para><para>
     /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
     /// that is used when establishing your cross connect to AWS at the colocation facility.
     /// For more information, see <a href="http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
@@ -41,30 +39,30 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// guide.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "DCInterconnectLoa")]
-    [OutputType("Amazon.DirectConnect.Model.Loa")]
-    [AWSCmdlet("Invokes the DescribeInterconnectLoa operation against AWS Direct Connect.", Operation = new[] {"DescribeInterconnectLoa"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.Loa",
-        "This cmdlet returns a Loa object.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DCLoa")]
+    [OutputType("Amazon.DirectConnect.Model.DescribeLoaResponse")]
+    [AWSCmdlet("Invokes the DescribeLoa operation against AWS Direct Connect.", Operation = new[] {"DescribeLoa"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.DescribeLoaResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.DescribeLoaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDCInterconnectLoaCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class GetDCLoaCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter InterconnectId
+        #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information.</para><para>Example: dxcon-abc123 or dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InterconnectId { get; set; }
+        public System.String ConnectionId { get; set; }
         #endregion
         
         #region Parameter LoaContentType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A standard media type indicating the content type of the LOA-CFA document. Currently,
+        /// the only supported value is "application/pdf".</para><para>Default: application/pdf</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.InterconnectId = this.InterconnectId;
+            context.ConnectionId = this.ConnectionId;
             context.LoaContentType = this.LoaContentType;
             context.ProviderName = this.ProviderName;
             
@@ -114,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.DescribeInterconnectLoaRequest();
+            var request = new Amazon.DirectConnect.Model.DescribeLoaRequest();
             
-            if (cmdletContext.InterconnectId != null)
+            if (cmdletContext.ConnectionId != null)
             {
-                request.InterconnectId = cmdletContext.InterconnectId;
+                request.ConnectionId = cmdletContext.ConnectionId;
             }
             if (cmdletContext.LoaContentType != null)
             {
@@ -137,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Loa;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -162,13 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeInterconnectLoaRequest request)
+        private static Amazon.DirectConnect.Model.DescribeLoaResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeLoaRequest request)
         {
             #if DESKTOP
-            return client.DescribeInterconnectLoa(request);
+            return client.DescribeLoa(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeInterconnectLoaAsync(request);
+            var task = client.DescribeLoaAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -179,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InterconnectId { get; set; }
+            public System.String ConnectionId { get; set; }
             public Amazon.DirectConnect.LoaContentType LoaContentType { get; set; }
             public System.String ProviderName { get; set; }
         }

@@ -28,80 +28,73 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new interconnect between a AWS Direct Connect partner's network and a specific
-    /// AWS Direct Connect location.
+    /// Creates a hosted connection on an interconnect or a link aggregation group (LAG).
     /// 
     ///  
     /// <para>
-    /// An interconnect is a connection which is capable of hosting other connections. The
-    /// AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct
-    /// Connect service to tier 2 customers who do not have their own connections. Like a
-    /// standard connection, an interconnect links the AWS Direct Connect partner's network
-    /// to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic
-    /// cable. One end is connected to the partner's router, the other to an AWS Direct Connect
-    /// router.
-    /// </para><para>
-    /// You can automatically add the new interconnect to a link aggregation group (LAG) by
-    /// specifying a LAG ID in the request. This ensures that the new interconnect is allocated
-    /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
-    /// no available ports on the endpoint, the request fails and no interconnect will be
-    /// created.
-    /// </para><para>
-    /// For each end customer, the AWS Direct Connect partner provisions a connection on their
-    /// interconnect by calling AllocateConnectionOnInterconnect. The end customer can then
-    /// connect to AWS resources by creating a virtual interface on their connection, using
-    /// the VLAN assigned to them by the AWS Direct Connect partner.
+    /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
+    /// on the given interconnect or LAG.
     /// </para><note><para>
     /// This is intended for use by AWS Direct Connect partners only.
     /// </para></note>
     /// </summary>
-    [Cmdlet("New", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.CreateInterconnectResponse")]
-    [AWSCmdlet("Invokes the CreateInterconnect operation against AWS Direct Connect.", Operation = new[] {"CreateInterconnect"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateInterconnectResponse",
-        "This cmdlet returns a Amazon.DirectConnect.Model.CreateInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DirectConnect.Model.AllocateHostedConnectionResponse")]
+    [AWSCmdlet("Invokes the AllocateHostedConnection operation against AWS Direct Connect.", Operation = new[] {"AllocateHostedConnection"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocateHostedConnectionResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.AllocateHostedConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class NewDCHostedConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>The port bandwidth</para><para>Example: 1Gbps</para><para>Default: None</para><para>Available values: 1Gbps,10Gbps</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String Bandwidth { get; set; }
-        #endregion
-        
-        #region Parameter InterconnectName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the interconnect.</para><para>Example: "<i>1G Interconnect to AWS</i>"</para><para>Default: None</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String InterconnectName { get; set; }
-        #endregion
-        
-        #region Parameter LagId
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The bandwidth of the connection.</para><para>Example: <code>500Mbps</code></para><para>Default: None</para><para>Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String LagId { get; set; }
+        public System.String Bandwidth { get; set; }
         #endregion
         
-        #region Parameter Location
+        #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>Where the interconnect is located</para><para>Example: EqSV5</para><para>Default: None</para>
+        /// <para>The ID of the interconnect or LAG on which the connection will be provisioned.</para><para>Example: dxcon-456abc78 or dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public System.String Location { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ConnectionId { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the provisioned connection.</para><para>Example: "<code>500M Connection to AWS</code>"</para><para>Default: None</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ConnectionName { get; set; }
+        #endregion
+        
+        #region Parameter OwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The numeric account ID of the customer for whom the connection will be provisioned.</para><para>Example: 123443215678</para><para>Default: None</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OwnerAccount { get; set; }
+        #endregion
+        
+        #region Parameter Vlan
+        /// <summary>
+        /// <para>
+        /// <para>The dedicated VLAN provisioned to the hosted connection.</para><para>Example: 101</para><para>Default: None</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Vlan { get; set; }
         #endregion
         
         #region Parameter Force
@@ -118,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InterconnectName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DCInterconnect (CreateInterconnect)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConnectionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DCHostedConnection (AllocateHostedConnection)"))
             {
                 return;
             }
@@ -134,9 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
             PreExecutionContextLoad(context);
             
             context.Bandwidth = this.Bandwidth;
-            context.InterconnectName = this.InterconnectName;
-            context.LagId = this.LagId;
-            context.Location = this.Location;
+            context.ConnectionId = this.ConnectionId;
+            context.ConnectionName = this.ConnectionName;
+            context.OwnerAccount = this.OwnerAccount;
+            if (ParameterWasBound("Vlan"))
+                context.Vlan = this.Vlan;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,23 +146,27 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.CreateInterconnectRequest();
+            var request = new Amazon.DirectConnect.Model.AllocateHostedConnectionRequest();
             
             if (cmdletContext.Bandwidth != null)
             {
                 request.Bandwidth = cmdletContext.Bandwidth;
             }
-            if (cmdletContext.InterconnectName != null)
+            if (cmdletContext.ConnectionId != null)
             {
-                request.InterconnectName = cmdletContext.InterconnectName;
+                request.ConnectionId = cmdletContext.ConnectionId;
             }
-            if (cmdletContext.LagId != null)
+            if (cmdletContext.ConnectionName != null)
             {
-                request.LagId = cmdletContext.LagId;
+                request.ConnectionName = cmdletContext.ConnectionName;
             }
-            if (cmdletContext.Location != null)
+            if (cmdletContext.OwnerAccount != null)
             {
-                request.Location = cmdletContext.Location;
+                request.OwnerAccount = cmdletContext.OwnerAccount;
+            }
+            if (cmdletContext.Vlan != null)
+            {
+                request.Vlan = cmdletContext.Vlan.Value;
             }
             
             CmdletOutput output;
@@ -203,13 +202,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.CreateInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreateInterconnectRequest request)
+        private static Amazon.DirectConnect.Model.AllocateHostedConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AllocateHostedConnectionRequest request)
         {
             #if DESKTOP
-            return client.CreateInterconnect(request);
+            return client.AllocateHostedConnection(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateInterconnectAsync(request);
+            var task = client.AllocateHostedConnectionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -221,9 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal class CmdletContext : ExecutorContext
         {
             public System.String Bandwidth { get; set; }
-            public System.String InterconnectName { get; set; }
-            public System.String LagId { get; set; }
-            public System.String Location { get; set; }
+            public System.String ConnectionId { get; set; }
+            public System.String ConnectionName { get; set; }
+            public System.String OwnerAccount { get; set; }
+            public System.Int32? Vlan { get; set; }
         }
         
     }

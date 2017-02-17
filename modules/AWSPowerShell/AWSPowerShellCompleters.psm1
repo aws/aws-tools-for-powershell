@@ -1718,7 +1718,8 @@ $DC_Completers = {
         # Amazon.DirectConnect.LoaContentType
         {
             ($_ -eq "Get-DCConnectionLoa/LoaContentType") -Or
-            ($_ -eq "Get-DCInterconnectLoa/LoaContentType")
+            ($_ -eq "Get-DCInterconnectLoa/LoaContentType") -Or
+            ($_ -eq "Get-DCLoa/LoaContentType")
         }
         {
             $v = "application/pdf"
@@ -1733,7 +1734,7 @@ $DC_Completers = {
 }
 
 $DC_map = @{
-    "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa")
+    "LoaContentType"=@("Get-DCConnectionLoa","Get-DCInterconnectLoa","Get-DCLoa")
     "NewBGPPeer_AddressFamily"=@("New-DCBGPPeer")
     "NewPrivateVirtualInterface_AddressFamily"=@("New-DCPrivateVirtualInterface")
     "NewPrivateVirtualInterfaceAllocation_AddressFamily"=@("Enable-DCPrivateVirtualInterface")

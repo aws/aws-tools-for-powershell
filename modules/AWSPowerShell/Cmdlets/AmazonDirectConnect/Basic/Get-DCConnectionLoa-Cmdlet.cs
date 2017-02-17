@@ -28,10 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Returns the LOA-CFA for a Connection.
+    /// Deprecated in favor of <a>DescribeLoa</a>.
     /// 
     ///  
     /// <para>
+    /// Returns the LOA-CFA for a Connection.
+    /// </para><para>
     /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
     /// that your APN partner or service provider uses when establishing your cross connect
     /// to AWS at the colocation facility. For more information, see <a href="http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting

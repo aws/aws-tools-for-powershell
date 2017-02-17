@@ -16,30 +16,41 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Verb="Enable" Output="Response" PipelineParameter="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan"/>
+    <ServiceOperation MethodName="AllocateHostedConnection" PipelineParameter="ConnectionId" Output="Response" />
     <ServiceOperation MethodName="AllocatePrivateVirtualInterface" Verb="Enable" Output="Response" PipelineParameter="ConnectionId" PositionalParameters="OwnerAccount"/>
     <ServiceOperation MethodName="AllocatePublicVirtualInterface" Verb="Enable" Output="Response" PipelineParameter="ConnectionId" PositionalParameters="OwnerAccount"/>
+    <ServiceOperation MethodName="AssociateConnectionWithLag" Verb="Register" PipelineParameter="ConnectionId" Output="Response" />
+    <ServiceOperation MethodName="AssociateHostedConnection" Verb="Register" PipelineParameter="ConnectionId" Output="Response" />
+    <ServiceOperation MethodName="AssociateVirtualInterface" Verb="Register" PipelineParameter="VirtualInterfaceId" Output="Response" />
     <ServiceOperation MethodName="ConfirmConnection" />
     <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" PipelineParameter="VirtualInterfaceId" PositionalParameters="VirtualGatewayId"/>
     <ServiceOperation MethodName="ConfirmPublicVirtualInterface" />
     <ServiceOperation MethodName="CreateBGPPeer" PipelineParameter="VirtualInterfaceId"/>
     <ServiceOperation MethodName="CreateConnection" Output="Response" PipelineParameter="ConnectionName" PositionalParameters="Bandwidth;Location"/>
     <ServiceOperation MethodName="CreateInterconnect" Output="Response" PipelineParameter="InterconnectName" PositionalParameters="Bandwidth;Location"/>
+    <ServiceOperation MethodName="CreateLag" PipelineParameter="ConnectionId" Output="Response" />
     <ServiceOperation MethodName="CreatePrivateVirtualInterface" Output="Response" PipelineParameter="ConnectionId" />
     <ServiceOperation MethodName="CreatePublicVirtualInterface" Output="Response" PipelineParameter="ConnectionId"/>
     <ServiceOperation MethodName="DeleteBGPPeer" PipelineParameter="VirtualInterfaceId"/>
     <ServiceOperation MethodName="DeleteConnection" Output="Response" />
     <ServiceOperation MethodName="DeleteInterconnect" />
+    <ServiceOperation MethodName="DeleteLag" Output="Response" />
     <ServiceOperation MethodName="DeleteVirtualInterface" />
+    <ServiceOperation MethodName="DisassociateConnectionFromLag" Verb="Unregister" PipelineParameter="ConnectionId" Output="Response" />
     <ServiceOperation MethodName="DescribeConnections" />
     <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" />
     <ServiceOperation MethodName="DescribeConnectionLoa" PipelineParameter="ConnectionId"/>
+    <ServiceOperation MethodName="DescribeHostedConnections" Noun="HostedConnection" />
     <ServiceOperation MethodName="DescribeInterconnects" />
     <ServiceOperation MethodName="DescribeInterconnectLoa" PipelineParameter="InterconnectId"/>
+    <ServiceOperation MethodName="DescribeLags" Noun="Lag" />
+    <ServiceOperation MethodName="DescribeLoa" PipelineParameter="ConnectionId" Output="Response" />
     <ServiceOperation MethodName="DescribeLocations"/>
     <ServiceOperation MethodName="DescribeVirtualGateways"/>
     <ServiceOperation MethodName="DescribeVirtualInterfaces" PipelineParameter="ConnectionId" PositionalParameters="VirtualInterfaceId"/>
     <ServiceOperation MethodName="DescribeTags" Verb="Get" Noun="ResourceTag"/>
     <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="Resource" Output="Void"/>
+    <ServiceOperation MethodName="UpdateLag" PipelineParameter="LagId" Output="Response" />
     <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="Resource" Output="Void"/>
   </ServiceOperations>
 

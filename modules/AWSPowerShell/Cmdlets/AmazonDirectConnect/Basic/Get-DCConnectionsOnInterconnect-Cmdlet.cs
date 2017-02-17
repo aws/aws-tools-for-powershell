@@ -28,9 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Return a list of connections that have been provisioned on the given interconnect.
+    /// Deprecated in favor of <a>DescribeHostedConnections</a>.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Returns a list of connections that have been provisioned on the given interconnect.
+    /// </para><note><para>
     /// This is intended for use by AWS Direct Connect partners only.
     /// </para></note>
     /// </summary>

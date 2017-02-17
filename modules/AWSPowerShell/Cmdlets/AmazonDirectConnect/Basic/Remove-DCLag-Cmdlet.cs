@@ -28,50 +28,47 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer
-    /// than 15 minutes before you make the request are also returned. If you specify a connection
-    /// ID, only the virtual interfaces associated with the connection are returned. If you
-    /// specify a virtual interface ID, then only a single virtual interface is returned.
-    /// 
-    ///  
-    /// <para>
-    /// A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location
-    /// and the customer.
-    /// </para>
+    /// Deletes a link aggregation group (LAG). You cannot delete a LAG if it has active virtual
+    /// interfaces or hosted connections.
     /// </summary>
-    [Cmdlet("Get", "DCVirtualInterface")]
-    [OutputType("Amazon.DirectConnect.Model.VirtualInterface")]
-    [AWSCmdlet("Invokes the DescribeVirtualInterfaces operation against AWS Direct Connect.", Operation = new[] {"DescribeVirtualInterfaces"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualInterface",
-        "This cmdlet returns a collection of VirtualInterface objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeVirtualInterfacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.DirectConnect.Model.DeleteLagResponse")]
+    [AWSCmdlet("Invokes the DeleteLag operation against AWS Direct Connect.", Operation = new[] {"DeleteLag"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.DeleteLagResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.DeleteLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDCVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class RemoveDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ConnectionId
+        #region Parameter LagId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the LAG to delete.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ConnectionId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String LagId { get; set; }
         #endregion
         
-        #region Parameter VirtualInterfaceId
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String VirtualInterfaceId { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LagId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DCLag (DeleteLag)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -82,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ConnectionId = this.ConnectionId;
-            context.VirtualInterfaceId = this.VirtualInterfaceId;
+            context.LagId = this.LagId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -98,15 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.DescribeVirtualInterfacesRequest();
+            var request = new Amazon.DirectConnect.Model.DeleteLagRequest();
             
-            if (cmdletContext.ConnectionId != null)
+            if (cmdletContext.LagId != null)
             {
-                request.ConnectionId = cmdletContext.ConnectionId;
-            }
-            if (cmdletContext.VirtualInterfaceId != null)
-            {
-                request.VirtualInterfaceId = cmdletContext.VirtualInterfaceId;
+                request.LagId = cmdletContext.LagId;
             }
             
             CmdletOutput output;
@@ -117,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.VirtualInterfaces;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeVirtualInterfacesResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeVirtualInterfacesRequest request)
+        private static Amazon.DirectConnect.Model.DeleteLagResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DeleteLagRequest request)
         {
             #if DESKTOP
-            return client.DescribeVirtualInterfaces(request);
+            return client.DeleteLag(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeVirtualInterfacesAsync(request);
+            var task = client.DeleteLagAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -159,8 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionId { get; set; }
-            public System.String VirtualInterfaceId { get; set; }
+            public System.String LagId { get; set; }
         }
         
     }

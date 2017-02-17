@@ -28,71 +28,64 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates a new connection between the customer network and a specific AWS Direct Connect
-    /// location.
+    /// Updates the attributes of a link aggregation group (LAG). 
     /// 
     ///  
     /// <para>
-    /// A connection links your internal network to an AWS Direct Connect location over a
-    /// standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable
-    /// is connected to your router, the other to an AWS Direct Connect router. An AWS Direct
-    /// Connect location provides access to Amazon Web Services in the region it is associated
-    /// with. You can establish connections with AWS Direct Connect locations in multiple
-    /// regions, but a connection in one region does not provide connectivity to other regions.
-    /// </para><para>
-    /// You can automatically add the new connection to a link aggregation group (LAG) by
-    /// specifying a LAG ID in the request. This ensures that the new connection is allocated
-    /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
-    /// no available ports on the endpoint, the request fails and no connection will be created.
+    /// You can update the following attributes: 
+    /// </para><ul><li><para>
+    /// The name of the LAG.
+    /// </para></li><li><para>
+    /// The value for the minimum number of connections that must be operational for the LAG
+    /// itself to be operational. 
+    /// </para></li></ul><para>
+    /// When you create a LAG, the default value for the minimum number of operational connections
+    /// is zero (0). If you update this value, and the number of operational connections falls
+    /// below the specified value, the LAG will automatically go down to avoid overutilization
+    /// of the remaining connections. Adjusting this value should be done with care as it
+    /// could force the LAG down if the value is set higher than the current number of operational
+    /// connections.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.CreateConnectionResponse")]
-    [AWSCmdlet("Invokes the CreateConnection operation against AWS Direct Connect.", Operation = new[] {"CreateConnection"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateConnectionResponse",
-        "This cmdlet returns a Amazon.DirectConnect.Model.CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DirectConnect.Model.UpdateLagResponse")]
+    [AWSCmdlet("Invokes the UpdateLag operation against AWS Direct Connect.", Operation = new[] {"UpdateLag"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.UpdateLagResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.UpdateLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class UpdateDCLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
-        
-        #region Parameter Bandwidth
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String Bandwidth { get; set; }
-        #endregion
-        
-        #region Parameter ConnectionName
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ConnectionName { get; set; }
-        #endregion
         
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the LAG to update.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LagId { get; set; }
         #endregion
         
-        #region Parameter Location
+        #region Parameter LagName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name for the LAG.</para><para>Example: "<code>3x10G LAG to AWS</code>"</para><para>Default: None</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public System.String Location { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String LagName { get; set; }
+        #endregion
+        
+        #region Parameter MinimumLink
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of physical connections that must be operational for the LAG itself
+        /// to be operational.</para><para>Default: None</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MinimumLinks")]
+        public System.Int32 MinimumLink { get; set; }
         #endregion
         
         #region Parameter Force
@@ -109,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConnectionName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DCConnection (CreateConnection)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LagId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DCLag (UpdateLag)"))
             {
                 return;
             }
@@ -124,10 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Bandwidth = this.Bandwidth;
-            context.ConnectionName = this.ConnectionName;
             context.LagId = this.LagId;
-            context.Location = this.Location;
+            context.LagName = this.LagName;
+            if (ParameterWasBound("MinimumLink"))
+                context.MinimumLinks = this.MinimumLink;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,23 +135,19 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.CreateConnectionRequest();
+            var request = new Amazon.DirectConnect.Model.UpdateLagRequest();
             
-            if (cmdletContext.Bandwidth != null)
-            {
-                request.Bandwidth = cmdletContext.Bandwidth;
-            }
-            if (cmdletContext.ConnectionName != null)
-            {
-                request.ConnectionName = cmdletContext.ConnectionName;
-            }
             if (cmdletContext.LagId != null)
             {
                 request.LagId = cmdletContext.LagId;
             }
-            if (cmdletContext.Location != null)
+            if (cmdletContext.LagName != null)
             {
-                request.Location = cmdletContext.Location;
+                request.LagName = cmdletContext.LagName;
+            }
+            if (cmdletContext.MinimumLinks != null)
+            {
+                request.MinimumLinks = cmdletContext.MinimumLinks.Value;
             }
             
             CmdletOutput output;
@@ -194,13 +183,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.CreateConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreateConnectionRequest request)
+        private static Amazon.DirectConnect.Model.UpdateLagResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.UpdateLagRequest request)
         {
             #if DESKTOP
-            return client.CreateConnection(request);
+            return client.UpdateLag(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateConnectionAsync(request);
+            var task = client.UpdateLagAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -211,10 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Bandwidth { get; set; }
-            public System.String ConnectionName { get; set; }
             public System.String LagId { get; set; }
-            public System.String Location { get; set; }
+            public System.String LagName { get; set; }
+            public System.Int32? MinimumLinks { get; set; }
         }
         
     }

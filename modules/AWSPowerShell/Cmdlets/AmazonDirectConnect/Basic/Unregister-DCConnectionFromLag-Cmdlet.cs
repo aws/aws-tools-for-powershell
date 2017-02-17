@@ -28,65 +28,69 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deprecated in favor of <a>DescribeLoa</a>.
+    /// Disassociates a connection from a link aggregation group (LAG). The connection is
+    /// interrupted and re-established as a standalone connection (the connection is not deleted;
+    /// to delete the connection, use the <a>DeleteConnection</a> request). If the LAG has
+    /// associated virtual interfaces or hosted connections, they remain associated with the
+    /// LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically
+    /// converted to an interconnect.
     /// 
     ///  
     /// <para>
-    /// Returns the LOA-CFA for an Interconnect.
-    /// </para><para>
-    /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document
-    /// that is used when establishing your cross connect to AWS at the colocation facility.
-    /// For more information, see <a href="http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting
-    /// Cross Connects at AWS Direct Connect Locations</a> in the AWS Direct Connect user
-    /// guide.
+    /// If disassociating the connection will cause the LAG to fall below its setting for
+    /// minimum number of operational connections, the request fails, except when it's the
+    /// last member of the LAG. If all connections are disassociated, the LAG continues to
+    /// exist as an empty LAG with no physical connections. 
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "DCInterconnectLoa")]
-    [OutputType("Amazon.DirectConnect.Model.Loa")]
-    [AWSCmdlet("Invokes the DescribeInterconnectLoa operation against AWS Direct Connect.", Operation = new[] {"DescribeInterconnectLoa"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.Loa",
-        "This cmdlet returns a Loa object.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "DCConnectionFromLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse")]
+    [AWSCmdlet("Invokes the DisassociateConnectionFromLag operation against AWS Direct Connect.", Operation = new[] {"DisassociateConnectionFromLag"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDCInterconnectLoaCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class UnregisterDCConnectionFromLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter InterconnectId
+        #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the connection to disassociate from the LAG.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InterconnectId { get; set; }
+        public System.String ConnectionId { get; set; }
         #endregion
         
-        #region Parameter LoaContentType
+        #region Parameter LagId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the LAG.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.DirectConnect.LoaContentType")]
-        public Amazon.DirectConnect.LoaContentType LoaContentType { get; set; }
+        public System.String LagId { get; set; }
         #endregion
         
-        #region Parameter ProviderName
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The name of the service provider who establishes connectivity on your behalf. If you
-        /// supply this parameter, the LOA-CFA lists the provider name alongside your company
-        /// name as the requester of the cross connect.</para><para>Default: None</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProviderName { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConnectionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-DCConnectionFromLag (DisassociateConnectionFromLag)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -97,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.InterconnectId = this.InterconnectId;
-            context.LoaContentType = this.LoaContentType;
-            context.ProviderName = this.ProviderName;
+            context.ConnectionId = this.ConnectionId;
+            context.LagId = this.LagId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -114,19 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.DescribeInterconnectLoaRequest();
+            var request = new Amazon.DirectConnect.Model.DisassociateConnectionFromLagRequest();
             
-            if (cmdletContext.InterconnectId != null)
+            if (cmdletContext.ConnectionId != null)
             {
-                request.InterconnectId = cmdletContext.InterconnectId;
+                request.ConnectionId = cmdletContext.ConnectionId;
             }
-            if (cmdletContext.LoaContentType != null)
+            if (cmdletContext.LagId != null)
             {
-                request.LoaContentType = cmdletContext.LoaContentType;
-            }
-            if (cmdletContext.ProviderName != null)
-            {
-                request.ProviderName = cmdletContext.ProviderName;
+                request.LagId = cmdletContext.LagId;
             }
             
             CmdletOutput output;
@@ -137,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Loa;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -162,13 +161,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeInterconnectLoaResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeInterconnectLoaRequest request)
+        private static Amazon.DirectConnect.Model.DisassociateConnectionFromLagResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DisassociateConnectionFromLagRequest request)
         {
             #if DESKTOP
-            return client.DescribeInterconnectLoa(request);
+            return client.DisassociateConnectionFromLag(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeInterconnectLoaAsync(request);
+            var task = client.DisassociateConnectionFromLagAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -179,9 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InterconnectId { get; set; }
-            public Amazon.DirectConnect.LoaContentType LoaContentType { get; set; }
-            public System.String ProviderName { get; set; }
+            public System.String ConnectionId { get; set; }
+            public System.String LagId { get; set; }
         }
         
     }

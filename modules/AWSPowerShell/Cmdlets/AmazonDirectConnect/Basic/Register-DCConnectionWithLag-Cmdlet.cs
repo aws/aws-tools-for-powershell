@@ -28,50 +28,76 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer
-    /// than 15 minutes before you make the request are also returned. If you specify a connection
-    /// ID, only the virtual interfaces associated with the connection are returned. If you
-    /// specify a virtual interface ID, then only a single virtual interface is returned.
+    /// Associates an existing connection with a link aggregation group (LAG). The connection
+    /// is interrupted and re-established as a member of the LAG (connectivity to AWS will
+    /// be interrupted). The connection must be hosted on the same AWS Direct Connect endpoint
+    /// as the LAG, and its bandwidth must match the bandwidth for the LAG. You can reassociate
+    /// a connection that's currently associated with a different LAG; however, if removing
+    /// the connection will cause the original LAG to fall below its setting for minimum number
+    /// of operational connections, the request fails.
     /// 
     ///  
     /// <para>
-    /// A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location
-    /// and the customer.
+    /// Virtual interfaces that are directly associated with the connection are not automatically
+    /// migrated. You can delete them or associate them with the target LAG using <a>AssociateVirtualInterface</a>.
+    /// If the connection was originally associated with a different LAG, the virtual interfaces
+    /// remain associated with the original LAG.
+    /// </para><para>
+    /// For interconnects, hosted connections are not automatically migrated. You can delete
+    /// them, or the owner of the physical connection can associate them with the target LAG
+    /// using <a>AssociateHostedConnection</a>. After all hosted connections have been migrated,
+    /// the interconnect can be migrated into the LAG. If the interconnect is already associated
+    /// with a LAG, the hosted connections remain associated with the original LAG.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "DCVirtualInterface")]
-    [OutputType("Amazon.DirectConnect.Model.VirtualInterface")]
-    [AWSCmdlet("Invokes the DescribeVirtualInterfaces operation against AWS Direct Connect.", Operation = new[] {"DescribeVirtualInterfaces"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualInterface",
-        "This cmdlet returns a collection of VirtualInterface objects.",
-        "The service call response (type Amazon.DirectConnect.Model.DescribeVirtualInterfacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "DCConnectionWithLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse")]
+    [AWSCmdlet("Invokes the AssociateConnectionWithLag operation against AWS Direct Connect.", Operation = new[] {"AssociateConnectionWithLag"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse",
+        "This cmdlet returns a Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDCVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class RegisterDCConnectionWithLagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the connection.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ConnectionId { get; set; }
         #endregion
         
-        #region Parameter VirtualInterfaceId
+        #region Parameter LagId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The ID of the LAG with which to associate the connection.</para><para>Example: dxlag-abc123</para><para>Default: None</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String VirtualInterfaceId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String LagId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ConnectionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-DCConnectionWithLag (AssociateConnectionWithLag)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -83,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             PreExecutionContextLoad(context);
             
             context.ConnectionId = this.ConnectionId;
-            context.VirtualInterfaceId = this.VirtualInterfaceId;
+            context.LagId = this.LagId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -98,15 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.DescribeVirtualInterfacesRequest();
+            var request = new Amazon.DirectConnect.Model.AssociateConnectionWithLagRequest();
             
             if (cmdletContext.ConnectionId != null)
             {
                 request.ConnectionId = cmdletContext.ConnectionId;
             }
-            if (cmdletContext.VirtualInterfaceId != null)
+            if (cmdletContext.LagId != null)
             {
-                request.VirtualInterfaceId = cmdletContext.VirtualInterfaceId;
+                request.LagId = cmdletContext.LagId;
             }
             
             CmdletOutput output;
@@ -117,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.VirtualInterfaces;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,13 +168,13 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeVirtualInterfacesResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeVirtualInterfacesRequest request)
+        private static Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateConnectionWithLagRequest request)
         {
             #if DESKTOP
-            return client.DescribeVirtualInterfaces(request);
+            return client.AssociateConnectionWithLag(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeVirtualInterfacesAsync(request);
+            var task = client.AssociateConnectionWithLagAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal class CmdletContext : ExecutorContext
         {
             public System.String ConnectionId { get; set; }
-            public System.String VirtualInterfaceId { get; set; }
+            public System.String LagId { get; set; }
         }
         
     }
