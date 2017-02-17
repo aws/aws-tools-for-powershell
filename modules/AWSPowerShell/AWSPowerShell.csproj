@@ -139,7 +139,7 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.0.9\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.5.4\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.5.5\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.7\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -244,13 +244,13 @@
       <HintPath>..\..\packages\AWSSDK.Core.3.3.8.1\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.5.1\lib\net35\AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.6\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.2.4\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.3.1.2\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.3.2\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>..\..\packages\AWSSDK.CodePipeline.3.3.0.9\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
