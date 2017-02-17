@@ -57,7 +57,7 @@
 		"AWSSDK.ImportExport": "3.3.0.7",
 		"AWSSDK.Inspector": "3.3.0.9",
 		"AWSSDK.IoT": "3.3.1.6",
-		"AWSSDK.KeyManagementService": "3.3.1.9",
+		"AWSSDK.KeyManagementService": "3.3.2",
 		"AWSSDK.Kinesis": "3.3.1.4",
 		"AWSSDK.KinesisAnalytics": "3.3.0.8",
 		"AWSSDK.KinesisFirehose": "3.3.1.2",

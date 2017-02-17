@@ -172,7 +172,7 @@
       <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.1.4\lib\net35\AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.1.9\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.2\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>..\..\packages\AWSSDK.IoT.3.3.1.6\lib\net35\AWSSDK.IoT.dll</HintPath>
