@@ -38,7 +38,7 @@
 		"AWSSDK.DatabaseMigrationService": "3.3.1.2",
 		"AWSSDK.DataPipeline": "3.3.0.7",
 		"AWSSDK.DeviceFarm": "3.3.0.8",
-		"AWSSDK.DirectConnect": "3.3.2.4",
+		"AWSSDK.DirectConnect": "3.3.3",
 		"AWSSDK.DirectoryService": "3.3.1.6",
 		"AWSSDK.DynamoDBv2": "3.3.2.1",
 		"AWSSDK.EC2": "3.3.8",

@@ -229,7 +229,7 @@
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.1.6\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
-      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.2.4\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.3\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.0.8\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
