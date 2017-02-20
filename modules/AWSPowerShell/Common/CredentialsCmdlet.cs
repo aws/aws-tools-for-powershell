@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Common
                 }
 
                 if (names.Count > 0)
-                    WriteObject(names);
+                    WriteObject(names, true);
 
                 return;
             }
