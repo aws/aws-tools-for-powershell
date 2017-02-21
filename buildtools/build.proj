@@ -120,7 +120,7 @@
 
 		<!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(DesktopDeploymentArtifacts)\AWSPowerShell.dll-Help.xml" 
-              DestinationFolder="$(NetCoreDeploymentArtifacts)"
+              DestinationFiles="$(NetCoreDeploymentArtifacts)\AWSPowerShell.NetCore.dll-Help.xml"
 			  />
 		 
 	</Target>
@@ -295,7 +295,7 @@
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMSigningCertificate.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Publish-IAMSigningCertificate.xml" />
             <PrivateKeyException Include="Deployment\AWSPowerShell\AWSPowerShell.dll-Help.xml" />
-            <PrivateKeyException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.dll-Help.xml" />
+            <PrivateKeyException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.dll-Help.xml" />
             <PrivateKeyException Include="DocDeployment\docs\items\New-EC2KeyPair.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMServerCertificate.html" />
             <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
