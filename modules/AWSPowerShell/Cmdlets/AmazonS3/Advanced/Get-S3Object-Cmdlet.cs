@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ParamSet_SingleObject = "SingleObjectParamSet";
-        const string ParamSet_MultipleObject = "MultiObjectParamSet";
+        const string ParamSet_SingleObject = "GetSingleObject";
+        const string ParamSet_MultipleObject = "GetMultipleObjects";
 
         #region Bucket/overall Params
 

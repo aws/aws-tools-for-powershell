@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     )]
     public partial class RestartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
-        const string RequestObjectParameterSet = "RequestObjectSet";
-        const string WorkspaceIdParameterSet = "IdParameterSet";
+        const string RequestObjectParameterSet = "IdFromRequestObject";
+        const string WorkspaceIdParameterSet = "SimpleId";
         
         #region Parameter Request
         /// <summary>

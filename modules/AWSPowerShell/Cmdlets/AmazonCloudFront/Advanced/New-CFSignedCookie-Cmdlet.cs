@@ -27,7 +27,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Creates signed cookies that grants universal access to private content until a given date (using a canned policy) 
     /// or tailored access to private content based on an access time window and ip range.
     /// </summary>
-    [Cmdlet("New", "CFSignedCookie", DefaultParameterSetName = "FromUrlParameterSet")]
+    [Cmdlet("New", "CFSignedCookie", DefaultParameterSetName = CannedPolicyParameterSet)]
     [OutputType(typeof(CookiesForCannedPolicy), typeof(CookiesForCustomPolicy))]
     [AWSCmdlet("Creates signed cookies that grants universal access to private content until a given date (using a canned policy)" + 
                " or tailored access to private content based on an access time window and ip range.")]
@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class NewCFSignedCookieCmdlet : BaseCmdlet
     {
-        private const string CannedPolicyParameterSet = "CannedPolicyParameterSet";
-        private const string CustomPolicyParameterSet = "CustomPolicyParameterSet";
+        private const string CannedPolicyParameterSet = "CannedPolicy";
+        private const string CustomPolicyParameterSet = "CustomPolicy";
 
         #region Parameter ResourceUri
         /// <summary>
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// URL, and instead the resource path is nothing but the stream's
         /// name.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.Uri ResourceUri { get; set; }
         #endregion
 
@@ -61,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// The key pair id corresponding to the private key file given.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.String KeyPairId { get; set; }
         #endregion
 
@@ -69,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// The private key file. RSA private key (.pem) are supported.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.String PrivateKeyFile { get; set; }
         #endregion
 
@@ -77,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// The expiration date till which content can be accessed using the generated cookies.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.DateTime ExpiresOn { get; set; }
         #endregion
 

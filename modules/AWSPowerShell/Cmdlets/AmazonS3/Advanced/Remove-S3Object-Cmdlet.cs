@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectResponse instance if deleting a single object or Amazon.S3.Model.DeleteObjectsResponse instance for multi-object delete.")]
     public class RemoveS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ParamSet_SingleObject = "SingleObjDeleteSet";
-        const string Paramset_MultipleObject = "MultiObjDeleteSet";
+        const string ParamSet_SingleObject = "SingleObjectDelete";
+        const string Paramset_MultipleObject = "MultipleObjectDelete";
 
         #region Parameter BucketName
         /// <summary>

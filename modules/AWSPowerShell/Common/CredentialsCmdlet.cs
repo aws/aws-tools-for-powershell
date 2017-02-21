@@ -401,8 +401,8 @@ namespace Amazon.PowerShell.Common
     {
         public const string RolePrompt = "Select the role to be assumed when this profile is active";
 
-        private const string StoreAllRolesParameterSet = "StoreAllRolesSet";
-        private const string StoreOneRoleParameterSet = "StoreOneRoleSet";
+        private const string StoreAllRolesParameterSet = "StoreAllRoles";
+        private const string StoreOneRoleParameterSet = "StoreOneRole";
 
         /// <summary>
         /// The name assigned to the endpoint definition that was previously registered using Set-AWSSamlEndpoint.

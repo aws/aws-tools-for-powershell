@@ -11,54 +11,69 @@
 }
 
 .syntax {
-    font-family: Consolas,"Lucida Console",Courier,monospace;
-    padding: 10px;
-    background-color: #f9f8cd;
-    border: #f9f8cd 1px solid;
-    border-radius: 10px;
 }
 
-.syntax .cmdlet {
+.syntax .paramsetname {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.syntax h4 {
+    color: #666;
+    font-size: 1.2em;
+}
+
+.syntaxblock {
+    font-family: Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    border: lightgray 1px solid;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-weight: normal;
+}
+
+.syntaxblock .cmdlet {
      display: inline;
 }
 
-.syntax .paramlist {
+.syntaxblock .paramlist {
 	display: inline;
     white-space: pre-wrap;
     word-break: normal;  
 }
 
-.syntax .inlineParam {
+.syntaxblock .inlineParam {
     margin-left: 5px;
     display: inline-block;
 }
-.syntax .wrappedParam {
+.syntaxblock .wrappedParam {
     margin-left: 80px;
 }
 
 .examples h4 {
     color: #666;
     margin-left: 15px;
+    font-size: 1.2em;
 }
 
 .example {
     margin-left: 35px;
-    padding: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background-color: #f9f8cd;
-    white-space: pre-wrap;   
+    padding: 15px 15px 15px 20px;
+    white-space: pre-wrap;
+    border: lightgray 1px solid;
 }
 
 .example > .code {
-    font-family: Consolas,"Lucida Console",Courier,monospace;
-    font-weight: bold;
+    font-family: Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-weight: bolder;
+    padding-bottom: 5px;
 }
 
 .example > .description {
     font-family: "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
-    margin-top: 20px;
+    padding-top: 0;
+    font-weight: normal;
 }
 
 .parameters {
@@ -109,7 +124,6 @@
 }
 
 .inputs .inputType, .inputDescription {
-    font-size: 13px;
     margin-left: 15px;
 }
 
@@ -130,7 +144,6 @@
 
 .output .outputType, 
 .output .outputDescription {
-    font-size: 13px;
     margin-left: 15px;
 }
 
@@ -146,7 +159,6 @@
 }
 
 .related .relatedLink {
-    font-size: 13px;
     margin-left: 15px;
 }
 

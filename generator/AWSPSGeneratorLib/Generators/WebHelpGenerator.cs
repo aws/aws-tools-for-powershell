@@ -138,12 +138,15 @@ namespace AWSPowerShellGenerator.Generators
                             var cmdletName = cmdletAttribute.VerbName + "-" + cmdletAttribute.NounName;
 
                             var allProperties = GetRootSimpleProperties(cmdletType);
+
+                            var parameterPartitioning = new CmdletParameterSetPartitions(allProperties, cmdletAttribute.DefaultParameterSetName);
+
                             var serviceAbbreviation = GetServiceAbbreviation(cmdletType);
 
                             var cmdletPageWriter = new CmdletPageWriter(Options, OutputFolder, owningService, cmdletName);
 
                             WriteDetails(cmdletPageWriter, cmdletAttribute, typeDocumentation, cmdletName, synopsis);
-                            WriteSyntax(cmdletPageWriter, cmdletName, allProperties);
+                            WriteSyntax(cmdletPageWriter, cmdletName, parameterPartitioning);
                             WriteParameters(cmdletPageWriter, cmdletName, allProperties);
                             WriteCommonParameters(cmdletPageWriter, cmdletType, cmdletName);
                             WriteInputs(cmdletPageWriter, allProperties);
@@ -190,30 +193,75 @@ namespace AWSPowerShellGenerator.Generators
                 writer.AddPageElement(CmdletPageWriter.DescriptionElementKey, doc.ToString());
         }
 
-        private static void WriteSyntax(CmdletPageWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
+        private static void WriteSyntax(CmdletPageWriter writer, string cmdletName, CmdletParameterSetPartitions parameterSetPartitioning)
         {
             var sb = new StringBuilder();
+
+            if (parameterSetPartitioning.HasNamedParameterSets)
+            {
+                var sets = parameterSetPartitioning.NamedParameterSets;
+                foreach (var set in sets)
+                {
+                    AppendSyntaxChart(cmdletName,
+                                      set, 
+                                      parameterSetPartitioning, 
+                                      sb);
+                }
+            }
+            else
+            {
+                AppendSyntaxChart(cmdletName, CmdletParameterSetPartitions.AllSetsKey, parameterSetPartitioning, sb);
+            }
+
+            writer.AddPageElement(CmdletPageWriter.SyntaxElementKey, sb.ToString());
+        }
+
+        private static void AppendSyntaxChart(string cmdletName, string setName, CmdletParameterSetPartitions parameterSetPartitioning, StringBuilder sb)
+        {
+            var isCustomNamedSet = !setName.Equals(CmdletParameterSetPartitions.AllSetsKey);
+            var isDefaultSet = isCustomNamedSet && setName.Equals(parameterSetPartitioning.DefaultParameterSetName, StringComparison.Ordinal);
+
+            var setParameterNames = parameterSetPartitioning.ParameterNamesForSet(setName, parameterSetPartitioning.HasNamedParameterSets);
+
+            if (isCustomNamedSet)
+            {
+                sb.AppendFormat(
+                    isDefaultSet
+                        ? "<div class=\"paramsetname\"><h4>{0} (Default)</h4>"
+                        : "<div class=\"paramsetname\"><h4>{0}</h4>", setName);
+            }
+
+            sb.Append("<div class=\"syntaxblock\">");
 
             // Microsoft cmdlets show params in syntax in defined but non-alpha order. Use the ordering we found
             // during reflection here in the hope the sdk has them in 'most important' order. Also, if there is
             // four or less params, keep the syntax on one line.
             sb.AppendFormat("<div class=\"cmdlet\">{0}</div>", cmdletName);
-            var paramCount = allProperties.Count();
+            var allParameters = parameterSetPartitioning.Parameters;
+            var paramCount = setParameterNames.Count;
+
             if (paramCount > 0)
             {
                 sb.Append("<div class=\"paramlist\">");
-                for (var i = 0; i < paramCount; i++)
+                foreach (var p in allParameters)
                 {
-                    var property = allProperties.ElementAt(i);
+                    if (!setParameterNames.Contains(p.CmdletParameterName))
+                        continue;
+
                     sb.AppendFormat("<div class=\"{0}\">-{1} &lt;{2}&gt;</div>",
                                     paramCount < 5 ? "inlineParam" : "wrappedParam",
-                                    property.Name, 
-                                    GetTypeDisplayName(property.PropertyType, false));
+                                    p.CmdletParameterName,
+                                    GetTypeDisplayName(p.PropertyType, false));
                 }
                 sb.Append("</div>");
             }
 
-            writer.AddPageElement(CmdletPageWriter.SyntaxElementKey, sb.ToString());
+            sb.Append("</div>");
+
+            if (isCustomNamedSet)
+            {
+                sb.Append("</div>");
+            }
         }
 
         private void WriteParameters(CmdletPageWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
@@ -302,8 +350,7 @@ namespace AWSPowerShellGenerator.Generators
 
             foreach (var simplePropertyInfo in allProperties)
             {
-                if (simplePropertyInfo.PsParameterAttribute != null &&
-                    simplePropertyInfo.PsParameterAttribute.ValueFromPipeline)
+                if (simplePropertyInfo.PsParameterAttribute != null && IsMarkedValueFromPipeline(simplePropertyInfo.PsParameterAttribute))
                 {
                     // if the input type has a predictable sdk/msdn html address, construct the link
                     var inputTypeDocLink = PredictHtmlDocsLink(simplePropertyInfo.PropertyTypeName);

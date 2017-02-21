@@ -113,9 +113,9 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        // set when parsing properties on cmdlets, so we can extract positional
-        // and pipeline-by-value data for help purposes
-        public ParameterAttribute PsParameterAttribute { get; private set; }
+        // set when parsing properties on cmdlets, so we can extract positional,
+        // pipeline-by-value and parameter set data for help purposes
+        public ParameterAttribute[] PsParameterAttribute { get; private set; }
 
         /// <summary>
         /// Safely returns positional data for a cmdlet property. Parameters that
@@ -127,8 +127,14 @@ namespace AWSPowerShellGenerator.Generators
         {
             get
             {
-                if (PsParameterAttribute != null && PsParameterAttribute.Position >= 0)
-                    return PsParameterAttribute.Position;
+                if (PsParameterAttribute != null)
+                {
+                    foreach (var p in PsParameterAttribute)
+                    {
+                        if (p.Position >= 0)
+                            return p.Position;
+                    }
+                }
 
                 return int.MaxValue;
             }    
@@ -136,7 +142,19 @@ namespace AWSPowerShellGenerator.Generators
 
         public bool CanPipelineByValue
         {
-            get { return PsParameterAttribute != null && PsParameterAttribute.ValueFromPipeline; }
+            get
+            {
+                if (PsParameterAttribute == null)
+                {
+                    foreach (var p in PsParameterAttribute)
+                    {
+                        if (p.ValueFromPipeline)
+                            return true;
+                    }
+                }
+
+                return false;
+            }
         }
 
         /// <summary>
@@ -349,8 +367,8 @@ namespace AWSPowerShellGenerator.Generators
 
             // if analysing properties on a cmdlet for help purposes, extract 
             // the Parameter attribute info
-            PsParameterAttribute 
-                = propertyInfo.GetCustomAttributes(typeof (ParameterAttribute), false).FirstOrDefault() as ParameterAttribute;
+            PsParameterAttribute
+                = propertyInfo.GetCustomAttributes(typeof(ParameterAttribute), false) as ParameterAttribute[];
 
             IsConstrainedToSet = PropertyType.BaseType != null && PropertyType.BaseType.FullName.Equals(ConstantClassBaseTypeName, StringComparison.Ordinal);
         }

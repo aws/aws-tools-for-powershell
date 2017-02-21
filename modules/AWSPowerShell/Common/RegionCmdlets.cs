@@ -102,12 +102,16 @@ namespace Amazon.PowerShell.Common
     /// <summary>
     /// Returns the set of available AWS regions.
     /// </summary>
-    [Cmdlet("Get", "AWSRegion", DefaultParameterSetName = "DefaultSet")]
+    [Cmdlet("Get", "AWSRegion", DefaultParameterSetName = DefaultParameterSet)]
     [OutputType(typeof(AWSRegion))]
     [AWSCmdlet("Returns the set of available AWS regions.")]
     [AWSCmdletOutput("AWSRegion", "AWSRegion instance for each available region.")]
     public class GetRegionCmdlet : PSCmdlet
     {
+        private const string DefaultParameterSet = "PublicOnly";
+        private const string PublicAndGovCloudParameterSet = "PublicAndGovCloud";
+        private const string GovCloudOnlyParameterSet = "GovCloudOnly";
+
         /// <summary>
         /// <para>
         /// If set returns an AWSRegion instance corresponding to the specified system name (e.g. us-west-2).
@@ -117,7 +121,8 @@ namespace Amazon.PowerShell.Common
         /// regions by specifying the relevant system name.
         /// </para>
         /// </summary>
-        [Parameter(Position=0, ValueFromPipeline=true, ParameterSetName="DefaultSet")]
+        [Parameter(Position = 0, ValueFromPipeline = true, ParameterSetName = DefaultParameterSet)]
+        [Parameter(ParameterSetName = PublicAndGovCloudParameterSet)]
         public string SystemName { get; set; }
 
         /// <summary>
@@ -132,21 +137,22 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// <para>Default: off.</para>
         /// </summary>
-        [Parameter(ParameterSetName = "DefaultSet")]
+        [Parameter(ParameterSetName = DefaultParameterSet)]
+        [Parameter(ParameterSetName = PublicAndGovCloudParameterSet)]
         public SwitchParameter IncludeChina { get; set; }
 
         /// <summary>
         /// <para>If set the returned collection includes 'Gov Cloud' region(s).</para>
         /// <para>Default: off.</para>
         /// </summary>
-        [Parameter(ParameterSetName = "IncludeGovCloudSet")]
+        [Parameter(ParameterSetName = PublicAndGovCloudParameterSet)]
         public SwitchParameter IncludeGovCloud { get; set; }
 
         /// <summary>
         /// <para>If set the returned collection contains only the 'Gov Cloud' region(s).</para>
         /// <para>Default: off.</para>
         /// </summary>
-        [Parameter(ParameterSetName = "GovCloudOnlySet")]
+        [Parameter(ParameterSetName = GovCloudOnlyParameterSet)]
         public SwitchParameter GovCloudOnly { get; set; }
 
         protected override void ProcessRecord()

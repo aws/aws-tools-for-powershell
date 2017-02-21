@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
     /// </para>
     /// </summary>
-    [Cmdlet("Read", "S3Object", DefaultParameterSetName = "LocalFileParamSet")]
+    [Cmdlet("Read", "S3Object", DefaultParameterSetName = ParamSet_ToLocalFile)]
     [OutputType(new Type[] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) })]
     [AWSCmdlet("Downloads one or more objects from an S3 bucket to the local file system.", Operation = new[] { "GetObject" })]
     [AWSCmdletOutput("System.IO.FileInfo instance if reading a single object or System.IO.DirectoryInfo instance for multi-object read.",
@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class ReadS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ParamSet_ToLocalFile = "ToLocalFileParamSet";
-        const string ParamSet_ToLocalFolder = "ToLocalFolderParamSet";
-        const string ParamSet_FromS3Object = "FromS3Object"; // can save to file or folder
+        const string ParamSet_ToLocalFile = "DownloadFile";
+        const string ParamSet_ToLocalFolder = "DownloadFolder";
+        const string ParamSet_FromS3Object = "FromS3ObjectToFileOrFolder"; 
 
         // try and anticipate all the ways a user might mean 'get everything from root'
         readonly string[] rootIndicators = new string[] { "/", @"\", "*", "/*", @"\*" };

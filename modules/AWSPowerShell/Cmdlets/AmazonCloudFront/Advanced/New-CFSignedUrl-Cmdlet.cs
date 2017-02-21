@@ -27,7 +27,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Creates a signed URL that grants universal access to private content until a given date (using a canned policy)
     /// or tailored access to private content based on an access time window and ip range.
     /// </summary>
-    [Cmdlet("New", "CFSignedUrl", DefaultParameterSetName = "CannedPolicyParameterSet")]
+    [Cmdlet("New", "CFSignedUrl", DefaultParameterSetName = CannedPolicyParameterSet)]
     [OutputType(typeof(Uri), typeof(string))]
     [AWSCmdlet("Creates a signed URL that grants universal access to private content until a given date (using a canned policy)" +
                " or tailored access to private content based on an access time window and ip range.")]
@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdletOutput("System.String", "This cmdlet returns a signed uri to the private content as a string if the -AsString switch is specified.")]
     public class NewCFSignedUrlCmdlet : BaseCmdlet
     {
-        private const string CannedPolicyParameterSet = "CannedPolicyParameterSet";
-        private const string CustomPolicyParameterSet = "CustomPolicyParameterSet";
+        private const string CannedPolicyParameterSet = "CannedPolicy";
+        private const string CustomPolicyParameterSet = "CustomPolicy";
 
         #region Parameter ResourceUri
         /// <summary>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// URL, and instead the resource path is nothing but the stream's
         /// name.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.Uri ResourceUri { get; set; }
         #endregion
 
@@ -58,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// The key pair id corresponding to the private key file supplied
         /// to the PrivateKeyFile parameter.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.String KeyPairId { get; set; }
         #endregion
 
@@ -66,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// The private key file. RSA private key (.pem) files are supported.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.String PrivateKeyFile { get; set; }
         #endregion
 
@@ -74,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// The expiration date of the signed URL.
         /// </summary>
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(Mandatory = true, ParameterSetName=CustomPolicyParameterSet)]
         public System.DateTime ExpiresOn { get; set; }
         #endregion
 
@@ -101,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// If set the cmdlet outputs the signed url as a simple string. The default is to wrap
         /// and emit the url as a System.Uri object.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName=CannedPolicyParameterSet)]
+        [Parameter(ParameterSetName=CustomPolicyParameterSet)]
         public SwitchParameter AsString { get; set; }
         #endregion
 

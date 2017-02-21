@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class WriteKINFRecordCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
-        const string DataFromBlob = "FromBlobParameterSet";
-        const string DataFromText = "FromTextParameterSet";
-        const string DataFromFile = "FromFileParameterSet";
+        const string DataFromBlob = "FromBlob";
+        const string DataFromText = "FromText";
+        const string DataFromFile = "FromFile";
 
         #region Parameter Blob
         /// <summary>

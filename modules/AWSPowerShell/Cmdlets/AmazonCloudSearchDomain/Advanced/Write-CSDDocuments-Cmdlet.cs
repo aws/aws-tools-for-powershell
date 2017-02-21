@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     )]
     public class WriteCSDDocumentsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
-        const string ParamSet_FromLocalFile = "FromLocalFileParamSet";        
-        const string ParamSet_FromStream = "FromStreamParamSet";
+        const string ParamSet_FromLocalFile = "FromLocalFile";        
+        const string ParamSet_FromStream = "FromStream";
 
         #region Parameter ServiceUrl
         /// <summary>

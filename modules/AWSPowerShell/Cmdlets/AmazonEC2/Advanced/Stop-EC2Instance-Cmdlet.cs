@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class StopEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        const string ParamSet_StopInstances = "StopInstancesParamSet";
-        const string ParamSet_TerminateInstances = "TerminateInstancesParamSet";
+        const string ParamSet_StopInstances = "StopInstances";
+        const string ParamSet_TerminateInstances = "TerminateInstances";
 
         #region Parameter InstanceId
         /// <summary>

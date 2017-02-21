@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Uploads one or more files from the local file system to an S3 bucket.", Operation = new[] { "PutObject", "InitiateMultipartUpload", "UploadPart", "CompleteMultipartUpload" })]
     public class WriteS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ParamSet_FromLocalFile = "FromLocalFileParamSet";
-        const string ParamSet_FromContent = "FromContentParamSet";
-        const string ParamSet_FromLocalFolder = "FromLocalFolderParamSet";
-        const string ParamSet_FromStream = "FromStreamParamSet";
+        const string ParamSet_FromLocalFile = "UploadSingleFile";
+        const string ParamSet_FromContent = "UploadFromContent";
+        const string ParamSet_FromLocalFolder = "UploadFolder";
+        const string ParamSet_FromStream = "UploadFromStream";
 
         // try and anticipate all the ways a user might mean 'write everything to root'
         readonly string[] rootIndicators = new string[] { "/", @"\" };

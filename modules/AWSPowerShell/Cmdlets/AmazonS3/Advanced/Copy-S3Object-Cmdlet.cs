@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class CopyS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ToLocalFileParamSet = "ToLocalFileParamSet";
-        const string ToLocalFolderParamSet = "ToLocalFolderParameterSet";
-        const string S3toS3ParamSet = "S3toS3ParamSet";
+        const string ToLocalFileParamSet = "CopyToLocalFile";
+        const string ToLocalFolderParamSet = "CopyToLocalFolder";
+        const string S3toS3ParamSet = "S3toS3Copy";
 
         #region Parameter BucketName
         /// <summary>

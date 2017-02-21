@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdletOutput("Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema", "This cmdlet returns an updated Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object to the pipeline.")]
     public class AddDDBIndexSchemaCmdlet : BaseCmdlet
     {
-        const string LocalIndexParameterSet = "LocalIndexParameterSet";
-        const string GlobalIndexParameterSet = "GlobalIndexParameterSet";
+        const string LocalIndexParameterSet = "LocalIndex";
+        const string GlobalIndexParameterSet = "GlobalIndex";
 
         #region Parameter Schema
         /// <summary>

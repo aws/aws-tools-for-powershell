@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ]
     public class GetEC2InstanceMetadataCmdlet : PSCmdlet
     {
-        private const string ByCategoryParameterSet = "byCategoryParamSet";
-        private const string ByPathParameterSet = "byPathParamSet";
-        private const string ListCategoriesParameterSet = "listCategoriesParamSet";
+        private const string ByCategoryParameterSet = "ByCategory";
+        private const string ByPathParameterSet = "ByPath";
+        private const string ListCategoriesParameterSet = "ListCategories";
 
         /// <summary>
         /// The currently known categories; some of these descend into further data 

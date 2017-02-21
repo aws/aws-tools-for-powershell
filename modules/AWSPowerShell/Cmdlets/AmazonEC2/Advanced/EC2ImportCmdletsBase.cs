@@ -33,21 +33,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// a named bucket, with optional key prefix, in Amazon S3 and an ImportInstance request be
         /// submitted to Amazon EC2. The conversion task object returned by EC2 is output.
         /// </summary>
-        protected const string ParamSet_Default = "DefaultParameterSet";
+        protected const string ParamSet_Default = "UploadAndImport";
 
         /// <summary>
         /// Use of this parameter set causes the local artifacts to be uploaded to a named
         /// bucket, with optional key prefix, in Amazon S3. No import is requested and the
         /// key of the uploaded manifest is returned.
         /// </summary>
-        protected const string ParamSet_UploadOnly = "UploadOnlyParameterSet";
+        protected const string ParamSet_UploadOnly = "UploadOnly";
 
         /// <summary>
         /// Use of this parameter set causes an ImportInstance request to be sent to Amazon EC2
         /// using the manifest and image file artifacts previously uploaded. The conversion task 
         /// object returned by EC2 is output.
         /// </summary>
-        protected const string ParamSet_FromManifest = "FromManifestParameterSet";
+        protected const string ParamSet_FromManifest = "ImportFromManifest";
 
         protected const string ProgressActivity = "Importing";
 

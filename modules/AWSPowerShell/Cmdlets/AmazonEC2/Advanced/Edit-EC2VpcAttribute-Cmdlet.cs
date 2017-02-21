@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2VpcAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        const string ParamSet_DnsSupport = "DnsSupportParamSet";
-        const string ParamSet_DnsHostnames = "DnsHostnamesParamSet";
+        const string ParamSet_DnsSupport = "DnsSupport";
+        const string ParamSet_DnsHostnames = "DnsHostnames";
 
         #region Parameter VpcId
         /// <summary>

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("None", "This cmdlet does not produce any output.")]
     public class AddLoggerCmdlet : PSCmdlet
     {
-        const string ParamSet_SimpleListener = "ParamSet_SimpleListener";
-        const string ParamSet_CustomListener = "ParamSet_CustomListener";
+        const string ParamSet_SimpleListener = "SimpleListener";
+        const string ParamSet_CustomListener = "CustomListener";
 
         /// <summary>
         /// The name of the logger.

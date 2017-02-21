@@ -85,10 +85,12 @@ namespace AWSPowerShellGenerator.Generators
                                     var cmdletName = cmdletAttribute.VerbName + "-" + cmdletAttribute.NounName;
 
                                     var allProperties = GetRootSimpleProperties(cmdletType);
+                                    var parameterPartitioning = new CmdletParameterSetPartitions(allProperties, cmdletAttribute.DefaultParameterSetName);
+
                                     var serviceAbbreviation = GetServiceAbbreviation(cmdletType);
 
                                     WriteDetails(psHelpWriter, cmdletAttribute, typeDocumentation, cmdletName, synopsis);
-                                    WriteSyntax(psHelpWriter, cmdletName, allProperties);
+                                    WriteSyntax(psHelpWriter, cmdletName, parameterPartitioning);
                                     WriteParameters(psHelpWriter, cmdletName, allProperties);
                                     WriteReturnValues(psHelpWriter, AWSCmdletOutputAttributes);
                                     WriteRelatedLinks(psHelpWriter, serviceAbbreviation, cmdletName);
@@ -184,21 +186,46 @@ namespace AWSPowerShellGenerator.Generators
             psHelpWriter.WriteEndElement();
         }
 
-        private static void WriteSyntax(XmlTextWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
+        private static void WriteSyntax(XmlTextWriter writer, string cmdletName, CmdletParameterSetPartitions parameterSetPartitioning)
         {
             writer.WriteStartElement("syntax");
+            if (parameterSetPartitioning.HasNamedParameterSets)
+            {
+                var sets = parameterSetPartitioning.NamedParameterSets;
+                foreach (var set in sets)
+                {
+                    WriteSyntaxItem(writer, cmdletName, set, parameterSetPartitioning);
+                }
+            }
+            else
+            {
+                WriteSyntaxItem(writer, cmdletName, CmdletParameterSetPartitions.AllSetsKey, parameterSetPartitioning);
+            }
+            writer.WriteEndElement();
+        }
+
+        private static void WriteSyntaxItem(XmlTextWriter writer, string cmdletName, string setName, CmdletParameterSetPartitions parameterSetPartitioning)
+        {
+            var isCustomNamedSet = !setName.Equals(CmdletParameterSetPartitions.AllSetsKey);
+            var isDefaultSet = isCustomNamedSet && setName.Equals(parameterSetPartitioning.DefaultParameterSetName, StringComparison.Ordinal);
+            var setParameterNames = parameterSetPartitioning.ParameterNamesForSet(setName, parameterSetPartitioning.HasNamedParameterSets);
+
             writer.WriteStartElement("syntaxItem");
             {
                 writer.WriteElementString("name", cmdletName);
 
+                var allParameters = parameterSetPartitioning.Parameters;
                 // Microsoft cmdlets show params in syntax in defined but non-alpha order. Use the ordering we found
                 // during reflection here in the hope the sdk has them in 'most important' order
-                foreach (var property in allProperties)
+                foreach (var parameter in allParameters)
                 {
+                    if (!setParameterNames.Contains(parameter.CmdletParameterName))
+                        continue;
+
                     bool isRequired;
                     string pipelineInput;
                     string position;
-                    InspectParameter(property, out isRequired, out pipelineInput, out position);
+                    InspectParameter(parameter, out isRequired, out pipelineInput, out position);
 
                     writer.WriteStartElement("parameter");
                     {
@@ -208,10 +235,10 @@ namespace AWSPowerShellGenerator.Generators
                         writer.WriteAttributeString("pipelineInput", pipelineInput);
                         writer.WriteAttributeString("position", position);
 
-                        writer.WriteElementString("name", property.Name);
+                        writer.WriteElementString("name", parameter.CmdletParameterName);
                         writer.WriteStartElement("description");
                         {
-                            writer.WriteUnescapedElementString("para", property.PowershellDocumentation);
+                            writer.WriteUnescapedElementString("para", parameter.PowershellDocumentation);
                         }
                         writer.WriteEndElement();
 
@@ -219,14 +246,13 @@ namespace AWSPowerShellGenerator.Generators
                         {
                             writer.WriteAttributeString("required", "true");
                             writer.WriteAttributeString("variableLength", "false");
-                            writer.WriteString(property.PropertyTypeName);
+                            writer.WriteString(parameter.PropertyTypeName);
                         }
                         writer.WriteEndElement();
                     }
                     writer.WriteEndElement();
                 }
             }
-            writer.WriteEndElement();
             writer.WriteEndElement();
         }
 

@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Common
                      + " or belong to the specified service.")]
     public class GetCmdletNameCmdlet : BaseCmdlet
     {
-        public const string ByApiOperationOrServiceParameterSet = "ByApiOperationOrService";
-        public const string ByAwsCliCommandParameterSet = "ByAwsCliCommand";
+        public const string ByApiOperationOrServiceParameterSet = "QueryApiOperationOrService";
+        public const string ByAwsCliCommandParameterSet = "FromAwsCliCommand";
 
         /// <summary>
         /// <para>

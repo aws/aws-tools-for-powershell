@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Common
     /// see http://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "AWSPublicIpAddressRange", DefaultParameterSetName = "Default")]
+    [Cmdlet("Get", "AWSPublicIpAddressRange", DefaultParameterSetName = GetAddressRangesParameterSet)]
     [AWSCmdlet("Returns the public IP address range data for Amazon Web Services. "
                 + "Each address range instance contains the service key, host region and IP address range (in CIDR notation).")]
     [OutputType(typeof(AWSPublicIpAddressRange), typeof(String[]), typeof(DateTime))]
@@ -56,17 +56,21 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("DateTime", "The publication date and time if the -OutputPublicationDate switch is set.")]
     public class PublicIpRangesCmdlet : PSCmdlet
     {
+        private const string GetAddressRangesParameterSet = "GetAddressRanges";
+        private const string ServiceKeysOnlyParameterSet = "ListServiceKeysOnly";
+        private const string PublicationDateParameterSet = "PublicationDate";
+
         /// <summary>
         /// If set the cmdlet emits the collection of currently-known service keys
         /// used in the address range data.
         /// </summary>
-        [Parameter(ParameterSetName = "ServiceKeysOnly", Mandatory = true)]
+        [Parameter(ParameterSetName = ServiceKeysOnlyParameterSet, Mandatory = true)]
         public SwitchParameter OutputServiceKeys { get; set; }
 
         /// <summary>
         /// If set the cmdlet emits the publication date and time of the data.
         /// </summary>
-        [Parameter(ParameterSetName = "PublicationDateOnly", Mandatory = true)]
+        [Parameter(ParameterSetName = PublicationDateParameterSet, Mandatory = true)]
         public SwitchParameter OutputPublicationDate { get; set; }
 
         /// <summary>
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Common
         /// This parameter can be used in conjunction with the Region parameter
         /// to filter by region and service key.
         /// </summary>
-        [Parameter(ParameterSetName = "Default")]
+        [Parameter(ParameterSetName = GetAddressRangesParameterSet)]
         public string[] ServiceKey { get; set; }
 
         /// <summary>
@@ -82,7 +86,7 @@ namespace Amazon.PowerShell.Common
         /// to filter the output to. This parameter can be used in conjunction with the
         /// ServiceKey parameter to filter by region and service key.
         /// </summary>
-        [Parameter(ParameterSetName = "Default")]
+        [Parameter(ParameterSetName = GetAddressRangesParameterSet)]
         public string[] Region { get; set; }
 
         protected override void ProcessRecord()
