@@ -2527,7 +2527,7 @@ $GML_Completers = {
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
-            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailablePlayerSessions","CurrentPlayerSessions","IdleInstances"
+            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailablePlayerSessions","CurrentPlayerSessions","IdleInstances","QueueDepth","WaitTime"
             break
         }
         

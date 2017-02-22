@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet you want to update attribute metadata for.</para>
+        /// <para>Unique identifier for a fleet to update attribute metadata for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with a fleet. Fleet names do not need to be unique.</para>
+        /// <para>Descriptive label that is associated with a fleet. Fleet names do not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

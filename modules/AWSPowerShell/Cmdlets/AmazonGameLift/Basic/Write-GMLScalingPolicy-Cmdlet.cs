@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identity for the fleet to scale with this policy.</para>
+        /// <para>Unique identifier for a fleet to apply this policy to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with a scaling policy. Policy names do not need to be
-        /// unique. A fleet can have only one scaling policy with the same name.</para>
+        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
+        /// to be unique. A fleet can have only one scaling policy with the same name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

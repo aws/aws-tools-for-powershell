@@ -28,39 +28,48 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the location of stored game session logs for a specified game session. When
-    /// a game session is terminated, Amazon GameLift automatically stores the logs in Amazon
-    /// S3. Use this URL to download the logs.
-    /// 
-    ///  <note><para>
-    /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
-    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
-    /// are not saved.
-    /// </para></note>
+    /// Cancels a game session placement that is in Pending status. To stop a placement, provide
+    /// the placement ID values. If successful, the placement is moved to Cancelled status.
     /// </summary>
-    [Cmdlet("Get", "GMLGameSessionLogUrl")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetGameSessionLogUrl operation against Amazon GameLift Service.", Operation = new[] {"GetGameSessionLogUrl"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]
+    [AWSCmdlet("Invokes the StopGameSessionPlacement operation against Amazon GameLift Service.", Operation = new[] {"StopGameSessionPlacement"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionPlacement",
+        "This cmdlet returns a GameSessionPlacement object.",
+        "The service call response (type Amazon.GameLift.Model.StopGameSessionPlacementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class StopGMLGameSessionPlacementCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter GameSessionId
+        #region Parameter PlacementId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to get logs for.</para>
+        /// <para>Unique identifier for a game session placement to cancel.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GameSessionId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PlacementId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlacementId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-GMLGameSessionPlacement (StopGameSessionPlacement)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -71,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GameSessionId = this.GameSessionId;
+            context.PlacementId = this.PlacementId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -86,11 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.GetGameSessionLogUrlRequest();
+            var request = new Amazon.GameLift.Model.StopGameSessionPlacementRequest();
             
-            if (cmdletContext.GameSessionId != null)
+            if (cmdletContext.PlacementId != null)
             {
-                request.GameSessionId = cmdletContext.GameSessionId;
+                request.PlacementId = cmdletContext.PlacementId;
             }
             
             CmdletOutput output;
@@ -101,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PreSignedUrl;
+                object pipelineOutput = response.GameSessionPlacement;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -126,13 +135,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.GetGameSessionLogUrlResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetGameSessionLogUrlRequest request)
+        private static Amazon.GameLift.Model.StopGameSessionPlacementResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.StopGameSessionPlacementRequest request)
         {
             #if DESKTOP
-            return client.GetGameSessionLogUrl(request);
+            return client.StopGameSessionPlacement(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetGameSessionLogUrlAsync(request);
+            var task = client.StopGameSessionPlacementAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -143,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String GameSessionId { get; set; }
+            public System.String PlacementId { get; set; }
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes an alias. This action removes all record of the alias; game clients attempting
+    /// Deletes a fleet alias. This action removes all record of the alias. Game clients attempting
     /// to access a server process using the deleted alias receive an error. To delete an
     /// alias, specify the alias ID to be deleted.
     /// </summary>

@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the fleet(s) you want to retrieve utilization data for. To request
-        /// utilization data for all fleets, leave this parameter empty.</para>
+        /// <para>Unique identifier for a fleet(s) to retrieve utilization data for. To request utilization
+        /// data for all fleets, leave this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token indicating the start of the next sequential page of results. Use the token that
-        /// is returned with a previous call to this action. To specify the start of the result
-        /// set, do not specify a value. This parameter is ignored when the request specifies
+        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// that is returned with a previous call to this action. To specify the start of the
+        /// result set, do not specify a value. This parameter is ignored when the request specifies
         /// one or a list of fleet IDs.</para>
         /// </para>
         /// <para>

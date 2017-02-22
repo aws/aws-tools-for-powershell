@@ -28,48 +28,68 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a fleet scaling policy. This action means that the policy is no longer in
-    /// force and removes all record of it. To delete a scaling policy, specify both the scaling
-    /// policy name and the fleet ID it is associated with.
+    /// Establishes a new queue for processing requests for new game sessions. A queue identifies
+    /// where new game sessions can be hosted--by specifying a list of fleet destinations--and
+    /// how long a request can remain in the queue waiting to be placed before timing out.
+    /// Requests for new game sessions are added to a queue by calling <a>StartGameSessionPlacement</a>
+    /// and referencing the queue name.
+    /// 
+    ///  
+    /// <para>
+    /// When processing a request for a game session, Amazon GameLift tries each destination
+    /// in order until it finds one with available resources to host the new game session.
+    /// A queue's default order is determined by how destinations are listed. This default
+    /// order can be overridden in a game session placement request.
+    /// </para><para>
+    /// To create a new queue, provide a name, timeout value, and a list of destinations.
+    /// If successful, a new queue object is returned.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteScalingPolicy operation against Amazon GameLift Service.", Operation = new[] {"DeleteScalingPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.GameLift.Model.DeleteScalingPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GameLift.Model.GameSessionQueue")]
+    [AWSCmdlet("Invokes the CreateGameSessionQueue operation against Amazon GameLift Service.", Operation = new[] {"CreateGameSessionQueue"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionQueue",
+        "This cmdlet returns a GameSessionQueue object.",
+        "The service call response (type Amazon.GameLift.Model.CreateGameSessionQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveGMLScalingPolicyCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class NewGMLGameSessionQueueCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetId
+        #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to be deleted.</para>
+        /// <para>List of fleets that can be used to fulfill game session placement requests in the
+        /// queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations
+        /// are listed in default preference order.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String FleetId { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Destinations")]
+        public Amazon.GameLift.Model.GameSessionQueueDestination[] Destination { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
-        /// to be unique.</para>
+        /// <para>Descriptive label that is associated with queue. Queue names must be unique within
+        /// each region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter TimeoutInSecond
         /// <summary>
-        /// Returns the value passed to the FleetId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>Maximum time, in seconds, that a new game session placement request remains in the
+        /// queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT
+        /// status.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [Alias("TimeoutInSeconds")]
+        public System.Int32 TimeoutInSecond { get; set; }
         #endregion
         
         #region Parameter Force
@@ -86,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLScalingPolicy (DeleteScalingPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GMLGameSessionQueue (CreateGameSessionQueue)"))
             {
                 return;
             }
@@ -101,8 +121,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FleetId = this.FleetId;
+            if (this.Destination != null)
+            {
+                context.Destinations = new List<Amazon.GameLift.Model.GameSessionQueueDestination>(this.Destination);
+            }
             context.Name = this.Name;
+            if (ParameterWasBound("TimeoutInSecond"))
+                context.TimeoutInSeconds = this.TimeoutInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,15 +142,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteScalingPolicyRequest();
+            var request = new Amazon.GameLift.Model.CreateGameSessionQueueRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.Destinations != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.Destinations = cmdletContext.Destinations;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.TimeoutInSeconds != null)
+            {
+                request.TimeoutInSeconds = cmdletContext.TimeoutInSeconds.Value;
             }
             
             CmdletOutput output;
@@ -136,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.FleetId;
+                object pipelineOutput = response.GameSessionQueue;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -163,13 +190,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteScalingPolicyRequest request)
+        private static Amazon.GameLift.Model.CreateGameSessionQueueResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.CreateGameSessionQueueRequest request)
         {
             #if DESKTOP
-            return client.DeleteScalingPolicy(request);
+            return client.CreateGameSessionQueue(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteScalingPolicyAsync(request);
+            var task = client.CreateGameSessionQueueAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -180,8 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
+            public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destinations { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? TimeoutInSeconds { get; set; }
         }
         
     }

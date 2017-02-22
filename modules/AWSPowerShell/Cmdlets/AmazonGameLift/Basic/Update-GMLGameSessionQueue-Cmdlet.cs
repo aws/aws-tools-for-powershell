@@ -28,53 +28,56 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates port settings for a fleet. To update settings, specify the fleet ID to be
-    /// updated and list the permissions you want to update. List the permissions you want
-    /// to add in <code>InboundPermissionAuthorizations</code>, and permissions you want to
-    /// remove in <code>InboundPermissionRevocations</code>. Permissions to be removed must
-    /// match existing fleet permissions. If successful, the fleet ID for the updated fleet
-    /// is returned.
+    /// Updates settings for a game session queue, which determines how new game session requests
+    /// in the queue are processed. To update settings, specify the queue name to be updated
+    /// and provide the new settings. When updating destinations, provide a complete list
+    /// of destinations.
     /// </summary>
-    [Cmdlet("Update", "GMLFleetPortSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateFleetPortSettings operation against Amazon GameLift Service.", Operation = new[] {"UpdateFleetPortSettings"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.GameLift.Model.UpdateFleetPortSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GameLift.Model.GameSessionQueue")]
+    [AWSCmdlet("Invokes the UpdateGameSessionQueue operation against Amazon GameLift Service.", Operation = new[] {"UpdateGameSessionQueue"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionQueue",
+        "This cmdlet returns a GameSessionQueue object.",
+        "The service call response (type Amazon.GameLift.Model.UpdateGameSessionQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateGMLFleetPortSettingCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class UpdateGMLGameSessionQueueCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetId
+        #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to update port settings for.</para>
+        /// <para>List of fleets that can be used to fulfill game session placement requests in the
+        /// queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations
+        /// are listed in default preference order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String FleetId { get; set; }
+        [Alias("Destinations")]
+        public Amazon.GameLift.Model.GameSessionQueueDestination[] Destination { get; set; }
         #endregion
         
-        #region Parameter InboundPermissionAuthorization
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Collection of port settings to be added to the fleet record.</para>
+        /// <para>Descriptive label that is associated with queue. Queue names must be unique within
+        /// each region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("InboundPermissionAuthorizations")]
-        public Amazon.GameLift.Model.IpPermission[] InboundPermissionAuthorization { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter InboundPermissionRevocation
+        #region Parameter TimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>Collection of port settings to be removed from the fleet record.</para>
+        /// <para>Maximum time, in seconds, that a new game session placement request remains in the
+        /// queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT
+        /// status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("InboundPermissionRevocations")]
-        public Amazon.GameLift.Model.IpPermission[] InboundPermissionRevocation { get; set; }
+        [Alias("TimeoutInSeconds")]
+        public System.Int32 TimeoutInSecond { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GMLFleetPortSetting (UpdateFleetPortSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GMLGameSessionQueue (UpdateGameSessionQueue)"))
             {
                 return;
             }
@@ -106,15 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FleetId = this.FleetId;
-            if (this.InboundPermissionAuthorization != null)
+            if (this.Destination != null)
             {
-                context.InboundPermissionAuthorizations = new List<Amazon.GameLift.Model.IpPermission>(this.InboundPermissionAuthorization);
+                context.Destinations = new List<Amazon.GameLift.Model.GameSessionQueueDestination>(this.Destination);
             }
-            if (this.InboundPermissionRevocation != null)
-            {
-                context.InboundPermissionRevocations = new List<Amazon.GameLift.Model.IpPermission>(this.InboundPermissionRevocation);
-            }
+            context.Name = this.Name;
+            if (ParameterWasBound("TimeoutInSecond"))
+                context.TimeoutInSeconds = this.TimeoutInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,19 +130,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.UpdateFleetPortSettingsRequest();
+            var request = new Amazon.GameLift.Model.UpdateGameSessionQueueRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.Destinations != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.Destinations = cmdletContext.Destinations;
             }
-            if (cmdletContext.InboundPermissionAuthorizations != null)
+            if (cmdletContext.Name != null)
             {
-                request.InboundPermissionAuthorizations = cmdletContext.InboundPermissionAuthorizations;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.InboundPermissionRevocations != null)
+            if (cmdletContext.TimeoutInSeconds != null)
             {
-                request.InboundPermissionRevocations = cmdletContext.InboundPermissionRevocations;
+                request.TimeoutInSeconds = cmdletContext.TimeoutInSeconds.Value;
             }
             
             CmdletOutput output;
@@ -152,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.FleetId;
+                object pipelineOutput = response.GameSessionQueue;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -177,13 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.UpdateFleetPortSettingsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateFleetPortSettingsRequest request)
+        private static Amazon.GameLift.Model.UpdateGameSessionQueueResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateGameSessionQueueRequest request)
         {
             #if DESKTOP
-            return client.UpdateFleetPortSettings(request);
+            return client.UpdateGameSessionQueue(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateFleetPortSettingsAsync(request);
+            var task = client.UpdateGameSessionQueueAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -194,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public List<Amazon.GameLift.Model.IpPermission> InboundPermissionAuthorizations { get; set; }
-            public List<Amazon.GameLift.Model.IpPermission> InboundPermissionRevocations { get; set; }
+            public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destinations { get; set; }
+            public System.String Name { get; set; }
+            public System.Int32? TimeoutInSeconds { get; set; }
         }
         
     }

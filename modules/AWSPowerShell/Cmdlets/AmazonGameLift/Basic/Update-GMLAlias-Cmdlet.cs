@@ -28,8 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates properties for an alias. To update properties, specify the alias ID to be
-    /// updated and provide the information to be changed. To reassign an alias to another
+    /// Updates properties for a fleet alias. To update properties, specify the alias ID to
+    /// be updated and provide the information to be changed. To reassign an alias to another
     /// fleet, provide an updated routing strategy. If successful, the updated alias record
     /// is returned.
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet.</para>
+        /// <para>Unique identifier for a fleet that the alias points to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with an alias. Alias names do not need to be unique.</para>
+        /// <para>Descriptive label that is associated with an alias. Alias names do not need to be
+        /// unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

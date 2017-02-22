@@ -28,24 +28,25 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Initializes a new build record and generates information required to upload a game
-    /// build to Amazon GameLift. Once the build record has been created and its status is
-    /// <code>INITIALIZED</code>, you can upload your game build.
+    /// Creates a new Amazon GameLift build from a set of game server binary files stored
+    /// in an Amazon Simple Storage Service (Amazon S3) location. When using this API call,
+    /// you must create a <code>.zip</code> file containing all of the build files and store
+    /// it in an Amazon S3 bucket under your AWS account. For help on packaging your build
+    /// files and creating a build, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
+    /// Your Game to Amazon GameLift</a>.
     /// 
     ///  <important><para>
-    /// Do not use this API action unless you are using your own Amazon Simple Storage Service
-    /// (Amazon S3) client and need to manually upload your build files. Instead, to create
-    /// a build, use the CLI command <code>upload-build</code>, which creates a new build
-    /// record and uploads the build files in one step. (See the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Amazon
-    /// GameLift Developer Guide</a> help on packaging and uploading your build.) 
+    /// Use this API action ONLY if you are storing your game build files in an Amazon S3
+    /// bucket in your AWS account. To create a build using files stored in a directory, use
+    /// the CLI command <a href="http://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html"><code>upload-build</code></a>, which uploads the build files from a file location
+    /// you specify and creates a build.
     /// </para></important><para>
-    /// To create a new build, identify the operating system of the game server binaries.
-    /// All game servers in a build must use the same operating system. Optionally, specify
-    /// a build name and version; this metadata is stored with other properties in the build
-    /// record and is displayed in the GameLift console (it is not visible to players). If
-    /// successful, this action returns the newly created build record along with the Amazon
-    /// S3 storage location and AWS account credentials. Use the location and credentials
-    /// to upload your game build.
+    /// To create a new build using <code>CreateBuild</code>, identify the storage location
+    /// and operating system of your game build. You also have the option of specifying a
+    /// build name and version. If successful, this action creates a new build record with
+    /// an unique build ID and in <code>INITIALIZED</code> status. Use the API call <a>DescribeBuild</a>
+    /// to check the status of your build. A build must be in <code>READY</code> status before
+    /// it can be used to create fleets to host your game.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>Amazon S3 bucket identifier.</para>
+        /// <para>Amazon S3 bucket identifier. This is the name of your S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Key
         /// <summary>
         /// <para>
-        /// <para>Amazon S3 bucket key.</para>
+        /// <para>Name of the zip file containing your build files. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with a build. Build names do not need to be unique. A
-        /// build name can be changed later using<code><a>UpdateBuild</a></code>.</para>
+        /// <para>Descriptive label that is associated with a build. Build names do not need to be unique.
+        /// You can use <a>UpdateBuild</a> to change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Operating system that the game server binaries are built to run on. This value determines
-        /// the type of fleet resources that you can use for this build.</para>
+        /// the type of fleet resources that you can use for this build. If your game build contains
+        /// multiple executables, they all must run on the same operating system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Amazon resource number for the cross-account access role that allows GameLift access
-        /// to the S3 bucket.</para>
+        /// <para>Amazon Resource Name (<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// for the access role that allows Amazon GameLift to access your S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -114,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version associated with this build. Version strings do not need to be unique to a
-        /// build. A build version can be changed later using<code><a>UpdateBuild</a></code>.</para>
+        /// <para>Version that is associated with this build. Version strings do not need to be unique.
+        /// You can use <a>UpdateBuild</a> to change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

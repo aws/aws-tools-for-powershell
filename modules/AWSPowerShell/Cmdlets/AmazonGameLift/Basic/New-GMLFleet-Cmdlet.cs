@@ -43,22 +43,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// settings: (1) a runtime configuration describing what server processes to run on each
     /// instance in the fleet (required to create fleet), (2) access permissions for inbound
     /// traffic, (3) fleet-wide game session protection, and (4) the location of default log
-    /// files for GameLift to upload and store.
+    /// files for Amazon GameLift to upload and store.
     /// </para><para>
-    /// If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
-    /// tasks:
+    /// If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
     /// </para><ul><li><para>
     /// Creates a fleet record and sets the status to <code>NEW</code> (followed by other
     /// statuses as the fleet is activated).
     /// </para></li><li><para>
-    /// Sets the fleet's capacity to 1 "desired", which causes GameLift to start one new EC2
-    /// instance.
+    /// Sets the fleet's capacity to 1 "desired", which causes Amazon GameLift to start one
+    /// new EC2 instance.
     /// </para></li><li><para>
     /// Starts launching server processes on the instance. If the fleet is configured to run
-    /// multiple server processes per instance, GameLift staggers each launch by a few seconds.
+    /// multiple server processes per instance, Amazon GameLift staggers each launch by a
+    /// few seconds.
     /// </para></li><li><para>
-    /// Begins writing events to the fleet event log, which can be accessed in the GameLift
-    /// console.
+    /// Begins writing events to the fleet event log, which can be accessed in the Amazon
+    /// GameLift console.
     /// </para></li><li><para>
     /// Sets the fleet's status to <code>ACTIVE</code> once one server process in the fleet
     /// is ready to host a game session.
@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para><a>UpdateRuntimeConfiguration</a> -- Change how server processes are launched in
     /// the fleet, including launch path, launch parameters, and the number of concurrent
     /// processes.
+    /// </para></li><li><para><a>PutScalingPolicy</a> -- Create or update rules that are used to set the fleet's
+    /// capacity (autoscaling).
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the build to be deployed on the new fleet. The build must have
-        /// been successfully uploaded to GameLift and be in a <code>READY</code> status. This
-        /// fleet setting cannot be changed once the fleet is created.</para>
+        /// <para>Unique identifier for a build to be deployed on the new fleet. The build must have
+        /// been successfully uploaded to Amazon GameLift and be in a <code>READY</code> status.
+        /// This fleet setting cannot be changed once the fleet is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -126,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance
         /// type determines the computing resources of each instance in the fleet, including CPU,
-        /// memory, storage, and networking capacity. GameLift supports the following EC2 instance
-        /// types. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
-        /// Types</a> for detailed descriptions.</para>
+        /// memory, storage, and networking capacity. Amazon GameLift supports the following EC2
+        /// instance types. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2
+        /// Instance Types</a> for detailed descriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,13 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter LogPath
         /// <summary>
         /// <para>
-        /// <para>Location of default log files. When a server process is shut down, Amazon GameLift
-        /// captures and stores any log files in this location. These logs are in addition to
-        /// game session logs; see more on game session logs in the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
-        /// GameLift Developer Guide</a>. If no default log path for a fleet is specified, GameLift
-        /// will automatically upload logs stored on each instance at <code>C:\game\logs</code>
-        /// (for Windows) or <code>/local/game/logs</code> (for Linux). Use the GameLift console
-        /// to access stored logs. </para>
+        /// <para>This parameter is no longer used. Instead, to specify where Amazon GameLift should
+        /// store log files once a server process shuts down, use the Amazon GameLift server API
+        /// <code>ProcessReady()</code> and specify one or more directory paths in <code>logParameters</code>.
+        /// See more information in the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process">Server
+        /// API Reference</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with a fleet. Fleet names do not need to be unique.</para>
+        /// <para>Descriptive label that is associated with a fleet. Fleet names do not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
