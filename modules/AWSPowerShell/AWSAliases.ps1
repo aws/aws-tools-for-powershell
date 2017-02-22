@@ -337,6 +337,11 @@ Set-Alias -Name BAT-SubmitJob -Value Submit-BATJob
 Set-Alias -Name BAT-TerminateJob -Value Remove-BATJob
 Set-Alias -Name BAT-UpdateComputeEnvironment -Value Update-BATComputeEnvironment
 Set-Alias -Name BAT-UpdateJobQueue -Value Update-BATJobQueue
+Set-Alias -Name List-EBAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
+Set-Alias -Name EB-ListAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
+Set-Alias -Name List-EBPlatformVersion -Value Get-EBPlatformVersion
+Set-Alias -Name EB-ListPlatformVersions -Value Get-EBPlatformVersion
+Set-Alias -Name EB-RebuildEnvironment -Value Start-EBEnvironmentRebuild
 Set-Alias -Name EB-RequestEnvironmentInfo -Value Request-EBEnvironmentInfo
 Set-Alias -Name EB-RestartAppServer -Value Restart-EBAppServer
 Set-Alias -Name Retrieve-EBEnvironmentInfo -Value Get-EBEnvironmentInfo
@@ -366,6 +371,8 @@ Set-Alias -Name Create-EBConfigurationTemplate -Value New-EBConfigurationTemplat
 Set-Alias -Name EB-CreateConfigurationTemplate -Value New-EBConfigurationTemplate
 Set-Alias -Name Create-EBEnvironment -Value New-EBEnvironment
 Set-Alias -Name EB-CreateEnvironment -Value New-EBEnvironment
+Set-Alias -Name Create-EBPlatformVersion -Value New-EBPlatformVersion
+Set-Alias -Name EB-CreatePlatformVersion -Value New-EBPlatformVersion
 Set-Alias -Name Create-EBStorageLocation -Value New-EBStorageLocation
 Set-Alias -Name EB-CreateStorageLocation -Value New-EBStorageLocation
 Set-Alias -Name Delete-EBApplication -Value Remove-EBApplication
@@ -376,6 +383,8 @@ Set-Alias -Name Delete-EBConfigurationTemplate -Value Remove-EBConfigurationTemp
 Set-Alias -Name EB-DeleteConfigurationTemplate -Value Remove-EBConfigurationTemplate
 Set-Alias -Name Delete-EBEnvironmentConfiguration -Value Remove-EBEnvironmentConfiguration
 Set-Alias -Name EB-DeleteEnvironmentConfiguration -Value Remove-EBEnvironmentConfiguration
+Set-Alias -Name Delete-EBPlatformVersion -Value Remove-EBPlatformVersion
+Set-Alias -Name EB-DeletePlatformVersion -Value Remove-EBPlatformVersion
 Set-Alias -Name Describe-EBApplications -Value Get-EBApplication
 Set-Alias -Name EB-DescribeApplications -Value Get-EBApplication
 Set-Alias -Name Describe-EBApplicationVersions -Value Get-EBApplicationVersion
@@ -398,9 +407,8 @@ Set-Alias -Name Describe-EBEvents -Value Get-EBEvent
 Set-Alias -Name EB-DescribeEvents -Value Get-EBEvent
 Set-Alias -Name Describe-EBInstanceHealth -Value Get-EBInstanceHealth
 Set-Alias -Name EB-DescribeInstancesHealth -Value Get-EBInstanceHealth
-Set-Alias -Name List-EBAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
-Set-Alias -Name EB-ListAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
-Set-Alias -Name EB-RebuildEnvironment -Value Start-EBEnvironmentRebuild
+Set-Alias -Name Describe-EBPlatformVersionDetail -Value Get-EBPlatformVersionDetail
+Set-Alias -Name EB-DescribePlatformVersion -Value Get-EBPlatformVersionDetail
 Set-Alias -Name Create-BGTBudget -Value New-BGTBudget
 Set-Alias -Name BGT-CreateBudget -Value New-BGTBudget
 Set-Alias -Name Create-BGTNotification -Value New-BGTNotification

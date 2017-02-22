@@ -101,6 +101,33 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting[] OptionSetting { get; set; }
         #endregion
         
+        #region Parameter PlatformArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the custome platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlatformArn { get; set; }
+        #endregion
+        
+        #region Parameter SolutionStackName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the solution stack used by this configuration. The solution stack specifies
+        /// the operating system, architecture, and application server for a configuration template.
+        /// It determines the set of configuration options as well as the possible and default
+        /// values.</para><para> Use <a>ListAvailableSolutionStacks</a> to obtain a list of available solution stacks.
+        /// </para><para> A solution stack name or a source configuration parameter must be specified, otherwise
+        /// AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>If a solution stack name is not specified and the source configuration parameter is
+        /// specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration
+        /// template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
+        public System.String SolutionStackName { get; set; }
+        #endregion
+        
         #region Parameter SourceConfiguration_TemplateName
         /// <summary>
         /// <para>
@@ -120,23 +147,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String TemplateName { get; set; }
-        #endregion
-        
-        #region Parameter SolutionStackName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the solution stack used by this configuration. The solution stack specifies
-        /// the operating system, architecture, and application server for a configuration template.
-        /// It determines the set of configuration options as well as the possible and default
-        /// values.</para><para> Use <a>ListAvailableSolutionStacks</a> to obtain a list of available solution stacks.
-        /// </para><para> A solution stack name or a source configuration parameter must be specified, otherwise
-        /// AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>If a solution stack name is not specified and the source configuration parameter is
-        /// specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration
-        /// template.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public System.String SolutionStackName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -175,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 context.OptionSettings = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
             }
+            context.PlatformArn = this.PlatformArn;
             context.SolutionStackName = this.SolutionStackName;
             context.SourceConfiguration_ApplicationName = this.SourceConfiguration_ApplicationName;
             context.SourceConfiguration_TemplateName = this.SourceConfiguration_TemplateName;
@@ -210,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.OptionSettings != null)
             {
                 request.OptionSettings = cmdletContext.OptionSettings;
+            }
+            if (cmdletContext.PlatformArn != null)
+            {
+                request.PlatformArn = cmdletContext.PlatformArn;
             }
             if (cmdletContext.SolutionStackName != null)
             {
@@ -303,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
+            public System.String PlatformArn { get; set; }
             public System.String SolutionStackName { get; set; }
             public System.String SourceConfiguration_ApplicationName { get; set; }
             public System.String SourceConfiguration_TemplateName { get; set; }

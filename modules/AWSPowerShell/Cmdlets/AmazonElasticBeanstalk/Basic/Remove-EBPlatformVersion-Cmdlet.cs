@@ -28,21 +28,47 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns a list of the available solution stack names, with the public version first
-    /// and then in reverse chronological order.
+    /// Deletes the specified version of a custom platform.
     /// </summary>
-    [Cmdlet("Get", "EBAvailableSolutionStack")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse")]
-    [AWSCmdlet("Invokes the ListAvailableSolutionStacks operation against AWS Elastic Beanstalk.", Operation = new[] {"ListAvailableSolutionStacks"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse",
-        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EBPlatformVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ElasticBeanstalk.Model.PlatformSummary")]
+    [AWSCmdlet("Invokes the DeletePlatformVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DeletePlatformVersion"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformSummary",
+        "This cmdlet returns a PlatformSummary object.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DeletePlatformVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEBAvailableSolutionStackCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class RemoveEBPlatformVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter PlatformArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the version of the custom platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PlatformArn { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlatformArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EBPlatformVersion (DeletePlatformVersion)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -53,6 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.PlatformArn = this.PlatformArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -67,8 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DeletePlatformVersionRequest();
             
+            if (cmdletContext.PlatformArn != null)
+            {
+                request.PlatformArn = cmdletContext.PlatformArn;
+            }
             
             CmdletOutput output;
             
@@ -78,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.PlatformSummary;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -103,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksRequest request)
+        private static Amazon.ElasticBeanstalk.Model.DeletePlatformVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeletePlatformVersionRequest request)
         {
             #if DESKTOP
-            return client.ListAvailableSolutionStacks(request);
+            return client.DeletePlatformVersion(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListAvailableSolutionStacksAsync(request);
+            var task = client.DeletePlatformVersionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -120,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String PlatformArn { get; set; }
         }
         
     }

@@ -28,17 +28,27 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns a list of the available solution stack names, with the public version first
-    /// and then in reverse chronological order.
+    /// Describes the version of the platform.
     /// </summary>
-    [Cmdlet("Get", "EBAvailableSolutionStack")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse")]
-    [AWSCmdlet("Invokes the ListAvailableSolutionStacks operation against AWS Elastic Beanstalk.", Operation = new[] {"ListAvailableSolutionStacks"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse",
-        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EBPlatformVersionDetail")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.PlatformDescription")]
+    [AWSCmdlet("Invokes the DescribePlatformVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribePlatformVersion"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformDescription",
+        "This cmdlet returns a PlatformDescription object.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribePlatformVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEBAvailableSolutionStackCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class GetEBPlatformVersionDetailCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter PlatformArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the version of the platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PlatformArn { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -53,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.PlatformArn = this.PlatformArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -67,8 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribePlatformVersionRequest();
             
+            if (cmdletContext.PlatformArn != null)
+            {
+                request.PlatformArn = cmdletContext.PlatformArn;
+            }
             
             CmdletOutput output;
             
@@ -78,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.PlatformDescription;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -103,13 +118,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksRequest request)
+        private static Amazon.ElasticBeanstalk.Model.DescribePlatformVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribePlatformVersionRequest request)
         {
             #if DESKTOP
-            return client.ListAvailableSolutionStacks(request);
+            return client.DescribePlatformVersion(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListAvailableSolutionStacksAsync(request);
+            var task = client.DescribePlatformVersionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -120,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String PlatformArn { get; set; }
         }
         
     }
