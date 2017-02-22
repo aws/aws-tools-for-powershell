@@ -45,43 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HealthCheckId
         /// <summary>
         /// <para>
-        /// <para>If you want Amazon Route 53 to return this resource record set in response to a DNS
-        /// query only when a health check is passing, include the <code>HealthCheckId</code>
-        /// element and specify the ID of the applicable health check.</para><para>Amazon Route 53 determines whether a resource record set is healthy by periodically
-        /// sending a request to the endpoint that is specified in the health check. If that endpoint
-        /// returns an HTTP status code of 2xx or 3xx, the endpoint is healthy. If the endpoint
-        /// returns an HTTP status code of 400 or greater, or if the endpoint doesn't respond
-        /// for a certain amount of time, Amazon Route 53 considers the endpoint unhealthy and
-        /// also considers the resource record set unhealthy.</para><para>The <code>HealthCheckId</code> element is only useful when Amazon Route 53 is choosing
-        /// between two or more resource record sets to respond to a DNS query, and you want Amazon
-        /// Route 53 to base the choice in part on the status of a health check. Configuring health
-        /// checks only makes sense in the following configurations:</para><ul><li><para>You're checking the health of the resource record sets in a weighted, latency, geolocation,
-        /// or failover resource record set, and you specify health check IDs for all of the resource
-        /// record sets. If the health check for one resource record set specifies an endpoint
-        /// that is not healthy, Amazon Route 53 stops responding to queries using the value for
-        /// that resource record set.</para></li><li><para>You set <code>EvaluateTargetHealth</code> to <code>true</code> for the resource record
-        /// sets in an alias, weighted alias, latency alias, geolocation alias, or failover alias
-        /// resource record set, and you specify health check IDs for all of the resource record
-        /// sets that are referenced by the alias resource record sets. For more information about
-        /// this configuration, see <code>EvaluateTargetHealth</code>.</para><para>Amazon Route 53 doesn't check the health of the endpoint specified in the resource
-        /// record set, for example, the endpoint specified by the IP address in the <code>Value</code>
-        /// element. When you add a <code>HealthCheckId</code> element to a resource record set,
-        /// Amazon Route 53 checks the health of the endpoint that you specified in the health
-        /// check.</para></li></ul><para>For geolocation resource record sets, if an endpoint is unhealthy, Amazon Route 53
-        /// looks for a resource record set for the larger, associated geographic region. For
-        /// example, suppose you have resource record sets for a state in the United States, for
-        /// the United States, for North America, and for all locations. If the endpoint for the
-        /// state resource record set is unhealthy, Amazon Route 53 checks the resource record
-        /// sets for the United States, for North America, and for all locations (a resource record
-        /// set for which the value of CountryCode is <code>*</code>), in that order, until it
-        /// finds a resource record set for which the endpoint is healthy.</para><para>If your health checks specify the endpoint only by domain name, we recommend that
-        /// you create a separate health check for each endpoint. For example, create a health
-        /// check for each HTTP server that is serving content for www.example.com. For the value
-        /// of <code>FullyQualifiedDomainName</code>, specify the domain name of the server (such
-        /// as <code>us-east-1-www.example.com</code>), not the name of the resource record sets
-        /// (example.com).</para><important><para>In this configuration, if you create a health check for which the value of <code>FullyQualifiedDomainName</code>
-        /// matches the name of the resource record sets and then associate the health check with
-        /// those resource record sets, health check results will be unpredictable.</para></important>
+        /// <para>The ID for the health check for which you want the current status. When you created
+        /// the health check, <code>CreateHealthCheck</code> returned the ID in the response,
+        /// in the <code>HealthCheckId</code> element.</para><note><para>If you want to check the status of a calculated health check, you must use the Amazon
+        /// Route 53 console or the CloudWatch console. You can't use <code>GetHealthCheckStatus</code>
+        /// to get the status of a calculated health check.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

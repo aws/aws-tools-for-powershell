@@ -28,11 +28,10 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves a list of the IP ranges used by Amazon Route 53 health checkers to check
-    /// the health of your resources. Send a <code>GET</code> request to the <code>/<i>Amazon
-    /// Route 53 API version</i>/checkeripranges</code> resource. Use these IP addresses to
-    /// configure router and firewall rules to allow health checkers to check the health of
-    /// your resources.
+    /// <code>GetCheckerIpRanges</code> still works, but we recommend that you download ip-ranges.json,
+    /// which includes IP address ranges for all AWS services. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP
+    /// Address Ranges of Amazon Route 53 Servers</a> in the <i>Amazon Route 53 Developer
+    /// Guide</i>.
     /// </summary>
     [Cmdlet("Get", "R53CheckerIpRanges")]
     [OutputType("System.String")]
