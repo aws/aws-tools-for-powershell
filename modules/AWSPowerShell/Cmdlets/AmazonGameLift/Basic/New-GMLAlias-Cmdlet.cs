@@ -28,16 +28,21 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates an alias for a fleet. You can use an alias to anonymize your fleet by referencing
-    /// an alias instead of a specific fleet when you create game sessions. Amazon GameLift
-    /// supports two types of routing strategies for aliases: simple and terminal. Use a simple
-    /// alias to point to an active fleet. Use a terminal alias to display a message to incoming
-    /// traffic instead of routing players to an active fleet. This option is useful when
-    /// a game server is no longer supported but you want to provide better messaging than
-    /// a standard 404 error.
+    /// Creates an alias and sets a target fleet. A fleet alias can be used in place of a
+    /// fleet ID, such as when calling <code>CreateGameSession</code> from a game client or
+    /// game service or adding destinations to a game session queue. By changing an alias's
+    /// target fleet, you can switch your players to the new fleet without changing any other
+    /// component. In production, this feature is particularly useful to redirect your player
+    /// base seamlessly to the latest game server update. 
     /// 
     ///  
     /// <para>
+    /// Amazon GameLift supports two types of routing strategies for aliases: simple and terminal.
+    /// Use a simple alias to point to an active fleet. Use a terminal alias to display a
+    /// message to incoming traffic instead of routing players to an active fleet. This option
+    /// is useful when a game server is no longer supported but you want to provide better
+    /// messaging than a standard 404 error.
+    /// </para><para>
     /// To create a fleet alias, specify an alias name, routing strategy, and optional description.
     /// If successful, a new alias record is returned, including an alias ID, which you can
     /// reference when creating a game session. To reassign the alias to another fleet ID,
@@ -67,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet.</para>
+        /// <para>Unique identifier for a fleet that the alias points to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label associated with an alias. Alias names do not need to be unique.</para>
+        /// <para>Descriptive label that is associated with an alias. Alias names do not need to be
+        /// unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

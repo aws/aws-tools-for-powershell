@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves the current runtime configuration for the specified fleet. The runtime configuration
-    /// tells GameLift how to launch server processes on instances in the fleet.
+    /// tells Amazon GameLift how to launch server processes on instances in the fleet.
     /// </summary>
     [Cmdlet("Get", "GMLRuntimeConfiguration")]
     [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the fleet to get the runtime configuration for.</para>
+        /// <para>Unique identifier for a fleet to get the runtime configuration for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

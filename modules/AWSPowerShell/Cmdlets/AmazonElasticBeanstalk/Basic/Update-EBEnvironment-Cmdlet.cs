@@ -146,6 +146,27 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] OptionsToRemove { get; set; }
         #endregion
         
+        #region Parameter PlatformArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the platform, if used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlatformArn { get; set; }
+        #endregion
+        
+        #region Parameter SolutionStackName
+        /// <summary>
+        /// <para>
+        /// <para>This specifies the platform version that the environment will run after the environment
+        /// is updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SolutionStackName { get; set; }
+        #endregion
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>
@@ -190,17 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String VersionLabel { get; set; }
         #endregion
         
-        #region Parameter SolutionStackName
-        /// <summary>
-        /// <para>
-        /// <para>This specifies the platform version that the environment will run after the environment
-        /// is updated.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SolutionStackName { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -243,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 context.OptionsToRemove = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.OptionsToRemove);
             }
+            context.PlatformArn = this.PlatformArn;
             context.SolutionStackName = this.SolutionStackName;
             context.TemplateName = this.TemplateName;
             context.Tier_Name = this.Tier_Name;
@@ -292,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.OptionsToRemove != null)
             {
                 request.OptionsToRemove = cmdletContext.OptionsToRemove;
+            }
+            if (cmdletContext.PlatformArn != null)
+            {
+                request.PlatformArn = cmdletContext.PlatformArn;
             }
             if (cmdletContext.SolutionStackName != null)
             {
@@ -402,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String GroupName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
+            public System.String PlatformArn { get; set; }
             public System.String SolutionStackName { get; set; }
             public System.String TemplateName { get; set; }
             public System.String Tier_Name { get; set; }

@@ -34,12 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// on a running environment if an option value is changed.
     /// </summary>
     [Cmdlet("Get", "EBConfigurationOption")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.ConfigurationOptionDescription")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse")]
     [AWSCmdlet("Invokes the DescribeConfigurationOptions operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeConfigurationOptions"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ConfigurationOptionDescription",
-        "This cmdlet returns a collection of ConfigurationOptionDescription objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: SolutionStackName (type System.String)"
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse",
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetEBConfigurationOptionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -77,14 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] Option { get; set; }
         #endregion
         
-        #region Parameter TemplateName
+        #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration template whose configuration options you want to describe.</para>
+        /// <para>The ARN of the custom platform.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TemplateName { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String PlatformArn { get; set; }
         #endregion
         
         #region Parameter SolutionStackName
@@ -95,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SolutionStackName { get; set; }
+        #endregion
+        
+        #region Parameter TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the configuration template whose configuration options you want to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateName { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -116,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 context.Options = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.Option);
             }
+            context.PlatformArn = this.PlatformArn;
             context.SolutionStackName = this.SolutionStackName;
             context.TemplateName = this.TemplateName;
             
@@ -146,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.Options = cmdletContext.Options;
             }
+            if (cmdletContext.PlatformArn != null)
+            {
+                request.PlatformArn = cmdletContext.PlatformArn;
+            }
             if (cmdletContext.SolutionStackName != null)
             {
                 request.SolutionStackName = cmdletContext.SolutionStackName;
@@ -163,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Options;
-                notes = new Dictionary<string, object>();
-                notes["SolutionStackName"] = response.SolutionStackName;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -210,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String ApplicationName { get; set; }
             public System.String EnvironmentName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> Options { get; set; }
+            public System.String PlatformArn { get; set; }
             public System.String SolutionStackName { get; set; }
             public System.String TemplateName { get; set; }
         }

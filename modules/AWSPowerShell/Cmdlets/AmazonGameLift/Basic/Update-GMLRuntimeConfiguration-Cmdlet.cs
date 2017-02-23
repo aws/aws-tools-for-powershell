@@ -28,22 +28,23 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates the current runtime configuration for the specified fleet, which tells GameLift
-    /// how to launch server processes on instances in the fleet. You can update a fleet's
-    /// runtime configuration at any time after the fleet is created; it does not need to
-    /// be in an <code>ACTIVE</code> status.
+    /// Updates the current runtime configuration for the specified fleet, which tells Amazon
+    /// GameLift how to launch server processes on instances in the fleet. You can update
+    /// a fleet's runtime configuration at any time after the fleet is created; it does not
+    /// need to be in an <code>ACTIVE</code> status.
     /// 
     ///  
     /// <para>
     /// To update runtime configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code>
     /// object with the updated collection of server process configurations.
     /// </para><para>
-    /// Each instance in a GameLift fleet checks regularly for an updated runtime configuration
+    /// Each instance in a Amazon GameLift fleet checks regularly for an updated runtime configuration
     /// and changes how it launches server processes to comply with the latest version. Existing
     /// server processes are not affected by the update; they continue to run until they end,
-    /// while GameLift simply adds new server processes to fit the current runtime configuration.
-    /// As a result, the runtime configuration changes are applied gradually as existing processes
-    /// shut down and new processes are launched in GameLift's normal process recycling activity.
+    /// while Amazon GameLift simply adds new server processes to fit the current runtime
+    /// configuration. As a result, the runtime configuration changes are applied gradually
+    /// as existing processes shut down and new processes are launched in Amazon GameLift's
+    /// normal process recycling activity.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GMLRuntimeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the fleet to update runtime configuration for.</para>
+        /// <para>Unique identifier for a fleet to update runtime configuration for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

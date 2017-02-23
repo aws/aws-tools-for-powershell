@@ -34,7 +34,6 @@
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" ServicePageSize="1000" />
 
   <MetadataProperties>
-    <Property>SolutionStackName</Property>
     <Property>RefreshedAt</Property>
   </MetadataProperties>
 
@@ -48,7 +47,7 @@
     <Property>TemplateName</Property>
   </PipelineByValueProperties>
 
-  <ServiceOperations>
+  <ServiceOperations>    
     <ServiceOperation MethodName="AbortEnvironmentUpdate" Verb="Stop" Output="Void" ShouldProcessTarget="EnvironmentName"/>
     <ServiceOperation MethodName="ApplyEnvironmentManagedAction" Verb="Submit" Output="Response" ShouldProcessTarget="EnvironmentName"/>
     <ServiceOperation MethodName="CheckDNSAvailability" Output="Response" />
@@ -57,6 +56,7 @@
     <ServiceOperation MethodName="CreateApplicationVersion" PositionalParameters="VersionLabel;Description"/>
     <ServiceOperation MethodName="CreateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description;SourceConfiguration"/>
     <ServiceOperation MethodName="CreateEnvironment" Output="Response" PositionalParameters="EnvironmentName"/>
+    <ServiceOperation MethodName="CreatePlatformVersion" PipelineParameter="PlatformName" Output="Response" />
     <ServiceOperation MethodName="CreateStorageLocation"/>
     <ServiceOperation MethodName="DeleteApplication" Output="Void" ShouldProcessTarget="ApplicationName"/>
     <ServiceOperation MethodName="DeleteApplicationVersion" Output="Void" ShouldProcessTarget="VersionLabel" PositionalParameters="VersionLabel;DeleteSourceBundle"/>
@@ -68,9 +68,10 @@
         <Documentation>Returns the name of the environment that was updated</Documentation>
       </PassThru>
     </ServiceOperation>
+    <ServiceOperation MethodName="DeletePlatformVersion" ShouldProcessTarget="PlatformArn"/>
     <ServiceOperation MethodName="DescribeApplications" />
     <ServiceOperation MethodName="DescribeApplicationVersions" PositionalParameters="VersionLabels"/>
-    <ServiceOperation MethodName="DescribeConfigurationOptions" />
+    <ServiceOperation MethodName="DescribeConfigurationOptions" Output="Response"/>
     <ServiceOperation MethodName="DescribeConfigurationSettings" />
     <ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
     <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName"/>
@@ -79,7 +80,9 @@
     <ServiceOperation MethodName="DescribeEnvironments" PositionalParameters="EnvironmentIds;VersionLabel"/>
     <ServiceOperation MethodName="DescribeEvents"/>
     <ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
+    <ServiceOperation MethodName="DescribePlatformVersion" Noun="PlatformVersionDetail"/>
     <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response"/>
+    <ServiceOperation MethodName="ListPlatformVersions" Noun="PlatformVersion"/>
     <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
       <PassThru>
         <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>

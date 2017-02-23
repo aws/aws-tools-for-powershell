@@ -22,40 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.ElasticBeanstalk;
+using Amazon.ElasticBeanstalk.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Retrieves the location of stored game session logs for a specified game session. When
-    /// a game session is terminated, Amazon GameLift automatically stores the logs in Amazon
-    /// S3. Use this URL to download the logs.
-    /// 
-    ///  <note><para>
-    /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
-    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
-    /// are not saved.
-    /// </para></note>
+    /// Describes the version of the platform.
     /// </summary>
-    [Cmdlet("Get", "GMLGameSessionLogUrl")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetGameSessionLogUrl operation against Amazon GameLift Service.", Operation = new[] {"GetGameSessionLogUrl"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EBPlatformVersionDetail")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.PlatformDescription")]
+    [AWSCmdlet("Invokes the DescribePlatformVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribePlatformVersion"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformDescription",
+        "This cmdlet returns a PlatformDescription object.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribePlatformVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetEBPlatformVersionDetailCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
-        #region Parameter GameSessionId
+        #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to get logs for.</para>
+        /// <para>The ARN of the version of the platform.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GameSessionId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PlatformArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -71,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GameSessionId = this.GameSessionId;
+            context.PlatformArn = this.PlatformArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -86,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.GetGameSessionLogUrlRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribePlatformVersionRequest();
             
-            if (cmdletContext.GameSessionId != null)
+            if (cmdletContext.PlatformArn != null)
             {
-                request.GameSessionId = cmdletContext.GameSessionId;
+                request.PlatformArn = cmdletContext.PlatformArn;
             }
             
             CmdletOutput output;
@@ -101,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PreSignedUrl;
+                object pipelineOutput = response.PlatformDescription;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -126,13 +118,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.GetGameSessionLogUrlResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetGameSessionLogUrlRequest request)
+        private static Amazon.ElasticBeanstalk.Model.DescribePlatformVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribePlatformVersionRequest request)
         {
             #if DESKTOP
-            return client.GetGameSessionLogUrl(request);
+            return client.DescribePlatformVersion(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetGameSessionLogUrlAsync(request);
+            var task = client.DescribePlatformVersionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -143,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String GameSessionId { get; set; }
+            public System.String PlatformArn { get; set; }
         }
         
     }

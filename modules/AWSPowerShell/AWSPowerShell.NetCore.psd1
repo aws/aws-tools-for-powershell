@@ -171,7 +171,7 @@ ModuleList = @()
 
 # List of all files packaged with this module
 FileList = @(
-  'AWSPowerShell.dll-Help.xml',
+  'AWSPowerShell.NetCore.dll-Help.xml',
   'CHANGELOG.md'
 )  
 

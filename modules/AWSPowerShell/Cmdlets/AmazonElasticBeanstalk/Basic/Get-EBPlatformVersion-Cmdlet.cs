@@ -28,138 +28,35 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns list of event descriptions matching criteria up to the last 6 weeks.
-    /// 
-    ///  <note><para>
-    /// This action returns the most recent 1,000 events from the specified <code>NextToken</code>.
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the available platforms.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EBEvent")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.EventDescription")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeEvents"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EventDescription",
-        "This cmdlet returns a collection of EventDescription objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "EBPlatformVersion")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.PlatformSummary")]
+    [AWSCmdlet("Invokes the ListPlatformVersions operation against AWS Elastic Beanstalk.", Operation = new[] {"ListPlatformVersions"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformSummary",
+        "This cmdlet returns a collection of PlatformSummary objects.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.ListPlatformVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetEBEventCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class GetEBPlatformVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationName
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
-        /// only those associated with this application.</para>
+        /// <para>List only the platforms where the platform member value relates to one of the supplied
+        /// values.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ApplicationName { get; set; }
-        #endregion
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-        /// that occur up to, but not including, the <code>EndTime</code>. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime EndTime { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentId
-        /// <summary>
-        /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
-        /// with this environment.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EnvironmentId { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentName
-        /// <summary>
-        /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
-        /// with this environment.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EnvironmentName { get; set; }
-        #endregion
-        
-        #region Parameter PlatformArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the version of the custom platform.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String PlatformArn { get; set; }
-        #endregion
-        
-        #region Parameter RequestId
-        /// <summary>
-        /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the described events to include only
-        /// those associated with this request ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String RequestId { get; set; }
-        #endregion
-        
-        #region Parameter Severity
-        /// <summary>
-        /// <para>
-        /// <para>If specified, limits the events returned from this call to include only those with
-        /// the specified severity or higher.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ElasticBeanstalk.EventSeverity")]
-        public Amazon.ElasticBeanstalk.EventSeverity Severity { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
-        /// occur on or after this time.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime StartTime { get; set; }
-        #endregion
-        
-        #region Parameter TemplateName
-        /// <summary>
-        /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
-        /// are associated with this environment configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TemplateName { get; set; }
-        #endregion
-        
-        #region Parameter VersionLabel
-        /// <summary>
-        /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated
-        /// with this application version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VersionLabel { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("Filters")]
+        public Amazon.ElasticBeanstalk.Model.PlatformFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>Specifies the maximum number of events that can be returned, beginning with the most
-        /// recent event.</para>
+        /// <para>The maximum number of platform values returned in one call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -170,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token. If specified, the events return the next batch of results.</para>
+        /// <para>The starting index into the remaining list of platforms. Use the <code>NextToken</code>
+        /// value from a previous <code>ListPlatformVersion</code> call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -193,21 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationName = this.ApplicationName;
-            if (ParameterWasBound("EndTime"))
-                context.EndTime = this.EndTime;
-            context.EnvironmentId = this.EnvironmentId;
-            context.EnvironmentName = this.EnvironmentName;
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.ElasticBeanstalk.Model.PlatformFilter>(this.Filter);
+            }
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.NextToken = this.NextToken;
-            context.PlatformArn = this.PlatformArn;
-            context.RequestId = this.RequestId;
-            context.Severity = this.Severity;
-            if (ParameterWasBound("StartTime"))
-                context.StartTime = this.StartTime;
-            context.TemplateName = this.TemplateName;
-            context.VersionLabel = this.VersionLabel;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -223,46 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ElasticBeanstalk.Model.DescribeEventsRequest();
-            if (cmdletContext.ApplicationName != null)
+            var request = new Amazon.ElasticBeanstalk.Model.ListPlatformVersionsRequest();
+            if (cmdletContext.Filters != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
-            }
-            if (cmdletContext.EndTime != null)
-            {
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
-            if (cmdletContext.EnvironmentId != null)
-            {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
-            }
-            if (cmdletContext.EnvironmentName != null)
-            {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
-            }
-            if (cmdletContext.PlatformArn != null)
-            {
-                request.PlatformArn = cmdletContext.PlatformArn;
-            }
-            if (cmdletContext.RequestId != null)
-            {
-                request.RequestId = cmdletContext.RequestId;
-            }
-            if (cmdletContext.Severity != null)
-            {
-                request.Severity = cmdletContext.Severity;
-            }
-            if (cmdletContext.StartTime != null)
-            {
-                request.StartTime = cmdletContext.StartTime.Value;
-            }
-            if (cmdletContext.TemplateName != null)
-            {
-                request.TemplateName = cmdletContext.TemplateName;
-            }
-            if (cmdletContext.VersionLabel != null)
-            {
-                request.VersionLabel = cmdletContext.VersionLabel;
+                request.Filters = cmdletContext.Filters;
             }
             
             // Initialize loop variants and commence piping
@@ -319,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Events;
+                        object pipelineOutput = response.PlatformSummaryList;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -328,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Events.Count;
+                        int _receivedThisCall = response.PlatformSummaryList.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -380,13 +234,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.DescribeEventsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeEventsRequest request)
+        private static Amazon.ElasticBeanstalk.Model.ListPlatformVersionsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ListPlatformVersionsRequest request)
         {
             #if DESKTOP
-            return client.DescribeEvents(request);
+            return client.ListPlatformVersions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeEventsAsync(request);
+            var task = client.ListPlatformVersionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -397,18 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.DateTime? EndTime { get; set; }
-            public System.String EnvironmentId { get; set; }
-            public System.String EnvironmentName { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.PlatformFilter> Filters { get; set; }
             public int? MaxRecords { get; set; }
             public System.String NextToken { get; set; }
-            public System.String PlatformArn { get; set; }
-            public System.String RequestId { get; set; }
-            public Amazon.ElasticBeanstalk.EventSeverity Severity { get; set; }
-            public System.DateTime? StartTime { get; set; }
-            public System.String TemplateName { get; set; }
-            public System.String VersionLabel { get; set; }
         }
         
     }

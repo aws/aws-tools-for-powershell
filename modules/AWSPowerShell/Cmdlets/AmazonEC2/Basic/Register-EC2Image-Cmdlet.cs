@@ -38,28 +38,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// in a single request, so you don't have to register the AMI yourself.
     /// </para></note><para>
     /// You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI
-    /// from a snapshot of a root device volume. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html">Launching
+    /// from a snapshot of a root device volume. You specify the snapshot using the block
+    /// device mapping. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html">Launching
     /// an Instance from a Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para><important><para>
+    /// </para><para>
+    /// You can't register an image where a secondary (non-root) snapshot has AWS Marketplace
+    /// product codes.
+    /// </para><para>
     /// Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise
-    /// Server (SLES), use the EC2 <code>billingProduct</code> code associated with an AMI
-    /// to verify subscription status for package updates. Creating an AMI from an EBS snapshot
-    /// does not maintain this billing code, and subsequent instances launched from such an
-    /// AMI will not be able to connect to package update infrastructure.
+    /// Server (SLES), use the EC2 billing product code associated with an AMI to verify the
+    /// subscription status for package updates. Creating an AMI from an EBS snapshot does
+    /// not maintain this billing code, and subsequent instances launched from such an AMI
+    /// will not be able to connect to package update infrastructure. To create an AMI that
+    /// must retain billing codes, see <a>CreateImage</a>.
     /// </para><para>
-    /// Similarly, although you can create a Windows AMI from a snapshot, you can't successfully
-    /// launch an instance from the AMI.
-    /// </para><para>
-    /// To create Windows AMIs or to create AMIs for Linux operating systems that must retain
-    /// AMI billing codes to work properly, see <a>CreateImage</a>.
-    /// </para></important><para>
     /// If needed, you can deregister an AMI at any time. Any modifications you make to an
     /// AMI backed by an instance store volume invalidates its registration. If you make changes
     /// to an image, deregister the previous image and register the new image.
-    /// </para><note><para>
-    /// You can't register an image where a secondary (non-root) snapshot has AWS Marketplace
-    /// product codes.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -81,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.EC2.ArchitectureValues")]
         public Amazon.EC2.ArchitectureValues Architecture { get; set; }
+        #endregion
+        
+        #region Parameter BillingProduct
+        /// <summary>
+        /// <para>
+        /// <para>The billing product codes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BillingProducts")]
+        public System.String[] BillingProduct { get; set; }
         #endregion
         
         #region Parameter BlockDeviceMapping
@@ -220,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.Architecture = this.Architecture;
+            if (this.BillingProduct != null)
+            {
+                context.BillingProducts = new List<System.String>(this.BillingProduct);
+            }
             if (this.BlockDeviceMapping != null)
             {
                 context.BlockDeviceMappings = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
@@ -253,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Architecture != null)
             {
                 request.Architecture = cmdletContext.Architecture;
+            }
+            if (cmdletContext.BillingProducts != null)
+            {
+                request.BillingProducts = cmdletContext.BillingProducts;
             }
             if (cmdletContext.BlockDeviceMappings != null)
             {
@@ -346,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public Amazon.EC2.ArchitectureValues Architecture { get; set; }
+            public List<System.String> BillingProducts { get; set; }
             public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? EnaSupport { get; set; }

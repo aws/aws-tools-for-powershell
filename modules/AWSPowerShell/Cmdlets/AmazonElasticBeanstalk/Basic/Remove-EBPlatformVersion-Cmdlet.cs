@@ -22,45 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.ElasticBeanstalk;
+using Amazon.ElasticBeanstalk.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Retrieves the location of stored game session logs for a specified game session. When
-    /// a game session is terminated, Amazon GameLift automatically stores the logs in Amazon
-    /// S3. Use this URL to download the logs.
-    /// 
-    ///  <note><para>
-    /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
-    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
-    /// are not saved.
-    /// </para></note>
+    /// Deletes the specified version of a custom platform.
     /// </summary>
-    [Cmdlet("Get", "GMLGameSessionLogUrl")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetGameSessionLogUrl operation against Amazon GameLift Service.", Operation = new[] {"GetGameSessionLogUrl"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EBPlatformVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ElasticBeanstalk.Model.PlatformSummary")]
+    [AWSCmdlet("Invokes the DeletePlatformVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DeletePlatformVersion"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformSummary",
+        "This cmdlet returns a PlatformSummary object.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DeletePlatformVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class RemoveEBPlatformVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         
-        #region Parameter GameSessionId
+        #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to get logs for.</para>
+        /// <para>The ARN of the version of the custom platform.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GameSessionId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PlatformArn { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlatformArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EBPlatformVersion (DeletePlatformVersion)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GameSessionId = this.GameSessionId;
+            context.PlatformArn = this.PlatformArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -86,11 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.GetGameSessionLogUrlRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DeletePlatformVersionRequest();
             
-            if (cmdletContext.GameSessionId != null)
+            if (cmdletContext.PlatformArn != null)
             {
-                request.GameSessionId = cmdletContext.GameSessionId;
+                request.PlatformArn = cmdletContext.PlatformArn;
             }
             
             CmdletOutput output;
@@ -101,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PreSignedUrl;
+                object pipelineOutput = response.PlatformSummary;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -126,13 +134,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.GetGameSessionLogUrlResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetGameSessionLogUrlRequest request)
+        private static Amazon.ElasticBeanstalk.Model.DeletePlatformVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeletePlatformVersionRequest request)
         {
             #if DESKTOP
-            return client.GetGameSessionLogUrl(request);
+            return client.DeletePlatformVersion(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetGameSessionLogUrlAsync(request);
+            var task = client.DeletePlatformVersionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -143,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String GameSessionId { get; set; }
+            public System.String PlatformArn { get; set; }
         }
         
     }

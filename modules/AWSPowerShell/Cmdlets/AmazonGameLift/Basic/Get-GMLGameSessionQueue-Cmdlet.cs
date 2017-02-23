@@ -28,39 +28,33 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves build records for all builds associated with the AWS account in use. You
-    /// can limit results to builds that are in a specific status by using the <code>Status</code>
-    /// parameter. Use the pagination parameters to retrieve results in a set of sequential
-    /// pages. 
-    /// 
-    ///  <note><para>
-    /// Build records are not listed in any particular order.
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves the properties for one or more game session queues. When requesting multiple
+    /// queues, use the pagination parameters to retrieve results as a set of sequential pages.
+    /// If successful, a <a>GameSessionQueue</a> object is returned for each requested queue.
+    /// When specifying a list of queues, objects are returned only for queues that currently
+    /// exist in the region.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLBuild")]
-    [OutputType("Amazon.GameLift.Model.Build")]
-    [AWSCmdlet("Invokes the ListBuilds operation against Amazon GameLift Service.", Operation = new[] {"ListBuilds"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Build",
-        "This cmdlet returns a collection of Build objects.",
-        "The service call response (type Amazon.GameLift.Model.ListBuildsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "GMLGameSessionQueue")]
+    [OutputType("Amazon.GameLift.Model.GameSessionQueue")]
+    [AWSCmdlet("Invokes the DescribeGameSessionQueues operation against Amazon GameLift Service.", Operation = new[] {"DescribeGameSessionQueues"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionQueue",
+        "This cmdlet returns a collection of GameSessionQueue objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeGameSessionQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLGameSessionQueueCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter Status
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Build status to filter results by. To retrieve all builds, leave this parameter empty.</para><para>Possible build statuses include the following:</para><ul><li><para><b>INITIALIZED</b> – A new build has been defined, but no files have been uploaded.
-        /// You cannot create fleets for builds that are in this status. When a build is successfully
-        /// created, the build status is set to this value. </para></li><li><para><b>READY</b> – The game build has been successfully uploaded. You can now create
-        /// new fleets for this build.</para></li><li><para><b>FAILED</b> – The game build upload failed. You cannot create new fleets for this
-        /// build. </para></li></ul>
+        /// <para>List of queue names to retrieve information for. To request settings for all queues,
+        /// leave this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.GameLift.BuildStatus")]
-        public Amazon.GameLift.BuildStatus Status { get; set; }
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -105,8 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            if (this.Name != null)
+            {
+                context.Names = new List<System.String>(this.Name);
+            }
             context.NextToken = this.NextToken;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListBuildsRequest();
-            if (cmdletContext.Status != null)
+            var request = new Amazon.GameLift.Model.DescribeGameSessionQueuesRequest();
+            if (cmdletContext.Names != null)
             {
-                request.Status = cmdletContext.Status;
+                request.Names = cmdletContext.Names;
             }
             
             // Initialize loop variants and commence piping
@@ -161,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Builds;
+                        object pipelineOutput = response.GameSessionQueues;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -170,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Builds.Count;
+                        int _receivedThisCall = response.GameSessionQueues.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -213,13 +210,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.ListBuildsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListBuildsRequest request)
+        private static Amazon.GameLift.Model.DescribeGameSessionQueuesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeGameSessionQueuesRequest request)
         {
             #if DESKTOP
-            return client.ListBuilds(request);
+            return client.DescribeGameSessionQueues(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListBuildsAsync(request);
+            var task = client.DescribeGameSessionQueuesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -231,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
+            public List<System.String> Names { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.GameLift.BuildStatus Status { get; set; }
         }
         
     }

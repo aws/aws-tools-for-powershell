@@ -927,7 +927,9 @@ namespace Amazon.PowerShell.Common
         /// <param name="userIdentity">
         /// Optional. Used if non-default network credentials should be used during authentication
         /// </param>
-        /// <param name="region">A default region to assume</param>
+        /// <param name="region">
+        /// Null or custom region to set the STS endpoint when calling to obtain credentials.
+        /// </param>
         public static void SaveSAMLRoleProfile(string name, 
                                                string endpointName, 
                                                string roleArn,
@@ -939,7 +941,7 @@ namespace Amazon.PowerShell.Common
             if (string.IsNullOrEmpty(roleArn)) throw new ArgumentNullException("roleArn");
 
             var profileExisted = ProfileManager.IsProfileKnown(name);
-            ProfileManager.RegisterSAMLRoleProfile(name, endpointName, roleArn, userIdentity, region.SystemName);
+            ProfileManager.RegisterSAMLRoleProfile(name, endpointName, roleArn, userIdentity, region !=  null ? region.SystemName : null);
 
             // if we just overwrote an AWS credential profile, remove any AWS-related keys that may be
             // present so we avoid mixed data

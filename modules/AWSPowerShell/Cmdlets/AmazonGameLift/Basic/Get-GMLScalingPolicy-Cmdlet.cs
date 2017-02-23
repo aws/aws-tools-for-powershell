@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet. Specify the fleet to retrieve scaling policies for.</para>
+        /// <para>Unique identifier for a fleet to retrieve scaling policies for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token indicating the start of the next sequential page of results. Use the token that
-        /// is returned with a previous call to this action. To specify the start of the result
-        /// set, do not specify a value.</para>
+        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// that is returned with a previous call to this action. To specify the start of the
+        /// result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

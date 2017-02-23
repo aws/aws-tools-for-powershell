@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves a set of game sessions that match a set of search criteria and sorts them
     /// in a specified order. Currently a game session search is limited to a single fleet.
-    /// Search results include only game sessions that are in ACTIVE status. If you need to
-    /// retrieve game sessions with a status other than active, use <a>DescribeGameSessions</a>.
+    /// Search results include only game sessions that are in <code>ACTIVE</code> status.
+    /// If you need to retrieve game sessions with a status other than active, use <a>DescribeGameSessions</a>.
     /// If you need to retrieve the protection policy for each game session, use <a>DescribeGameSessionDetails</a>.
     /// 
     ///  
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet alias. Each request must reference either a fleet ID
-        /// or alias ID, but not both.</para>
+        /// <para>Unique identifier for an alias associated with the fleet to search for active game
+        /// sessions. Each request must reference either a fleet ID or alias ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>String containing the search criteria for the session search. If no filter expression
         /// is included, the request returns results for all game sessions in the fleet that are
-        /// in ACTIVE status.</para><para>A filter expression can contain one or multiple conditions. Each condition consists
+        /// in <code>ACTIVE</code> status.</para><para>A filter expression can contain one or multiple conditions. Each condition consists
         /// of the following:</para><ul><li><para><b>Operand</b> -- Name of a game session attribute. Valid values are <code>gameSessionName</code>,
         /// <code>gameSessionId</code>, <code>creationTimeMillis</code>, <code>playerSessionCount</code>,
         /// <code>maximumSessions</code>, <code>hasAvailablePlayerSessions</code>.</para></li><li><para><b>Comparator</b> -- Valid comparators are: <code>=</code>, <code>&lt;&gt;</code>,
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet. Each request must reference either a fleet ID or alias
-        /// ID, but not both.</para>
+        /// <para>Unique identifier for a fleet to search for active game sessions. Each request must
+        /// reference either a fleet ID or alias ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -159,9 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token indicating the start of the next sequential page of results. Use the token that
-        /// is returned with a previous call to this action. To specify the start of the result
-        /// set, do not specify a value.</para>
+        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// that is returned with a previous call to this action. To specify the start of the
+        /// result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

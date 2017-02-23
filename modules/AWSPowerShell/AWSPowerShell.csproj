@@ -64,7 +64,7 @@
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.0.2\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.0.1\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.0.2\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CostAndUsageReport">
       <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.1\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
@@ -139,13 +139,13 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.0.9\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.5.5\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.5.6\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.7\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.3.4.1\lib\net35\AWSSDK.Route53.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53.3.3.5\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.1.7\lib\net35\AWSSDK.Redshift.dll</HintPath>
@@ -187,7 +187,7 @@
       <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.3.1.3\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
-      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.2.4\lib\net35\AWSSDK.GameLift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.3\lib\net35\AWSSDK.GameLift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.3.1.4\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
@@ -208,7 +208,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticFileSystem.3.3.0.9\lib\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.3.2\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.4\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.2.5\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
@@ -220,7 +220,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.2\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.8\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.9\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.2.1\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>

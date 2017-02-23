@@ -133,6 +133,28 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] OptionsToRemove { get; set; }
         #endregion
         
+        #region Parameter PlatformArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the custom platform.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlatformArn { get; set; }
+        #endregion
+        
+        #region Parameter SolutionStackName
+        /// <summary>
+        /// <para>
+        /// <para>This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
+        /// sets the configuration values to the default values associated with the specified
+        /// solution stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SolutionStackName { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -149,9 +171,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para> The name of the configuration template to use in deployment. If no configuration
         /// template is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
-        /// error. </para><para> Condition: You must specify either this parameter or a <code>SolutionStackName</code>,
-        /// but not both. If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code>
-        /// error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
         /// </summary>
@@ -190,21 +209,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
-        #endregion
-        
-        #region Parameter SolutionStackName
-        /// <summary>
-        /// <para>
-        /// <para>This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
-        /// sets the configuration values to the default values associated with the specified
-        /// solution stack.</para><para> Condition: You must specify either this or a <code>TemplateName</code>, but not both.
-        /// If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code>
-        /// error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code>
-        /// error. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SolutionStackName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -249,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 context.OptionsToRemove = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.OptionsToRemove);
             }
+            context.PlatformArn = this.PlatformArn;
             context.SolutionStackName = this.SolutionStackName;
             if (this.Tag != null)
             {
@@ -302,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.OptionsToRemove != null)
             {
                 request.OptionsToRemove = cmdletContext.OptionsToRemove;
+            }
+            if (cmdletContext.PlatformArn != null)
+            {
+                request.PlatformArn = cmdletContext.PlatformArn;
             }
             if (cmdletContext.SolutionStackName != null)
             {
@@ -416,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String GroupName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
+            public System.String PlatformArn { get; set; }
             public System.String SolutionStackName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.Tag> Tags { get; set; }
             public System.String TemplateName { get; set; }
