@@ -1,3 +1,13 @@
+### 3.3.55.0 (2017-02-22)
+  * Amazon EC2
+    - Updated the Register-EC2Image cmdlet with a new parameter, -BillingProduct.
+  * Amazon GameLift
+    - Added cmdlet support for the new service feature enabling developers to configure global queues for creating GameSessions and to allow PlayerData on PlayerSessions to store player-specific data.
+  * AWS Elastic Beanstalk
+    - Added support for creating and managing custom platforms with environments.
+    - *Breaking Change* 
+      The update for custom platform support changed the service response data for the DescribeConfigurationOptions API (Get-EBConfigurationOption cmdlet) to include an additional field, PlatformArn. Previously the cmdlet was able to pipe the configuration options collection to the pipeline. In this release the output from the cmdlet has changed so that the entire service response data (Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse) is emitted to the pipeline, not the collection of configuration options. To obtain the previous behavior, add a select clause to your code, for example: 'Get-EBConfigurationOption ...parameters... | select -expandproperty Options | ...'.
+
 ### 3.3.53.1 (2017-02-20)
   * Fixed bug in Get-AWSCredentials. When the -ListProfiles switch was used the collection of profile names was not correctly enumerated to the pipeline.
 
