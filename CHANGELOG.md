@@ -1,3 +1,9 @@
+### 3.3.56.0 (2017-02-23)
+  * Fixed issue with the Set-AWSSamlRoleProfile cmdlet reporting a null reference exception.
+  * (NetCore module only) Fixed issue with cmdlet help not being available due to a misnamed help file.
+  * Amazon EC2
+    - Added -InstanceType completion support for the new I3 instance type.
+
 ### 3.3.55.0 (2017-02-22)
   * Amazon EC2
     - Updated the Register-EC2Image cmdlet with a new parameter, -BillingProduct.
