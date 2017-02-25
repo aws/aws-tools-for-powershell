@@ -80,30 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PemFile { get; set; }
         #endregion
 
-        #region Parameter ProfileLocation
-        /// <summary>
-        /// <para>
-        /// Used to specify the name and location of the ini-format credential file (shared with
-        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
-        /// folder location.
-        /// </para>
-        /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is
-        /// placed in the default search location ('.aws' folder in the current user's profile folder,
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
-        /// when the profile to be used is contained in the encrypted credential file shared with the
-        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
-        /// </para>
-        /// <para>
-        /// As the current folder can vary in a shell or during script execution it is advised
-        /// that you use specify a fully qualified path instead of a relative path.
-        /// </para>
-        /// </summary>
-        [Parameter]
-        [Alias("AWSProfilesLocation", "ProfilesLocation")]
-        public string ProfileLocation { get; set; }
-        #endregion
-
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -115,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                                   InstanceId = this.InstanceId,
                                   Decrypt = this.Decrypt.IsPresent || !string.IsNullOrEmpty(this.PemFile),
                                   PemFile = this.PemFile,
-                                  ProfileLocation = this.ProfileLocation
+                                  ProfileLocation = Parameters.ProfileLocation
                               };
 
             // specifying a pem file implies the user wants the password decrypted

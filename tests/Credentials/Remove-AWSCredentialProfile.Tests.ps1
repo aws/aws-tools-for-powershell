@@ -51,5 +51,10 @@ Describe -Tag "Smoke" "Remove-AWSCredentialProfile" {
             (Get-Content $helper.DefaultSharedPath | Out-String).Trim() | Should BeNullOrEmpty
             (Get-Content $helper.CustomSharedPath | Out-String).Trim() | Should BeNullOrEmpty
         }
+
+        It "should throw if the profile doesn't exist" {
+            { Remove-AWSCredentialProfile -ProfileName doesnotexist } | Should Throw "does not exist"
+        }
+
     }
 }

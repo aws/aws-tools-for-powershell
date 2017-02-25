@@ -225,6 +225,25 @@ Describe -Tag "Smoke" "New-AWSCredentials" {
         }
 
         #
+        # make sure postional parameters work
+        #
+
+        It "should work with -ProfileName as a positional parameter" {
+            $helper.RegisterProfile("profile_name", $null, $basicOptions)
+            (New-AWSCredentials profile_name).GetType().Name | Should Be "BasicAWSCredentials"
+        }
+
+        It "should work with -ProfileName and -ProfileLocation as positional parameters" {
+            $helper.RegisterProfile("profile_name", $helper.CustomSharedPath, $basicOptions)
+            (New-AWSCredentials profile_name $helper.CustomSharedPath).GetType().Name | Should Be "BasicAWSCredentials"
+        }
+
+        It "should work with -ProfileName, -ProfileLocation, and -Region as positional parameters" {
+            $helper.RegisterProfile("profile_name", $helper.CustomSharedPath, $basicOptions)
+            (New-AWSCredentials profile_name $helper.CustomSharedPath).GetType().Name | Should Be "BasicAWSCredentials"
+        }
+
+        #
         # Spot check to see that the parameter sets are working correctly
         #
 

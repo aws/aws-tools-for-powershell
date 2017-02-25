@@ -33,23 +33,12 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class SetDefaultRegionCmdlet : PSCmdlet, IDynamicParameters
     {
-        private object Parameters { get; set; }
+        private AWSRegionArguments Parameters { get; set; }
 
         protected override void ProcessRecord()
         {
-            var commonArguments = Parameters as IAWSRegionArguments;
-            if (commonArguments != null)
-            {
-                var region = commonArguments.GetRegion(false);
-                this.SessionState.PSVariable.Set(SessionKeys.AWSRegionVariableName, region.SystemName);
-            }
-            else
-            {
-                this.ThrowTerminatingError(new ErrorRecord(new ArgumentException("Unable to determine valid region system name from the supplied parameter value"), 
-                                                            "ArgumentException", 
-                                                            ErrorCategory.InvalidArgument, 
-                                                            commonArguments.Region));
-            }
+            var region = Parameters.GetRegion(false);
+            this.SessionState.PSVariable.Set(SessionKeys.AWSRegionVariableName, region.SystemName);
         }
 
         #region IDynamicParameters Members
@@ -57,7 +46,6 @@ namespace Amazon.PowerShell.Common
         public object GetDynamicParameters()
         {
             Parameters = new AWSRegionArguments(this.SessionState);
-
             return Parameters;
         }
 

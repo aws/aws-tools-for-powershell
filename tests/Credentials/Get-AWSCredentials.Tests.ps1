@@ -20,7 +20,7 @@ Describe -Tag "Smoke" "Get-AWSCredentials" {
         }
 
         AfterEach {
-           $helper.ClearAllCreds()
+            $helper.ClearAllCreds()
         }
 
         It "should return null with no arguments" {
@@ -33,6 +33,15 @@ Describe -Tag "Smoke" "Get-AWSCredentials" {
             $awsCreds = (Get-AWSCredentials default)
 
             New-Item -ItemType Directory $helper.AwsDirectory
+        }
+
+        It "should get credentials using -ProfileName positional parameter" {
+            $helper.RegisterProfile("profile", "access", "secret", $null);
+            
+            $creds = Get-AWSCredentials profile
+            
+            $creds | Should Not BeNullOrEmpty
+            $creds.GetType().Name | Should Be BasicAWSCredentials
         }
 
         It "should be able to return AssumeRoleCredentials" {
@@ -100,12 +109,13 @@ Describe -Tag "Smoke" "Get-AWSCredentials" {
             $creds.GetCredentials().SecretKey | Should Be "secretCustom"
         }
 
-        It "should list profiles from the correct places if -ListProfile is specified" {
+        It "should list profiles from the correct places if -ListProfileDetail or -ListProfile is specified" {
             $helper.RegisterProfile("net", "accessNet", "secretNet", $null)
             $helper.RegisterProfile("default", "accessShared", "secretShared", $helper.DefaultSharedPath)
             $helper.RegisterProfile("custom", "accessCustom", "secretCustom", $helper.CustomSharedPath)
 
-            $profileInfos = (Get-AWSCredentials -ListProfile)
+            # test getting details from .NET credentials file
+            $profileInfos = (Get-AWSCredentials -ListProfileDetail)
 
             $profileInfos[0].ProfileName | Should Be "net"
             $profileInfos[0].StoreTypeName | Should Be "NetSDKCredentialsFile"
@@ -117,21 +127,37 @@ Describe -Tag "Smoke" "Get-AWSCredentials" {
 
             $profileInfos.Count | Should Be 2
 
-            $profileInfos = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.CustomSharedPath)
+            # test getting names from .NET credentials file
+            $profileNames = (Get-AWSCredentials -ListProfile)
+            $profileNames[0] | Should Be "net"
+            $profileNames[1] | Should Be "default"
+            $profileNames.Count | Should Be 2
+
+            # test getting details from custom shared credentials file
+            $profileInfos = (Get-AWSCredentials -ListProfileDetail -ProfileLocation $helper.CustomSharedPath)
 
             $profileInfos[0].ProfileName | Should Be "custom"
             $profileInfos[0].StoreTypeName | Should Be "SharedCredentialsFile"
             $profileInfos[0].ProfileLocation | Should Be $helper.CustomSharedPath
 
             $profileInfos.Count | Should Be 1
+            
+            # test getting names from default shared credentials file
+            $profileName = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.CustomSharedPath)
+            $profileName | Should Be "custom"
 
-            $profileInfos = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.DefaultSharedPath)
+            # test getting details from default shared credentials file
+            $profileInfos = (Get-AWSCredentials -ListProfileDetail -ProfileLocation $helper.DefaultSharedPath)
 
             $profileInfos[0].ProfileName | Should Be "default"
             $profileInfos[0].StoreTypeName | Should Be "SharedCredentialsFile"
             $profileInfos[0].ProfileLocation | Should Be $helper.DefaultSharedPath
 
             $profileInfos.Count | Should Be 1
+            
+            # test getting names from default shared credentials file
+            $profileName = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.DefaultSharedPath)
+            $profileName | Should Be "default"
         }
     }
 }

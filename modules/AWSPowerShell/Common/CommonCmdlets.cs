@@ -29,6 +29,7 @@ using Amazon.Util.Internal;
 using Amazon.Util;
 using Amazon.PowerShell.Utils;
 using Amazon.Runtime.CredentialManagement.Internal;
+using Amazon.Runtime.CredentialManagement;
 
 namespace Amazon.PowerShell.Common
 {
@@ -64,14 +65,14 @@ namespace Amazon.PowerShell.Common
     /// The active region can be found in the variable $StoredAWSRegion.
     /// </para>
     /// </summary>
-    [Cmdlet("Initialize", "AWSDefaults", DefaultParameterSetName = "RegionOnly")]
+    [Cmdlet("Initialize", "AWSDefaults", DefaultParameterSetName = InitializeDefaultsCmdletParameters.InstanceProfileSet)]
     [AWSCmdlet("Creates or updates the credential profile named 'default' using supplied keys, existing credentials or profile,"
                 + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
     {
-        private AWSCommonArgumentsFull Parameters { get; set; }
+        private InitializeDefaultsCmdletParameters Parameters { get; set; }
 
         public const string CredentialsPrompt = "Please choose one of the following stored credentials to use";
         public const string RegionPrompt = "Please choose one of the following regions to use or specify one by system name";
@@ -81,6 +82,56 @@ namespace Amazon.PowerShell.Common
 
         const string CredentialsSourceMsg = "Credentials loaded from {0}.";
 
+        internal class InitializeDefaultsCmdletParameters : AWSCredentialsArgumentsFull, IAWSCommonArgumentsFull
+        {
+            public const string InstanceProfileSet = "InstanceProfile";
+            public const string RegionOnlySet = "RegionOnly";
+
+            /// <summary>
+            /// The system name of an AWS region or an AWSRegion instance. This governs
+            /// the sendpoint that will be used when calling service operations. Note that
+            /// the AWS resources referenced in a call are usually region-specific.
+            /// </summary>
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, Position = 210, ParameterSetName = RegionOnlySet)]
+            public object Region { get; set; }
+
+            /// <summary>
+            /// <para>
+            /// Used to specify the name and location of the ini-format credential file (shared with
+            /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
+            /// folder location.
+            /// </para>
+            /// <para>
+            /// When the ini-format credential file uses the default filename ('credentials') and is
+            /// placed in the default search location ('.aws' folder in the current user's profile folder,
+            /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
+            /// when the profile to be used is contained in the encrypted credential file shared with the
+            /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+            /// </para>
+            /// <para>
+            /// As the current folder can vary in a shell or during script execution it is advised
+            /// that you use specify a fully qualified path instead of a relative path.
+            /// </para>
+            /// </summary>
+            [Alias("AWSProfilesLocation", "ProfilesLocation")]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = InstanceProfileSet)]
+            public override string ProfileLocation { get; set; }
+
+            public InitializeDefaultsCmdletParameters(SessionState sessionState) : base(sessionState)
+            {
+            }
+        }
+
         internal static string CredentialsSourceMessage(AWSPSCredentials creds)
         {
             return string.Format(CredentialsSourceMsg, ServiceCmdlet.FormatCredentialSourceForDisplay(creds));
@@ -88,45 +139,69 @@ namespace Amazon.PowerShell.Common
 
         protected override void ProcessRecord()
         {
-            // Retrieve credentials if passed in (or from Instance Profile)
-            RegionEndpoint passedRegion = null;
-            AWSPSCredentials passedCredentials = null;
-            if (Parameters.TryGetCredentials(Host, out passedCredentials))
-            {
-                WriteVerbose(string.Format("{0}: Credentials for this shell were set from {1}",
-                                            MyInvocation.MyCommand.Name,
-                                            ServiceCmdlet.FormatCredentialSourceForDisplay(passedCredentials)));
-            }
+            AWSPSCredentials awsPSCredentialsFromCommandLine;
+            RegionEndpoint regionFromCommandLine;
+            AWSPSCredentials awsPSCredentialsFromDefaultProfile;
+            RegionEndpoint regionFromDefaultProfile;
+            AWSPSCredentials awsPSCredentialsFromPromptingUser = null;
+            RegionEndpoint regionFromPromptingUser = null;
 
-            RegionSource regionSource;
-            if (Parameters.TryGetRegion(true, out passedRegion, out regionSource))
-            {
-                WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell from {2}",
-                                            MyInvocation.MyCommand.Name,
-                                            passedRegion.SystemName,
-                                            ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
-            }
+            // get what was passed in on the command line, and what's already in defaults
+            GetFromCommandLine(out awsPSCredentialsFromCommandLine, out regionFromCommandLine);
+            GetFromDefaultProfile(out awsPSCredentialsFromDefaultProfile, out regionFromDefaultProfile);
 
-            PersistedCredentialProfile persistedProfile;
-            AWSPSCredentials defaultAWSPSCredentials = null;
-            RegionEndpoint region = null;
-            if (SettingsStore.TryGetPersistedProfile(SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, out persistedProfile))
+            // if the command line and defaults don't provide us what we need then prompt the user
+            if (awsPSCredentialsFromCommandLine == null && awsPSCredentialsFromDefaultProfile == null)
+                awsPSCredentialsFromPromptingUser = PromptUserForCredentials();
+
+            if (regionFromCommandLine == null && regionFromDefaultProfile == null)
+                regionFromPromptingUser = PromptUserForRegion();
+
+            // figure out what needs to be saved to disk and what needs to get put in session
+            var awsPSCredentialsToPersist = awsPSCredentialsFromCommandLine == null ? awsPSCredentialsFromPromptingUser : awsPSCredentialsFromCommandLine;
+            var awsPSCredentialsToPutInSession = awsPSCredentialsToPersist == null ? awsPSCredentialsFromDefaultProfile : awsPSCredentialsToPersist;
+
+            var regionToPersist = regionFromCommandLine == null ? regionFromPromptingUser : regionFromCommandLine;
+            var regionToPutInSession = regionToPersist == null ? regionFromDefaultProfile : regionToPersist;
+
+            // save credentials and region to disk if necessary
+            if (awsPSCredentialsToPersist != null || regionToPersist != null)
             {
-                AWSCredentials defaultAWSCredentials;
-                if (persistedProfile.TryGetAWSCredentials(out defaultAWSCredentials))
+                if (string.Equals(AWSCredentialsArgumentsFull.AWSCredentialsSet, ParameterSetName, StringComparison.Ordinal))
                 {
-                    defaultAWSPSCredentials = new AWSPSCredentials(defaultAWSCredentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
+                    // We're storing from the -Credential parameter to a credentials file.
+                    // Only some types of AWSCredentials are supported.
+                    var options = CredentialProfileOptionsExtractor.ExtractProfileOptions(awsPSCredentialsToPersist.Credentials);
+                    if (options != null)
+                        SettingsStore.RegisterProfile(options, SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, regionToPersist);
                 }
-                region = persistedProfile.Profile.Region;
-            }
+                else
+                {
+                    if (string.Equals(AWSCredentialsArgumentsFull.StoredProfileSet, ParameterSetName, StringComparison.Ordinal))
+                    {
+                        // We're copying from one profile to another.
+                        var chain = new CredentialProfileStoreChain(Parameters.ProfileLocation);
+                        PersistedCredentialProfile persistedProfile;
+                        if (chain.TryGetPersistedProfile(Parameters.ProfileName, out persistedProfile))
+                        {
+                            persistedProfile.Store.CopyProfile(Parameters.ProfileName, SettingsStore.PSDefaultSettingName);
+                            SettingsStore.RegisterProfile(new CredentialProfileOptions(), SettingsStore.PSDefaultSettingName,
+                                Parameters.ProfileLocation, regionToPersist);
+                        }
+                        else
+                            // Parameters.TryGetCredentials has already tested for this but...
+                            this.ThrowTerminatingError(new ErrorRecord(
+                                new ArgumentException("Cannot determine credentials from supplied parameters"),
+                                "ArgumentException", ErrorCategory.InvalidArgument, this));
+                    }
+                    else
+                    {
+                        // We're storing from individual command line values to the default profile.
+                        SettingsStore.RegisterProfile(Parameters.GetCredentialProfileOptions(), SettingsStore.PSDefaultSettingName,
+                            Parameters.ProfileLocation, regionToPersist);
+                    }
+                }
 
-            var shouldSaveCredentials = GetCredentials(passedCredentials, Parameters.ProfileLocation, ref defaultAWSPSCredentials);
-            var shouldSaveRegion = GetRegion(passedRegion, ref region);
-
-            if (shouldSaveCredentials || shouldSaveRegion)
-            {
-                SettingsStore.RegisterProfile(Parameters.GetCredentialProfileOptions(),
-                    SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, region);
                 if (string.IsNullOrEmpty(Parameters.ProfileLocation))
                     WriteVerbose("Updated SDK profile store.");
                 else
@@ -135,126 +210,129 @@ namespace Amazon.PowerShell.Common
                 WriteVerbose(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
             }
 
-            this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, defaultAWSPSCredentials);
-            this.SessionState.PSVariable.Set(SessionKeys.AWSRegionVariableName, region.SystemName);
+            // put credentials and region in session
+            this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, awsPSCredentialsToPutInSession);
+            this.SessionState.PSVariable.Set(SessionKeys.AWSRegionVariableName, regionToPutInSession.SystemName);
         }
 
-        private bool GetRegion(RegionEndpoint passedRegion, ref RegionEndpoint region)
+        private void GetFromDefaultProfile(out AWSPSCredentials awsPSCredentialsFromDefaultProfile, out RegionEndpoint regionFromDefaultProfile)
         {
-            if (region != null && passedRegion == null)
+            PersistedCredentialProfile persistedProfile;
+            if (SettingsStore.TryGetPersistedProfile(SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, out persistedProfile))
             {
-                WriteVerbose("Default region already set, skipping");
-                return false;
-            }
+                AWSCredentials defaultAWSCredentials;
+                if (persistedProfile.TryGetAWSCredentials(out defaultAWSCredentials))
+                    awsPSCredentialsFromDefaultProfile = new AWSPSCredentials(defaultAWSCredentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
+                else
+                    awsPSCredentialsFromDefaultProfile = null;
 
-            if (passedRegion != null)
-            {
-                region = passedRegion;
+                regionFromDefaultProfile = persistedProfile.Profile.Region;
             }
             else
             {
+                awsPSCredentialsFromDefaultProfile = null;
+                regionFromDefaultProfile = null;
+            }
+        }
+
+        private void GetFromCommandLine(out AWSPSCredentials awsPSCredentialsFromCommandLine, out RegionEndpoint regionFromCommandLine)
+        {
+            // Retrieve credentials if passed in (or from Instance Profile)
+            if (Parameters.TryGetCredentials(Host, out awsPSCredentialsFromCommandLine))
+            {
+                WriteVerbose(string.Format("{0}: Credentials for this shell were set from {1}",
+                                            MyInvocation.MyCommand.Name,
+                                            ServiceCmdlet.FormatCredentialSourceForDisplay(awsPSCredentialsFromCommandLine)));
+            }
+
+            RegionSource regionSource;
+            if (Parameters.TryGetRegion(true, out regionFromCommandLine, out regionSource))
+            {
+                WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell from {2}",
+                                            MyInvocation.MyCommand.Name,
+                                            regionFromCommandLine.SystemName,
+                                            ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
+            }
+        }
+
+        private RegionEndpoint PromptUserForRegion()
+        {
+            var choices = new Collection<ChoiceDescription>();
+            choices.Add(new ChoiceDescription("<Specify a different region>"));
+            foreach (var reg in RegionEndpoint.EnumerableAllRegions)
+            {
+                choices.Add(new ChoiceDescription(reg.SystemName, reg.DisplayName));
+            }
+
+            var choice = Host.UI.PromptForChoice("Specify region", RegionPrompt, choices, 0);
+            if (choice != 0)
+            {
+                var chosenRegion = choices[choice];
+                return RegionEndpoint.GetBySystemName(chosenRegion.Label);
+            }
+
+            var descriptions = new Collection<FieldDescription>();
+            descriptions.Add(new FieldDescription(RegionFieldName));
+            var response = Host.UI.Prompt("Region", "Please enter a region to set", descriptions);
+
+            var regionSystemName = response[RegionFieldName].BaseObject as string;
+
+            if (string.IsNullOrEmpty(regionSystemName)) throw new ArgumentOutOfRangeException(RegionFieldName + " is not set");
+            return RegionEndpoint.GetBySystemName(regionSystemName);
+        }
+
+        private AWSPSCredentials PromptUserForCredentials()
+        {
+            var storedCredentials = SettingsStore.GetProfileInfo(Parameters.ProfileLocation);
+            if (storedCredentials.Any())
+            {
+                // If there are stored credentials, ask user which ones to use, or enter new ones
                 var choices = new Collection<ChoiceDescription>();
-                choices.Add(new ChoiceDescription("<Specify a different region>"));
-                foreach (var reg in RegionEndpoint.EnumerableAllRegions)
+                choices.Add(new ChoiceDescription("<Create new credentials set>"));
+                foreach (var profileInfo in storedCredentials)
                 {
-                    choices.Add(new ChoiceDescription(reg.SystemName, reg.DisplayName));
+                    // help message cannot be null
+                    var helpMessage = profileInfo.ProfileLocation == null ? profileInfo.StoreTypeName : profileInfo.ProfileLocation;
+                    choices.Add(new ChoiceDescription(profileInfo.ProfileName, helpMessage));
                 }
 
-                var choice = Host.UI.PromptForChoice("Specify region", RegionPrompt, choices, 0);
+                var choice = Host.UI.PromptForChoice("Saved credentials found", CredentialsPrompt, choices, 0);
                 if (choice != 0)
                 {
-                    var chosenRegion = choices[choice];
-                    region = RegionEndpoint.GetBySystemName(chosenRegion.Label);
-                }
-
-                if (region == null)
-                {
-                    var descriptions = new Collection<FieldDescription>();
-                    descriptions.Add(new FieldDescription(RegionFieldName));
-                    var response = Host.UI.Prompt("Region", "Please enter a region to set", descriptions);
-
-                    var regionSystemName = response[RegionFieldName].BaseObject as string;
-
-                    if (string.IsNullOrEmpty(regionSystemName)) throw new ArgumentOutOfRangeException(RegionFieldName + " is not set");
-                    region = RegionEndpoint.GetBySystemName(regionSystemName);
-                }
-            }
-
-            return true;
-        }
-
-        private bool GetCredentials(AWSPSCredentials passedCredentials, string profileLocation, ref AWSPSCredentials credentialsToUse)
-        {
-            // If default is already set and no credentials are passed in, exit
-            if (credentialsToUse != null && passedCredentials == null)
-            {
-                WriteVerbose("Default credentials already set, skipping.");
-                return false;
-            }
-
-            if (passedCredentials != null)
-            {
-                // If credentials were passed in, push those into default storage
-                credentialsToUse = passedCredentials;
-            }
-            else
-            {
-                var storedCredentials = SettingsStore.GetProfileInfo(profileLocation);
-                if (storedCredentials.Any())
-                {
-                    // If there are stored credentials, ask user which ones to use, or enter new ones
-                    var choices = new Collection<ChoiceDescription>();
-                    choices.Add(new ChoiceDescription("<Create new credentials set>"));
-                    foreach (var profileInfo in storedCredentials)
+                    var chosenCredentials = choices[choice];
+                    PersistedCredentialProfile persistedProfile = null;
+                    if (SettingsStore.TryGetPersistedProfile(chosenCredentials.Label, Parameters.ProfileLocation, out persistedProfile))
                     {
-                        choices.Add(new ChoiceDescription(profileInfo.ProfileName, profileInfo.ProfileLocation));
-                    }
-
-                    var choice = Host.UI.PromptForChoice("Saved credentials found", CredentialsPrompt, choices, 0);
-                    if (choice != 0)
-                    {
-                        var chosenCredentials = choices[choice];
-                        PersistedCredentialProfile persistedProfile = null;
-                        if (SettingsStore.TryGetPersistedProfile(chosenCredentials.Label, profileLocation, out persistedProfile))
+                        AWSCredentials awsCredentials;
+                        if (persistedProfile.TryGetAWSCredentials(out awsCredentials))
                         {
-                            AWSCredentials awsCredentials;
-                            if (persistedProfile.TryGetAWSCredentials(out awsCredentials))
-                            {
-                                credentialsToUse = new AWSPSCredentials(awsCredentials, chosenCredentials.Label, CredentialsSource.Profile);
-                            }
+                            return new AWSPSCredentials(awsCredentials, chosenCredentials.Label, CredentialsSource.Profile);
                         }
                     }
                 }
-
-                // If credentials aren't found yet, ask user to enter new ones
-                if (credentialsToUse == null)
-                {
-                    var descriptions = new Collection<FieldDescription>();
-                    descriptions.Add(new FieldDescription(AccessKeyFieldName));
-                    descriptions.Add(new FieldDescription(SecretKeyFieldName));
-                    var response = Host.UI.Prompt("Credentials", "Please enter your AWS Access and Secret Keys", descriptions);
-
-                    var accessKey = response[AccessKeyFieldName].BaseObject as string;
-                    var secretKey = response[SecretKeyFieldName].BaseObject as string;
-
-                    if (string.IsNullOrEmpty(accessKey)) throw new ArgumentOutOfRangeException(AccessKeyFieldName + " is not set");
-                    if (string.IsNullOrEmpty(secretKey)) throw new ArgumentOutOfRangeException(SecretKeyFieldName + " is not set");
-
-                    var credentials = new BasicAWSCredentials(accessKey, secretKey);
-                    // this set will be saved as our default name
-                    credentialsToUse = new AWSPSCredentials(credentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
-                }
             }
 
-            return true;
+            var descriptions = new Collection<FieldDescription>();
+            descriptions.Add(new FieldDescription(AccessKeyFieldName));
+            descriptions.Add(new FieldDescription(SecretKeyFieldName));
+            var response = Host.UI.Prompt("Credentials", "Please enter your AWS Access and Secret Keys", descriptions);
+
+            var accessKey = response[AccessKeyFieldName].BaseObject as string;
+            var secretKey = response[SecretKeyFieldName].BaseObject as string;
+
+            if (string.IsNullOrEmpty(accessKey)) throw new ArgumentOutOfRangeException(AccessKeyFieldName + " is not set");
+            if (string.IsNullOrEmpty(secretKey)) throw new ArgumentOutOfRangeException(SecretKeyFieldName + " is not set");
+
+            var credentials = new BasicAWSCredentials(accessKey, secretKey);
+            // this set will be saved as our default name
+            return new AWSPSCredentials(credentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
         }
 
         #region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
-            Parameters = new AWSCommonArgumentsFull(this.SessionState);
-
+            Parameters = new InitializeDefaultsCmdletParameters(this.SessionState);
             return Parameters;
         }
 
@@ -308,6 +386,8 @@ namespace Amazon.PowerShell.Common
         {
             if (!SkipProfileStore.IsPresent)
             {
+                WriteWarning("Please use the Remove-AWSCredentialProfile cmdlet to delete the default profile.  This functionality will be removed from this cmdlet in a future release.");
+
                 // Remove stored credentials
                 SettingsStore.UnregisterProfile(SettingsStore.PSDefaultSettingName, ProfileLocation);
 

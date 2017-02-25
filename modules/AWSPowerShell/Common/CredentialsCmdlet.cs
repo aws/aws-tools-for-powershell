@@ -130,7 +130,15 @@ namespace Amazon.PowerShell.Common
                 }
                 else
                 {
-                    if (Parameters.Credential == null)
+                    if (string.Equals(AWSCredentialsArgumentsFull.AWSCredentialsSet, ParameterSetName, StringComparison.Ordinal))
+                    {
+                        // We're storing from the -Credential parameter to a credentials file.
+                        // Only some types of AWSCredentials are supported.
+                        var options = CredentialProfileOptionsExtractor.ExtractProfileOptions(currentCredentials.Credentials);
+                        if (options != null)
+                            SettingsStore.RegisterProfile(options, Parameters.StoreAs, Parameters.ProfileLocation, null);
+                    }
+                    else
                     {
                         if (string.Equals(AWSCredentialsArgumentsFull.StoredProfileSet, ParameterSetName, StringComparison.Ordinal))
                         {
@@ -151,16 +159,6 @@ namespace Amazon.PowerShell.Common
                         {
                             // We're storing from individual command line values to a credentials file.
                             SettingsStore.RegisterProfile(Parameters.GetCredentialProfileOptions(), Parameters.StoreAs, Parameters.ProfileLocation, null);
-                        }
-                    }
-                    else
-                    {
-                        // We're storing from the -Credential parameter to a credentials file.
-                        // Only some types of AWSCredentials are supported.
-                        var options = CredentialProfileOptionsExtractor.ExtractProfileOptions(currentCredentials.Credentials);
-                        if (options != null)
-                        {
-                            SettingsStore.RegisterProfile(options, Parameters.StoreAs, Parameters.ProfileLocation, null);
                         }
                     }
 
@@ -262,7 +260,9 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                WriteWarning("Please use the Remove-AWSCredentialProfile Cmdlet to delete Credential Profiles.  The ProfileName parameter will be removed from the Cmdlet in a future release");
+                WriteWarning("Please use the Remove-AWSCredentialProfile cmdlet to delete Credential Profiles.  The ProfileName parameter will be removed from this cmdlet in a future release.");
+                // clear credentials from credentials store
+                SettingsStore.UnregisterProfile(ProfileName, ProfileLocation);
             }
         }
     }
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Common
     /// Returns an AWSCredentials object initialized with from either credentials currently set as default in the shell or saved and associated with the supplied name from the local credential store.
     /// Optionally the cmdlet can list the names of all sets of credentials held in the store.
     /// </summary>
-    [Cmdlet("Get", "AWSCredentials")]
+    [Cmdlet("Get", "AWSCredentials", DefaultParameterSetName ="Shell")]
     [OutputType("Amazon.Runtime.AWSCredentials")]
     [OutputType("String")]
     [AWSCmdletOutput("Amazon.Runtime.AWSCredentials", "Object containing a set of AWS credentials.")]
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Common
         /// <summary>
         /// The name associated with the credentials in local storage
         /// </summary>
-        [Parameter(Position = 1)]
+        [Parameter(Position = 1, ParameterSetName="SingleProfile")]
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
 
@@ -304,23 +304,36 @@ namespace Amazon.PowerShell.Common
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
-        [Parameter(Position = 3)]
+        [Parameter(ParameterSetName = "SingleProfile")]
+        [Parameter(ParameterSetName = "ListName")]
+        [Parameter(ParameterSetName = "ListDetail")]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
 
         /// <summary>
-        /// Lists the names of all credentials data sets saved in local storage
+        /// Lists the names of all CredentialProfiles saved in local storage
         /// </summary>
-        [Parameter(Position = 2)]
+        [Parameter(ParameterSetName = "ListName")]
         [Alias("ListStoredCredentials", "ListProfiles")]
         public SwitchParameter ListProfile { get; set; }
+
+        /// <summary>
+        /// List the name, type, and location of all CredentialProfiles saved in local storage
+        /// </summary>
+        [Parameter(ParameterSetName = "ListDetail")]
+        public SwitchParameter ListProfileDetail { get; set; }
 
         protected override void ProcessRecord()
         {
             if (ListProfile.IsPresent)
             {
-                WriteObject(SettingsStore.GetProfileInfo(ProfileLocation));
+                WriteWarning("The ListProfile switch is deprecated and will be removed from a future release.  Please use ListProfileDetail instead.");
+                WriteObject(SettingsStore.GetProfileInfo(ProfileLocation).Select(pi => pi.ProfileName), true);
                 return;
+            }
+            else if (ListProfileDetail.IsPresent)
+            {
+                WriteObject(SettingsStore.GetProfileInfo(ProfileLocation), true);
             }
 
             if (string.IsNullOrEmpty(ProfileName))

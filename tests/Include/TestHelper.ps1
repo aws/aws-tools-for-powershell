@@ -34,6 +34,8 @@ class TestHelper
 
     [Void] AfterAll()
     {
+        # similar to the Set-DefaultAWSRegion cmdlet, except this sets the region globally
+        Set-Variable "StoredAWSRegion" -Value "us-east-1" -Scope Global
     }
 
     [Void] LaunchDebugger()

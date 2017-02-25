@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Common
         /// the AWS CLI and other AWS SDKs.
         /// </summary>
         [Alias("StoredCredentials", "AWSProfileName")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = StoredProfileSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = StoredProfileSet, Position = 200)]
         public string ProfileName { get; set; }
 
         /// <summary>
@@ -97,12 +97,12 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = BasicOrSessionSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AssumeRoleSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = StoredProfileSet)]
-        public string ProfileLocation { get; set; }
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = BasicOrSessionSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AssumeRoleSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = FederatedSet)]
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = StoredProfileSet)]
+        public virtual string ProfileLocation { get; set; }
 
         /// <summary>
         /// An AWSCredentials object instance containing access and secret key information,

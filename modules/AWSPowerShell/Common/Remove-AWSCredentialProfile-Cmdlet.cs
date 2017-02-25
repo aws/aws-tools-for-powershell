@@ -14,6 +14,11 @@
  *  AWS Tools for Windows (TM) PowerShell (TM)
  *
  */
+using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime.CredentialManagement.Internal;
+using System;
+using System.IO;
+using System.Linq;
 using System.Management.Automation;
 
 namespace Amazon.PowerShell.Common
@@ -27,7 +32,7 @@ namespace Amazon.PowerShell.Common
         /// <summary>
         /// The name associated with the credential profile that is to be deleted.
         /// </summary>
-        [Parameter(Mandatory =true)]
+        [Parameter(Mandatory = true, Position = 200)]
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
 
@@ -48,7 +53,7 @@ namespace Amazon.PowerShell.Common
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
-        [Parameter]
+        [Parameter(Position = 201)]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
 
@@ -60,11 +65,36 @@ namespace Amazon.PowerShell.Common
 
         protected override void ProcessRecord()
         {
-            if (!ConfirmShouldProceed(Force.IsPresent, ProfileName, "Remove-AWSCredentialProfile"))
-                return;
+            if (SettingsStore.ProfileExists(ProfileName, ProfileLocation))
+            {
+                if (!ConfirmShouldProceed(Force.IsPresent, ProfileName, "Remove-AWSCredentialProfile"))
+                    return;
 
-            // clear credentials from credentials store
-            SettingsStore.UnregisterProfile(ProfileName, ProfileLocation);
+                // clear credentials from credentials store
+                SettingsStore.UnregisterProfile(ProfileName, ProfileLocation);
+
+                // find profiles with the same name in .NET and default shared files
+                var leftoverProfiles = SettingsStore.GetProfileInfo(null).Where(pi => string.Equals(pi.ProfileName, ProfileName, StringComparison.Ordinal));
+
+                // issue warnings for those profiles
+                foreach(var profileProperties in leftoverProfiles)
+                {
+                    if (string.Equals(profileProperties.StoreTypeName, typeof(SharedCredentialsFile).Name, StringComparison.Ordinal))
+                    {
+                        WriteWarning("Remove succeeded, but there is still a profile named '" + ProfileName + "' in the shared credentials file at " +
+                            profileProperties.ProfileLocation + ".");
+                    }
+                    else if (string.Equals(profileProperties.StoreTypeName, typeof(NetSDKCredentialsFile).Name, StringComparison.Ordinal))
+                    {
+                        WriteWarning("Remove succeeded, but there is still a profile named '" + ProfileName + "' in the .NET credentials file.");
+                    }
+                }
+            }
+            else
+            {
+                ThrowTerminatingError(new ErrorRecord(new ArgumentException("The CredentialProfile '" + ProfileName + "' does not exist."),
+                    "ArgumentException", ErrorCategory.InvalidArgument, this));
+            }
         }
     }
 

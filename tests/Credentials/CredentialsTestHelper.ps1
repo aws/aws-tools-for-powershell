@@ -12,9 +12,11 @@ class CredentialsTestHelper : TestHelper
     hidden [string] $TempDir
     hidden [string] $OriginalSettingsStoreFolder
     hidden [string] $OriginalCredentialsPath
-    hidden [string] $OriginalInstanceProfileServer
+    hidden [string] $OriginalInstanceMetadataServer
 
-    # Constructor
+    hidden [string] $FakeMetadataIp = "127.0.0.1"
+    hidden [string] $RealMetadataIp = "169.254.169.254"
+
     CredentialsTestHelper()
     {
     }
@@ -48,8 +50,8 @@ class CredentialsTestHelper : TestHelper
         $this.OriginalSettingsStoreFolder = $this.MockSetingsStoreFolder($this.AwsDirectory);
         $this.OriginalCredentialsPath = $this.MockCredentialsPath($this.DefaultSharedPath);
 
-        #mock the instance profile server url to cause a fast-fail when no credentials are available
-        $this.OriginalInstanceProfileServer = $this.MockInstanceProfileServer("http://127.0.0.1")
+        #mock the instance metadata server url to cause a fast-fail when no credentials or region are available
+        $this.MockInstanceMetadataServer()
     }
 
     [Void] AfterAll()
@@ -72,7 +74,7 @@ class CredentialsTestHelper : TestHelper
 	    if (Test-Path $this.AwsDirectory) { Remove-Item -Recurse -Force -Path $this.AwsDirectory }
 
         #unmock the instance profile server
-        $this.UnMockInstanceProfileServer($this.OriginalInstanceProfileServer)
+        $this.UnMockInstanceMetadataServer()
 
         # call base implementation
         ([TestHelper]$this).AfterAll()
@@ -94,20 +96,48 @@ class CredentialsTestHelper : TestHelper
         $env:AWS_REGION = $null
     }
 
-    [string] MockInstanceProfileServer($newServer)
+    [Void] MockInstanceMetadataServer()
     {
-        $bindingFlags = [Reflection.BindingFlags] "NonPublic,Static"
-        $privateField = [Amazon.Runtime.InstanceProfileAWSCredentials].GetField("Server", $bindingFlags);
-        $result = $privateField.GetValue($null);
-        $privateField.SetValue($null, $newServer);
-        return $result
+        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_SVC", $null)
+        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_ROOT", $null)
+        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_USERDATA_ROOT", $null)
+        $this.MockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_DYNAMICDATA_ROOT", $null)
+        $this.MockMetadataField([Amazon.Runtime.InstanceProfileAWSCredentials], "Server", [Reflection.BindingFlags] "Static,NonPublic")
     }
 
-    [Void] UnMockInstanceProfileServer($originalServer)
+    [Void] UnMockInstanceMetadataServer()
     {
-        $bindingFlags = [Reflection.BindingFlags] "NonPublic,Static"
-        $privateField = [Amazon.Runtime.InstanceProfileAWSCredentials].GetField("Server", $bindingFlags);
-        $privateField.SetValue($null, $originalServer);
+        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_SVC", $null)
+        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_METADATA_ROOT", $null)
+        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_USERDATA_ROOT", $null)
+        $this.UnMockMetadataField([Amazon.Util.EC2InstanceMetadata], "EC2_DYNAMICDATA_ROOT", $null)
+        $this.UnMockMetadataField([Amazon.Runtime.InstanceProfileAWSCredentials], "Server", [Reflection.BindingFlags] "Static,NonPublic")
+    }
+
+    [void] MockMetadataField($type, $fieldName, $bindingFlags)
+    {
+        $this.ReplaceInStringField($type, $fieldName, $bindingFlags, $this.RealMetadataIp, $this.FakeMetadataIp)
+    }
+
+    [void] UnMockMetadataField($type, $fieldName, $bindingFlags)
+    {
+        $this.ReplaceInStringField($type, $fieldName, $bindingFlags, $this.FakeMetadataIp, $this.RealMetadataIp)
+    }
+
+    [void] ReplaceInStringField($type, $fieldName, $bindingFlags, $old, $new)
+    {
+        if ($bindingFlags -eq $null)
+        {
+            $field = $type.GetField($fieldName)
+        }
+        else
+        {
+            $field = $type.GetField($fieldName, $bindingFlags)
+        }
+
+        $value = $field.GetValue($null)
+        $value = $value.Replace($old, $new)
+        $field.SetValue($null, $value);
     }
 
     [string] MockSetingsStoreFolder($newSettingsStoreFolder)

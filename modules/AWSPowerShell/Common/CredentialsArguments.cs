@@ -39,13 +39,6 @@ using Amazon.Runtime.CredentialManagement.Internal;
 
 namespace Amazon.PowerShell.Common
 {
-    #region ProfileLocation argument
-    internal interface IAWSProfileLocationArgument
-    {
-        string ProfileLocation { get; }
-    }
-    #endregion
-
     #region Credentials arguments
 
     public enum CredentialsSource
@@ -53,11 +46,12 @@ namespace Amazon.PowerShell.Common
         Strings, Profile, CredentialsObject, Session, Environment, Container, InstanceProfile, Unknown
     }
 
-    internal interface IAWSCredentialsArguments : IAWSProfileLocationArgument
+    internal interface IAWSCredentialsArguments
     {
         SessionState SessionState { get; }
 
         string ProfileName { get; }
+        string ProfileLocation { get; }
 
         string AccessKey { get; }
         string SecretKey { get; }
@@ -424,10 +418,11 @@ namespace Amazon.PowerShell.Common
         String, Saved, RegionObject, Session, Environment, InstanceMetadata, Unknown
     }
 
-    internal interface IAWSRegionArguments : IAWSProfileLocationArgument
+    internal interface IAWSRegionArguments
     {
         SessionState SessionState { get; }
         object Region { get; }
+        string ProfileLocation { get; }
     }
 
     internal static class IAWSRegionArgumentsMethods
@@ -549,11 +544,11 @@ namespace Amazon.PowerShell.Common
 
     #region Common arguments
 
-    internal interface IAWSCommonArguments : IAWSRegionArguments, IAWSCredentialsArguments, IAWSProfileLocationArgument
+    internal interface IAWSCommonArguments : IAWSRegionArguments, IAWSCredentialsArguments
     {
     }
 
-    internal interface IAWSCommonArgumentsFull : IAWSCommonArguments, IAWSCredentialsArgumentsFull
+    internal interface IAWSCommonArgumentsFull : IAWSRegionArguments, IAWSCredentialsArgumentsFull
     {
     }
 
@@ -561,105 +556,6 @@ namespace Amazon.PowerShell.Common
 
 
     #region Concrete classes
-
-    internal class AWSCredentialsArguments : IAWSCredentialsArguments
-    {
-        public SessionState SessionState { get; private set; }
-
-        /// <summary>
-        /// The AWS access key for the user account. This can be a temporary access key
-        /// if the corresponding session token is supplied to the -SessionToken parameter.
-        /// Temporary session credentials can be set for the current shell instance only
-        /// and cannot be saved to the credential store file.
-        /// </summary>
-        [Alias("AK")]
-        [Parameter(ValueFromPipelineByPropertyName = true)]
-        public string AccessKey { get; set; }
-
-        /// <summary>
-        /// The AWS secret key for the user account. This can be a temporary secret key
-        /// if the corresponding session token is supplied to the -SessionToken parameter.
-        /// Temporary session credentials can be set for the current shell instance only
-        /// and cannot be saved to the credential store file.
-        /// </summary>
-        [Alias("SK", "SecretAccessKey")]
-        [Parameter(ValueFromPipelineByPropertyName = true)]
-        public string SecretKey { get; set; }
-
-        /// <summary>
-        /// The session token if the access and secret keys are temporary session-based
-        /// credentials. Temporary session credentials can be set for the current shell 
-        /// instance only and cannot be saved to the credential store file.
-        /// </summary>
-        [Alias("ST")]
-        [Parameter(ValueFromPipelineByPropertyName = true)]
-        public string SessionToken { get; set; }
-
-        /// <summary>
-        /// The user-defined name of an AWS credentials or SAML-based role profile containing
-        /// credential information. The profile is expected to be found in the secure credential
-        /// file shared with the AWS SDK for .NET and AWS Toolkit for Visual Studio. You can also
-        /// specify the name of a profile stored in the .ini-format credential file used with 
-        /// the AWS CLI and other AWS SDKs.
-        /// </summary>
-        [Parameter(Position = 200)]
-        [Alias("StoredCredentials", "AWSProfileName")]
-        public string ProfileName { get; set; }
-
-        /// <summary>
-        /// <para>
-        /// Used to specify the name and location of the ini-format credential file (shared with 
-        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
-        /// folder location.
-        /// </para>
-        /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is 
-        /// placed in the default search location ('.aws' folder in the current user's profile folder, 
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
-        /// when the profile to be used is contained in the encrypted credential file shared with the 
-        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
-        /// </para>
-        /// <para>
-        /// As the current folder can vary in a shell or during script execution it is advised 
-        /// that you use specify a fully qualified path instead of a relative path.
-        /// </para>
-        /// </summary>
-        [Parameter(Position = 201)]
-        [Alias("AWSProfilesLocation", "ProfilesLocation")]
-        public string ProfileLocation { get; set; }
-
-        /// <summary>
-        /// An AWSCredentials object instance containing access and secret key information,
-        /// and optionally a token for session-based credentials.
-        /// </summary>
-        [Parameter(ValueFromPipeline = true)]
-        public AWSCredentials Credential { get; set; }
-
-        /// <summary>
-        /// Used with SAML-based authentication when ProfileName references a SAML role profile. 
-        /// Contains the network credentials to be supplied during authentication with the 
-        /// configured identity provider's endpoint. This parameter is not required if the
-        /// user's default network identity can or should be used during authentication.
-        /// </summary>
-        [Parameter(ValueFromPipeline = true)]
-        public PSCredential NetworkCredential { get; set; }
-
-        public AWSCredentialsArguments(SessionState sessionState)
-        {
-            SessionState = sessionState;
-        }
-
-        public CredentialProfileOptions GetCredentialProfileOptions()
-        {
-            return new CredentialProfileOptions
-            {
-                AccessKey = AccessKey,
-                SecretKey = SecretKey,
-                Token = SessionToken,
-            };
-        }
-    }
-
     internal class AWSRegionArguments : IAWSRegionArguments
     {
         public SessionState SessionState { get; private set; }
@@ -847,6 +743,11 @@ namespace Amazon.PowerShell.Common
                 });
             }
             return result;
+        }
+
+        public static bool ProfileExists(string name, string profileLocation)
+        {
+            return GetProfileInfo(profileLocation).Any(pi => string.Equals(pi.ProfileName, name, StringComparison.Ordinal));
         }
 
         public static bool TryGetPersistedProfile(string name, string profileLocation, out PersistedCredentialProfile persistedProfile)

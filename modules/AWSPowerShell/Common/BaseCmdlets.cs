@@ -509,7 +509,7 @@ namespace Amazon.PowerShell.Common
         protected RegionEndpoint Region { get; private set; }
         protected bool ExecuteWithAnonymousCredentials { get; set; }
 
-        private object Parameters { get; set; }
+        internal AWSCommonArguments Parameters { get; set; }
 
         /// <summary>
         /// <para>
@@ -621,7 +621,7 @@ namespace Amazon.PowerShell.Common
     {
         protected RegionEndpoint Region { get; private set; }
 
-        private object Parameters { get; set; }
+        private AWSRegionArguments Parameters { get; set; }
 
         /// <summary>
         /// <para>
@@ -658,29 +658,23 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            var commonArguments = Parameters as IAWSRegionArguments;
-            if (commonArguments != null)
-            {
-                RegionEndpoint region;
-                RegionSource regionSource;
-                commonArguments.TryGetRegion(string.IsNullOrEmpty(DefaultRegion), out region, out regionSource);
-                Region = region;
+            RegionEndpoint region;
+            RegionSource regionSource;
+            Parameters.TryGetRegion(string.IsNullOrEmpty(DefaultRegion), out region, out regionSource);
+            Region = region;
 
-                if (Region == null)
-                {
-                    if (String.IsNullOrEmpty(DefaultRegion))
-                        ThrowExecutionError("No region specified or obtained from persisted/shell defaults.", this);
-                    else
-                    {
-                        Region = RegionEndpoint.GetBySystemName(DefaultRegion);
-                        WriteRegionSourceDiagnostic("built-in-default", DefaultRegion);
-                    }
-                }
+            if (Region == null)
+            {
+                if (String.IsNullOrEmpty(DefaultRegion))
+                    ThrowExecutionError("No region specified or obtained from persisted/shell defaults.", this);
                 else
-                    WriteRegionSourceDiagnostic(regionSource, region.SystemName);
+                {
+                    Region = RegionEndpoint.GetBySystemName(DefaultRegion);
+                    WriteRegionSourceDiagnostic("built-in-default", DefaultRegion);
+                }
             }
             else
-                ThrowArgumentError("Unrecognized arguments", this);
+                WriteRegionSourceDiagnostic(regionSource, region.SystemName);
         }
 
 #region IDynamicParameters Members

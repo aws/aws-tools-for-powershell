@@ -256,21 +256,21 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
         }
 
         # federated with user identity
-        It "should store federated credentials from command line values to the PowerShell session" {
+        It "should store federated with user identity credentials from command line values to the PowerShell session" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
             Set-AWSCredentials -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity
 
             AssertCredentialsSet $null $null $federatedWithUserIdentityOptions "FederatedAWSCredentials"
         }
 
-        It "should store federated credentials from command line values to the .NET credentials file" {
+        It "should store federated with user identity credentials from command line values to the .NET credentials file" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
             Set-AWSCredentials -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity -StoreAs some_profile
 
             AssertCredentialsSet $null "some_profile" $federatedWithUserIdentityOptions $null
         }
 
-        It "should store federated credentials from command line values to the shared credentials file" {
+        It "should store federated with user identity credentials from command line values to the shared credentials file" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
             { Set-AWSCredentials -RoleArn role_arn -EndpointName endpoint_name -UserIdentity user_identity -StoreAs some_profile -ProfileLocation $helper.CustomSharedPath } | Should Throw "SharedCredentialsFile does not support the SAMLRoleUserIdentity profile type"
         }
@@ -327,7 +327,7 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
             AssertCredentialsSet $helper.CustomSharedPath some_profile $basicOptions $null
         }
 
-        # AWSCredentials - Basic
+        # AWSCredentials - Session
         It "should store SessionAWSCredentials from the -Credential parameter to the PowerShell session" {
             $creds = $helper.GetAWSCredentials($sessionOptions, $null)
 
@@ -508,6 +508,24 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
             Set-AWSCredentials -ProfileName "profile_name" -StoreAs "copied_profile"
 
             AssertCredentialsSet $null "copied_profile" $federatedOptions "FederatedAWSCredentials"
+        }
+
+        #
+        # make sure postional parameters work
+        #
+
+        It "should work with -ProfileName as a positional parameter" {
+            $helper.RegisterProfile("profile_name", $null, $basicOptions)
+            Set-AWSCredentials profile_name
+
+            AssertCredentialsSet $null $null $basicOptions BasicAWSCredentials
+        }
+
+        It "should work with -ProfileName and -ProfileLocation as positional parameters" {
+            $helper.RegisterProfile("profile_name", $helper.CustomSharedPath, $basicOptions)
+            Set-AWSCredentials profile_name $helper.CustomSharedPath
+
+            AssertCredentialsSet $helper.CustomSharedPath $null $basicOptions BasicAWSCredentials
         }
 
         #
