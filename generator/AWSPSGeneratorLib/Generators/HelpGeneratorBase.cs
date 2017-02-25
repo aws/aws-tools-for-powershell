@@ -40,20 +40,16 @@ namespace AWSPowerShellGenerator.Generators
         // lists cmdlets where we want to expose the dynamic parameters based on the 
         // AWSCredentialsArguments or AWSRegionArguments types as first-class parameters
         // for the cmdlet
-        const string AWSCredentialsArgumentsTypename = "Amazon.PowerShell.Common.AWSCredentialsArguments";
+        const string AWSCredentialsArgumentsFullTypename = "Amazon.PowerShell.Common.AWSCredentialsArgumentsFull";
         const string AWSRegionArgumentsTypename = "Amazon.PowerShell.Common.AWSRegionArguments";
 
-        private Dictionary<string, IEnumerable<string>> _dynamicParameterExpansion = new Dictionary
-            <string, IEnumerable<string>>
-            {
-                {"Amazon.PowerShell.Common.SetCredentialsCmdlet", new string[] {AWSCredentialsArgumentsTypename}},
-                {"Amazon.PowerShell.Common.NewCredentialsCmdlet", new string[] {AWSCredentialsArgumentsTypename}},
-                {"Amazon.PowerShell.Common.SetDefaultRegionCmdlet", new string[] {AWSRegionArgumentsTypename}},
-                {
-                    "Amazon.PowerShell.Common.InitializeDefaultsCmdlet",
-                    new string[] {AWSCredentialsArgumentsTypename, AWSRegionArgumentsTypename}
-                },
-            };
+        private Dictionary<string, IEnumerable<string>> _dynamicParameterExpansion = new Dictionary<string, IEnumerable<string>>
+        {
+            { "Amazon.PowerShell.Common.SetCredentialsCmdlet", new string[] { AWSCredentialsArgumentsFullTypename } },
+            { "Amazon.PowerShell.Common.NewCredentialsCmdlet", new string[] { AWSCredentialsArgumentsFullTypename } },
+            { "Amazon.PowerShell.Common.SetDefaultRegionCmdlet", new string[] { AWSRegionArgumentsTypename } },
+            { "Amazon.PowerShell.Common.InitializeDefaultsCmdlet", new string[] { AWSCredentialsArgumentsFullTypename, AWSRegionArgumentsTypename } },
+        };
 
         // Some of our cmdlets belong to a service but don't make service calls (eg the DynamoDB
         // schema builders). This inverted map lets us detect these when introspecting for the service owner
