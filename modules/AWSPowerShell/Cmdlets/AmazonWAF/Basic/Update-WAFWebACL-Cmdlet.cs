@@ -52,8 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the corresponding
     /// action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code>
     /// in the <code>WebACL</code>, if any. 
-    /// </para></li><li><para>
-    /// The CloudFront distribution that you want to associate with the <code>WebACL</code>.
     /// </para></li></ul><para>
     /// To create and configure a <code>WebACL</code>, perform the following steps:
     /// </para><ol><li><para>

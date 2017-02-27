@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// <summary>
     /// Gets detailed information about a specified number of requests--a sample--that AWS
     /// WAF randomly selects from among the first 5,000 requests that your AWS resource received
-    /// during a time range that you choose. You can specify a sample size of up to 100 requests,
+    /// during a time range that you choose. You can specify a sample size of up to 500 requests,
     /// and you can specify any time range in the previous three hours.
     /// 
     ///  
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The end of the time range from which you want <code>GetSampledRequests</code> to return
-        /// a sample of the requests that your AWS resource received. You can specify any time
+        /// a sample of the requests that your AWS resource received. Specify the date and time
+        /// in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time
         /// range in the previous three hours.</para>
         /// </para>
         /// </summary>
@@ -78,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The beginning of the time range from which you want <code>GetSampledRequests</code>
-        /// to return a sample of the requests that your AWS resource received. You can specify
+        /// to return a sample of the requests that your AWS resource received. Specify the date
+        /// and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify
         /// any time range in the previous three hours.</para>
         /// </para>
         /// </summary>
