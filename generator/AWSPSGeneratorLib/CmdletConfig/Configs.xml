@@ -66,6 +66,7 @@
     <Path>MarketplaceMetering.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>OpsWorksCM.xml</Path>
+    <Path>Organizations.xml</Path>
     <Path>Pinpoint.xml</Path>
     <Path>Polly.xml</Path>
     <Path>RDS.xml</Path>

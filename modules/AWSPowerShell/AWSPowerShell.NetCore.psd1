@@ -114,6 +114,7 @@ RequiredAssemblies = @(
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.OpsWorksCM.dll",
+  "AWSSDK.Organizations.dll",
   "AWSSDK.Pinpoint.dll",
   "AWSSDK.Polly.dll",
   "AWSSDK.RDS.dll",

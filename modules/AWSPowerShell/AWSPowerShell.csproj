@@ -81,6 +81,9 @@
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0.6\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Organizations">
+      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.0\lib\net35\AWSSDK.Organizations.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Pinpoint">
       <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.0.4\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>

@@ -3369,6 +3369,84 @@ $OPS_map = @{
 _awsArgumentCompleterRegistration $OPS_Completers $OPS_map
 
 
+# Argument completions for service AWS Organizations
+$ORG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Organizations.ActionType
+        {
+            ($_ -eq "Get-ORGAccountHandshakeList/Filter_ActionType") -Or
+            ($_ -eq "Get-ORGOrganizationHandshakeList/Filter_ActionType")
+        }
+        {
+            $v = "APPROVE_FULL_CONTROL","ENABLE_FULL_CONTROL","INVITE"
+            break
+        }
+        
+        # Amazon.Organizations.ChildType
+        "Get-ORGChild/ChildType"
+        {
+            $v = "ACCOUNT","ORGANIZATIONAL_UNIT"
+            break
+        }
+        
+        # Amazon.Organizations.HandshakePartyType
+        "New-ORGAccountInvitation/Target_Type"
+        {
+            $v = "ACCOUNT","EMAIL","ORGANIZATION"
+            break
+        }
+        
+        # Amazon.Organizations.IAMUserAccessToBilling
+        "New-ORGAccount/IamUserAccessToBilling"
+        {
+            $v = "ALLOW","DENY"
+            break
+        }
+        
+        # Amazon.Organizations.OrganizationMode
+        "New-ORGOrganization/Mode"
+        {
+            $v = "BILLING","FULL_CONTROL"
+            break
+        }
+        
+        # Amazon.Organizations.PolicyType
+        {
+            ($_ -eq "Get-ORGPolicyForTarget/Filter") -Or
+            ($_ -eq "Get-ORGPolicyList/Filter") -Or
+            ($_ -eq "Disable-ORGPolicyType/PolicyType") -Or
+            ($_ -eq "Enable-ORGPolicyType/PolicyType") -Or
+            ($_ -eq "New-ORGPolicy/Type")
+        }
+        {
+            $v = "SERVICE_CONTROL_POLICY"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ORG_map = @{
+    "ChildType"=@("Get-ORGChild")
+    "Filter"=@("Get-ORGPolicyForTarget","Get-ORGPolicyList")
+    "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
+    "IamUserAccessToBilling"=@("New-ORGAccount")
+    "Mode"=@("New-ORGOrganization")
+    "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType")
+    "Target_Type"=@("New-ORGAccountInvitation")
+    "Type"=@("New-ORGPolicy")
+}
+
+_awsArgumentCompleterRegistration $ORG_Completers $ORG_map
+
+
 # Argument completions for service Amazon Pinpoint
 $PIN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

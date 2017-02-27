@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ORG</ServiceNounPrefix>
+  <ServiceName>AWS Organizations</ServiceName>
+  <ServiceClientInterface>IAmazonOrganizations</ServiceClientInterface>
+  <ServiceClient>AmazonOrganizationsClient</ServiceClient>
+  <ServiceNamespace>Amazon.Organizations</ServiceNamespace>
+
+  <CustomAliases>
+  </CustomAliases>
+
+  <VerbMappings>
+  </VerbMappings>
+
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AcceptHandshake" Verb="Confirm"/>
+    <ServiceOperation MethodName="AttachPolicy" Output="Void" PipelineParameter="PolicyId"/>
+    <ServiceOperation MethodName="CancelHandshake"/>
+    <ServiceOperation MethodName="CreateAccount" PipelineParameter="AccountName"/>
+    <ServiceOperation MethodName="CreateOrganization"/>
+    <ServiceOperation MethodName="CreateOrganizationalUnit" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="CreatePolicy" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="DeclineHandshake" Verb="Deny"/>
+    <ServiceOperation MethodName="DeleteOrganization" Output="Void"/>
+    <ServiceOperation MethodName="DeleteOrganizationalUnit" Output="Void"/>
+    <ServiceOperation MethodName="DeletePolicy" Output="Void"/>
+    <ServiceOperation MethodName="DescribeAccount"/>
+    <ServiceOperation MethodName="DescribeCreateAccountStatus" Noun="AccountCreationStatus"/>
+    <ServiceOperation MethodName="DescribeHandshake"/>
+    <ServiceOperation MethodName="DescribeOrganization"/>
+    <ServiceOperation MethodName="DescribeOrganizationalUnit"/>
+    <ServiceOperation MethodName="DescribePolicy"/>
+    <ServiceOperation MethodName="DetachPolicy" Output="Void" PipelineParameter="PolicyId"/>
+    <ServiceOperation MethodName="DisablePolicyType" PipelineParameter="PolicyType"/>
+    <ServiceOperation MethodName="EnableFullControl"/>
+    <ServiceOperation MethodName="EnablePolicyType" PipelineParameter="PolicyType"/>
+    <ServiceOperation MethodName="InviteAccountToOrganization" Verb="Create" Noun="AccountInvitation" PipelineParameter="Target"/>
+    <ServiceOperation MethodName="LeaveOrganization" Verb="Remove" Noun="OrganizationAssociation" Output="Void"/>
+    <ServiceOperation MethodName="ListAccounts" Verb="Get" Noun="AccountList"/>
+    <ServiceOperation MethodName="ListAccountsForParent" Verb="Get" Noun="AccountForParent"/>
+    <ServiceOperation MethodName="ListChildren" Verb="Get" Noun="Child" PipelineParameter="ParentId"/>
+    <ServiceOperation MethodName="ListCreateAccountStatus" Verb="Get" Noun="AccountCreationStatusList"/>
+    <ServiceOperation MethodName="ListHandshakesForAccount" Verb="Get" Noun="AccountHandshakeList" PipelineParameter="Filter"/>
+    <ServiceOperation MethodName="ListHandshakesForOrganization" Verb="Get" Noun="OrganizationHandshakeList" PipelineParameter="Filter"/>
+    <ServiceOperation MethodName="ListOrganizationalUnitsForParent" Verb="Get" Noun="OrganizationalUnitList"/>
+    <ServiceOperation MethodName="ListParents" Verb="Get" Noun="Parent"/>
+    <ServiceOperation MethodName="ListPolicies" Verb="Get" Noun="PolicyList"/>
+    <ServiceOperation MethodName="ListPoliciesForTarget" Verb="Get" Noun="PolicyForTarget" PipelineParameter="TargetId"/>
+    <ServiceOperation MethodName="ListRoots" Verb="Get" Noun="Root"/>
+    <ServiceOperation MethodName="ListTargetsForPolicy" Verb="Get" Noun="TargetForPolicy"/>
+    <ServiceOperation MethodName="MoveAccount" Output="Void" PipelineParameter="AccountId"/>
+    <ServiceOperation MethodName="RemoveAccountFromOrganization" Output="Void"/>
+    <ServiceOperation MethodName="UpdateOrganizationalUnit" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="UpdatePolicy" PipelineParameter="Name"/>
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+  </PipelineByValueProperties>
+
+</ConfigModel>
