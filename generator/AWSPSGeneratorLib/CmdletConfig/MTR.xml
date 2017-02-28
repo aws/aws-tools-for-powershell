@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>MTR</ServiceNounPrefix>
+  <ServiceName>Amazon MTurk Service</ServiceName>
+  <ServiceClientInterface>IAmazonMTurk</ServiceClientInterface>
+  <ServiceClient>AmazonMTurkClient</ServiceClient>
+  <ServiceNamespace>Amazon.MTurk</ServiceNamespace>
+
+  <AutoIterate EmitLimit="MaxResults"
+               Start="NextToken"
+               Next="NextToken"
+               Exclusions="ListReviewPolicyResultsForHIT"/>
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+
+  <PipelineParameter>WorkerId</PipelineParameter>
+
+  <MetadataProperties>
+    <Property>NumResults</Property>
+  </MetadataProperties>
+
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AcceptQualificationRequest" Verb="Grant" Noun="QualificationRequest" Output="Void"/>
+    <ServiceOperation MethodName="ApproveAssignment" PipelineParameter="AssignmentId" Output="Void"/>
+    <ServiceOperation MethodName="AssociateQualificationWithWorker" Verb="Add" Noun="QualificationToWorker" Output="Void"/>
+    <ServiceOperation MethodName="CreateAdditionalAssignmentsForHIT" Output="Void"/>
+    <ServiceOperation MethodName="CreateHIT" ShouldProcessTarget="Title"/>
+    <ServiceOperation MethodName="CreateHITType" PipelineParameter="Title" SupportsShouldProcess="Title"/>
+    <ServiceOperation MethodName="CreateHITWithHITType" PipelineParameter="HITTypeId" SupportsShouldProcess="HITTypeId"/>
+    <ServiceOperation MethodName="CreateQualificationType"/>
+    <ServiceOperation MethodName="CreateWorkerBlock" Output="Void"/>
+    <ServiceOperation MethodName="DeleteHIT" Output="Void"/>
+    <ServiceOperation MethodName="DeleteQualificationType" Output="Void"/>
+    <ServiceOperation MethodName="DeleteWorkerBlock" Output="Void"/>
+    <ServiceOperation MethodName="DisassociateQualificationFromWorker" Verb="Remove" Noun="QualificationFromWorker" Output="Void"/>
+    <ServiceOperation MethodName="GetAccountBalance" Output="Response"/>
+    <ServiceOperation MethodName="GetAssignment" Output="Response"/>
+    <ServiceOperation MethodName="GetFileUploadURL"/>
+    <ServiceOperation MethodName="GetHIT"/>
+    <ServiceOperation MethodName="GetQualificationScore"/>
+    <ServiceOperation MethodName="GetQualificationType"/>
+    <ServiceOperation MethodName="ListAssignmentsForHIT"            Noun="HITAssignmentList"/>
+    <ServiceOperation MethodName="ListBonusPayments"                Noun="BonusPaymentList" PipelineParameter="HITId"/>
+    <ServiceOperation MethodName="ListHITs"                         Noun="HITList"/>
+    <ServiceOperation MethodName="ListHITsForQualificationType"     Noun="HITListForQualificationType"/>
+    <ServiceOperation MethodName="ListQualificationRequests"        Noun="QualificationRequestList"/>
+    <ServiceOperation MethodName="ListQualificationTypes"           Noun="QualificationTypeList"/>
+    <ServiceOperation MethodName="ListReviewPolicyResultsForHIT"    Noun="ReviewPolicyResultList" Output="Response"/>
+    <ServiceOperation MethodName="ListReviewableHITs"               Noun="ReviewableHITList"/>
+    <ServiceOperation MethodName="ListWorkerBlocks"                 Noun="WorkerBlockList"/>
+    <ServiceOperation MethodName="ListWorkersWithQualificationType" Noun="WorkersWithQualificationType"/>
+    <ServiceOperation MethodName="NotifyWorkers"                    Verb="Send" Noun="WorkerNotification"/>
+    <ServiceOperation MethodName="RejectAssignment" Verb="Deny" Output="Void"/>
+    <ServiceOperation MethodName="RejectQualificationRequest" Verb="Deny" Noun="QualificationRequest" Output="Void"/>
+    <ServiceOperation MethodName="SendBonus" Output="Void"/>
+    <ServiceOperation MethodName="SendTestEventNotification" IgnoreSupportsShouldProcess="true" Output="Void"/>
+    <ServiceOperation MethodName="UpdateExpirationForHIT" Output="Void"/>
+    <ServiceOperation MethodName="UpdateHITReviewStatus" Output="Void"/>
+    <ServiceOperation MethodName="UpdateHITTypeOfHIT" PipelineParameter="HITId" Output="Void"/>
+    <ServiceOperation MethodName="UpdateNotificationSettings" Noun="NotificationSetting" Output="Void"/>
+    <ServiceOperation MethodName="UpdateQualificationType"/>
+  </ServiceOperations>
+</ConfigModel>

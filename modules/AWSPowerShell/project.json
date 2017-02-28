@@ -65,6 +65,7 @@
 		"AWSSDK.Lex": "3.3.0",
 		"AWSSDK.Lightsail": "3.3.0.6",
 		"AWSSDK.MachineLearning": "3.3.0.7",
+		"AWSSDK.MTurk": "3.3.0",
 		"AWSSDK.OpsWorks": "3.3.0.8",
 		"AWSSDK.OpsWorksCM": "3.3.2",
 		"AWSSDK.Organizations": "3.3.0",

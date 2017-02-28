@@ -3265,6 +3265,70 @@ $ML_map = @{
 _awsArgumentCompleterRegistration $ML_Completers $ML_map
 
 
+# Argument completions for service Amazon MTurk Service
+$MTR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MTurk.EventType
+        "Send-MTRTestEventNotification/TestEventType"
+        {
+            $v = "AssignmentAbandoned","AssignmentAccepted","AssignmentApproved","AssignmentRejected","AssignmentReturned","AssignmentSubmitted","HITCreated","HITDisposed","HITExpired","HITExtended","HITReviewable","Ping"
+            break
+        }
+        
+        # Amazon.MTurk.NotificationTransport
+        {
+            ($_ -eq "Send-MTRTestEventNotification/Notification_Transport") -Or
+            ($_ -eq "Update-MTRNotificationSetting/Notification_Transport")
+        }
+        {
+            $v = "Email","SQS"
+            break
+        }
+        
+        # Amazon.MTurk.QualificationStatus
+        "Get-MTRWorkersWithQualificationType/Status"
+        {
+            $v = "Granted","Revoked"
+            break
+        }
+        
+        # Amazon.MTurk.QualificationTypeStatus
+        {
+            ($_ -eq "New-MTRQualificationType/QualificationTypeStatus") -Or
+            ($_ -eq "Update-MTRQualificationType/QualificationTypeStatus")
+        }
+        {
+            $v = "Active","Inactive"
+            break
+        }
+        
+        # Amazon.MTurk.ReviewableHITStatus
+        "Get-MTRReviewableHITList/Status"
+        {
+            $v = "Reviewable","Reviewing"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MTR_map = @{
+    "Notification_Transport"=@("Send-MTRTestEventNotification","Update-MTRNotificationSetting")
+    "QualificationTypeStatus"=@("New-MTRQualificationType","Update-MTRQualificationType")
+    "Status"=@("Get-MTRReviewableHITList","Get-MTRWorkersWithQualificationType")
+    "TestEventType"=@("Send-MTRTestEventNotification")
+}
+
+_awsArgumentCompleterRegistration $MTR_Completers $MTR_map
+
+
 # Argument completions for service AWS OpsWorks
 $OPS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

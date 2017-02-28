@@ -72,6 +72,9 @@
     <Reference Include="AWSSDK.Lex">
       <HintPath>..\..\packages\AWSSDK.Lex.3.3.0\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MTurk">
+      <HintPath>..\..\packages\AWSSDK.MTurk.3.3.0\lib\net35\AWSSDK.MTurk.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.2\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>

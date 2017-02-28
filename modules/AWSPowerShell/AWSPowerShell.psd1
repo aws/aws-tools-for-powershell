@@ -112,6 +112,7 @@ RequiredAssemblies = @(
   "AWSSDK.Lex.dll",
   "AWSSDK.Lightsail.dll",
   "AWSSDK.MachineLearning.dll",
+  "AWSSDK.MTurk.dll",
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.OpsWorksCM.dll",
   "AWSSDK.Organizations.dll",
