@@ -2004,7 +2004,11 @@ Set-Alias -Name Describe-ESDomainConfig -Value Get-ESDomainConfig
 Set-Alias -Name ES-DescribeElasticsearchDomainConfig -Value Get-ESDomainConfig
 Set-Alias -Name Describe-ESDomainList -Value Get-ESDomainList
 Set-Alias -Name ES-DescribeElasticsearchDomains -Value Get-ESDomainList
+Set-Alias -Name Describe-ESInstanceTypeLimit -Value Get-ESInstanceTypeLimit
+Set-Alias -Name ES-DescribeElasticsearchInstanceTypeLimits -Value Get-ESInstanceTypeLimit
 Set-Alias -Name ES-ListDomainNames -Value Get-ESDomainNameList
+Set-Alias -Name ES-ListElasticsearchInstanceTypes -Value Get-ESInstanceTypeList
+Set-Alias -Name ES-ListElasticsearchVersions -Value Get-ESVersionList
 Set-Alias -Name ES-ListTags -Value Get-ESTag
 Set-Alias -Name ES-RemoveTags -Value Remove-ESTag
 Set-Alias -Name ES-UpdateElasticsearchDomainConfig -Value Update-ESDomainConfig

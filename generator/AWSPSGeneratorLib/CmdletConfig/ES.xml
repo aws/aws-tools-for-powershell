@@ -9,6 +9,8 @@
 
   <AdditionalNamespaces />
 
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken"/>
+
   <ServiceOperations>
 
 	  <ServiceOperation MethodName="AddTags" Noun="Tag" PipelineParameter="TagList" Output="Void"/>
@@ -16,8 +18,11 @@
     <ServiceOperation MethodName="DeleteElasticsearchDomain" Noun="Domain" />
     <ServiceOperation MethodName="DescribeElasticsearchDomain" Noun="Domain"/>
     <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" Noun="DomainConfig"/>
+    <ServiceOperation MethodName="DescribeElasticsearchInstanceTypeLimits" Noun="InstanceTypeLimit" PipelineParameter="DomainName"/>
     <ServiceOperation MethodName="DescribeElasticsearchDomains" Noun="DomainList"/>
     <ServiceOperation MethodName="ListDomainNames" Verb="Get" Noun="DomainNameList"/>
+    <ServiceOperation MethodName="ListElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName"/>
+    <ServiceOperation MethodName="ListElasticsearchVersions" Verb="Get" Noun="VersionList"/>
     <ServiceOperation MethodName="ListTags" Verb="Get" Noun="Tag" />
     <ServiceOperation MethodName="RemoveTags" Noun="Tag" Output="Void" PipelineParameter="TagKeys" ShouldProcessTarget="ARN" />
     <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Noun="DomainConfig" NoPipelineParameter="true"/>
