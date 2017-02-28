@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Returns an array of stream ARNs associated with the current account and endpoint.
-    /// If the <code>TableName</code> parameter is present, then <i>ListStreams</i> will return
-    /// only the streams ARNs for that table.
+    /// If the <code>TableName</code> parameter is present, then <code>ListStreams</code>
+    /// will return only the streams ARNs for that table.
     /// 
     ///  <note><para>
-    /// You can call <i>ListStreams</i> at a maximum rate of 5 times per second.
+    /// You can call <code>ListStreams</code> at a maximum rate of 5 times per second.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DDBStreamList")]

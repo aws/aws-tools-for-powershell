@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// table.
     /// 
     ///  <note><para>
-    /// You can call <i>DescribeStream</i> at a maximum rate of 10 times per second.
+    /// You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.
     /// </para></note><para>
     /// Each shard in the stream has a <code>SequenceNumberRange</code> associated with it.
     /// If the <code>SequenceNumberRange</code> has a <code>StartingSequenceNumber</code>
