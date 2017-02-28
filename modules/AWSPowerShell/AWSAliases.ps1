@@ -1269,11 +1269,14 @@ Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
 Set-Alias -Name DDB-DescribeLimits -Value Get-DDBProvisionLimit
 Set-Alias -Name Describe-DDBTable -Value Get-DDBTable
 Set-Alias -Name DDB-DescribeTable -Value Get-DDBTable
+Set-Alias -Name Describe-DDBTimeToLive -Value Get-DDBTimeToLive
+Set-Alias -Name DDB-DescribeTimeToLive -Value Get-DDBTimeToLive
 Set-Alias -Name DDB-ListTables -Value Get-DDBTables
 Set-Alias -Name DDB-ListTagsOfResource -Value Get-DDBResourceTag
 Set-Alias -Name DDB-TagResource -Value Add-DDBResourceTag
 Set-Alias -Name DDB-UntagResource -Value Remove-DDBResourceTag
 Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
+Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList

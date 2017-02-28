@@ -23,6 +23,8 @@
     <ServiceOperation MethodName="DeleteTable" ShouldProcessTarget="TableName"/>
     <ServiceOperation MethodName="DescribeLimits" Noun="ProvisionLimit" Output="Response" />
     <ServiceOperation MethodName="DescribeTable"/>
+    <ServiceOperation MethodName="DescribeTimeToLive" />
+    <ServiceOperation MethodName="UpdateTimeToLive" />
     <ServiceOperation MethodName="GetItem" Exclude="true" Output="Response"/>
     <ServiceOperation MethodName="ListTables" Verb="Get" Noun="Tables" />
     <ServiceOperation MethodName="PutItem" Exclude="true" Output="Response"/>
