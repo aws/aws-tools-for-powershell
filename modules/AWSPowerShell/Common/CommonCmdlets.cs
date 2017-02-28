@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Common
                         PersistedCredentialProfile persistedProfile;
                         if (chain.TryGetPersistedProfile(Parameters.ProfileName, out persistedProfile))
                         {
-                            persistedProfile.Store.CopyProfile(Parameters.ProfileName, SettingsStore.PSDefaultSettingName);
+                            persistedProfile.Store.CopyProfile(Parameters.ProfileName, SettingsStore.PSDefaultSettingName, true);
                             SettingsStore.RegisterProfile(new CredentialProfileOptions(), SettingsStore.PSDefaultSettingName,
                                 Parameters.ProfileLocation, regionToPersist);
                         }

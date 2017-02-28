@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Common
                             PersistedCredentialProfile persistedProfile;
                             if (chain.TryGetPersistedProfile(Parameters.ProfileName, out persistedProfile))
                             {
-                                persistedProfile.Store.CopyProfile(Parameters.ProfileName, Parameters.StoreAs);
+                                persistedProfile.Store.CopyProfile(Parameters.ProfileName, Parameters.StoreAs, true);
                             }
                             else
                                 // Parameters.TryGetCredentials has already tested for this but...
