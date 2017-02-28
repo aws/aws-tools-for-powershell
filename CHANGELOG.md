@@ -1,3 +1,13 @@
+### 3.3.57.0 (2017-02-27)
+  * AWS Organizations
+    - Added support for the new AWS Organizations service. AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources. Cmdlets for this service have the noun prefix ORG and can be listed using the command Get-AWSCmdletName -Service ORG.
+  * Amazon MTurk Service
+    - Added support for Amazon Mechanical Turk (MTurk), a web service that provides an on-demand, scalable, human workforce to complete jobs that humans can do better than computers, for example, recognizing objects in photos. Cmdlets for this service have the noun prefix MTR and can be listed using the command Get-AWSCmdletName -Service MTR.
+  * Amazon Elasticsearch
+    - Added three cmdlets to support new APIs for exposing limits imposed by Elasticsearch. The new cmdlets are Get-ESInstanceTypeLimit (DescribeElasticsearchInstanceTypeLimits API), Get-ESInstanceTypeList (ListElasticsearchInstanceTypes API) and Get-ESVersionList (ListElasticsearchVersions API).
+  * Amazon DynamoDB
+    - Added two new cmdlets to support the new 'Time to Live' APIs. The new cmdlets are Get-DDBTimeToLive (DescribeTimeToLive API) and Update-DDBTimeToLive (UpdateTimeToLive API).
+
 ### 3.3.56.0 (2017-02-23)
   * Fixed issue with the Set-AWSSamlRoleProfile cmdlet reporting a null reference exception.
   * (NetCore module only) Fixed issue with cmdlet help not being available due to a misnamed help file.
