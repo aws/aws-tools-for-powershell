@@ -43,12 +43,12 @@ namespace AWSPowerShellGenerator.Generators
         const string AWSCredentialsArgumentsFullTypename = "Amazon.PowerShell.Common.AWSCredentialsArgumentsFull";
         const string AWSRegionArgumentsTypename = "Amazon.PowerShell.Common.AWSRegionArguments";
 
-        private Dictionary<string, IEnumerable<string>> _dynamicParameterExpansion = new Dictionary<string, IEnumerable<string>>
+        private List<string> _dynamicParameterCmdlets = new List<string>
         {
-            { "Amazon.PowerShell.Common.SetCredentialsCmdlet", new string[] { AWSCredentialsArgumentsFullTypename } },
-            { "Amazon.PowerShell.Common.NewCredentialsCmdlet", new string[] { AWSCredentialsArgumentsFullTypename } },
-            { "Amazon.PowerShell.Common.SetDefaultRegionCmdlet", new string[] { AWSRegionArgumentsTypename } },
-            { "Amazon.PowerShell.Common.InitializeDefaultsCmdlet", new string[] { AWSCredentialsArgumentsFullTypename, AWSRegionArgumentsTypename } },
+            "Amazon.PowerShell.Common.SetCredentialsCmdlet",
+            "Amazon.PowerShell.Common.NewCredentialsCmdlet",
+            "Amazon.PowerShell.Common.SetDefaultRegionCmdlet",
+            "Amazon.PowerShell.Common.InitializeDefaultsCmdlet",
         };
 
         // Some of our cmdlets belong to a service but don't make service calls (eg the DynamoDB
@@ -236,26 +236,20 @@ namespace AWSPowerShellGenerator.Generators
 
             // mix in any parameters added dynamically to specific cmdlets (this way we don't spam all cmdlets
             // with credential parameters) yet still show the actual params where the user needs to see them
-            IEnumerable<string> dynamicParameterTypes = null;
-            if (_dynamicParameterExpansion.TryGetValue(requestType.FullName, out dynamicParameterTypes))
+            if (_dynamicParameterCmdlets.Contains(requestType.FullName))
             {
-                // add in the parameters that are injected at runtime (credentials, region etc) - don't want to
-                // do this and add spam to every cmdlet though. Do it here so we keep consistent ordering on
-                // the returned collection.
-                foreach (var dpt in dynamicParameterTypes)
+                // create an instance of the cmdlet itself
+                var cmdletInstance = Activator.CreateInstance(requestType);
+                // assume it implements IDynamicParameters and get the dynamic parameters object
+                var dynamicParamsObject = ((IDynamicParameters)cmdletInstance).GetDynamicParameters();
+
+                var dynamicParamsProperties = dynamicParamsObject.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                foreach (var dp in dynamicParamsProperties)
                 {
-                    var typeInstance = CmdletAssembly.GetType(dpt);
-                    var dynamicParams =
-                        typeInstance.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public |
-                                                   BindingFlags.Instance);
-                    foreach (var dp in dynamicParams)
-                    {
-                        if (dp.GetSetMethod() != null)
-                            // skip properties with non-public setters, since they won't be parameters
-                        {
-                            properties.Add(dp);
-                        }
-                    }
+                    // add properties that have at least one Parameter attribute
+                    var parameterAttributes = dp.GetCustomAttributes(false).Select(ca => ca.GetType() == typeof(ParameterAttribute));
+                    if (parameterAttributes.Any())
+                        properties.Add(dp);
                 }
             }
 
@@ -553,10 +547,10 @@ namespace AWSPowerShellGenerator.Generators
                 if (!HasNamedParameterSets)
                     throw new InvalidOperationException("Cannot query custom named parameter sets when none exist");
 
-                var l = new List<string>
-                {
-                    DefaultParameterSetName
-                };
+                var l = new List<string>();
+
+                if (!string.IsNullOrEmpty(DefaultParameterSetName))
+                    l.Add(DefaultParameterSetName);
 
                 foreach (var k in ParameterSets.Keys)
                 {
@@ -602,6 +596,9 @@ namespace AWSPowerShellGenerator.Generators
             {
                 { AllSetsKey, new HashSet<string>() }
             };
+
+            if (!string.IsNullOrEmpty(DefaultParameterSetName))
+                partitions.Add(DefaultParameterSetName, new HashSet<string>());
 
             foreach (var p in Parameters)
             {
