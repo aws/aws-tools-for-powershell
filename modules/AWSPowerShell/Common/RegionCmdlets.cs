@@ -100,6 +100,7 @@ namespace Amazon.PowerShell.Common
         private const string PublicAndGovCloudParameterSet = "PublicAndGovCloud";
         private const string GovCloudOnlyParameterSet = "GovCloudOnly";
 
+        #region Parameter SystemName
         /// <summary>
         /// <para>
         /// If set returns an AWSRegion instance corresponding to the specified system name (e.g. us-west-2).
@@ -112,7 +113,9 @@ namespace Amazon.PowerShell.Common
         [Parameter(Position = 0, ValueFromPipeline = true, ParameterSetName = DefaultParameterSet)]
         [Parameter(ParameterSetName = PublicAndGovCloudParameterSet)]
         public string SystemName { get; set; }
+        #endregion
 
+        #region Parameter IncludeChina
         /// <summary>
         /// <para>
         /// Include the China (Beijing) region in the returned collection of AWSRegion instances. 
@@ -128,20 +131,25 @@ namespace Amazon.PowerShell.Common
         [Parameter(ParameterSetName = DefaultParameterSet)]
         [Parameter(ParameterSetName = PublicAndGovCloudParameterSet)]
         public SwitchParameter IncludeChina { get; set; }
+        #endregion
 
+        #region Parameter IncludeGovCloud
         /// <summary>
         /// <para>If set the returned collection includes 'Gov Cloud' region(s).</para>
         /// <para>Default: off.</para>
         /// </summary>
         [Parameter(ParameterSetName = PublicAndGovCloudParameterSet)]
         public SwitchParameter IncludeGovCloud { get; set; }
+        #endregion
 
+        #region Parameter GovCloudOnly
         /// <summary>
         /// <para>If set the returned collection contains only the 'Gov Cloud' region(s).</para>
         /// <para>Default: off.</para>
         /// </summary>
         [Parameter(ParameterSetName = GovCloudOnlyParameterSet)]
         public SwitchParameter GovCloudOnly { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

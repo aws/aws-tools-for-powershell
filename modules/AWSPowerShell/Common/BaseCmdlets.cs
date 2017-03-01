@@ -623,6 +623,7 @@ namespace Amazon.PowerShell.Common
 
         private AWSRegionArguments Parameters { get; set; }
 
+        #region Parameter EndpointURL
         /// <summary>
         /// <para>
         /// The endpoint to make the call against.
@@ -636,6 +637,7 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter]
         public System.String EndpointUrl { get; set; }
+        #endregion
 
         protected virtual string DefaultRegion
         {

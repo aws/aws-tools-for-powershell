@@ -152,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         /// <param name="instanceId">The instance the user wants the password for</param>
         /// <param name="passwordDataResponse">Encrypted password data retrieved from the instance</param>
+        /// <param name="profileLocation">The location of the ini-format credential file.</param>
         /// <returns>The decrypted password</returns>
         string DecryptViaPemDiscovery(string instanceId, GetPasswordDataResponse passwordDataResponse, string profileLocation)
         {
@@ -219,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Walks the credentials store to find the matching account settings for the specified
         /// access key
         /// </summary>
-        /// <param name="accessKey"></param>
-        /// <param name="profileLocation"></param>
+        /// <param name="accessKey">Access key to serach by.</param>
+        /// <param name="profileLocation">The location of the ini-format credential file.</param>
         /// <returns></returns>
         string LookupAccountSettingsKey(string accessKey, string profileLocation)
         {

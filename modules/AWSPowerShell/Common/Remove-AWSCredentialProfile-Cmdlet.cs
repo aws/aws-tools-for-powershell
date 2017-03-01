@@ -29,24 +29,30 @@ namespace Amazon.PowerShell.Common
     [Cmdlet("Remove", "AWSCredentialProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     public class RemoveAWSCredentialProfileCmdlet : BaseCmdlet
     {
+        #region Parameter ProfileName
         /// <summary>
         /// The name associated with the credential profile that is to be deleted.
         /// </summary>
         [Parameter(Mandatory = true, Position = 200)]
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
+        #endregion
 
+        #region Parameter ProfileLocation
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
         /// the AWS CLI and other AWS SDKs)
         /// </para>
         /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is
-        /// placed in the default search location ('.aws' folder in the current user's profile folder,
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
-        /// when the profile to be used is contained in the encrypted credential file used by the
-        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// If this optional parameter is omitted this cmdlet will search the encrypted credential
+        /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
+        /// If the profile is not found then the cmdlet will search in the ini-format credential
+        /// file at the default location: %HOME%\.aws\credentials.
+        /// </para>
+        /// <para>
+        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// file at the location given.
         /// </para>
         /// <para>
         /// As the current folder can vary in a shell or during script execution it is advised
@@ -56,12 +62,15 @@ namespace Amazon.PowerShell.Common
         [Parameter(Position = 201)]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// Suppresses prompts for confirmation before proceeding to remove the specified credential profile.
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

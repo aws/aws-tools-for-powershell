@@ -87,45 +87,56 @@ namespace Amazon.PowerShell.Common
             public const string InstanceProfileSet = "InstanceProfile";
             public const string RegionOnlySet = "RegionOnly";
 
+            #region Parameter Region
             /// <summary>
             /// The system name of an AWS region or an AWSRegion instance. This governs
-            /// the sendpoint that will be used when calling service operations. Note that
+            /// the endpoint that will be used when calling service operations. Note that
             /// the AWS resources referenced in a call are usually region-specific.
             /// </summary>
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
-            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsObjectSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 210, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, Position = 210, ParameterSetName = RegionOnlySet)]
             public object Region { get; set; }
+            #endregion
 
+            #region Parameter ProfileLocation
             /// <summary>
             /// <para>
             /// Used to specify the name and location of the ini-format credential file (shared with
-            /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
-            /// folder location.
+            /// the AWS CLI and other AWS SDKs)
             /// </para>
             /// <para>
-            /// When the ini-format credential file uses the default filename ('credentials') and is
-            /// placed in the default search location ('.aws' folder in the current user's profile folder,
-            /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
-            /// when the profile to be used is contained in the encrypted credential file shared with the
-            /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+            /// If this optional parameter is omitted this cmdlet will search the encrypted credential
+            /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
+            /// If the profile is not found then the cmdlet will search in the ini-format credential
+            /// file at the default location: %HOME%\.aws\credentials.
+            /// </para>
+            /// <para>
+            /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+            /// file at the location given.
             /// </para>
             /// <para>
             /// As the current folder can vary in a shell or during script execution it is advised
             /// that you use specify a fully qualified path instead of a relative path.
             /// </para>
             /// </summary>
+            /// <remarks>
+            /// Note that the encrypted credential file is only supported on Windows platforms.
+            /// It will be skipped when searching for profiles on non-Windows platforms.
+            /// </remarks>
             [Alias("AWSProfilesLocation", "ProfilesLocation")]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
-            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsObjectSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = RegionOnlySet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = InstanceProfileSet)]
             public override string ProfileLocation { get; set; }
+            #endregion
 
             public InitializeDefaultsCmdletParameters(SessionState sessionState) : base(sessionState)
             {
@@ -167,7 +178,7 @@ namespace Amazon.PowerShell.Common
             // save credentials and region to disk if necessary
             if (awsPSCredentialsToPersist != null || regionToPersist != null)
             {
-                if (string.Equals(AWSCredentialsArgumentsFull.AWSCredentialsSet, ParameterSetName, StringComparison.Ordinal))
+                if (string.Equals(AWSCredentialsArgumentsFull.AWSCredentialsObjectSet, ParameterSetName, StringComparison.Ordinal))
                 {
                     // We're storing from the -Credential parameter to a credentials file.
                     // Only some types of AWSCredentials are supported.
@@ -348,39 +359,51 @@ namespace Amazon.PowerShell.Common
     [AWSCmdlet("Clears the persisted credentials associated with the credential profile names 'default' and 'AWS PS Default', plus any credentials and region data currently set in the session's shell variables. To clear the stored default credentials only, use the -SkipShell parameter. To affect the current shell only, use the -SkipProfileStore parameter.")]
     public class ClearDefaultsCmdlet : PSCmdlet
     {
+        #region Parameter SkipShell
         /// <summary>
         /// If set, the cmdlet will not clear the current shell state.
         /// </summary>
         [Parameter]
         public SwitchParameter SkipShell { get; set; }
+        #endregion
 
+        #region Parameter SkipProfileStore
         /// <summary>
         /// If set, the cmdlet will not clear the 'default' and 'AWS PS Default' profiles held in the credentials store.
         /// </summary>
         [Parameter]
         public SwitchParameter SkipProfileStore { get; set; }
+        #endregion
 
+        #region Parameter ProfileLocation
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
-        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
-        /// folder location.
+        /// the AWS CLI and other AWS SDKs)
         /// </para>
         /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is
-        /// placed in the default search location ('.aws' folder in the current user's profile folder,
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
-        /// when the profile to be used is contained in the encrypted credential file shared with the
-        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// If this optional parameter is omitted this cmdlet will search the encrypted credential
+        /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio for the
+        /// 'default' and 'AWS PS Default' profiles. If the profiles are not found then the
+        /// cmdlet will search in the ini-format credential file at the default location: %HOME%\.aws\credentials.
+        /// </para>
+        /// <para>
+        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// file at the location given.
         /// </para>
         /// <para>
         /// As the current folder can vary in a shell or during script execution it is advised
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
+        /// <remarks>
+        /// Note that the encrypted credential file is only supported on Windows platforms.
+        /// It will be skipped when searching for profiles on non-Windows platforms.
+        /// </remarks>
         [Parameter]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {
@@ -417,12 +440,14 @@ namespace Amazon.PowerShell.Common
     [AWSCmdletOutput("String", "Version information for the tools and optionally supported services.")]
     public class GetAWSPowerShellVersionCmdlet : PSCmdlet
     {
+        #region Parameter ListServiceVersionInfo
         /// <summary>
         /// If specified the cmdlet also lists all supported AWS services and their versions.
         /// </summary>
         [Parameter]
         [Alias("ListServices")]
         public SwitchParameter ListServiceVersionInfo { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

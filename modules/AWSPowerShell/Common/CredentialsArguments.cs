@@ -560,9 +560,10 @@ namespace Amazon.PowerShell.Common
     {
         public SessionState SessionState { get; private set; }
 
+        #region Parameter Region
         /// <summary>
         /// The system name of an AWS region or an AWSRegion instance. This governs
-        /// the sendpoint that will be used when calling service operations. Note that 
+        /// the endpoint that will be used when calling service operations. Note that 
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
         [Parameter(Mandatory = false,
@@ -570,28 +571,37 @@ namespace Amazon.PowerShell.Common
                    ValueFromPipelineByPropertyName=true,
                    Position = 210)]
         public object Region { get; set; }
+        #endregion
 
+        #region Parameter ProfileLocation
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
-        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or
-        /// folder location.
+        /// the AWS CLI and other AWS SDKs)
         /// </para>
         /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is
-        /// placed in the default search location ('.aws' folder in the current user's profile folder,
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required
-        /// when the profile to be used is contained in the encrypted credential file shared with the
-        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// If this optional parameter is omitted this cmdlet will search the encrypted credential
+        /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
+        /// If the profile is not found then the cmdlet will search in the ini-format credential
+        /// file at the default location: %HOME%\.aws\credentials.
+        /// </para>
+        /// <para>
+        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// file at the location given.
         /// </para>
         /// <para>
         /// As the current folder can vary in a shell or during script execution it is advised
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
+        /// <remarks>
+        /// Note that the encrypted credential file is only supported on Windows platforms.
+        /// It will be skipped when searching for profiles on non-Windows platforms.
+        /// </remarks>
         [Parameter(Position = 211)]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public String ProfileLocation { get; set; }
+        #endregion
 
         public AWSRegionArguments(SessionState sessionState)
         {
@@ -601,45 +611,48 @@ namespace Amazon.PowerShell.Common
 
     internal class AWSCommonArguments : IAWSCommonArguments
     {
+        #region Parameter Region
         /// <summary>
         /// The system name of an AWS region or an AWSRegion instance. This governs
-        /// the sendpoint that will be used when calling service operations. Note that 
+        /// the endpoint that will be used when calling service operations. Note that 
         /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
         [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true)]
         public object Region { get; set; }
+        #endregion
 
         public SessionState SessionState { get; private set; }
 
+        #region Parameter AccessKey
         /// <summary>
         /// The AWS access key for the user account. This can be a temporary access key
         /// if the corresponding session token is supplied to the -SessionToken parameter.
-        /// Temporary session credentials can be set for the current shell instance only
-        /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("AK")]
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public string AccessKey { get; set; }
+        #endregion
 
+        #region Parameter SecretKey
         /// <summary>
         /// The AWS secret key for the user account. This can be a temporary secret key
         /// if the corresponding session token is supplied to the -SessionToken parameter.
-        /// Temporary session credentials can be set for the current shell instance only
-        /// and cannot be saved to the credential store file.
         /// </summary>
         [Alias("SK", "SecretAccessKey")]
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SecretKey { get; set; }
+        #endregion
 
+        #region Parameter SessionToken
         /// <summary>
-        /// The session token if the access and secret keys are temporary session-based
-        /// credentials. Temporary session credentials can be set for the current shell 
-        /// instance only and cannot be saved to the credential store file.
+        /// The session token if the access and secret keys are temporary session-based credentials.
         /// </summary>
         [Alias("ST")]
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public string SessionToken { get; set; }
+        #endregion
 
+        #region Parameter ProfileName
         /// <summary>
         /// The user-defined name of an AWS credentials or SAML-based role profile containing
         /// credential information. The profile is expected to be found in the secure credential
@@ -650,36 +663,48 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         [Alias("StoredCredentials", "AWSProfileName")]
         public string ProfileName { get; set; }
+        #endregion
 
+        #region Parameter ProfileLocation
         /// <summary>
         /// <para>
-        /// Used to specify the name and location of the ini-format credential file (shared with 
-        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
-        /// folder location.
+        /// Used to specify the name and location of the ini-format credential file (shared with
+        /// the AWS CLI and other AWS SDKs)
         /// </para>
         /// <para>
-        /// When the ini-format credential file uses the default filename ('credentials') and is 
-        /// placed in the default search location ('.aws' folder in the current user's profile folder, 
-        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
-        /// when the profile to be used is contained in the encrypted credential file shared with the 
-        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
+        /// If this optional parameter is omitted this cmdlet will search the encrypted credential
+        /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
+        /// If the profile is not found then the cmdlet will search in the ini-format credential
+        /// file at the default location: %HOME%\.aws\credentials.
         /// </para>
         /// <para>
-        /// As the current folder can vary in a shell or during script execution it is advised 
+        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// file at the location given.
+        /// </para>
+        /// <para>
+        /// As the current folder can vary in a shell or during script execution it is advised
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
+        /// <remarks>
+        /// Note that the encrypted credential file is only supported on Windows platforms.
+        /// It will be skipped when searching for profiles on non-Windows platforms.
+        /// </remarks>
         [Parameter]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
+        #endregion
 
+        #region Parameter Credential
         /// <summary>
         /// An AWSCredentials object instance containing access and secret key information,
         /// and optionally a token for session-based credentials.
         /// </summary>
         [Parameter(ValueFromPipeline = true)]
         public AWSCredentials Credential { get; set; }
+        #endregion
 
+        #region Parameter NetworkCredential
         /// <summary>
         /// Used with SAML-based authentication when ProfileName references a SAML role profile. 
         /// Contains the network credentials to be supplied during authentication with the 
@@ -688,6 +713,7 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(ValueFromPipeline = true)]
         public PSCredential NetworkCredential { get; set; }
+        #endregion
 
         public AWSCommonArguments(SessionState sessionState)
         {
@@ -828,7 +854,7 @@ namespace Amazon.PowerShell.Common
         }
     }
 
-    internal class ProfileInfo
+    public class ProfileInfo
     {
         public string ProfileName { get; set; }
         public string StoreTypeName { get; set; }
