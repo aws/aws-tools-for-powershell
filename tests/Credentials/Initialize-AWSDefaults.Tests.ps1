@@ -194,6 +194,7 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
             AssertDefaultsSet $helper.CustomSharedPath $assumeRoleWithMfaAndExternalIdOptions AssumeRoleAWSCredentials
         }
         
+        <#
         # federated
         It "should store federated credentials from command line values  to the PowerShell session and the .NET credentials file" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
@@ -234,6 +235,7 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
             { Initialize-AWSDefaults -RoleArn role_arn -EndpointName endpoint_name -Region $testRegion -ProfileLocation $helper.CustomSharedPath -NetworkCredential $psCreds } | Should Throw "SharedCredentialsFile does not support the SAMLRole profile type"
         }
+        #>
 
         #
         # Test setting credentials from the -Credential parameter to the PowerShell session, the .NET credentials file, and the shared credentials file
@@ -415,17 +417,17 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
 
             { Initialize-AWSDefaults -AccessKey access_key -SourceProfile source_profile } | Should Throw $parameterSetError
             { Initialize-AWSDefaults -AccessKey access_key -Credential $creds } | Should Throw $parameterSetError
-            { Initialize-AWSDefaults -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ Initialize-AWSDefaults -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
             { Initialize-AWSDefaults -AccessKey access_key -ProfileName profile_name } | Should Throw $parameterSetError
 
             { Initialize-AWSDefaults -SourceProfile source_profile -Credential $creds } | Should Throw $parameterSetError
-            { Initialize-AWSDefaults -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ Initialize-AWSDefaults -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
             { Initialize-AWSDefaults -SourceProfile source_profile -ProfileName profile_name } | Should Throw $parameterSetError
 
-            { Initialize-AWSDefaults -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ Initialize-AWSDefaults -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
             { Initialize-AWSDefaults -Credential $creds -ProfileName profile_name } | Should Throw $parameterSetError
 
-            { Initialize-AWSDefaults -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
+            #{ Initialize-AWSDefaults -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
         }#>
     }
 }

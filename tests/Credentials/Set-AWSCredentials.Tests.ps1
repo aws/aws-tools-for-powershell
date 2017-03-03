@@ -235,6 +235,7 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
             AssertCredentialsSet $helper.CustomSharedPath "some_profile" $assumeRoleWithMfaAndExternalIdOptions $null
         }
 
+        <#
         # federated
         It "should store federated credentials from command line values to the PowerShell session" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
@@ -297,6 +298,7 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com", "Kerberos")
             { Set-AWSCredentials -RoleArn role_arn -EndpointName endpoint_name -StoreAs some_profile -ProfileLocation $helper.CustomSharedPath -NetworkCredential $psCreds } | Should Throw "SharedCredentialsFile does not support the SAMLRole profile type"
         }
+        #>
 
         #
         # Test setting credentials from the -Credential parameter to the PowerShell session, the .NET credentials file, and the shared credentials file
@@ -536,17 +538,17 @@ Describe -Tag "Smoke" "Set-AWSCredentials" {
 
             { Set-AWSCredentials -AccessKey access_key -SourceProfile source_profile } | Should Throw $parameterSetError
             { Set-AWSCredentials -AccessKey access_key -Credential $creds } | Should Throw $parameterSetError
-            { Set-AWSCredentials -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ Set-AWSCredentials -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
             { Set-AWSCredentials -AccessKey access_key -ProfileName profile_name } | Should Throw $parameterSetError
 
             { Set-AWSCredentials -SourceProfile source_profile -Credential $creds } | Should Throw $parameterSetError
-            { Set-AWSCredentials -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ Set-AWSCredentials -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
             { Set-AWSCredentials -SourceProfile source_profile -ProfileName profile_name } | Should Throw $parameterSetError
 
-            { Set-AWSCredentials -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ Set-AWSCredentials -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
             { Set-AWSCredentials -Credential $creds -ProfileName profile_name } | Should Throw $parameterSetError
 
-            { Set-AWSCredentials -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
+            #{ Set-AWSCredentials -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
         }
     }
 }

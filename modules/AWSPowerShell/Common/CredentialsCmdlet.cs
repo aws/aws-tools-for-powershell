@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Common
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsObjectSet)]
-            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+            //[Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
             [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
             public string StoreAs { get; set; }
             #endregion
@@ -239,10 +239,10 @@ namespace Amazon.PowerShell.Common
         /// If this optional parameter is omitted this cmdlet will search the encrypted credential
         /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
         /// If the profile is not found then the cmdlet will search in the ini-format credential
-        /// file at the default location: %HOME%\.aws\credentials.
+        /// file at the default location: (user's home directory)\.aws\credentials.
         /// </para>
         /// <para>
-        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// If this parameter is specified then this cmdlet will only search the ini-format credential
         /// file at the location given.
         /// </para>
         /// <para>
@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         /// <remarks>
-        /// Note that the encrypted credential file is only supported on Windows platforms.
-        /// It will be skipped when searching for profiles on non-Windows platforms.
+        /// Note that the encrypted credential file is not supported on all platforms.
+        /// It will be skipped when searching for profiles on Windows Nano Server, Mac, and Linux platforms.
         /// </remarks>
         [Parameter]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
@@ -307,10 +307,10 @@ namespace Amazon.PowerShell.Common
         /// If this optional parameter is omitted this cmdlet will search the encrypted credential
         /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
         /// If the profile is not found then the cmdlet will search in the ini-format credential
-        /// file at the default location: %HOME%\.aws\credentials.
+        /// file at the default location: (user's home directory)\.aws\credentials.
         /// </para>
         /// <para>
-        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// If this parameter is specified then this cmdlet will only search the ini-format credential
         /// file at the location given.
         /// </para>
         /// <para>
@@ -569,32 +569,6 @@ namespace Amazon.PowerShell.Common
         public string STSEndpointRegion { get; set; }
         #endregion
 
-        #region Parameter ProfileLocation
-        /// <summary>
-        /// <para>
-        /// Used to specify the name and location of the ini-format credential file (shared with
-        /// the AWS CLI and other AWS SDKs)
-        /// </para>
-        /// <para>
-        /// If this optional parameter is omitted this cmdlet will search the encrypted credential
-        /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
-        /// If the profile is not found then the cmdlet will search in the ini-format credential
-        /// file at the default location: %HOME%\.aws\credentials.
-        /// </para>
-        /// <para>
-        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
-        /// file at the location given.
-        /// </para>
-        /// <para>
-        /// As the current folder can vary in a shell or during script execution it is advised
-        /// that you use specify a fully qualified path instead of a relative path.
-        /// </para>
-        /// </summary>
-        [Parameter]
-        [Alias("AWSProfilesLocation", "ProfilesLocation")]
-        public string ProfileLocation { get; set; }
-        #endregion
-
         protected override void ProcessRecord()
         {
             try
@@ -649,7 +623,7 @@ namespace Amazon.PowerShell.Common
                             RoleArn = selectedRoleARN,
                             UserIdentity = domainUser
                         };
-                        SettingsStore.RegisterProfile(options, roleName, ProfileLocation, stsRegionEndpoint);
+                        SettingsStore.RegisterProfile(options, roleName, null, stsRegionEndpoint);
 
                         WriteObject(roleName);
                     }
@@ -748,7 +722,7 @@ namespace Amazon.PowerShell.Common
                 RoleArn = selectedRoleARN,
                 UserIdentity = domainUser
             };
-            SettingsStore.RegisterProfile(options, StoreAs, ProfileLocation, stsEndpointRegion);
+            SettingsStore.RegisterProfile(options, StoreAs, null, stsEndpointRegion);
 
             return StoreAs;
         }

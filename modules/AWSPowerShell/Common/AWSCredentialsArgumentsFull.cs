@@ -13,8 +13,8 @@ namespace Amazon.PowerShell.Common
         public const string BasicOrSessionSet = "BasicOrSession";
         public const string AssumeRoleSet = "AssumeRole";
         public const string AWSCredentialsObjectSet = "AWSCredentialsObject";
-        public const string FederatedSet = "Federated";
         public const string StoredProfileSet = "StoredProfile";
+        //public const string FederatedSet = "Federated";
 
         public SessionState SessionState { get; private set; }
 
@@ -63,17 +63,17 @@ namespace Amazon.PowerShell.Common
         public string MfaSerial { get; set; }
         #endregion
 
-#if DESKTOP
-        #region Parameter RoleArn
-        /// <summary>
-        /// The ARN of the role to assume.
-        /// This parameter applies to assume role credentials and federated credentials.
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = AssumeRoleSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FederatedSet)]
-        public string RoleArn { get; set; }
-        #endregion
-#else
+//#if DESKTOP
+//        #region Parameter RoleArn
+//        /// <summary>
+//        /// The ARN of the role to assume.
+//        /// This parameter applies to assume role credentials and federated credentials.
+//        /// </summary>
+//        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = AssumeRoleSet)]
+//        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FederatedSet)]
+//        public string RoleArn { get; set; }
+//        #endregion
+//#else
         #region Parameter RoleArn
         /// <summary>
         /// The ARN of the role to assume for assume role credentials.
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Common
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = AssumeRoleSet)]
         public string RoleArn { get; set; }
         #endregion
-#endif
+//#endif
 
         #region Parameter SourceProfile
         /// <summary>
@@ -91,25 +91,25 @@ namespace Amazon.PowerShell.Common
         public string SourceProfile { get; set; }
         #endregion
 
-#if DESKTOP
-        #region Parameter EndpointName
-        /// <summary>
-        /// The name of the endpoint to be used for federated credentials.
-        /// See the Set-AWSSamlEndpoint cmdlet for more information about registering endpoints.
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FederatedSet)]
-        public string EndpointName { get; set; }
-        #endregion
+//#if DESKTOP
+//        #region Parameter EndpointName
+//        /// <summary>
+//        /// The name of the endpoint to be used for federated credentials.
+//        /// See the Set-AWSSamlEndpoint cmdlet for more information about registering endpoints.
+//        /// </summary>
+//        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FederatedSet)]
+//        public string EndpointName { get; set; }
+//        #endregion
 
-        #region Parameter UserIdentity
-        /// <summary>
-        /// The user to be used by federated credentials.  If this optional parameter is omitted, the currently logged-on user will be used.
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
-        public string UserIdentity { get; set; }
-        #endregion
+//        #region Parameter UserIdentity
+//        /// <summary>
+//        /// The user to be used by federated credentials.  If this optional parameter is omitted, the currently logged-on user will be used.
+//        /// </summary>
+//        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
+//        public string UserIdentity { get; set; }
+//        #endregion
 
-#endif
+//#endif
 
         #region Parameter ProfileName
         /// <summary>
@@ -134,10 +134,10 @@ namespace Amazon.PowerShell.Common
         /// If this optional parameter is omitted this cmdlet will search the encrypted credential
         /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
         /// If the profile is not found then the cmdlet will search in the ini-format credential
-        /// file at the default location: %HOME%\.aws\credentials.
+        /// file at the default location: (user's home directory)\.aws\credentials.
         /// </para>
         /// <para>
-        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// If this parameter is specified then this cmdlet will only search the ini-format credential
         /// file at the location given.
         /// </para>
         /// <para>
@@ -146,14 +146,14 @@ namespace Amazon.PowerShell.Common
         /// </para>
         /// </summary>
         /// <remarks>
-        /// Note that the encrypted credential file is only supported on Windows platforms.
-        /// It will be skipped when searching for profiles on non-Windows platforms.
+        /// Note that the encrypted credential file is not supported on all platforms.
+        /// It will be skipped when searching for profiles on Windows Nano Server, Mac, and Linux platforms.
         /// </remarks>
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = BasicOrSessionSet)]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AssumeRoleSet)]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = AWSCredentialsObjectSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = FederatedSet)]
+        //[Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = FederatedSet)]
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, Position = 201, ParameterSetName = StoredProfileSet)]
         public virtual string ProfileLocation { get; set; }
         #endregion
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Common
         /// user's default network identity can or should be used during authentication.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = StoredProfileSet)]
-        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
+        //[Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
         public PSCredential NetworkCredential { get; set; }
         #endregion
 
@@ -195,10 +195,10 @@ namespace Amazon.PowerShell.Common
                 MfaSerial = MfaSerial,
                 RoleArn = RoleArn,
                 SourceProfile = SourceProfile,
-#if DESKTOP
-                EndpointName = EndpointName,
-                UserIdentity = UserIdentity,
-#endif
+//#if DESKTOP
+//                EndpointName = EndpointName,
+//                UserIdentity = UserIdentity,
+//#endif
             };
         }
     }

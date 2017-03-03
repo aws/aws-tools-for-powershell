@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Common
         /// <summary>
         /// The name associated with the credential profile that is to be deleted.
         /// </summary>
-        [Parameter(Mandatory = true, Position = 200)]
+        [Parameter(Mandatory = true, Position = 1)]
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
         #endregion
@@ -48,10 +48,10 @@ namespace Amazon.PowerShell.Common
         /// If this optional parameter is omitted this cmdlet will search the encrypted credential
         /// file used by the AWS SDK for .NET and AWS Toolkit for Visual Studio first.
         /// If the profile is not found then the cmdlet will search in the ini-format credential
-        /// file at the default location: %HOME%\.aws\credentials.
+        /// file at the default location: (user's home directory)\.aws\credentials.
         /// </para>
         /// <para>
-        /// If this parameter is specified then this cmdlet will ONLY search the ini-format credential
+        /// If this parameter is specified then this cmdlet will only search the ini-format credential
         /// file at the location given.
         /// </para>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Common
         /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
-        [Parameter(Position = 201)]
+        [Parameter(Position = 2)]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
         #endregion

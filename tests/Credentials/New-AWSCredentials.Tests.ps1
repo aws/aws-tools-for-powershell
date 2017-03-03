@@ -112,6 +112,7 @@ Describe -Tag "Smoke" "New-AWSCredentials" {
             $creds.Options.MfaSerialNumber | Should Be "mfa_serial"
         }
 
+        <#
         It "should create federated credentials from command line values" {
             $helper.RegisterSamlEndpoint("endpoint_name", "https://some_saml_endpoint.com/", "Kerberos")
 
@@ -150,6 +151,7 @@ Describe -Tag "Smoke" "New-AWSCredentials" {
             $creds.Options.UserIdentity | Should Be "user_identity"
             $creds.Options.CustomCallbackState.CmdletNetworkCredentialParameter | Should Be $psCreds
         }
+        #>
 
         #
         # Test "creating" credentials from the -Credential parameter
@@ -252,17 +254,17 @@ Describe -Tag "Smoke" "New-AWSCredentials" {
 
             { New-AWSCredentials -AccessKey access_key -SourceProfile source_profile } | Should Throw $parameterSetError
             { New-AWSCredentials -AccessKey access_key -Credential $creds } | Should Throw $parameterSetError
-            { New-AWSCredentials -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ New-AWSCredentials -AccessKey access_key -UserIdentity user_identity } | Should Throw $parameterSetError
             { New-AWSCredentials -AccessKey access_key -ProfileName profile_name } | Should Throw $parameterSetError
 
             { New-AWSCredentials -SourceProfile source_profile -Credential $creds } | Should Throw $parameterSetError
-            { New-AWSCredentials -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ New-AWSCredentials -SourceProfile source_profile -UserIdentity user_identity } | Should Throw $parameterSetError
             { New-AWSCredentials -SourceProfile source_profile -ProfileName profile_name } | Should Throw $parameterSetError
 
-            { New-AWSCredentials -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
+            #{ New-AWSCredentials -Credential $creds -UserIdentity user_identity } | Should Throw $parameterSetError
             { New-AWSCredentials -Credential $creds -ProfileName profile_name } | Should Throw $parameterSetError
 
-            { New-AWSCredentials -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
+            #{ New-AWSCredentials -UserIdentity user_identity -ProfileName profile_name } | Should Throw $parameterSetError
         }#>
     }
 }
