@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Unregister-SSMPatchBaselineForPatchGroup -BaselineId "pb-045f10b4f382baeda" -PatchGroup "Production"
+
+BaselineId           PatchGroup
+----------           ----------
+pb-045f10b4f382baeda Production</code>
+        <description>This example deregisters a patch group from a patch baseline.</description>
+    </example>
+</examples>

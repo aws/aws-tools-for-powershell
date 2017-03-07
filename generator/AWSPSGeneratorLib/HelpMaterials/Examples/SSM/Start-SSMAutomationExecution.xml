@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Start-SSMAutomationExecution -DocumentName AWS-UpdateLinuxAmi -Parameter @{'AutomationAssumeRole'='arn:aws:iam::123456789012:role/SSMAutomationRole';'SourceAmiId'='ami-f173cc91';'InstanceIamRole'='EC2InstanceRole'}
+		
+3a532a4f-0382-11e7-9df7-6f11185f6dd1</code>
+        <description>This example runs a document specifying an Automation role, an AMI source ID, and an Amazon EC2 instance role.</description>
+    </example>
+</examples>

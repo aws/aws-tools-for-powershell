@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMDocumentList
+
+DocumentType    : Command
+DocumentVersion : 1
+Name            : AWS-ApplyPatchBaseline
+Owner           : Amazon
+PlatformTypes   : {Windows}
+SchemaVersion   : 1.2
+
+DocumentType    : Command
+DocumentVersion : 1
+Name            : AWS-ConfigureAWSPackage
+Owner           : Amazon
+PlatformTypes   : {Windows, Linux}
+SchemaVersion   : 2.0
+
+DocumentType    : Command
+DocumentVersion : 1
+Name            : AWS-ConfigureCloudWatch
+Owner           : Amazon
+PlatformTypes   : {Windows}
+SchemaVersion   : 1.2
+...</code>
+        <description>Lists all the configuration documents in your account.</description>
+    </example>
+</examples>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Remove-SSMDocument -Name "RunShellScript"</code>
+        <description>This example deletes a document. There is no output if the command succeeds.</description>
+    </example>
+</examples>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMCommand
+
+CommandId          : 4b75a163-d39a-4d97-87c9-98ae52c6be35
+Comment            : Apply association with id at update time: 4cc73e42-d5ae-4879-84f8-57e09c0efcd0
+CompletedCount     : 1
+DocumentName       : AWS-RefreshAssociation
+ErrorCount         : 0
+ExpiresAfter       : 2/24/2017 3:19:08 AM
+InstanceIds        : {i-0cb2b964d3e14fd9f}
+MaxConcurrency     : 50
+MaxErrors          : 0
+NotificationConfig : Amazon.SimpleSystemsManagement.Model.NotificationConfig
+OutputS3BucketName :
+OutputS3KeyPrefix  :
+OutputS3Region     :
+Parameters         : {[associationIds, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
+RequestedDateTime  : 2/24/2017 3:18:08 AM
+ServiceRole        :
+Status             : Success
+StatusDetails      : Success
+TargetCount        : 1
+Targets            : {}</code>
+        <description>This example lists all commands requested.</description>
+    </example>
+	<example>
+	<code>PS C:\> Get-SSMCommand -CommandId "4b75a163-d39a-4d97-87c9-98ae52c6be35"</code>
+	<description>This example gets the status of a specific command.</description>
+	</example>
+</examples>

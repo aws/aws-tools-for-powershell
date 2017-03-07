@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMCommandInvocation -CommandId "b8eac879-0541-439d-94ec-47a80d554f44" -Detail $true
+
+CommandId          : b8eac879-0541-439d-94ec-47a80d554f44
+CommandPlugins     : {aws:runShellScript}
+Comment            : IP config
+DocumentName       : AWS-RunShellScript
+InstanceId         : i-0cb2b964d3e14fd9f
+InstanceName       :
+NotificationConfig : Amazon.SimpleSystemsManagement.Model.NotificationConfig
+RequestedDateTime  : 2/22/2017 8:13:16 PM
+ServiceRole        :
+StandardErrorUrl   :
+StandardOutputUrl  :
+Status             : Success
+StatusDetails      : Success
+TraceOutput        :</code>
+        <description>This example lists all the invocations of a command.</description>
+    </example>
+</examples>

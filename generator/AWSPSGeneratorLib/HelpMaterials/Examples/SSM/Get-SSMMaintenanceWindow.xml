@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMMaintenanceWindow -WindowId "mw-03eb9db42890fb82d"
+
+AllowUnassociatedTargets : False
+CreatedDate              : 2/20/2017 6:14:05 PM
+Cutoff                   : 1
+Duration                 : 2
+Enabled                  : True
+ModifiedDate             : 2/20/2017 6:14:05 PM
+Name                     : TestMaintWin
+Schedule                 : cron(0 */30 * * * ? *)
+WindowId                 : mw-03eb9db42890fb82d</code>
+        <description>This example gets details about a maintenance window.</description>
+    </example>
+</examples>

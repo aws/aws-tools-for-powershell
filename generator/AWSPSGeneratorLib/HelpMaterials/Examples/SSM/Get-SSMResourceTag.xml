@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow"
+
+Key   Value
+---   -----
+Stack Production</code>
+        <description>This example lists the tags for a maintenance window.</description>
+    </example>
+</examples>

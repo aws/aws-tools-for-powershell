@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1
+
+Patch                                      PatchStatus
+-----                                      -----------
+Amazon.SimpleSystemsManagement.Model.Patch Amazon.SimpleSystemsManagement.Model.PatchStatus</code>
+        <description>This example lists all patch baselines, with a maximum result list of 1.</description>
+    </example>
+	    <example>
+        <code>PS C:\> (Get-SSMEffectivePatchesForPatchBaseline -BaselineId "pb-0a2f1059b670ebd31" -MaxResult 1).PatchStatus
+
+ApprovalDate          DeploymentStatus
+------------          ----------------
+12/21/2010 6:00:00 PM APPROVED</code>
+        <description>This example displays the patch status for all patch baselines, with a maximum result list of 1.</description>
+    </example>
+</examples>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> $rule = New-Object Amazon.SimpleSystemsManagement.Model.PatchRule
+PS C:\> $rule.ApproveAfterDays = 7
+
+PS C:\> $ruleFilters = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilterGroup
+
+PS C:\> $patchFilter = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilter
+
+PS C:\> $severityFilter = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilter
+PS C:\> $severityFilter.Key="MSRC_SEVERITY"
+PS C:\> $severityFilter.Values.Add("Critical")
+PS C:\> $severityFilter.Values.Add("Important")
+PS C:\> $severityFilter.Values.Add("Moderate")
+
+PS C:\> $classificationFilter = New-Object Amazon.SimpleSystemsManagement.Model.PatchFilter
+PS C:\> $classificationFilter.Key = "CLASSIFICATION"
+PS C:\> $classificationFilter.Values.Add( "SecurityUpdates" )
+PS C:\> $classificationFilter.Values.Add( "Updates" )
+PS C:\> $classificationFilter.Values.Add( "UpdateRollups" )
+PS C:\> $classificationFilter.Values.Add( "CriticalUpdates" )
+
+PS C:\> $ruleFilters.PatchFilters.Add($severityFilter)
+PS C:\> $ruleFilters.PatchFilters.Add($classificationFilter)
+PS C:\> $rule.PatchFilterGroup = $ruleFilters
+
+PS C:\> New-SSMPatchBaseline -Name "Production-Baseline" -Description "Baseline containing all updates approved for production systems" -ApprovalRules_PatchRule $rule
+
+pb-03da896ca3b68b639</code>
+        <description>This example creates a patch baseline that approves patches for a production environment seven days after they are released by Microsoft.</description>
+    </example>
+</examples>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMDefaultPatchBaseline
+		
+arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-04fb4ae6142167966</code>
+        <description>This example displays the default patch baseline.</description>
+    </example>
+</examples>
