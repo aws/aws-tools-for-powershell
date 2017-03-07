@@ -1,3 +1,9 @@
+### 3.3.58.0 (2017-03-06)
+  * Amazon EC2
+    - Added two new keys, WINDOWS_2016_CORE and WINDOWS_2012R2_CORE, to the Get-EC2ImageByName cmdlet, to support retrieving the latest Windows Server 2016 Core and Windows Server 2012R2 Core AMIs.
+  * AWS OpsWorks
+    - OpsWorks for Chef Automate has added a new field "AssociatePublicIpAddress" to the New-OWCMServer cmdlet, "CloudFormationStackArn" to the Server model and "TERMINATED" server state.
+
 ### 3.3.57.0 (2017-02-27)
   * AWS Organizations
     - Added support for the new AWS Organizations service. AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources. Cmdlets for this service have the noun prefix ORG and can be listed using the command Get-AWSCmdletName -Service ORG.
