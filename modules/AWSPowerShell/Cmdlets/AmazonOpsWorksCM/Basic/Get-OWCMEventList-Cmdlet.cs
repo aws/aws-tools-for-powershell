@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     ///  This operation is synchronous. 
     /// </para><para>
     ///  A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
-    /// A <code>ValidationException</code> is raised when parameters of the request are invalid.
-    /// 
+    /// A <code>ValidationException</code> is raised when parameters of the request are not
+    /// valid. 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "OWCMEventList")]

@@ -28,7 +28,18 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    
+    /// Disassociates a node from a Chef server, and removes the node from the Chef server's
+    /// managed nodes. After a node is disassociated, the node key pair is no longer valid
+    /// for accessing the Chef API. For more information about how to associate a node, see
+    /// <a>AssociateNode</a>. 
+    /// 
+    ///  
+    /// <para>
+    /// A node can can only be disassociated from a server that is in a <code>HEALTHY</code>
+    /// state. Otherwise, an <code>InvalidStateException</code> is thrown. A <code>ResourceNotFoundException</code>
+    /// is thrown when the server does not exist. A <code>ValidationException</code> is raised
+    /// when parameters of the request are not valid. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "OWCMNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -43,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// Amazon.OpsWorksCM.Model.DisassociateNodeRequest.EngineAttributes
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter NodeName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the Chef client node. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ServerName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the server from which to disassociate the node. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

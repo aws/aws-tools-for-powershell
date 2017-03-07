@@ -28,21 +28,19 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Updates engine specific attributes on a specified server. Server will enter the <code>MODIFYING</code>
-    /// state when this operation is in progress. Only one update can take place at a time.
+    /// Updates engine-specific attributes on a specified server. The server enters the <code>MODIFYING</code>
+    /// state when this operation is in progress. Only one update can occur at a time. You
+    /// can use this command to reset the Chef server's private key (<code>CHEF_PIVOTAL_KEY</code>).
     /// 
     /// 
     ///  
     /// <para>
-    ///  This operation can be use to reset Chef Server main API key (<code>CHEF_PIVOTAL_KEY</code>).
-    /// 
-    /// </para><para>
     ///  This operation is asynchronous. 
-    /// </para><para></para><para>
-    ///  This operation can only be called for <code>HEALTHY</code> and <code>UNHEALTHY</code>
-    /// servers. Otherwise a <code>InvalidStateException</code> is raised. A <code>ResourceNotFoundException</code>
+    /// </para><para>
+    ///  This operation can only be called for servers in <code>HEALTHY</code> or <code>UNHEALTHY</code>
+    /// states. Otherwise, an <code>InvalidStateException</code> is raised. A <code>ResourceNotFoundException</code>
     /// is thrown when the server does not exist. A <code>ValidationException</code> is raised
-    /// when parameters of the request are invalid. 
+    /// when parameters of the request are not valid. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "OWCMServerEngineAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
