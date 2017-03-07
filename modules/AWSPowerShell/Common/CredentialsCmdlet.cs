@@ -405,7 +405,7 @@ namespace Amazon.PowerShell.Common
         public string StoreAs { get; set; }
         #endregion
 
-        #region Parameter AuthentiactionType
+        #region Parameter AuthenticationType
         /// <summary>
         /// The authentication type (or protocol type) used when communicating with the endpoint.
         /// If not configured for an endpoint 'Kerberos' is assumed.

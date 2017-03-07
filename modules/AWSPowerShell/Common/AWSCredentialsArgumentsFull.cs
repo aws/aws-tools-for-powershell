@@ -101,14 +101,6 @@ namespace Amazon.PowerShell.Common
 //        public string EndpointName { get; set; }
 //        #endregion
 
-//        #region Parameter UserIdentity
-//        /// <summary>
-//        /// The user to be used by federated credentials.  If this optional parameter is omitted, the currently logged-on user will be used.
-//        /// </summary>
-//        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = FederatedSet)]
-//        public string UserIdentity { get; set; }
-//        #endregion
-
 //#endif
 
         #region Parameter ProfileName
@@ -197,7 +189,7 @@ namespace Amazon.PowerShell.Common
                 SourceProfile = SourceProfile,
 //#if DESKTOP
 //                EndpointName = EndpointName,
-//                UserIdentity = UserIdentity,
+//                UserIdentity = <get unser identity from network credential>
 //#endif
             };
         }
