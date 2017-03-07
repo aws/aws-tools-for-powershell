@@ -714,7 +714,14 @@ namespace Amazon.PowerShell.Common
 
             string domainUser = null;
             if (networkCredential != null)
-                domainUser = string.Concat(networkCredential.Domain, "\\", networkCredential.UserName);
+            {
+                // user identity can be expressed in domain\user or email@domain formats - so don't auto-format
+                // to domain\user unless a domain is actually present (if we do, profile ends up with \user@domain
+                // and the user needs to strip it out each time we demand the password)
+                domainUser = string.IsNullOrEmpty(networkCredential.Domain) 
+                    ? networkCredential.UserName 
+                    : string.Concat(networkCredential.Domain, "\\", networkCredential.UserName);
+            }
 
             var options = new CredentialProfileOptions()
             {

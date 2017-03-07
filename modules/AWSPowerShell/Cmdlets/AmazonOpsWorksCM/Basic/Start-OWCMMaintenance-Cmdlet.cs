@@ -30,15 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// <summary>
     /// Manually starts server maintenance. This command can be useful if an earlier maintenance
     /// attempt failed, and the underlying cause of maintenance failure has been resolved.
-    /// The server will switch to <code>UNDER_MAINTENANCE</code> state, while maintenace is
-    /// in progress. 
+    /// The server is in an <code>UNDER_MAINTENANCE</code> state while maintenance is in progress.
+    /// 
     /// 
     ///  
     /// <para>
-    ///  Maintenace can only be started for <code>HEALTHY</code> and <code>UNHEALTHY</code>
-    /// servers. A <code>InvalidStateException</code> is thrown otherwise. A <code>ResourceNotFoundException</code>
+    ///  Maintenance can only be started on servers in <code>HEALTHY</code> and <code>UNHEALTHY</code>
+    /// states. Otherwise, an <code>InvalidStateException</code> is thrown. A <code>ResourceNotFoundException</code>
     /// is thrown when the server does not exist. A <code>ValidationException</code> is raised
-    /// when parameters of the request are invalid. 
+    /// when parameters of the request are not valid. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "OWCMMaintenance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

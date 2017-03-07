@@ -76,7 +76,7 @@
       <HintPath>..\..\packages\AWSSDK.MTurk.3.3.0\lib\net35\AWSSDK.MTurk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
-      <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.2\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.3\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
       <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0.6\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
@@ -106,7 +106,7 @@
       <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.6\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Budgets">
-      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.0.6\lib\net35\AWSSDK.Budgets.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.1\lib\net35\AWSSDK.Budgets.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.0.5\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
@@ -226,7 +226,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.2\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.10\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.11\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -277,7 +277,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.1.4\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
-      <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.4\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.5\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudSearchDomain">
       <HintPath>..\..\packages\AWSSDK.CloudSearchDomain.3.3.0.7\lib\net35\AWSSDK.CloudSearchDomain.dll</HintPath>

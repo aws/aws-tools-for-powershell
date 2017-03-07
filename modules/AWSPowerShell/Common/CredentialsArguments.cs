@@ -370,8 +370,11 @@ namespace Amazon.PowerShell.Common
             else
                 msgPrompt = string.Format("Authentication failed. Enter the password for '{0}' to try again.", args.UserIdentity);
 
+            // some profiles have a user identity expressed in email terms with a mishandled domain, leading to
+            // identity of \me@domain.com - the user then has to strip the \, so let's do it for them
+            var userIdentity = string.IsNullOrEmpty(args.UserIdentity) ? null : args.UserIdentity.TrimStart('\\');
             if (psCredential == null)
-                psCredential = callbackContext.Host.UI.PromptForCredential("Authenticating for AWS Role Credentials", msgPrompt, args.UserIdentity, "");
+                psCredential = callbackContext.Host.UI.PromptForCredential("Authenticating for AWS Role Credentials", msgPrompt, userIdentity, "");
 
             return psCredential != null ? psCredential.GetNetworkCredential() : null;
         }

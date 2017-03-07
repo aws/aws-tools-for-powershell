@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Xml;
 using System.Xml.Serialization;
-using AWSPowerShellGenerator.Utils;
 using System.IO;
 using System.Diagnostics;
-using AWSPowerShellGenerator.Writers;
 
 namespace AWSPowerShellGenerator.CmdletConfig
 {
@@ -1214,6 +1209,36 @@ namespace AWSPowerShellGenerator.CmdletConfig
                     _exclusionSet = new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries));
                 return _exclusionSet;
             }
+        }
+
+        /// <summary>
+        /// Returns the autoiteration settings, if any, for an operation by combining the service level
+        /// settings and any operation-level overrides. For operation level overrides, not all settings
+        /// need to be specified.
+        /// </summary>
+        /// <param name="parentSettings">The service-level autoiteration settings, if any</param>
+        /// <param name="childSettings">Service-operation overrides, if any</param>
+        /// <returns>The combined iteration settings with child settings overriding parent settings where set</returns>
+        public static AutoIteration Combine(AutoIteration parentSettings, AutoIteration childSettings)
+        {
+            if (parentSettings == null && childSettings == null)
+                return null;
+
+            if (parentSettings != null && childSettings == null)
+                return parentSettings;
+            
+            if (parentSettings == null)
+                return childSettings;
+
+            return new AutoIteration
+            {
+                Start = string.IsNullOrEmpty(childSettings.Start) ? parentSettings.Start : childSettings.Start,
+                Next = string.IsNullOrEmpty(childSettings.Next) ? parentSettings.Next : childSettings.Next,
+                ServicePageSize = childSettings.ServicePageSize == -1 ? parentSettings.ServicePageSize : childSettings.ServicePageSize,
+                Exclusions = string.IsNullOrEmpty(childSettings.Exclusions) ? parentSettings.Exclusions : childSettings.Exclusions,
+                EmitLimit = string.IsNullOrEmpty(childSettings.EmitLimit) ? parentSettings.EmitLimit : childSettings.EmitLimit,
+                TruncatedFlag = string.IsNullOrEmpty(childSettings.TruncatedFlag) ? parentSettings.TruncatedFlag : childSettings.TruncatedFlag
+            };
         }
 
         /// <summary>

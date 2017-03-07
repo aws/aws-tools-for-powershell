@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para></li><li><para>
     /// Event name
     /// </para></li><li><para>
+    /// Event source
+    /// </para></li><li><para>
     /// Resource name
     /// </para></li><li><para>
     /// Resource type

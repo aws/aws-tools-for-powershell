@@ -28,16 +28,15 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Deletes a backup. You can delete both manual and automated backups. 
+    /// Deletes a backup. You can delete both manual and automated backups. This operation
+    /// is asynchronous. 
     /// 
     ///  
     /// <para>
-    ///  This operation is asynchronous. 
-    /// </para><para>
-    ///  A <code>InvalidStateException</code> is thrown then a backup is already deleting.
-    /// A <code>ResourceNotFoundException</code> is thrown when the backup does not exist.
-    /// A <code>ValidationException</code> is thrown when parameters of the request are not
-    /// valid. 
+    ///  An <code>InvalidStateException</code> is thrown when a backup deletion is already
+    /// in progress. A <code>ResourceNotFoundException</code> is thrown when the backup does
+    /// not exist. A <code>ValidationException</code> is thrown when parameters of the request
+    /// are not valid. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "OWCMBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
