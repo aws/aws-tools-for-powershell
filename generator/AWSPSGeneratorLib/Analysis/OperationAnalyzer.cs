@@ -80,21 +80,15 @@ namespace AWSPowerShellGenerator.Analysis
         }
 
         /// <summary>
-        /// Returns any autoiteration settings that apply, defined at either the operation
-        /// or service level.
+        /// Returns any autoiteration settings that apply, as a combination
+        /// of settings defined at the global service level, overriden at the 
+        /// operation level if needed.
         /// </summary>
         public AutoIteration AutoIterateSettings
         {
             get
             {
-                return CurrentOperation.AutoIterate != null ? CurrentOperation.AutoIterate : CurrentModel.AutoIterate;
-                //if (CurrentOperation.AutoIterate != null)
-                //    return CurrentOperation.AutoIterate;
-
-                //if (CurrentModel.AutoIterate != null && !CurrentModel.AutoIterate.ExclusionSet.Contains(CurrentOperation.MethodName))
-                //    return CurrentModel.AutoIterate;
-
-                //return null;
+                return AutoIteration.Combine(CurrentModel.AutoIterate, CurrentOperation.AutoIterate);
             }
         }
 

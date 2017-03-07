@@ -124,17 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 25;
+            int? _pageSize = 50;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 25. If the user has
+                // The service has a maximum page size of 50. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 25 items back. If a page size is set, that will
+                // and giving us 50 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 25 and the user has set a retrieval limit.
+                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
                     // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
                     // what's left to match the user's request.
                     

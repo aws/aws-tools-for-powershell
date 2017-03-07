@@ -11,7 +11,11 @@
 
   <PipelineParameter>InstanceId</PipelineParameter>
   
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="25" Exclusions="ListInventoryEntries" />
+  <!-- note: SSM is not consistent with service page size across its apis, and does
+       not allow calls to be made without a value (1..max) set. Operation specific
+       autoiterate settings are therefore in effect below.
+  -->
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="50" Exclusions="ListInventoryEntries" />
 
   <ServiceOperations>
     <ServiceOperation MethodName="CreateAssociation" />
@@ -52,19 +56,35 @@
     <ServiceOperation MethodName="DeregisterTargetFromMaintenanceWindow" PipelineParameter="WindowTargetId" Output="Response" />
     <ServiceOperation MethodName="DeregisterTaskFromMaintenanceWindow" PipelineParameter="WindowTaskId" Output="Response" />
     <ServiceOperation MethodName="DescribeAutomationExecutions" NoPipelineParameter="true" Noun="AutomationExecutionList" />
-    <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Noun="EffectiveInstanceAssociationList" />
+    <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Noun="EffectiveInstanceAssociationList">
+        <AutoIterate ServicePageSize="5" />
+    </ServiceOperation>
     <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindows" Noun="MaintenanceWindowList" />
+    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeMaintenanceWindowTargets">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeMaintenanceWindows" Noun="MaintenanceWindowList">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
     <ServiceOperation MethodName="DescribeParameters" Noun="ParameterList" />
     <ServiceOperation MethodName="GetAutomationExecution" />
     <ServiceOperation MethodName="GetCommandInvocation" Output="Response" Noun="CommandInvocationDetail" />
     <ServiceOperation MethodName="GetInventory" />
-    <ServiceOperation MethodName="GetInventorySchema" PipelineParameter="TypeName" />
+    <ServiceOperation MethodName="GetInventorySchema" PipelineParameter="TypeName">
+      <AutoIterate ServicePageSize="200" />
+    </ServiceOperation>
     <ServiceOperation MethodName="GetMaintenanceWindow" Output="Response" />
     <ServiceOperation MethodName="GetMaintenanceWindowExecution" Output="Response" />
     <ServiceOperation MethodName="GetMaintenanceWindowExecutionTask" PipelineParameter="TaskId" Output="Response" />
@@ -87,11 +107,21 @@
     <ServiceOperation MethodName="RegisterDefaultPatchBaseline" />
     <ServiceOperation MethodName="RegisterPatchBaselineForPatchGroup" PipelineParameter="BaselineId" Output="Response" />
     <ServiceOperation MethodName="UpdatePatchBaseline" PipelineParameter="BaselineId" Output="Response" />
-    <ServiceOperation MethodName="DescribeInstancePatches" Noun="InstancePatch" />
-    <ServiceOperation MethodName="DescribeInstancePatchStates" Noun="InstancePatchState" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup" />
-    <ServiceOperation MethodName="DescribePatchBaselines" NoPipelineParameter="true" Noun="PatchBaseline" />
-    <ServiceOperation MethodName="DescribePatchGroups" Noun="PatchGroup" />
+    <ServiceOperation MethodName="DescribeInstancePatches" Noun="InstancePatch">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeInstancePatchStates" Noun="InstancePatchState" NoPipelineParameter="true">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribePatchBaselines" NoPipelineParameter="true" Noun="PatchBaseline">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribePatchGroups" Noun="PatchGroup">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
     <ServiceOperation MethodName="DescribePatchGroupState" Output="Response" />
     <ServiceOperation MethodName="GetDefaultPatchBaseline" />
     <ServiceOperation MethodName="GetDeployablePatchSnapshotForInstance" PipelineParameter="SnapshotId" Output="Response" />
@@ -99,8 +129,12 @@
     <ServiceOperation MethodName="CreatePatchBaseline" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DeletePatchBaseline" />
     <ServiceOperation MethodName="DeregisterPatchBaselineForPatchGroup" PipelineParameter="PatchGroup" Output="Response" />
-    <ServiceOperation MethodName="DescribeAvailablePatches" Noun="AvailablePatch" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" />
+    <ServiceOperation MethodName="DescribeAvailablePatches" Noun="AvailablePatch" NoPipelineParameter="true">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
 
   </ServiceOperations>
 
