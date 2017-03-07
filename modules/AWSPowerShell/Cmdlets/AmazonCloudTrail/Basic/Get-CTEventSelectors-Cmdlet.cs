@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para></li><li><para>
     /// If your event selector includes read-only events, write-only events, or all. 
     /// </para></li></ul><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html">Configuring
-    /// Event Selectors for Trails</a> in the <i>AWS CloudTrail User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
+    /// Data and Management Events for Trails </a> in the <i>AWS CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CTEventSelectors")]
