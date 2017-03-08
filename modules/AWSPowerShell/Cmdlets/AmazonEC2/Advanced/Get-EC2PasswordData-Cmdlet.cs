@@ -28,6 +28,7 @@ using Amazon.Util;
 using Amazon.Runtime.Internal;
 using Amazon.PowerShell.Utils;
 using Amazon.Runtime.CredentialManagement.Internal;
+using Amazon.Runtime.CredentialManagement;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -227,21 +228,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <returns></returns>
         string LookupAccountSettingsKey(string accessKey, string profileName, string profileLocation)
         {
-            PersistedCredentialProfile persistedProfile;
+            CredentialProfile profile;
             if (string.IsNullOrEmpty(profileName))
             {
                 // no profile name so go by the access key
-                persistedProfile = SettingsStore.ListPersistedProfiles(profileLocation).Where(
-                    p => p.Profile.CanCreateAWSCredentials && string.Equals(p.Profile.Options.AccessKey, accessKey, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                profile = SettingsStore.ListProfiles(profileLocation).Where(
+                    p => p.CanCreateAWSCredentials && string.Equals(p.Options.AccessKey, accessKey, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
             }
             else
             {
                 // use profile name since we have it
-                SettingsStore.TryGetPersistedProfile(profileName, profileLocation, out persistedProfile);
+                SettingsStore.TryGetProfile(profileName, profileLocation, out profile);
             }
 
-            if (persistedProfile != null)
-                return CredentialProfileUtils.GetUniqueKey(persistedProfile.Profile);
+            if (profile != null)
+                return CredentialProfileUtils.GetUniqueKey(profile);
             else
                 return null;
         }

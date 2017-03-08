@@ -192,10 +192,10 @@ namespace Amazon.PowerShell.Common
                     {
                         // We're copying from one profile to another.
                         var chain = new CredentialProfileStoreChain(Parameters.ProfileLocation);
-                        PersistedCredentialProfile persistedProfile;
-                        if (chain.TryGetPersistedProfile(Parameters.ProfileName, out persistedProfile))
+                        CredentialProfile profile;
+                        if (chain.TryGetProfile(Parameters.ProfileName, out profile))
                         {
-                            persistedProfile.Store.CopyProfile(Parameters.ProfileName, SettingsStore.PSDefaultSettingName, true);
+                            profile.CredentialProfileStore.CopyProfile(Parameters.ProfileName, SettingsStore.PSDefaultSettingName, true);
                             SettingsStore.RegisterProfile(new CredentialProfileOptions(), SettingsStore.PSDefaultSettingName,
                                 Parameters.ProfileLocation, regionToPersist);
                         }
@@ -228,16 +228,16 @@ namespace Amazon.PowerShell.Common
 
         private void GetFromDefaultProfile(out AWSPSCredentials awsPSCredentialsFromDefaultProfile, out RegionEndpoint regionFromDefaultProfile)
         {
-            PersistedCredentialProfile persistedProfile;
-            if (SettingsStore.TryGetPersistedProfile(SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, out persistedProfile))
+            CredentialProfile profile;
+            if (SettingsStore.TryGetProfile(SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, out profile))
             {
                 AWSCredentials defaultAWSCredentials;
-                if (persistedProfile.TryGetAWSCredentials(out defaultAWSCredentials))
+                if (SettingsStore.TryGetAWSCredentials(SettingsStore.PSDefaultSettingName, Parameters.ProfileLocation, out defaultAWSCredentials))
                     awsPSCredentialsFromDefaultProfile = new AWSPSCredentials(defaultAWSCredentials, SettingsStore.PSDefaultSettingName, CredentialsSource.Profile);
                 else
                     awsPSCredentialsFromDefaultProfile = null;
 
-                regionFromDefaultProfile = persistedProfile.Profile.Region;
+                regionFromDefaultProfile = profile.Region;
             }
             else
             {
@@ -311,14 +311,10 @@ namespace Amazon.PowerShell.Common
                 if (choice != 0)
                 {
                     var chosenCredentials = choices[choice];
-                    PersistedCredentialProfile persistedProfile = null;
-                    if (SettingsStore.TryGetPersistedProfile(chosenCredentials.Label, Parameters.ProfileLocation, out persistedProfile))
+                    AWSCredentials awsCredentials;
+                    if (SettingsStore.TryGetAWSCredentials(chosenCredentials.Label, Parameters.ProfileLocation, out awsCredentials))
                     {
-                        AWSCredentials awsCredentials;
-                        if (persistedProfile.TryGetAWSCredentials(out awsCredentials))
-                        {
-                            return new AWSPSCredentials(awsCredentials, chosenCredentials.Label, CredentialsSource.Profile);
-                        }
+                        return new AWSPSCredentials(awsCredentials, chosenCredentials.Label, CredentialsSource.Profile);
                     }
                 }
             }

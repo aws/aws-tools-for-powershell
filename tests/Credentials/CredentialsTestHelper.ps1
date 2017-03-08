@@ -214,7 +214,7 @@ class CredentialsTestHelper : TestHelper
         }
     }
 
-    [Amazon.Runtime.CredentialManagement.Internal.ICredentialProfileStore] GetProfileStore($profilesLocation)
+    [Amazon.Runtime.CredentialManagement.ICredentialProfileStore] GetProfileStore($profilesLocation)
     {
         if ($profilesLocation -eq $null)
         {

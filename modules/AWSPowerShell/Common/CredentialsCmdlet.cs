@@ -142,10 +142,10 @@ namespace Amazon.PowerShell.Common
                         {
                             // We're copying from one profile to another.
                             var chain = new CredentialProfileStoreChain(Parameters.ProfileLocation);
-                            PersistedCredentialProfile persistedProfile;
-                            if (chain.TryGetPersistedProfile(Parameters.ProfileName, out persistedProfile))
+                            CredentialProfile profile;
+                            if (chain.TryGetProfile(Parameters.ProfileName, out profile))
                             {
-                                persistedProfile.Store.CopyProfile(Parameters.ProfileName, Parameters.StoreAs, true);
+                                profile.CredentialProfileStore.CopyProfile(Parameters.ProfileName, Parameters.StoreAs, true);
                             }
                             else
                                 // Parameters.TryGetCredentials has already tested for this but...
@@ -353,6 +353,7 @@ namespace Amazon.PowerShell.Common
             else if (ListProfileDetail.IsPresent)
             {
                 WriteObject(SettingsStore.GetProfileInfo(ProfileLocation), true);
+                return;
             }
 
             if (string.IsNullOrEmpty(ProfileName))
@@ -363,10 +364,10 @@ namespace Amazon.PowerShell.Common
             }
             else
             {
-                PersistedCredentialProfile persistedProfile;
-                if (SettingsStore.TryGetPersistedProfile(ProfileName, ProfileLocation, out persistedProfile))
+                CredentialProfile profile;
+                if (SettingsStore.TryGetProfile(ProfileName, ProfileLocation, out profile))
                 {
-                    WriteObject(persistedProfile.Profile.GetAWSCredentials(persistedProfile.Store));
+                    WriteObject(profile.GetAWSCredentials(profile.CredentialProfileStore));
                 }
             }
         }

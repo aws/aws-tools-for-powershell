@@ -521,11 +521,10 @@ namespace Amazon.PowerShell.Common
 
         private static bool TryLoad(string name, string profileLocation, ref RegionEndpoint region, ref RegionSource source)
         {
-            PersistedCredentialProfile persistedProfile;
-            if (SettingsStore.TryGetPersistedProfile(name, profileLocation, out persistedProfile) &&
-                persistedProfile.Profile.Region != null)
+            CredentialProfile profile;
+            if (SettingsStore.TryGetProfile(name, profileLocation, out profile) && profile.Region != null)
             {
-                region = persistedProfile.Profile.Region;
+                region = profile.Region;
                 source = RegionSource.Saved;
                 return true;
             }
@@ -746,15 +745,15 @@ namespace Amazon.PowerShell.Common
 
         public static List<ProfileInfo> GetProfileInfo(string profileLocation)
         {
-            var persistedProfiles = (new CredentialProfileStoreChain(profileLocation)).ListPersistedProfiles();
+            var profiles = (new CredentialProfileStoreChain(profileLocation)).ListProfiles();
             var result = new List<ProfileInfo>();
-            foreach (var persistedProfile in persistedProfiles)
+            foreach (var profile in profiles)
             {
                 string location = null;
-                var sharedCredentialsFile = persistedProfile.Store as SharedCredentialsFile;
+                var sharedCredentialsFile = profile.CredentialProfileStore as SharedCredentialsFile;
                 if (sharedCredentialsFile == null)
                 {
-                    var netsSDKCredentialsFile = persistedProfile.Store as NetSDKCredentialsFile;
+                    var netsSDKCredentialsFile = profile.CredentialProfileStore as NetSDKCredentialsFile;
                     if (netsSDKCredentialsFile != null)
                     {
                         location = null;
@@ -767,8 +766,8 @@ namespace Amazon.PowerShell.Common
                 result.Add(new ProfileInfo
                 {
                     ProfileLocation = location,
-                    ProfileName = persistedProfile.Profile.Name,
-                    StoreTypeName = persistedProfile.Store.GetType().Name
+                    ProfileName = profile.Name,
+                    StoreTypeName = profile.CredentialProfileStore.GetType().Name
                 });
             }
             return result;
@@ -779,14 +778,19 @@ namespace Amazon.PowerShell.Common
             return GetProfileInfo(profileLocation).Any(pi => string.Equals(pi.ProfileName, name, StringComparison.Ordinal));
         }
 
-        public static bool TryGetPersistedProfile(string name, string profileLocation, out PersistedCredentialProfile persistedProfile)
+        public static bool TryGetAWSCredentials(string name, string profileLocation, out AWSCredentials credentials)
         {
-            return new CredentialProfileStoreChain(profileLocation).TryGetPersistedProfile(name, out persistedProfile);
+            return new CredentialProfileStoreChain(profileLocation).TryGetAWSCredentials(name, out credentials);
         }
 
-        public static IEnumerable<PersistedCredentialProfile> ListPersistedProfiles(string profileLocation)
+        public static bool TryGetProfile(string name, string profileLocation, out CredentialProfile profile)
         {
-            return new CredentialProfileStoreChain(profileLocation).ListPersistedProfiles();
+            return new CredentialProfileStoreChain(profileLocation).TryGetProfile(name, out profile);
+        }
+
+        public static IEnumerable<CredentialProfile> ListProfiles(string profileLocation)
+        {
+            return new CredentialProfileStoreChain(profileLocation).ListProfiles();
         }
 
         internal static void RegisterProfile(CredentialProfileOptions profileOptions, string name, string profileLocation, RegionEndpoint region)

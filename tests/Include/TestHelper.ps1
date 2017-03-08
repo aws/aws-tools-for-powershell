@@ -45,7 +45,7 @@ class TestHelper
 
     [Amazon.Runtime.CredentialManagement.CredentialProfile] GetDefaultCredentialProfile()
     {
-        $chain = (New-Object Amazon.Runtime.CredentialManagement.Internal.CredentialProfileStoreChain)
+        $chain = (New-Object Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain)
 
         [Amazon.Runtime.CredentialManagement.CredentialProfile] $profile = $null
 
