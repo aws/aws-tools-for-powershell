@@ -33,9 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-    /// cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For
-    /// cross-region replication where the DB cluster identified by <code>ReplicationSourceIdentifier</code>
-    /// is encrypted, you must also specify the <code>PreSignedUrl</code> parameter.
+    /// cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance.
     /// </para><para>
     /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
     /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
@@ -154,12 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
-        /// of the ARN for the KMS encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
+        /// of the ARN for the KM encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
         /// for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default encryption
         /// key. AWS KMS creates the default encryption key for your AWS account. Your AWS account
-        /// has a different default encryption key for each AWS region.</para><para>If you create a Read Replica of an encrypted DB cluster in another region, you must
-        /// set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination region.
-        /// This key is used to encrypt the Read Replica in that region.</para>
+        /// has a different default encryption key for each AWS region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,32 +231,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
-        #region Parameter PreSignedUrl
-        /// <summary>
-        /// <para>
-        /// <para>A URL that contains a Signature Version 4 signed request for the <code>CreateDBCluster</code>
-        /// action to be called in the source region where the DB cluster will be replicated from.
-        /// You only need to specify <code>PreSignedUrl</code> when you are performing cross-region
-        /// replication from an encrypted DB cluster.</para><para>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API
-        /// action that can be executed in the source region that contains the encrypted DB cluster
-        /// to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
-        /// copy of the DB cluster in the destination region. This should refer to the same KMS
-        /// key for both the <code>CreateDBCluster</code> action that is called in the destination
-        /// region, and the action contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the region that Aurora Read Replica
-        /// will be created in.</para></li><li><para><code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted
-        /// DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN)
-        /// format for the source region. For example, if you are copying an encrypted DB cluster
-        /// from the us-west-2 region, then your <code>ReplicationSourceIdentifier</code> would
-        /// look like Example: <code>arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
-        /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
-        /// <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html"> Signature
-        /// Version 4 Signing Process</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String PreSignedUrl { get; set; }
-        #endregion
-        
         #region Parameter ReplicationSourceIdentifier
         /// <summary>
         /// <para>
@@ -270,19 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReplicationSourceIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter SourceRegion
-        /// <summary>
-        /// <para>
-        ///  The SourceRegion for generating the PreSignedUrl property.
-        /// 
-        ///  If SourceRegion is set and the PreSignedUrl property is not,
-        ///  then PreSignedUrl will be automatically generated by the client.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SourceRegion { get; set; }
         #endregion
         
         #region Parameter StorageEncrypted
@@ -346,7 +303,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.SourceRegion = this.SourceRegion;
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
@@ -368,7 +324,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
-            context.PreSignedUrl = this.PreSignedUrl;
             context.ReplicationSourceIdentifier = this.ReplicationSourceIdentifier;
             if (ParameterWasBound("StorageEncrypted"))
                 context.StorageEncrypted = this.StorageEncrypted;
@@ -396,10 +351,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.CreateDBClusterRequest();
             
-            if (cmdletContext.SourceRegion != null)
-            {
-                request.SourceRegion = cmdletContext.SourceRegion;
-            }
             if (cmdletContext.AvailabilityZones != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZones;
@@ -463,10 +414,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
-            }
-            if (cmdletContext.PreSignedUrl != null)
-            {
-                request.PreSignedUrl = cmdletContext.PreSignedUrl;
             }
             if (cmdletContext.ReplicationSourceIdentifier != null)
             {
@@ -535,7 +482,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String SourceRegion { get; set; }
             public List<System.String> AvailabilityZones { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CharacterSetName { get; set; }
@@ -552,7 +498,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
-            public System.String PreSignedUrl { get; set; }
             public System.String ReplicationSourceIdentifier { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
