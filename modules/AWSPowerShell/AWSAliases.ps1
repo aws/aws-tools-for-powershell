@@ -454,6 +454,8 @@ Set-Alias -Name List-CDIRObjectAttribute -Value Get-CDIRObjectAttribute
 Set-Alias -Name CDIR-ListObjectAttributes -Value Get-CDIRObjectAttribute
 Set-Alias -Name List-CDIRObjectChild -Value Get-CDIRObjectChild
 Set-Alias -Name CDIR-ListObjectChildren -Value Get-CDIRObjectChild
+Set-Alias -Name List-CDIRObjectParentPath -Value Get-CDIRObjectParentPath
+Set-Alias -Name CDIR-ListObjectParentPaths -Value Get-CDIRObjectParentPath
 Set-Alias -Name List-CDIRObjectParent -Value Get-CDIRObjectParent
 Set-Alias -Name CDIR-ListObjectParents -Value Get-CDIRObjectParent
 Set-Alias -Name List-CDIRObjectPolicy -Value Get-CDIRObjectPolicy

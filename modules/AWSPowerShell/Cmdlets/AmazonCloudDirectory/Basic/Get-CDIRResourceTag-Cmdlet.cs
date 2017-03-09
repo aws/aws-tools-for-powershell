@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Next token used for pagination. This is for future use. Currently pagination is not
-        /// supported for tagging.</para>
+        /// <para>The pagination token. This is for future use. Currently pagination is not supported
+        /// for tagging.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

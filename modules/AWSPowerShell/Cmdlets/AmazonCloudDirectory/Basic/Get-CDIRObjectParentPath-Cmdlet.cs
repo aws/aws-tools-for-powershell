@@ -28,41 +28,42 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists indices attached to an object.
+    /// Retrieves all available parent paths for any object type such as node, leaf node,
+    /// policy node, and index node objects. For more information about objects, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#dirstructure">Directory
+    /// Structure</a>.
+    /// 
+    ///  
+    /// <para>
+    /// Use this API to evaluate all parents for an object. The call returns all objects from
+    /// the root of the directory up to the requested object. The API returns the number of
+    /// paths based on user-defined <code>MaxResults</code>, in case there are multiple paths
+    /// to the parent. The order of the paths and nodes returned is consistent among multiple
+    /// API calls unless the objects are deleted or moved. Paths not leading to directory
+    /// root are ignored from the target object.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CDIRObjectIndex")]
-    [OutputType("Amazon.CloudDirectory.Model.IndexAttachment")]
-    [AWSCmdlet("Invokes the ListAttachedIndices operation against AWS Cloud Directory.", Operation = new[] {"ListAttachedIndices"})]
-    [AWSCmdletOutput("Amazon.CloudDirectory.Model.IndexAttachment",
-        "This cmdlet returns a collection of IndexAttachment objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.ListAttachedIndicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CDIRObjectParentPath")]
+    [OutputType("Amazon.CloudDirectory.Model.PathToObjectIdentifiers")]
+    [AWSCmdlet("Invokes the ListObjectParentPaths operation against AWS Cloud Directory.", Operation = new[] {"ListObjectParentPaths"})]
+    [AWSCmdletOutput("Amazon.CloudDirectory.Model.PathToObjectIdentifiers",
+        "This cmdlet returns a collection of PathToObjectIdentifiers objects.",
+        "The service call response (type Amazon.CloudDirectory.Model.ListObjectParentPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetCDIRObjectIndexCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class GetCDIRObjectParentPathCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
-        
-        #region Parameter ConsistencyLevel
-        /// <summary>
-        /// <para>
-        /// <para>The consistency level to use for this operation.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CloudDirectory.ConsistencyLevel")]
-        public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
-        #endregion
         
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the directory.</para>
+        /// <para>The ARN of the directory to which the parent path applies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryArn { get; set; }
         #endregion
         
-        #region Parameter TargetReference_Selector
+        #region Parameter ObjectReference_Selector
         /// <summary>
         /// <para>
         /// <para>Allows you to specify an object. You can identify an object in one of the following
@@ -70,13 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String TargetReference_Selector { get; set; }
+        public System.String ObjectReference_Selector { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to retrieve.</para>
+        /// <para>Maximum number of items to be retrieved in a single call. This is an approximate number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,12 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ConsistencyLevel = this.ConsistencyLevel;
             context.DirectoryArn = this.DirectoryArn;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.TargetReference_Selector = this.TargetReference_Selector;
+            context.ObjectReference_Selector = this.ObjectReference_Selector;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,12 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudDirectory.Model.ListAttachedIndicesRequest();
+            var request = new Amazon.CloudDirectory.Model.ListObjectParentPathsRequest();
             
-            if (cmdletContext.ConsistencyLevel != null)
-            {
-                request.ConsistencyLevel = cmdletContext.ConsistencyLevel;
-            }
             if (cmdletContext.DirectoryArn != null)
             {
                 request.DirectoryArn = cmdletContext.DirectoryArn;
@@ -146,23 +142,23 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 request.NextToken = cmdletContext.NextToken;
             }
             
-             // populate TargetReference
-            bool requestTargetReferenceIsNull = true;
-            request.TargetReference = new Amazon.CloudDirectory.Model.ObjectReference();
-            System.String requestTargetReference_targetReference_Selector = null;
-            if (cmdletContext.TargetReference_Selector != null)
+             // populate ObjectReference
+            bool requestObjectReferenceIsNull = true;
+            request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
+            System.String requestObjectReference_objectReference_Selector = null;
+            if (cmdletContext.ObjectReference_Selector != null)
             {
-                requestTargetReference_targetReference_Selector = cmdletContext.TargetReference_Selector;
+                requestObjectReference_objectReference_Selector = cmdletContext.ObjectReference_Selector;
             }
-            if (requestTargetReference_targetReference_Selector != null)
+            if (requestObjectReference_objectReference_Selector != null)
             {
-                request.TargetReference.Selector = requestTargetReference_targetReference_Selector;
-                requestTargetReferenceIsNull = false;
+                request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
+                requestObjectReferenceIsNull = false;
             }
-             // determine if request.TargetReference should be set to null
-            if (requestTargetReferenceIsNull)
+             // determine if request.ObjectReference should be set to null
+            if (requestObjectReferenceIsNull)
             {
-                request.TargetReference = null;
+                request.ObjectReference = null;
             }
             
             CmdletOutput output;
@@ -173,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.IndexAttachments;
+                object pipelineOutput = response.PathToObjectIdentifiersList;
                 notes = new Dictionary<string, object>();
                 notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
@@ -200,13 +196,13 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.ListAttachedIndicesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListAttachedIndicesRequest request)
+        private static Amazon.CloudDirectory.Model.ListObjectParentPathsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListObjectParentPathsRequest request)
         {
             #if DESKTOP
-            return client.ListAttachedIndices(request);
+            return client.ListObjectParentPaths(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListAttachedIndicesAsync(request);
+            var task = client.ListObjectParentPathsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -217,11 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public System.String TargetReference_Selector { get; set; }
+            public System.String ObjectReference_Selector { get; set; }
         }
         
     }

@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by ObjectIdentifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token used for pagination.</para>
+        /// <para>The pagination token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
