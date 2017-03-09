@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     ///  
     /// <para>
     /// This operation can be called only from the organization's master account.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><note><para>
+    /// In the current release, a child can have only a single parent. 
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ORGParent")]
     [OutputType("Amazon.Organizations.Model.Parent")]

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// you detach the default policy, you must replace it with a policy that specifies the
     /// permissions that you want to allow in that OU or account.
     /// </para><para>
-    /// For more information about how Organizations policies permissions work, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">Using
+    /// For more information about how Organizations policies permissions work, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">Using
     /// Service Control Policies</a> in the <i>AWS Organizations User Guide</i>.
     /// </para></li></ul><para>
     /// This operation can be called only from the organization's master account.

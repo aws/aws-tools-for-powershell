@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the new organization's master account. The principal must also have the relevant IAM
     /// permissions.
     /// </para><para>
-    /// By default, a new organization is created in full-control mode and service control
-    /// policies are automatically enabled in the root. If you instead choose to create the
-    /// organization in billing mode by setting the <code>Mode</code> parameter to <code>BILLING"</code>,
-    /// then no policy types are enabled by default.
+    /// By default (or if you set the <code>FeatureSet</code> parameter to <code>ALL</code>),
+    /// the new organization is created with all features enabled and service control policies
+    /// automatically enabled in the root. If you instead choose to create the organization
+    /// supporting only the consolidated billing features by setting the <code>FeatureSet</code>
+    /// parameter to <code>CONSOLIDATED_BILLING"</code>, then no policy types are enabled
+    /// by default and you cannot use organization policies.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ORGOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,23 +56,21 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class NewORGOrganizationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
-        #region Parameter Mode
+        #region Parameter FeatureSet
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode that the new organization is in. Each mode supports different levels
-        /// of functionality.</para><ul><li><para><i>BILLING</i>: All member accounts have their bills consolidated to and paid by
-        /// the master account. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#billing-mode">Billing
-        /// mode</a> in the <i>AWS Organizations User Guide</i>.</para><note><para>If you use the AWS Organizations console, you can create an organization only in full-control
-        /// mode. To create an organization in billing mode, you must call this API through a
-        /// tool such as the AWS CLI or an AWS SDK.</para></note></li><li><para><i>FULL_CONTROL</i>: In addition to all the features of billing mode, the master
-        /// account can apply any type of policy to any member account in the organization. For
-        /// more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#full-control-mode">Full-control
-        /// mode</a> in the <i>AWS Organizations User Guide</i>.</para></li></ul>
+        /// <para>Specifies the feature set supported by the new organization. Each feature set supports
+        /// different levels of functionality.</para><ul><li><para><i>CONSOLIDATED_BILLING</i>: All member accounts have their bills consolidated to
+        /// and paid by the master account. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated
+        /// Billing</a> in the <i>AWS Organizations User Guide</i>.</para></li><li><para><i>ALL</i>: In addition to all the features supported by the consolidated billing
+        /// feature set, the master account can also apply any type of policy to any member account
+        /// in the organization. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
+        /// features</a> in the <i>AWS Organizations User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.Organizations.OrganizationMode")]
-        public Amazon.Organizations.OrganizationMode Mode { get; set; }
+        [AWSConstantClassSource("Amazon.Organizations.OrganizationFeatureSet")]
+        public Amazon.Organizations.OrganizationFeatureSet FeatureSet { get; set; }
         #endregion
         
         #region Parameter Force
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Mode", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FeatureSet", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ORGOrganization (CreateOrganization)"))
             {
                 return;
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Mode = this.Mode;
+            context.FeatureSet = this.FeatureSet;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // create request
             var request = new Amazon.Organizations.Model.CreateOrganizationRequest();
             
-            if (cmdletContext.Mode != null)
+            if (cmdletContext.FeatureSet != null)
             {
-                request.Mode = cmdletContext.Mode;
+                request.FeatureSet = cmdletContext.FeatureSet;
             }
             
             CmdletOutput output;
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.Organizations.OrganizationMode Mode { get; set; }
+            public Amazon.Organizations.OrganizationFeatureSet FeatureSet { get; set; }
         }
         
     }

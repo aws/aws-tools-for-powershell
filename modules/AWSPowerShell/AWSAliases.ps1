@@ -2966,7 +2966,7 @@ Set-Alias -Name ORG-DescribePolicy -Value Get-ORGPolicy
 Set-Alias -Name Detach-ORGPolicy -Value Dismount-ORGPolicy
 Set-Alias -Name ORG-DetachPolicy -Value Dismount-ORGPolicy
 Set-Alias -Name ORG-DisablePolicyType -Value Disable-ORGPolicyType
-Set-Alias -Name ORG-EnableFullControl -Value Enable-ORGFullControl
+Set-Alias -Name ORG-EnableAllFeatures -Value Enable-ORGAllFeatures
 Set-Alias -Name ORG-EnablePolicyType -Value Enable-ORGPolicyType
 Set-Alias -Name Create-ORGAccountInvitation -Value New-ORGAccountInvitation
 Set-Alias -Name ORG-InviteAccountToOrganization -Value New-ORGAccountInvitation

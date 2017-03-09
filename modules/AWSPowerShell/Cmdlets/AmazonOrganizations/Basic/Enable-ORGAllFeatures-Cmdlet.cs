@@ -28,41 +28,42 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Enables full-control mode in an organization. Full-control mode enables the use of
-    /// policies to restrict the services and actions that can be called in each account.
-    /// Until you enable full-control mode, you have access only to shared billing, and you
-    /// can't use any of the advanced account administration features that AWS Organizations
-    /// supports. For more information about full-control mode, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_full-control-mode.html">Enabling
-    /// Full-Control Mode in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
+    /// Enables all features in an organization. This enables the use of organization policies
+    /// that can restrict the services and actions that can be called in each account. Until
+    /// you enable all features, you have access only to consolidated billing, and you can't
+    /// use any of the advanced account administration features that AWS Organizations supports.
+    /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
+    /// All Features in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
     /// 
     ///  <important><para>
-    /// This operation is required only for organizations that were created explicitly in
-    /// billing mode, or that were migrated from a Consolidated Billing account family to
-    /// Organizations. Calling this operation sends a handshake to every account in the organization.
-    /// The migration can be finalized and the new features enabled only after all administrators
-    /// approve the switch by accepting the handshake.
+    /// This operation is required only for organizations that were created explicitly with
+    /// only the consolidated billing features enabled, or that were migrated from a Consolidated
+    /// Billing account family to Organizations. Calling this operation sends a handshake
+    /// to every invited account in the organization. The feature set change can be finalized
+    /// and the additional features enabled only after all administrators in the invited accounts
+    /// approve the change by accepting the handshake.
     /// </para></important><para>
-    /// After all member accounts accept the handshake, you finalize the migration by accepting
-    /// the handshake that contains <code>"Action": "ENABLE_FULL_CONTROL"</code>. This completes
-    /// the switch.
+    /// After all invited member accounts accept the handshake, you finalize the feature set
+    /// change by accepting the handshake that contains <code>"Action": "ENABLE_ALL_FEATURES"</code>.
+    /// This completes the change.
     /// </para><para>
-    /// After you enable full-control mode, the master account in the organization can apply
-    /// policies on all member accounts. These policies can restrict what users and even administrators
-    /// in those accounts can do. The master account can apply policies that prevent accounts
-    /// from leaving the organization. Ensure that your account administrators are aware of
-    /// this.
+    /// After you enable all features in your organization, the master account in the organization
+    /// can apply policies on all member accounts. These policies can restrict what users
+    /// and even administrators in those accounts can do. The master account can apply policies
+    /// that prevent accounts from leaving the organization. Ensure that your account administrators
+    /// are aware of this.
     /// </para><para>
     /// This operation can be called only from the organization's master account. 
     /// </para>
     /// </summary>
-    [Cmdlet("Enable", "ORGFullControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Enable", "ORGAllFeatures", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the EnableFullControl operation against AWS Organizations.", Operation = new[] {"EnableFullControl"})]
+    [AWSCmdlet("Invokes the EnableAllFeatures operation against AWS Organizations.", Operation = new[] {"EnableAllFeatures"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
         "This cmdlet returns a Handshake object.",
-        "The service call response (type Amazon.Organizations.Model.EnableFullControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Organizations.Model.EnableAllFeaturesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableORGFullControlCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class EnableORGAllFeaturesCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
         #region Parameter Force
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ORGFullControl (EnableFullControl)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ORGAllFeatures (EnableAllFeatures)"))
             {
                 return;
             }
@@ -108,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.EnableFullControlRequest();
+            var request = new Amazon.Organizations.Model.EnableAllFeaturesRequest();
             
             
             CmdletOutput output;
@@ -144,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.EnableFullControlResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnableFullControlRequest request)
+        private static Amazon.Organizations.Model.EnableAllFeaturesResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnableAllFeaturesRequest request)
         {
             #if DESKTOP
-            return client.EnableFullControl(request);
+            return client.EnableAllFeatures(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.EnableFullControlAsync(request);
+            var task = client.EnableAllFeaturesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"

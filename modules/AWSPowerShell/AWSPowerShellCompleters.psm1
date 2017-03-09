@@ -3447,7 +3447,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGOrganizationHandshakeList/Filter_ActionType")
         }
         {
-            $v = "APPROVE_FULL_CONTROL","ENABLE_FULL_CONTROL","INVITE"
+            $v = "APPROVE_ALL_FEATURES","ENABLE_ALL_FEATURES","INVITE"
             break
         }
         
@@ -3472,10 +3472,10 @@ $ORG_Completers = {
             break
         }
         
-        # Amazon.Organizations.OrganizationMode
-        "New-ORGOrganization/Mode"
+        # Amazon.Organizations.OrganizationFeatureSet
+        "New-ORGOrganization/FeatureSet"
         {
-            $v = "BILLING","FULL_CONTROL"
+            $v = "ALL","CONSOLIDATED_BILLING"
             break
         }
         
@@ -3501,10 +3501,10 @@ $ORG_Completers = {
 
 $ORG_map = @{
     "ChildType"=@("Get-ORGChild")
+    "FeatureSet"=@("New-ORGOrganization")
     "Filter"=@("Get-ORGPolicyForTarget","Get-ORGPolicyList")
     "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
     "IamUserAccessToBilling"=@("New-ORGAccount")
-    "Mode"=@("New-ORGOrganization")
     "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType")
     "Target_Type"=@("New-ORGAccountInvitation")
     "Type"=@("New-ORGPolicy")
