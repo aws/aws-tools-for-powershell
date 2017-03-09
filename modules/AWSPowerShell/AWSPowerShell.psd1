@@ -137,6 +137,7 @@ RequiredAssemblies = @(
   "AWSSDK.StorageGateway.dll",
   "AWSSDK.WAF.dll",
   "AWSSDK.WAFRegional.dll",
+  "AWSSDK.WorkDocs.dll",
   "AWSSDK.WorkSpaces.dll",
   "AWSSDK.XRay.dll"
 )

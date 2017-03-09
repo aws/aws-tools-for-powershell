@@ -99,6 +99,9 @@
     <Reference Include="AWSSDK.WAFRegional">
       <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.0.3\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WorkDocs">
+      <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.0\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>..\..\packages\AWSSDK.XRay.3.3.0.4\lib\net35\AWSSDK.XRay.dll</HintPath>
     </Reference>

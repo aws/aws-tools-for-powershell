@@ -4452,6 +4452,136 @@ $WAFR_map = @{
 _awsArgumentCompleterRegistration $WAFR_Completers $WAFR_map
 
 
+# Argument completions for service Amazon WorkDocs
+$WD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkDocs.DocumentVersionStatus
+        "Update-WDDocumentVersion/VersionStatus"
+        {
+            $v = "ACTIVE"
+            break
+        }
+        
+        # Amazon.WorkDocs.FolderContentType
+        "Get-WDFolderContent/Type"
+        {
+            $v = "ALL","DOCUMENT","FOLDER"
+            break
+        }
+        
+        # Amazon.WorkDocs.LocaleType
+        "Update-WDUser/Locale"
+        {
+            $v = "de","default","en","es","fr","ja","ko","pt_BR","ru","zh_CN","zh_TW"
+            break
+        }
+        
+        # Amazon.WorkDocs.OrderType
+        {
+            ($_ -eq "Get-WDFolderContent/Order") -Or
+            ($_ -eq "Get-WDUserList/Order")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+        
+        # Amazon.WorkDocs.PrincipalType
+        "Remove-WDResourcePermission/PrincipalType"
+        {
+            $v = "ANONYMOUS","GROUP","INVITE","ORGANIZATION","USER"
+            break
+        }
+        
+        # Amazon.WorkDocs.ResourceSortType
+        "Get-WDFolderContent/Sort"
+        {
+            $v = "DATE","NAME"
+            break
+        }
+        
+        # Amazon.WorkDocs.ResourceStateType
+        {
+            ($_ -eq "Update-WDDocument/ResourceState") -Or
+            ($_ -eq "Update-WDFolder/ResourceState")
+        }
+        {
+            $v = "ACTIVE","RECYCLED","RECYCLING","RESTORING"
+            break
+        }
+        
+        # Amazon.WorkDocs.StorageType
+        {
+            ($_ -eq "New-WDUser/StorageRule_StorageType") -Or
+            ($_ -eq "Update-WDUser/StorageRule_StorageType")
+        }
+        {
+            $v = "QUOTA","UNLIMITED"
+            break
+        }
+        
+        # Amazon.WorkDocs.SubscriptionProtocolType
+        "New-WDNotificationSubscription/Protocol"
+        {
+            $v = "HTTPS"
+            break
+        }
+        
+        # Amazon.WorkDocs.SubscriptionType
+        "New-WDNotificationSubscription/SubscriptionType"
+        {
+            $v = "ALL"
+            break
+        }
+        
+        # Amazon.WorkDocs.UserFilterType
+        "Get-WDUserList/Include"
+        {
+            $v = "ACTIVE_PENDING","ALL"
+            break
+        }
+        
+        # Amazon.WorkDocs.UserSortType
+        "Get-WDUserList/Sort"
+        {
+            $v = "FULL_NAME","STORAGE_LIMIT","STORAGE_USED","USER_NAME","USER_STATUS"
+            break
+        }
+        
+        # Amazon.WorkDocs.UserType
+        "Update-WDUser/Type"
+        {
+            $v = "ADMIN","USER"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WD_map = @{
+    "Include"=@("Get-WDUserList")
+    "Locale"=@("Update-WDUser")
+    "Order"=@("Get-WDFolderContent","Get-WDUserList")
+    "PrincipalType"=@("Remove-WDResourcePermission")
+    "Protocol"=@("New-WDNotificationSubscription")
+    "ResourceState"=@("Update-WDDocument","Update-WDFolder")
+    "Sort"=@("Get-WDFolderContent","Get-WDUserList")
+    "StorageRule_StorageType"=@("New-WDUser","Update-WDUser")
+    "SubscriptionType"=@("New-WDNotificationSubscription")
+    "Type"=@("Get-WDFolderContent","Update-WDUser")
+    "VersionStatus"=@("Update-WDDocumentVersion")
+}
+
+_awsArgumentCompleterRegistration $WD_Completers $WD_map
+
+
 # Argument completions for service Amazon WorkSpaces
 $WKS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

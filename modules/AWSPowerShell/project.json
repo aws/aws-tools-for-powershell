@@ -90,6 +90,7 @@
 		"AWSSDK.StorageGateway": "3.3.2",
 		"AWSSDK.WAF": "3.3.1.9",
 		"AWSSDK.WAFRegional": "3.3.0.3",
+		"AWSSDK.WorkDocs": "3.3.0",
 		"AWSSDK.WorkSpaces": "3.3.0.7",
 		"AWSSDK.XRay": "3.3.0.4"
  	},

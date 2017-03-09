@@ -178,6 +178,7 @@
     <None Include="FormatConfig\CustomFormats\Amazon.SimpleSystemsManagement.Model.AssociationDescription.ps1xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CmdletConfig\WD.xml" />
     <Content Include="HelpMaterials\WebHelp\StaticContent\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

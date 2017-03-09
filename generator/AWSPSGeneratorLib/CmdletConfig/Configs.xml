@@ -89,6 +89,7 @@
     <Path>STS.xml</Path>
     <Path>WAF.xml</Path>
     <Path>WAFRegional.xml</Path>
+    <Path>WD.xml</Path>
     <Path>WKS.xml</Path>
     <Path>XRay.xml</Path>
   </Configs>

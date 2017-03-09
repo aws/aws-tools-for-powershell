@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>WD</ServiceNounPrefix>
+  <ServiceName>Amazon WorkDocs</ServiceName>
+  <ServiceNamespace>Amazon.WorkDocs</ServiceNamespace>
+  <ServiceClientInterface>IAmazonWorkDocs</ServiceClientInterface>
+  <ServiceClient>AmazonWorkDocsClient</ServiceClient>
+
+  <AutoIterate EmitLimit="Limit" Start="Marker" Next="Marker" Exclusions="DescribeFolderContents" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AbortDocumentVersionUpload" Verb="Stop" Output="Void" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" />
+    <ServiceOperation MethodName="InitiateDocumentVersionUpload" Verb="Start" Output="Response" ShouldProcessTarget="Id" PipelineParameter="Id" />
+    <ServiceOperation MethodName="DeleteDocument" Output="Void"/>
+    <ServiceOperation MethodName="DescribeDocumentVersions" Noun="DocumentVersionList" PipelineParameter="DocumentId"/>
+    <ServiceOperation MethodName="GetDocument" />
+    <ServiceOperation MethodName="GetDocumentPath" PipelineParameter="DocumentId"/>
+    <ServiceOperation MethodName="GetDocumentVersion" PipelineParameter="DocumentId"/>
+    <ServiceOperation MethodName="UpdateDocument" Output="Void" PipelineParameter="DocumentId"/>
+    <ServiceOperation MethodName="UpdateDocumentVersion" Output="Void" PipelineParameter="DocumentId"/>
+
+    <ServiceOperation MethodName="ActivateUser" Verb="Enable"/>
+    <ServiceOperation MethodName="CreateUser" ShouldProcessTarget="GivenName" PipelineParameter="OrganizationId" />
+    <ServiceOperation MethodName="DeactivateUser" Verb="Disable" Output="Void"/>
+    <ServiceOperation MethodName="DeleteUser" Output="Void"/>
+    <ServiceOperation MethodName="DescribeUsers" Noun="UserList" PipelineParameter="OrganizationId" MetadataProperties="TotalNumberOfUsers"/>
+    <ServiceOperation MethodName="UpdateUser" ShouldProcessTarget="UserId" PipelineParameter="UserId" />
+
+    <ServiceOperation MethodName="CreateFolder" ShouldProcessTarget="Name" PipelineParameter="ParentFolderId"/>
+    <ServiceOperation MethodName="DeleteFolder" Output="Void"/>
+    <ServiceOperation MethodName="DeleteFolderContents" Noun="FolderContent" Output="Void"/>
+    <ServiceOperation MethodName="DescribeFolderContents" Noun="FolderContent" PipelineParameter="FolderId" Output="Response"/>
+    <ServiceOperation MethodName="GetFolder"/>
+    <ServiceOperation MethodName="GetFolderPath" PipelineParameter="FolderId"/>
+    <ServiceOperation MethodName="UpdateFolder" Output="Void" PipelineParameter="FolderId" ShouldProcessTarget="FolderId"/>
+
+    <ServiceOperation MethodName="CreateNotificationSubscription" PipelineParameter="OrganizationId" />
+    <ServiceOperation MethodName="DeleteNotificationSubscription" Output="Void" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId"/>
+    <ServiceOperation MethodName="DescribeNotificationSubscriptions" Noun="NotificationSubscriptionList" />
+
+    <ServiceOperation MethodName="AddResourcePermissions" Noun="ResourcePermission" PipelineParameter="ResourceId"/>
+    <ServiceOperation MethodName="DescribeResourcePermissions" Noun="ResourcePermissionList" PipelineParameter="ResourceId"/>
+    <ServiceOperation MethodName="RemoveAllResourcePermissions" Output="Void" Exclude="true" />
+    <ServiceOperation MethodName="RemoveResourcePermission" Output="Void" PipelineParameter="ResourceId"/>
+  </ServiceOperations>
+  
+</ConfigModel>
