@@ -64,7 +64,7 @@
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.0.2\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.0.2\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.1\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CostAndUsageReport">
       <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.1\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
@@ -319,7 +319,7 @@
       <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.1.4\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
-      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.4.1\lib\net35\AWSSDK.APIGateway.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.5\lib\net35\AWSSDK.APIGateway.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -2429,10 +2429,27 @@ $EMR_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticMapReduce.InstanceFleetType
+        {
+            ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_InstanceFleetType") -Or
+            ($_ -eq "Get-EMRInstances/InstanceFleetType")
+        }
+        {
+            $v = "CORE","MASTER","TASK"
+            break
+        }
+        
         # Amazon.ElasticMapReduce.ScaleDownBehavior
         "Start-EMRJobFlow/ScaleDownBehavior"
         {
             $v = "TERMINATE_AT_INSTANCE_HOUR","TERMINATE_AT_TASK_COMPLETION"
+            break
+        }
+        
+        # Amazon.ElasticMapReduce.SpotProvisioningTimeoutAction
+        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"
+        {
+            $v = "SWITCH_TO_ON_DEMAND","TERMINATE_CLUSTER"
             break
         }
         
@@ -2444,6 +2461,9 @@ $EMR_Completers = {
 }
 
 $EMR_map = @{
+    "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
+    "InstanceFleetType"=@("Get-EMRInstances")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
 }
 

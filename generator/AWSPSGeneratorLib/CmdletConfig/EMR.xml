@@ -26,8 +26,9 @@
   <PipelineParameter>JobFlowId</PipelineParameter>
 
   <ServiceOperations>
+    <ServiceOperation MethodName="AddInstanceFleet" Output="Response" PipelineParameter="ClusterId" />
     <ServiceOperation MethodName="AddInstanceGroups" Output="Response" PositionalParameters="InstanceGroups"/>
-    <ServiceOperation MethodName="AddJobFlowSteps" PositionalParameters="Steps"/>
+    <ServiceOperation MethodName="AddJobFlowSteps" PositionalParameters="Steps"/>    
     <ServiceOperation MethodName="CancelSteps" PipelineParameter="ClusterId"/>
     <ServiceOperation MethodName="CreateSecurityConfiguration" PipelineParameter="SecurityConfiguration" Output="Response" />
     <ServiceOperation MethodName="DeleteSecurityConfiguration" Output="Void" />
@@ -37,14 +38,23 @@
     <ServiceOperation MethodName="DescribeStep" PipelineParameter="StepId" PositionalParameters="ClusterId"/>
     <ServiceOperation MethodName="ListBootstrapActions" />
     <ServiceOperation MethodName="ListClusters" Noun="Clusters" />
+    <ServiceOperation MethodName="ListInstanceFleets" Noun="InstanceFleets" />
     <ServiceOperation MethodName="ListInstanceGroups" Noun="InstanceGroups" />
     <ServiceOperation MethodName="ListInstances" Noun="Instances" PipelineParameter="InstanceGroupId" PositionalParameters="ClusterId;InstanceGroupTypes" />
     <ServiceOperation MethodName="ListSecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" />
     <ServiceOperation MethodName="ListSteps" Noun="Steps" PipelineParameter="ClusterId"/>
+    <ServiceOperation MethodName="ModifyInstanceFleet" Output="Void" PipelineParameter="ClusterId" />
     <ServiceOperation MethodName="ModifyInstanceGroups" Output="Void" />
     <ServiceOperation MethodName="PutAutoScalingPolicy" PipelineParameter="ClusterId" Output="Response"/>
     <ServiceOperation MethodName="RemoveAutoScalingPolicy" PipelineParameter="ClusterId" Output="Void"/>
-    <ServiceOperation MethodName="RunJobFlow" PipelineParameter="Name" PositionalParameters="Name;LogUri"/>
+    <ServiceOperation MethodName="RunJobFlow" PipelineParameter="Name" PositionalParameters="Name;LogUri">
+      <Params>
+        <Param Name="Instances_Placement_AvailabilityZone" AutoRename="false" />
+        <Param Name="Instances_Placement_AvailabilityZones" AutoRename="false" />
+        <Param Name="Instances_Ec2SubnetId" AutoRename="false" />
+        <Param Name="Instances_Ec2SubnetIds" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="SetTerminationProtection" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="TerminationProtected"/>
     <ServiceOperation MethodName="SetVisibleToAllUsers" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="VisibleToAllUsers"/>
     <ServiceOperation MethodName="TerminateJobFlows" Output="Void" />

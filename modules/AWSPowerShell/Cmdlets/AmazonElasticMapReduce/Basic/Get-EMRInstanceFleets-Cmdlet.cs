@@ -28,83 +28,32 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides information about the cluster instances that Amazon EMR provisions on behalf
-    /// of a user when it creates the cluster. For example, this operation indicates when
-    /// the EC2 instances reach the Ready state, when instances become available to Amazon
-    /// EMR to use for jobs, and the IP addresses for cluster instances, etc.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all available details about the instance fleets in a cluster.
+    /// 
+    ///  <note><para>
+    /// The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+    /// later, excluding 5.0.x versions.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EMRInstances")]
-    [OutputType("Amazon.ElasticMapReduce.Model.Instance")]
-    [AWSCmdlet("Invokes the ListInstances operation against Amazon Elastic MapReduce.", Operation = new[] {"ListInstances"})]
-    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Instance",
-        "This cmdlet returns a collection of Instance objects.",
-        "The service call response (type Amazon.ElasticMapReduce.Model.ListInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "EMRInstanceFleets")]
+    [OutputType("Amazon.ElasticMapReduce.Model.InstanceFleet")]
+    [AWSCmdlet("Invokes the ListInstanceFleets operation against Amazon Elastic MapReduce.", Operation = new[] {"ListInstanceFleets"})]
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.InstanceFleet",
+        "This cmdlet returns a collection of InstanceFleet objects.",
+        "The service call response (type Amazon.ElasticMapReduce.Model.ListInstanceFleetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public partial class GetEMRInstancesCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
+    public partial class GetEMRInstanceFleetsCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster for which to list the instances.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String ClusterId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceFleetId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the instance fleet.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String InstanceFleetId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceFleetType
-        /// <summary>
-        /// <para>
-        /// <para>The node type of the instance fleet. For example MASTER, CORE, or TASK.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ElasticMapReduce.InstanceFleetType")]
-        public Amazon.ElasticMapReduce.InstanceFleetType InstanceFleetType { get; set; }
-        #endregion
-        
-        #region Parameter InstanceGroupId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the instance group for which to list the instances.</para>
+        /// <para>The unique identifier of the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceGroupId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceGroupType
-        /// <summary>
-        /// <para>
-        /// <para>The type of instance group for which to list the instances.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        [Alias("InstanceGroupTypes")]
-        public System.String[] InstanceGroupType { get; set; }
-        #endregion
-        
-        #region Parameter InstanceState
-        /// <summary>
-        /// <para>
-        /// <para>A list of instance states that will filter the instances returned with this request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("InstanceStates")]
-        public System.String[] InstanceState { get; set; }
+        public System.String ClusterId { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -135,17 +84,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             PreExecutionContextLoad(context);
             
             context.ClusterId = this.ClusterId;
-            context.InstanceFleetId = this.InstanceFleetId;
-            context.InstanceFleetType = this.InstanceFleetType;
-            context.InstanceGroupId = this.InstanceGroupId;
-            if (this.InstanceGroupType != null)
-            {
-                context.InstanceGroupTypes = new List<System.String>(this.InstanceGroupType);
-            }
-            if (this.InstanceState != null)
-            {
-                context.InstanceStates = new List<System.String>(this.InstanceState);
-            }
             context.Marker = this.Marker;
             
             // allow further manipulation of loaded context prior to processing
@@ -162,31 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ElasticMapReduce.Model.ListInstancesRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ListInstanceFleetsRequest();
             
             if (cmdletContext.ClusterId != null)
             {
                 request.ClusterId = cmdletContext.ClusterId;
-            }
-            if (cmdletContext.InstanceFleetId != null)
-            {
-                request.InstanceFleetId = cmdletContext.InstanceFleetId;
-            }
-            if (cmdletContext.InstanceFleetType != null)
-            {
-                request.InstanceFleetType = cmdletContext.InstanceFleetType;
-            }
-            if (cmdletContext.InstanceGroupId != null)
-            {
-                request.InstanceGroupId = cmdletContext.InstanceGroupId;
-            }
-            if (cmdletContext.InstanceGroupTypes != null)
-            {
-                request.InstanceGroupTypes = cmdletContext.InstanceGroupTypes;
-            }
-            if (cmdletContext.InstanceStates != null)
-            {
-                request.InstanceStates = cmdletContext.InstanceStates;
             }
             
             // Initialize loop variant and commence piping
@@ -213,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Instances;
+                        object pipelineOutput = response.InstanceFleets;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -224,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Instances.Count;
+                            int _receivedThisCall = response.InstanceFleets.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
                         }
                         
@@ -259,13 +177,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.ListInstancesResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListInstancesRequest request)
+        private static Amazon.ElasticMapReduce.Model.ListInstanceFleetsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListInstanceFleetsRequest request)
         {
             #if DESKTOP
-            return client.ListInstances(request);
+            return client.ListInstanceFleets(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListInstancesAsync(request);
+            var task = client.ListInstanceFleetsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -277,11 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal class CmdletContext : ExecutorContext
         {
             public System.String ClusterId { get; set; }
-            public System.String InstanceFleetId { get; set; }
-            public Amazon.ElasticMapReduce.InstanceFleetType InstanceFleetType { get; set; }
-            public System.String InstanceGroupId { get; set; }
-            public List<System.String> InstanceGroupTypes { get; set; }
-            public List<System.String> InstanceStates { get; set; }
             public System.String Marker { get; set; }
         }
         

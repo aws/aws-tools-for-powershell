@@ -4,7 +4,7 @@
 	"authors": [""],
 	"sdkdependencies_start_marker": "",
 	"dependencies": {
-		"AWSSDK.APIGateway": "3.3.4.1",
+		"AWSSDK.APIGateway": "3.3.5",
 		"AWSSDK.ApplicationAutoScaling": "3.3.1.4",
 		"AWSSDK.ApplicationDiscoveryService": "3.3.1.1",
 		"AWSSDK.AppStream": "3.3.0.5",
@@ -16,7 +16,7 @@
 		"AWSSDK.Batch": "3.3.0.2",
 		"AWSSDK.Budgets": "3.3.1",
 		"AWSSDK.CertificateManager": "3.3.2",
-		"AWSSDK.CloudDirectory": "3.3.0.2",
+		"AWSSDK.CloudDirectory": "3.3.1",
 		"AWSSDK.CloudFormation": "3.3.3.6",
 		"AWSSDK.CloudFront": "3.3.2.3",
 		"AWSSDK.CloudHSM": "3.3.0.7",

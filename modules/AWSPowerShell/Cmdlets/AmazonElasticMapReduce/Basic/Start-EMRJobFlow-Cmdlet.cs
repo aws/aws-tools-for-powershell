@@ -28,30 +28,34 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// RunJobFlow creates and starts running a new job flow. The job flow will run the steps
-    /// specified. After the job flow completes, the cluster is stopped and the HDFS partition
+    /// RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the
+    /// steps specified. After the steps complete, the cluster stops and the HDFS partition
     /// is lost. To prevent loss of data, configure the last step of the job flow to store
     /// results in Amazon S3. If the <a>JobFlowInstancesConfig</a><code>KeepJobFlowAliveWhenNoSteps</code>
-    /// parameter is set to <code>TRUE</code>, the job flow will transition to the WAITING
-    /// state rather than shutting down after the steps have completed. 
+    /// parameter is set to <code>TRUE</code>, the cluster transitions to the WAITING state
+    /// rather than shutting down after the steps have completed. 
     /// 
     ///  
     /// <para>
     /// For additional protection, you can set the <a>JobFlowInstancesConfig</a><code>TerminationProtected</code>
-    /// parameter to <code>TRUE</code> to lock the job flow and prevent it from being terminated
+    /// parameter to <code>TRUE</code> to lock the cluster and prevent it from being terminated
     /// by API call, user intervention, or in the event of a job flow error.
     /// </para><para>
     /// A maximum of 256 steps are allowed in each job flow.
     /// </para><para>
-    /// If your job flow is long-running (such as a Hive data warehouse) or complex, you may
+    /// If your cluster is long-running (such as a Hive data warehouse) or complex, you may
     /// require more than 256 steps to process your data. You can bypass the 256-step limitation
     /// in various ways, including using the SSH shell to connect to the master node and submitting
     /// queries directly to the software running on the master node, such as Hive and Hadoop.
     /// For more information on how to do this, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html">Add
-    /// More than 256 Steps to a Job Flow</a> in the <i>Amazon EMR Management Guide</i>.
+    /// More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.
     /// </para><para>
-    /// For long running job flows, we recommend that you periodically store your results.
-    /// </para>
+    /// For long running clusters, we recommend that you periodically store your results.
+    /// </para><note><para>
+    /// The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and
+    /// later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
+    /// parameters or InstanceGroups parameters, but not both.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "EMRJobFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -139,22 +143,36 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String AutoScalingRole { get; set; }
         #endregion
         
-        #region Parameter Placement_AvailabilityZone
+        #region Parameter Instances_Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 Availability Zone for the job flow.</para>
+        /// <para>The Amazon EC2 Availability Zone for the cluster. <code>AvailabilityZone</code> is
+        /// used for uniform instance groups, while <code>AvailabilityZones</code> (plural) is
+        /// used for instance fleets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Instances_Placement_AvailabilityZone")]
-        public System.String Placement_AvailabilityZone { get; set; }
+        public System.String Instances_Placement_AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter Instances_Placement_AvailabilityZones
+        /// <summary>
+        /// <para>
+        /// <para>When multiple Availability Zones are specified, Amazon EMR evaluates them and launches
+        /// instances in the optimal Availability Zone. <code>AvailabilityZones</code> is used
+        /// for instance fleets, while <code>AvailabilityZone</code> (singular) is used for uniform
+        /// instance groups.</para><note><para>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+        /// later, excluding 5.0.x versions.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Instances_Placement_AvailabilityZones { get; set; }
         #endregion
         
         #region Parameter BootstrapAction
         /// <summary>
         /// <para>
-        /// <para>A list of bootstrap actions that will be run before Hadoop is started on the cluster
-        /// nodes.</para>
+        /// <para>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,16 +205,31 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_Ec2SubnetId
         /// <summary>
         /// <para>
-        /// <para>To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter
-        /// to the identifier of the Amazon VPC subnet where you want the job flow to launch.
-        /// If you do not specify this value, the job flow is launched in the normal Amazon Web
-        /// Services cloud, outside of an Amazon VPC.</para><para>Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge)
-        /// instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job
-        /// flow launched in a Amazon VPC.</para>
+        /// <para>Applies to clusters that use the uniform instance group configuration. To launch the
+        /// cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier
+        /// of the Amazon VPC subnet where you want the cluster to launch. If you do not specify
+        /// this value, the cluster launches in the normal Amazon Web Services cloud, outside
+        /// of an Amazon VPC, if the account launching the cluster supports EC2 Classic networks
+        /// in the region where the cluster launches.</para><para>Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge)
+        /// instances. Thus you cannot specify the cc1.4xlarge instance type for clusters launched
+        /// in an Amazon VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_Ec2SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Instances_Ec2SubnetIds
+        /// <summary>
+        /// <para>
+        /// <para>Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet
+        /// IDs are specified, Amazon EMR evaluates them and launches instances in the optimal
+        /// subnet.</para><note><para>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+        /// later, excluding 5.0.x versions.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Instances_Ec2SubnetIds { get; set; }
         #endregion
         
         #region Parameter Instances_EmrManagedMasterSecurityGroup
@@ -222,11 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_HadoopVersion
         /// <summary>
         /// <para>
-        /// <para>The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20"
-        /// (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not
-        /// set this value, the default of 0.18 is used, unless the AmiVersion parameter is set
-        /// in the RunJobFlow call, in which case the default version of Hadoop for that AMI version
-        /// is used.</para>
+        /// <para>The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated),
+        /// "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value,
+        /// the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow
+        /// call, in which case the default version of Hadoop for that AMI version is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -236,17 +268,30 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances used to execute the job flow.</para>
+        /// <para>The number of EC2 instances in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Instances_InstanceCount { get; set; }
         #endregion
         
+        #region Parameter Instances_InstanceFleet
+        /// <summary>
+        /// <para>
+        /// <note><para>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+        /// later, excluding 5.0.x versions.</para></note><para>Describes the EC2 instances and instance configurations for clusters that use the
+        /// instance fleet configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Instances_InstanceFleets")]
+        public Amazon.ElasticMapReduce.Model.InstanceFleetConfig[] Instances_InstanceFleet { get; set; }
+        #endregion
+        
         #region Parameter Instances_InstanceGroup
         /// <summary>
         /// <para>
-        /// <para>Configuration for the job flow's instance groups.</para>
+        /// <para>Configuration for the instance groups in a cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -270,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_KeepJobFlowAliveWhenNoStep
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the job flow should be kept alive after completing all steps.</para>
+        /// <para>Specifies whether the cluster should remain available after completing all steps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -315,8 +360,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
         /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
         /// accepts a user argument list. EMR accepts and forwards the argument list to the corresponding
-        /// installation script as bootstrap action arguments. For more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html">Launch
-        /// a Job Flow on the MapR Distribution for Hadoop</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
+        /// installation script as bootstrap action arguments. For more information, see "Launch
+        /// a Job Flow on the MapR Distribution for Hadoop" in the <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
+        /// EMR Developer Guide</a>. Supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
         /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analtics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
         /// </para>
         /// </summary>
@@ -402,7 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Step
         /// <summary>
         /// <para>
-        /// <para>A list of steps to be executed by the job flow.</para>
+        /// <para>A list of steps to run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -414,8 +460,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
-        /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow. For
-        /// more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
+        /// Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
+        /// see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
         /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
         /// </para>
         /// </summary>
@@ -438,8 +484,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_TerminationProtected
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to lock the job flow to prevent the Amazon EC2 instances from being
-        /// terminated by API call, user intervention, or in the event of a job flow error.</para>
+        /// <para>Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being
+        /// terminated by API call, user intervention, or in the event of a job-flow error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -449,11 +495,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para>Whether the job flow is visible to all IAM users of the AWS account associated with
-        /// the job flow. If this value is set to <code>true</code>, all IAM users of that AWS
-        /// account can view and (if they have the proper policy permissions set) manage the job
-        /// flow. If it is set to <code>false</code>, only the IAM user that created the job flow
-        /// can view and manage it.</para>
+        /// <para>Whether the cluster is visible to all IAM users of the AWS account associated with
+        /// the cluster. If this value is set to <code>true</code>, all IAM users of that AWS
+        /// account can view and (if they have the proper policy permissions set) manage the cluster.
+        /// If it is set to <code>false</code>, only the IAM user that created the cluster can
+        /// view and manage it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -515,11 +561,19 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             context.Instances_Ec2KeyName = this.Instances_Ec2KeyName;
             context.Instances_Ec2SubnetId = this.Instances_Ec2SubnetId;
+            if (this.Instances_Ec2SubnetIds != null)
+            {
+                context.Instances_Ec2SubnetIds = new List<System.String>(this.Instances_Ec2SubnetIds);
+            }
             context.Instances_EmrManagedMasterSecurityGroup = this.Instances_EmrManagedMasterSecurityGroup;
             context.Instances_EmrManagedSlaveSecurityGroup = this.Instances_EmrManagedSlaveSecurityGroup;
             context.Instances_HadoopVersion = this.Instances_HadoopVersion;
             if (ParameterWasBound("Instances_InstanceCount"))
                 context.Instances_InstanceCount = this.Instances_InstanceCount;
+            if (this.Instances_InstanceFleet != null)
+            {
+                context.Instances_InstanceFleets = new List<Amazon.ElasticMapReduce.Model.InstanceFleetConfig>(this.Instances_InstanceFleet);
+            }
             if (this.Instances_InstanceGroup != null)
             {
                 context.Instances_InstanceGroups = new List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig>(this.Instances_InstanceGroup);
@@ -527,7 +581,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (ParameterWasBound("Instances_KeepJobFlowAliveWhenNoStep"))
                 context.Instances_KeepJobFlowAliveWhenNoSteps = this.Instances_KeepJobFlowAliveWhenNoStep;
             context.Instances_MasterInstanceType = this.Instances_MasterInstanceType;
-            context.Instances_Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Instances_Placement_AvailabilityZone = this.Instances_Placement_AvailabilityZone;
+            if (this.Instances_Placement_AvailabilityZones != null)
+            {
+                context.Instances_Placement_AvailabilityZones = new List<System.String>(this.Instances_Placement_AvailabilityZones);
+            }
             context.Instances_ServiceAccessSecurityGroup = this.Instances_ServiceAccessSecurityGroup;
             context.Instances_SlaveInstanceType = this.Instances_SlaveInstanceType;
             if (ParameterWasBound("Instances_TerminationProtected"))
@@ -641,6 +699,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.Ec2SubnetId = requestInstances_instances_Ec2SubnetId;
                 requestInstancesIsNull = false;
             }
+            List<System.String> requestInstances_instances_Ec2SubnetIds = null;
+            if (cmdletContext.Instances_Ec2SubnetIds != null)
+            {
+                requestInstances_instances_Ec2SubnetIds = cmdletContext.Instances_Ec2SubnetIds;
+            }
+            if (requestInstances_instances_Ec2SubnetIds != null)
+            {
+                request.Instances.Ec2SubnetIds = requestInstances_instances_Ec2SubnetIds;
+                requestInstancesIsNull = false;
+            }
             System.String requestInstances_instances_EmrManagedMasterSecurityGroup = null;
             if (cmdletContext.Instances_EmrManagedMasterSecurityGroup != null)
             {
@@ -679,6 +747,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_InstanceCount != null)
             {
                 request.Instances.InstanceCount = requestInstances_instances_InstanceCount.Value;
+                requestInstancesIsNull = false;
+            }
+            List<Amazon.ElasticMapReduce.Model.InstanceFleetConfig> requestInstances_instances_InstanceFleet = null;
+            if (cmdletContext.Instances_InstanceFleets != null)
+            {
+                requestInstances_instances_InstanceFleet = cmdletContext.Instances_InstanceFleets;
+            }
+            if (requestInstances_instances_InstanceFleet != null)
+            {
+                request.Instances.InstanceFleets = requestInstances_instances_InstanceFleet;
                 requestInstancesIsNull = false;
             }
             List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig> requestInstances_instances_InstanceGroup = null;
@@ -746,14 +824,24 @@ namespace Amazon.PowerShell.Cmdlets.EMR
              // populate Placement
             bool requestInstances_instances_PlacementIsNull = true;
             requestInstances_instances_Placement = new Amazon.ElasticMapReduce.Model.PlacementType();
-            System.String requestInstances_instances_Placement_placement_AvailabilityZone = null;
+            System.String requestInstances_instances_Placement_instances_Placement_AvailabilityZone = null;
             if (cmdletContext.Instances_Placement_AvailabilityZone != null)
             {
-                requestInstances_instances_Placement_placement_AvailabilityZone = cmdletContext.Instances_Placement_AvailabilityZone;
+                requestInstances_instances_Placement_instances_Placement_AvailabilityZone = cmdletContext.Instances_Placement_AvailabilityZone;
             }
-            if (requestInstances_instances_Placement_placement_AvailabilityZone != null)
+            if (requestInstances_instances_Placement_instances_Placement_AvailabilityZone != null)
             {
-                requestInstances_instances_Placement.AvailabilityZone = requestInstances_instances_Placement_placement_AvailabilityZone;
+                requestInstances_instances_Placement.AvailabilityZone = requestInstances_instances_Placement_instances_Placement_AvailabilityZone;
+                requestInstances_instances_PlacementIsNull = false;
+            }
+            List<System.String> requestInstances_instances_Placement_instances_Placement_AvailabilityZones = null;
+            if (cmdletContext.Instances_Placement_AvailabilityZones != null)
+            {
+                requestInstances_instances_Placement_instances_Placement_AvailabilityZones = cmdletContext.Instances_Placement_AvailabilityZones;
+            }
+            if (requestInstances_instances_Placement_instances_Placement_AvailabilityZones != null)
+            {
+                requestInstances_instances_Placement.AvailabilityZones = requestInstances_instances_Placement_instances_Placement_AvailabilityZones;
                 requestInstances_instances_PlacementIsNull = false;
             }
              // determine if requestInstances_instances_Placement should be set to null
@@ -880,14 +968,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public List<System.String> Instances_AdditionalSlaveSecurityGroups { get; set; }
             public System.String Instances_Ec2KeyName { get; set; }
             public System.String Instances_Ec2SubnetId { get; set; }
+            public List<System.String> Instances_Ec2SubnetIds { get; set; }
             public System.String Instances_EmrManagedMasterSecurityGroup { get; set; }
             public System.String Instances_EmrManagedSlaveSecurityGroup { get; set; }
             public System.String Instances_HadoopVersion { get; set; }
             public System.Int32? Instances_InstanceCount { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.InstanceFleetConfig> Instances_InstanceFleets { get; set; }
             public List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig> Instances_InstanceGroups { get; set; }
             public System.Boolean? Instances_KeepJobFlowAliveWhenNoSteps { get; set; }
             public System.String Instances_MasterInstanceType { get; set; }
             public System.String Instances_Placement_AvailabilityZone { get; set; }
+            public List<System.String> Instances_Placement_AvailabilityZones { get; set; }
             public System.String Instances_ServiceAccessSecurityGroup { get; set; }
             public System.String Instances_SlaveInstanceType { get; set; }
             public System.Boolean? Instances_TerminationProtected { get; set; }

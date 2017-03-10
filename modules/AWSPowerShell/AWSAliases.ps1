@@ -1951,6 +1951,9 @@ Set-Alias -Name ELB2-RemoveTags -Value Remove-ELB2Tag
 Set-Alias -Name ELB2-SetIpAddressType -Value Set-ELB2IpAddressType
 Set-Alias -Name ELB2-SetRulePriorities -Value Set-ELB2RulePriority
 Set-Alias -Name ELB2-SetSecurityGroups -Value Set-ELB2SecurityGroup
+Set-Alias -Name Terminate-EMRJobFlows -Value Stop-EMRJobFlow
+Set-Alias -Name EMR-TerminateJobFlows -Value Stop-EMRJobFlow
+Set-Alias -Name EMR-AddInstanceFleet -Value Add-EMRInstanceFleet
 Set-Alias -Name Add-EMRInstanceGroups -Value Add-EMRInstanceGroup
 Set-Alias -Name EMR-AddInstanceGroups -Value Add-EMRInstanceGroup
 Set-Alias -Name Add-EMRJobFlowSteps -Value Add-EMRJobFlowStep
@@ -1975,6 +1978,8 @@ Set-Alias -Name List-EMRBootstrapActions -Value Get-EMRBootstrapActions
 Set-Alias -Name EMR-ListBootstrapActions -Value Get-EMRBootstrapActions
 Set-Alias -Name List-EMRClusters -Value Get-EMRClusters
 Set-Alias -Name EMR-ListClusters -Value Get-EMRClusters
+Set-Alias -Name List-EMRInstanceFleets -Value Get-EMRInstanceFleets
+Set-Alias -Name EMR-ListInstanceFleets -Value Get-EMRInstanceFleets
 Set-Alias -Name List-EMRInstanceGroups -Value Get-EMRInstanceGroup
 Set-Alias -Name EMR-ListInstanceGroups -Value Get-EMRInstanceGroup
 Set-Alias -Name List-EMRInstances -Value Get-EMRInstances
@@ -1982,6 +1987,8 @@ Set-Alias -Name EMR-ListInstances -Value Get-EMRInstances
 Set-Alias -Name EMR-ListSecurityConfigurations -Value Get-EMRSecurityConfigurationList
 Set-Alias -Name List-EMRSteps -Value Get-EMRSteps
 Set-Alias -Name EMR-ListSteps -Value Get-EMRSteps
+Set-Alias -Name Modify-EMRInstanceFleet -Value Edit-EMRInstanceFleet
+Set-Alias -Name EMR-ModifyInstanceFleet -Value Edit-EMRInstanceFleet
 Set-Alias -Name Modify-EMRInstanceGroups -Value Edit-EMRInstanceGroup
 Set-Alias -Name EMR-ModifyInstanceGroups -Value Edit-EMRInstanceGroup
 Set-Alias -Name Put-EMRAutoScalingPolicy -Value Write-EMRAutoScalingPolicy
@@ -1993,8 +2000,6 @@ Set-Alias -Name Run-EMRJobFlow -Value Start-EMRJobFlow
 Set-Alias -Name EMR-RunJobFlow -Value Start-EMRJobFlow
 Set-Alias -Name EMR-SetTerminationProtection -Value Set-EMRTerminationProtection
 Set-Alias -Name EMR-SetVisibleToAllUsers -Value Set-EMRVisibleToAllUsers
-Set-Alias -Name Terminate-EMRJobFlows -Value Stop-EMRJobFlow
-Set-Alias -Name EMR-TerminateJobFlows -Value Stop-EMRJobFlow
 Set-Alias -Name ES-AddTags -Value Add-ESTag
 Set-Alias -Name Create-ESDomain -Value New-ESDomain
 Set-Alias -Name ES-CreateElasticsearchDomain -Value New-ESDomain
