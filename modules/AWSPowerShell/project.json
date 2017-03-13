@@ -49,7 +49,7 @@
 		"AWSSDK.ElasticFileSystem": "3.3.0.9",
 		"AWSSDK.ElasticLoadBalancing": "3.3.0.7",
 		"AWSSDK.ElasticLoadBalancingV2": "3.3.1",
-		"AWSSDK.ElasticMapReduce": "3.3.2.4",
+		"AWSSDK.ElasticMapReduce": "3.3.3",
 		"AWSSDK.Elasticsearch": "3.3.1",
 		"AWSSDK.ElasticTranscoder": "3.3.1.4",
 		"AWSSDK.GameLift": "3.3.3",
