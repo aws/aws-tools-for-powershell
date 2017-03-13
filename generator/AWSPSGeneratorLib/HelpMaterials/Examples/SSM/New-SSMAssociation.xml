@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> New-SSMAssociation -InstanceId "i-0cb2b964d3e14fd9f" -Name "AWS-UpdateSSMAgent"
+
+Name                  : AWS-UpdateSSMAgent
+InstanceId            : i-0000293ffd8c57862
+Date                  : 2/23/2017 6:55:22 PM
+Status.Name           : Associated
+Status.Date           : 2/20/2015 8:31:11 AM
+Status.Message        : Associated with AWS-UpdateSSMAgent
+Status.AdditionalInfo :</code>
+        <description>This example associates a configuration document with an instance, using instance IDs.</description>
+    </example>
+	    <example>
+        <code>PS C:\> $option1 = @{Key="instanceids";Values=@("i-0cb2b964d3e14fd9f")}
+PS C:\> New-SSMAssociation -Name "AWS-UpdateSSMAgent" -Target $option1
+
+Name                  : AWS-UpdateSSMAgent
+InstanceId            :
+Date                  : 3/1/2017 6:22:21 PM
+Status.Name           :
+Status.Date           :
+Status.Message        :
+Status.AdditionalInfo :</code>
+        <description>This example associates a configuration document with an instance, using targets.</description>
+    </example>
+</examples>

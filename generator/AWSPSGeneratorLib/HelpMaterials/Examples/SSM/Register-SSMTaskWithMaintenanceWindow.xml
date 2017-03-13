@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> $parameters = @{}
+PS C:\> $parameterValues = New-Object Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression
+PS C:\> $parameterValues.Values = @("Install")
+PS C:\> $parameters.Add("Operation", $parameterValues)
+
+PS C:\> Register-SSMTaskWithMaintenanceWindow -WindowId "mw-03a342e62c96d31b0" -ServiceRoleArn "arn:aws:iam::123456789012:role/MaintenanceWindowsRole" -MaxConcurrency 1 -MaxError 1 -TaskArn "AWS-RunShellScript" -Target @{ Key="InstanceIds";Values="i-0000293ffd8c57862" } -TaskType "RUN_COMMAND" -Priority 10 -TaskParameter $parameters
+
+f34a2c47-ddfd-4c85-a88d-72366b69af1b</code>
+        <description>This example registers a task with a maintenance window using an instance ID. The output is the Task ID.</description>
+    </example>
+	    <example>
+        <code>PS C:\> $parameters = @{}
+PS C:\> $parameterValues = New-Object Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression
+PS C:\> $parameterValues.Values = @("Install")
+PS C:\> $parameters.Add("Operation", $parameterValues)
+
+PS C:\> register-ssmtaskwithmaintenancewindow -WindowId "mw-03a342e62c96d31b0" -ServiceRoleArn "arn:aws:iam::123456789012:role/MaintenanceWindowsRole" -MaxConcurrency 1 -MaxError 1 -TaskArn "AWS-RunShellScript" -Target @{ Key="WindowTargetIds";Values="350d44e6-28cc-44e2-951f-4b2c985838f6" } -TaskType "RUN_COMMAND" -Priority 10 -TaskParameter $parameters
+
+f34a2c47-ddfd-4c85-a88d-72366b69af1b</code>
+        <description>This example registers a task with a maintenance window using a target ID. The output is the Task ID.</description>
+    </example>
+</examples>

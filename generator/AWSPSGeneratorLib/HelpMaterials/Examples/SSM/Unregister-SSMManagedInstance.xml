@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Unregister-SSMManagedInstance -InstanceId "mi-08ab247cdf1046573"</code>
+        <description>This example deregisters a managed instance. There is no output if the command succeeds.</description>
+    </example>
+</examples>

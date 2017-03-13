@@ -35,11 +35,14 @@ Describe -Tag "Smoke" "ElastiCache" {
                 $groupName = $groups[0].CacheParameterGroupName
                 $groupFamily = $groups[0].CacheParameterGroupFamily
 
-                $group = Get-ECCacheParameterGroup -CacheParameterGroupName $groupName
-                $group | Should Not Be $null
+                # These tests commented out temporarily
+                # https://tt.amazon.com/0106707358
+
+                #$group = Get-ECCacheParameterGroup -CacheParameterGroupName $groupName
+                #$group | Should Not Be $null
                 
-                $group.CacheParameterGroupName | Should Be $groupName
-                $group.CacheParameterGroupFamily | Should Be $groupFamily
+                #$group.CacheParameterGroupName | Should Be $groupName
+                #$group.CacheParameterGroupFamily | Should Be $groupFamily
 
         		$parameters = Get-ECCacheParameter -CacheParameterGroupName $groupName
                 $parameters | Should Not Be $null

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMDocumentVersionList -Name "RunShellScript"
+
+CreatedDate          DocumentVersion IsDefaultVersion Name
+-----------          --------------- ---------------- ----
+2/24/2017 5:25:13 AM 1               True             RunShellScript</code>
+        <description>This example lists all the versions for a document.</description>
+    </example>
+</examples>

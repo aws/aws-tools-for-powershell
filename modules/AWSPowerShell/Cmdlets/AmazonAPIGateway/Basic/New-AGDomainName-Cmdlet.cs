@@ -39,10 +39,21 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class NewAGDomainNameCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The reference to an AWS-managed certificate. AWS Certificate Manager is the only supported
+        /// source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter CertificateBody
         /// <summary>
         /// <para>
-        /// <para>The body of the server certificate provided by your certificate authority.</para>
+        /// <para>[Deprecated] The body of the server certificate provided by your certificate authority.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificateChain
         /// <summary>
         /// <para>
-        /// <para>The intermediate certificates and optionally the root certificate, one after the other
-        /// without any blank lines. If you include the root certificate, your certificate chain
-        /// must start with intermediate certificates and end with the root certificate. Use the
-        /// intermediate certificates that were provided by your certificate authority. Do not
-        /// include any intermediaries that are not in the chain of trust path.</para>
+        /// <para>[Deprecated] The intermediate certificates and optionally the root certificate, one
+        /// after the other without any blank lines. If you include the root certificate, your
+        /// certificate chain must start with intermediate certificates and end with the root
+        /// certificate. Use the intermediate certificates that were provided by your certificate
+        /// authority. Do not include any intermediaries that are not in the chain of trust path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The name of the certificate.</para>
+        /// <para>The user-friendly name of the certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificatePrivateKey
         /// <summary>
         /// <para>
-        /// <para>Your certificate's private key.</para>
+        /// <para>[Deprecated] Your certificate's private key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the <a>DomainName</a> resource.</para>
+        /// <para>(Required) The name of the <a>DomainName</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CertificateArn = this.CertificateArn;
             context.CertificateBody = this.CertificateBody;
             context.CertificateChain = this.CertificateChain;
             context.CertificateName = this.CertificateName;
@@ -143,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.CreateDomainNameRequest();
             
+            if (cmdletContext.CertificateArn != null)
+            {
+                request.CertificateArn = cmdletContext.CertificateArn;
+            }
             if (cmdletContext.CertificateBody != null)
             {
                 request.CertificateBody = cmdletContext.CertificateBody;
@@ -214,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String CertificateArn { get; set; }
             public System.String CertificateBody { get; set; }
             public System.String CertificateChain { get; set; }
             public System.String CertificateName { get; set; }

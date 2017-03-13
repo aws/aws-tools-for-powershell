@@ -22,48 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.WorkDocs;
+using Amazon.WorkDocs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Enables full-control mode in an organization. Full-control mode enables the use of
-    /// policies to restrict the services and actions that can be called in each account.
-    /// Until you enable full-control mode, you have access only to shared billing, and you
-    /// can't use any of the advanced account administration features that AWS Organizations
-    /// supports. For more information about full-control mode, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_full-control-mode.html">Enabling
-    /// Full-Control Mode in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
-    /// 
-    ///  <important><para>
-    /// This operation is required only for organizations that were created explicitly in
-    /// billing mode, or that were migrated from a Consolidated Billing account family to
-    /// Organizations. Calling this operation sends a handshake to every account in the organization.
-    /// The migration can be finalized and the new features enabled only after all administrators
-    /// approve the switch by accepting the handshake.
-    /// </para></important><para>
-    /// After all member accounts accept the handshake, you finalize the migration by accepting
-    /// the handshake that contains <code>"Action": "ENABLE_FULL_CONTROL"</code>. This completes
-    /// the switch.
-    /// </para><para>
-    /// After you enable full-control mode, the master account in the organization can apply
-    /// policies on all member accounts. These policies can restrict what users and even administrators
-    /// in those accounts can do. The master account can apply policies that prevent accounts
-    /// from leaving the organization. Ensure that your account administrators are aware of
-    /// this.
-    /// </para><para>
-    /// This operation can be called only from the organization's master account. 
-    /// </para>
+    /// Permanently deletes the specified folder and its contents.
     /// </summary>
-    [Cmdlet("Enable", "ORGFullControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the EnableFullControl operation against AWS Organizations.", Operation = new[] {"EnableFullControl"})]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
-        "This cmdlet returns a Handshake object.",
-        "The service call response (type Amazon.Organizations.Model.EnableFullControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WDFolder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteFolder operation against Amazon WorkDocs.", Operation = new[] {"DeleteFolder"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FolderId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.WorkDocs.Model.DeleteFolderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableORGFullControlCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class RemoveWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FolderId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the folder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String FolderId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the FolderId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
         
         #region Parameter Force
         /// <summary>
@@ -79,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ORGFullControl (EnableFullControl)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FolderId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WDFolder (DeleteFolder)"))
             {
                 return;
             }
@@ -94,6 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.FolderId = this.FolderId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -108,8 +103,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.EnableFullControlRequest();
+            var request = new Amazon.WorkDocs.Model.DeleteFolderRequest();
             
+            if (cmdletContext.FolderId != null)
+            {
+                request.FolderId = cmdletContext.FolderId;
+            }
             
             CmdletOutput output;
             
@@ -119,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Handshake;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.FolderId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -144,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.EnableFullControlResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnableFullControlRequest request)
+        private static Amazon.WorkDocs.Model.DeleteFolderResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteFolderRequest request)
         {
             #if DESKTOP
-            return client.EnableFullControl(request);
+            return client.DeleteFolder(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.EnableFullControlAsync(request);
+            var task = client.DeleteFolderAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -161,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String FolderId { get; set; }
         }
         
     }

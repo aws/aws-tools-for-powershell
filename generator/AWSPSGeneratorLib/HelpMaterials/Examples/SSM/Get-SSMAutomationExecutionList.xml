@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMAutomationExecutionList
+
+AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
+AutomationExecutionStatus : Failed
+DocumentName              : AWS-UpdateLinuxAmi
+DocumentVersion           : 1
+ExecutedBy                : admin
+ExecutionEndTime          : 2/22/2017 9:17:08 PM
+ExecutionStartTime        : 2/22/2017 9:17:02 PM
+LogFile                   :
+Outputs                   : {[createImage.ImageId, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}</code>
+        <description>This example describes all active and terminated Automation Executions associated with your account.</description>
+    </example>
+</examples>

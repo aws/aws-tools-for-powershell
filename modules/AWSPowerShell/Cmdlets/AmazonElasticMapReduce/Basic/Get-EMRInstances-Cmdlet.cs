@@ -54,6 +54,27 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String ClusterId { get; set; }
         #endregion
         
+        #region Parameter InstanceFleetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the instance fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String InstanceFleetId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceFleetType
+        /// <summary>
+        /// <para>
+        /// <para>The node type of the instance fleet. For example MASTER, CORE, or TASK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.InstanceFleetType")]
+        public Amazon.ElasticMapReduce.InstanceFleetType InstanceFleetType { get; set; }
+        #endregion
+        
         #region Parameter InstanceGroupId
         /// <summary>
         /// <para>
@@ -114,6 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             PreExecutionContextLoad(context);
             
             context.ClusterId = this.ClusterId;
+            context.InstanceFleetId = this.InstanceFleetId;
+            context.InstanceFleetType = this.InstanceFleetType;
             context.InstanceGroupId = this.InstanceGroupId;
             if (this.InstanceGroupType != null)
             {
@@ -144,6 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.ClusterId != null)
             {
                 request.ClusterId = cmdletContext.ClusterId;
+            }
+            if (cmdletContext.InstanceFleetId != null)
+            {
+                request.InstanceFleetId = cmdletContext.InstanceFleetId;
+            }
+            if (cmdletContext.InstanceFleetType != null)
+            {
+                request.InstanceFleetType = cmdletContext.InstanceFleetType;
             }
             if (cmdletContext.InstanceGroupId != null)
             {
@@ -246,6 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal class CmdletContext : ExecutorContext
         {
             public System.String ClusterId { get; set; }
+            public System.String InstanceFleetId { get; set; }
+            public Amazon.ElasticMapReduce.InstanceFleetType InstanceFleetType { get; set; }
             public System.String InstanceGroupId { get; set; }
             public List<System.String> InstanceGroupTypes { get; set; }
             public List<System.String> InstanceStates { get; set; }

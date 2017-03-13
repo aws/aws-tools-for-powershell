@@ -1,3 +1,21 @@
+### 3.3.62.0 (2017-03-13)
+  * Fixed issue with Set-AWSSamlRoleProfile incorrectly formatting user identities specified in email format. The identity was being stored in the role profile with as \email@domain.com (domain\userid format) but with empty domain. The leading \ then had to be removed by the user each time a password demand was issued.
+  * Amazon Relation Database Service
+    - Updated the Copy-RDSDBClusterSnapshot and New-RDSDBCluster cmdlets to add support for using encrypted clusters as cross-region replication masters and encrypted cross region copy of Aurora cluster snapshots.
+  * Amazon Simple Systems Management
+    - Added help examples for all SSM cmdlets.
+  * Amazon WorkDocs
+    - Added support for the Amazon WorkDocs service. The Amazon WorkDocs SDK provides full administrator level access to WorkDocs site resources, allowing developers to integrate their applications to manage WorkDocs users, content and permissions programmatically. Cmd;lets for this service have the noun prefix 'WD' and can be listed using the command 'Get-AWSCmdletName -Service WD'.
+  * AWS Organizations
+    - *Breaking Change* 
+    Updated cmdlets to fix an issue with the wrong service model version being used. This may be a breaking change for some users. The Enable-ORGFullControl cmdlet has been removed, and the Enable-ORGAllFeatures cmdlet added in the corrected.
+  * Amazon Cloud Directory
+    - Added a new cmdlet, Get-CDIRObjectParentPath, to enable retrieval of all available parent paths for any type of object (a node, leaf node, policy node, and index node) in a hierarchy.
+  * Amazon API Gateway
+    - Updated the New-AGDomainName cmdlet to add support for ACM certificates on custom domain names. Both Amazon-issued certificates and uploaded third-part certificates are supported.  
+  * Amazon Elastic MapReduce
+    - Added support for instance fleets with new cmdlets Add-EMRInstanceFleet (AddInstanceFleet API), Edit-EMRInstanceFleet (ModifyInstanceFleet API) and Get-EMRInstanceFleets (ListInstanceFleets API).
+
 ### 3.3.58.0 (2017-03-06)
   * Amazon EC2
     - Added two new keys, WINDOWS_2016_CORE and WINDOWS_2012R2_CORE, to the Get-EC2ImageByName cmdlet, to support retrieving the latest Windows Server 2016 Core and Windows Server 2012R2 Core AMIs.

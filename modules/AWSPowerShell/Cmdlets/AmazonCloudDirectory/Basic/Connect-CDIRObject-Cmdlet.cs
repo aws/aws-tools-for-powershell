@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     ///  <ol><li><para>
     /// Using the path
     /// </para></li><li><para>
-    /// Using ObjectIdentifier
-    /// </para></li></ol>
+    /// Using <code>ObjectIdentifier</code></para></li></ol>
     /// </summary>
     [Cmdlet("Connect", "CDIRObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -71,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by ObjectIdentifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by ObjectIdentifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

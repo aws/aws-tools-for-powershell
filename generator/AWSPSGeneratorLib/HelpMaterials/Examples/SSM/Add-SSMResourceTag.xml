@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> $option1 = @{Key="Stack";Value=@("Production")}
+PS C:\> Add-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow" -Tag $option1</code>
+        <description>This example updates a maintenance window with new tags. There is no output if the command succeeds. The syntax used by this example requires PowerShell version 3 or later.</description>
+    </example>
+	    <example>
+        <code>PS C:\> $tag1 = New-Object Amazon.SimpleSystemsManagement.Model.Tag
+PS C:\> $tag1.Key = "Stack"
+PS C:\> $tag1.Value = "Production"
+		
+PS C:\> Add-SSMResourceTag -ResourceId "mw-03eb9db42890fb82d" -ResourceType "MaintenanceWindow" -Tag $tag1</code>
+        <description>With PowerShell version 2, you must use New-Object to create each tag. There is no output if the command succeeds.</description>
+    </example>
+</examples>

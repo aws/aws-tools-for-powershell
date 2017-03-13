@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <para>
     /// This operation can be called only from a member account in the organization.
     /// </para><important><para>
-    /// The master account in an organization in full-control mode can set service control
+    /// The master account in an organization with all features enabled can set service control
     /// policies (SCPs) that can restrict what administrators of member accounts can do, including
     /// preventing them from successfully calling <code>LeaveOrganization</code> and leaving
     /// the organization. 

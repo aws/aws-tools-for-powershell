@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
     /// Sets whether all AWS Identity and Access Management (IAM) users under your account
-    /// can access the specified job flows. This action works on running job flows. You can
-    /// also set the visibility of a job flow when you launch it using the <code>VisibleToAllUsers</code>
+    /// can access the specified clusters (job flows). This action works on running clusters.
+    /// You can also set the visibility of a cluster when you launch it using the <code>VisibleToAllUsers</code>
     /// parameter of <a>RunJobFlow</a>. The SetVisibleToAllUsers action can be called only
-    /// by an IAM user who created the job flow or the AWS account that owns the job flow.
+    /// by an IAM user who created the cluster or the AWS account that owns the cluster.
     /// </summary>
     [Cmdlet("Set", "EMRVisibleToAllUsers", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para>Whether the specified job flows are visible to all IAM users of the AWS account associated
-        /// with the job flow. If this value is set to True, all IAM users of that AWS account
-        /// can view and, if they have the proper IAM policy permissions set, manage the job flows.
-        /// If it is set to False, only the IAM user that created a job flow can view and manage
+        /// <para>Whether the specified clusters are visible to all IAM users of the AWS account associated
+        /// with the cluster. If this value is set to True, all IAM users of that AWS account
+        /// can view and, if they have the proper IAM policy permissions set, manage the clusters.
+        /// If it is set to False, only the IAM user that created a cluster can view and manage
         /// it.</para>
         /// </para>
         /// </summary>

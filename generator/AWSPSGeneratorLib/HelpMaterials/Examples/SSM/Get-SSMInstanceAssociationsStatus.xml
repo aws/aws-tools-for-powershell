@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMInstanceAssociationsStatus -InstanceId "i-0000293ffd8c57862"
+
+AssociationId    : d8617c07-2079-4c18-9847-1655fc2698b0
+DetailedStatus   : Pending
+DocumentVersion  : 1
+ErrorCode        :
+ExecutionDate    : 2/20/2015 8:31:11 AM
+ExecutionSummary : temp_status_change
+InstanceId       : i-0000293ffd8c57862
+Name             : AWS-UpdateSSMAgent
+OutputUrl        :
+Status           : Pending</code>
+        <description>This example shows details of the associations for an instance.</description>
+    </example>
+</examples>

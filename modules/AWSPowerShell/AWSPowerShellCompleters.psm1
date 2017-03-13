@@ -2429,10 +2429,27 @@ $EMR_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticMapReduce.InstanceFleetType
+        {
+            ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_InstanceFleetType") -Or
+            ($_ -eq "Get-EMRInstances/InstanceFleetType")
+        }
+        {
+            $v = "CORE","MASTER","TASK"
+            break
+        }
+        
         # Amazon.ElasticMapReduce.ScaleDownBehavior
         "Start-EMRJobFlow/ScaleDownBehavior"
         {
             $v = "TERMINATE_AT_INSTANCE_HOUR","TERMINATE_AT_TASK_COMPLETION"
+            break
+        }
+        
+        # Amazon.ElasticMapReduce.SpotProvisioningTimeoutAction
+        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"
+        {
+            $v = "SWITCH_TO_ON_DEMAND","TERMINATE_CLUSTER"
             break
         }
         
@@ -2444,6 +2461,9 @@ $EMR_Completers = {
 }
 
 $EMR_map = @{
+    "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
+    "InstanceFleetType"=@("Get-EMRInstances")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
 }
 
@@ -3447,7 +3467,7 @@ $ORG_Completers = {
             ($_ -eq "Get-ORGOrganizationHandshakeList/Filter_ActionType")
         }
         {
-            $v = "APPROVE_FULL_CONTROL","ENABLE_FULL_CONTROL","INVITE"
+            $v = "APPROVE_ALL_FEATURES","ENABLE_ALL_FEATURES","INVITE"
             break
         }
         
@@ -3472,10 +3492,10 @@ $ORG_Completers = {
             break
         }
         
-        # Amazon.Organizations.OrganizationMode
-        "New-ORGOrganization/Mode"
+        # Amazon.Organizations.OrganizationFeatureSet
+        "New-ORGOrganization/FeatureSet"
         {
-            $v = "BILLING","FULL_CONTROL"
+            $v = "ALL","CONSOLIDATED_BILLING"
             break
         }
         
@@ -3501,10 +3521,10 @@ $ORG_Completers = {
 
 $ORG_map = @{
     "ChildType"=@("Get-ORGChild")
+    "FeatureSet"=@("New-ORGOrganization")
     "Filter"=@("Get-ORGPolicyForTarget","Get-ORGPolicyList")
     "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
     "IamUserAccessToBilling"=@("New-ORGAccount")
-    "Mode"=@("New-ORGOrganization")
     "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType")
     "Target_Type"=@("New-ORGAccountInvitation")
     "Type"=@("New-ORGPolicy")
@@ -4450,6 +4470,136 @@ $WAFR_map = @{
 }
 
 _awsArgumentCompleterRegistration $WAFR_Completers $WAFR_map
+
+
+# Argument completions for service Amazon WorkDocs
+$WD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkDocs.DocumentVersionStatus
+        "Update-WDDocumentVersion/VersionStatus"
+        {
+            $v = "ACTIVE"
+            break
+        }
+        
+        # Amazon.WorkDocs.FolderContentType
+        "Get-WDFolderContent/Type"
+        {
+            $v = "ALL","DOCUMENT","FOLDER"
+            break
+        }
+        
+        # Amazon.WorkDocs.LocaleType
+        "Update-WDUser/Locale"
+        {
+            $v = "de","default","en","es","fr","ja","ko","pt_BR","ru","zh_CN","zh_TW"
+            break
+        }
+        
+        # Amazon.WorkDocs.OrderType
+        {
+            ($_ -eq "Get-WDFolderContent/Order") -Or
+            ($_ -eq "Get-WDUserList/Order")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+        
+        # Amazon.WorkDocs.PrincipalType
+        "Remove-WDResourcePermission/PrincipalType"
+        {
+            $v = "ANONYMOUS","GROUP","INVITE","ORGANIZATION","USER"
+            break
+        }
+        
+        # Amazon.WorkDocs.ResourceSortType
+        "Get-WDFolderContent/Sort"
+        {
+            $v = "DATE","NAME"
+            break
+        }
+        
+        # Amazon.WorkDocs.ResourceStateType
+        {
+            ($_ -eq "Update-WDDocument/ResourceState") -Or
+            ($_ -eq "Update-WDFolder/ResourceState")
+        }
+        {
+            $v = "ACTIVE","RECYCLED","RECYCLING","RESTORING"
+            break
+        }
+        
+        # Amazon.WorkDocs.StorageType
+        {
+            ($_ -eq "New-WDUser/StorageRule_StorageType") -Or
+            ($_ -eq "Update-WDUser/StorageRule_StorageType")
+        }
+        {
+            $v = "QUOTA","UNLIMITED"
+            break
+        }
+        
+        # Amazon.WorkDocs.SubscriptionProtocolType
+        "New-WDNotificationSubscription/Protocol"
+        {
+            $v = "HTTPS"
+            break
+        }
+        
+        # Amazon.WorkDocs.SubscriptionType
+        "New-WDNotificationSubscription/SubscriptionType"
+        {
+            $v = "ALL"
+            break
+        }
+        
+        # Amazon.WorkDocs.UserFilterType
+        "Get-WDUserList/Include"
+        {
+            $v = "ACTIVE_PENDING","ALL"
+            break
+        }
+        
+        # Amazon.WorkDocs.UserSortType
+        "Get-WDUserList/Sort"
+        {
+            $v = "FULL_NAME","STORAGE_LIMIT","STORAGE_USED","USER_NAME","USER_STATUS"
+            break
+        }
+        
+        # Amazon.WorkDocs.UserType
+        "Update-WDUser/Type"
+        {
+            $v = "ADMIN","USER"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WD_map = @{
+    "Include"=@("Get-WDUserList")
+    "Locale"=@("Update-WDUser")
+    "Order"=@("Get-WDFolderContent","Get-WDUserList")
+    "PrincipalType"=@("Remove-WDResourcePermission")
+    "Protocol"=@("New-WDNotificationSubscription")
+    "ResourceState"=@("Update-WDDocument","Update-WDFolder")
+    "Sort"=@("Get-WDFolderContent","Get-WDUserList")
+    "StorageRule_StorageType"=@("New-WDUser","Update-WDUser")
+    "SubscriptionType"=@("New-WDNotificationSubscription")
+    "Type"=@("Get-WDFolderContent","Update-WDUser")
+    "VersionStatus"=@("Update-WDDocumentVersion")
+}
+
+_awsArgumentCompleterRegistration $WD_Completers $WD_map
 
 
 # Argument completions for service Amazon WorkSpaces

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMInstanceInformation
+
+ActivationId                           :
+AgentVersion                           : 2.0.672.0
+AssociationOverview                    : Amazon.SimpleSystemsManagement.Model.InstanceAggregatedAssociationOverview
+AssociationStatus                      : Success
+ComputerName                           : ip-172-31-44-222.us-west-2.compute.internal
+IamRole                                :
+InstanceId                             : i-0cb2b964d3e14fd9f
+IPAddress                              : 172.31.44.222
+IsLatestVersion                        : True
+LastAssociationExecutionDate           : 2/24/2017 3:18:09 AM
+LastPingDateTime                       : 2/24/2017 3:35:03 AM
+LastSuccessfulAssociationExecutionDate : 2/24/2017 3:18:09 AM
+Name                                   :
+PingStatus                             : ConnectionLost
+PlatformName                           : Amazon Linux AMI
+PlatformType                           : Linux
+PlatformVersion                        : 2016.09
+RegistrationDate                       : 1/1/0001 12:00:00 AM
+ResourceType                           : EC2Instance</code>
+        <description>This example shows details of each of your instances.</description>
+    </example>
+</examples>

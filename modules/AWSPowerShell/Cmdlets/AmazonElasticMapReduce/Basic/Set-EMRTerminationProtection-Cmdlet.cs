@@ -28,24 +28,24 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// SetTerminationProtection locks a job flow so the EC2 instances in the cluster cannot
-    /// be terminated by user intervention, an API call, or in the event of a job-flow error.
-    /// The cluster still terminates upon successful completion of the job flow. Calling SetTerminationProtection
-    /// on a job flow is analogous to calling the Amazon EC2 DisableAPITermination API on
-    /// all of the EC2 instances in a cluster.
+    /// SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
+    /// cannot be terminated by user intervention, an API call, or in the event of a job-flow
+    /// error. The cluster still terminates upon successful completion of the job flow. Calling
+    /// <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon
+    /// EC2 <code>DisableAPITermination</code> API on all EC2 instances in a cluster.
     /// 
     ///  
-    /// <para>
-    /// SetTerminationProtection is used to prevent accidental termination of a job flow and
-    /// to ensure that in the event of an error, the instances will persist so you can recover
-    /// any data stored in their ephemeral instance storage.
+    /// <para><code>SetTerminationProtection</code> is used to prevent accidental termination of
+    /// a cluster and to ensure that in the event of an error, the instances persist so that
+    /// you can recover any data stored in their ephemeral instance storage.
     /// </para><para>
-    ///  To terminate a job flow that has been locked by setting SetTerminationProtection
-    /// to <code>true</code>, you must first unlock the job flow by a subsequent call to SetTerminationProtection
+    ///  To terminate a cluster that has been locked by setting <code>SetTerminationProtection</code>
+    /// to <code>true</code>, you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code>
     /// in which you set the value to <code>false</code>. 
     /// </para><para>
-    ///  For more information, see<a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html">Protecting
-    /// a Job Flow from Termination</a> in the <i>Amazon EMR Guide.</i></para>
+    ///  For more information, see<a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing
+    /// Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "EMRTerminationProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter JobFlowId
         /// <summary>
         /// <para>
-        /// <para> A list of strings that uniquely identify the job flows to protect. This identifier
+        /// <para> A list of strings that uniquely identify the clusters to protect. This identifier
         /// is returned by <a>RunJobFlow</a> and can also be obtained from <a>DescribeJobFlows</a>
         /// . </para>
         /// </para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter TerminationProtected
         /// <summary>
         /// <para>
-        /// <para>A Boolean that indicates whether to protect the job flow and prevent the Amazon EC2
+        /// <para>A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2
         /// instances in the cluster from shutting down due to API calls, user intervention, or
         /// job-flow error.</para>
         /// </para>

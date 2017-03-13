@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMInstancePatchStatesForPatchGroup -PatchGroup "Production"</code>
+        <description>This example gets the patch summary states per-instance for a patch group.</description>
+    </example>
+</examples>
