@@ -27,12 +27,15 @@ function AssertDefaultsSet($profileLocation, $options, $awsCredentialsTypeName)
     $profile = $helper.GetCredentialProfile($profileLocation, "default")
     $profile | Should Not BeNullOrEmpty
     $profile.Options | Should Be $options
-    #$profile.Region.SystemName | Should Be $testRegion
+    if ($profile.Region -ne $null)
+    {
+        $profile.Region.SystemName | Should Be $testRegion
+    }
 
      # check session credentials
      (Get-AWSCredentials).GetType().Name | Should Be $awsCredentialsTypeName
 
-     Get-DefaultAWSRegion | Should Be $testRegion
+     (Get-DefaultAWSRegion).Region | Should Be $testRegion
 }
 
 Describe -Tag "Smoke" "Initialize-AWSDefaults" {
@@ -44,7 +47,6 @@ Describe -Tag "Smoke" "Initialize-AWSDefaults" {
     AfterAll {
         $helper.AfterAll()
     }
-
 
     $parameterSetError = "Parameter set cannot be resolved using the specified named parameters."
 

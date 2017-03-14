@@ -2,7 +2,6 @@ class TestHelper
 {
     [string] $AccessKey
     [string] $SecretKey
-    [string] $Region
 
     TestHelper()
     {
@@ -10,22 +9,23 @@ class TestHelper
 
     [Void] BeforeAll()
     {
-        try
+        # Set up test credentials.
+        # Assume that dev machines don't have credentials environment
+        # variables set and the build machine does.
+        if (Test-Path env:AWS_ACCESS_KEY_ID)
+        {
+            # try to handle as build machine
+            Write-Output "Setting test credentials from environment variables"
+            $this.AccessKey = (Get-Item env:AWS_ACCESS_KEY_ID).Value
+            $this.SecretKey =  (Get-Item env:AWS_SECRET_ACCESS_KEY).Value
+        }
+        else
         {
             #try to handle as dev machine
             Write-Output "Setting test credentials from local profile 'default'"
             $profile = $this.GetDefaultCredentialProfile()
             $this.AccessKey = $profile.Options.AccessKey
             $this.SecretKey = $profile.Options.SecretKey
-            $this.Region = $profile.Region.SystemName
-        }
-        catch
-        {
-            #try to handle as build machine
-            Write-Output "Setting test credentials from environment variables"
-            $this.AccessKey = (Get-Item env:AWS_ACCESS_KEY_ID).Value
-            $this.SecretKey =  (Get-Item env:AWS_SECRET_ACCESS_KEY).Value
-            $this.Region =  (Get-Item env:AWS_REGION).Value
         }
 
         # similar to the Set-DefaultAWSRegion cmdlet, except this sets the region globally
