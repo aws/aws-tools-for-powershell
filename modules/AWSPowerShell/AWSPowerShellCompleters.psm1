@@ -1662,6 +1662,17 @@ $DF_Completers = {
             break
         }
         
+        # Amazon.DeviceFarm.NetworkProfileType
+        {
+            ($_ -eq "Get-DFNetworkProfileList/Type") -Or
+            ($_ -eq "New-DFNetworkProfile/Type") -Or
+            ($_ -eq "Update-DFNetworkProfile/Type")
+        }
+        {
+            $v = "CURATED","PRIVATE"
+            break
+        }
+        
         # Amazon.DeviceFarm.TestType
         {
             ($_ -eq "Submit-DFTestRun/Test_Type") -Or
@@ -1690,7 +1701,7 @@ $DF_map = @{
     "Configuration_BillingMethod"=@("New-DFRemoteAccessSession","Submit-DFTestRun")
     "Test_Type"=@("Submit-DFTestRun")
     "TestType"=@("Get-DFDevicePoolCompatibility")
-    "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","New-DFUpload")
+    "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
 }
 
 _awsArgumentCompleterRegistration $DF_Completers $DF_map

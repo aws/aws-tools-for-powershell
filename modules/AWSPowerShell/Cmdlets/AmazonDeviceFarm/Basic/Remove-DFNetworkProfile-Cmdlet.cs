@@ -28,39 +28,35 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Creates a new project.
+    /// Deletes a network profile.
     /// </summary>
-    [Cmdlet("New", "DFProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DeviceFarm.Model.Project")]
-    [AWSCmdlet("Invokes the CreateProject operation against AWS Device Farm.", Operation = new[] {"CreateProject"})]
-    [AWSCmdletOutput("Amazon.DeviceFarm.Model.Project",
-        "This cmdlet returns a Project object.",
-        "The service call response (type Amazon.DeviceFarm.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DFNetworkProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteNetworkProfile operation against AWS Device Farm.", Operation = new[] {"DeleteNetworkProfile"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Arn parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.DeviceFarm.Model.DeleteNetworkProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDFProjectCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public partial class RemoveDFNetworkProfileCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter DefaultJobTimeoutMinute
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>Sets the execution timeout value (in minutes) for a project. All test runs in this
-        /// project will use the specified execution timeout value unless overridden when scheduling
-        /// a run.</para>
+        /// <para>The Amazon Resource Name (ARN) of the network profile you want to delete.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("DefaultJobTimeoutMinutes")]
-        public System.Int32 DefaultJobTimeoutMinute { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>The project's name.</para>
-        /// </para>
+        /// Returns the value passed to the Arn parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -77,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DFProject (CreateProject)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Arn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DFNetworkProfile (DeleteNetworkProfile)"))
             {
                 return;
             }
@@ -92,9 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("DefaultJobTimeoutMinute"))
-                context.DefaultJobTimeoutMinutes = this.DefaultJobTimeoutMinute;
-            context.Name = this.Name;
+            context.Arn = this.Arn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DeviceFarm.Model.CreateProjectRequest();
+            var request = new Amazon.DeviceFarm.Model.DeleteNetworkProfileRequest();
             
-            if (cmdletContext.DefaultJobTimeoutMinutes != null)
+            if (cmdletContext.Arn != null)
             {
-                request.DefaultJobTimeoutMinutes = cmdletContext.DefaultJobTimeoutMinutes.Value;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -128,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Project;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.Arn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.CreateProjectResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateProjectRequest request)
+        private static Amazon.DeviceFarm.Model.DeleteNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteNetworkProfileRequest request)
         {
             #if DESKTOP
-            return client.CreateProject(request);
+            return client.DeleteNetworkProfile(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateProjectAsync(request);
+            var task = client.DeleteNetworkProfileAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -170,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Int32? DefaultJobTimeoutMinutes { get; set; }
-            public System.String Name { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

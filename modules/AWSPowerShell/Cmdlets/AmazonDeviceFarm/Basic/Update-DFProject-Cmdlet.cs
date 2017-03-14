@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter DefaultJobTimeoutMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes a test run in the project will execute before it times out.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DefaultJobTimeoutMinutes")]
+        public System.Int32 DefaultJobTimeoutMinute { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -90,6 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             PreExecutionContextLoad(context);
             
             context.Arn = this.Arn;
+            if (ParameterWasBound("DefaultJobTimeoutMinute"))
+                context.DefaultJobTimeoutMinutes = this.DefaultJobTimeoutMinute;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -110,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.DefaultJobTimeoutMinutes != null)
+            {
+                request.DefaultJobTimeoutMinutes = cmdletContext.DefaultJobTimeoutMinutes.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -167,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         internal class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Int32? DefaultJobTimeoutMinutes { get; set; }
             public System.String Name { get; set; }
         }
         

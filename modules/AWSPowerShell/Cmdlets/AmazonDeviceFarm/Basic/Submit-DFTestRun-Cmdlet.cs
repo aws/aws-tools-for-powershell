@@ -126,6 +126,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Boolean Radios_Gp { get; set; }
         #endregion
         
+        #region Parameter ExecutionConfiguration_JobTimeoutMinute
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes a test run will execute before it times out.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ExecutionConfiguration_JobTimeoutMinutes")]
+        public System.Int32 ExecutionConfiguration_JobTimeoutMinute { get; set; }
+        #endregion
+        
         #region Parameter Location_Latitude
         /// <summary>
         /// <para>
@@ -294,6 +305,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (ParameterWasBound("Radios_Wifi"))
                 context.Configuration_Radios_Wifi = this.Radios_Wifi;
             context.DevicePoolArn = this.DevicePoolArn;
+            if (ParameterWasBound("ExecutionConfiguration_JobTimeoutMinute"))
+                context.ExecutionConfiguration_JobTimeoutMinutes = this.ExecutionConfiguration_JobTimeoutMinute;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
             context.Test_Filter = this.Test_Filter;
@@ -480,6 +493,25 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.DevicePoolArn = cmdletContext.DevicePoolArn;
             }
+            
+             // populate ExecutionConfiguration
+            bool requestExecutionConfigurationIsNull = true;
+            request.ExecutionConfiguration = new Amazon.DeviceFarm.Model.ExecutionConfiguration();
+            System.Int32? requestExecutionConfiguration_executionConfiguration_JobTimeoutMinute = null;
+            if (cmdletContext.ExecutionConfiguration_JobTimeoutMinutes != null)
+            {
+                requestExecutionConfiguration_executionConfiguration_JobTimeoutMinute = cmdletContext.ExecutionConfiguration_JobTimeoutMinutes.Value;
+            }
+            if (requestExecutionConfiguration_executionConfiguration_JobTimeoutMinute != null)
+            {
+                request.ExecutionConfiguration.JobTimeoutMinutes = requestExecutionConfiguration_executionConfiguration_JobTimeoutMinute.Value;
+                requestExecutionConfigurationIsNull = false;
+            }
+             // determine if request.ExecutionConfiguration should be set to null
+            if (requestExecutionConfigurationIsNull)
+            {
+                request.ExecutionConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -601,6 +633,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? Configuration_Radios_Nfc { get; set; }
             public System.Boolean? Configuration_Radios_Wifi { get; set; }
             public System.String DevicePoolArn { get; set; }
+            public System.Int32? ExecutionConfiguration_JobTimeoutMinutes { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
             public System.String Test_Filter { get; set; }

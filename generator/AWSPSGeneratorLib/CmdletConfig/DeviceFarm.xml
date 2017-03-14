@@ -21,10 +21,12 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="CreateDevicePool" PipelineParameter="Rules" ShouldProcessTarget="Name"/>
-    <ServiceOperation MethodName="CreateProject"/>    
+    <ServiceOperation MethodName="CreateNetworkProfile" ShouldProcessTarget="Name"/>
+    <ServiceOperation MethodName="CreateProject"/>
     <ServiceOperation MethodName="CreateRemoteAccessSession" PipelineParameter="DeviceArn" />
     <ServiceOperation MethodName="CreateUpload" PipelineParameter="Name" PositionalParameters="ProjectArn;Type;ContentType"/>
     <ServiceOperation MethodName="DeleteDevicePool" Output="Void"/>
+    <ServiceOperation MethodName="DeleteNetworkProfile" Output="Void"/>
     <ServiceOperation MethodName="DeleteProject" Output="Void"/>
     <ServiceOperation MethodName="DeleteRemoteAccessSession" Output="Void" />
     <ServiceOperation MethodName="DeleteRun" Output="Void"/>
@@ -32,7 +34,8 @@
     <ServiceOperation MethodName="GetDevice"/>
     <ServiceOperation MethodName="GetDevicePool"/>
     <ServiceOperation MethodName="GetDevicePoolCompatibility" Output="Response"/>
-    <ServiceOperation MethodName="GetJob"/>    
+    <ServiceOperation MethodName="GetJob"/>
+    <ServiceOperation MethodName="GetNetworkProfile"/>
     <ServiceOperation MethodName="GetOfferingStatus" Output="Response"/>
     <ServiceOperation MethodName="GetProject"/>
     <ServiceOperation MethodName="GetRemoteAccessSession" />
@@ -46,6 +49,7 @@
     <ServiceOperation MethodName="ListDevicePools" Noun="DevicePoolList"/>
     <ServiceOperation MethodName="ListDevices" Noun="DeviceList"/>
     <ServiceOperation MethodName="ListJobs" Noun="JobList"/>
+    <ServiceOperation MethodName="ListNetworkProfiles" Noun="NetworkProfileList"/>
     <ServiceOperation MethodName="ListOfferings" Noun="Offering"/>
     <ServiceOperation MethodName="ListOfferingTransactions" Noun="OfferingTransaction"/>
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
@@ -63,6 +67,7 @@
     <ServiceOperation MethodName="StopRemoteAccessSession" />
     <ServiceOperation MethodName="StopRun" ShouldProcessTarget="Arn"/>
     <ServiceOperation MethodName="UpdateDevicePool"/>
+    <ServiceOperation MethodName="UpdateNetworkProfile"/>
     <ServiceOperation MethodName="UpdateProject"/>
   </ServiceOperations>
   

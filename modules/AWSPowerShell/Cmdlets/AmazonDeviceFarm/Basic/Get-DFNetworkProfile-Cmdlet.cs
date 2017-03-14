@@ -28,60 +28,32 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Creates a new project.
+    /// Returns information about a network profile.
     /// </summary>
-    [Cmdlet("New", "DFProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DeviceFarm.Model.Project")]
-    [AWSCmdlet("Invokes the CreateProject operation against AWS Device Farm.", Operation = new[] {"CreateProject"})]
-    [AWSCmdletOutput("Amazon.DeviceFarm.Model.Project",
-        "This cmdlet returns a Project object.",
-        "The service call response (type Amazon.DeviceFarm.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DFNetworkProfile")]
+    [OutputType("Amazon.DeviceFarm.Model.NetworkProfile")]
+    [AWSCmdlet("Invokes the GetNetworkProfile operation against AWS Device Farm.", Operation = new[] {"GetNetworkProfile"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.NetworkProfile",
+        "This cmdlet returns a NetworkProfile object.",
+        "The service call response (type Amazon.DeviceFarm.Model.GetNetworkProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDFProjectCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    public partial class GetDFNetworkProfileCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter DefaultJobTimeoutMinute
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>Sets the execution timeout value (in minutes) for a project. All test runs in this
-        /// project will use the specified execution timeout value unless overridden when scheduling
-        /// a run.</para>
+        /// <para>The Amazon Resource Name (ARN) of the network profile you want to return information
+        /// about.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("DefaultJobTimeoutMinutes")]
-        public System.Int32 DefaultJobTimeoutMinute { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The project's name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Arn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DFProject (CreateProject)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -92,9 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("DefaultJobTimeoutMinute"))
-                context.DefaultJobTimeoutMinutes = this.DefaultJobTimeoutMinute;
-            context.Name = this.Name;
+            context.Arn = this.Arn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DeviceFarm.Model.CreateProjectRequest();
+            var request = new Amazon.DeviceFarm.Model.GetNetworkProfileRequest();
             
-            if (cmdletContext.DefaultJobTimeoutMinutes != null)
+            if (cmdletContext.Arn != null)
             {
-                request.DefaultJobTimeoutMinutes = cmdletContext.DefaultJobTimeoutMinutes.Value;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -128,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Project;
+                object pipelineOutput = response.NetworkProfile;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,13 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.CreateProjectResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateProjectRequest request)
+        private static Amazon.DeviceFarm.Model.GetNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetNetworkProfileRequest request)
         {
             #if DESKTOP
-            return client.CreateProject(request);
+            return client.GetNetworkProfile(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateProjectAsync(request);
+            var task = client.GetNetworkProfileAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -170,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.Int32? DefaultJobTimeoutMinutes { get; set; }
-            public System.String Name { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }
