@@ -28,11 +28,8 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Lists the names of the rules that the given target is put to. You can see which of
-    /// the rules in Amazon CloudWatch Events can invoke a specific target in your account.
-    /// If you have more rules in your account than the given limit, the results will be paginated.
-    /// In that case, use the next token returned in the response and repeat ListRulesByTarget
-    /// until the NextToken in the response is returned as null.
+    /// Lists the rules for the specified target. You can see which of the rules in Amazon
+    /// CloudWatch Events can invoke a specific target in your account.
     /// </summary>
     [Cmdlet("Get", "CWERuleNamesByTarget")]
     [OutputType("System.String")]
@@ -48,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the target resource that you want to list the rules
-        /// for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the target resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -70,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
+        /// <para>The token returned by a previous call to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

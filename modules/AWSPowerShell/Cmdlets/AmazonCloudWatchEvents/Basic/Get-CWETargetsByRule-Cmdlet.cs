@@ -28,7 +28,7 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Lists of targets assigned to the rule.
+    /// Lists the targets assigned to the specified rule.
     /// </summary>
     [Cmdlet("Get", "CWETargetsByRule")]
     [OutputType("Amazon.CloudWatchEvents.Model.Target")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The name of the rule whose targets you want to list.</para>
+        /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
+        /// <para>The token returned by a previous call to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

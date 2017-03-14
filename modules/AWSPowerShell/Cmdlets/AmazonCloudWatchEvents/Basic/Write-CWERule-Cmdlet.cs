@@ -28,22 +28,23 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Creates or updates a rule. Rules are enabled by default, or based on value of the
-    /// State parameter. You can disable a rule using <a>DisableRule</a>.
+    /// Creates or updates the specified rule. Rules are enabled by default, or based on value
+    /// of the state. You can disable a rule using <a>DisableRule</a>.
     /// 
     ///  
-    /// <para><b>Note:</b> When you create or update a rule, incoming events might not immediately
-    /// start matching to new or updated rules. Please allow a short period of time for changes
-    /// to take effect.
+    /// <para>
+    /// When you create or update a rule, incoming events might not immediately start matching
+    /// to new or updated rules. Please allow a short period of time for changes to take effect.
     /// </para><para>
     /// A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns
     /// are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger
     /// based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression,
-    /// in which case the rule will trigger on matching events as well as on a schedule.
-    /// </para><para><b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
-    /// Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
-    /// rules. Be sure to use the correct ARN characters when creating event patterns so that
-    /// they match the ARN syntax in the event you want to match. 
+    /// in which case the rule triggers on matching events as well as on a schedule.
+    /// </para><para>
+    /// Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs).
+    /// However, CloudWatch Events uses an exact match in event patterns and rules. Be sure
+    /// to use the correct ARN characters when creating event patterns so that they match
+    /// the ARN syntax in the event you want to match.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,13 +28,14 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Tests whether an event pattern matches the provided event.
+    /// Tests whether the specified event pattern matches the provided event.
     /// 
     ///  
-    /// <para><b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
-    /// Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
-    /// rules. Be sure to use the correct ARN characters when creating event patterns so that
-    /// they match the ARN syntax in the event you want to match. 
+    /// <para>
+    /// Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs).
+    /// However, CloudWatch Events uses an exact match in event patterns and rules. Be sure
+    /// to use the correct ARN characters when creating event patterns so that they match
+    /// the ARN syntax in the event you want to match.
     /// </para>
     /// </summary>
     [Cmdlet("Test", "CWEEventPattern")]
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Event
         /// <summary>
         /// <para>
-        /// <para>The event in the JSON format to test against the event pattern.</para>
+        /// <para>The event, in JSON format, to test against the event pattern.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>The event pattern you want to test.</para>
+        /// <para>The event pattern.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

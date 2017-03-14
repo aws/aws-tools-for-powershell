@@ -28,13 +28,13 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Removes target(s) from a rule so that when the rule is triggered, those targets will
-    /// no longer be invoked.
+    /// Removes the specified targets from the specified rule. When the rule is triggered,
+    /// those targets are no longer be invoked.
     /// 
     ///  
-    /// <para><b>Note:</b> When you remove a target, when the associated rule triggers, removed
-    /// targets might still continue to be invoked. Please allow a short period of time for
-    /// changes to take effect. 
+    /// <para>
+    /// When you remove a target, when the associated rule triggers, removed targets might
+    /// continue to be invoked. Please allow a short period of time for changes to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWETarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The list of target IDs to remove from the rule.</para>
+        /// <para>The IDs of the targets to remove from the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>The name of the rule you want to remove targets from.</para>
+        /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

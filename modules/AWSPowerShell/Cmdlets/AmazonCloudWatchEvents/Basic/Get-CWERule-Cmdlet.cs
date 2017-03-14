@@ -28,11 +28,8 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Lists the Amazon CloudWatch Events rules in your account. You can either list all
-    /// the rules or you can provide a prefix to match to the rule names. If you have more
-    /// rules in your account than the given limit, the results will be paginated. In that
-    /// case, use the next token returned in the response and repeat ListRules until the NextToken
-    /// in the response is returned as null.
+    /// Lists your Amazon CloudWatch Events rules. You can either list all the rules or you
+    /// can provide a prefix to match to the rule names.
     /// </summary>
     [Cmdlet("Get", "CWERule")]
     [OutputType("Amazon.CloudWatchEvents.Model.Rule")]
@@ -69,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned by a previous call to indicate that there is more data available.</para>
+        /// <para>The token returned by a previous call to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Describes the details of the specified rule.
+    /// Describes the specified rule.
     /// </summary>
     [Cmdlet("Get", "CWERuleDetail")]
     [OutputType("Amazon.CloudWatchEvents.Model.DescribeRuleResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the rule you want to describe details for.</para>
+        /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

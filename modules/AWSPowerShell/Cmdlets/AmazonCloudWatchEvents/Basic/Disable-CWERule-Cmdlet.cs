@@ -28,13 +28,13 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Disables a rule. A disabled rule won't match any events, and won't self-trigger if
-    /// it has a schedule expression.
+    /// Disables the specified rule. A disabled rule won't match any events, and won't self-trigger
+    /// if it has a schedule expression.
     /// 
     ///  
-    /// <para><b>Note:</b> When you disable a rule, incoming events might still continue to match
-    /// to the disabled rule. Please allow a short period of time for changes to take effect.
-    /// 
+    /// <para>
+    /// When you disable a rule, incoming events might continue to match to the disabled rule.
+    /// Please allow a short period of time for changes to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Disable", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the rule you want to disable.</para>
+        /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

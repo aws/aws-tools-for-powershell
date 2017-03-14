@@ -28,13 +28,15 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Deletes a rule. You must remove all targets from a rule using <a>RemoveTargets</a>
-    /// before you can delete the rule.
+    /// Deletes the specified rule.
     /// 
     ///  
-    /// <para><b>Note:</b> When you delete a rule, incoming events might still continue to match
-    /// to the deleted rule. Please allow a short period of time for changes to take effect.
-    /// 
+    /// <para>
+    /// You must remove all targets from a rule using <a>RemoveTargets</a> before you can
+    /// delete the rule.
+    /// </para><para>
+    /// When you delete a rule, incoming events might continue to match to the deleted rule.
+    /// Please allow a short period of time for changes to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the rule to be deleted.</para>
+        /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,12 +28,12 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Enables a rule. If the rule does not exist, the operation fails.
+    /// Enables the specified rule. If the rule does not exist, the operation fails.
     /// 
     ///  
-    /// <para><b>Note:</b> When you enable a rule, incoming events might not immediately start
-    /// matching to a newly enabled rule. Please allow a short period of time for changes
-    /// to take effect. 
+    /// <para>
+    /// When you enable a rule, incoming events might not immediately start matching to a
+    /// newly enabled rule. Please allow a short period of time for changes to take effect.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the rule that you want to enable.</para>
+        /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
