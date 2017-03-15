@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "NetCoreManifestPatcher": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\codebase\\v3\\AWSPowerShell\\Deployment\\AWSPowerShell.NetCore",
+      "workingDirectory": "C:\\codebase\\v3\\AWSPowerShell\\Deployment\\AWSPowerShell.NetCore"
+    }
+  }
+}
