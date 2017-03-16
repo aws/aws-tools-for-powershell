@@ -1,3 +1,9 @@
+### 3.3.64.1 (2017-03-15)
+  * Added support for reading and writing credential profiles to both the AWS .NET SDK encrypted credential store and the shared credential store used by other AWS SDKs and tools. Previously credentials could only be read from both stores, and written to only the SDK's encrypted store.
+  * Added support for new credential profile types supporting cross-account IAM roles (aka 'assume role' profiles) and credentials requiring use of an MFA. For more details on the updated credential support see the blog post announcing the update at https://aws.amazon.com/blogs/developer/aws-sdk-dot-net-credential-profiles/ and the credential setup topics in the user guide at http://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-started.html.
+  * AWS Device Farm
+    - Added support for network shaping. Network shaping allows users to simulate network connections and conditions while testing their Android, iOS, and web apps with AWS Device Farm. The update includes new cmdlets Get-DFNetworkProfile (GetNetworkProfile API), Get-DFNetworkProfileList (ListNetworkProfiles API), New-DFNetworkProfile (CreateNetworkProfile API), Remove-DFNetworkProfile (DeleteNetworkProfile API) and Update-DFNetworkProfile (UpdateNetworkProfile API).
+
 ### 3.3.62.0 (2017-03-13)
   * Fixed issue with Set-AWSSamlRoleProfile incorrectly formatting user identities specified in email format. The identity was being stored in the role profile with as \email@domain.com (domain\userid format) but with empty domain. The leading \ then had to be removed by the user each time a password demand was issued.
   * Amazon Relation Database Service
