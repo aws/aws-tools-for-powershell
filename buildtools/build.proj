@@ -232,6 +232,7 @@
     </Target>
 	
     <Target Name="patch-manifests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
+    <!-- strobe - disable so we can get latest credential patch out in grey period
 		<Message Text="Building manifest patch util for desktop module"/>
 		<Exec Command="$(devenv2013) /Rebuild $(Configuration) $(RootPath)\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher.sln"/>
         
@@ -248,6 +249,7 @@
         <Exec Command="dotnet run $(NetCoreDeploymentArtifacts)"
               WorkingDirectory="$(RootPath)\buildtools\Tools\NetCoreManifestPatcher\src\NetCoreManifestPatcher" 
               />
+    -->
     </Target>
     
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
