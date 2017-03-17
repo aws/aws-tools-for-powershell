@@ -1,3 +1,6 @@
+### 3.3.64.2 (2017-03-17)
+  * Fixed issue with Initialize-AWSDefaults reporting 'source profile not found' error when run to load credentials from the 'default' profile.
+
 ### 3.3.64.1 (2017-03-15)
   * Added support for reading and writing credential profiles to both the AWS .NET SDK encrypted credential store and the shared credential store used by other AWS SDKs and tools. Previously credentials could only be read from both stores, and written to only the SDK's encrypted store.
   * Added support for new credential profile types supporting cross-account IAM roles (aka 'assume role' profiles) and credentials requiring use of an MFA. For more details on the updated credential support see the blog post announcing the update at https://aws.amazon.com/blogs/developer/aws-sdk-dot-net-credential-profiles/ and the credential setup topics in the user guide at http://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-started.html.
