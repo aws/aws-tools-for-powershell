@@ -250,7 +250,7 @@
       <HintPath>..\..\packages\AWSSDK.DatabaseMigrationService.3.3.1.5\lib\net35\AWSSDK.DatabaseMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core">
-      <HintPath>..\..\packages\AWSSDK.Core.3.3.10.1\lib\net35\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Core.3.3.10.2\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.6.3\lib\net35\AWSSDK.ConfigService.dll</HintPath>
