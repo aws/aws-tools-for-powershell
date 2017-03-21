@@ -16,6 +16,7 @@
     <ServiceOperation MethodName="CreateSegment" />
     <ServiceOperation MethodName="DeleteApnsChannel"/>
     <ServiceOperation MethodName="DeleteCampaign" />
+    <ServiceOperation MethodName="DeleteEventStream" />
     <ServiceOperation MethodName="DeleteGcmChannel"/>
     <ServiceOperation MethodName="DeleteSegment" />
     <ServiceOperation MethodName="GetApnsChannel"/>
@@ -26,6 +27,7 @@
     <ServiceOperation MethodName="GetCampaignVersion" />
     <ServiceOperation MethodName="GetCampaignVersions" Noun="CampaignVersionList" />
     <ServiceOperation MethodName="GetEndpoint" />
+    <ServiceOperation MethodName="GetEventStream" />
     <ServiceOperation MethodName="GetGcmChannel"/>
     <ServiceOperation MethodName="GetImportJob" />
     <ServiceOperation MethodName="GetImportJobs" Noun="ImportJobList" />
@@ -34,6 +36,7 @@
     <ServiceOperation MethodName="GetSegments" Noun="SegmentList" />
     <ServiceOperation MethodName="GetSegmentVersion" />
     <ServiceOperation MethodName="GetSegmentVersions" Noun="SegmentVersionList" />
+    <ServiceOperation MethodName="PutEventStream" />
     <ServiceOperation MethodName="UpdateApnsChannel" />
     <ServiceOperation MethodName="UpdateCampaign" />
     <ServiceOperation MethodName="UpdateEndpoint" />
