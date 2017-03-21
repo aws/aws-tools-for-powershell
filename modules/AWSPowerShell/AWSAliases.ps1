@@ -2992,6 +2992,9 @@ Set-Alias -Name ORG-ListChildren -Value Get-ORGChild
 Set-Alias -Name ORG-ListCreateAccountStatus -Value Get-ORGAccountCreationStatusList
 Set-Alias -Name ORG-ListHandshakesForAccount -Value Get-ORGAccountHandshakeList
 Set-Alias -Name ORG-ListHandshakesForOrganization -Value Get-ORGOrganizationHandshakeList
+Set-Alias -Name PIN-UpdateEndpoint -Value Update-PINEndpoint
+Set-Alias -Name PIN-UpdateEndpointsBatch -Value Update-PINEndpointsBatch
+Set-Alias -Name PIN-UpdateGcmChannel -Value Update-PINGcmChannel
 Set-Alias -Name PIN-UpdateSegment -Value Update-PINSegment
 Set-Alias -Name Create-PINCampaign -Value New-PINCampaign
 Set-Alias -Name PIN-CreateCampaign -Value New-PINCampaign
@@ -3026,9 +3029,6 @@ Set-Alias -Name PIN-GetSegmentVersions -Value Get-PINSegmentVersionList
 Set-Alias -Name PIN-UpdateApnsChannel -Value Update-PINApnsChannel
 Set-Alias -Name PIN-UpdateApplicationSettings -Value Update-PINApplicationSettingList
 Set-Alias -Name PIN-UpdateCampaign -Value Update-PINCampaign
-Set-Alias -Name PIN-UpdateEndpoint -Value Update-PINEndpoint
-Set-Alias -Name PIN-UpdateEndpointsBatch -Value Update-PINEndpointsBatch
-Set-Alias -Name PIN-UpdateGcmChannel -Value Update-PINGcmChannel
 Set-Alias -Name Delete-POLLexicon -Value Remove-POLLexicon
 Set-Alias -Name POL-DeleteLexicon -Value Remove-POLLexicon
 Set-Alias -Name Describe-POLVoice -Value Get-POLVoice

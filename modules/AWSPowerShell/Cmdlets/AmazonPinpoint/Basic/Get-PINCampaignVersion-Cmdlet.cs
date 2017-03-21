@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Returns information about your campaign versions.
+    /// Returns information about a specific version of a campaign.
     /// </summary>
     [Cmdlet("Get", "PINCampaignVersion")]
     [OutputType("Amazon.Pinpoint.Model.CampaignResponse")]

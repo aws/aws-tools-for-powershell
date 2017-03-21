@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use to update your endpoints.
+    /// Use to update a batch of endpoints.
     /// </summary>
     [Cmdlet("Update", "PINEndpointsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.MessageBody")]

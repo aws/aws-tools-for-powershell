@@ -183,6 +183,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public Amazon.Pinpoint.RecencyType Recency_RecencyType { get; set; }
         #endregion
         
+        #region Parameter Dimensions_UserAttribute
+        /// <summary>
+        /// <para>
+        /// Custom segment user attributes.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_UserAttributes")]
+        public System.Collections.Hashtable Dimensions_UserAttribute { get; set; }
+        #endregion
+        
         #region Parameter AppVersion_Value
         /// <summary>
         /// <para>
@@ -331,6 +342,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 context.WriteSegmentRequest_Dimensions_Location_Country_Values = new List<System.String>(this.Country_Value);
             }
+            if (this.Dimensions_UserAttribute != null)
+            {
+                context.WriteSegmentRequest_Dimensions_UserAttributes = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Dimensions_UserAttribute.Keys)
+                {
+                    context.WriteSegmentRequest_Dimensions_UserAttributes.Add((String)hashKey, (AttributeDimension)(this.Dimensions_UserAttribute[hashKey]));
+                }
+            }
             context.WriteSegmentRequest_Name = this.WriteSegmentRequest_Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -379,6 +398,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Attribute != null)
             {
                 requestWriteSegmentRequest_writeSegmentRequest_Dimensions.Attributes = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_Attribute;
+                requestWriteSegmentRequest_writeSegmentRequest_DimensionsIsNull = false;
+            }
+            Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_UserAttribute = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_UserAttributes != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_UserAttribute = cmdletContext.WriteSegmentRequest_Dimensions_UserAttributes;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_UserAttribute != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions.UserAttributes = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_dimensions_UserAttribute;
                 requestWriteSegmentRequest_writeSegmentRequest_DimensionsIsNull = false;
             }
             Amazon.Pinpoint.Model.SegmentBehaviors requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Behavior = null;
@@ -753,6 +782,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public List<System.String> WriteSegmentRequest_Dimensions_Demographic_Platform_Values { get; set; }
             public Amazon.Pinpoint.DimensionType WriteSegmentRequest_Dimensions_Location_Country_DimensionType { get; set; }
             public List<System.String> WriteSegmentRequest_Dimensions_Location_Country_Values { get; set; }
+            public Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> WriteSegmentRequest_Dimensions_UserAttributes { get; set; }
             public System.String WriteSegmentRequest_Name { get; set; }
         }
         
