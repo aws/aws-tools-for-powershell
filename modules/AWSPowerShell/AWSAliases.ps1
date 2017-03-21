@@ -3006,6 +3006,8 @@ Set-Alias -Name Delete-PINApnsChannel -Value Remove-PINApnsChannel
 Set-Alias -Name PIN-DeleteApnsChannel -Value Remove-PINApnsChannel
 Set-Alias -Name Delete-PINCampaign -Value Remove-PINCampaign
 Set-Alias -Name PIN-DeleteCampaign -Value Remove-PINCampaign
+Set-Alias -Name Delete-PINEventStream -Value Remove-PINEventStream
+Set-Alias -Name PIN-DeleteEventStream -Value Remove-PINEventStream
 Set-Alias -Name Delete-PINGcmChannel -Value Remove-PINGcmChannel
 Set-Alias -Name PIN-DeleteGcmChannel -Value Remove-PINGcmChannel
 Set-Alias -Name Delete-PINSegment -Value Remove-PINSegment
@@ -3018,6 +3020,7 @@ Set-Alias -Name PIN-GetCampaigns -Value Get-PINCampaignList
 Set-Alias -Name PIN-GetCampaignVersion -Value Get-PINCampaignVersion
 Set-Alias -Name PIN-GetCampaignVersions -Value Get-PINCampaignVersionList
 Set-Alias -Name PIN-GetEndpoint -Value Get-PINEndpoint
+Set-Alias -Name PIN-GetEventStream -Value Get-PINEventStream
 Set-Alias -Name PIN-GetGcmChannel -Value Get-PINGcmChannel
 Set-Alias -Name PIN-GetImportJob -Value Get-PINImportJob
 Set-Alias -Name PIN-GetImportJobs -Value Get-PINImportJobList
@@ -3026,6 +3029,8 @@ Set-Alias -Name PIN-GetSegmentImportJobs -Value Get-PINSegmentImportJobList
 Set-Alias -Name PIN-GetSegments -Value Get-PINSegmentList
 Set-Alias -Name PIN-GetSegmentVersion -Value Get-PINSegmentVersion
 Set-Alias -Name PIN-GetSegmentVersions -Value Get-PINSegmentVersionList
+Set-Alias -Name Put-PINEventStream -Value Write-PINEventStream
+Set-Alias -Name PIN-PutEventStream -Value Write-PINEventStream
 Set-Alias -Name PIN-UpdateApnsChannel -Value Update-PINApnsChannel
 Set-Alias -Name PIN-UpdateApplicationSettings -Value Update-PINApplicationSettingList
 Set-Alias -Name PIN-UpdateCampaign -Value Update-PINCampaign
