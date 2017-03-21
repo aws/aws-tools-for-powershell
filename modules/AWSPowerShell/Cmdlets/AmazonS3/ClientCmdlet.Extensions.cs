@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var s3Config = (AmazonS3Config)config;
             var useAccelerateEndpoint = this.ParameterWasBound("UseAccelerateEndpoint");
             var useDualstackEndpoint = this.ParameterWasBound("UseDualstackEndpoint");
+            s3Config.ResignRetries = true;
 
             // let the underlying sdk determine if using these together is allowed
             if (useAccelerateEndpoint)
