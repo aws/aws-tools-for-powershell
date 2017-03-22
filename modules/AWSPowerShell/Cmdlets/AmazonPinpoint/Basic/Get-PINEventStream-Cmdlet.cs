@@ -28,46 +28,26 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Returns information about a specific version of a campaign.
+    /// Returns the event stream for an app.
     /// </summary>
-    [Cmdlet("Get", "PINCampaignVersion")]
-    [OutputType("Amazon.Pinpoint.Model.CampaignResponse")]
-    [AWSCmdlet("Invokes the GetCampaignVersion operation against Amazon Pinpoint.", Operation = new[] {"GetCampaignVersion"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.CampaignResponse",
-        "This cmdlet returns a CampaignResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetCampaignVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINEventStream")]
+    [OutputType("Amazon.Pinpoint.Model.EventStream")]
+    [AWSCmdlet("Invokes the GetEventStream operation against Amazon Pinpoint.", Operation = new[] {"GetEventStream"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.EventStream",
+        "This cmdlet returns a EventStream object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetEventStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPINCampaignVersionCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class GetPINEventStreamCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// ApplicationId
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationId { get; set; }
-        #endregion
-        
-        #region Parameter CampaignId
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CampaignId { get; set; }
-        #endregion
-        
-        #region Parameter Version
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Version { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -84,8 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
-            context.CampaignId = this.CampaignId;
-            context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,19 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.GetCampaignVersionRequest();
+            var request = new Amazon.Pinpoint.Model.GetEventStreamRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.CampaignId != null)
-            {
-                request.CampaignId = cmdletContext.CampaignId;
-            }
-            if (cmdletContext.Version != null)
-            {
-                request.Version = cmdletContext.Version;
             }
             
             CmdletOutput output;
@@ -123,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CampaignResponse;
+                object pipelineOutput = response.EventStream;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -148,13 +118,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetCampaignVersionResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetCampaignVersionRequest request)
+        private static Amazon.Pinpoint.Model.GetEventStreamResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetEventStreamRequest request)
         {
             #if DESKTOP
-            return client.GetCampaignVersion(request);
+            return client.GetEventStream(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetCampaignVersionAsync(request);
+            var task = client.GetEventStreamAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -166,8 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
-            public System.String CampaignId { get; set; }
-            public System.String Version { get; set; }
         }
         
     }

@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointRequest_Address
         /// <summary>
         /// <para>
-        /// The address or token of the endpoint.
+        /// The address or token of the endpoint as provided
+        /// by your push provider (e.g. DeviceToken or RegistrationId).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -317,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter User_UserAttribute
         /// <summary>
         /// <para>
-        /// Custom attributesd specific to the user.
+        /// Custom attributes specific to the user.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
