@@ -3,6 +3,7 @@
     - Fixed issue with the Write-S3Object cmdlet reporting error "The difference between the request time and the current time is too large" when uploading very large (> 100GB) files.
   * Amazon Pinpoint
     - Added cmdlets Get-PINEventStream (GetEventStream API), Remove-PINEventStream (DeleteEventStream API) and Write-PINEventStream (PutEventStream API) to support publishing of raw app analytics and campaign events data as events streams to Kinesis and Kinesis Firehose. The Update-PINSegment and New-PINSegment cmdlets were updated with a new parameter, -Dimensions_UserAttribute, to support the ability to segment endpoints by user attributes in addition to endpoint attributes.
+  * All cmdlet names are now enumerated into the module manifest enabling tab-completion of command names without needing to explicitly import the module into the environment.
 
 ### 3.3.64.2 (2017-03-17)
   * Fixed issue with Initialize-AWSDefaults reporting 'source profile not found' error when run to load credentials from the 'default' profile.
