@@ -127,13 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// AWS CodePipeline will ignore it. This is because AWS CodePipeline uses the settings
         /// in a pipeline's source action instead of this value.</para></li><li><para>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
         /// that contains the source code and the build spec (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i></code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, the
-        /// path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>)</para></li><li><para>For source code in a GitHub repository, instead of specifying a value here, you connect
-        /// your AWS account to your GitHub account. To do this, use the AWS CodeBuild console
-        /// to begin creating a build project, and follow the on-screen instructions to complete
-        /// the connection. (After you have connected to your GitHub account, you do not need
-        /// to finish creating the build project, and you may then leave the AWS CodeBuild console.)
-        /// To instruct AWS CodeBuild to then use this connection, in the <code>source</code>
-        /// object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
+        /// path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>)</para></li><li><para>For source code in a GitHub repository, the HTTPS clone URL to the repository that
+        /// contains the source and the build spec. Also, you must connect your AWS account to
+        /// your GitHub account. To do this, use the AWS CodeBuild console to begin creating a
+        /// build project, and follow the on-screen instructions to complete the connection. (After
+        /// you have connected to your GitHub account, you do not need to finish creating the
+        /// build project, and you may then leave the AWS CodeBuild console.) To instruct AWS
+        /// CodeBuild to then use this connection, in the <code>source</code> object, set the
+        /// <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

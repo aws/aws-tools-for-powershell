@@ -104,12 +104,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter DetectionAttribute
         /// <summary>
         /// <para>
-        /// <para>(Optional) Returns detailed attributes of indexed faces. By default, the operation
-        /// returns a subset of the facial attributes. </para><para>For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide
-        /// both, ["ALL", "DEFAULT"], Amazon Rekognition uses the logical AND operator to determine
-        /// which attributes to return (in this case, it is all attributes). If you specify all
-        /// attributes, the service performs additional detection, in addition to the default.
-        /// </para>
+        /// <para>A list of facial attributes you want to be returned. This can be the default list
+        /// of attributes or all attributes. If you don't specify a value for <code>Attributes</code>
+        /// or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of
+        /// facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
+        /// <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>,
+        /// all facial attributes are returned but the operation will take longer to complete.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
+        /// operator to determine which attributes to return (in this case, all attributes). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

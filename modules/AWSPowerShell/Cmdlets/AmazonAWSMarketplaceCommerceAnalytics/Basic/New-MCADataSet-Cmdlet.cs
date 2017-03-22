@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>customer_profile_by_revenue</i>
         /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>customer_profile_by_geography</i>
         /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>sales_compensation_billed_revenue</i>
-        /// - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2016-12.</li></ul></para>
+        /// - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2016-12.</li><li><i>us_sales_and_use_tax_records</i> - Available monthly on the 15th day of the
+        /// month by 5:00 PM Pacific Time since 2017-02-15.</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

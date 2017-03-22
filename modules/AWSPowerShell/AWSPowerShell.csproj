@@ -79,7 +79,7 @@
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.3.3\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0.9\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0.10\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.0.9\lib\net35\AWSSDK.Lightsail.dll</HintPath>
@@ -88,10 +88,10 @@
       <HintPath>..\..\packages\AWSSDK.Organizations.3.3.1.3\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.0.7\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.1\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
-      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.1.3\lib\net35\AWSSDK.Rekognition.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.1.4\lib\net35\AWSSDK.Rekognition.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Polly">
       <HintPath>..\..\packages\AWSSDK.Polly.3.3.0.9\lib\net35\AWSSDK.Polly.dll</HintPath>
@@ -238,7 +238,7 @@
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.1.9\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
-      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.3.3\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.4\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.1.2\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
@@ -307,7 +307,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceMetering.3.3.1.7\lib\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
-      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.2.4\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.3\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.11\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
