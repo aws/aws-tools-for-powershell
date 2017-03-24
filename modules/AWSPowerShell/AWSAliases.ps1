@@ -161,6 +161,8 @@ Set-Alias -Name Describe-ADSConfigurations -Value Get-ADSConfiguration
 Set-Alias -Name ADS-DescribeConfigurations -Value Get-ADSConfiguration
 Set-Alias -Name Describe-ADSExportConfiguration -Value Get-ADSExportConfiguration
 Set-Alias -Name ADS-DescribeExportConfigurations -Value Get-ADSExportConfiguration
+Set-Alias -Name Describe-ADSExportTask -Value Get-ADSExportTask
+Set-Alias -Name ADS-DescribeExportTasks -Value Get-ADSExportTask
 Set-Alias -Name Describe-ADSTags -Value Get-ADSTag
 Set-Alias -Name ADS-DescribeTags -Value Get-ADSTag
 Set-Alias -Name ADS-DisassociateConfigurationItemsFromApplication -Value Remove-ADSConfigurationItemsFromApplication
@@ -169,6 +171,7 @@ Set-Alias -Name ADS-GetDiscoverySummary -Value Get-ADSDiscoverySummary
 Set-Alias -Name ADS-ListConfigurations -Value Get-ADSConfigurationList
 Set-Alias -Name ADS-ListServerNeighbors -Value Get-ADSServerNeighborList
 Set-Alias -Name ADS-StartDataCollectionByAgentIds -Value Start-ADSDataCollectionByAgentId
+Set-Alias -Name ADS-StartExportTask -Value Start-ADSExportTask
 Set-Alias -Name ADS-StopDataCollectionByAgentIds -Value Stop-ADSDataCollectionByAgentId
 Set-Alias -Name ADS-UpdateApplication -Value Update-ADSApplication
 Set-Alias -Name APS-AssociateFleet -Value Register-APSFleet

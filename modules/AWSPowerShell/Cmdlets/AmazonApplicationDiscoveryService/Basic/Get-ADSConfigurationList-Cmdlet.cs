@@ -28,8 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieves a list of configuration items according to criteria you specify in a filter.
-    /// The filter criteria identify relationship requirements.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list of configuration items according to criteria that you specify in
+    /// a filter. The filter criteria identifies the relationship requirements.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSConfigurationList")]
     [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ConfigurationType
         /// <summary>
         /// <para>
-        /// <para>A valid configuration identified by the Discovery Service. </para>
+        /// <para>A valid configuration identified by Application Discovery Service. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>
         /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
         /// format. For example: </para><para><code>{"key": "serverType", "value": "webServer"}</code></para><para>For a complete list of filter options and guidance about using them with this action,
-        /// see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations">Querying
+        /// see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations">Querying
         /// Discovered Configuration Items</a>. </para>
         /// </para>
         /// </summary>
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>Certain filter criteria return output that can be sorted in ascending or descending
-        /// order. For a list of output characteristics for each filter, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations">Querying
-        /// Discovered Configuration Items</a>.</para>
+        /// order. For a list of output characteristics for each filter, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations">Using
+        /// the ListConfigurations Action</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -1,3 +1,9 @@
+### 3.3.67.0 (2017-03-24)
+  * AWS Application Discovery Service
+    - Added two new cmdlets Get-ADSExportTask (DescribeExportTasks API) and Start-ADSExportTask (StartExportTask API) to support the new service feature for exporting configuration options.
+  * AWS Lambda
+    - Added argument completion support for the new Node.js v6.10 runtime option.
+
 ### 3.3.65.0 (2017-03-21)
   * Amazon S3
     - Fixed issue with the Write-S3Object cmdlet reporting error "The difference between the request time and the current time is too large" when uploading very large (> 100GB) files.

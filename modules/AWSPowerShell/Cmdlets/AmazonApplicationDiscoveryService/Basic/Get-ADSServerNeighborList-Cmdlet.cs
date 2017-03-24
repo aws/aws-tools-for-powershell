@@ -28,7 +28,7 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Retrieves a list of servers which are one network hop away from a specified server.
+    /// Retrieves a list of servers that are one network hop away from a specified server.
     /// </summary>
     [Cmdlet("Get", "ADSServerNeighborList")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsResponse")]

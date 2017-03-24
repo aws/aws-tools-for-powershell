@@ -169,7 +169,7 @@
       <HintPath>..\..\packages\AWSSDK.MachineLearning.3.3.0.10\lib\net35\AWSSDK.MachineLearning.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lambda">
-      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.2.9\lib\net35\AWSSDK.Lambda.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Lambda.3.3.3\lib\net35\AWSSDK.Lambda.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisFirehose">
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.1.5\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
@@ -280,7 +280,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.1.7\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
-      <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.8\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.9\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudSearchDomain">
       <HintPath>..\..\packages\AWSSDK.CloudSearchDomain.3.3.0.10\lib\net35\AWSSDK.CloudSearchDomain.dll</HintPath>
@@ -313,10 +313,10 @@
       <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.11\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
-      <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.1.4\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.2\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
-      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.1.7\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.2\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.APIGateway">
       <HintPath>..\..\packages\AWSSDK.APIGateway.3.3.5.3\lib\net35\AWSSDK.APIGateway.dll</HintPath>

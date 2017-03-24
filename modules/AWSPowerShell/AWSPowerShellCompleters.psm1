@@ -260,7 +260,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ScalableDimension")
         }
         {
-            $v = "ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
+            $v = "appstream:fleet:DesiredCapacity","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
             break
         }
         
@@ -275,7 +275,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ServiceNamespace")
         }
         {
-            $v = "ec2","ecs","elasticmapreduce"
+            $v = "appstream","ec2","ecs","elasticmapreduce"
             break
         }
         
@@ -3108,7 +3108,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnetcore1.0","java8","nodejs","nodejs4.3","nodejs4.3-edge","python2.7"
+            $v = "dotnetcore1.0","java8","nodejs","nodejs4.3","nodejs4.3-edge","nodejs6.10","python2.7"
             break
         }
         

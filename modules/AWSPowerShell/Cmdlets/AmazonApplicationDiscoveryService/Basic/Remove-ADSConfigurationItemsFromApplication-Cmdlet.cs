@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ApplicationConfigurationId
         /// <summary>
         /// <para>
-        /// <para>Configuration ID of an application from which each item will be disassociated.</para>
+        /// <para>Configuration ID of an application from which each item is disassociated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>Configuration ID of each item be be disassociated from an application.</para>
+        /// <para>Configuration ID of each item to be disassociated from an application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

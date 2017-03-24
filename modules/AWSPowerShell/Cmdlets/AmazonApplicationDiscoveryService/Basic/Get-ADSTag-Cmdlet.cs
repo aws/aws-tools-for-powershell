@@ -47,10 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>
         /// <para>You can filter the list using a <i>key</i>-<i>value</i> format. You can separate these
         /// items by using logical operators. Allowed filters include <code>tagKey</code>, <code>tagValue</code>,
-        /// and <code>configurationId</code>. </para><para>For a complete list of filter options and guidance about using them with this action,
-        /// see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html">Managing
-        /// AWS Application Discovery Service Agents and the AWS Application Discovery Connector
-        /// </a>.</para>
+        /// and <code>configurationId</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

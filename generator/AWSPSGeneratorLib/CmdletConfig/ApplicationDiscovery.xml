@@ -33,6 +33,9 @@
 	<ServiceOperation MethodName="DescribeAgents" />
 	<ServiceOperation MethodName="DescribeConfigurations" />
 	<ServiceOperation MethodName="DescribeExportConfigurations" Noun="ExportConfiguration" />
+    
+    <ServiceOperation MethodName="DescribeExportTasks" Noun="ExportTask" />
+    
     <ServiceOperation MethodName="DisassociateConfigurationItemsFromApplication" Verb="Remove" PipelineParameter="ApplicationConfigurationId" Output="Void"/>
 	<ServiceOperation MethodName="DescribeTags" NoPipelineParameter="true" />
 	<ServiceOperation MethodName="ExportConfigurations" 
@@ -46,6 +49,9 @@
     <ServiceOperation MethodName="ListServerNeighbors" Verb="Get" Noun="ServerNeighborList" Output="Response"/>
 	<ServiceOperation MethodName="StartDataCollectionByAgentIds" 
 	                  Noun="DataCollectionByAgentId" />
+
+    <ServiceOperation MethodName="StartExportTask" />
+                      
 	<ServiceOperation MethodName="StopDataCollectionByAgentIds" 
 	                  Noun="DataCollectionByAgentId" />
     <ServiceOperation MethodName="UpdateApplication" PipelineParameter="ConfigurationId" Output="Void"/>

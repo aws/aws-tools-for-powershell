@@ -28,8 +28,13 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
+    /// Deprecated. Use <code>DescribeExportTasks</code> instead.
+    /// 
+    ///  
+    /// <para>
     /// Retrieves the status of a given export process. You can retrieve status from a maximum
-    /// of 100 processes.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// of 100 processes.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfiguration")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
@@ -67,10 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to get the next set of results. For example, if you specified 100 IDs for
-        /// <code>DescribeExportConfigurationsRequest$exportIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code>
-        /// to 10, you will get results in a set of 10. Use the token in the query to get the
-        /// next set of 10.</para>
+        /// <para>A token to get the next set of results. For example, if you specify 100 IDs for <code>DescribeExportConfigurationsRequest$exportIds</code>
+        /// but set <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get
+        /// results in a set of 10. Use the token in the query to get the next set of 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

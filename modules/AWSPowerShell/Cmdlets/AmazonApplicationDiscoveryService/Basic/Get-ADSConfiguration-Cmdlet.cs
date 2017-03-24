@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// 
     ///  
     /// <para>
-    /// For a complete list of outputs for each asset type, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#DescribeConfigurations">Querying
-    /// Discovered Configuration Items</a>.
+    /// For a complete list of outputs for each asset type, see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#DescribeConfigurations">Using
+    /// the DescribeConfigurations Action</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ADSConfiguration")]

@@ -22,88 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ApplicationAutoScaling;
-using Amazon.ApplicationAutoScaling.Model;
+using Amazon.ApplicationDiscoveryService;
+using Amazon.ApplicationDiscoveryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AAS
+namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Provides descriptive information about the scalable targets in the specified namespace.
-    /// 
-    ///  
-    /// <para>
-    /// You can filter the results using the <code>ResourceIds</code> and <code>ScalableDimension</code>
-    /// parameters.
-    /// </para><para>
-    /// To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>.
-    /// If you are no longer using a scalable target, you can deregister it using <a>DeregisterScalableTarget</a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieve status of one or more export tasks. You can retrieve the status of up to
+    /// 100 export tasks.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "AASScalableTarget")]
-    [OutputType("Amazon.ApplicationAutoScaling.Model.ScalableTarget")]
-    [AWSCmdlet("Invokes the DescribeScalableTargets operation against Application Auto Scaling.", Operation = new[] {"DescribeScalableTargets"})]
-    [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.ScalableTarget",
-        "This cmdlet returns a collection of ScalableTarget objects.",
-        "The service call response (type Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "ADSExportTask")]
+    [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
+    [AWSCmdlet("Invokes the DescribeExportTasks operation against Application Discovery Service.", Operation = new[] {"DescribeExportTasks"})]
+    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ExportInfo",
+        "This cmdlet returns a collection of ExportInfo objects.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
+    public partial class GetADSExportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter ExportId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource associated with the scalable target. This string consists
-        /// of the resource type and unique identifier. If you specify a scalable dimension, you
-        /// must also specify a resource ID.</para><ul><li><para>ECS service - The resource type is <code>service</code> and the unique identifier
-        /// is the cluster name and service name. Example: <code>service/default/sample-webapp</code>.</para></li><li><para>Spot fleet request - The resource type is <code>spot-fleet-request</code> and the
-        /// unique identifier is the Spot fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</para></li><li><para>EMR cluster - The resource type is <code>instancegroup</code> and the unique identifier
-        /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li><li><para>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier
-        /// is the fleet name. Example: <code>fleet/sample-fleet</code>.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("ResourceIds")]
-        public System.String[] ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ScalableDimension
-        /// <summary>
-        /// <para>
-        /// <para>The scalable dimension associated with the scalable target. This string consists of
-        /// the service namespace, resource type, and scaling property. If you specify a scalable
-        /// dimension, you must also specify a resource ID.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
-        /// fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
-        /// an EMR Instance Group.</para></li><li><para><code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream
-        /// 2.0 fleet.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ApplicationAutoScaling.ScalableDimension")]
-        public Amazon.ApplicationAutoScaling.ScalableDimension ScalableDimension { get; set; }
-        #endregion
-        
-        #region Parameter ServiceNamespace
-        /// <summary>
-        /// <para>
-        /// <para>The namespace of the AWS service. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>One or more unique identifiers used to query the status of an export request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.ApplicationAutoScaling.ServiceNamespace")]
-        public Amazon.ApplicationAutoScaling.ServiceNamespace ServiceNamespace { get; set; }
+        [Alias("ExportIds")]
+        public System.String[] ExportId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of scalable target results. This value can be between 1 and 50.
-        /// The default value is 50.</para><para>If this parameter is used, the operation returns up to <code>MaxResults</code> results
-        /// at a time, along with a <code>NextToken</code> value. To get the next set of results,
-        /// include the <code>NextToken</code> value in a subsequent call. If this parameter is
-        /// not used, the operation returns up to 50 results and a <code>NextToken</code> value,
-        /// if applicable.</para>
+        /// <para>The maximum number of volume results returned by <code>DescribeExportTasks</code>
+        /// in paginated output. When this parameter is used, <code>DescribeExportTasks</code>
+        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+        /// response element.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -114,7 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results.</para>
+        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeExportTasks</code>
+        /// request where <code>maxResults</code> was used and the results exceeded the value
+        /// of that parameter. Pagination continues from the end of the previous results that
+        /// returned the <code>nextToken</code> value. This value is null when there are no more
+        /// results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -137,15 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.ExportId != null)
+            {
+                context.ExportIds = new List<System.String>(this.ExportId);
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.ResourceId != null)
-            {
-                context.ResourceIds = new List<System.String>(this.ResourceId);
-            }
-            context.ScalableDimension = this.ScalableDimension;
-            context.ServiceNamespace = this.ServiceNamespace;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,30 +119,29 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsRequest();
-            if (cmdletContext.ResourceIds != null)
+            var request = new Amazon.ApplicationDiscoveryService.Model.DescribeExportTasksRequest();
+            if (cmdletContext.ExportIds != null)
             {
-                request.ResourceIds = cmdletContext.ResourceIds;
-            }
-            if (cmdletContext.ScalableDimension != null)
-            {
-                request.ScalableDimension = cmdletContext.ScalableDimension;
-            }
-            if (cmdletContext.ServiceNamespace != null)
-            {
-                request.ServiceNamespace = cmdletContext.ServiceNamespace;
+                request.ExportIds = cmdletContext.ExportIds;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -200,6 +157,20 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -208,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ScalableTargets;
+                        object pipelineOutput = response.ExportsInfo;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -217,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ScalableTargets.Count;
+                        int _receivedThisCall = response.ExportsInfo.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -237,6 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -260,13 +240,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsRequest request)
+        private static Amazon.ApplicationDiscoveryService.Model.DescribeExportTasksResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeExportTasksRequest request)
         {
             #if DESKTOP
-            return client.DescribeScalableTargets(request);
+            return client.DescribeExportTasks(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeScalableTargetsAsync(request);
+            var task = client.DescribeExportTasksAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -277,11 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> ExportIds { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ResourceIds { get; set; }
-            public Amazon.ApplicationAutoScaling.ScalableDimension ScalableDimension { get; set; }
-            public Amazon.ApplicationAutoScaling.ServiceNamespace ServiceNamespace { get; set; }
         }
         
     }

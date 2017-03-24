@@ -59,10 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <summary>
         /// <para>
         /// <para>You can filter the request using various logical operators and a <i>key</i>-<i>value</i>
-        /// format. For example: </para><para><code>{"key": "collectionStatus", "value": "STARTED"}</code></para><para>For a complete list of filter options and guidance about using them with this action,
-        /// see <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agent.html">Managing
-        /// AWS Application Discovery Service Agents and the AWS Application Discovery Connector
-        /// </a>.</para>
+        /// format. For example: </para><para><code>{"key": "collectionStatus", "value": "STARTED"}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

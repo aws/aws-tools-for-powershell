@@ -28,33 +28,27 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Instructs the specified agents or connectors to start collecting data.
+    /// Export the configuration data about discovered configuration items and relationships
+    /// to an S3 bucket in a specified format.
     /// </summary>
-    [Cmdlet("Start", "ADSDataCollectionByAgentId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus")]
-    [AWSCmdlet("Invokes the StartDataCollectionByAgentIds operation against Application Discovery Service.", Operation = new[] {"StartDataCollectionByAgentIds"})]
-    [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus",
-        "This cmdlet returns a collection of AgentConfigurationStatus objects.",
-        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "ADSExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the StartExportTask operation against Application Discovery Service.", Operation = new[] {"StartExportTask"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartADSDataCollectionByAgentIdCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
+    public partial class StartADSExportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter AgentId
+        #region Parameter ExportDataFormat
         /// <summary>
         /// <para>
-        /// <para>The IDs of the agents or connectors from which to start collecting data. If you send
-        /// a request to an agent/connector ID that you do not have permission to contact, according
-        /// to your AWS account, the service does not throw an exception. Instead, it returns
-        /// the error in the <i>Description</i> field. If you send a request to multiple agents/connectors
-        /// and you do not have permission to contact some of those agents/connectors, the system
-        /// does not throw an exception. Instead, the system shows <code>Failed</code> in the
-        /// <i>Description</i> field.</para>
+        /// <para>The file format for the returned export data. Default value is <code>CSV</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("AgentIds")]
-        public System.String[] AgentId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String[] ExportDataFormat { get; set; }
         #endregion
         
         #region Parameter Force
@@ -71,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AgentId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ADSDataCollectionByAgentId (StartDataCollectionByAgentIds)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ExportDataFormat", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ADSExportTask (StartExportTask)"))
             {
                 return;
             }
@@ -86,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.AgentId != null)
+            if (this.ExportDataFormat != null)
             {
-                context.AgentIds = new List<System.String>(this.AgentId);
+                context.ExportDataFormat = new List<System.String>(this.ExportDataFormat);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -104,11 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest();
+            var request = new Amazon.ApplicationDiscoveryService.Model.StartExportTaskRequest();
             
-            if (cmdletContext.AgentIds != null)
+            if (cmdletContext.ExportDataFormat != null)
             {
-                request.AgentIds = cmdletContext.AgentIds;
+                request.ExportDataFormat = cmdletContext.ExportDataFormat;
             }
             
             CmdletOutput output;
@@ -119,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AgentsConfigurationStatus;
+                object pipelineOutput = response.ExportId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -144,13 +138,13 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest request)
+        private static Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartExportTaskRequest request)
         {
             #if DESKTOP
-            return client.StartDataCollectionByAgentIds(request);
+            return client.StartExportTask(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StartDataCollectionByAgentIdsAsync(request);
+            var task = client.StartExportTaskAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -161,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> AgentIds { get; set; }
+            public List<System.String> ExportDataFormat { get; set; }
         }
         
     }
