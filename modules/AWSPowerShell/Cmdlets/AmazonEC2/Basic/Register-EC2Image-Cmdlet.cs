@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></note><para>
     /// You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI
     /// from a snapshot of a root device volume. You specify the snapshot using the block
-    /// device mapping. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html">Launching
-    /// an Instance from a Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// device mapping. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html">Launching
+    /// a Linux Instance from a Backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// You can't register an image where a secondary (non-root) snapshot has AWS Marketplace
     /// product codes.
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BillingProduct
         /// <summary>
         /// <para>
-        /// <para>The billing product codes.</para>
+        /// <para>The billing product codes. Your account must be authorized to specify billing product
+        /// codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

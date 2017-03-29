@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Updates the status of the SSM document associated with the specified instance.
+    /// Updates the status of the Systems Manager document associated with the specified instance.
     /// </summary>
     [Cmdlet("Update", "SSMAssociationStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]

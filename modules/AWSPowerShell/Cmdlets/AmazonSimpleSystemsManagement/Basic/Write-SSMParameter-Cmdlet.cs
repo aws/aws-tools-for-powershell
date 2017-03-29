@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Overwrite
         /// <summary>
         /// <para>
-        /// <para>Overwrite an existing parameter.</para>
+        /// <para>Overwrite an existing parameter. If not specified, will default to "false".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

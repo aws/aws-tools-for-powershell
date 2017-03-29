@@ -28,9 +28,15 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Attaches a virtual private gateway to a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
+    /// Attaches a virtual private gateway to a VPC. You can attach one virtual private gateway
+    /// to one VPC at a time.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
     /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
     /// Cloud User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "EC2VpnGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcAttachment")]

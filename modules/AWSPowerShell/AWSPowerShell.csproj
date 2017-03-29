@@ -61,7 +61,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.0.8\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Batch">
-      <HintPath>..\..\packages\AWSSDK.Batch.3.3.0.5\lib\net35\AWSSDK.Batch.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Batch.3.3.1\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
       <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.1.3\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
@@ -133,7 +133,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.1.8\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.2.5\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.3\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.10\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -229,7 +229,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.5\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.11.3\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.12\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.4.3\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>

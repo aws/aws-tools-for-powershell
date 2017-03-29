@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentName
         /// <summary>
         /// <para>
-        /// <para>Required. The name of the SSM document to execute. This can be an SSM public document
-        /// or a custom document.</para>
+        /// <para>Required. The name of the Systems Manager document to execute. This can be a public
+        /// document or a custom document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>(Optional) The maximum number of instances that are allowed to execute the command
         /// at the same time. You can specify a number such as “10” or a percentage such as “10%”.
         /// The default value is 50. For more information about how to use <code>MaxConcurrency</code>,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html">Executing
-        /// a Command Using Amazon EC2 Run Command</a> (Linux) or <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html">Executing
-        /// a Command Using Amazon EC2 Run Command</a> (Windows).</para>
+        /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Executing
+        /// a Command Using Systems Manager Run Command</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,9 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// fails one more time beyond the value of <code>MaxErrors</code>, the systems stops
         /// sending the command to additional targets. You can specify a number like “10” or a
         /// percentage like “10%”. The default value is 50. For more information about how to
-        /// use <code>MaxErrors</code>, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html">Executing
-        /// a Command Using Amazon EC2 Run Command</a> (Linux) or <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html">Executing
-        /// a Command Using Amazon EC2 Run Command</a> (Windows).</para>
+        /// use <code>MaxErrors</code>, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Executing
+        /// a Command Using Systems Manager Run Command</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The different events for which you can receive notifications. These events include
         /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
-        /// learn more about these events, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitor-commands.html">Monitoring
-        /// Commands</a> in the <i>Amazon Elastic Compute Cloud User Guide </i>.</para>
+        /// learn more about these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Setting
+        /// Up Events and Notifications</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The required and optional parameters specified in the SSM document being executed.</para>
+        /// <para>The required and optional parameters specified in the document being executed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -220,12 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>(Optional) An array of search criteria that targets instances using a <code>Key</code>;<code>Value</code>
+        /// <para>(Optional) An array of search criteria that targets instances using a <code>Key</code>,<code>Value</code>
         /// combination that you specify. <code>Targets</code> is required if you don't provide
         /// one or more instance IDs in the call. For more information about how to use <code>Targets</code>,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html">Executing
-        /// a Command Using Amazon EC2 Run Command</a> (Linux) or <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html">Executing
-        /// a Command Using Amazon EC2 Run Command</a> (Windows).</para>
+        /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Executing
+        /// a Command Using Systems Manager Run Command</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

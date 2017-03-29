@@ -44,9 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
+    /// You can tag your volumes during creation. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+    /// Your Amazon EC2 Resources</a>.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
-    /// or Restoring an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User
-    /// Guide</i>.
+    /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -138,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SnapshotId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the volume during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter VolumeType
         /// <summary>
         /// <para>
@@ -189,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (ParameterWasBound("Size"))
                 context.Size = this.Size;
             context.SnapshotId = this.SnapshotId;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VolumeType = this.VolumeType;
             
             // allow further manipulation of loaded context prior to processing
@@ -229,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SnapshotId != null)
             {
                 request.SnapshotId = cmdletContext.SnapshotId;
+            }
+            if (cmdletContext.TagSpecifications != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecifications;
             }
             if (cmdletContext.VolumeType != null)
             {
@@ -291,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String KmsKeyId { get; set; }
             public System.Int32? Size { get; set; }
             public System.String SnapshotId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
             public Amazon.EC2.VolumeType VolumeType { get; set; }
         }
         

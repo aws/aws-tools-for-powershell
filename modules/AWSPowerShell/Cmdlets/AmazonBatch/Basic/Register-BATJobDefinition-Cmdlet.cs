@@ -39,6 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class RegisterBATJobDefinitionCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        #region Parameter RetryStrategy_Attempt
+        /// <summary>
+        /// <para>
+        /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
+        /// between 1 and 10 attempts. If <code>attempts</code> is greater than one, the job is
+        /// retried if it fails until it has moved to <code>RUNNABLE</code> that many times.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RetryStrategy_Attempts")]
+        public System.Int32 RetryStrategy_Attempt { get; set; }
+        #endregion
+        
         #region Parameter ContainerProperties_Command
         /// <summary>
         /// <para>
@@ -318,6 +331,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                     context.Parameters.Add((String)hashKey, (String)(this.Parameter[hashKey]));
                 }
             }
+            if (ParameterWasBound("RetryStrategy_Attempt"))
+                context.RetryStrategy_Attempts = this.RetryStrategy_Attempt;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -472,6 +487,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.Parameters = cmdletContext.Parameters;
             }
+            
+             // populate RetryStrategy
+            bool requestRetryStrategyIsNull = true;
+            request.RetryStrategy = new Amazon.Batch.Model.RetryStrategy();
+            System.Int32? requestRetryStrategy_retryStrategy_Attempt = null;
+            if (cmdletContext.RetryStrategy_Attempts != null)
+            {
+                requestRetryStrategy_retryStrategy_Attempt = cmdletContext.RetryStrategy_Attempts.Value;
+            }
+            if (requestRetryStrategy_retryStrategy_Attempt != null)
+            {
+                request.RetryStrategy.Attempts = requestRetryStrategy_retryStrategy_Attempt.Value;
+                requestRetryStrategyIsNull = false;
+            }
+             // determine if request.RetryStrategy should be set to null
+            if (requestRetryStrategyIsNull)
+            {
+                request.RetryStrategy = null;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -541,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.Volume> ContainerProperties_Volumes { get; set; }
             public System.String JobDefinitionName { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
+            public System.Int32? RetryStrategy_Attempts { get; set; }
             public Amazon.Batch.JobDefinitionType Type { get; set; }
         }
         

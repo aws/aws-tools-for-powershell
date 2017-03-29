@@ -28,12 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates an SSM document.
+    /// Creates a Systems Manager document.
     /// 
     ///  
     /// <para>
-    /// After you create an SSM document, you can use CreateAssociation to associate it with
-    /// one or more running instances.
+    /// After you create a document, you can use CreateAssociation to associate it with one
+    /// or more running instances.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the SSM document.</para>
+        /// <para>A name for the Systems Manager document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

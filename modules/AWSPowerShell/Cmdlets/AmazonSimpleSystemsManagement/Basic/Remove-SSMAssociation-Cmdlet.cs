@@ -28,11 +28,11 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Disassociates the specified SSM document from the specified instance.
+    /// Disassociates the specified Systems Manager document from the specified instance.
     /// 
     ///  
     /// <para>
-    /// When you disassociate an SSM document from an instance, it does not change the configuration
+    /// When you disassociate a document from an instance, it does not change the configuration
     /// of the instance. To change the configuration state of an instance after you disassociate
     /// a document, you must create a new document with the desired configuration and associate
     /// it with the instance.
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The name of the Systems Manager document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

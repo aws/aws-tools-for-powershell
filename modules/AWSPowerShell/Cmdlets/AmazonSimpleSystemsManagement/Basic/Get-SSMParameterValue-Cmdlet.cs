@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Get a list of parameters used by the AWS account.&gt;
+    /// Get details of a parameter.
     /// </summary>
     [Cmdlet("Get", "SSMParameterValue")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetParametersResponse")]

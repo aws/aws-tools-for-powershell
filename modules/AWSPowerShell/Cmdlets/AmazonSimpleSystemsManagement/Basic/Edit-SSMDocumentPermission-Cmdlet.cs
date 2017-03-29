@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Share a document publicly or privately. If you share a document privately, you must
-    /// specify the AWS user account IDs for those people who can use the document. If you
-    /// share a document publicly, you must specify <i>All</i> as the account ID.
+    /// Shares a Systems Manager document publicly or privately. If you share a document privately,
+    /// you must specify the AWS user account IDs for those people who can use the document.
+    /// If you share a document publicly, you must specify <i>All</i> as the account ID.
     /// </summary>
     [Cmdlet("Edit", "SSMDocumentPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

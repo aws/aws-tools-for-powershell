@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the associations for the specified SSM document or instance.
+    /// Describes the associations for the specified Systems Manager document or instance.
     /// </summary>
     [Cmdlet("Get", "SSMAssociation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]

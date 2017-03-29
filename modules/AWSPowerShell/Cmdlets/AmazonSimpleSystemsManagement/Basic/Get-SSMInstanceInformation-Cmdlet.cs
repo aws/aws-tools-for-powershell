@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Describes one or more of your instances. You can use this to get information about
-    /// instances like the operating system platform, the SSM agent version (Linux), status
+    /// instances like the operating system platform, the SSM Agent version (Linux), status
     /// etc. If you specify one or more instance IDs, it returns information for those instances.
     /// If you do not specify instance IDs, it returns information for all your instances.
     /// If you specify an instance ID that is not valid or an instance that you do not own,
