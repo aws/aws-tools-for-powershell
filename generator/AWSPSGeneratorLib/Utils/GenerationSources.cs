@@ -86,14 +86,21 @@ namespace AWSPowerShellGenerator.Utils
         }
 
         /// <summary>
-        /// Updates the references to the SDK assemblies in the project files, module
-        /// manifests and nuget package configs for the module.
+        /// Updates the references to the SDK assemblies in the project files and nuget package
+        /// configs, and sdk references and exported aliases data in the module manifests. Adding
+        /// the aliases to the manifest makes them available even if the module has not been explicity
+        /// imported. The set of exported cmdlets is patched into the manifest at a later build
+        /// stage, once we have compiled the module assembly and can reflect over it - at this stage
+        /// of generation, we only know about generated service cmdlets, not hand written ones.
         /// </summary>
         /// <param name="moduleRootFolder">The root folder containing the module source files</param>
-        public void UpdateSDKAssemblyReferences(string moduleRootFolder)
+        /// <param name="legacyAliases">
+        /// The collection of legacy alias names to patch into the AliasesToExport
+        /// manifest member.
+        /// </param>
+        public void UpdateReferencesAndExports(string moduleRootFolder, IEnumerable<string> legacyAliases)
         {
-            // update references in .csproj files
-            var projectFiles = new DotNetPlatformAndArtifacts[]            
+            var projectFiles = new[]            
             {
                 new DotNetPlatformAndArtifacts
                 {
@@ -102,7 +109,6 @@ namespace AWSPowerShellGenerator.Utils
                     ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename),
                     NugetPackagesFile = Path.Combine(moduleRootFolder, "packages.AWSPowerShell.config")
                 },
-                // disable until we merge netcore and master branches
                 new DotNetPlatformAndArtifacts
                 {
                     DotNetPlatform = "netstandard1.3",
@@ -116,6 +122,7 @@ namespace AWSPowerShellGenerator.Utils
             {
                 UpdateProjectReferences(p.ProjectFile, p.DotNetPlatform);
                 UpdateManifestRequiredAssemblies(p.ModuleManifestFile);
+                UpdateManifestAliasExports(p.ModuleManifestFile, legacyAliases);
                 UpdateNugetPackageConfig(p.NugetPackagesFile, p.DotNetPlatform);
             }
         }
@@ -408,26 +415,55 @@ namespace AWSPowerShellGenerator.Utils
         /// </remarks>
         private void UpdateManifestRequiredAssemblies(string moduleManifestFile)
         {
-            const string RequiredAssembliesKey = "RequiredAssemblies = @(";
-
-            var manifestContent = File.ReadAllText(moduleManifestFile);
-            var requiredAssembliesStart = manifestContent.IndexOf(RequiredAssembliesKey, StringComparison.Ordinal);
-            if (requiredAssembliesStart < 0)
-                throw new Exception("Unable to locate 'RequiredAssemblies' key in manifest " + moduleManifestFile);
-
-            var requiredAssembliesEnd = manifestContent.IndexOf(")", requiredAssembliesStart, StringComparison.OrdinalIgnoreCase);
-
             var replacementContent = new StringBuilder();
             foreach (var assembly in Assemblies.Keys)
             {
                 replacementContent.AppendLine();
-                replacementContent.AppendFormat("  \"{0}.dll\",", assembly); // we'll trim the last ,
+                replacementContent.AppendFormat("  \"{0}.dll\",", assembly);
             }
 
-            var newManifest = manifestContent.Substring(0, requiredAssembliesStart + RequiredAssembliesKey.Length)
-                                + replacementContent.ToString().TrimEnd(',')
+            PatchManifestContent(moduleManifestFile, "RequiredAssemblies = @(", replacementContent.ToString());
+        }
+
+        /// <summary>
+        /// Patches the specified aliases into the AliasesToExport member of the manifest.
+        /// </summary>
+        /// <param name="moduleManifestFile"></param>
+        /// <param name="exportedAliases"></param>
+        private void UpdateManifestAliasExports(string moduleManifestFile, IEnumerable<string> exportedAliases)
+        {
+            var replacementContent = new StringBuilder();
+            foreach (var alias in exportedAliases)
+            {
+                replacementContent.AppendLine();
+                replacementContent.AppendFormat("  \"{0}\",", alias); 
+            }
+
+            PatchManifestContent(moduleManifestFile, "AliasesToExport = @(", replacementContent.ToString());
+        }
+
+        /// <summary>
+        /// Generalised helper to patch the RequiredAssemblies and AliasesToExport array members
+        /// in a manifest. As these are array members, it is safe to assume the keys end with a closing )
+        /// character.
+        /// </summary>
+        /// <param name="moduleManifestFile"></param>
+        /// <param name="manifestKey"></param>
+        /// <param name="newContent"></param>
+        private void PatchManifestContent(string moduleManifestFile, string manifestKey, string newContent)
+        {
+            var manifestContent = File.ReadAllText(moduleManifestFile);
+
+            var keyStart = manifestContent.IndexOf(manifestKey, StringComparison.Ordinal);
+            if (keyStart < 0)
+                throw new Exception(string.Format("Unable to locate '{0}' in manifest {1}", manifestKey, moduleManifestFile));
+
+            var keyEnd = manifestContent.IndexOf(")", keyStart, StringComparison.OrdinalIgnoreCase);
+
+            var newManifest = manifestContent.Substring(0, keyStart + manifestKey.Length)
+                                + newContent.TrimEnd(',')
                                 + "\r\n"
-                                + manifestContent.Substring(requiredAssembliesEnd);
+                                + manifestContent.Substring(keyEnd);
 
             WriteIfChanged(moduleManifestFile, manifestContent, newManifest);
         }

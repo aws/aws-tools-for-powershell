@@ -207,14 +207,26 @@ namespace AWSPowerShellGenerator.Generators
         {
             var sb = new StringBuilder();
 
-            var aliases = LegacyAliases.Keys.ToList();
-            aliases.Sort();
+            var aliases = GetLegacyAliases();
             foreach (var alias in aliases)
             {
                 sb.AppendLine(string.Format("Set-Alias -Name {0} -Value {1}", alias, LegacyAliases[alias]));
             }
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the legacy aliases as a list, suitable for use in patching the
+        /// AliasesToExport member of the module manifest.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetLegacyAliases()
+        {
+            var aliases = LegacyAliases.Keys.ToList();
+            aliases.Sort();
+
+            return aliases;
         }
 
         /// <summary>
@@ -311,7 +323,7 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.Log();
             }
 
-            SourceArtifacts.UpdateSDKAssemblyReferences(OutputFolder);
+            SourceArtifacts.UpdateReferencesAndExports(OutputFolder, GetLegacyAliases());
 
             Console.WriteLine("...updating script completers module");
             var argumentCompleterScriptModuleFile = Path.Combine(OutputFolder, ArgumentCompleterScriptModuleFilename);
