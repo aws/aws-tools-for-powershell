@@ -410,6 +410,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AdditionalInfo { get; set; }
         #endregion
 
+        #region Parameter TagSpecification
+        /// <summary>
+        /// The tags to apply to the resources during launch. You can tag instances and volumes. 
+        /// The specified tags are applied to all instances or volumes that are created during launch.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -476,6 +486,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.EbsOptimized = this.EbsOptimized;
             context.InstanceProfile_Arn = this.InstanceProfile_Arn;
             context.InstanceProfile_Name = this.InstanceProfile_Name;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.AdditionalInfo = this.AdditionalInfo;
 
             try
@@ -715,6 +729,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.IamInstanceProfile = null;
             }
+            if (cmdletContext.TagSpecifications != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecifications;
+            }
 
             request.AdditionalInfo = cmdletContext.AdditionalInfo;
 
@@ -796,6 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public String InstanceProfile_Arn { get; set; }
             public String InstanceProfile_Name { get; set; }
             public String AdditionalInfo { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
         }
         
     }

@@ -1,3 +1,10 @@
+### 3.3.69.0 (2017-03-29)
+  * AWS Batch
+    - Added parameters to support specifying retry strategy for the Register-BATJobDefinition and Submit-BATJob cmdlets. The parameter, -RetryStrategy_Attempt, accepts a numeric value for attempts. This is the number of non successful executions before a job is considered FAILED. In addition, the JobDetail object returned by other cmdlets now has an attempts field and shows all execution attempts.
+  * Amazon EC2
+    - Added support for tagging Amazon EC2 Instances and Amazon EBS Volumes at the time of their creation with the addition of a parameter, -TagSpecification, to the New-EC2Volume and New-EC2Instance cmdlets. By tagging resources at the time of creation, you can eliminate the need to run custom tagging scripts after resource creation. In addition, you can now set resource-level permissions on the CreateVolume, CreateTags, DeleteTags, and the RunInstances APIs. This allows you to implement stronger security policies by giving you more granular control over which users and groups have access to these APIs. You can also enforce the use of tagging and control what tag keys and values are set on your resources. When you combine tag usage and resource-level IAM policies together, you can ensure your instances and volumes are properly secured upon creation and achieve more accurate cost allocation reporting. These new features are provided at no additional cost.
+  * Added the legacy alias Get-SSMParameterNameList (an alias for Get-SSMParameterValue) to the AliasesToExport collection in the module manifest so that the alias is available without needing to explicitly import the module.    
+
 ### 3.3.67.0 (2017-03-24)
   * AWS Application Discovery Service
     - Added two new cmdlets Get-ADSExportTask (DescribeExportTasks API) and Start-ADSExportTask (StartExportTask API) to support the new service feature for exporting configuration options.
