@@ -3324,6 +3324,11 @@ Set-Alias -Name REK-ListCollections -Value Get-REKCollectionIdList
 Set-Alias -Name REK-ListFaces -Value Get-REKFaceList
 Set-Alias -Name REK-SearchFaces -Value Search-REKFace
 Set-Alias -Name REK-SearchFacesByImage -Value Search-REKFacesByImage
+Set-Alias -Name RGT-GetResources -Value Get-RGTResource
+Set-Alias -Name RGT-GetTagKeys -Value Get-RGTTagKey
+Set-Alias -Name RGT-GetTagValues -Value Get-RGTTagValue
+Set-Alias -Name RGT-TagResources -Value Add-RGTResourceTag
+Set-Alias -Name RGT-UntagResources -Value Remove-RGTResourceTag
 Set-Alias -Name R53-GetTrafficPolicyInstance -Value Get-R53TrafficPolicyInstance
 Set-Alias -Name R53-GetTrafficPolicyInstanceCount -Value Get-R53TrafficPolicyInstanceCount
 Set-Alias -Name List-R53GeoLocations -Value Get-R53GeoLocations

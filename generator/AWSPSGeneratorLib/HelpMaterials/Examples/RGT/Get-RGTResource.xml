@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-RGTResource
+ResourceARN                                                      Tags          
+-----------                                                      ----            
+arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
+arn:aws:s3:::mybucket                                            {stage, version, othertag}
+    </code>
+    <description>Returns all the tagged resources in a region and the tag keys associated with the resource. If no -Region parameter is supplied to the cmdlet it will attempt to infer region from the shell or EC2 instance metadata.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-RGTResource -ResourceType "s3"
+ResourceARN                                                      Tags          
+-----------                                                      ----            
+arn:aws:s3:::mybucket                                            {stage, version, othertag}
+    </code>
+    <description>Returns all the tagged resources of the specified type in a region. The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN).</description>
+  </example>
+  <example>
+    <code>
+PS C:\> "dynamodb","s3" | Get-RGTResource
+ResourceARN                                                      Tags          
+-----------                                                      ----            
+arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
+arn:aws:s3:::mybucket                                            {stage, version, othertag}
+    </code>
+    <description>Returns all the tagged resources of the specified type in a region. Note that when the resource types are piped into the cmdlet, one call to the service is made for each supplied resource type.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-RGTResource -TagFilter @{ Key="stage" }
+ResourceARN                                                      Tags          
+-----------                                                      ----            
+arn:aws:s3:::mybucket                                            {stage, version, othertag}
+    </code>
+    <description>Returns all the tagged resources that match the specified filter.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-RGTResource -TagFilter @{ Key="stage" } -ResourceType "dynamodb"
+ResourceARN                                                      Tags          
+-----------                                                      ----            
+arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
+    </code>
+    <description>Returns all the tagged resources that match the specified filter and resource type.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-RGTResource -TagFilter @{ Key="stage"; Values=@("beta","gamma") }
+ResourceARN                                                      Tags          
+-----------                                                      ----            
+arn:aws:dynamodb:us-west-2:123456789012:table/mytable            {stage, version}   
+    </code>
+    <description>Returns all the tagged resources that match the specified filter.</description>
+  </example>
+</examples>

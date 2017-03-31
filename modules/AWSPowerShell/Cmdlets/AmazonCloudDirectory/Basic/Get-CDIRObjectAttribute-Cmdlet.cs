@@ -64,6 +64,26 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public System.String DirectoryArn { get; set; }
         #endregion
         
+        #region Parameter FacetFilter_FacetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the facet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FacetFilter_FacetName { get; set; }
+        #endregion
+        
+        #region Parameter FacetFilter_SchemaArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the schema that contains the facet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FacetFilter_SchemaArn { get; set; }
+        #endregion
+        
         #region Parameter ObjectReference_Selector
         /// <summary>
         /// <para>
@@ -111,6 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             
             context.ConsistencyLevel = this.ConsistencyLevel;
             context.DirectoryArn = this.DirectoryArn;
+            context.FacetFilter_FacetName = this.FacetFilter_FacetName;
+            context.FacetFilter_SchemaArn = this.FacetFilter_SchemaArn;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -138,6 +160,35 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (cmdletContext.DirectoryArn != null)
             {
                 request.DirectoryArn = cmdletContext.DirectoryArn;
+            }
+            
+             // populate FacetFilter
+            bool requestFacetFilterIsNull = true;
+            request.FacetFilter = new Amazon.CloudDirectory.Model.SchemaFacet();
+            System.String requestFacetFilter_facetFilter_FacetName = null;
+            if (cmdletContext.FacetFilter_FacetName != null)
+            {
+                requestFacetFilter_facetFilter_FacetName = cmdletContext.FacetFilter_FacetName;
+            }
+            if (requestFacetFilter_facetFilter_FacetName != null)
+            {
+                request.FacetFilter.FacetName = requestFacetFilter_facetFilter_FacetName;
+                requestFacetFilterIsNull = false;
+            }
+            System.String requestFacetFilter_facetFilter_SchemaArn = null;
+            if (cmdletContext.FacetFilter_SchemaArn != null)
+            {
+                requestFacetFilter_facetFilter_SchemaArn = cmdletContext.FacetFilter_SchemaArn;
+            }
+            if (requestFacetFilter_facetFilter_SchemaArn != null)
+            {
+                request.FacetFilter.SchemaArn = requestFacetFilter_facetFilter_SchemaArn;
+                requestFacetFilterIsNull = false;
+            }
+             // determine if request.FacetFilter should be set to null
+            if (requestFacetFilterIsNull)
+            {
+                request.FacetFilter = null;
             }
             if (cmdletContext.MaxResults != null)
             {
@@ -221,6 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }
+            public System.String FacetFilter_FacetName { get; set; }
+            public System.String FacetFilter_SchemaArn { get; set; }
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String ObjectReference_Selector { get; set; }
