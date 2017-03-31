@@ -96,6 +96,9 @@
     <Reference Include="AWSSDK.Polly">
       <HintPath>..\..\packages\AWSSDK.Polly.3.3.0.10\lib\net35\AWSSDK.Polly.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
+      <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.0\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WAFRegional">
       <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.0.7\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
     </Reference>

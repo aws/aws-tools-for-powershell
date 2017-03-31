@@ -74,6 +74,7 @@
 		"AWSSDK.RDS": "3.3.8.4",
 		"AWSSDK.Redshift": "3.3.1.11",
 		"AWSSDK.Rekognition": "3.3.1.5",
+		"AWSSDK.ResourceGroupsTaggingAPI": "3.3.0",
 		"AWSSDK.Route53": "3.3.5.4",
 		"AWSSDK.Route53Domains": "3.3.0.11",
 		"AWSSDK.S3": "3.3.5.11",
