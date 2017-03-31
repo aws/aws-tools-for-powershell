@@ -3920,6 +3920,7 @@ Set-Alias -Name Describe-SSMEffectiveInstanceAssociationList -Value Get-SSMEffec
 Set-Alias -Name SSM-DescribeEffectiveInstanceAssociations -Value Get-SSMEffectiveInstanceAssociationList
 Set-Alias -Name Describe-SSMEffectivePatchesForPatchBaseline -Value Get-SSMEffectivePatchesForPatchBaseline
 Set-Alias -Name SSM-DescribeEffectivePatchesForPatchBaseline -Value Get-SSMEffectivePatchesForPatchBaseline
+Set-Alias -Name SG-UpdateGatewayInformation -Value Update-SGGatewayInformation
 Set-Alias -Name SG-UpdateGatewaySoftwareNow -Value Update-SGGatewaySoftwareNow
 Set-Alias -Name SG-UpdateMaintenanceStartTime -Value Update-SGMaintenanceStartTime
 Set-Alias -Name SG-UpdateNFSFileShare -Value Update-SGNFSFileShare
@@ -3957,6 +3958,7 @@ Set-Alias -Name List-SGVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint
 Set-Alias -Name SG-ListVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint
 Set-Alias -Name List-SGVolumes -Value Get-SGVolume
 Set-Alias -Name SG-ListVolumes -Value Get-SGVolume
+Set-Alias -Name SG-RefreshCache -Value Invoke-SGCacheRefresh
 Set-Alias -Name SG-RemoveTagsFromResource -Value Remove-SGResourceTag
 Set-Alias -Name SG-ResetCache -Value Reset-SGCache
 Set-Alias -Name Retrieve-SGTapeArchive -Value Get-SGTapeArchive
@@ -3969,7 +3971,6 @@ Set-Alias -Name SG-ShutdownGateway -Value Stop-SGGateway
 Set-Alias -Name SG-StartGateway -Value Start-SGGateway
 Set-Alias -Name SG-UpdateBandwidthRateLimit -Value Update-SGBandwidthRateLimit
 Set-Alias -Name SG-UpdateChapCredentials -Value Update-SGChapCredentials
-Set-Alias -Name SG-UpdateGatewayInformation -Value Update-SGGatewayInformation
 Set-Alias -Name Activate-SGGateway -Value Enable-SGGateway
 Set-Alias -Name SG-ActivateGateway -Value Enable-SGGateway
 Set-Alias -Name SG-AddCache -Value Add-SGCache

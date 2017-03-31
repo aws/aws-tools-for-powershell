@@ -28,38 +28,28 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Deletes the specified virtual tape. This operation is only supported in tape gateways.
+    /// Refreshes the cache for the specified file share. This operation finds objects in
+    /// the Amazon S3 bucket that were added or removed since the gateway last listed the
+    /// bucket's contents and cached the results.
     /// </summary>
-    [Cmdlet("Remove", "SGTape", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Invoke", "SGCacheRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteTape operation against AWS Storage Gateway.", Operation = new[] {"DeleteTape"})]
+    [AWSCmdlet("Invokes the RefreshCache operation against AWS Storage Gateway.", Operation = new[] {"RefreshCache"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DeleteTapeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.RefreshCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSGTapeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class InvokeSGCacheRefreshCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter GatewayARN
+        #region Parameter FileShareARN
         /// <summary>
         /// <para>
-        /// <para>The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete
-        /// is associated with. Use the <a>ListGateways</a> operation to return a list of gateways
-        /// for your account and region.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GatewayARN { get; set; }
-        #endregion
-        
-        #region Parameter TapeARN
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the virtual tape to delete.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String TapeARN { get; set; }
+        public System.String FileShareARN { get; set; }
         #endregion
         
         #region Parameter Force
@@ -76,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TapeARN", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SGTape (DeleteTape)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FileShareARN", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-SGCacheRefresh (RefreshCache)"))
             {
                 return;
             }
@@ -91,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GatewayARN = this.GatewayARN;
-            context.TapeARN = this.TapeARN;
+            context.FileShareARN = this.FileShareARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -107,15 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.DeleteTapeRequest();
+            var request = new Amazon.StorageGateway.Model.RefreshCacheRequest();
             
-            if (cmdletContext.GatewayARN != null)
+            if (cmdletContext.FileShareARN != null)
             {
-                request.GatewayARN = cmdletContext.GatewayARN;
-            }
-            if (cmdletContext.TapeARN != null)
-            {
-                request.TapeARN = cmdletContext.TapeARN;
+                request.FileShareARN = cmdletContext.FileShareARN;
             }
             
             CmdletOutput output;
@@ -126,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TapeARN;
+                object pipelineOutput = response.FileShareARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -151,13 +136,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteTapeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteTapeRequest request)
+        private static Amazon.StorageGateway.Model.RefreshCacheResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RefreshCacheRequest request)
         {
             #if DESKTOP
-            return client.DeleteTape(request);
+            return client.RefreshCache(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteTapeAsync(request);
+            var task = client.RefreshCacheAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -168,8 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String GatewayARN { get; set; }
-            public System.String TapeARN { get; set; }
+            public System.String FileShareARN { get; set; }
         }
         
     }

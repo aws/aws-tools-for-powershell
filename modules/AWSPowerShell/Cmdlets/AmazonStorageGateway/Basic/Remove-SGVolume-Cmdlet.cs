@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Deletes the specified gateway volume that you previously created using the <a>CreateCachediSCSIVolume</a>
-    /// or <a>CreateStorediSCSIVolume</a> API. For gateway-stored volumes, the local disk
+    /// or <a>CreateStorediSCSIVolume</a> API. For stored volumes gateways, the local disk
     /// that was configured as the storage volume is not deleted. You can reuse the local
     /// disk to create another storage volume. 
     /// 

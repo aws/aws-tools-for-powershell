@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Initiates a snapshot of a gateway from a volume recovery point. This operation is
-    /// supported only for the gateway-cached volume architecture.
+    /// only supported in the cached volumes gateway architecture.
     /// 
     ///  
     /// <para>
     /// A volume recovery point is a point in time at which all data of the volume is consistent
     /// and from which you can create a snapshot. To get a list of volume recovery point for
-    /// gateway-cached volumes, use <a>ListVolumeRecoveryPoints</a>.
+    /// cached volumes gateway, use <a>ListVolumeRecoveryPoints</a>.
     /// </para><para>
     /// In the <code>CreateSnapshotFromVolumeRecoveryPoint</code> request, you identify the
     /// volume by providing its Amazon Resource Name (ARN). You must also provide a description

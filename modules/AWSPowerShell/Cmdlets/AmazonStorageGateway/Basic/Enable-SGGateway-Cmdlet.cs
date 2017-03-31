@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Activates the gateway you previously deployed on your host. For more information,
     /// see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html">
     /// Activate the AWS Storage Gateway</a>. In the activation process, you specify information
-    /// such as the you want to use for storing snapshots, the time zone for scheduled snapshots
-    /// the gateway snapshot schedule window, an activation key, and a name for your gateway.
-    /// The activation process also associates your gateway with your account; for more information,
-    /// see <a>UpdateGatewayInformation</a>.
+    /// such as the region you want to use for storing snapshots, the time zone for scheduled
+    /// snapshots the gateway snapshot schedule window, an activation key, and a name for
+    /// your gateway. The activation process also associates your gateway with your account;
+    /// for more information, see <a>UpdateGatewayInformation</a>.
     /// 
     ///  <note><para>
     /// You must turn on the gateway VM before you can activate your gateway.
@@ -82,8 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// gateway region specified must be the same region as the region in your <code>Host</code>
         /// header in the request. For more information about available regions and endpoints
         /// for AWS Storage Gateway, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
-        /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: "us-east-1", "us-west-1", "us-west-2", "eu-west-1", "eu-central-1",
-        /// "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "sa-east-1"</para>
+        /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1",
+        /// "eu-west-1", "eu-central-1", "eu-west-2", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1",
+        /// "ap-southeast-2", "sa-east-1"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -106,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A value that defines the type of gateway to activate. The type specified is critical
         /// to all later functions of the gateway and cannot be changed after activation. The
-        /// default value is <code>STORED</code>. </para>
+        /// default value is <code>STORED</code>. </para><para> Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -116,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter MediumChangerType
         /// <summary>
         /// <para>
-        /// <para>The value that indicates the type of medium changer to use for gateway-VTL. This field
-        /// is optional.</para><para> Valid Values: "STK-L700", "AWS-Gateway-VTL"</para>
+        /// <para>The value that indicates the type of medium changer to use for tape gateway. This
+        /// field is optional.</para><para> Valid Values: "STK-L700", "AWS-Gateway-VTL"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter TapeDriveType
         /// <summary>
         /// <para>
-        /// <para>The value that indicates the type of tape drive to use for gateway-VTL. This field
+        /// <para>The value that indicates the type of tape drive to use for tape gateway. This field
         /// is optional.</para><para> Valid Values: "IBM-ULT3580-TD5" </para>
         /// </para>
         /// </summary>

@@ -28,12 +28,12 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Returns a description of virtual tape library (VTL) devices for the specified gateway.
-    /// In the response, AWS Storage Gateway returns VTL device information.
+    /// Returns a description of virtual tape library (VTL) devices for the specified tape
+    /// gateway. In the response, AWS Storage Gateway returns VTL device information.
     /// 
     ///  
     /// <para>
-    /// The list of VTL devices must be from one gateway.
+    /// This operation is only supported in tape gateways.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGVTLDevices")]

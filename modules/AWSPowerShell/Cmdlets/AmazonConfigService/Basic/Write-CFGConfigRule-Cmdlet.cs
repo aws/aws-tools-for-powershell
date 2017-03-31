@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// key. This key is part of the <code>Source</code> object, which is part of the <code>ConfigRule</code>
     /// object. 
     /// </para><para>
-    /// If you are adding a new AWS managed Config rule, specify the rule's identifier for
-    /// the <code>SourceIdentifier</code> key. To reference AWS managed Config rule identifiers,
-    /// see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
+    /// If you are adding an AWS managed Config rule, specify the rule's identifier for the
+    /// <code>SourceIdentifier</code> key. To reference AWS managed Config rule identifiers,
+    /// see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">About
     /// AWS Managed Config Rules</a>.
     /// </para><para>
     /// For any new rule that you add, specify the <code>ConfigRuleName</code> in the <code>ConfigRule</code>
@@ -176,7 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The maximum frequency with which AWS Config runs evaluations for a rule. You can specify
-        /// a value for <code>MaximumExecutionFrequency</code> when:</para><ul><li><para>You are using an AWS managed rule that is triggered at a periodic frequency.</para></li><li><para>Your custom rule is triggered when AWS Config delivers the configuration snapshot.</para></li></ul><para>For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</para>
+        /// a value for <code>MaximumExecutionFrequency</code> when:</para><ul><li><para>You are using an AWS managed rule that is triggered at a periodic frequency.</para></li><li><para>Your custom rule is triggered when AWS Config delivers the configuration snapshot.
+        /// For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</para></li></ul><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
+        /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
+        /// parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Deletes a file share from a file gateway.
+    /// Deletes a file share from a file gateway. This operation is only supported in file
+    /// gateways.
     /// </summary>
     [Cmdlet("Remove", "SGFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

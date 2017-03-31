@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Updates a file share. 
+    /// Updates a file share. This operation is only supported in file gateways.
     /// 
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
@@ -143,6 +143,29 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Int64 NFSFileShareDefaults_OwnerId { get; set; }
         #endregion
         
+        #region Parameter ReadOnly
+        /// <summary>
+        /// <para>
+        /// <para>Sets the write status of a file share. "true", if the write status is read-only; otherwise
+        /// "false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ReadOnly { get; set; }
+        #endregion
+        
+        #region Parameter Squash
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the user mapped to anonymous user. Valid options: "RootSquash" - Only root
+        /// is mapped to anonymous user, "NoSquash" - No one is mapped to anonymous user or "AllSquash"
+        /// - Everyone is mapped to anonymous user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Squash { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -187,6 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.NFSFileShareDefaults_GroupId = this.NFSFileShareDefaults_GroupId;
             if (ParameterWasBound("NFSFileShareDefaults_OwnerId"))
                 context.NFSFileShareDefaults_OwnerId = this.NFSFileShareDefaults_OwnerId;
+            if (ParameterWasBound("ReadOnly"))
+                context.ReadOnly = this.ReadOnly;
+            context.Squash = this.Squash;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -272,6 +298,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.NFSFileShareDefaults = null;
             }
+            if (cmdletContext.ReadOnly != null)
+            {
+                request.ReadOnly = cmdletContext.ReadOnly.Value;
+            }
+            if (cmdletContext.Squash != null)
+            {
+                request.Squash = cmdletContext.Squash;
+            }
             
             CmdletOutput output;
             
@@ -332,6 +366,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NFSFileShareDefaults_FileMode { get; set; }
             public System.Int64? NFSFileShareDefaults_GroupId { get; set; }
             public System.Int64? NFSFileShareDefaults_OwnerId { get; set; }
+            public System.Boolean? ReadOnly { get; set; }
+            public System.String Squash { get; set; }
         }
         
     }

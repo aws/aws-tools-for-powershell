@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Creates a volume on a specified gateway. This operation is supported only for the
-    /// gateway-stored volume architecture.
+    /// Creates a volume on a specified gateway. This operation is only supported in the stored
+    /// volumes gateway architecture.
     /// 
     ///  
     /// <para>

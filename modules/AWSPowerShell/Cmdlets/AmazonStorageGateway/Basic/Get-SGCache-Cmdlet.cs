@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Returns information about the cache of a gateway. This operation is supported only
-    /// for the gateway-cached volume architecture.
+    /// Returns information about the cache of a gateway. This operation is only supported
+    /// in the cached volumes gateway architecture.
     /// 
     ///  
     /// <para>

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  
     /// <para>
-    /// Use this operation for a gateway-VTL that is not reachable or not functioning.
+    /// Use this operation for a tape gateway that is not reachable or not functioning.
     /// </para><important><para>
     /// Once a gateway is disabled it cannot be enabled.
     /// </para></important>

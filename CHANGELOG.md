@@ -1,3 +1,7 @@
+### 3.3.70.0 (2017-03-31)
+  * AWS Storage Gateway
+    - Added a new cmdlet, Invoke-CacheRefresh (RefreshCache API), and extended the New-SGNFSFileShare and Update-SGNFSFileShare cmdlets with new parameters -ReadOnly and -Squash.
+    
 ### 3.3.69.0 (2017-03-29)
   * AWS Batch
     - Added parameters to support specifying retry strategy for the Register-BATJobDefinition and Submit-BATJob cmdlets. The parameter, -RetryStrategy_Attempt, accepts a numeric value for attempts. This is the number of non successful executions before a job is considered FAILED. In addition, the JobDetail object returned by other cmdlets now has an attempts field and shows all execution attempts.

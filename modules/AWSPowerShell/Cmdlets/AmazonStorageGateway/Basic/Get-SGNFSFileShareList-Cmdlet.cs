@@ -28,7 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Gets a description for one or more file shares from a file gateway.
+    /// Gets a description for one or more file shares from a file gateway. This operation
+    /// is only supported in file gateways.
     /// </summary>
     [Cmdlet("Get", "SGNFSFileShareList")]
     [OutputType("Amazon.StorageGateway.Model.NFSFileShareInfo")]

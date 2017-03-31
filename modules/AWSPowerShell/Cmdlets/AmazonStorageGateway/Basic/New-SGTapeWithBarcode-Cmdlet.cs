@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Creates a virtual tape by using your own barcode. You write data to the virtual tape
-    /// and then archive the tape.
+    /// and then archive the tape. This operation is only supported in tape gateways.
     /// 
     ///  <note><para>
     /// Cache storage must be allocated to the gateway before you can create a virtual tape.

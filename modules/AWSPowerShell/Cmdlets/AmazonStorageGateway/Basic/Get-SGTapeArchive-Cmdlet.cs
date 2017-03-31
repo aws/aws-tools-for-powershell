@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL.
+    /// Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway.
     /// Virtual tapes archived in the VTS are not associated with any gateway. However after
     /// a tape is retrieved, it is associated with a gateway, even though it is also listed
     /// in the VTS.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape
         /// to. Use the <a>ListGateways</a> operation to return a list of gateways for your account
         /// and region.</para><para>You retrieve archived virtual tapes to only one gateway and the gateway must be a
-        /// gateway-VTL.</para>
+        /// tape gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

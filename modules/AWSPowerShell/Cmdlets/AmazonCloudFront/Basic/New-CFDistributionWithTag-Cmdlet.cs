@@ -220,9 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket.</para><para>If you do not want to enable logging when you create a distribution, or if you want
-        /// to disable logging for an existing distribution, specify <code>false</code> for <code>Enabled</code>,
-        /// and specify empty <code>Bucket</code> and <code>Prefix</code> elements.</para><para>If you specify <code>false</code> for <code>Enabled</code> but you specify values
+        /// <para>From this field, you can enable or disable the selected distribution.</para><para>If you specify <code>false</code> for <code>Enabled</code> but you specify values
         /// for <code>Bucket</code> and <code>Prefix</code>, the values are automatically deleted.</para>
         /// </para>
         /// </summary>
@@ -795,8 +793,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>If you specify a value for <code>ACMCertificateArn</code> or for <code>IAMCertificateId</code>,
         /// you must also specify how you want CloudFront to serve HTTPS requests: using a method
         /// that works for all clients or one that works for most clients:</para><ul><li><para><code>vip</code>: CloudFront uses dedicated IP addresses for your content and can
-        /// respond to HTTPS requests from any viewer. However, you must request permission to
-        /// use this feature, and you incur additional monthly charges.</para></li><li><para><code>sni-only</code>: CloudFront can respond to HTTPS requests from viewers that
+        /// respond to HTTPS requests from any viewer. However, you will incur additional monthly
+        /// charges.</para></li><li><para><code>sni-only</code>: CloudFront can respond to HTTPS requests from viewers that
         /// support Server Name Indication (SNI). All modern browsers support SNI, but some browsers
         /// still in use don't support SNI. If some of your users' browsers don't support SNI,
         /// we recommend that you do one of the following:</para><ul><li><para>Use the <code>vip</code> option (dedicated IP addresses) instead of <code>sni-only</code>.</para></li><li><para>Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires

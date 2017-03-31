@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Creates a file share on an existing file gateway. In Storage Gateway, a file share
     /// is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes
-    /// file shares using a Network File System (NFS) interface.
+    /// file shares using a Network File System (NFS) interface. This operation is only supported
+    /// in file gateways.
     /// </summary>
     [Cmdlet("New", "SGNFSFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The list of clients that are allowed to access the file gateway. The list must contain
-        /// either valid IP addresses or valid CIDR blocks.</para>
+        /// either valid IP addresses or valid CIDR blocks. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,6 +164,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Int64 NFSFileShareDefaults_OwnerId { get; set; }
         #endregion
         
+        #region Parameter ReadOnly
+        /// <summary>
+        /// <para>
+        /// <para>Sets the write status of a file share. "true", if the write status is read-only; otherwise
+        /// "false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ReadOnly { get; set; }
+        #endregion
+        
         #region Parameter Role
         /// <summary>
         /// <para>
@@ -172,6 +184,18 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
+        
+        #region Parameter Squash
+        /// <summary>
+        /// <para>
+        /// <para>Maps a user to anonymous user. Valid options: "RootSquash" - Only root is mapped to
+        /// anonymous user, "NoSquash" - No one is mapped to anonymous user or "AllSquash" - Everyone
+        /// is mapped to anonymous user. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Squash { get; set; }
         #endregion
         
         #region Parameter Force
@@ -220,7 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.NFSFileShareDefaults_GroupId = this.NFSFileShareDefaults_GroupId;
             if (ParameterWasBound("NFSFileShareDefaults_OwnerId"))
                 context.NFSFileShareDefaults_OwnerId = this.NFSFileShareDefaults_OwnerId;
+            if (ParameterWasBound("ReadOnly"))
+                context.ReadOnly = this.ReadOnly;
             context.Role = this.Role;
+            context.Squash = this.Squash;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -314,9 +341,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.NFSFileShareDefaults = null;
             }
+            if (cmdletContext.ReadOnly != null)
+            {
+                request.ReadOnly = cmdletContext.ReadOnly.Value;
+            }
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
+            }
+            if (cmdletContext.Squash != null)
+            {
+                request.Squash = cmdletContext.Squash;
             }
             
             CmdletOutput output;
@@ -380,7 +415,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NFSFileShareDefaults_FileMode { get; set; }
             public System.Int64? NFSFileShareDefaults_GroupId { get; set; }
             public System.Int64? NFSFileShareDefaults_OwnerId { get; set; }
+            public System.Boolean? ReadOnly { get; set; }
             public System.String Role { get; set; }
+            public System.String Squash { get; set; }
         }
         
     }

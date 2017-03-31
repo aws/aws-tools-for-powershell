@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Creates a cached volume on a specified cached gateway. This operation is supported
-    /// only for the gateway-cached volume architecture.
+    /// Creates a cached volume on a specified cached volumes gateway. This operation is only
+    /// supported in the cached volumes gateway architecture.
     /// 
     ///  <note><para>
     /// Cache storage must be allocated to the gateway before you can create a cached volume.
