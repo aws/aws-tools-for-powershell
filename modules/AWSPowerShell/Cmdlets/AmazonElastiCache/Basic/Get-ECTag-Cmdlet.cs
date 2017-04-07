@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
-    /// You can have a maximum of 10 cost allocation tags on an ElastiCache resource. For
+    /// You can have a maximum of 50 cost allocation tags on an ElastiCache resource. For
     /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html">Using
     /// Cost Allocation Tags in Amazon ElastiCache</a>.
     /// </para>

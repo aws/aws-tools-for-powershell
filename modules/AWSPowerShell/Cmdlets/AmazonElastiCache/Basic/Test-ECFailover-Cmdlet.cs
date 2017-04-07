@@ -22,34 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticLoadBalancingV2;
-using Amazon.ElasticLoadBalancingV2.Model;
+using Amazon.ElastiCache;
+using Amazon.ElastiCache.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ELB2
+namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Describes the tags for the specified resources. You can describe the tags for one
-    /// or more Application Load Balancers and target groups.
+    /// Amazon.ElastiCache.IAmazonElastiCache.TestFailover
     /// </summary>
-    [Cmdlet("Get", "ELB2Tag")]
-    [OutputType("Amazon.ElasticLoadBalancingV2.Model.TagDescription")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeTags"})]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TagDescription",
-        "This cmdlet returns a collection of TagDescription objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "ECFailover")]
+    [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
+    [AWSCmdlet("Invokes the TestFailover operation against Amazon ElastiCache.", Operation = new[] {"TestFailover"})]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup",
+        "This cmdlet returns a ReplicationGroup object.",
+        "The service call response (type Amazon.ElastiCache.Model.TestFailoverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetELB2TagCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class TestECFailoverCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter NodeGroupId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resources.</para>
+        /// <para>The name of the node group (called shard in the console) in this replication group
+        /// on which automatic failover is to be tested. You may test automatic failover on up
+        /// to 5 node groups in any rolling 24-hour period.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("ResourceArns")]
-        public System.String[] ResourceArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String NodeGroupId { get; set; }
+        #endregion
+        
+        #region Parameter ReplicationGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The name of the replication group (console: cluster) whose automatic failover is being
+        /// tested by this operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReplicationGroupId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -65,10 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.ResourceArn != null)
-            {
-                context.ResourceArns = new List<System.String>(this.ResourceArn);
-            }
+            context.NodeGroupId = this.NodeGroupId;
+            context.ReplicationGroupId = this.ReplicationGroupId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -83,11 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeTagsRequest();
+            var request = new Amazon.ElastiCache.Model.TestFailoverRequest();
             
-            if (cmdletContext.ResourceArns != null)
+            if (cmdletContext.NodeGroupId != null)
             {
-                request.ResourceArns = cmdletContext.ResourceArns;
+                request.NodeGroupId = cmdletContext.NodeGroupId;
+            }
+            if (cmdletContext.ReplicationGroupId != null)
+            {
+                request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
             }
             
             CmdletOutput output;
@@ -98,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TagDescriptions;
+                object pipelineOutput = response.ReplicationGroup;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -123,13 +136,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeTagsRequest request)
+        private static Amazon.ElastiCache.Model.TestFailoverResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.TestFailoverRequest request)
         {
             #if DESKTOP
-            return client.DescribeTags(request);
+            return client.TestFailover(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeTagsAsync(request);
+            var task = client.TestFailoverAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -140,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ResourceArns { get; set; }
+            public System.String NodeGroupId { get; set; }
+            public System.String ReplicationGroupId { get; set; }
         }
         
     }

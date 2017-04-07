@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Duration
         /// <summary>
         /// <para>
-        /// <para>The number of minutes' worth of events to retrieve.</para>
+        /// <para>The number of minutes worth of events to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</para>
+        /// <para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</para><para><b>Example:</b> 2017-03-30T07:03:49.555Z</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</para>
+        /// <para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</para><para><b>Example:</b> 2017-03-30T07:03:49.555Z</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

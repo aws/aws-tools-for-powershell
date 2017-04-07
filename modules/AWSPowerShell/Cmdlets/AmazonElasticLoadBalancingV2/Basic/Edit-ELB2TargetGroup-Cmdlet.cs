@@ -114,8 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Matcher_HttpCode
         /// <summary>
         /// <para>
-        /// <para>The HTTP codes. The default value is 200. You can specify multiple values (for example,
-        /// "200,202") or a range of values (for example, "200-299").</para>
+        /// <para>The HTTP codes. You can specify values between 200 and 499. The default value is 200.
+        /// You can specify multiple values (for example, "200,202") or a range of values (for
+        /// example, "200-299").</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

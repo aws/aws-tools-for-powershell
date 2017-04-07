@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <para>
     /// Any properties that you do not specify retain their current values. However, changing
     /// the protocol from HTTPS to HTTP removes the security policy and SSL certificate properties.
-    /// If you change the protocol from HTTP to HTTPS, you must add the security policy.
+    /// If you change the protocol from HTTP to HTTPS, you must add the security policy and
+    /// server certificate.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "ELB2Listener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -103,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SslPolicy
         /// <summary>
         /// <para>
-        /// <para>The security policy that defines which ciphers and protocols are supported.</para>
+        /// <para>The security policy that defines which protocols and ciphers are supported. For more
+        /// information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+        /// Policies</a> in the <i>Application Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

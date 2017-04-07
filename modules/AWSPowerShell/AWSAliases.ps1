@@ -1802,6 +1802,7 @@ Set-Alias -Name EC-RebootCacheCluster -Value Restart-ECCacheCluster
 Set-Alias -Name EC-RemoveTagsFromResource -Value Remove-ECTag
 Set-Alias -Name EC-ResetCacheParameterGroup -Value Reset-ECCacheParameterGroup
 Set-Alias -Name EC-RevokeCacheSecurityGroupIngress -Value Revoke-ECCacheSecurityGroupIngress
+Set-Alias -Name EC-TestFailover -Value Test-ECFailover
 Set-Alias -Name EC-AddTagsToResource -Value Add-ECTag
 Set-Alias -Name Authorize-ECCacheSecurityGroupIngress -Value Approve-ECCacheSecurityGroupIngress
 Set-Alias -Name EC-AuthorizeCacheSecurityGroupIngress -Value Approve-ECCacheSecurityGroupIngress
@@ -2639,6 +2640,7 @@ Set-Alias -Name LM-RemovePermission -Value Remove-LMPermission
 Set-Alias -Name LM-UpdateAlias -Value Update-LMAlias
 Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
+Set-Alias -Name LEX-PostContent -Value Send-LEXContent
 Set-Alias -Name LEX-PostText -Value Send-LEXText
 Set-Alias -Name LS-GetKeyPair -Value Get-LSKeyPairInfo
 Set-Alias -Name LS-GetKeyPairs -Value Get-LSKeypairList

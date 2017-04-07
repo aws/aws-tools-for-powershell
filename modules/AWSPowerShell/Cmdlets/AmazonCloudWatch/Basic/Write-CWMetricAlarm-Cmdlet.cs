@@ -147,6 +147,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
         #endregion
         
+        #region Parameter EvaluateLowSampleCountPercentile
+        /// <summary>
+        /// <para>
+        /// <para> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the
+        /// alarm state will not change during periods with too few data points to be statistically
+        /// significant. If you specify <code>evaluate</code> or omit this parameter, the alarm
+        /// will always be evaluated and possibly change state no matter how many data points
+        /// are available. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+        /// CloudWatch Alarms and Low Data Samples</a>.</para><para>Valid Values: <code>evaluate | ignore</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EvaluateLowSampleCountPercentile { get; set; }
+        #endregion
+        
         #region Parameter EvaluationPeriod
         /// <summary>
         /// <para>
@@ -251,6 +266,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.Double Threshold { get; set; }
         #endregion
         
+        #region Parameter TreatMissingData
+        /// <summary>
+        /// <para>
+        /// <para> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code>
+        /// is omitted, the default behavior of <code>missing</code> is used. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+        /// How CloudWatch Alarms Treats Missing Data</a>.</para><para>Valid Values: <code>breaching | notBreaching | ignore | missing</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TreatMissingData { get; set; }
+        #endregion
+        
         #region Parameter Unit
         /// <summary>
         /// <para>
@@ -319,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
+            context.EvaluateLowSampleCountPercentile = this.EvaluateLowSampleCountPercentile;
             if (ParameterWasBound("EvaluationPeriod"))
                 context.EvaluationPeriods = this.EvaluationPeriod;
             context.ExtendedStatistic = this.ExtendedStatistic;
@@ -337,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.Statistic = this.Statistic;
             if (ParameterWasBound("Threshold"))
                 context.Threshold = this.Threshold;
+            context.TreatMissingData = this.TreatMissingData;
             context.Unit = this.Unit;
             
             // allow further manipulation of loaded context prior to processing
@@ -378,6 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.Dimensions = cmdletContext.Dimensions;
             }
+            if (cmdletContext.EvaluateLowSampleCountPercentile != null)
+            {
+                request.EvaluateLowSampleCountPercentile = cmdletContext.EvaluateLowSampleCountPercentile;
+            }
             if (cmdletContext.EvaluationPeriods != null)
             {
                 request.EvaluationPeriods = cmdletContext.EvaluationPeriods.Value;
@@ -413,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.Threshold != null)
             {
                 request.Threshold = cmdletContext.Threshold.Value;
+            }
+            if (cmdletContext.TreatMissingData != null)
+            {
+                request.TreatMissingData = cmdletContext.TreatMissingData;
             }
             if (cmdletContext.Unit != null)
             {
@@ -477,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String AlarmName { get; set; }
             public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
             public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
+            public System.String EvaluateLowSampleCountPercentile { get; set; }
             public System.Int32? EvaluationPeriods { get; set; }
             public System.String ExtendedStatistic { get; set; }
             public List<System.String> InsufficientDataActions { get; set; }
@@ -486,6 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.Int32? Period { get; set; }
             public Amazon.CloudWatch.Statistic Statistic { get; set; }
             public System.Double? Threshold { get; set; }
+            public System.String TreatMissingData { get; set; }
             public Amazon.CloudWatch.StandardUnit Unit { get; set; }
         }
         

@@ -115,6 +115,7 @@
     <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" 
                       PipelineParameter="CacheSecurityGroupName" 
                       PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
+    <ServiceOperation MethodName="TestFailover" PipelineParameter="NodeGroupId" />
   </ServiceOperations>
 
   <PipelineByValueProperties>

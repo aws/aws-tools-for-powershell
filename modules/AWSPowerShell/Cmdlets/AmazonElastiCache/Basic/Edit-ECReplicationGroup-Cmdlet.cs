@@ -131,6 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter NodeGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Node Group (called shard in the console).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NodeGroupId { get; set; }
+        #endregion
+        
         #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
@@ -288,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupNames = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.EngineVersion = this.EngineVersion;
+            context.NodeGroupId = this.NodeGroupId;
             context.NotificationTopicArn = this.NotificationTopicArn;
             context.NotificationTopicStatus = this.NotificationTopicStatus;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
@@ -345,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.NodeGroupId != null)
+            {
+                request.NodeGroupId = cmdletContext.NodeGroupId;
             }
             if (cmdletContext.NotificationTopicArn != null)
             {
@@ -444,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupNames { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String NodeGroupId { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.String NotificationTopicStatus { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }

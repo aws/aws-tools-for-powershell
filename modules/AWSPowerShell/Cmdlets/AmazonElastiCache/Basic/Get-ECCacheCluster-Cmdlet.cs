@@ -33,20 +33,21 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
-    /// By default, abbreviated information about the cache clusters are returned. You can
-    /// use the optional <code>ShowDetails</code> flag to retrieve detailed information about
+    /// By default, abbreviated information about the cache clusters is returned. You can
+    /// use the optional <i>ShowCacheNodeInfo</i> flag to retrieve detailed information about
     /// the cache nodes associated with the cache clusters. These details include the DNS
     /// address and port for the cache node endpoint.
     /// </para><para>
-    /// If the cluster is in the CREATING state, only cluster-level information is displayed
-    /// until all of the nodes are successfully provisioned.
+    /// If the cluster is in the <i>creating</i> state, only cluster-level information is
+    /// displayed until all of the nodes are successfully provisioned.
     /// </para><para>
-    /// If the cluster is in the DELETING state, only cluster-level information is displayed.
+    /// If the cluster is in the <i>deleting</i> state, only cluster-level information is
+    /// displayed.
     /// </para><para>
     /// If cache nodes are currently being added to the cache cluster, node endpoint information
     /// and creation time for the additional nodes are not displayed until they are completely
-    /// provisioned. When the cache cluster state is <code>available</code>, the cluster is
-    /// ready for use.
+    /// provisioned. When the cache cluster state is <i>available</i>, the cluster is ready
+    /// for use.
     /// </para><para>
     /// If cache nodes are currently being removed from the cache cluster, no endpoint information
     /// for the removed nodes is displayed.
@@ -74,11 +75,24 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String CacheClusterId { get; set; }
         #endregion
         
+        #region Parameter ShowCacheClustersNotInReplicationGroup
+        /// <summary>
+        /// <para>
+        /// <para>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
+        /// to show only nodes (API/CLI: clusters) that are not members of a replication group.
+        /// In practice, this mean Memcached and single node Redis clusters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ShowCacheClustersNotInReplicationGroups")]
+        public System.Boolean ShowCacheClustersNotInReplicationGroup { get; set; }
+        #endregion
+        
         #region Parameter ShowCacheNodeInfo
         /// <summary>
         /// <para>
-        /// <para>An optional flag that can be included in the DescribeCacheCluster request to retrieve
-        /// information about the individual cache nodes.</para>
+        /// <para>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
+        /// to retrieve information about the individual cache nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,6 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
+            if (ParameterWasBound("ShowCacheClustersNotInReplicationGroup"))
+                context.ShowCacheClustersNotInReplicationGroups = this.ShowCacheClustersNotInReplicationGroup;
             if (ParameterWasBound("ShowCacheNodeInfo"))
                 context.ShowCacheNodeInfo = this.ShowCacheNodeInfo;
             
@@ -152,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheClusterId != null)
             {
                 request.CacheClusterId = cmdletContext.CacheClusterId;
+            }
+            if (cmdletContext.ShowCacheClustersNotInReplicationGroups != null)
+            {
+                request.ShowCacheClustersNotInReplicationGroups = cmdletContext.ShowCacheClustersNotInReplicationGroups.Value;
             }
             if (cmdletContext.ShowCacheNodeInfo != null)
             {
@@ -263,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheClusterId { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
+            public System.Boolean? ShowCacheClustersNotInReplicationGroups { get; set; }
             public System.Boolean? ShowCacheNodeInfo { get; set; }
         }
         

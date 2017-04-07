@@ -28,27 +28,54 @@ using Amazon.Lex.Model;
 namespace Amazon.PowerShell.Cmdlets.LEX
 {
     /// <summary>
-    /// Sends user input text to Amazon Lex at runtime. Amazon Lex uses the machine learning
-    /// model that the service built for the application to interpret user input. 
+    /// Sends user input (text-only) to Amazon Lex. Client applications can use this API to
+    /// send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
+    /// using the machine learning model it built for the bot. 
     /// 
     ///  
     /// <para>
-    ///  In response, Amazon Lex returns the next message to convey to the user (based on
-    /// the context of the user interaction) and whether to expect a user response to the
-    /// message (<code>dialogState</code>). For example, consider the following response messages:
+    ///  In response, Amazon Lex returns the next <code>message</code> to convey to the user
+    /// an optional <code>responseCard</code> to display. Consider the following example messages:
     /// 
     /// </para><ul><li><para>
-    /// "What pizza toppings would you like?" – In this case, the <code>dialogState</code>
-    /// would be <code>ElicitSlot</code> (that is, a user response is expected). 
+    ///  For a user input "I would like a pizza", Amazon Lex might return a response with
+    /// a message eliciting slot data (for example, PizzaSize): "What size pizza would you
+    /// like?" 
     /// </para></li><li><para>
-    /// "Your order has been placed." – In this case, Amazon Lex returns one of the following
-    /// <code>dialogState</code> values depending on how the intent fulfillment is configured
-    /// (see <code>fulfillmentActivity</code> in <code>CreateIntent</code>): 
-    /// </para><ul><li><para><code>FulFilled</code> – The intent fulfillment is configured through a Lambda function.
+    ///  After the user provides all of the pizza order information, Amazon Lex might return
+    /// a response with a message to obtain user confirmation "Proceed with the pizza order?".
     /// 
-    /// </para></li><li><para><code>ReadyForFulfilment</code> – The intent's <code>fulfillmentActivity</code> is
-    /// to simply return the intent data back to the client application. 
-    /// </para></li></ul></li></ul>
+    /// </para></li><li><para>
+    ///  After the user replies to a confirmation prompt with a "yes", Amazon Lex might return
+    /// a conclusion statement: "Thank you, your cheese pizza has been ordered.". 
+    /// </para></li></ul><para>
+    ///  Not all Amazon Lex messages require a user response. For example, a conclusion statement
+    /// does not require a response. Some messages require only a "yes" or "no" user response.
+    /// In addition to the <code>message</code>, Amazon Lex provides additional context about
+    /// the message in the response that you might use to enhance client behavior, for example,
+    /// to display the appropriate client user interface. These are the <code>slotToElicit</code>,
+    /// <code>dialogState</code>, <code>intentName</code>, and <code>slots</code> fields in
+    /// the response. Consider the following examples: 
+    /// </para><ul><li><para>
+    /// If the message is to elicit slot data, Amazon Lex returns the following context information:
+    /// </para><ul><li><para><code>dialogState</code> set to ElicitSlot 
+    /// </para></li><li><para><code>intentName</code> set to the intent name in the current context 
+    /// </para></li><li><para><code>slotToElicit</code> set to the slot name for which the <code>message</code>
+    /// is eliciting information 
+    /// </para></li><li><para><code>slots</code> set to a map of slots, configured for the intent, with currently
+    /// known values 
+    /// </para></li></ul></li><li><para>
+    ///  If the message is a confirmation prompt, the <code>dialogState</code> is set to ConfirmIntent
+    /// and <code>SlotToElicit</code> is set to null. 
+    /// </para></li><li><para>
+    /// If the message is a clarification prompt (configured for the intent) that indicates
+    /// that user intent is not understood, the <code>dialogState</code> is set to ElicitIntent
+    /// and <code>slotToElicit</code> is set to null. 
+    /// </para></li></ul><para>
+    ///  In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing
+    /// Conversation Context</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "LEXText")]
     [OutputType("Amazon.Lex.Model.PostTextResponse")]
@@ -62,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter BotAlias
         /// <summary>
         /// <para>
-        /// <para>Alias of the Amazon Lex bot.</para>
+        /// <para>The alias of the Amazon Lex bot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter BotName
         /// <summary>
         /// <para>
-        /// <para>Name of the Amazon Lex bot.</para>
+        /// <para>The name of the Amazon Lex bot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter InputText
         /// <summary>
         /// <para>
-        /// <para>Text user entered (Amazon Lex interprets this text).</para>
+        /// <para>The text that the user entered (Amazon Lex interprets this text).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -92,23 +119,28 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter SessionAttribute
         /// <summary>
         /// <para>
-        /// <para> A session represents the dialog between a user and Amazon Lex. At runtime, a client
-        /// application can pass contextual information (session attributes) in the request. For
-        /// example, <code>"FirstName" : "Joe"</code>. Amazon Lex passes these session attributes
-        /// to the AWS Lambda functions configured for the intent (see <code>dialogCodeHook</code>
-        /// and <code>fulfillmentActivity.codeHook</code> in <code>CreateIntent</code>). </para><para>In your Lambda function, you can use the session attributes for customization. Some
-        /// examples are:</para><ul><li><para> In a pizza ordering application, if you can pass user location as a session attribute
-        /// (for example, <code>"Location" : "111 Maple street"</code>), your Lambda function
-        /// might use this information to determine the closest pizzeria to place the order. </para></li><li><para> Use session attributes to personalize prompts. For example, you pass in user name
-        /// as a session attribute (<code>"FirstName" : "Joe"</code>), you might configure subsequent
-        /// prompts to refer to this attribute, as <code>$session.FirstName"</code>. At runtime,
-        /// Amazon Lex substitutes a real value when it generates a prompt, such as "Hello Joe,
-        /// what would you like to order?" </para></li></ul><note><para> Amazon Lex does not persist session attributes. </para><para> If the intent is configured without a Lambda function to process the intent (that
-        /// is, the client application to process the intent), Amazon Lex simply returns the session
-        /// attributes back to the client application. </para><para> If the intent is configured with a Lambda function to process the intent, Amazon
-        /// Lex passes the incoming session attributes to the Lambda function. The Lambda function
-        /// must return these session attributes if you want Amazon Lex to return them back to
-        /// the client. </para></note>
+        /// <para> By using session attributes, a client application can pass contextual information
+        /// in the request to Amazon Lex For example, </para><ul><li><para>In Getting Started Exercise 1, the example bot uses the <code>price</code> session
+        /// attribute to maintain the price of the flowers ordered (for example, "Price":25).
+        /// The code hook (the Lambda function) sets this attribute based on the type of flowers
+        /// ordered. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html">Review
+        /// the Details of Information Flow</a>. </para></li><li><para>In the BookTrip bot exercise, the bot uses the <code>currentReservation</code> session
+        /// attribute to maintain slot data during the in-progress conversation to book a hotel
+        /// or book a car. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html">Details
+        /// of Information Flow</a>. </para></li><li><para>You might use the session attributes (key, value pairs) to track the requestID of
+        /// user requests.</para></li></ul><para> Amazon Lex simply passes these session attributes to the Lambda functions configured
+        /// for the intent.</para><para>In your Lambda function, you can also use the session attributes for initialization
+        /// and customization (prompts and response cards). Some examples are:</para><ul><li><para> Initialization - In a pizza ordering bot, if you can pass the user location as a
+        /// session attribute (for example, <code>"Location" : "111 Maple street"</code>), then
+        /// your Lambda function might use this information to determine the closest pizzeria
+        /// to place the order (perhaps to set the storeAddress slot value). </para></li><li><para> Personalize prompts - For example, you can configure prompts to refer to the user
+        /// name. (For example, "Hey [FirstName], what toppings would you like?"). You can pass
+        /// the user name as a session attribute (<code>"FirstName" : "Joe"</code>) so that Amazon
+        /// Lex can substitute the placeholder to provide a personalize prompt to the user ("Hey
+        /// Joe, what toppings would you like?"). </para></li></ul><note><para> Amazon Lex does not persist session attributes. </para><para> If you configure a code hook for the intent, Amazon Lex passes the incoming session
+        /// attributes to the Lambda function. If you want Amazon Lex to return these session
+        /// attributes back to the client, the Lambda function must return them. </para><para> If there is no code hook configured for the intent, Amazon Lex simply returns the
+        /// session attributes back to the client application. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,11 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>User ID of your client application. Typically, each of your application users should
-        /// have a unique ID. Note the following considerations: </para><ul><li><para> If you want a user to start a conversation on one mobile device and continue the
-        /// conversation on another device, you might choose a user-specific identifier, such
-        /// as a login or Amazon Cognito user ID (assuming your application is using Amazon Cognito).
-        /// </para></li><li><para> If you want the same user to be able to have two independent conversations on two
+        /// <para>The ID of the client application user. The application developer decides the user
+        /// IDs. At runtime, each request must include the user ID. Typically, each of your application
+        /// users should have a unique ID. Note the following considerations: </para><ul><li><para> If you want a user to start a conversation on one device and continue the conversation
+        /// on another device, you might choose a user-specific identifier, such as a login or
+        /// Amazon Cognito user ID (assuming your application is using Amazon Cognito). </para></li><li><para> If you want the same user to be able to have two independent conversations on two
         /// different devices, you might choose a device-specific identifier, such as device ID,
         /// or some globally unique identifier. </para></li></ul>
         /// </para>

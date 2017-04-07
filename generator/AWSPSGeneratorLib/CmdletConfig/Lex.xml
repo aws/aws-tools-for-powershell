@@ -15,6 +15,7 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="PostText" Verb="Send" PipelineParameter="InputText" Output="Response" IgnoreSupportsShouldProcess="true"/>
+    <ServiceOperation MethodName="PostContent" Verb="Send" NoPipelineParameter="true" Output="Response" IgnoreSupportsShouldProcess="true"/>
   </ServiceOperations>
 
   <PipelineByValueProperties>

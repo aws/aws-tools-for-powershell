@@ -67,10 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Condition
         /// <summary>
         /// <para>
-        /// <para>A condition. Each condition has the field <code>path-pattern</code> and specifies
-        /// one path pattern. A path pattern is case sensitive, can be up to 128 characters in
-        /// length, and can contain any of the following characters. Note that you can include
-        /// up to three wildcard characters in a path pattern.</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>_ - . $ / ~ " ' @ : +</para></li><li><para>&amp; (using &amp;amp;)</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul>
+        /// <para>A condition. Each condition specifies a field name and a single value.</para><para>If the field name is <code>host-header</code>, you can specify a single host name
+        /// (for example, my.example.com). A host name is case insensitive, can be up to 128 characters
+        /// in length, and can contain any of the following characters. Note that you can include
+        /// up to three wildcard characters.</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>- .</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul><para>If the field name is <code>path-pattern</code>, you can specify a single path pattern.
+        /// A path pattern is case sensitive, can be up to 128 characters in length, and can contain
+        /// any of the following characters. Note that you can include up to three wildcard characters.</para><ul><li><para>A-Z, a-z, 0-9</para></li><li><para>_ - . $ / ~ " ' @ : +</para></li><li><para>&amp; (using &amp;amp;)</para></li><li><para>* (matches 0 or more characters)</para></li><li><para>? (matches exactly 1 character)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

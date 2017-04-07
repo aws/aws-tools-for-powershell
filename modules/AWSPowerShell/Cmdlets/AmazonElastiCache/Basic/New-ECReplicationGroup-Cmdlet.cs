@@ -46,6 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// When a Redis (cluster mode disabled) replication group has been successfully created,
     /// you can add one or more read replicas to it, up to a total of 5 read replicas. You
     /// cannot alter a Redis (cluster mode enabled) replication group after it has been created.
+    /// However, if you need to increase or decrease the number of node groups (console: shards),
+    /// you can avail yourself of ElastiCache for Redis' enhanced backup and restore. For
+    /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/backups-restoring.html">Restoring
+    /// From a Backup with Cluster Resizing</a> in the <i>ElastiCache User Guide</i>.
     /// </para><note><para>
     /// This operation is valid for Redis only.
     /// </para></note>
@@ -183,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A list of node group (shard) configuration options. Each node group (shard) configuration
         /// has the following: Slots, PrimaryAvailabilityZone, ReplicaAvailabilityZones, ReplicaCount.</para><para>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
-        /// replication group, you can use this parameter to configure one node group (shard)
-        /// or you can omit this parameter.</para>
+        /// replication group, you can use this parameter to individually configure each node
+        /// group (shard), or you can omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -206,8 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of clusters this replication group initially has.</para><para>This parameter is not used if there is more than one node group (shard). You should
-        /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>Multi-AZ</code> is <code>enabled</code>, the value of this parameter must
-        /// be at least 2.</para><para>The maximum permitted value for <code>NumCacheClusters</code> is 6 (primary plus 5
+        /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter
+        /// must be at least 2. If <code>AutomaticFailoverEnabled</code> is <code>false</code>
+        /// you can omit this parameter (it will default to 1), or you can explicitly set it to
+        /// a value between 2 and 6.</para><para>The maximum permitted value for <code>NumCacheClusters</code> is 6 (primary plus 5
         /// replicas).</para>
         /// </para>
         /// </summary>
@@ -328,10 +334,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of Amazon Resource Names (ARN) that uniquely identify the Redis RDB snapshot
-        /// files stored in Amazon S3. The snapshot files are used to populate the replication
-        /// group. The Amazon S3 object name in the ARN cannot contain any commas. The list must
-        /// match the number of node groups (shards) in the replication group, which means you
-        /// cannot repartition.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code></para>
+        /// files stored in Amazon S3. The snapshot files are used to populate the new replication
+        /// group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication
+        /// group will have the number of node groups (console: shards) specified by the parameter
+        /// <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
+        /// regardless of the number of ARNs specified here.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -1,3 +1,11 @@
+### 3.3.74.0 (2017-04-07)
+  * AWS CloudWatch
+    - Updated the Write-CWMetricAlarm cmdlet with support for new alarm configurations for missing data treatment and percentile metrics. Missing data can now be treated as alarm threshold breached, alarm threshold not breached, maintain alarm state and the current default treatment. Percentile metric alarms are for alarms that can trigger unnecessarily if the percentile is calculated from a small number of samples. The new rule can treat percentiles with low sample counts as same as missing data. If the first rule is enabled, the same treatment will be applied when an alarm encounters a percentile with low sample counts.
+  * Amazon ElastiCache
+    - Added support for testing the Elasticache Multi-AZ feature with Automatic Failover. This support includes a new parameter, -NodeGroupId, for the Edit-ECReplicationGroup cmdlet and -ShowCacheClustersNotInReplicationGroup added to Get-ECCacheCluster and a new cmdlet, Test-ECFailover (TestFailover API).
+  * Amazon Lex
+    - Added a new cmdlet, Send-LEXContent, to support the new PostContent API.
+
 ### 3.3.71.0 (2017-03-31)
   * AWS Resource Groups Tagging API
     - Added support for the new Resource Groups Tagging API service. Cmdlets for the service have the noun prefix 'RGT' and can be listed using the command 'Get-AWSCmdletName -Service RGT': Add-RGTResourceTag (TagResources API), Get-RGTResource (GetResources API), Get-RGTTagKey (GetTagKeys API), Get-RGTTagValue (GetTagValues API) and Remove-RGTResourceTag (UntagResources API).

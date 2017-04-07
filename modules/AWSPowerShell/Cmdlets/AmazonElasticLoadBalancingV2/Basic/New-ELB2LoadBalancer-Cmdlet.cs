@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the load balancer.</para><para>This name must be unique within your AWS account, can have a maximum of 32 characters,
+        /// <para>The name of the load balancer.</para><para>This name must be unique per region per account, can have a maximum of 32 characters,
         /// must contain only alphanumeric characters or hyphens, and must not begin or end with
         /// a hyphen.</para>
         /// </para>

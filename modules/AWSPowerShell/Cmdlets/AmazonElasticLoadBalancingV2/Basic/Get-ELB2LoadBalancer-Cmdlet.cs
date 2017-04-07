@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter LoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the load balancers.</para>
+        /// <para>The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load
+        /// balancers in a single call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Adds up to 10 cost allocation tags to the named resource. A cost allocation tag is
+    /// Adds up to 50 cost allocation tags to the named resource. A cost allocation tag is
     /// a key-value pair where the key and value are case-sensitive. You can use cost allocation
     /// tags to categorize and track your AWS costs.
     /// 
