@@ -113,7 +113,7 @@ $AWS_ProfileNameCompleter = {
 	param ($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
 	# allow for new user with no profiles set up yet
-	$profiles = Get-AWSCredentials -ListProfiles
+	$profiles = Get-AWSCredentials -ListProfileDetail | select -expandproperty ProfileName
 	if ($profiles)
 	{
 		$profiles |
