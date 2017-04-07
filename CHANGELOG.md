@@ -1,3 +1,9 @@
+### 3.3.75.0 (2017-04-10)
+  * Fixed issue with cmdlets taking a long time to return when no region was specified.
+  * Fixed issue with the argument completer for the -ProfileName parameter issuing a warning message about use of a deprecated switch on the Get-AWSCredentials cmdlet.
+  * Amazon Redshift
+    - Added a new cmdlet, Get-RSClusterCredential, to support the new GetClusterCredentials API.
+
 ### 3.3.74.0 (2017-04-07)
   * AWS CloudWatch
     - Updated the Write-CWMetricAlarm cmdlet with support for new alarm configurations for missing data treatment and percentile metrics. Missing data can now be treated as alarm threshold breached, alarm threshold not breached, maintain alarm state and the current default treatment. Percentile metric alarms are for alarms that can trigger unnecessarily if the percentile is calculated from a small number of samples. The new rule can treat percentiles with low sample counts as same as missing data. If the first rule is enabled, the same treatment will be applied when an alarm encounters a percentile with low sample counts.

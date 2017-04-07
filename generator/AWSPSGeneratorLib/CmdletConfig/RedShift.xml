@@ -63,6 +63,7 @@
     <ServiceOperation MethodName="DescribeResize" Output="Response"/>
     <ServiceOperation MethodName="DescribeSnapshotCopyGrants" Noun="SnapshotCopyGrant" />
     <ServiceOperation MethodName="DescribeTags"/>
+    <ServiceOperation MethodName="GetClusterCredentials" Noun="ClusterCredential" Output="Response" />
     <ServiceOperation MethodName="ModifyCluster" ShouldProcessTarget="ClusterIdentifier">
       <Params>
         <!-- stops rename thru singularization -->

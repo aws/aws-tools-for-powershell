@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AccountWithRestoreAccess
         /// <summary>
         /// <para>
-        /// <para>The identifier of the AWS customer account authorized to restore the specified snapshot.</para>
+        /// <para>The identifier of the AWS customer account authorized to restore the specified snapshot.</para><para>To share a snapshot with AWS support, specify amazon-redshift-support.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
