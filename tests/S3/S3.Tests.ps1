@@ -110,4 +110,32 @@ Describe -Tag "Smoke" "S3" {
             (Get-Content "temp\basic2.txt").Length | Should BeGreaterThan 0
         }
     }
+
+    Context "Copying" {
+
+        BeforeEach {
+            $content = [DateTime]::Now.ToFileTime()
+            $bucketName = "pstest-" + $content
+            $eastBucketName = $bucketName + "east"
+            New-S3Bucket -BucketName $eastBucketName -Region us-east-1
+
+            $westBucketName = $bucketName + "west"
+            New-S3Bucket -BucketName $westBucketName -Region us-west-1
+
+            Write-S3Object -BucketName $eastBucketName -Key key -Content $content -region us-east-1
+        }
+
+        AfterEach {
+            $eastBucketName | Remove-S3Bucket -Force -DeleteBucketContent
+            $westBucketName | Remove-S3Bucket -Force -DeleteBucketContent
+        }
+
+        It "Can copy cross-region" {
+            Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $westBucketName -DestinationKey key -Region us-east-1
+
+            Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt"
+            (Get-Content "temp\cross-region-copy.txt") | Should Be $content
+        }
+
+    }
 }
