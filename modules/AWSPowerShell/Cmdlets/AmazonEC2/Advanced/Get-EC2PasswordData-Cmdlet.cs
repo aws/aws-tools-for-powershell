@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                                   Credentials = this.CurrentCredentials,
                                   InstanceId = this.InstanceId,
                                   Decrypt = this.Decrypt.IsPresent || !string.IsNullOrEmpty(this.PemFile),
-                                  PemFile = this.PemFile,
+                                  PemFile = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.PemFile.Trim()),
                                   ProfileLocation = Parameters.ProfileLocation,
                                   ProfileName = Parameters.ProfileName
                               };
