@@ -22,52 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OpsWorks;
-using Amazon.OpsWorks.Model;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OPS
+namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deregisters an Amazon EBS volume. The volume can then be registered by another stack.
-    /// For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
-    /// Management</a>.
-    /// 
-    ///  
-    /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-    /// level for the stack, or an attached policy that explicitly grants permissions. For
-    /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
-    /// User Permissions</a>.
-    /// </para>
+    /// Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.
     /// </summary>
-    [Cmdlet("Unregister", "OPSVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterVolume operation against AWS OpsWorks.", Operation = new[] {"DeregisterVolume"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AGRequestValidator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.UpdateRequestValidatorResponse")]
+    [AWSCmdlet("Invokes the UpdateRequestValidator operation against Amazon API Gateway.", Operation = new[] {"UpdateRequestValidator"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateRequestValidatorResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.UpdateRequestValidatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UnregisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class UpdateAGRequestValidatorCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter VolumeId
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
-        /// <para>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned
-        /// to the instance when you registered the volume with the stack, not the Amazon EC2
-        /// volume ID.</para>
+        /// <para>A list of update operations to be applied to the specified resource and in the order
+        /// specified in this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PatchOperations")]
+        public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        #endregion
+        
+        #region Parameter RequestValidatorId
+        /// <summary>
+        /// <para>
+        /// <para>[Required] The identifier of <a>RequestValidator</a> to be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String VolumeId { get; set; }
+        public System.String RequestValidatorId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter RestApiId
         /// <summary>
-        /// Returns the value passed to the VolumeId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>[Required] The identifier of the <a>RestApi</a> for which the given <a>RequestValidator</a>
+        /// is updated.</para>
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestApiId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -84,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VolumeId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-OPSVolume (DeregisterVolume)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RequestValidatorId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AGRequestValidator (UpdateRequestValidator)"))
             {
                 return;
             }
@@ -99,7 +101,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.VolumeId = this.VolumeId;
+            if (this.PatchOperation != null)
+            {
+                context.PatchOperations = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
+            }
+            context.RequestValidatorId = this.RequestValidatorId;
+            context.RestApiId = this.RestApiId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -114,11 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorks.Model.DeregisterVolumeRequest();
+            var request = new Amazon.APIGateway.Model.UpdateRequestValidatorRequest();
             
-            if (cmdletContext.VolumeId != null)
+            if (cmdletContext.PatchOperations != null)
             {
-                request.VolumeId = cmdletContext.VolumeId;
+                request.PatchOperations = cmdletContext.PatchOperations;
+            }
+            if (cmdletContext.RequestValidatorId != null)
+            {
+                request.RequestValidatorId = cmdletContext.RequestValidatorId;
+            }
+            if (cmdletContext.RestApiId != null)
+            {
+                request.RestApiId = cmdletContext.RestApiId;
             }
             
             CmdletOutput output;
@@ -129,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.VolumeId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -156,13 +169,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DeregisterVolumeResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterVolumeRequest request)
+        private static Amazon.APIGateway.Model.UpdateRequestValidatorResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateRequestValidatorRequest request)
         {
             #if DESKTOP
-            return client.DeregisterVolume(request);
+            return client.UpdateRequestValidator(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeregisterVolumeAsync(request);
+            var task = client.UpdateRequestValidatorAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -173,7 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String VolumeId { get; set; }
+            public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }
+            public System.String RequestValidatorId { get; set; }
+            public System.String RestApiId { get; set; }
         }
         
     }

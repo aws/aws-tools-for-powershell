@@ -51,12 +51,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><para>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks automatically
+        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks Stacks automatically
         /// installs new agent versions on the stack's instances as soon as they are available.</para></li><li><para>Fixed version - Set this parameter to your preferred agent version. To update the
         /// agent version, you must edit the stack configuration and specify a new version. AWS
-        /// OpsWorks then automatically installs that version on the stack's instances.</para></li></ul><para>The default setting is <code>LATEST</code>. To specify an agent version, you must
+        /// OpsWorks Stacks then automatically installs that version on the stack's instances.</para></li></ul><para>The default setting is <code>LATEST</code>. To specify an agent version, you must
         /// use the complete version number, not the abbreviated number shown on the console.
-        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para><note><para>You can also specify an agent version when you create or update an instance, which
+        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.
+        /// AgentVersion cannot be set to Chef 12.2.</para><note><para>You can also specify an agent version when you create or update an instance, which
         /// overrides the stack's default setting.</para></note>
         /// </para>
         /// </summary>
@@ -150,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The stack's operating system, which must be set to one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
-        /// Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
-        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para><code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server
+        /// Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>,
+        /// or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
+        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS Linux 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para><code>Microsoft Windows Server 2012 R2 Base</code>, <code>Microsoft Windows Server
         /// 2012 R2 with SQL Server Express</code>, <code>Microsoft Windows Server 2012 R2 with
         /// SQL Server Standard</code>, or <code>Microsoft Windows Server 2012 R2 with SQL Server
         /// Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>. You specify the custom AMI you want to use when
@@ -159,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para></li></ul><para>The default option is the parent stack's operating system. For more information on
         /// the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
-        /// OpsWorks Operating Systems</a>.</para><note><para>You can specify a different Linux operating system for the cloned stack, but you cannot
+        /// OpsWorks Stacks Operating Systems</a>.</para><note><para>You can specify a different Linux operating system for the cloned stack, but you cannot
         /// change from Linux to Windows or Windows to Linux.</para></note>
         /// </para>
         /// </summary>
@@ -261,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM secret access
-        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
-        /// actual value.</para>
+        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
+        /// of the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -284,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomCookbooksSource_Revision
         /// <summary>
         /// <para>
-        /// <para>The application's version. AWS OpsWorks enables you to easily deploy new versions
+        /// <para>The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions
         /// of an application. One of the simplest approaches is to have branches or revisions
         /// in your repository that represent different versions that can potentially be deployed.</para>
         /// </para>
@@ -297,10 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks
-        /// to work with AWS resources on your behalf. You must set this parameter to the Amazon
-        /// Resource Name (ARN) for an existing IAM role. If you create a stack by using the AWS
-        /// OpsWorks console, it creates the role for you. You can obtain an existing stack's
-        /// IAM ARN programmatically by calling <a>DescribePermissions</a>. For more information
+        /// Stacks to work with AWS resources on your behalf. You must set this parameter to the
+        /// Amazon Resource Name (ARN) for an existing IAM role. If you create a stack by using
+        /// the AWS OpsWorks Stacks console, it creates the role for you. You can obtain an existing
+        /// stack's IAM ARN programmatically by calling <a>DescribePermissions</a>. For more information
         /// about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
         /// Identifiers</a>.</para><note><para>You must set this parameter to a valid service role ARN or the action will fail; there
         /// is no default value. You can specify the source stack's service role ARN, if you prefer,
@@ -324,8 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter CustomCookbooksSource_SshKey
         /// <summary>
         /// <para>
-        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
-        /// actual value.</para>
+        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
+        /// of the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -367,13 +369,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter UseOpsworksSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>Whether to associate the AWS OpsWorks built-in security groups with the stack's layers.</para><para>AWS OpsWorks provides a standard set of built-in security groups, one for each layer,
-        /// which are associated with layers by default. With <code>UseOpsworksSecurityGroups</code>
+        /// <para>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's
+        /// layers.</para><para>AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each
+        /// layer, which are associated with layers by default. With <code>UseOpsworksSecurityGroups</code>
         /// you can instead provide your own custom security groups. <code>UseOpsworksSecurityGroups</code>
-        /// has the following settings: </para><ul><li><para>True - AWS OpsWorks automatically associates the appropriate built-in security group
-        /// with each layer (default setting). You can associate additional security groups with
-        /// a layer after you create it but you cannot delete the built-in security group.</para></li><li><para>False - AWS OpsWorks does not associate built-in security groups with layers. You
-        /// must create appropriate Amazon Elastic Compute Cloud (Amazon EC2) security groups
+        /// has the following settings: </para><ul><li><para>True - AWS OpsWorks Stacks automatically associates the appropriate built-in security
+        /// group with each layer (default setting). You can associate additional security groups
+        /// with a layer after you create it but you cannot delete the built-in security group.</para></li><li><para>False - AWS OpsWorks Stacks does not associate built-in security groups with layers.
+        /// You must create appropriate Amazon Elastic Compute Cloud (Amazon EC2) security groups
         /// and associate a security group with each layer that you create. However, you can still
         /// manually associate a built-in security group with a layer on creation; custom security
         /// groups are required only for those layers that need custom settings.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html">Create
@@ -415,10 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// specified region. All instances are launched into this VPC, and you cannot change
         /// the ID later.</para><ul><li><para>If your account supports EC2 Classic, the default value is no VPC.</para></li><li><para>If your account does not support EC2 Classic, the default value is the default VPC
         /// for the specified region.</para></li></ul><para>If the VPC ID corresponds to a default VPC and you have specified either the <code>DefaultAvailabilityZone</code>
-        /// or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks infers the value
-        /// of the other parameter. If you specify neither parameter, AWS OpsWorks sets these
-        /// parameters to the first valid Availability Zone for the specified region and the corresponding
-        /// default VPC subnet ID, respectively. </para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information on how to use AWS OpsWorks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
+        /// or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks Stacks infers the
+        /// value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks
+        /// sets these parameters to the first valid Availability Zone for the specified region
+        /// and the corresponding default VPC subnet ID, respectively. </para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li><para>It must belong to a VPC in your account that is in the specified region.</para></li><li><para>You must specify a value for <code>DefaultSubnetId</code>.</para></li></ul><para>For more information on how to use AWS OpsWorks Stacks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
         /// a Stack in a VPC</a>. For more information on default VPC and EC2 Classic, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>. </para>
         /// </para>

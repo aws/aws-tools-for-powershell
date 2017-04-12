@@ -1,3 +1,17 @@
+### 3.3.76.0 (2017-04-11)
+  * Amazon S3
+    - Fixed issue with the Copy-S3Object cmdlet throwing 'access denied' error when attempting to copy objects between buckets in different regions.
+  * Amazon EC2
+    - Fixed issue with 'file not found' errors when using a relative path with the -PemFile parameter.
+  * Amazon API Gateway
+    - Added cmdlets to support the new request validators feature. The new cmdlets are: New-AGRequestValidator (CreateRequestValidator API), Get-AGRequestValidator (GetRequestValidator API), Get-AGRequestValidatorList (GetRequestValidators API), Update-AGRequestValidator (UpdateRequestValidator API) and Remove-AGRequestValidator (DeleteRequestValidator API). The Write-AGMethod cmdlet was also updated with a new parameter, -RequestValidatorId, enabling you to specify a request validator for the method.
+  * AWS Batch
+    - Updated the New-BATComputeEnvironment cmdlet with a new parameter, -ComputeResources_ImageId, to support specifying an AMI for MANAGED Compute Environment.
+  * AWS GameLift
+    - Updated the New-GMLGameSessionQueue and Update-GMLGameSessionQueue cmdlets with a new parameter, -PlayerLatencyPolicy, to enable developers to specify a maximum allowable latency per queue.
+  * AWS OpsWorks
+    - Updated the New-OPSLayer and Update-OPSLayer cmdlets with new parameters -CloudWatchLogsConfiguration_Enabled and -CloudWatchLogsConfiguration_LogStream to attaching a Cloudwatch Logs agent configuration to OpsWorks Layers. OpsWorks will then automatically install and manage the CloudWatch Logs agent on the instances that are part of the OpsWorks Layer.
+
 ### 3.3.75.0 (2017-04-10)
   * Fixed issue with cmdlets taking a long time to return when no region was specified.
   * Fixed issue with the argument completer for the -ProfileName parameter issuing a warning message about use of a deprecated switch on the Get-AWSCredentials cmdlet.

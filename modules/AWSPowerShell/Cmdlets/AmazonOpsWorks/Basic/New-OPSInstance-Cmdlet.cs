@@ -51,12 +51,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><para><code>INHERIT</code> - Use the stack's default agent version setting.</para></li><li><para><i>version_number</i> - Use the specified agent version. This value overrides the
+        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para><code>INHERIT</code> - Use the stack's default agent version setting.</para></li><li><para><i>version_number</i> - Use the specified agent version. This value overrides the
         /// stack's default setting. To update the agent version, edit the instance configuration
-        /// and specify a new version. AWS OpsWorks then automatically installs that version on
-        /// the instance.</para></li></ul><para>The default setting is <code>INHERIT</code>. To specify an agent version, you must
+        /// and specify a new version. AWS OpsWorks Stacks then automatically installs that version
+        /// on the instance.</para></li></ul><para>The default setting is <code>INHERIT</code>. To specify an agent version, you must
         /// use the complete version number, not the abbreviated number shown on the console.
-        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para>
+        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.
+        /// AgentVersion cannot be set to Chef 12.2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -191,17 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
-        /// Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>, or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
-        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
+        /// Linux 2016.09</code>, <code>Amazon Linux 2016.03</code>, <code>Amazon Linux 2015.09</code>,
+        /// or <code>Amazon Linux 2015.03</code>.</para></li><li><para>A supported Ubuntu operating system, such as <code>Ubuntu 16.04 LTS</code>, <code>Ubuntu
+        /// 14.04 LTS</code>, or <code>Ubuntu 12.04 LTS</code>.</para></li><li><para><code>CentOS Linux 7</code></para></li><li><para><code>Red Hat Enterprise Linux 7</code></para></li><li><para>A supported Windows operating system, such as <code>Microsoft Windows Server 2012
         /// R2 Base</code>, <code>Microsoft Windows Server 2012 R2 with SQL Server Express</code>,
         /// <code>Microsoft Windows Server 2012 R2 with SQL Server Standard</code>, or <code>Microsoft
         /// Windows Server 2012 R2 with SQL Server Web</code>.</para></li><li><para>A custom AMI: <code>Custom</code>.</para></li></ul><para>For more information on the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
-        /// OpsWorks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
+        /// OpsWorks Stacks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
         /// to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter
         /// to specify the custom AMI that you want to use. Block device mappings are not supported
         /// if the value is <code>Custom</code>. For more information on the supported operating
         /// systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
-        /// Systems</a>For more information on how to use custom AMIs with AWS OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
+        /// Systems</a>For more information on how to use custom AMIs with AWS OpsWorks Stacks,
+        /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para>
         /// </para>
         /// </summary>
@@ -246,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The ID of the instance's subnet. If the stack is running in a VPC, you can use this
         /// parameter to override the stack's default subnet ID value and direct AWS OpsWorks
-        /// to launch the instance in a different subnet.</para>
+        /// Stacks to launch the instance in a different subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

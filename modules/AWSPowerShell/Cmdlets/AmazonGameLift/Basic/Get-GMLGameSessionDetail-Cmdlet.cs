@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves properties, including the protection policy in force, for one or more game
     /// sessions. This action can be used in several ways: (1) provide a <code>GameSessionId</code>
-    /// to request details for a specific game session; (2) provide either a <code>FleetId</code>
-    /// or an <code>AliasId</code> to request properties for all game sessions running on
-    /// a fleet. 
+    /// or <code>GameSessionArn</code> to request details for a specific game session; (2)
+    /// provide either a <code>FleetId</code> or an <code>AliasId</code> to request properties
+    /// for all game sessions running on a fleet. 
     /// 
     ///  
     /// <para>

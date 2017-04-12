@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// You can search or sort by the following game session attributes:
-    /// </para><ul><li><para><b>gameSessionId</b> -- ID value assigned to a game session. This unique value is
-    /// returned in a <a>GameSession</a> object when a new game session is created. 
+    /// </para><ul><li><para><b>gameSessionId</b> -- Unique identifier for the game session. You can use either
+    /// a <code>GameSessionId</code> or <code>GameSessionArn</code> value. 
     /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. This value is set when
     /// requesting a new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>.
     /// Game session names do not need to be unique to a game session.
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// change quickly as players join sessions and others drop out. Results should be considered
     /// a snapshot in time. Be sure to refresh search results often, and handle sessions that
     /// fill up before a player can join. 
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para></note><para><i>Available in Amazon GameLift Local.</i></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Find", "GMLGameSession")]
     [OutputType("Amazon.GameLift.Model.GameSession")]

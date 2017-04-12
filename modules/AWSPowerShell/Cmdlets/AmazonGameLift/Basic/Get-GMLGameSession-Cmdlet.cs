@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// alias ID. You can filter this request by game session status. Use the pagination parameters
     /// to retrieve results as a set of sequential pages. If successful, a <a>GameSession</a>
     /// object is returned for each game session matching the request.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLGameSession")]
     [OutputType("Amazon.GameLift.Model.GameSession")]
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to retrieve.</para>
+        /// <para>Unique identifier for the game session to retrieve. You can use either a <code>GameSessionId</code>
+        /// or <code>GameSessionArn</code> value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

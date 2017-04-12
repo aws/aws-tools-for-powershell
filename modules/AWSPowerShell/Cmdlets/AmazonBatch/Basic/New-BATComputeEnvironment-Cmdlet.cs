@@ -107,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ComputeResources_Ec2KeyPair { get; set; }
         #endregion
         
+        #region Parameter ComputeResources_ImageId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ComputeResources_ImageId { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_InstanceRole
         /// <summary>
         /// <para>
@@ -277,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (ParameterWasBound("ComputeResources_DesiredvCpu"))
                 context.ComputeResources_DesiredvCpus = this.ComputeResources_DesiredvCpu;
             context.ComputeResources_Ec2KeyPair = this.ComputeResources_Ec2KeyPair;
+            context.ComputeResources_ImageId = this.ComputeResources_ImageId;
             context.ComputeResources_InstanceRole = this.ComputeResources_InstanceRole;
             if (this.ComputeResources_InstanceType != null)
             {
@@ -359,6 +370,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestComputeResources_computeResources_Ec2KeyPair != null)
             {
                 request.ComputeResources.Ec2KeyPair = requestComputeResources_computeResources_Ec2KeyPair;
+                requestComputeResourcesIsNull = false;
+            }
+            System.String requestComputeResources_computeResources_ImageId = null;
+            if (cmdletContext.ComputeResources_ImageId != null)
+            {
+                requestComputeResources_computeResources_ImageId = cmdletContext.ComputeResources_ImageId;
+            }
+            if (requestComputeResources_computeResources_ImageId != null)
+            {
+                request.ComputeResources.ImageId = requestComputeResources_computeResources_ImageId;
                 requestComputeResourcesIsNull = false;
             }
             System.String requestComputeResources_computeResources_InstanceRole = null;
@@ -523,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? ComputeResources_BidPercentage { get; set; }
             public System.Int32? ComputeResources_DesiredvCpus { get; set; }
             public System.String ComputeResources_Ec2KeyPair { get; set; }
+            public System.String ComputeResources_ImageId { get; set; }
             public System.String ComputeResources_InstanceRole { get; set; }
             public List<System.String> ComputeResources_InstanceTypes { get; set; }
             public System.Int32? ComputeResources_MaxvCpus { get; set; }

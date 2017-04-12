@@ -162,11 +162,21 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         public System.Boolean EnableAutoHealing { get; set; }
         #endregion
         
+        #region Parameter CloudWatchLogsConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether CloudWatch Logs is enabled for a layer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CloudWatchLogsConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Shutdown_ExecutionTimeout
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, that AWS OpsWorks will wait after triggering a Shutdown event
-        /// before shutting down an instance.</para>
+        /// <para>The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown
+        /// event before shutting down an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -198,6 +208,17 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LayerId { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogsConfiguration_LogStream
+        /// <summary>
+        /// <para>
+        /// <para>A list of configuration options for CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CloudWatchLogsConfiguration_LogStreams")]
+        public Amazon.OpsWorks.Model.CloudWatchLogsLogStream[] CloudWatchLogsConfiguration_LogStream { get; set; }
         #endregion
         
         #region Parameter Name
@@ -235,9 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>For custom layers only, use this parameter to specify the layer's short name, which
-        /// is used internally by AWS OpsWorksand by Chef. The short name is also used as the
-        /// name for the directory where your app files are installed. It can have a maximum of
-        /// 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.</para><para>The built-in layers' short names are defined by AWS OpsWorks. For more information,
+        /// is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used
+        /// as the name for the directory where your app files are installed. It can have a maximum
+        /// of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/.</para><para>The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information,
         /// see the <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer
         /// Reference</a></para>
         /// </para>
@@ -338,6 +359,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoAssignElasticIps = this.AutoAssignElasticIp;
             if (ParameterWasBound("AutoAssignPublicIp"))
                 context.AutoAssignPublicIps = this.AutoAssignPublicIp;
+            if (ParameterWasBound("CloudWatchLogsConfiguration_Enabled"))
+                context.CloudWatchLogsConfiguration_Enabled = this.CloudWatchLogsConfiguration_Enabled;
+            if (this.CloudWatchLogsConfiguration_LogStream != null)
+            {
+                context.CloudWatchLogsConfiguration_LogStreams = new List<Amazon.OpsWorks.Model.CloudWatchLogsLogStream>(this.CloudWatchLogsConfiguration_LogStream);
+            }
             context.CustomInstanceProfileArn = this.CustomInstanceProfileArn;
             context.CustomJson = this.CustomJson;
             if (this.CustomRecipes_Configure != null)
@@ -412,6 +439,35 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (cmdletContext.AutoAssignPublicIps != null)
             {
                 request.AutoAssignPublicIps = cmdletContext.AutoAssignPublicIps.Value;
+            }
+            
+             // populate CloudWatchLogsConfiguration
+            bool requestCloudWatchLogsConfigurationIsNull = true;
+            request.CloudWatchLogsConfiguration = new Amazon.OpsWorks.Model.CloudWatchLogsConfiguration();
+            System.Boolean? requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_Enabled = null;
+            if (cmdletContext.CloudWatchLogsConfiguration_Enabled != null)
+            {
+                requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_Enabled = cmdletContext.CloudWatchLogsConfiguration_Enabled.Value;
+            }
+            if (requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_Enabled != null)
+            {
+                request.CloudWatchLogsConfiguration.Enabled = requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_Enabled.Value;
+                requestCloudWatchLogsConfigurationIsNull = false;
+            }
+            List<Amazon.OpsWorks.Model.CloudWatchLogsLogStream> requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogStream = null;
+            if (cmdletContext.CloudWatchLogsConfiguration_LogStreams != null)
+            {
+                requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogStream = cmdletContext.CloudWatchLogsConfiguration_LogStreams;
+            }
+            if (requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogStream != null)
+            {
+                request.CloudWatchLogsConfiguration.LogStreams = requestCloudWatchLogsConfiguration_cloudWatchLogsConfiguration_LogStream;
+                requestCloudWatchLogsConfigurationIsNull = false;
+            }
+             // determine if request.CloudWatchLogsConfiguration should be set to null
+            if (requestCloudWatchLogsConfigurationIsNull)
+            {
+                request.CloudWatchLogsConfiguration = null;
             }
             if (cmdletContext.CustomInstanceProfileArn != null)
             {
@@ -616,6 +672,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             public Dictionary<System.String, System.String> Attributes { get; set; }
             public System.Boolean? AutoAssignElasticIps { get; set; }
             public System.Boolean? AutoAssignPublicIps { get; set; }
+            public System.Boolean? CloudWatchLogsConfiguration_Enabled { get; set; }
+            public List<Amazon.OpsWorks.Model.CloudWatchLogsLogStream> CloudWatchLogsConfiguration_LogStreams { get; set; }
             public System.String CustomInstanceProfileArn { get; set; }
             public System.String CustomJson { get; set; }
             public List<System.String> CustomRecipes_Configure { get; set; }

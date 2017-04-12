@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// <summary>
     /// Unassigns a registered instance from all of it's layers. The instance remains in the
     /// stack as an unassigned instance and can be assigned to another layer, as needed. You
-    /// cannot use this action with instances that were created with AWS OpsWorks.
+    /// cannot use this action with instances that were created with AWS OpsWorks Stacks.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions

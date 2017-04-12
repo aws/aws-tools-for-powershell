@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned.</para>
+        /// <para>The maximum number of returned results per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>Position</para>
+        /// <para>The current pagination position in the paged result set.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

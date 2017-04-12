@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <a>Deployment</a> resources in the collection to get information
-        /// about. The default limit is 25. It should be an integer between 1 - 500.</para>
+        /// <para>The maximum number of returned results per page. The value is 25 by default and could
+        /// be between 1 - 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>The position of the current <a>Deployment</a> resource in the collection to get information
-        /// about.</para>
+        /// <para>The current pagination position in the paged result set.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

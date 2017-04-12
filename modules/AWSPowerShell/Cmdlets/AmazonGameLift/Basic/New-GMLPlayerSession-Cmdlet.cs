@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// a set of player data strings. If successful, the players are added to the game session
     /// and a set of new <a>PlayerSession</a> objects is returned. Player sessions cannot
     /// be updated.
-    /// </para>
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para>
     /// </summary>
     [Cmdlet("New", "GMLPlayerSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.PlayerSession")]

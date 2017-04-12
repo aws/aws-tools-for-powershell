@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>The position of the current <a>ApiKeys</a> resource to get information about.</para>
+        /// <para>The current pagination position in the paged result set.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

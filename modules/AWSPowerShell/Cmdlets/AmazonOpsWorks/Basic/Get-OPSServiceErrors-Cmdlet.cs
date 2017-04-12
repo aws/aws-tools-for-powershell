@@ -28,13 +28,15 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Describes AWS OpsWorks service errors.
+    /// Describes AWS OpsWorks Stacks service errors.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,
     /// or Manage permissions level for the stack, or an attached policy that explicitly grants
     /// permissions. For more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
+    /// </para><para>
+    /// This call accepts only one resource-identifying parameter.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OPSServiceErrors")]

@@ -30,14 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// <summary>
     /// Describes Amazon ECS clusters that are registered with a stack. If you specify only
     /// a stack ID, you can use the <code>MaxResults</code> and <code>NextToken</code> parameters
-    /// to paginate the response. However, AWS OpsWorks currently supports only one cluster
-    /// per layer, so the result set has a maximum of one element.
+    /// to paginate the response. However, AWS OpsWorks Stacks currently supports only one
+    /// cluster per layer, so the result set has a maximum of one element.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,
     /// or Manage permissions level for the stack or an attached policy that explicitly grants
     /// permission. For more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.
+    /// </para><para>
+    /// This call accepts only one resource-identifying parameter.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OPSEcsCluster")]

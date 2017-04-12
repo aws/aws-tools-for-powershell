@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>List of fleets that can be used to fulfill game session placement requests in the
         /// queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations
-        /// are listed in default preference order.</para>
+        /// are listed in default preference order. When updating this list, provide a complete
+        /// list of destinations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,6 +66,24 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PlayerLatencyPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Collection of latency policies to apply when processing game sessions placement requests
+        /// with player latency information. Multiple policies are evaluated in order of the maximum
+        /// latency value, starting with the lowest latency values. With just one policy, it is
+        /// enforced at the start of the game session placement for the duration period. With
+        /// multiple policies, each policy is enforced consecutively for its duration period.
+        /// For example, a queue might enforce a 60-second policy followed by a 120-second policy,
+        /// and then no policy for the remainder of the placement. When updating policies, provide
+        /// a complete collection of policies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PlayerLatencyPolicies")]
+        public Amazon.GameLift.Model.PlayerLatencyPolicy[] PlayerLatencyPolicy { get; set; }
         #endregion
         
         #region Parameter TimeoutInSecond
@@ -114,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Destinations = new List<Amazon.GameLift.Model.GameSessionQueueDestination>(this.Destination);
             }
             context.Name = this.Name;
+            if (this.PlayerLatencyPolicy != null)
+            {
+                context.PlayerLatencyPolicies = new List<Amazon.GameLift.Model.PlayerLatencyPolicy>(this.PlayerLatencyPolicy);
+            }
             if (ParameterWasBound("TimeoutInSecond"))
                 context.TimeoutInSeconds = this.TimeoutInSecond;
             
@@ -139,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PlayerLatencyPolicies != null)
+            {
+                request.PlayerLatencyPolicies = cmdletContext.PlayerLatencyPolicies;
             }
             if (cmdletContext.TimeoutInSeconds != null)
             {
@@ -197,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destinations { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.GameLift.Model.PlayerLatencyPolicy> PlayerLatencyPolicies { get; set; }
             public System.Int32? TimeoutInSeconds { get; set; }
         }
         

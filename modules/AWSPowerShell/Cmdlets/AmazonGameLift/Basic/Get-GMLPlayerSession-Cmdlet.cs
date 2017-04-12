@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves properties for one or more player sessions. This action can be used in several
-    /// ways: (1) provide a <code>PlayerSessionId</code> parameter to request properties for
-    /// a specific player session; (2) provide a <code>GameSessionId</code> parameter to request
-    /// properties for all player sessions in the specified game session; (3) provide a <code>PlayerId</code>
-    /// parameter to request properties for all player sessions of a specified player. 
+    /// ways: (1) provide a <code>PlayerSessionId</code> to request properties for a specific
+    /// player session; (2) provide a <code>GameSessionId</code> to request properties for
+    /// all player sessions in the specified game session; (3) provide a <code>PlayerId</code>
+    /// to request properties for all player sessions of a specified player. 
     /// 
     ///  
     /// <para>
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// status. Use the pagination parameters to retrieve results as a set of sequential pages.
     /// If successful, a <a>PlayerSession</a> object is returned for each session matching
     /// the request.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLPlayerSession")]
     [OutputType("Amazon.GameLift.Model.PlayerSession")]

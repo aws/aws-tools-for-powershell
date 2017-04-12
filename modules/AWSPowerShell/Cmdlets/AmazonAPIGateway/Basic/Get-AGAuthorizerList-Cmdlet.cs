@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Limit the number of <a>Authorizer</a> resources in the response.</para>
+        /// <para>The maximum number of returned results per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>If not all <a>Authorizer</a> resources in the response were present, the position
-        /// will specify where to start the next page of results.</para>
+        /// <para>The current pagination position in the paged result set.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

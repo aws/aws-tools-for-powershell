@@ -28,23 +28,24 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Lists information about a collection of <a>Resource</a> resources.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "AGResourceList")]
-    [OutputType("Amazon.APIGateway.Model.Resource")]
-    [AWSCmdlet("Invokes the GetResources operation against Amazon API Gateway.", Operation = new[] {"GetResources"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.Resource",
-        "This cmdlet returns a collection of Resource objects.",
-        "The service call response (type Amazon.APIGateway.Model.GetResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "AGValidatorList")]
+    [OutputType("Amazon.APIGateway.Model.RequestValidator")]
+    [AWSCmdlet("Invokes the GetRequestValidators operation against Amazon API Gateway.", Operation = new[] {"GetRequestValidators"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.RequestValidator",
+        "This cmdlet returns a collection of RequestValidator objects.",
+        "The service call response (type Amazon.APIGateway.Model.GetRequestValidatorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Position (type System.String)"
     )]
-    public partial class GetAGResourceListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class GetAGValidatorListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The <a>RestApi</a> identifier for the Resource.</para>
+        /// <para>[Required] The identifier of a <a>RestApi</a> to which the <a>RequestValidators</a>
+        /// collection belongs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of returned results per page. The value is 25 by default and could
-        /// be between 1 - 500.</para>
+        /// <para>The maximum number of returned results per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.APIGateway.Model.GetResourcesRequest();
+            var request = new Amazon.APIGateway.Model.GetRequestValidatorsRequest();
             if (cmdletContext.RestApiId != null)
             {
                 request.RestApiId = cmdletContext.RestApiId;
@@ -200,13 +200,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetResourcesResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetResourcesRequest request)
+        private static Amazon.APIGateway.Model.GetRequestValidatorsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetRequestValidatorsRequest request)
         {
             #if DESKTOP
-            return client.GetResources(request);
+            return client.GetRequestValidators(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetResourcesAsync(request);
+            var task = client.GetRequestValidatorsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"

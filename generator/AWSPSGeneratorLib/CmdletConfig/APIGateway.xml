@@ -163,6 +163,12 @@
 	<ServiceOperation MethodName="CreateUsagePlanKey" PipelineParameter="KeyId" Output="Response" />
 	<ServiceOperation MethodName="DeleteUsagePlan" Output="Void" />
 	<ServiceOperation MethodName="DeleteUsagePlanKey" PipelineParameter="UsagePlanId" Output="Void" />
+    
+    <ServiceOperation MethodName="UpdateRequestValidator" PipelineParameter="RequestValidatorId" Output="Response" />
+    <ServiceOperation MethodName="GetRequestValidator" PipelineParameter="RequestValidatorId" Output="Response" />
+    <ServiceOperation MethodName="GetRequestValidators" Noun="ValidatorList" />
+    <ServiceOperation MethodName="CreateRequestValidator" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="DeleteRequestValidator" PipelineParameter="RequestValidatorId" Output="Void" />
 	
   </ServiceOperations>
 

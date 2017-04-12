@@ -22,48 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OpsWorks;
-using Amazon.OpsWorks.Model;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OPS
+namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deregisters an Amazon EBS volume. The volume can then be registered by another stack.
-    /// For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
-    /// Management</a>.
-    /// 
-    ///  
-    /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-    /// level for the stack, or an attached policy that explicitly grants permissions. For
-    /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
-    /// User Permissions</a>.
-    /// </para>
+    /// Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.
     /// </summary>
-    [Cmdlet("Unregister", "OPSVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "AGRequestValidator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterVolume operation against AWS OpsWorks.", Operation = new[] {"DeregisterVolume"})]
+    [AWSCmdlet("Invokes the DeleteRequestValidator operation against Amazon API Gateway.", Operation = new[] {"DeleteRequestValidator"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RequestValidatorId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.APIGateway.Model.DeleteRequestValidatorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UnregisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class RemoveAGRequestValidatorCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter VolumeId
+        #region Parameter RequestValidatorId
         /// <summary>
         /// <para>
-        /// <para>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned
-        /// to the instance when you registered the volume with the stack, not the Amazon EC2
-        /// volume ID.</para>
+        /// <para>[Required] The identifier of the <a>RequestValidator</a> to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String VolumeId { get; set; }
+        public System.String RequestValidatorId { get; set; }
+        #endregion
+        
+        #region Parameter RestApiId
+        /// <summary>
+        /// <para>
+        /// <para>[Required] The identifier of the <a>RestApi</a> from which the given <a>RequestValidator</a>
+        /// is deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RestApiId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the VolumeId parameter.
+        /// Returns the value passed to the RequestValidatorId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VolumeId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-OPSVolume (DeregisterVolume)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RequestValidatorId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AGRequestValidator (DeleteRequestValidator)"))
             {
                 return;
             }
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.VolumeId = this.VolumeId;
+            context.RequestValidatorId = this.RequestValidatorId;
+            context.RestApiId = this.RestApiId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -114,11 +115,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorks.Model.DeregisterVolumeRequest();
+            var request = new Amazon.APIGateway.Model.DeleteRequestValidatorRequest();
             
-            if (cmdletContext.VolumeId != null)
+            if (cmdletContext.RequestValidatorId != null)
             {
-                request.VolumeId = cmdletContext.VolumeId;
+                request.RequestValidatorId = cmdletContext.RequestValidatorId;
+            }
+            if (cmdletContext.RestApiId != null)
+            {
+                request.RestApiId = cmdletContext.RestApiId;
             }
             
             CmdletOutput output;
@@ -131,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.VolumeId;
+                    pipelineOutput = this.RequestValidatorId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -156,13 +161,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DeregisterVolumeResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterVolumeRequest request)
+        private static Amazon.APIGateway.Model.DeleteRequestValidatorResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteRequestValidatorRequest request)
         {
             #if DESKTOP
-            return client.DeregisterVolume(request);
+            return client.DeleteRequestValidator(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeregisterVolumeAsync(request);
+            var task = client.DeleteRequestValidatorAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -173,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String VolumeId { get; set; }
+            public System.String RequestValidatorId { get; set; }
+            public System.String RestApiId { get; set; }
         }
         
     }

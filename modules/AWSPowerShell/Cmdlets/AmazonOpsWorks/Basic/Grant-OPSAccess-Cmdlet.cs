@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance's AWS OpsWorks ID.</para>
+        /// <para>The instance's AWS OpsWorks Stacks ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

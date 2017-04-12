@@ -28,9 +28,9 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Describes the available AWS OpsWorks agent versions. You must specify a stack ID or
-    /// a configuration manager. <code>DescribeAgentVersions</code> returns a list of available
-    /// agent versions for the specified stack or configuration manager.
+    /// Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack
+    /// ID or a configuration manager. <code>DescribeAgentVersions</code> returns a list of
+    /// available agent versions for the specified stack or configuration manager.
     /// </summary>
     [Cmdlet("Get", "OPSAgentVersion")]
     [OutputType("Amazon.OpsWorks.Model.AgentVersion")]

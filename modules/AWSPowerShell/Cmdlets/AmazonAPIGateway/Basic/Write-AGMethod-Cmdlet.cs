@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter AuthorizationType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of authorization used for the method.</para>
+        /// <para>The method's authorization type. Valid values are <code>NONE</code> for open access,
+        /// <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using
+        /// a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,6 +125,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("RequestParameters")]
         public System.Collections.Hashtable RequestParameter { get; set; }
+        #endregion
+        
+        #region Parameter RequestValidatorId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a <a>RequestValidator</a> for validating the method request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RequestValidatorId { get; set; }
         #endregion
         
         #region Parameter ResourceId
@@ -196,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                     context.RequestParameters.Add((String)hashKey, (Boolean)(this.RequestParameter[hashKey]));
                 }
             }
+            context.RequestValidatorId = this.RequestValidatorId;
             context.ResourceId = this.ResourceId;
             context.RestApiId = this.RestApiId;
             
@@ -241,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.RequestParameters != null)
             {
                 request.RequestParameters = cmdletContext.RequestParameters;
+            }
+            if (cmdletContext.RequestValidatorId != null)
+            {
+                request.RequestValidatorId = cmdletContext.RequestValidatorId;
             }
             if (cmdletContext.ResourceId != null)
             {
@@ -308,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String OperationName { get; set; }
             public Dictionary<System.String, System.String> RequestModels { get; set; }
             public Dictionary<System.String, System.Boolean> RequestParameters { get; set; }
+            public System.String RequestValidatorId { get; set; }
             public System.String ResourceId { get; set; }
             public System.String RestApiId { get; set; }
         }

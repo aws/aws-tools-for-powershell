@@ -22,66 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OpsWorks;
-using Amazon.OpsWorks.Model;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OPS
+namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Assign a registered instance to a layer.
-    /// 
-    ///  <ul><li><para>
-    /// You can assign registered on-premises instances to any layer type.
-    /// </para></li><li><para>
-    /// You can assign registered Amazon EC2 instances only to custom layers.
-    /// </para></li><li><para>
-    /// You cannot use this action with instances that were created with AWS OpsWorks Stacks.
-    /// </para></li></ul><para><b>Required Permissions</b>: To use this action, an AWS Identity and Access Management
-    /// (IAM) user must have a Manage permissions level for the stack or an attached policy
-    /// that explicitly grants permissions. For more information on user permissions, see
-    /// <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
-    /// User Permissions</a>.
-    /// </para>
+    /// Creates a <a>ReqeustValidator</a> of a given <a>RestApi</a>.
     /// </summary>
-    [Cmdlet("Register", "OPSInstanceAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssignInstance operation against AWS OpsWorks.", Operation = new[] {"AssignInstance"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.OpsWorks.Model.AssignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "AGRequestValidator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.APIGateway.Model.CreateRequestValidatorResponse")]
+    [AWSCmdlet("Invokes the CreateRequestValidator operation against Amazon API Gateway.", Operation = new[] {"CreateRequestValidator"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.CreateRequestValidatorResponse",
+        "This cmdlet returns a Amazon.APIGateway.Model.CreateRequestValidatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterOPSInstanceAssignmentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class NewAGRequestValidatorCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter InstanceId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The name of the to-be-created <a>RequestValidator</a>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter LayerId
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The layer ID, which must correspond to a custom layer. You cannot assign a registered
-        /// instance to a built-in layer.</para>
+        /// <para>[Required] The identifier of the <a>RestApi</a> for which the <a>RequestValidator</a>
+        /// is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("LayerIds")]
-        public System.String[] LayerId { get; set; }
+        public System.String RestApiId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter ValidateRequestBody
         /// <summary>
-        /// Returns the value passed to the InstanceId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>A Boolean flag to indicate whether to validate request body according to the configured
+        /// model schema for the method (<code>true</code>) or not (<code>false</code>).</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.Boolean ValidateRequestBody { get; set; }
+        #endregion
+        
+        #region Parameter ValidateRequestParameter
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean flag to indicate whether to validate request parameters, <code>true</code>,
+        /// or not <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ValidateRequestParameters")]
+        public System.Boolean ValidateRequestParameter { get; set; }
         #endregion
         
         #region Parameter Force
@@ -98,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-OPSInstanceAssignment (AssignInstance)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AGRequestValidator (CreateRequestValidator)"))
             {
                 return;
             }
@@ -113,11 +112,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.InstanceId = this.InstanceId;
-            if (this.LayerId != null)
-            {
-                context.LayerIds = new List<System.String>(this.LayerId);
-            }
+            context.Name = this.Name;
+            context.RestApiId = this.RestApiId;
+            if (ParameterWasBound("ValidateRequestBody"))
+                context.ValidateRequestBody = this.ValidateRequestBody;
+            if (ParameterWasBound("ValidateRequestParameter"))
+                context.ValidateRequestParameters = this.ValidateRequestParameter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,15 +132,23 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorks.Model.AssignInstanceRequest();
+            var request = new Amazon.APIGateway.Model.CreateRequestValidatorRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.Name != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.LayerIds != null)
+            if (cmdletContext.RestApiId != null)
             {
-                request.LayerIds = cmdletContext.LayerIds;
+                request.RestApiId = cmdletContext.RestApiId;
+            }
+            if (cmdletContext.ValidateRequestBody != null)
+            {
+                request.ValidateRequestBody = cmdletContext.ValidateRequestBody.Value;
+            }
+            if (cmdletContext.ValidateRequestParameters != null)
+            {
+                request.ValidateRequestParameters = cmdletContext.ValidateRequestParameters.Value;
             }
             
             CmdletOutput output;
@@ -151,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.InstanceId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -178,13 +184,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.AssignInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.AssignInstanceRequest request)
+        private static Amazon.APIGateway.Model.CreateRequestValidatorResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.CreateRequestValidatorRequest request)
         {
             #if DESKTOP
-            return client.AssignInstance(request);
+            return client.CreateRequestValidator(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AssignInstanceAsync(request);
+            var task = client.CreateRequestValidatorAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -195,8 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public List<System.String> LayerIds { get; set; }
+            public System.String Name { get; set; }
+            public System.String RestApiId { get; set; }
+            public System.Boolean? ValidateRequestBody { get; set; }
+            public System.Boolean? ValidateRequestParameters { get; set; }
         }
         
     }

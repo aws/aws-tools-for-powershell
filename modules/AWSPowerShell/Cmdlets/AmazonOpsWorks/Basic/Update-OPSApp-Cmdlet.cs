@@ -164,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type.</para><ul><li><para>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM secret access
-        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
-        /// actual value.</para>
+        /// key.</para></li><li><para>For HTTP bundles and Subversion repositories, set <code>Password</code> to the password.</para></li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
+        /// of the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Revision
         /// <summary>
         /// <para>
-        /// <para>The application's version. AWS OpsWorks enables you to easily deploy new versions
+        /// <para>The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions
         /// of an application. One of the simplest approaches is to have branches or revisions
         /// in your repository that represent different versions that can potentially be deployed.</para>
         /// </para>
@@ -197,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_SshKey
         /// <summary>
         /// <para>
-        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
-        /// actual value.</para>
+        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code> instead
+        /// of the actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
