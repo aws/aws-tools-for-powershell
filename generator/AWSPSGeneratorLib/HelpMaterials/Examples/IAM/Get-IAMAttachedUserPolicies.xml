@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\>Get-IAMAttachedUserPolicies --UserName "Bob"
+    <code>PS C:\>Get-IAMAttachedUserPolicies -UserName "Bob"
 
 PolicyArn                                                 PolicyName
 ---------                                                 ----------
