@@ -2,6 +2,6 @@
 <links>
   <set target="*">
 	<link name="User Guide">https://docs.aws.amazon.com/health/latest/ug/</link>
-    <link name="Service API Reference">http://docs.aws.amazon.com/health/latest/APIReference/</link>
+    <link name="Service API Reference">https://docs.aws.amazon.com/health/latest/APIReference/</link>
   </set>
 </links>

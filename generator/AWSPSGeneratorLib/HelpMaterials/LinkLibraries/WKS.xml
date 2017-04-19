@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <links>
   <set target="*">
-	<link name="Administration Guide">http://docs.aws.amazon.com/workspaces/latest/adminguide/</link>
-	<link name="Developer Guide">http://docs.aws.amazon.com/workspaces/latest/devguide/</link>
+	<link name="Administration Guide">https://docs.aws.amazon.com/workspaces/latest/adminguide/</link>
+	<link name="Developer Guide">https://docs.aws.amazon.com/workspaces/latest/devguide/</link>
   </set>
 </links>

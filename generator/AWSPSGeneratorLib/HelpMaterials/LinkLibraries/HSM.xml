@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <links>
   <set target="*">
-	<link name="User Guide">http://docs.aws.amazon.com/cloudhsm/latest/userguide/</link>
-    <link name="Service API Reference">http://docs.aws.amazon.com/cloudhsm/latest/dg/</link>
+	<link name="User Guide">https://docs.aws.amazon.com/cloudhsm/latest/userguide/</link>
+    <link name="Service API Reference">https://docs.aws.amazon.com/cloudhsm/latest/dg/</link>
   </set>
 </links>

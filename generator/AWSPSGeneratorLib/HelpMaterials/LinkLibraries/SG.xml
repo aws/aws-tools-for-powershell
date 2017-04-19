@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <links>
   <set target="*">
-	<link name="Service User Guide">http://docs.aws.amazon.com/storagegateway/latest/userguide</link>
-	<link name="Service API Reference">http://docs.aws.amazon.com/storagegateway/latest/APIReference/</link>
+	<link name="Service User Guide">https://docs.aws.amazon.com/storagegateway/latest/userguide</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/storagegateway/latest/APIReference/</link>
   </set>
 </links>

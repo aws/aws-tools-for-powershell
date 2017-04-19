@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <links>
   <set target="*">
-	<link name="Getting Started Guide">http://docs.aws.amazon.com/AmazonS3/latest/gsg/</link>
-	<link name="Developer Guide">http://docs.aws.amazon.com/AmazonS3/latest/dev/</link>
-	<link name="Service API Reference">http://docs.aws.amazon.com/AmazonS3/latest/API/</link>
+	<link name="Getting Started Guide">https://docs.aws.amazon.com/AmazonS3/latest/gsg/</link>
+	<link name="Developer Guide">https://docs.aws.amazon.com/AmazonS3/latest/dev/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/AmazonS3/latest/API/</link>
   </set>
 </links>

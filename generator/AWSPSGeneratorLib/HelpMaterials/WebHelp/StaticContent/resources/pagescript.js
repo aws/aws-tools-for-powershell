@@ -66,7 +66,7 @@
         //#facet_doc_product=AWS+Tools+for+Windows+PowerShell&amp;facet_doc_guide=Cmdlet+Reference
         var docsBase;
         if (window.location.host === "")
-            docsBase = "http://docs.aws.amazon.com";
+            docsBase = "https://docs.aws.amazon.com";
         else
             docsBase = window.location.protocol + "//" + window.location.host;
         var so = jQuery("#sel").val();
@@ -101,7 +101,7 @@
                 formElement.action = "/search/doc-search.html" + facet;
             }
         } else {
-            formElement.action = "http://aws.amazon.com/search";
+            formElement.action = "https://aws.amazon.com/search";
         }
         return true;
     },
