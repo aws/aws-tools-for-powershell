@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
         /// Lambda Function Versioning and Aliases</a></para><para>AWS Lambda also allows you to specify only the function name with the account ID qualifier
         /// (for example, <code>account-id:Thumbnail</code>). </para><para>Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 character in length.</para>
+        /// name, it is limited to 64 characters in length.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

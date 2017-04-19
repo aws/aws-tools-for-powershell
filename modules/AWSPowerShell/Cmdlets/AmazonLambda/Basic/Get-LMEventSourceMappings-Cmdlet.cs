@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// is qualified with function version or alias name as suffix). AWS Lambda also allows
         /// you to specify only the function name with the account ID qualifier (for example,
         /// <code>account-id:Thumbnail</code>). Note that the length constraint applies only to
-        /// the ARN. If you specify only the function name, it is limited to 64 character in length.
-        /// </para>
+        /// the ARN. If you specify only the function name, it is limited to 64 characters in
+        /// length. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -2617,6 +2617,7 @@ Set-Alias -Name List-KMSKeys -Value Get-KMSKeys
 Set-Alias -Name KMS-ListKeys -Value Get-KMSKeys
 Set-Alias -Name List-KMSResourceTag -Value Get-KMSResourceTag
 Set-Alias -Name KMS-ListResourceTags -Value Get-KMSResourceTag
+Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
 Set-Alias -Name LM-AddPermission -Value Add-LMPermission
 Set-Alias -Name Create-LMAlias -Value New-LMAlias
 Set-Alias -Name LM-CreateAlias -Value New-LMAlias
@@ -2640,13 +2641,16 @@ Set-Alias -Name List-LMEventSourceMappings -Value Get-LMEventSourceMappings
 Set-Alias -Name LM-ListEventSourceMappings -Value Get-LMEventSourceMappings
 Set-Alias -Name List-LMFunctions -Value Get-LMFunctions
 Set-Alias -Name LM-ListFunctions -Value Get-LMFunctions
+Set-Alias -Name List-LMResourceTag -Value Get-LMResourceTag
+Set-Alias -Name LM-ListTags -Value Get-LMResourceTag
 Set-Alias -Name List-LMVersionsByFunction -Value Get-LMVersionsByFunction
 Set-Alias -Name LM-ListVersionsByFunction -Value Get-LMVersionsByFunction
 Set-Alias -Name LM-PublishVersion -Value Publish-LMVersion
 Set-Alias -Name LM-RemovePermission -Value Remove-LMPermission
+Set-Alias -Name LM-TagResource -Value Add-LMResourceTag
+Set-Alias -Name LM-UntagResource -Value Remove-LMResourceTag
 Set-Alias -Name LM-UpdateAlias -Value Update-LMAlias
 Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
-Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
 Set-Alias -Name LEX-PostContent -Value Send-LEXContent
 Set-Alias -Name LEX-PostText -Value Send-LEXText
 Set-Alias -Name LS-GetKeyPair -Value Get-LSKeyPairInfo

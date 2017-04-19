@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
         /// AWS Lambda also allows you to specify partial ARN (for example, <code>account-id:Thumbnail</code>).
         /// Note that the length constraint applies only to the ARN. If you specify only the function
-        /// name, it is limited to 64 character in length. </para>
+        /// name, it is limited to 64 characters in length. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -129,13 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceAccount
         /// <summary>
         /// <para>
-        /// <para>This parameter is used for S3, SES, CloudWatch Logs and CloudWatch Rules only. The
-        /// AWS account ID (without a hyphen) of the source owner. For example, if the <code>SourceArn</code>
-        /// identifies a bucket, then this is the bucket owner's account ID. You can use this
-        /// additional condition to ensure the bucket you specify is owned by a specific account
-        /// (it is possible the bucket owner deleted the bucket and some other AWS account created
-        /// the bucket). You can also use this condition to specify all sources (that is, you
-        /// don't specify the <code>SourceArn</code>) owned by a specific account. </para>
+        /// <para>This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the
+        /// source owner. For example, if the <code>SourceArn</code> identifies a bucket, then
+        /// this is the bucket owner's account ID. You can use this additional condition to ensure
+        /// the bucket you specify is owned by a specific account (it is possible the bucket owner
+        /// deleted the bucket and some other AWS account created the bucket). You can also use
+        /// this condition to specify all sources (that is, you don't specify the <code>SourceArn</code>)
+        /// owned by a specific account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -145,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>This is optional; however, when granting Amazon S3 permission to invoke your function,
+        /// <para>This is optional; however, when granting a source permission to invoke your function,
         /// you should specify this field with the Amazon Resource Name (ARN) as its value. This
-        /// ensures that only events generated from the specified source can invoke the function.</para><important><para>If you add a permission for the Amazon S3 principal without providing the source ARN,
-        /// any AWS account that creates a mapping to your function ARN can send events to invoke
-        /// your Lambda function from Amazon S3.</para></important>
+        /// ensures that only events generated from the specified source can invoke the function.</para><important><para>If you add a permission for the source without providing the source ARN, any AWS account
+        /// that creates a mapping to your function ARN can send events to invoke your Lambda
+        /// function from that source.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

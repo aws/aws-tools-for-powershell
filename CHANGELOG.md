@@ -1,3 +1,6 @@
+  * AWS Lambda
+    - Added new cmdlets to support the new service feature using tags to group and filter Lambda functions. The new cmdlets are Add-LMResourceTag (TagResource API), Get-LMResourceTag (ListTags API) and Remove-LMResourceTag (UntagResource API).
+
 ### 3.3.76.0 (2017-04-11)
   * Amazon S3
     - Fixed issue with the Copy-S3Object cmdlet throwing 'access denied' error when attempting to copy objects between buckets in different regions.

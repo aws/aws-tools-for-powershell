@@ -28,61 +28,69 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the resource policy associated with the specified Lambda function.
-    /// 
-    ///  
-    /// <para>
-    ///  If you are using the versioning feature, you can get the resource policy associated
-    /// with the specific Lambda function version or alias by specifying the version or alias
-    /// name using the <code>Qualifier</code> parameter. For more information about versioning,
-    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>. 
-    /// </para><para>
-    /// You need permission for the <code>lambda:GetPolicy action.</code></para>
+    /// Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda
+    /// function ARN (Amazon Resource Name). If a key is specified without a value, Lambda
+    /// creates a tag with the specified key and a value of null.
     /// </summary>
-    [Cmdlet("Get", "LMPolicy")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetPolicy operation against Amazon Lambda.", Operation = new[] {"GetPolicy"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.Lambda.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the TagResource operation against Amazon Lambda.", Operation = new[] {"TagResource"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Resource parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.Lambda.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class AddLMResourceTagCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
-        #region Parameter FunctionName
+        #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>Function name whose resource policy you want to retrieve.</para><para> You can specify the function name (for example, <code>Thumbnail</code>) or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>).
-        /// If you are using versioning, you can also provide a qualified function ARN (ARN that
-        /// is qualified with function version or alias name as suffix). AWS Lambda also allows
-        /// you to specify only the function name with the account ID qualifier (for example,
-        /// <code>account-id:Thumbnail</code>). Note that the length constraint applies only to
-        /// the ARN. If you specify only the function name, it is limited to 64 characters in
-        /// length. </para>
+        /// <para>The ARN (Amazon Resource Name) of the Lambda function.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String FunctionName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Resource { get; set; }
         #endregion
         
-        #region Parameter Qualifier
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>You can specify this optional query parameter to specify a function version or an
-        /// alias name in which case this API will return all permissions associated with the
-        /// specific qualified ARN. If you don't provide this parameter, the API will return permissions
-        /// that apply to the unqualified function ARN.</para>
+        /// <para>The list of tags (key-value pairs) you are assigning to the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Qualifier { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the Resource parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Resource", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-LMResourceTag (TagResource)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -93,8 +101,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FunctionName = this.FunctionName;
-            context.Qualifier = this.Qualifier;
+            context.Resource = this.Resource;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lambda.Model.GetPolicyRequest();
+            var request = new Amazon.Lambda.Model.TagResourceRequest();
             
-            if (cmdletContext.FunctionName != null)
+            if (cmdletContext.Resource != null)
             {
-                request.FunctionName = cmdletContext.FunctionName;
+                request.Resource = cmdletContext.Resource;
             }
-            if (cmdletContext.Qualifier != null)
+            if (cmdletContext.Tags != null)
             {
-                request.Qualifier = cmdletContext.Qualifier;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -128,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Policy;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.Resource;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,13 +170,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetPolicyRequest request)
+        private static Amazon.Lambda.Model.TagResourceResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.TagResourceRequest request)
         {
             #if DESKTOP
-            return client.GetPolicy(request);
+            return client.TagResource(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetPolicyAsync(request);
+            var task = client.TagResourceAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -170,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FunctionName { get; set; }
-            public System.String Qualifier { get; set; }
+            public System.String Resource { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

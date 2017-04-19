@@ -28,45 +28,27 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the specified alias information such as the alias ARN, description, and function
-    /// version it is pointing to. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
-    /// to AWS Lambda Aliases</a>.
-    /// 
-    ///  
-    /// <para>
-    /// This requires permission for the <code>lambda:GetAlias</code> action.
-    /// </para>
+    /// Returns a list of tags assigned to a function when supplied the function ARN (Amazon
+    /// Resource Name).
     /// </summary>
-    [Cmdlet("Get", "LMAlias")]
-    [OutputType("Amazon.Lambda.Model.GetAliasResponse")]
-    [AWSCmdlet("Invokes the GetAlias operation against Amazon Lambda.", Operation = new[] {"GetAlias"})]
-    [AWSCmdletOutput("Amazon.Lambda.Model.GetAliasResponse",
-        "This cmdlet returns a Amazon.Lambda.Model.GetAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListTags operation against Amazon Lambda.", Operation = new[] {"ListTags"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.Lambda.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class GetLMResourceTagCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
-        #region Parameter FunctionName
+        #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>Function name for which the alias is created. An alias is a subresource that exists
-        /// only in the context of an existing Lambda function so you must specify the function
-        /// name. Note that the length constraint applies only to the ARN. If you specify only
-        /// the function name, it is limited to 64 characters in length.</para>
+        /// <para>The ARN (Amazon Resource Name) of the function.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String FunctionName { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Name of the alias for which you want to retrieve information.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Resource { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -82,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FunctionName = this.FunctionName;
-            context.Name = this.Name;
+            context.Resource = this.Resource;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -98,15 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lambda.Model.GetAliasRequest();
+            var request = new Amazon.Lambda.Model.ListTagsRequest();
             
-            if (cmdletContext.FunctionName != null)
+            if (cmdletContext.Resource != null)
             {
-                request.FunctionName = cmdletContext.FunctionName;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.Resource = cmdletContext.Resource;
             }
             
             CmdletOutput output;
@@ -117,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,13 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.GetAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAliasRequest request)
+        private static Amazon.Lambda.Model.ListTagsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListTagsRequest request)
         {
             #if DESKTOP
-            return client.GetAlias(request);
+            return client.ListTags(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetAliasAsync(request);
+            var task = client.ListTagsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -159,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FunctionName { get; set; }
-            public System.String Name { get; set; }
+            public System.String Resource { get; set; }
         }
         
     }

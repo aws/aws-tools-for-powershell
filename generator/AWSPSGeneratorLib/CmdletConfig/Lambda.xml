@@ -33,9 +33,23 @@
     <ServiceOperation MethodName="ListAliases" Noun="AliasList" />
     <ServiceOperation MethodName="ListEventSourceMappings" />
     <ServiceOperation MethodName="ListFunctions" />
+    <ServiceOperation MethodName="ListTags" Noun="ResourceTag" />
     <ServiceOperation MethodName="ListVersionsByFunction"  />
     <ServiceOperation MethodName="PublishVersion" Output="Response"  />
     <ServiceOperation MethodName="RemovePermission" Output="Void" />
+    <ServiceOperation MethodName="TagResource" 
+                      Verb="Add" 
+                      Noun="ResourceTag" 
+                      PipelineParameter="Resource" 
+                      Output="Void" 
+                      />
+    <ServiceOperation MethodName="UntagResource" 
+                      Verb="Remove" 
+                      Noun="ResourceTag" 
+                      PipelineParameter="TagKeys" 
+                      ShouldProcessTarget="Resource" 
+                      Output="Void" 
+                      />
     <ServiceOperation MethodName="UpdateAlias" Output="Response"  />
     <ServiceOperation MethodName="UpdateFunctionCode" Exclude="true" />
     <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" />
