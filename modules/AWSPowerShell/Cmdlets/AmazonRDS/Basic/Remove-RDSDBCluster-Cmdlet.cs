@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DeleteDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBClusterRequest request)
+        private Amazon.RDS.Model.DeleteDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteDBCluster");
             #if DESKTOP
             return client.DeleteDBCluster(request);
             #elif CORECLR

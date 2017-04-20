@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.DeleteAssessmentTemplateResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DeleteAssessmentTemplateRequest request)
+        private Amazon.Inspector.Model.DeleteAssessmentTemplateResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DeleteAssessmentTemplateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "DeleteAssessmentTemplate");
             #if DESKTOP
             return client.DeleteAssessmentTemplate(request);
             #elif CORECLR

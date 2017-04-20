@@ -186,8 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.CopyDBParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CopyDBParameterGroupRequest request)
+        private Amazon.RDS.Model.CopyDBParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CopyDBParameterGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "CopyDBParameterGroup");
             #if DESKTOP
             return client.CopyDBParameterGroup(request);
             #elif CORECLR

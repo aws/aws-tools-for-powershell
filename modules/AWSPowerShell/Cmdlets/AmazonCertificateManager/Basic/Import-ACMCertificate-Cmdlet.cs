@@ -234,8 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CertificateManager.Model.ImportCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ImportCertificateRequest request)
+        private Amazon.CertificateManager.Model.ImportCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ImportCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "ImportCertificate");
             #if DESKTOP
             return client.ImportCertificate(request);
             #elif CORECLR

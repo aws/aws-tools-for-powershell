@@ -106,8 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.GetCheckerIpRangesResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetCheckerIpRangesRequest request)
+        private Amazon.Route53.Model.GetCheckerIpRangesResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetCheckerIpRangesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "GetCheckerIpRanges");
             #if DESKTOP
             return client.GetCheckerIpRanges(request);
             #elif CORECLR

@@ -294,8 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.CreateTrailResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.CreateTrailRequest request)
+        private Amazon.CloudTrail.Model.CreateTrailResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.CreateTrailRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "CreateTrail");
             #if DESKTOP
             return client.CreateTrail(request);
             #elif CORECLR

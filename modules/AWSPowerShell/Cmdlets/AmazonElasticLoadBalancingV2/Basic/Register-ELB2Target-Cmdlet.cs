@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "RegisterTargets");
             #if DESKTOP
             return client.RegisterTargets(request);
             #elif CORECLR

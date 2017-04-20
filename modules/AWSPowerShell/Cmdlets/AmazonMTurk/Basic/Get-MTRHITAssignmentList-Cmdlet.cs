@@ -240,8 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.ListAssignmentsForHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.ListAssignmentsForHITRequest request)
+        private Amazon.MTurk.Model.ListAssignmentsForHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.ListAssignmentsForHITRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "ListAssignmentsForHIT");
             #if DESKTOP
             return client.ListAssignmentsForHIT(request);
             #elif CORECLR

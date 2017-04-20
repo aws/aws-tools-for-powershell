@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.StepFunctions.Model.SendTaskHeartbeatResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.SendTaskHeartbeatRequest request)
+        private Amazon.StepFunctions.Model.SendTaskHeartbeatResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.SendTaskHeartbeatRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "SendTaskHeartbeat");
             #if DESKTOP
             return client.SendTaskHeartbeat(request);
             #elif CORECLR

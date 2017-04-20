@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
+        private Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "UpdateManagedInstanceRole");
             #if DESKTOP
             return client.UpdateManagedInstanceRole(request);
             #elif CORECLR

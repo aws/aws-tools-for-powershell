@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryRequest request)
+        private Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeEnvironmentManagedActionHistory");
             #if DESKTOP
             return client.DescribeEnvironmentManagedActionHistory(request);
             #elif CORECLR

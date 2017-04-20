@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionRequest request)
+        private Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RemoveSourceIdentifierFromSubscription");
             #if DESKTOP
             return client.RemoveSourceIdentifierFromSubscription(request);
             #elif CORECLR

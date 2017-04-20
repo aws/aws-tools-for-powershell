@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifyHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyHostsRequest request)
+        private Amazon.EC2.Model.ModifyHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyHostsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyHosts");
             #if DESKTOP
             return client.ModifyHosts(request);
             #elif CORECLR

@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateUsagePlanResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateUsagePlanRequest request)
+        private Amazon.APIGateway.Model.UpdateUsagePlanResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateUsagePlanRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "UpdateUsagePlan");
             #if DESKTOP
             return client.UpdateUsagePlan(request);
             #elif CORECLR

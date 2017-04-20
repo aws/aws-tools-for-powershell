@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetPolicyVersionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetPolicyVersionRequest request)
+        private Amazon.IdentityManagement.Model.GetPolicyVersionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetPolicyVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetPolicyVersion");
             #if DESKTOP
             return client.GetPolicyVersion(request);
             #elif CORECLR

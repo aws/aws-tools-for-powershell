@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.GetChangeTokenResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetChangeTokenRequest request)
+        private Amazon.WAF.Model.GetChangeTokenResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetChangeTokenRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "GetChangeToken");
             #if DESKTOP
             return client.GetChangeToken(request);
             #elif CORECLR

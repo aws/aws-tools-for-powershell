@@ -244,8 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.QueryObjectsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.QueryObjectsRequest request)
+        private Amazon.DataPipeline.Model.QueryObjectsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.QueryObjectsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "QueryObjects");
             #if DESKTOP
             return client.QueryObjects(request);
             #elif CORECLR

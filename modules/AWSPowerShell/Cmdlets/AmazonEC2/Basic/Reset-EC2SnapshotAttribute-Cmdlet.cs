@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ResetSnapshotAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetSnapshotAttributeRequest request)
+        private Amazon.EC2.Model.ResetSnapshotAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetSnapshotAttributeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetSnapshotAttribute");
             #if DESKTOP
             return client.ResetSnapshotAttribute(request);
             #elif CORECLR

@@ -299,8 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeClusterSubnetGroupsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterSubnetGroupsRequest request)
+        private Amazon.Redshift.Model.DescribeClusterSubnetGroupsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterSubnetGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeClusterSubnetGroups");
             #if DESKTOP
             return client.DescribeClusterSubnetGroups(request);
             #elif CORECLR

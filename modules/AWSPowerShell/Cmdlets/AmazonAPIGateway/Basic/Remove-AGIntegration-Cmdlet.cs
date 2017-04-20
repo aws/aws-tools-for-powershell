@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.DeleteIntegrationResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteIntegrationRequest request)
+        private Amazon.APIGateway.Model.DeleteIntegrationResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteIntegrationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "DeleteIntegration");
             #if DESKTOP
             return client.DeleteIntegration(request);
             #elif CORECLR

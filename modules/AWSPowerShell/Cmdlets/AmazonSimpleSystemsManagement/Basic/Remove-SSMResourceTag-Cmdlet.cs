@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RemoveTagsFromResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "RemoveTagsFromResource");
             #if DESKTOP
             return client.RemoveTagsFromResource(request);
             #elif CORECLR

@@ -286,8 +286,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.PutDeliveryChannelResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutDeliveryChannelRequest request)
+        private Amazon.ConfigService.Model.PutDeliveryChannelResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutDeliveryChannelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "PutDeliveryChannel");
             #if DESKTOP
             return client.PutDeliveryChannel(request);
             #elif CORECLR

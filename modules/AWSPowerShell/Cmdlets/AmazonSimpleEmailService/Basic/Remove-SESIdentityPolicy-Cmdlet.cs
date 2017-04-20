@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.DeleteIdentityPolicyResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteIdentityPolicyRequest request)
+        private Amazon.SimpleEmail.Model.DeleteIdentityPolicyResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteIdentityPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteIdentityPolicy");
             #if DESKTOP
             return client.DeleteIdentityPolicy(request);
             #elif CORECLR

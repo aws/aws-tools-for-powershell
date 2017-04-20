@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.DeleteRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteRunRequest request)
+        private Amazon.DeviceFarm.Model.DeleteRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteRunRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "DeleteRun");
             #if DESKTOP
             return client.DeleteRun(request);
             #elif CORECLR

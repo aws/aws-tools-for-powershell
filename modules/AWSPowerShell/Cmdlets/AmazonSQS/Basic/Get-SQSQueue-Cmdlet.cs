@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.ListQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListQueuesRequest request)
+        private Amazon.SQS.Model.ListQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListQueuesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ListQueues");
             #if DESKTOP
             return client.ListQueues(request);
             #elif CORECLR

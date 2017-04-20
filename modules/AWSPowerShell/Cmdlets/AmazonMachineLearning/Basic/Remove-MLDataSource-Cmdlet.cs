@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.DeleteDataSourceResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteDataSourceRequest request)
+        private Amazon.MachineLearning.Model.DeleteDataSourceResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteDataSourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "DeleteDataSource");
             #if DESKTOP
             return client.DeleteDataSource(request);
             #elif CORECLR

@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.DeleteVPCAssociationAuthorizationResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.DeleteVPCAssociationAuthorizationRequest request)
+        private Amazon.Route53.Model.DeleteVPCAssociationAuthorizationResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.DeleteVPCAssociationAuthorizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "DeleteVPCAssociationAuthorization");
             #if DESKTOP
             return client.DeleteVPCAssociationAuthorization(request);
             #elif CORECLR

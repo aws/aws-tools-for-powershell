@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.RevokeSnapshotAccessResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RevokeSnapshotAccessRequest request)
+        private Amazon.Redshift.Model.RevokeSnapshotAccessResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RevokeSnapshotAccessRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RevokeSnapshotAccess");
             #if DESKTOP
             return client.RevokeSnapshotAccess(request);
             #elif CORECLR

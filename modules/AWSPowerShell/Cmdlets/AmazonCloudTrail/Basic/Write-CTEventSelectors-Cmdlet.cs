@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.PutEventSelectorsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.PutEventSelectorsRequest request)
+        private Amazon.CloudTrail.Model.PutEventSelectorsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.PutEventSelectorsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "PutEventSelectors");
             #if DESKTOP
             return client.PutEventSelectors(request);
             #elif CORECLR

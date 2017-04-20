@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.MoveAddressToVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.MoveAddressToVpcRequest request)
+        private Amazon.EC2.Model.MoveAddressToVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.MoveAddressToVpcRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "MoveAddressToVpc");
             #if DESKTOP
             return client.MoveAddressToVpc(request);
             #elif CORECLR

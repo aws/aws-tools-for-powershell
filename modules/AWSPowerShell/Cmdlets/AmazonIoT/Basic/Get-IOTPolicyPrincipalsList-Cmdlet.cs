@@ -243,8 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.ListPolicyPrincipalsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListPolicyPrincipalsRequest request)
+        private Amazon.IoT.Model.ListPolicyPrincipalsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListPolicyPrincipalsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListPolicyPrincipals");
             #if DESKTOP
             return client.ListPolicyPrincipals(request);
             #elif CORECLR

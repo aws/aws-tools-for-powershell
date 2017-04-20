@@ -122,8 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetLoginProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetLoginProfileRequest request)
+        private Amazon.IdentityManagement.Model.GetLoginProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetLoginProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetLoginProfile");
             #if DESKTOP
             return client.GetLoginProfile(request);
             #elif CORECLR

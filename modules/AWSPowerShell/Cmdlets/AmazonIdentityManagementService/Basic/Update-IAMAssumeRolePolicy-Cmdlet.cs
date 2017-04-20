@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.UpdateAssumeRolePolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateAssumeRolePolicyRequest request)
+        private Amazon.IdentityManagement.Model.UpdateAssumeRolePolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateAssumeRolePolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "UpdateAssumeRolePolicy");
             #if DESKTOP
             return client.UpdateAssumeRolePolicy(request);
             #elif CORECLR

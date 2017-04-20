@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.GetBucketWebsiteResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketWebsiteRequest request)
+        private Amazon.S3.Model.GetBucketWebsiteResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketWebsiteRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketWebsite");
             #if DESKTOP
             return client.GetBucketWebsite(request);
             #elif CORECLR

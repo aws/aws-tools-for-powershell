@@ -563,6 +563,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region),transferUtilityConfig))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object upload APIs");
+
                 var runner = new ProgressRunner(this);
              
                 string fileName = string.IsNullOrEmpty(cmdletContext.File) ? cmdletContext.Key : cmdletContext.File;
@@ -606,6 +608,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object upload APIs");
+
                 var runner = new ProgressRunner(this);
                 var tracker = new UploadFolderProgressTracker(runner, handler => request.UploadDirectoryProgressEvent += handler, cmdletContext.Folder);
                 output = runner.SafeRun(() => tu.UploadDirectory(request), tracker);
@@ -622,8 +626,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
+        private Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutObject");
 #if DESKTOP
             return client.PutObject(request);
 #elif CORECLR

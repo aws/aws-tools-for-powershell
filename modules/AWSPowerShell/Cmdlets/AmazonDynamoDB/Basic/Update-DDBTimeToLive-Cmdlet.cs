@@ -216,8 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private static Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UpdateTimeToLiveRequest request)
+        private Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UpdateTimeToLiveRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "UpdateTimeToLive");
             #if DESKTOP
             return client.UpdateTimeToLive(request);
             #elif CORECLR

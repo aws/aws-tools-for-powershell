@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeDBClustersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBClustersRequest request)
+        private Amazon.RDS.Model.DescribeDBClustersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBClustersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeDBClusters");
             #if DESKTOP
             return client.DescribeDBClusters(request);
             #elif CORECLR

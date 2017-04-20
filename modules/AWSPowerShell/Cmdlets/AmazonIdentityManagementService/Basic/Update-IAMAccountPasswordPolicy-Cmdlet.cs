@@ -284,8 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyRequest request)
+        private Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "UpdateAccountPasswordPolicy");
             #if DESKTOP
             return client.UpdateAccountPasswordPolicy(request);
             #elif CORECLR

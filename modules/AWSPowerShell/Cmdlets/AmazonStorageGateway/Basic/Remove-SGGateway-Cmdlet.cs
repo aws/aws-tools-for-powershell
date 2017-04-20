@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteGatewayRequest request)
+        private Amazon.StorageGateway.Model.DeleteGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteGateway");
             #if DESKTOP
             return client.DeleteGateway(request);
             #elif CORECLR

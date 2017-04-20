@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateRequestValidatorResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateRequestValidatorRequest request)
+        private Amazon.APIGateway.Model.UpdateRequestValidatorResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateRequestValidatorRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "UpdateRequestValidator");
             #if DESKTOP
             return client.UpdateRequestValidator(request);
             #elif CORECLR

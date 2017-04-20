@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.UpdateUserProfileResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.UpdateUserProfileRequest request)
+        private Amazon.OpsWorks.Model.UpdateUserProfileResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.UpdateUserProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "UpdateUserProfile");
             #if DESKTOP
             return client.UpdateUserProfile(request);
             #elif CORECLR

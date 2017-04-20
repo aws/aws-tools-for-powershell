@@ -253,8 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.UpdateWebACLResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.UpdateWebACLRequest request)
+        private Amazon.WAFRegional.Model.UpdateWebACLResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.UpdateWebACLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "UpdateWebACL");
             #if DESKTOP
             return client.UpdateWebACL(request);
             #elif CORECLR

@@ -275,8 +275,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ReplaceRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceRouteRequest request)
+        private Amazon.EC2.Model.ReplaceRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceRouteRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceRoute");
             #if DESKTOP
             return client.ReplaceRoute(request);
             #elif CORECLR

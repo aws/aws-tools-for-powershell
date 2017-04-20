@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.EnableTopicRuleResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.EnableTopicRuleRequest request)
+        private Amazon.IoT.Model.EnableTopicRuleResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.EnableTopicRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "EnableTopicRule");
             #if DESKTOP
             return client.EnableTopicRule(request);
             #elif CORECLR

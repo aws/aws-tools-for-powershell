@@ -494,8 +494,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RestoreDBInstanceFromDBSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RestoreDBInstanceFromDBSnapshotRequest request)
+        private Amazon.RDS.Model.RestoreDBInstanceFromDBSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RestoreDBInstanceFromDBSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RestoreDBInstanceFromDBSnapshot");
             #if DESKTOP
             return client.RestoreDBInstanceFromDBSnapshot(request);
             #elif CORECLR

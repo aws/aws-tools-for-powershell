@@ -215,8 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatRequest request)
+        private Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "RecordLifecycleActionHeartbeat");
             #if DESKTOP
             return client.RecordLifecycleActionHeartbeat(request);
             #elif CORECLR

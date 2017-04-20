@@ -426,8 +426,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.SimulatePrincipalPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.SimulatePrincipalPolicyRequest request)
+        private Amazon.IdentityManagement.Model.SimulatePrincipalPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.SimulatePrincipalPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "SimulatePrincipalPolicy");
             #if DESKTOP
             return client.SimulatePrincipalPolicy(request);
             #elif CORECLR

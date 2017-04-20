@@ -217,8 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListLaunchPathsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListLaunchPathsRequest request)
+        private Amazon.ServiceCatalog.Model.ListLaunchPathsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListLaunchPathsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListLaunchPaths");
             #if DESKTOP
             return client.ListLaunchPaths(request);
             #elif CORECLR

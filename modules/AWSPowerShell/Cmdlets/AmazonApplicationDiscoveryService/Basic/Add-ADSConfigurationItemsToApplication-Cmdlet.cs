@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.AssociateConfigurationItemsToApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.AssociateConfigurationItemsToApplicationRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.AssociateConfigurationItemsToApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.AssociateConfigurationItemsToApplicationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "AssociateConfigurationItemsToApplication");
             #if DESKTOP
             return client.AssociateConfigurationItemsToApplication(request);
             #elif CORECLR

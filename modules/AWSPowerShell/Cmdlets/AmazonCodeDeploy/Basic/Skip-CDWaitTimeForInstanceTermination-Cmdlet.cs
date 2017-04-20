@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationRequest request)
+        private Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "SkipWaitTimeForInstanceTermination");
             #if DESKTOP
             return client.SkipWaitTimeForInstanceTermination(request);
             #elif CORECLR

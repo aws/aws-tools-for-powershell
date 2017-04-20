@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesRequest request)
+        private Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "UpdateServiceAccessPolicies");
             #if DESKTOP
             return client.UpdateServiceAccessPolicies(request);
             #elif CORECLR

@@ -539,8 +539,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.PutConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutConfigRuleRequest request)
+        private Amazon.ConfigService.Model.PutConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutConfigRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "PutConfigRule");
             #if DESKTOP
             return client.PutConfigRule(request);
             #elif CORECLR

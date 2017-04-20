@@ -397,8 +397,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.CreateHITWithHITTypeResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.CreateHITWithHITTypeRequest request)
+        private Amazon.MTurk.Model.CreateHITWithHITTypeResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.CreateHITWithHITTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "CreateHITWithHITType");
             #if DESKTOP
             return client.CreateHITWithHITType(request);
             #elif CORECLR

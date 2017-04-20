@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.DeleteCACertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteCACertificateRequest request)
+        private Amazon.IoT.Model.DeleteCACertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteCACertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeleteCACertificate");
             #if DESKTOP
             return client.DeleteCACertificate(request);
             #elif CORECLR

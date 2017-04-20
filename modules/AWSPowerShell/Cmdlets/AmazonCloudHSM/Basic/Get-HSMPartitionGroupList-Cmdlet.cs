@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.ListHapgsResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListHapgsRequest request)
+        private Amazon.CloudHSM.Model.ListHapgsResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListHapgsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "ListHapgs");
             #if DESKTOP
             return client.ListHapgs(request);
             #elif CORECLR

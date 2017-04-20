@@ -287,8 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyTargetGroup");
             #if DESKTOP
             return client.ModifyTargetGroup(request);
             #elif CORECLR

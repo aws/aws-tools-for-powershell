@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.StartInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.StartInstanceRequest request)
+        private Amazon.OpsWorks.Model.StartInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.StartInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "StartInstance");
             #if DESKTOP
             return client.StartInstance(request);
             #elif CORECLR

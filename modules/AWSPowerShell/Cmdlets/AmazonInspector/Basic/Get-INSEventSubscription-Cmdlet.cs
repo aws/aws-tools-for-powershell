@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.ListEventSubscriptionsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListEventSubscriptionsRequest request)
+        private Amazon.Inspector.Model.ListEventSubscriptionsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListEventSubscriptionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "ListEventSubscriptions");
             #if DESKTOP
             return client.ListEventSubscriptions(request);
             #elif CORECLR

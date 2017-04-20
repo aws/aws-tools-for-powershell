@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DeleteScheduledActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteScheduledActionRequest request)
+        private Amazon.AutoScaling.Model.DeleteScheduledActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteScheduledActionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DeleteScheduledAction");
             #if DESKTOP
             return client.DeleteScheduledAction(request);
             #elif CORECLR

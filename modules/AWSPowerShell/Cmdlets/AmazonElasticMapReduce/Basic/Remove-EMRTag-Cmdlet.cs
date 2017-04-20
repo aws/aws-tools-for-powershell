@@ -173,8 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RemoveTagsRequest request)
+        private Amazon.ElasticMapReduce.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RemoveTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "RemoveTags");
             #if DESKTOP
             return client.RemoveTags(request);
             #elif CORECLR

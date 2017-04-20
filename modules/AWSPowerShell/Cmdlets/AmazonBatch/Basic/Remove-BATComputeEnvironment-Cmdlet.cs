@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.DeleteComputeEnvironmentResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteComputeEnvironmentRequest request)
+        private Amazon.Batch.Model.DeleteComputeEnvironmentResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteComputeEnvironmentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteComputeEnvironment");
             #if DESKTOP
             return client.DeleteComputeEnvironment(request);
             #elif CORECLR

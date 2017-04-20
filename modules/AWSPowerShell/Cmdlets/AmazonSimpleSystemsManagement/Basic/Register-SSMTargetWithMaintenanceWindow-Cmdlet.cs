@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.RegisterTargetWithMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RegisterTargetWithMaintenanceWindowRequest request)
+        private Amazon.SimpleSystemsManagement.Model.RegisterTargetWithMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RegisterTargetWithMaintenanceWindowRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "RegisterTargetWithMaintenanceWindow");
             #if DESKTOP
             return client.RegisterTargetWithMaintenanceWindow(request);
             #elif CORECLR

@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateRoleDescriptionRequest request)
+        private Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateRoleDescriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "UpdateRoleDescription");
             #if DESKTOP
             return client.UpdateRoleDescription(request);
             #elif CORECLR

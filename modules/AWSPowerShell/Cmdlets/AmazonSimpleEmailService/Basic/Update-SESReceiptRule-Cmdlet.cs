@@ -295,8 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.UpdateReceiptRuleRequest request)
+        private Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.UpdateReceiptRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "UpdateReceiptRule");
             #if DESKTOP
             return client.UpdateReceiptRule(request);
             #elif CORECLR

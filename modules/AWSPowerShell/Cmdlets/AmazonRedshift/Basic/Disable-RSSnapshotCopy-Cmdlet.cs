@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DisableSnapshotCopyResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DisableSnapshotCopyRequest request)
+        private Amazon.Redshift.Model.DisableSnapshotCopyResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DisableSnapshotCopyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DisableSnapshotCopy");
             #if DESKTOP
             return client.DisableSnapshotCopy(request);
             #elif CORECLR

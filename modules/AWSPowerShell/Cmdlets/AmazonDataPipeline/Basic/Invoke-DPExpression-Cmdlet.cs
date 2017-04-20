@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.EvaluateExpressionResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.EvaluateExpressionRequest request)
+        private Amazon.DataPipeline.Model.EvaluateExpressionResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.EvaluateExpressionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "EvaluateExpression");
             #if DESKTOP
             return client.EvaluateExpression(request);
             #elif CORECLR

@@ -267,8 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.DescribeWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesRequest request)
+        private Amazon.WorkSpaces.Model.DescribeWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DescribeWorkspaces");
             #if DESKTOP
             return client.DescribeWorkspaces(request);
             #elif CORECLR

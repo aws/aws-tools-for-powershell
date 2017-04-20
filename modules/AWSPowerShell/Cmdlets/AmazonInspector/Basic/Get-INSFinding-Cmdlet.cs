@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.DescribeFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DescribeFindingsRequest request)
+        private Amazon.Inspector.Model.DescribeFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.DescribeFindingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "DescribeFindings");
             #if DESKTOP
             return client.DescribeFindings(request);
             #elif CORECLR

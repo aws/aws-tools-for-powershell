@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.UpdateConstraintResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.UpdateConstraintRequest request)
+        private Amazon.ServiceCatalog.Model.UpdateConstraintResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.UpdateConstraintRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "UpdateConstraint");
             #if DESKTOP
             return client.UpdateConstraint(request);
             #elif CORECLR

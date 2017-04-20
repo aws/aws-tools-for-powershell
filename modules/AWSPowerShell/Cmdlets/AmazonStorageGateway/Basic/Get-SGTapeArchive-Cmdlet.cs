@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.RetrieveTapeArchiveResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RetrieveTapeArchiveRequest request)
+        private Amazon.StorageGateway.Model.RetrieveTapeArchiveResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RetrieveTapeArchiveRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "RetrieveTapeArchive");
             #if DESKTOP
             return client.RetrieveTapeArchive(request);
             #elif CORECLR

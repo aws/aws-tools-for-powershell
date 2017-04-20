@@ -219,8 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.ListReviewableHITsResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.ListReviewableHITsRequest request)
+        private Amazon.MTurk.Model.ListReviewableHITsResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.ListReviewableHITsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "ListReviewableHITs");
             #if DESKTOP
             return client.ListReviewableHITs(request);
             #elif CORECLR

@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.StopStackResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.StopStackRequest request)
+        private Amazon.OpsWorks.Model.StopStackResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.StopStackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "StopStack");
             #if DESKTOP
             return client.StopStack(request);
             #elif CORECLR

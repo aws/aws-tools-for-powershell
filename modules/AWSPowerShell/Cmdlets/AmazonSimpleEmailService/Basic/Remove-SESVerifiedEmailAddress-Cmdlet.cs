@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressRequest request)
+        private Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteVerifiedEmailAddress");
             #if DESKTOP
             return client.DeleteVerifiedEmailAddress(request);
             #elif CORECLR

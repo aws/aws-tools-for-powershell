@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.CreateClusterSecurityGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateClusterSecurityGroupRequest request)
+        private Amazon.Redshift.Model.CreateClusterSecurityGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateClusterSecurityGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "CreateClusterSecurityGroup");
             #if DESKTOP
             return client.CreateClusterSecurityGroup(request);
             #elif CORECLR

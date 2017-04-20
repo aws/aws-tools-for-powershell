@@ -265,8 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.UpdateNotificationSettingsResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.UpdateNotificationSettingsRequest request)
+        private Amazon.MTurk.Model.UpdateNotificationSettingsResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.UpdateNotificationSettingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "UpdateNotificationSettings");
             #if DESKTOP
             return client.UpdateNotificationSettings(request);
             #elif CORECLR

@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.DeleteBucketMetricsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketMetricsConfigurationRequest request)
+        private Amazon.S3.Model.DeleteBucketMetricsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketMetricsConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketMetricsConfiguration");
             #if DESKTOP
             return client.DeleteBucketMetricsConfiguration(request);
             #elif CORECLR

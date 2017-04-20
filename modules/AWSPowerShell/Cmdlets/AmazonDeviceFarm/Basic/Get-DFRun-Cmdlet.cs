@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.GetRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetRunRequest request)
+        private Amazon.DeviceFarm.Model.GetRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetRunRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "GetRun");
             #if DESKTOP
             return client.GetRun(request);
             #elif CORECLR

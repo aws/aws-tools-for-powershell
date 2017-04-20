@@ -123,8 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.DescribeImagesResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DescribeImagesRequest request)
+        private Amazon.AppStream.Model.DescribeImagesResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DescribeImagesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DescribeImages");
             #if DESKTOP
             return client.DescribeImages(request);
             #elif CORECLR

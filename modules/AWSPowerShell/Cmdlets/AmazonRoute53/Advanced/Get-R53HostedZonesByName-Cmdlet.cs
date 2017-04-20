@@ -229,8 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         #region AWS Service Operation Call
 
-        private static Amazon.Route53.Model.ListHostedZonesByNameResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListHostedZonesByNameRequest request)
+        private Amazon.Route53.Model.ListHostedZonesByNameResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListHostedZonesByNameRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route 53", "ListHostedZonesByName");
 #if DESKTOP
             return client.ListHostedZonesByName(request);
 #elif CORECLR

@@ -218,8 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.SetTaskStatusResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.SetTaskStatusRequest request)
+        private Amazon.DataPipeline.Model.SetTaskStatusResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.SetTaskStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "SetTaskStatus");
             #if DESKTOP
             return client.SetTaskStatus(request);
             #elif CORECLR

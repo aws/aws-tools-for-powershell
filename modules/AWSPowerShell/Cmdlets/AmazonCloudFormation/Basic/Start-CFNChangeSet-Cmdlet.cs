@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.ExecuteChangeSetResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ExecuteChangeSetRequest request)
+        private Amazon.CloudFormation.Model.ExecuteChangeSetResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ExecuteChangeSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ExecuteChangeSet");
             #if DESKTOP
             return client.ExecuteChangeSet(request);
             #elif CORECLR

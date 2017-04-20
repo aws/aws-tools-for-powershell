@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateApplicationRequest request)
+        private Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateApplicationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "UpdateApplication");
             #if DESKTOP
             return client.UpdateApplication(request);
             #elif CORECLR

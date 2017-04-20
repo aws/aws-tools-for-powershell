@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DeleteClusterSubnetGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteClusterSubnetGroupRequest request)
+        private Amazon.Redshift.Model.DeleteClusterSubnetGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteClusterSubnetGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DeleteClusterSubnetGroup");
             #if DESKTOP
             return client.DeleteClusterSubnetGroup(request);
             #elif CORECLR

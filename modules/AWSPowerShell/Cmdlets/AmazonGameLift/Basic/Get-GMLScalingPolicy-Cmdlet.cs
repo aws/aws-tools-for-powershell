@@ -227,8 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DescribeScalingPoliciesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeScalingPoliciesRequest request)
+        private Amazon.GameLift.Model.DescribeScalingPoliciesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeScalingPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeScalingPolicies");
             #if DESKTOP
             return client.DescribeScalingPolicies(request);
             #elif CORECLR

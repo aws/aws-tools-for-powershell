@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesRequest request)
+        private Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "BatchGetDeploymentInstances");
             #if DESKTOP
             return client.BatchGetDeploymentInstances(request);
             #elif CORECLR

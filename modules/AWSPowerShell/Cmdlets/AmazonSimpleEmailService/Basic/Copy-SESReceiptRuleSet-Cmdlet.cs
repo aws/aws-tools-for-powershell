@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest request)
+        private Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CloneReceiptRuleSet");
             #if DESKTOP
             return client.CloneReceiptRuleSet(request);
             #elif CORECLR

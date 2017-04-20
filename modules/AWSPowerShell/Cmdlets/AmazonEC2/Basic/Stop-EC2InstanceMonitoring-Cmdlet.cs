@@ -140,8 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.UnmonitorInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnmonitorInstancesRequest request)
+        private Amazon.EC2.Model.UnmonitorInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnmonitorInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "UnmonitorInstances");
             #if DESKTOP
             return client.UnmonitorInstances(request);
             #elif CORECLR

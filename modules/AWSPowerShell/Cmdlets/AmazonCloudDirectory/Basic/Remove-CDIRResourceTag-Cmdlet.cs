@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UntagResourceRequest request)
+        private Amazon.CloudDirectory.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UntagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UntagResource");
             #if DESKTOP
             return client.UntagResource(request);
             #elif CORECLR

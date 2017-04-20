@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.SetRepositoryPolicyResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.SetRepositoryPolicyRequest request)
+        private Amazon.ECR.Model.SetRepositoryPolicyResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.SetRepositoryPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "SetRepositoryPolicy");
             #if DESKTOP
             return client.SetRepositoryPolicy(request);
             #elif CORECLR

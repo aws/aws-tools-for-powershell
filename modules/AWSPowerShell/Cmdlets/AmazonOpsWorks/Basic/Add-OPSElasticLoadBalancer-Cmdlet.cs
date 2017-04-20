@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.AttachElasticLoadBalancerRequest request)
+        private Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.AttachElasticLoadBalancerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "AttachElasticLoadBalancer");
             #if DESKTOP
             return client.AttachElasticLoadBalancer(request);
             #elif CORECLR

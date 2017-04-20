@@ -190,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "ListServerNeighbors");
             #if DESKTOP
             return client.ListServerNeighbors(request);
             #elif CORECLR

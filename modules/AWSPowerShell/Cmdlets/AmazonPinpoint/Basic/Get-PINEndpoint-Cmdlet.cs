@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetEndpointResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetEndpointRequest request)
+        private Amazon.Pinpoint.Model.GetEndpointResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetEndpointRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetEndpoint");
             #if DESKTOP
             return client.GetEndpoint(request);
             #elif CORECLR

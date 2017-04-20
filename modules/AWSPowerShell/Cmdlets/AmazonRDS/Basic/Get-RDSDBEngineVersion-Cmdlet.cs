@@ -307,8 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeDBEngineVersionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBEngineVersionsRequest request)
+        private Amazon.RDS.Model.DescribeDBEngineVersionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBEngineVersionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeDBEngineVersions");
             #if DESKTOP
             return client.DescribeDBEngineVersions(request);
             #elif CORECLR

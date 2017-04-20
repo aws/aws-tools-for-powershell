@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityRequest request)
+        private Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "GetDevicePoolCompatibility");
             #if DESKTOP
             return client.GetDevicePoolCompatibility(request);
             #elif CORECLR

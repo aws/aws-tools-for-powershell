@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetInstancePortStatesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstancePortStatesRequest request)
+        private Amazon.Lightsail.Model.GetInstancePortStatesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstancePortStatesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetInstancePortStates");
             #if DESKTOP
             return client.GetInstancePortStates(request);
             #elif CORECLR

@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.ListDistributionsResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListDistributionsRequest request)
+        private Amazon.CloudFront.Model.ListDistributionsResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListDistributionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "ListDistributions");
             #if DESKTOP
             return client.ListDistributions(request);
             #elif CORECLR

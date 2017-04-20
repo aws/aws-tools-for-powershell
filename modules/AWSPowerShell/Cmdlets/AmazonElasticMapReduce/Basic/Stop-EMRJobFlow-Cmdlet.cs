@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.TerminateJobFlowsRequest request)
+        private Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.TerminateJobFlowsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "TerminateJobFlows");
             #if DESKTOP
             return client.TerminateJobFlows(request);
             #elif CORECLR

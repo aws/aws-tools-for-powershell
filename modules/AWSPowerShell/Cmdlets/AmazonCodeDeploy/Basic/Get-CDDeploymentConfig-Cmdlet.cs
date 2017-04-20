@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.GetDeploymentConfigResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.GetDeploymentConfigRequest request)
+        private Amazon.CodeDeploy.Model.GetDeploymentConfigResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.GetDeploymentConfigRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "GetDeploymentConfig");
             #if DESKTOP
             return client.GetDeploymentConfig(request);
             #elif CORECLR

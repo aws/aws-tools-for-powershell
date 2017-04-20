@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.CancelHandshakeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.CancelHandshakeRequest request)
+        private Amazon.Organizations.Model.CancelHandshakeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.CancelHandshakeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "CancelHandshake");
             #if DESKTOP
             return client.CancelHandshake(request);
             #elif CORECLR

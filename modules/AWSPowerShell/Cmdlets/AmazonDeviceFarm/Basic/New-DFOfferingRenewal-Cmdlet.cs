@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.RenewOfferingResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.RenewOfferingRequest request)
+        private Amazon.DeviceFarm.Model.RenewOfferingResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.RenewOfferingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "RenewOffering");
             #if DESKTOP
             return client.RenewOffering(request);
             #elif CORECLR

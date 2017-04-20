@@ -493,8 +493,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticTranscoder.Model.UpdatePipelineResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.UpdatePipelineRequest request)
+        private Amazon.ElasticTranscoder.Model.UpdatePipelineResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.UpdatePipelineRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Transcoder", "UpdatePipeline");
             #if DESKTOP
             return client.UpdatePipeline(request);
             #elif CORECLR

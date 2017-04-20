@@ -226,8 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.AddPermissionResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.AddPermissionRequest request)
+        private Amazon.SQS.Model.AddPermissionResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.AddPermissionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "AddPermission");
             #if DESKTOP
             return client.AddPermission(request);
             #elif CORECLR

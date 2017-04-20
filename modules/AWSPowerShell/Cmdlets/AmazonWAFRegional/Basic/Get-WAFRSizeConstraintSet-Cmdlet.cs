@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.GetSizeConstraintSetResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetSizeConstraintSetRequest request)
+        private Amazon.WAFRegional.Model.GetSizeConstraintSetResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetSizeConstraintSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "GetSizeConstraintSet");
             #if DESKTOP
             return client.GetSizeConstraintSet(request);
             #elif CORECLR

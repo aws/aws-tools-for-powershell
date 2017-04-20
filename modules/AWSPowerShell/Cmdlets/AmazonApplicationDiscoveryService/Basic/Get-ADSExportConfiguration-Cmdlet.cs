@@ -240,8 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeExportConfigurationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DescribeExportConfigurations");
             #if DESKTOP
             return client.DescribeExportConfigurations(request);
             #elif CORECLR

@@ -109,8 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetAccountSummaryResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetAccountSummaryRequest request)
+        private Amazon.IdentityManagement.Model.GetAccountSummaryResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetAccountSummaryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetAccountSummary");
             #if DESKTOP
             return client.GetAccountSummary(request);
             #elif CORECLR

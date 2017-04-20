@@ -212,8 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.CreateAssessmentTemplateResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateAssessmentTemplateRequest request)
+        private Amazon.Inspector.Model.CreateAssessmentTemplateResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateAssessmentTemplateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "CreateAssessmentTemplate");
             #if DESKTOP
             return client.CreateAssessmentTemplate(request);
             #elif CORECLR

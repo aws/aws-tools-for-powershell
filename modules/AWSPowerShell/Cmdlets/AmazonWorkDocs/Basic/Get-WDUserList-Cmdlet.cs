@@ -305,8 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.DescribeUsersResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeUsersRequest request)
+        private Amazon.WorkDocs.Model.DescribeUsersResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeUsersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DescribeUsers");
             #if DESKTOP
             return client.DescribeUsers(request);
             #elif CORECLR

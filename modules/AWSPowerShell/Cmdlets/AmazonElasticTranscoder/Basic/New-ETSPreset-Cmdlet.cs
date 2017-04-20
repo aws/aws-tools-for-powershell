@@ -1137,8 +1137,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticTranscoder.Model.CreatePresetResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.CreatePresetRequest request)
+        private Amazon.ElasticTranscoder.Model.CreatePresetResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.CreatePresetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Transcoder", "CreatePreset");
             #if DESKTOP
             return client.CreatePreset(request);
             #elif CORECLR

@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.DeleteClientCertificateResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteClientCertificateRequest request)
+        private Amazon.APIGateway.Model.DeleteClientCertificateResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteClientCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "DeleteClientCertificate");
             #if DESKTOP
             return client.DeleteClientCertificate(request);
             #elif CORECLR

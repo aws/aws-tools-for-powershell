@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ConfirmSubscriptionRequest request)
+        private Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.ConfirmSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "ConfirmSubscription");
             #if DESKTOP
             return client.ConfirmSubscription(request);
             #elif CORECLR

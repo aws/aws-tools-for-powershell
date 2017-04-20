@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetGcmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetGcmChannelRequest request)
+        private Amazon.Pinpoint.Model.GetGcmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetGcmChannelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetGcmChannel");
             #if DESKTOP
             return client.GetGcmChannel(request);
             #elif CORECLR

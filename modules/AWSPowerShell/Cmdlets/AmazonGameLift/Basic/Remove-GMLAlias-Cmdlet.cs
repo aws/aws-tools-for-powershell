@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DeleteAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteAliasRequest request)
+        private Amazon.GameLift.Model.DeleteAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteAliasRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteAlias");
             #if DESKTOP
             return client.DeleteAlias(request);
             #elif CORECLR

@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetContextKeysForPrincipalPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetContextKeysForPrincipalPolicyRequest request)
+        private Amazon.IdentityManagement.Model.GetContextKeysForPrincipalPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetContextKeysForPrincipalPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetContextKeysForPrincipalPolicy");
             #if DESKTOP
             return client.GetContextKeysForPrincipalPolicy(request);
             #elif CORECLR

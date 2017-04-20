@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.ListAssociatedFleetsResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ListAssociatedFleetsRequest request)
+        private Amazon.AppStream.Model.ListAssociatedFleetsResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ListAssociatedFleetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "ListAssociatedFleets");
             #if DESKTOP
             return client.ListAssociatedFleets(request);
             #elif CORECLR

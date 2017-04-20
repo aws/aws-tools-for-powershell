@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.ListPoliciesResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListPoliciesRequest request)
+        private Amazon.Organizations.Model.ListPoliciesResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "ListPolicies");
             #if DESKTOP
             return client.ListPolicies(request);
             #elif CORECLR

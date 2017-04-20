@@ -186,8 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.SetDesiredCapacityResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SetDesiredCapacityRequest request)
+        private Amazon.AutoScaling.Model.SetDesiredCapacityResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SetDesiredCapacityRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "SetDesiredCapacity");
             #if DESKTOP
             return client.SetDesiredCapacity(request);
             #elif CORECLR

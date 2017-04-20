@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.AddRoleToInstanceProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AddRoleToInstanceProfileRequest request)
+        private Amazon.IdentityManagement.Model.AddRoleToInstanceProfileResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AddRoleToInstanceProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "AddRoleToInstanceProfile");
             #if DESKTOP
             return client.AddRoleToInstanceProfile(request);
             #elif CORECLR

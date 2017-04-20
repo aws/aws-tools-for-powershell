@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.UpdateExpirationForHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.UpdateExpirationForHITRequest request)
+        private Amazon.MTurk.Model.UpdateExpirationForHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.UpdateExpirationForHITRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "UpdateExpirationForHIT");
             #if DESKTOP
             return client.UpdateExpirationForHIT(request);
             #elif CORECLR

@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListTagsForResourceRequest request)
+        private Amazon.StorageGateway.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListTagsForResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ListTagsForResource");
             #if DESKTOP
             return client.ListTagsForResource(request);
             #elif CORECLR

@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateAliasResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateAliasRequest request)
+        private Amazon.DirectoryService.Model.CreateAliasResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateAliasRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CreateAlias");
             #if DESKTOP
             return client.CreateAlias(request);
             #elif CORECLR

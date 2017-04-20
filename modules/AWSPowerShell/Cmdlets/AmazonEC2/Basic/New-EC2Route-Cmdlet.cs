@@ -277,8 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateRouteRequest request)
+        private Amazon.EC2.Model.CreateRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateRouteRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateRoute");
             #if DESKTOP
             return client.CreateRoute(request);
             #elif CORECLR

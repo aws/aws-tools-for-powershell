@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.SetSMSAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.SetSMSAttributesRequest request)
+        private Amazon.SimpleNotificationService.Model.SetSMSAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.SetSMSAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "SetSMSAttributes");
             #if DESKTOP
             return client.SetSMSAttributes(request);
             #elif CORECLR

@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.PredictResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.PredictRequest request)
+        private Amazon.MachineLearning.Model.PredictResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.PredictRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "Predict");
             #if DESKTOP
             return client.Predict(request);
             #elif CORECLR

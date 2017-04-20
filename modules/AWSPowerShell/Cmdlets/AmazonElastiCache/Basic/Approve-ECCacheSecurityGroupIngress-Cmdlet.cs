@@ -173,8 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressRequest request)
+        private Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.AuthorizeCacheSecurityGroupIngressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "AuthorizeCacheSecurityGroupIngress");
             #if DESKTOP
             return client.AuthorizeCacheSecurityGroupIngress(request);
             #elif CORECLR

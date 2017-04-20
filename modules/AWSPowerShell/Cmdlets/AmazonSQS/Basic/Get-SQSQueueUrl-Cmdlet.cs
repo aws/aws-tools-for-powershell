@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.GetQueueUrlResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.GetQueueUrlRequest request)
+        private Amazon.SQS.Model.GetQueueUrlResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.GetQueueUrlRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "GetQueueUrl");
             #if DESKTOP
             return client.GetQueueUrl(request);
             #elif CORECLR

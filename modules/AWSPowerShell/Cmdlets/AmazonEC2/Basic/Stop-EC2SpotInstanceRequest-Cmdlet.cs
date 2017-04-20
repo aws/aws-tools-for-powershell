@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CancelSpotInstanceRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelSpotInstanceRequestsRequest request)
+        private Amazon.EC2.Model.CancelSpotInstanceRequestsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelSpotInstanceRequestsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelSpotInstanceRequests");
             #if DESKTOP
             return client.CancelSpotInstanceRequests(request);
             #elif CORECLR

@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteInternetGatewayRequest request)
+        private Amazon.EC2.Model.DeleteInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteInternetGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteInternetGateway");
             #if DESKTOP
             return client.DeleteInternetGateway(request);
             #elif CORECLR

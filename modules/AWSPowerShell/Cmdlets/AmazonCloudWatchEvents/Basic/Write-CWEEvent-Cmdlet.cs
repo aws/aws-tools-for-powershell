@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchEvents.Model.PutEventsResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.PutEventsRequest request)
+        private Amazon.CloudWatchEvents.Model.PutEventsResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.PutEventsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Events", "PutEvents");
             #if DESKTOP
             return client.PutEvents(request);
             #elif CORECLR

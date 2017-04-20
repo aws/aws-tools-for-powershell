@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.GetEvaluationResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.GetEvaluationRequest request)
+        private Amazon.MachineLearning.Model.GetEvaluationResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.GetEvaluationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "GetEvaluation");
             #if DESKTOP
             return client.GetEvaluation(request);
             #elif CORECLR

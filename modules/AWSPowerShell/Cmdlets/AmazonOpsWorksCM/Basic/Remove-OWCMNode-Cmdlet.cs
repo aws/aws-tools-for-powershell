@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.DisassociateNodeResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DisassociateNodeRequest request)
+        private Amazon.OpsWorksCM.Model.DisassociateNodeResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DisassociateNodeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DisassociateNode");
             #if DESKTOP
             return client.DisassociateNode(request);
             #elif CORECLR

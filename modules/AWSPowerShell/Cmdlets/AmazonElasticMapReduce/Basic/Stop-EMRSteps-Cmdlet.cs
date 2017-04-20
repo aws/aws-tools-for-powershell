@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.CancelStepsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CancelStepsRequest request)
+        private Amazon.ElasticMapReduce.Model.CancelStepsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CancelStepsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "CancelSteps");
             #if DESKTOP
             return client.CancelSteps(request);
             #elif CORECLR

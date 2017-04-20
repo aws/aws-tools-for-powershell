@@ -188,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.DeleteStackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DeleteStackRequest request)
+        private Amazon.CloudFormation.Model.DeleteStackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DeleteStackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DeleteStack");
             #if DESKTOP
             return client.DeleteStack(request);
             #elif CORECLR

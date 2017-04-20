@@ -769,8 +769,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region AWS Service Operation Call
 
-        private static Amazon.EC2.Model.RunInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunInstancesRequest request)
+        private Amazon.EC2.Model.RunInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "RunInstances");
 #if DESKTOP
             return client.RunInstances(request);
 #elif CORECLR

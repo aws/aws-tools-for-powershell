@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeRefreshSchemasStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeRefreshSchemasStatus");
             #if DESKTOP
             return client.DescribeRefreshSchemasStatus(request);
             #elif CORECLR

@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.DeleteXssMatchSetResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.DeleteXssMatchSetRequest request)
+        private Amazon.WAFRegional.Model.DeleteXssMatchSetResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.DeleteXssMatchSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "DeleteXssMatchSet");
             #if DESKTOP
             return client.DeleteXssMatchSet(request);
             #elif CORECLR

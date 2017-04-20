@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.DeleteDeploymentResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteDeploymentRequest request)
+        private Amazon.APIGateway.Model.DeleteDeploymentResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteDeploymentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "DeleteDeployment");
             #if DESKTOP
             return client.DeleteDeployment(request);
             #elif CORECLR

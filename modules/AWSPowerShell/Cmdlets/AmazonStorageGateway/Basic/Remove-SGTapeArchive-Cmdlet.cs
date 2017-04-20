@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteTapeArchiveResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteTapeArchiveRequest request)
+        private Amazon.StorageGateway.Model.DeleteTapeArchiveResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteTapeArchiveRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteTapeArchive");
             #if DESKTOP
             return client.DeleteTapeArchive(request);
             #elif CORECLR

@@ -117,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchEvents.Model.DescribeRuleResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.DescribeRuleRequest request)
+        private Amazon.CloudWatchEvents.Model.DescribeRuleResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.DescribeRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Events", "DescribeRule");
             #if DESKTOP
             return client.DescribeRule(request);
             #elif CORECLR

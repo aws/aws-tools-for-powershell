@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.StartMaintenanceResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.StartMaintenanceRequest request)
+        private Amazon.OpsWorksCM.Model.StartMaintenanceResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.StartMaintenanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "StartMaintenance");
             #if DESKTOP
             return client.StartMaintenance(request);
             #elif CORECLR

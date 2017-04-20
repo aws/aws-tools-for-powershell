@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.CreateFolderResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.CreateFolderRequest request)
+        private Amazon.WorkDocs.Model.CreateFolderResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.CreateFolderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "CreateFolder");
             #if DESKTOP
             return client.CreateFolder(request);
             #elif CORECLR

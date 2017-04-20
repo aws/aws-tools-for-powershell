@@ -304,8 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeReservedDBInstancesOfferingsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeReservedDBInstancesOfferingsRequest request)
+        private Amazon.RDS.Model.DescribeReservedDBInstancesOfferingsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeReservedDBInstancesOfferingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeReservedDBInstancesOfferings");
             #if DESKTOP
             return client.DescribeReservedDBInstancesOfferings(request);
             #elif CORECLR

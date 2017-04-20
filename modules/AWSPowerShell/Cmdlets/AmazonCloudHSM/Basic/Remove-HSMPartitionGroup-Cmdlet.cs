@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.DeleteHapgResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.DeleteHapgRequest request)
+        private Amazon.CloudHSM.Model.DeleteHapgResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.DeleteHapgRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "DeleteHapg");
             #if DESKTOP
             return client.DeleteHapg(request);
             #elif CORECLR

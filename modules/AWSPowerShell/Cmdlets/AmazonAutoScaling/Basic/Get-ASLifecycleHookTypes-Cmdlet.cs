@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeLifecycleHookTypesRequest request)
+        private Amazon.AutoScaling.Model.DescribeLifecycleHookTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeLifecycleHookTypesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeLifecycleHookTypes");
             #if DESKTOP
             return client.DescribeLifecycleHookTypes(request);
             #elif CORECLR

@@ -229,8 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.SplitShardResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.SplitShardRequest request)
+        private Amazon.Kinesis.Model.SplitShardResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.SplitShardRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "SplitShard");
             #if DESKTOP
             return client.SplitShard(request);
             #elif CORECLR

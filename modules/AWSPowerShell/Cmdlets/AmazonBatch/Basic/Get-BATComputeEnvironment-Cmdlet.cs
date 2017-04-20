@@ -221,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.DescribeComputeEnvironmentsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DescribeComputeEnvironmentsRequest request)
+        private Amazon.Batch.Model.DescribeComputeEnvironmentsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DescribeComputeEnvironmentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DescribeComputeEnvironments");
             #if DESKTOP
             return client.DescribeComputeEnvironments(request);
             #elif CORECLR

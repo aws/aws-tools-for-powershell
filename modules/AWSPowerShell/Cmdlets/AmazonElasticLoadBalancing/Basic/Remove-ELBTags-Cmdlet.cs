@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.RemoveTagsRequest request)
+        private Amazon.ElasticLoadBalancing.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.RemoveTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "RemoveTags");
             #if DESKTOP
             return client.RemoveTags(request);
             #elif CORECLR

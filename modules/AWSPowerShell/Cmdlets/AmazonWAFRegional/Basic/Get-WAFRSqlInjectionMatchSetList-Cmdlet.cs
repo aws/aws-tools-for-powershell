@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.ListSqlInjectionMatchSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListSqlInjectionMatchSetsRequest request)
+        private Amazon.WAFRegional.Model.ListSqlInjectionMatchSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListSqlInjectionMatchSetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "ListSqlInjectionMatchSets");
             #if DESKTOP
             return client.ListSqlInjectionMatchSets(request);
             #elif CORECLR

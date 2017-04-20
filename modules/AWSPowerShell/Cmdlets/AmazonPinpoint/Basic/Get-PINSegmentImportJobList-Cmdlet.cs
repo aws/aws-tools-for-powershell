@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetSegmentImportJobsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetSegmentImportJobsRequest request)
+        private Amazon.Pinpoint.Model.GetSegmentImportJobsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetSegmentImportJobsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetSegmentImportJobs");
             #if DESKTOP
             return client.GetSegmentImportJobs(request);
             #elif CORECLR

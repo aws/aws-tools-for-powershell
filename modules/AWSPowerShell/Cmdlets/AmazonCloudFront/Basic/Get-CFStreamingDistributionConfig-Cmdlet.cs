@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.GetStreamingDistributionConfigResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.GetStreamingDistributionConfigRequest request)
+        private Amazon.CloudFront.Model.GetStreamingDistributionConfigResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.GetStreamingDistributionConfigRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "GetStreamingDistributionConfig");
             #if DESKTOP
             return client.GetStreamingDistributionConfig(request);
             #elif CORECLR

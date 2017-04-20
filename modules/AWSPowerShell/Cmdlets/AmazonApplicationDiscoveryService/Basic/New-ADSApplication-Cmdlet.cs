@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.CreateApplicationRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.CreateApplicationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "CreateApplication");
             #if DESKTOP
             return client.CreateApplication(request);
             #elif CORECLR

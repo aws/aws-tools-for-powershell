@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.DeregisterTaskDefinitionResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeregisterTaskDefinitionRequest request)
+        private Amazon.ECS.Model.DeregisterTaskDefinitionResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeregisterTaskDefinitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "DeregisterTaskDefinition");
             #if DESKTOP
             return client.DeregisterTaskDefinition(request);
             #elif CORECLR

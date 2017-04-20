@@ -110,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.GetAccountSettingsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAccountSettingsRequest request)
+        private Amazon.Lambda.Model.GetAccountSettingsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAccountSettingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetAccountSettings");
             #if DESKTOP
             return client.GetAccountSettings(request);
             #elif CORECLR

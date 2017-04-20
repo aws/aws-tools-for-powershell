@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteSigningCertificateResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteSigningCertificateRequest request)
+        private Amazon.IdentityManagement.Model.DeleteSigningCertificateResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteSigningCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteSigningCertificate");
             #if DESKTOP
             return client.DeleteSigningCertificate(request);
             #elif CORECLR

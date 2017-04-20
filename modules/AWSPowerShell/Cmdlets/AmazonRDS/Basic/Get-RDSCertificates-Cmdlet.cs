@@ -223,8 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeCertificatesResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeCertificatesRequest request)
+        private Amazon.RDS.Model.DescribeCertificatesResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeCertificatesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeCertificates");
             #if DESKTOP
             return client.DescribeCertificates(request);
             #elif CORECLR

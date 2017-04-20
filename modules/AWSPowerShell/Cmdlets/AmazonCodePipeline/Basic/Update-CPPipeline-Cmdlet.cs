@@ -137,8 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.UpdatePipelineResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.UpdatePipelineRequest request)
+        private Amazon.CodePipeline.Model.UpdatePipelineResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.UpdatePipelineRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "UpdatePipeline");
             #if DESKTOP
             return client.UpdatePipeline(request);
             #elif CORECLR

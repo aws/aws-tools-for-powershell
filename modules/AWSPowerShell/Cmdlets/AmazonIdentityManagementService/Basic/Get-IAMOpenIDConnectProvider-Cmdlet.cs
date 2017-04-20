@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetOpenIDConnectProviderRequest request)
+        private Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetOpenIDConnectProviderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetOpenIDConnectProvider");
             #if DESKTOP
             return client.GetOpenIDConnectProvider(request);
             #elif CORECLR

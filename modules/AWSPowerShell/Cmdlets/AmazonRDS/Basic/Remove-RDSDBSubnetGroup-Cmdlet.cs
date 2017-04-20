@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DeleteDBSubnetGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBSubnetGroupRequest request)
+        private Amazon.RDS.Model.DeleteDBSubnetGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBSubnetGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteDBSubnetGroup");
             #if DESKTOP
             return client.DeleteDBSubnetGroup(request);
             #elif CORECLR

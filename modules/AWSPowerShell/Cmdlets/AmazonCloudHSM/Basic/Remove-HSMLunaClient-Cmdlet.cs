@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.DeleteLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.DeleteLunaClientRequest request)
+        private Amazon.CloudHSM.Model.DeleteLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.DeleteLunaClientRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "DeleteLunaClient");
             #if DESKTOP
             return client.DeleteLunaClient(request);
             #elif CORECLR

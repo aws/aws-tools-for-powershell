@@ -195,8 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.RemovePermissionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.RemovePermissionRequest request)
+        private Amazon.Lambda.Model.RemovePermissionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.RemovePermissionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "RemovePermission");
             #if DESKTOP
             return client.RemovePermission(request);
             #elif CORECLR

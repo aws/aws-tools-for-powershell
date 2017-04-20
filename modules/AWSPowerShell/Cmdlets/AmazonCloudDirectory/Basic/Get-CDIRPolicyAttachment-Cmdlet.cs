@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.ListPolicyAttachmentsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListPolicyAttachmentsRequest request)
+        private Amazon.CloudDirectory.Model.ListPolicyAttachmentsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListPolicyAttachmentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListPolicyAttachments");
             #if DESKTOP
             return client.ListPolicyAttachments(request);
             #elif CORECLR

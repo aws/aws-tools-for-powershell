@@ -210,8 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateRequest request)
+        private Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "UpdateConfigurationTemplate");
             #if DESKTOP
             return client.UpdateConfigurationTemplate(request);
             #elif CORECLR

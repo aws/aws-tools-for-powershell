@@ -221,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.PutBucketReplicationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketReplicationRequest request)
+        private Amazon.S3.Model.PutBucketReplicationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketReplicationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketReplication");
             #if DESKTOP
             return client.PutBucketReplication(request);
             #elif CORECLR

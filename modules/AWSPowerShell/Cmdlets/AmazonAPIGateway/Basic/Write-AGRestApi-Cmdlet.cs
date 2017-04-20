@@ -209,8 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.PutRestApiResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.PutRestApiRequest request)
+        private Amazon.APIGateway.Model.PutRestApiResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.PutRestApiRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "PutRestApi");
             #if DESKTOP
             return client.PutRestApi(request);
             #elif CORECLR

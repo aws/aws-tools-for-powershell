@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.DeactivatePipelineResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.DeactivatePipelineRequest request)
+        private Amazon.DataPipeline.Model.DeactivatePipelineResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.DeactivatePipelineRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "DeactivatePipeline");
             #if DESKTOP
             return client.DeactivatePipeline(request);
             #elif CORECLR

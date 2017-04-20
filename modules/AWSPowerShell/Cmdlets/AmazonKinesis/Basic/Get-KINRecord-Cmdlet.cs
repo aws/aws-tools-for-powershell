@@ -189,8 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.GetRecordsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetRecordsRequest request)
+        private Amazon.Kinesis.Model.GetRecordsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetRecordsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "GetRecords");
             #if DESKTOP
             return client.GetRecords(request);
             #elif CORECLR

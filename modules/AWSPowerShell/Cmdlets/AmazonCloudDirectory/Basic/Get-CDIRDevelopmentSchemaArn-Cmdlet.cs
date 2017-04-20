@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.ListDevelopmentSchemaArnsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListDevelopmentSchemaArnsRequest request)
+        private Amazon.CloudDirectory.Model.ListDevelopmentSchemaArnsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListDevelopmentSchemaArnsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListDevelopmentSchemaArns");
             #if DESKTOP
             return client.ListDevelopmentSchemaArns(request);
             #elif CORECLR

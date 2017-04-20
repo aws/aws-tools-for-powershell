@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatch.Model.DeleteAlarmsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DeleteAlarmsRequest request)
+        private Amazon.CloudWatch.Model.DeleteAlarmsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DeleteAlarmsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "DeleteAlarms");
             #if DESKTOP
             return client.DeleteAlarms(request);
             #elif CORECLR

@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.UpdateRdsDbInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.UpdateRdsDbInstanceRequest request)
+        private Amazon.OpsWorks.Model.UpdateRdsDbInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.UpdateRdsDbInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "UpdateRdsDbInstance");
             #if DESKTOP
             return client.UpdateRdsDbInstance(request);
             #elif CORECLR

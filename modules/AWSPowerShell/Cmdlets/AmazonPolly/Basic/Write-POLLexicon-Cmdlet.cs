@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.POL
         
         #region AWS Service Operation Call
         
-        private static Amazon.Polly.Model.PutLexiconResponse CallAWSServiceOperation(IAmazonPolly client, Amazon.Polly.Model.PutLexiconRequest request)
+        private Amazon.Polly.Model.PutLexiconResponse CallAWSServiceOperation(IAmazonPolly client, Amazon.Polly.Model.PutLexiconRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Polly", "PutLexicon");
             #if DESKTOP
             return client.PutLexicon(request);
             #elif CORECLR

@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.CreateTopicResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreateTopicRequest request)
+        private Amazon.SimpleNotificationService.Model.CreateTopicResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreateTopicRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "CreateTopic");
             #if DESKTOP
             return client.CreateTopic(request);
             #elif CORECLR

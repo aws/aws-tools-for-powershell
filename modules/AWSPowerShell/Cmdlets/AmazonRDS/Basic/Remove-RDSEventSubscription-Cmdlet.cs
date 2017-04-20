@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DeleteEventSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteEventSubscriptionRequest request)
+        private Amazon.RDS.Model.DeleteEventSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteEventSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteEventSubscription");
             #if DESKTOP
             return client.DeleteEventSubscription(request);
             #elif CORECLR

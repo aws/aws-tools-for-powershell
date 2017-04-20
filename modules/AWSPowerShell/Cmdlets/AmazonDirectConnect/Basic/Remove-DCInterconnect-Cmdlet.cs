@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DeleteInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DeleteInterconnectRequest request)
+        private Amazon.DirectConnect.Model.DeleteInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DeleteInterconnectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "DeleteInterconnect");
             #if DESKTOP
             return client.DeleteInterconnect(request);
             #elif CORECLR

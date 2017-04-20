@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.PutEvaluationsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutEvaluationsRequest request)
+        private Amazon.ConfigService.Model.PutEvaluationsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutEvaluationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "PutEvaluations");
             #if DESKTOP
             return client.PutEvaluations(request);
             #elif CORECLR

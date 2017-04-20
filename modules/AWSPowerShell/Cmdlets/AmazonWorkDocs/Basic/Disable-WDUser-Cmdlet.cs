@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.DeactivateUserResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeactivateUserRequest request)
+        private Amazon.WorkDocs.Model.DeactivateUserResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeactivateUserRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DeactivateUser");
             #if DESKTOP
             return client.DeactivateUser(request);
             #elif CORECLR

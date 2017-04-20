@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.ActivateUserResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.ActivateUserRequest request)
+        private Amazon.WorkDocs.Model.ActivateUserResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.ActivateUserRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "ActivateUser");
             #if DESKTOP
             return client.ActivateUser(request);
             #elif CORECLR

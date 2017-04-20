@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteRouteRequest request)
+        private Amazon.EC2.Model.DeleteRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteRouteRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteRoute");
             #if DESKTOP
             return client.DeleteRoute(request);
             #elif CORECLR

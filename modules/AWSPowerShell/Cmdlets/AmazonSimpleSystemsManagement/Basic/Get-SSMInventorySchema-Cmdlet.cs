@@ -231,8 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.GetInventorySchemaResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetInventorySchemaRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetInventorySchemaResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetInventorySchemaRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetInventorySchema");
             #if DESKTOP
             return client.GetInventorySchema(request);
             #elif CORECLR

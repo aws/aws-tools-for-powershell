@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.ListActionTypesResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListActionTypesRequest request)
+        private Amazon.CodePipeline.Model.ListActionTypesResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListActionTypesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "ListActionTypes");
             #if DESKTOP
             return client.ListActionTypes(request);
             #elif CORECLR

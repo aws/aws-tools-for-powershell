@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.DeleteRuleResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteRuleRequest request)
+        private Amazon.WAF.Model.DeleteRuleResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "DeleteRule");
             #if DESKTOP
             return client.DeleteRule(request);
             #elif CORECLR

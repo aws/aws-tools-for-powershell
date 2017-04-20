@@ -639,8 +639,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisFirehose.Model.UpdateDestinationResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.UpdateDestinationRequest request)
+        private Amazon.KinesisFirehose.Model.UpdateDestinationResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.UpdateDestinationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "UpdateDestination");
             #if DESKTOP
             return client.UpdateDestination(request);
             #elif CORECLR

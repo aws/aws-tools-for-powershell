@@ -857,8 +857,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.UpdateUserPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateUserPoolRequest request)
+        private Amazon.CognitoIdentityProvider.Model.UpdateUserPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateUserPoolRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateUserPool");
             #if DESKTOP
             return client.UpdateUserPool(request);
             #elif CORECLR

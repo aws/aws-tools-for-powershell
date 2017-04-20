@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "StopDataCollectionByAgentIds");
             #if DESKTOP
             return client.StopDataCollectionByAgentIds(request);
             #elif CORECLR

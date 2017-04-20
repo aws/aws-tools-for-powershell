@@ -755,8 +755,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.CloneStackResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CloneStackRequest request)
+        private Amazon.OpsWorks.Model.CloneStackResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CloneStackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "CloneStack");
             #if DESKTOP
             return client.CloneStack(request);
             #elif CORECLR

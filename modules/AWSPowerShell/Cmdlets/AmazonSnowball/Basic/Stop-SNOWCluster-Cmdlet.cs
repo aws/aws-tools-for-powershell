@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #region AWS Service Operation Call
         
-        private static Amazon.Snowball.Model.CancelClusterResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CancelClusterRequest request)
+        private Amazon.Snowball.Model.CancelClusterResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CancelClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export Snowball", "CancelCluster");
             #if DESKTOP
             return client.CancelCluster(request);
             #elif CORECLR

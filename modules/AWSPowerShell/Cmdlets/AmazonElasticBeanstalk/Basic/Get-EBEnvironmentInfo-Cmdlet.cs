@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoRequest request)
+        private Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "RetrieveEnvironmentInfo");
             #if DESKTOP
             return client.RetrieveEnvironmentInfo(request);
             #elif CORECLR

@@ -218,8 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.DescribeEventsResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeEventsRequest request)
+        private Amazon.OpsWorksCM.Model.DescribeEventsResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeEventsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DescribeEvents");
             #if DESKTOP
             return client.DescribeEvents(request);
             #elif CORECLR

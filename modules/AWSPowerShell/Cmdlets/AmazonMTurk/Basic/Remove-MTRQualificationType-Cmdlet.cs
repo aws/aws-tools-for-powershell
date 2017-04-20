@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.DeleteQualificationTypeResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DeleteQualificationTypeRequest request)
+        private Amazon.MTurk.Model.DeleteQualificationTypeResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DeleteQualificationTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "DeleteQualificationType");
             #if DESKTOP
             return client.DeleteQualificationType(request);
             #elif CORECLR

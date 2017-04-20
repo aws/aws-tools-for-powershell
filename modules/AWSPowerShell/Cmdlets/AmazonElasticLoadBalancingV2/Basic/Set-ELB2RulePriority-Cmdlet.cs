@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetRulePrioritiesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetRulePriorities");
             #if DESKTOP
             return client.SetRulePriorities(request);
             #elif CORECLR

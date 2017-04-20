@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetDomainsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetDomainsRequest request)
+        private Amazon.Lightsail.Model.GetDomainsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetDomainsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetDomains");
             #if DESKTOP
             return client.GetDomains(request);
             #elif CORECLR

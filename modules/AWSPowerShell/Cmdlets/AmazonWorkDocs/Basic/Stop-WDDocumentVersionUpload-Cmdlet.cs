@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.AbortDocumentVersionUploadRequest request)
+        private Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.AbortDocumentVersionUploadRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "AbortDocumentVersionUpload");
             #if DESKTOP
             return client.AbortDocumentVersionUpload(request);
             #elif CORECLR

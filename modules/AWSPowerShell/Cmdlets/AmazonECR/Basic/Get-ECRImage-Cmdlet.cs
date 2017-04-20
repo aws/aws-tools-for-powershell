@@ -296,8 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.ListImagesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ListImagesRequest request)
+        private Amazon.ECR.Model.ListImagesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.ListImagesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "ListImages");
             #if DESKTOP
             return client.ListImages(request);
             #elif CORECLR

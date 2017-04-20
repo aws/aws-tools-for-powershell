@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksRequest request)
+        private Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ListAvailableSolutionStacksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "ListAvailableSolutionStacks");
             #if DESKTOP
             return client.ListAvailableSolutionStacks(request);
             #elif CORECLR

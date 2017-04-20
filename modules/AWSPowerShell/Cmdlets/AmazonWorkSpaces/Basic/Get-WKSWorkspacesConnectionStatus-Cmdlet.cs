@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest request)
+        private Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DescribeWorkspacesConnectionStatus");
             #if DESKTOP
             return client.DescribeWorkspacesConnectionStatus(request);
             #elif CORECLR

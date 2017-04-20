@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.DeletePipelineResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DeletePipelineRequest request)
+        private Amazon.CodePipeline.Model.DeletePipelineResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DeletePipelineRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "DeletePipeline");
             #if DESKTOP
             return client.DeletePipeline(request);
             #elif CORECLR

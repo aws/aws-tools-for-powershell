@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeServiceErrorsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeServiceErrorsRequest request)
+        private Amazon.OpsWorks.Model.DescribeServiceErrorsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeServiceErrorsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeServiceErrors");
             #if DESKTOP
             return client.DescribeServiceErrors(request);
             #elif CORECLR

@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.GetBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketInventoryConfigurationRequest request)
+        private Amazon.S3.Model.GetBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketInventoryConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketInventoryConfiguration");
             #if DESKTOP
             return client.GetBucketInventoryConfiguration(request);
             #elif CORECLR

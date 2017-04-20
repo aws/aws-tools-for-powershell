@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.GetAuthorizationTokenResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetAuthorizationTokenRequest request)
+        private Amazon.ECR.Model.GetAuthorizationTokenResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetAuthorizationTokenRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetAuthorizationToken");
             #if DESKTOP
             return client.GetAuthorizationToken(request);
             #elif CORECLR

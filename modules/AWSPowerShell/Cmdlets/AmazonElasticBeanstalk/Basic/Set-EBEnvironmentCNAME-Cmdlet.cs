@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsRequest request)
+        private Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "SwapEnvironmentCNAMEs");
             #if DESKTOP
             return client.SwapEnvironmentCNAMEs(request);
             #elif CORECLR

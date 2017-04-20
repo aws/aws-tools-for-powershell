@@ -194,8 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.ListClustersResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListClustersRequest request)
+        private Amazon.ECS.Model.ListClustersResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListClustersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "ListClusters");
             #if DESKTOP
             return client.ListClusters(request);
             #elif CORECLR

@@ -229,8 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioRequest request)
+        private Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListConstraintsForPortfolio");
             #if DESKTOP
             return client.ListConstraintsForPortfolio(request);
             #elif CORECLR

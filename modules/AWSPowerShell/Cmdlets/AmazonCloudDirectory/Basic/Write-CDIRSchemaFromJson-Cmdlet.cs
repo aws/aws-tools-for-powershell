@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.PutSchemaFromJsonResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.PutSchemaFromJsonRequest request)
+        private Amazon.CloudDirectory.Model.PutSchemaFromJsonResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.PutSchemaFromJsonRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "PutSchemaFromJson");
             #if DESKTOP
             return client.PutSchemaFromJson(request);
             #elif CORECLR

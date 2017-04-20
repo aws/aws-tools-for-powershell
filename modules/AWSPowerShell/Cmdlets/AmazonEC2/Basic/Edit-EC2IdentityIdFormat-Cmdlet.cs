@@ -197,8 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifyIdentityIdFormatResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIdentityIdFormatRequest request)
+        private Amazon.EC2.Model.ModifyIdentityIdFormatResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIdentityIdFormatRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyIdentityIdFormat");
             #if DESKTOP
             return client.ModifyIdentityIdFormat(request);
             #elif CORECLR

@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.AddWorkingStorageResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.AddWorkingStorageRequest request)
+        private Amazon.StorageGateway.Model.AddWorkingStorageResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.AddWorkingStorageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "AddWorkingStorage");
             #if DESKTOP
             return client.AddWorkingStorage(request);
             #elif CORECLR

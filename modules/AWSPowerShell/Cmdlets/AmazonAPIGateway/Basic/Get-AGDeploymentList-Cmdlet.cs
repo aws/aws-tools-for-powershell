@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetDeploymentsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetDeploymentsRequest request)
+        private Amazon.APIGateway.Model.GetDeploymentsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetDeploymentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetDeployments");
             #if DESKTOP
             return client.GetDeployments(request);
             #elif CORECLR

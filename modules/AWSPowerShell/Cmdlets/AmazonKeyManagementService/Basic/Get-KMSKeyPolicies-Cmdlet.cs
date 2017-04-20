@@ -203,8 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.ListKeyPoliciesResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListKeyPoliciesRequest request)
+        private Amazon.KeyManagementService.Model.ListKeyPoliciesResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListKeyPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "ListKeyPolicies");
             #if DESKTOP
             return client.ListKeyPolicies(request);
             #elif CORECLR

@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private static Amazon.DynamoDBv2.Model.DeleteTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DeleteTableRequest request)
+        private Amazon.DynamoDBv2.Model.DeleteTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DeleteTableRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DeleteTable");
             #if DESKTOP
             return client.DeleteTable(request);
             #elif CORECLR

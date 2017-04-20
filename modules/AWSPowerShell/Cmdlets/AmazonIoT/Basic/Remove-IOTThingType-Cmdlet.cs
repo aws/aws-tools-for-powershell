@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.DeleteThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteThingTypeRequest request)
+        private Amazon.IoT.Model.DeleteThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteThingTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeleteThingType");
             #if DESKTOP
             return client.DeleteThingType(request);
             #elif CORECLR

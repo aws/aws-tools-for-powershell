@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.OptInPhoneNumberResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.OptInPhoneNumberRequest request)
+        private Amazon.SimpleNotificationService.Model.OptInPhoneNumberResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.OptInPhoneNumberRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "OptInPhoneNumber");
             #if DESKTOP
             return client.OptInPhoneNumber(request);
             #elif CORECLR

@@ -126,8 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.ListBucketsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketsRequest request)
+        private Amazon.S3.Model.ListBucketsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "ListBuckets");
 #if DESKTOP
             return client.ListBuckets(request);
 #elif CORECLR

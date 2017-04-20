@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationRequest request)
+        private Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DeleteEnvironmentConfiguration");
             #if DESKTOP
             return client.DeleteEnvironmentConfiguration(request);
             #elif CORECLR

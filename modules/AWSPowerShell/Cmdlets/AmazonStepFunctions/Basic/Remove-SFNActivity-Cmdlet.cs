@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.StepFunctions.Model.DeleteActivityResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DeleteActivityRequest request)
+        private Amazon.StepFunctions.Model.DeleteActivityResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DeleteActivityRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "DeleteActivity");
             #if DESKTOP
             return client.DeleteActivity(request);
             #elif CORECLR

@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.DescribeIndexFieldsResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeIndexFieldsRequest request)
+        private Amazon.CloudSearch.Model.DescribeIndexFieldsResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeIndexFieldsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "DescribeIndexFields");
             #if DESKTOP
             return client.DescribeIndexFields(request);
             #elif CORECLR

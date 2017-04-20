@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.CancelJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.CancelJobRequest request)
+        private Amazon.Batch.Model.CancelJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.CancelJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "CancelJob");
             #if DESKTOP
             return client.CancelJob(request);
             #elif CORECLR

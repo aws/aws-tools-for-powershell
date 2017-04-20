@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.TagResourceResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.TagResourceRequest request)
+        private Amazon.CloudFront.Model.TagResourceResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.TagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "TagResource");
             #if DESKTOP
             return client.TagResource(request);
             #elif CORECLR

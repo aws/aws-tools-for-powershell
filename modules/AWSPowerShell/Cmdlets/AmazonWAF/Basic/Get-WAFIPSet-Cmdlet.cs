@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.GetIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetIPSetRequest request)
+        private Amazon.WAF.Model.GetIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetIPSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "GetIPSet");
             #if DESKTOP
             return client.GetIPSet(request);
             #elif CORECLR

@@ -181,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticTranscoder.Model.TestRoleResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.TestRoleRequest request)
+        private Amazon.ElasticTranscoder.Model.TestRoleResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.TestRoleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Transcoder", "TestRole");
             #if DESKTOP
             return client.TestRole(request);
             #elif CORECLR

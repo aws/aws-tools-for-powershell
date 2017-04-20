@@ -256,8 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region AWS Service Operation Call
 
-        private static Amazon.EC2.Model.GetPasswordDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetPasswordDataRequest request)
+        private Amazon.EC2.Model.GetPasswordDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetPasswordDataRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "GetPasswordData");
 #if DESKTOP
             return client.GetPasswordData(request);
 #elif CORECLR
@@ -269,8 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 #endif
         }
 
-        private static Amazon.EC2.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstancesRequest request)
+        private Amazon.EC2.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "DescribeInstances");
 #if DESKTOP
             return client.DescribeInstances(request);
 #elif CORECLR

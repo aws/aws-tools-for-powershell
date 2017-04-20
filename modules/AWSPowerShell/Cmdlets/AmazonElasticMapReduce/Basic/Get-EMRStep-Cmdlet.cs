@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.DescribeStepResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DescribeStepRequest request)
+        private Amazon.ElasticMapReduce.Model.DescribeStepResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DescribeStepRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "DescribeStep");
             #if DESKTOP
             return client.DescribeStep(request);
             #elif CORECLR

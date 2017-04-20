@@ -466,8 +466,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #region AWS Service Operation Call
         
-        private static Amazon.Elasticsearch.Model.CreateElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.CreateElasticsearchDomainRequest request)
+        private Amazon.Elasticsearch.Model.CreateElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.CreateElasticsearchDomainRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "CreateElasticsearchDomain");
             #if DESKTOP
             return client.CreateElasticsearchDomain(request);
             #elif CORECLR

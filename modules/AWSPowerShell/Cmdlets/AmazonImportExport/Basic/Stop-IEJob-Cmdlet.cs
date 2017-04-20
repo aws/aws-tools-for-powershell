@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         #region AWS Service Operation Call
         
-        private static Amazon.ImportExport.Model.CancelJobResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.CancelJobRequest request)
+        private Amazon.ImportExport.Model.CancelJobResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.CancelJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export", "CancelJob");
             #if DESKTOP
             return client.CancelJob(request);
             #elif CORECLR

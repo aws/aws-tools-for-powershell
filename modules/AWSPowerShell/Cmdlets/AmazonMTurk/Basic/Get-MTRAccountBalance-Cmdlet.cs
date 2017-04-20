@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.GetAccountBalanceResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetAccountBalanceRequest request)
+        private Amazon.MTurk.Model.GetAccountBalanceResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetAccountBalanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "GetAccountBalance");
             #if DESKTOP
             return client.GetAccountBalance(request);
             #elif CORECLR

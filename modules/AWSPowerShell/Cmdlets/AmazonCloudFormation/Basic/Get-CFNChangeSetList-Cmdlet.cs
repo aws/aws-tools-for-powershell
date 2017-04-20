@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.ListChangeSetsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListChangeSetsRequest request)
+        private Amazon.CloudFormation.Model.ListChangeSetsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListChangeSetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ListChangeSets");
             #if DESKTOP
             return client.ListChangeSets(request);
             #elif CORECLR

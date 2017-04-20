@@ -193,8 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyRequest request)
+        private Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "CreateAppCookieStickinessPolicy");
             #if DESKTOP
             return client.CreateAppCookieStickinessPolicy(request);
             #elif CORECLR

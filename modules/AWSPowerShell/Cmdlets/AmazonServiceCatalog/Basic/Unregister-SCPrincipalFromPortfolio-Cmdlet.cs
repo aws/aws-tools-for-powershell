@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioRequest request)
+        private Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DisassociatePrincipalFromPortfolio");
             #if DESKTOP
             return client.DisassociatePrincipalFromPortfolio(request);
             #elif CORECLR

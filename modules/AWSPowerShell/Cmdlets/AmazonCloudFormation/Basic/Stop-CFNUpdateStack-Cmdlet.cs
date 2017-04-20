@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.CancelUpdateStackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.CancelUpdateStackRequest request)
+        private Amazon.CloudFormation.Model.CancelUpdateStackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.CancelUpdateStackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "CancelUpdateStack");
             #if DESKTOP
             return client.CancelUpdateStack(request);
             #elif CORECLR

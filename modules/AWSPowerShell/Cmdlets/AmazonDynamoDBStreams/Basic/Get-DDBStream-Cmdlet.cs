@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private static Amazon.DynamoDBv2.Model.DescribeStreamResponse CallAWSServiceOperation(IAmazonDynamoDBStreams client, Amazon.DynamoDBv2.Model.DescribeStreamRequest request)
+        private Amazon.DynamoDBv2.Model.DescribeStreamResponse CallAWSServiceOperation(IAmazonDynamoDBStreams client, Amazon.DynamoDBv2.Model.DescribeStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeStream");
             #if DESKTOP
             return client.DescribeStream(request);
             #elif CORECLR

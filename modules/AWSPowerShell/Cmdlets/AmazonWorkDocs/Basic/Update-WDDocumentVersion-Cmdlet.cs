@@ -183,8 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.UpdateDocumentVersionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.UpdateDocumentVersionRequest request)
+        private Amazon.WorkDocs.Model.UpdateDocumentVersionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.UpdateDocumentVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "UpdateDocumentVersion");
             #if DESKTOP
             return client.UpdateDocumentVersion(request);
             #elif CORECLR

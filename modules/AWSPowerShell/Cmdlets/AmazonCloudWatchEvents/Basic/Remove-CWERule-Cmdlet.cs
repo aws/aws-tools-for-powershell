@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchEvents.Model.DeleteRuleResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.DeleteRuleRequest request)
+        private Amazon.CloudWatchEvents.Model.DeleteRuleResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.DeleteRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Events", "DeleteRule");
             #if DESKTOP
             return client.DeleteRule(request);
             #elif CORECLR

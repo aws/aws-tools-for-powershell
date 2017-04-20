@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteSubnetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSubnetRequest request)
+        private Amazon.EC2.Model.DeleteSubnetResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSubnetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSubnet");
             #if DESKTOP
             return client.DeleteSubnet(request);
             #elif CORECLR

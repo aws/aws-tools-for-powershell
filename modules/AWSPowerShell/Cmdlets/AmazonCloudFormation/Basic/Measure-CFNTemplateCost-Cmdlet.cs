@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.EstimateTemplateCostResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.EstimateTemplateCostRequest request)
+        private Amazon.CloudFormation.Model.EstimateTemplateCostResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.EstimateTemplateCostRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "EstimateTemplateCost");
             #if DESKTOP
             return client.EstimateTemplateCost(request);
             #elif CORECLR

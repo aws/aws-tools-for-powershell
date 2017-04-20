@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.DetachLoadBalancerFromSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DetachLoadBalancerFromSubnetsRequest request)
+        private Amazon.ElasticLoadBalancing.Model.DetachLoadBalancerFromSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DetachLoadBalancerFromSubnetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DetachLoadBalancerFromSubnets");
             #if DESKTOP
             return client.DetachLoadBalancerFromSubnets(request);
             #elif CORECLR

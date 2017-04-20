@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.DeleteCampaignResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteCampaignRequest request)
+        private Amazon.Pinpoint.Model.DeleteCampaignResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteCampaignRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteCampaign");
             #if DESKTOP
             return client.DeleteCampaign(request);
             #elif CORECLR

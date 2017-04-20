@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.SetTagsForResourceResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.SetTagsForResourceRequest request)
+        private Amazon.Inspector.Model.SetTagsForResourceResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.SetTagsForResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "SetTagsForResource");
             #if DESKTOP
             return client.SetTagsForResource(request);
             #elif CORECLR

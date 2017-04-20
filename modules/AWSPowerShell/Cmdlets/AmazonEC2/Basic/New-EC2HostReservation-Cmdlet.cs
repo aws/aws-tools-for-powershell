@@ -209,8 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.PurchaseHostReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseHostReservationRequest request)
+        private Amazon.EC2.Model.PurchaseHostReservationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseHostReservationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "PurchaseHostReservation");
             #if DESKTOP
             return client.PurchaseHostReservation(request);
             #elif CORECLR

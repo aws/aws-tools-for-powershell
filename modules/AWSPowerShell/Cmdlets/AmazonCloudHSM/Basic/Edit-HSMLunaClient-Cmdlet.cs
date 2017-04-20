@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.ModifyLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ModifyLunaClientRequest request)
+        private Amazon.CloudHSM.Model.ModifyLunaClientResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ModifyLunaClientRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "ModifyLunaClient");
             #if DESKTOP
             return client.ModifyLunaClient(request);
             #elif CORECLR

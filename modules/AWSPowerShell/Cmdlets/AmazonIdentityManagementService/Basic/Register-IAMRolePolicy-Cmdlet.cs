@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.AttachRolePolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AttachRolePolicyRequest request)
+        private Amazon.IdentityManagement.Model.AttachRolePolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AttachRolePolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "AttachRolePolicy");
             #if DESKTOP
             return client.AttachRolePolicy(request);
             #elif CORECLR

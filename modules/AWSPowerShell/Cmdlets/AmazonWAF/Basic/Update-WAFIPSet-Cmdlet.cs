@@ -221,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.UpdateIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateIPSetRequest request)
+        private Amazon.WAF.Model.UpdateIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateIPSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "UpdateIPSet");
             #if DESKTOP
             return client.UpdateIPSet(request);
             #elif CORECLR

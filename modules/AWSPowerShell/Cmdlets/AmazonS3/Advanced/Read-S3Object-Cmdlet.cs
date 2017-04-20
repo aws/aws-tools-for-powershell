@@ -313,6 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");
+
                 var runner = new ProgressRunner(this);
                 var tracker = new DownloadFileProgressTracker(runner, handler => request.WriteObjectProgressEvent += handler, cmdletContext.Key);
 
@@ -342,6 +344,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");
+
                 var runner = new ProgressRunner(this);
                 var tracker = new DownloadFolderProgressTracker(runner, handler => request.DownloadedDirectoryProgressEvent += handler);
 

@@ -102,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.GetLoggingOptionsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetLoggingOptionsRequest request)
+        private Amazon.IoT.Model.GetLoggingOptionsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetLoggingOptionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "GetLoggingOptions");
             #if DESKTOP
             return client.GetLoggingOptions(request);
             #elif CORECLR

@@ -211,8 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DescribeTapeArchivesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeTapeArchivesRequest request)
+        private Amazon.StorageGateway.Model.DescribeTapeArchivesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeTapeArchivesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DescribeTapeArchives");
             #if DESKTOP
             return client.DescribeTapeArchives(request);
             #elif CORECLR

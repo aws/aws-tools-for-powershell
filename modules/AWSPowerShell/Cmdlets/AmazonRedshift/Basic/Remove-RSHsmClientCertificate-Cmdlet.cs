@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DeleteHsmClientCertificateResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteHsmClientCertificateRequest request)
+        private Amazon.Redshift.Model.DeleteHsmClientCertificateResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteHsmClientCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DeleteHsmClientCertificate");
             #if DESKTOP
             return client.DeleteHsmClientCertificate(request);
             #elif CORECLR

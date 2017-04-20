@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DeregisterTargetFromMaintenanceWindow");
             #if DESKTOP
             return client.DeregisterTargetFromMaintenanceWindow(request);
             #elif CORECLR

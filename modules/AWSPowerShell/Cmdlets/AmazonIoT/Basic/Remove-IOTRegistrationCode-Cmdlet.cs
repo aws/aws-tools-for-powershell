@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.DeleteRegistrationCodeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteRegistrationCodeRequest request)
+        private Amazon.IoT.Model.DeleteRegistrationCodeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteRegistrationCodeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeleteRegistrationCode");
             #if DESKTOP
             return client.DeleteRegistrationCode(request);
             #elif CORECLR

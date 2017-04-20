@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetDeployablePatchSnapshotForInstance");
             #if DESKTOP
             return client.GetDeployablePatchSnapshotForInstance(request);
             #elif CORECLR

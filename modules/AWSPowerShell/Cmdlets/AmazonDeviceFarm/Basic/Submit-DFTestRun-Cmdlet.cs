@@ -603,8 +603,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.ScheduleRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ScheduleRunRequest request)
+        private Amazon.DeviceFarm.Model.ScheduleRunResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ScheduleRunRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "ScheduleRun");
             #if DESKTOP
             return client.ScheduleRun(request);
             #elif CORECLR

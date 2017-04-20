@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.DirectoryService.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveTagsFromResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "RemoveTagsFromResource");
             #if DESKTOP
             return client.RemoveTagsFromResource(request);
             #elif CORECLR

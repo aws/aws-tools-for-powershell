@@ -191,8 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceRequest request)
+        private Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationReferenceDataSourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DeleteApplicationReferenceDataSource");
             #if DESKTOP
             return client.DeleteApplicationReferenceDataSource(request);
             #elif CORECLR

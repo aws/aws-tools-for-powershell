@@ -122,8 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.DescribeAttachmentResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeAttachmentRequest request)
+        private Amazon.AWSSupport.Model.DescribeAttachmentResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeAttachmentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "DescribeAttachment");
             #if DESKTOP
             return client.DescribeAttachment(request);
             #elif CORECLR

@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.RemoveIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveIpRoutesRequest request)
+        private Amazon.DirectoryService.Model.RemoveIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RemoveIpRoutesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "RemoveIpRoutes");
             #if DESKTOP
             return client.RemoveIpRoutes(request);
             #elif CORECLR

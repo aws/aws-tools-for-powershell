@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeConnectionLoaResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeConnectionLoaRequest request)
+        private Amazon.DirectConnect.Model.DescribeConnectionLoaResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeConnectionLoaRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "DescribeConnectionLoa");
             #if DESKTOP
             return client.DescribeConnectionLoa(request);
             #elif CORECLR

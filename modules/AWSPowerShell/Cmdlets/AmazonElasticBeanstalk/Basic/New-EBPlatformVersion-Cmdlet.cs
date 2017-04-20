@@ -233,8 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CreatePlatformVersionRequest request)
+        private Amazon.ElasticBeanstalk.Model.CreatePlatformVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CreatePlatformVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "CreatePlatformVersion");
             #if DESKTOP
             return client.CreatePlatformVersion(request);
             #elif CORECLR

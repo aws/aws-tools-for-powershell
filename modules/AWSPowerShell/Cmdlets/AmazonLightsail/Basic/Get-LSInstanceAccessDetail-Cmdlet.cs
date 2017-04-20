@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetInstanceAccessDetailsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstanceAccessDetailsRequest request)
+        private Amazon.Lightsail.Model.GetInstanceAccessDetailsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstanceAccessDetailsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetInstanceAccessDetails");
             #if DESKTOP
             return client.GetInstanceAccessDetails(request);
             #elif CORECLR

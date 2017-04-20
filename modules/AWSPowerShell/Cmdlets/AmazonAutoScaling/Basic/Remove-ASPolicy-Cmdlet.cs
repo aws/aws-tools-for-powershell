@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DeletePolicyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeletePolicyRequest request)
+        private Amazon.AutoScaling.Model.DeletePolicyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeletePolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DeletePolicy");
             #if DESKTOP
             return client.DeletePolicy(request);
             #elif CORECLR

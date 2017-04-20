@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DeletePortfolioShareResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeletePortfolioShareRequest request)
+        private Amazon.ServiceCatalog.Model.DeletePortfolioShareResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeletePortfolioShareRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DeletePortfolioShare");
             #if DESKTOP
             return client.DeletePortfolioShare(request);
             #elif CORECLR

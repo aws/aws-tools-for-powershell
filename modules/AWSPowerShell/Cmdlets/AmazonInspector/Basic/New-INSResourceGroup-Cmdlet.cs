@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.CreateResourceGroupResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateResourceGroupRequest request)
+        private Amazon.Inspector.Model.CreateResourceGroupResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.CreateResourceGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "CreateResourceGroup");
             #if DESKTOP
             return client.CreateResourceGroup(request);
             #elif CORECLR

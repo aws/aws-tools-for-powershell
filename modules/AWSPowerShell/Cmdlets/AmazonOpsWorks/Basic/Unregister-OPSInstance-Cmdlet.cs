@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DeregisterInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterInstanceRequest request)
+        private Amazon.OpsWorks.Model.DeregisterInstanceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DeregisterInstance");
             #if DESKTOP
             return client.DeregisterInstance(request);
             #elif CORECLR

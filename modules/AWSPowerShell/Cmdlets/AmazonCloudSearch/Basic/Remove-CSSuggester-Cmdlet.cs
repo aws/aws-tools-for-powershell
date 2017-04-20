@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.DeleteSuggesterResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteSuggesterRequest request)
+        private Amazon.CloudSearch.Model.DeleteSuggesterResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteSuggesterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "DeleteSuggester");
             #if DESKTOP
             return client.DeleteSuggester(request);
             #elif CORECLR

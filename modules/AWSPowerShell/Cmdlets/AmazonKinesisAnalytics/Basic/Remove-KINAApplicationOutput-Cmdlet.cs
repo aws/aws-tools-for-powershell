@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisAnalytics.Model.DeleteApplicationOutputResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationOutputRequest request)
+        private Amazon.KinesisAnalytics.Model.DeleteApplicationOutputResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationOutputRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DeleteApplicationOutput");
             #if DESKTOP
             return client.DeleteApplicationOutput(request);
             #elif CORECLR

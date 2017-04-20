@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.SetIdentityPoolRolesRequest request)
+        private Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.SetIdentityPoolRolesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "SetIdentityPoolRoles");
             #if DESKTOP
             return client.SetIdentityPoolRoles(request);
             #elif CORECLR

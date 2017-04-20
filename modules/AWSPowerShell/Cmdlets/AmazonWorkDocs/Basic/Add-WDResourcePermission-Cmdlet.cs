@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.AddResourcePermissionsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.AddResourcePermissionsRequest request)
+        private Amazon.WorkDocs.Model.AddResourcePermissionsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.AddResourcePermissionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "AddResourcePermissions");
             #if DESKTOP
             return client.AddResourcePermissions(request);
             #elif CORECLR

@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceRequest request)
+        private Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "ConfirmPrivateVirtualInterface");
             #if DESKTOP
             return client.ConfirmPrivateVirtualInterface(request);
             #elif CORECLR

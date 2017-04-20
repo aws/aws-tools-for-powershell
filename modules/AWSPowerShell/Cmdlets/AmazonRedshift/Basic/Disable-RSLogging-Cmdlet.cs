@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DisableLoggingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DisableLoggingRequest request)
+        private Amazon.Redshift.Model.DisableLoggingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DisableLoggingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DisableLogging");
             #if DESKTOP
             return client.DisableLogging(request);
             #elif CORECLR

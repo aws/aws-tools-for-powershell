@@ -335,8 +335,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.EnableRadiusResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.EnableRadiusRequest request)
+        private Amazon.DirectoryService.Model.EnableRadiusResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.EnableRadiusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "EnableRadius");
             #if DESKTOP
             return client.EnableRadius(request);
             #elif CORECLR

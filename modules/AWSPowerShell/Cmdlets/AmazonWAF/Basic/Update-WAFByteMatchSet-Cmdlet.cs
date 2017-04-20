@@ -209,8 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.UpdateByteMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateByteMatchSetRequest request)
+        private Amazon.WAF.Model.UpdateByteMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateByteMatchSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "UpdateByteMatchSet");
             #if DESKTOP
             return client.UpdateByteMatchSet(request);
             #elif CORECLR

@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListAliasesRequest request)
+        private Amazon.KeyManagementService.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListAliasesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "ListAliases");
             #if DESKTOP
             return client.ListAliases(request);
             #elif CORECLR

@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.NotifyWorkersResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.NotifyWorkersRequest request)
+        private Amazon.MTurk.Model.NotifyWorkersResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.NotifyWorkersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "NotifyWorkers");
             #if DESKTOP
             return client.NotifyWorkers(request);
             #elif CORECLR

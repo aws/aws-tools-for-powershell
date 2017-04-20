@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminForgetDeviceResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminForgetDeviceRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminForgetDeviceResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminForgetDeviceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminForgetDevice");
             #if DESKTOP
             return client.AdminForgetDevice(request);
             #elif CORECLR

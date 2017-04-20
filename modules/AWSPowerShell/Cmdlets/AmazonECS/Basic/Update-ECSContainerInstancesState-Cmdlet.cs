@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.UpdateContainerInstancesStateResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.UpdateContainerInstancesStateRequest request)
+        private Amazon.ECS.Model.UpdateContainerInstancesStateResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.UpdateContainerInstancesStateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "UpdateContainerInstancesState");
             #if DESKTOP
             return client.UpdateContainerInstancesState(request);
             #elif CORECLR

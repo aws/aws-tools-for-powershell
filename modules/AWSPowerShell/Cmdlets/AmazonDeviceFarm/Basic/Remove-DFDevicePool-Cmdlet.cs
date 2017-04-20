@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.DeleteDevicePoolResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteDevicePoolRequest request)
+        private Amazon.DeviceFarm.Model.DeleteDevicePoolResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteDevicePoolRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "DeleteDevicePool");
             #if DESKTOP
             return client.DeleteDevicePool(request);
             #elif CORECLR

@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchCheckLayerAvailabilityRequest request)
+        private Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchCheckLayerAvailabilityRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchCheckLayerAvailability");
             #if DESKTOP
             return client.BatchCheckLayerAvailability(request);
             #elif CORECLR

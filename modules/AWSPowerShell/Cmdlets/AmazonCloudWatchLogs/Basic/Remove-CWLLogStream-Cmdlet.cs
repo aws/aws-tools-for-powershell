@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.DeleteLogStreamResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DeleteLogStreamRequest request)
+        private Amazon.CloudWatchLogs.Model.DeleteLogStreamResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DeleteLogStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DeleteLogStream");
             #if DESKTOP
             return client.DeleteLogStream(request);
             #elif CORECLR

@@ -245,8 +245,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetDocumentationPartsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetDocumentationPartsRequest request)
+        private Amazon.APIGateway.Model.GetDocumentationPartsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetDocumentationPartsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetDocumentationParts");
             #if DESKTOP
             return client.GetDocumentationParts(request);
             #elif CORECLR

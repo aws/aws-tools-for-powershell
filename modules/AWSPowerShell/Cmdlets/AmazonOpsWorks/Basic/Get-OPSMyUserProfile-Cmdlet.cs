@@ -110,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeMyUserProfileResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeMyUserProfileRequest request)
+        private Amazon.OpsWorks.Model.DescribeMyUserProfileResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeMyUserProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeMyUserProfile");
             #if DESKTOP
             return client.DescribeMyUserProfile(request);
             #elif CORECLR

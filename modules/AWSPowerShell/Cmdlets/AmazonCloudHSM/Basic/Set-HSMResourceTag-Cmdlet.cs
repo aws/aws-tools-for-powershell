@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.AddTagsToResourceRequest request)
+        private Amazon.CloudHSM.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.AddTagsToResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "AddTagsToResource");
             #if DESKTOP
             return client.AddTagsToResource(request);
             #elif CORECLR

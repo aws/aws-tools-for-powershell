@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.GetChangeTokenResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetChangeTokenRequest request)
+        private Amazon.WAFRegional.Model.GetChangeTokenResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetChangeTokenRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "GetChangeToken");
             #if DESKTOP
             return client.GetChangeToken(request);
             #elif CORECLR

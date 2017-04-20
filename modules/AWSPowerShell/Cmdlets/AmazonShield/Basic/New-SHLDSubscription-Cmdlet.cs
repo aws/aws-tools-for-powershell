@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         
         #region AWS Service Operation Call
         
-        private static Amazon.Shield.Model.CreateSubscriptionResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.CreateSubscriptionRequest request)
+        private Amazon.Shield.Model.CreateSubscriptionResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.CreateSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Shield", "CreateSubscription");
             #if DESKTOP
             return client.CreateSubscription(request);
             #elif CORECLR

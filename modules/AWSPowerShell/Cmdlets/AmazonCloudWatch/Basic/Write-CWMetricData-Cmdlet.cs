@@ -193,8 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatch.Model.PutMetricDataResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.PutMetricDataRequest request)
+        private Amazon.CloudWatch.Model.PutMetricDataResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.PutMetricDataRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "PutMetricData");
             #if DESKTOP
             return client.PutMetricData(request);
             #elif CORECLR

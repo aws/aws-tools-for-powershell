@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.CreateDirectoryResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.CreateDirectoryRequest request)
+        private Amazon.CloudDirectory.Model.CreateDirectoryResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.CreateDirectoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "CreateDirectory");
             #if DESKTOP
             return client.CreateDirectory(request);
             #elif CORECLR

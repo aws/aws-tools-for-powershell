@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.UpdateDefaultBranchResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateDefaultBranchRequest request)
+        private Amazon.CodeCommit.Model.UpdateDefaultBranchResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateDefaultBranchRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "UpdateDefaultBranch");
             #if DESKTOP
             return client.UpdateDefaultBranch(request);
             #elif CORECLR

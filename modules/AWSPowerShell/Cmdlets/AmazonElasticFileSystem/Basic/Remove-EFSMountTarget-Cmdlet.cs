@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticFileSystem.Model.DeleteMountTargetResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DeleteMountTargetRequest request)
+        private Amazon.ElasticFileSystem.Model.DeleteMountTargetResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.DeleteMountTargetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic File System", "DeleteMountTarget");
             #if DESKTOP
             return client.DeleteMountTarget(request);
             #elif CORECLR

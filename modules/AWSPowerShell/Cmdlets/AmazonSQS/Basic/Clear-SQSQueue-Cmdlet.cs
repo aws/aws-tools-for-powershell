@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.PurgeQueueResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.PurgeQueueRequest request)
+        private Amazon.SQS.Model.PurgeQueueResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.PurgeQueueRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "PurgeQueue");
             #if DESKTOP
             return client.PurgeQueue(request);
             #elif CORECLR

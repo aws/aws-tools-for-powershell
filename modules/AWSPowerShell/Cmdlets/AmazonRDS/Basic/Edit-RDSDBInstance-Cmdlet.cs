@@ -767,8 +767,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.ModifyDBInstanceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBInstanceRequest request)
+        private Amazon.RDS.Model.ModifyDBInstanceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "ModifyDBInstance");
             #if DESKTOP
             return client.ModifyDBInstance(request);
             #elif CORECLR

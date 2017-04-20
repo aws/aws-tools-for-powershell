@@ -336,8 +336,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.PutJobSuccessResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutJobSuccessResultRequest request)
+        private Amazon.CodePipeline.Model.PutJobSuccessResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutJobSuccessResultRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "PutJobSuccessResult");
             #if DESKTOP
             return client.PutJobSuccessResult(request);
             #elif CORECLR

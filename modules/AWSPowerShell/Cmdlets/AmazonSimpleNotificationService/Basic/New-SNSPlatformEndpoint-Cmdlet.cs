@@ -210,8 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreatePlatformEndpointRequest request)
+        private Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreatePlatformEndpointRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "CreatePlatformEndpoint");
             #if DESKTOP
             return client.CreatePlatformEndpoint(request);
             #elif CORECLR

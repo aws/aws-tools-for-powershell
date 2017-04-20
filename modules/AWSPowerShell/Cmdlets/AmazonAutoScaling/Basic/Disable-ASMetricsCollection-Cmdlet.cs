@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DisableMetricsCollectionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DisableMetricsCollectionRequest request)
+        private Amazon.AutoScaling.Model.DisableMetricsCollectionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DisableMetricsCollectionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DisableMetricsCollection");
             #if DESKTOP
             return client.DisableMetricsCollection(request);
             #elif CORECLR

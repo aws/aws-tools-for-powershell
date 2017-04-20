@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.ListIdentityPoliciesResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ListIdentityPoliciesRequest request)
+        private Amazon.SimpleEmail.Model.ListIdentityPoliciesResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ListIdentityPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ListIdentityPolicies");
             #if DESKTOP
             return client.ListIdentityPolicies(request);
             #elif CORECLR

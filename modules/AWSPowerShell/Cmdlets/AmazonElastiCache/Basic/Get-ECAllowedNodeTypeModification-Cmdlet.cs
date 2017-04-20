@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsRequest request)
+        private Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "ListAllowedNodeTypeModifications");
             #if DESKTOP
             return client.ListAllowedNodeTypeModifications(request);
             #elif CORECLR

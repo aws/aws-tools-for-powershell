@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #region AWS Service Operation Call
         
-        private static Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeleteElasticsearchDomainRequest request)
+        private Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeleteElasticsearchDomainRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DeleteElasticsearchDomain");
             #if DESKTOP
             return client.DeleteElasticsearchDomain(request);
             #elif CORECLR

@@ -140,8 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.CreateKeysAndCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateKeysAndCertificateRequest request)
+        private Amazon.IoT.Model.CreateKeysAndCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateKeysAndCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "CreateKeysAndCertificate");
             #if DESKTOP
             return client.CreateKeysAndCertificate(request);
             #elif CORECLR

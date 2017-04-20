@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.AddTagsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.AddTagsRequest request)
+        private Amazon.CloudTrail.Model.AddTagsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.AddTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "AddTags");
             #if DESKTOP
             return client.AddTags(request);
             #elif CORECLR

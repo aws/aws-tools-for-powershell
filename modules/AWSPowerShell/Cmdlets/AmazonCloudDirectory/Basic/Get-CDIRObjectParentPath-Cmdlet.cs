@@ -196,8 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.ListObjectParentPathsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListObjectParentPathsRequest request)
+        private Amazon.CloudDirectory.Model.ListObjectParentPathsResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListObjectParentPathsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListObjectParentPaths");
             #if DESKTOP
             return client.ListObjectParentPaths(request);
             #elif CORECLR

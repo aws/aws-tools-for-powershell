@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeAccountLimitsRequest request)
+        private Amazon.CloudFormation.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeAccountLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DescribeAccountLimits");
             #if DESKTOP
             return client.DescribeAccountLimits(request);
             #elif CORECLR

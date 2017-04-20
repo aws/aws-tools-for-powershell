@@ -213,8 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AssignPrivateIpAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignPrivateIpAddressesRequest request)
+        private Amazon.EC2.Model.AssignPrivateIpAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignPrivateIpAddressesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssignPrivateIpAddresses");
             #if DESKTOP
             return client.AssignPrivateIpAddresses(request);
             #elif CORECLR

@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeAgentVersionsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeAgentVersionsRequest request)
+        private Amazon.OpsWorks.Model.DescribeAgentVersionsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeAgentVersionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeAgentVersions");
             #if DESKTOP
             return client.DescribeAgentVersions(request);
             #elif CORECLR

@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.DeleteSchemaResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DeleteSchemaRequest request)
+        private Amazon.CloudDirectory.Model.DeleteSchemaResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DeleteSchemaRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "DeleteSchema");
             #if DESKTOP
             return client.DeleteSchema(request);
             #elif CORECLR

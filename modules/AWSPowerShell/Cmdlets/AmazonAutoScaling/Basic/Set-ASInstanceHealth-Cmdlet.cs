@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.SetInstanceHealthResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SetInstanceHealthRequest request)
+        private Amazon.AutoScaling.Model.SetInstanceHealthResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SetInstanceHealthRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "SetInstanceHealth");
             #if DESKTOP
             return client.SetInstanceHealth(request);
             #elif CORECLR

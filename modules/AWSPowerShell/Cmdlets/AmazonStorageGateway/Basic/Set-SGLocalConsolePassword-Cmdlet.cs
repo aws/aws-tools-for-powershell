@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.SetLocalConsolePasswordResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.SetLocalConsolePasswordRequest request)
+        private Amazon.StorageGateway.Model.SetLocalConsolePasswordResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.SetLocalConsolePasswordRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "SetLocalConsolePassword");
             #if DESKTOP
             return client.SetLocalConsolePassword(request);
             #elif CORECLR

@@ -231,8 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.CompleteLifecycleActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.CompleteLifecycleActionRequest request)
+        private Amazon.AutoScaling.Model.CompleteLifecycleActionResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.CompleteLifecycleActionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "CompleteLifecycleAction");
             #if DESKTOP
             return client.CompleteLifecycleAction(request);
             #elif CORECLR

@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.TagResourceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.TagResourceRequest request)
+        private Amazon.DirectConnect.Model.TagResourceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.TagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "TagResource");
             #if DESKTOP
             return client.TagResource(request);
             #elif CORECLR

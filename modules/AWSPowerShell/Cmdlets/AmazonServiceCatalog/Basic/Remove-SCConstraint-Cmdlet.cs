@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DeleteConstraintResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeleteConstraintRequest request)
+        private Amazon.ServiceCatalog.Model.DeleteConstraintResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeleteConstraintRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DeleteConstraint");
             #if DESKTOP
             return client.DeleteConstraint(request);
             #elif CORECLR

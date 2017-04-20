@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.DisableDirectoryResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DisableDirectoryRequest request)
+        private Amazon.CloudDirectory.Model.DisableDirectoryResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DisableDirectoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "DisableDirectory");
             #if DESKTOP
             return client.DisableDirectory(request);
             #elif CORECLR

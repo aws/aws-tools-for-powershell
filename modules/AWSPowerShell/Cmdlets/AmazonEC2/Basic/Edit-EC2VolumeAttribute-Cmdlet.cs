@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ModifyVolumeAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVolumeAttributeRequest request)
+        private Amazon.EC2.Model.ModifyVolumeAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVolumeAttributeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ModifyVolumeAttribute");
             #if DESKTOP
             return client.ModifyVolumeAttribute(request);
             #elif CORECLR

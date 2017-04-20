@@ -190,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CertificateManager.Model.ResendValidationEmailResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ResendValidationEmailRequest request)
+        private Amazon.CertificateManager.Model.ResendValidationEmailResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ResendValidationEmailRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "ResendValidationEmail");
             #if DESKTOP
             return client.ResendValidationEmail(request);
             #elif CORECLR

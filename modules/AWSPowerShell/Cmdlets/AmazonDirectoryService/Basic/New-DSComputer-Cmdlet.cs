@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateComputerResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateComputerRequest request)
+        private Amazon.DirectoryService.Model.CreateComputerResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateComputerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CreateComputer");
             #if DESKTOP
             return client.CreateComputer(request);
             #elif CORECLR

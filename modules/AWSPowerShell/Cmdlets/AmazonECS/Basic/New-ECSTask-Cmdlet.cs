@@ -313,8 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.RunTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.RunTaskRequest request)
+        private Amazon.ECS.Model.RunTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.RunTaskRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "RunTask");
             #if DESKTOP
             return client.RunTask(request);
             #elif CORECLR

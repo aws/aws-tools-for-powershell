@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.EnablePolicyTypeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnablePolicyTypeRequest request)
+        private Amazon.Organizations.Model.EnablePolicyTypeResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnablePolicyTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "EnablePolicyType");
             #if DESKTOP
             return client.EnablePolicyType(request);
             #elif CORECLR

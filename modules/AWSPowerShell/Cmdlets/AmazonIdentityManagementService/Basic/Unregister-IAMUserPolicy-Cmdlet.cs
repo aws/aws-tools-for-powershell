@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DetachUserPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DetachUserPolicyRequest request)
+        private Amazon.IdentityManagement.Model.DetachUserPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DetachUserPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DetachUserPolicy");
             #if DESKTOP
             return client.DetachUserPolicy(request);
             #elif CORECLR

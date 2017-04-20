@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITRequest request)
+        private Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "CreateAdditionalAssignmentsForHIT");
             #if DESKTOP
             return client.CreateAdditionalAssignmentsForHIT(request);
             #elif CORECLR

@@ -638,8 +638,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.CreateProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.CreateProjectRequest request)
+        private Amazon.CodeBuild.Model.CreateProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.CreateProjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "CreateProject");
             #if DESKTOP
             return client.CreateProject(request);
             #elif CORECLR

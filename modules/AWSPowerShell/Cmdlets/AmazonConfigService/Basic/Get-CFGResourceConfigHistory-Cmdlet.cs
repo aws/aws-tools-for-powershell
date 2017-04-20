@@ -236,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.GetResourceConfigHistoryResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetResourceConfigHistoryRequest request)
+        private Amazon.ConfigService.Model.GetResourceConfigHistoryResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetResourceConfigHistoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "GetResourceConfigHistory");
             #if DESKTOP
             return client.GetResourceConfigHistory(request);
             #elif CORECLR

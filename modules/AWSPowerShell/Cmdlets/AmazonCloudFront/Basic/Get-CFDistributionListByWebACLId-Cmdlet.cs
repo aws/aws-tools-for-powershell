@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.ListDistributionsByWebACLIdResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListDistributionsByWebACLIdRequest request)
+        private Amazon.CloudFront.Model.ListDistributionsByWebACLIdResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.ListDistributionsByWebACLIdRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "ListDistributionsByWebACLId");
             #if DESKTOP
             return client.ListDistributionsByWebACLId(request);
             #elif CORECLR

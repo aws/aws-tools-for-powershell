@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.ResetClusterParameterGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ResetClusterParameterGroupRequest request)
+        private Amazon.Redshift.Model.ResetClusterParameterGroupResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ResetClusterParameterGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "ResetClusterParameterGroup");
             #if DESKTOP
             return client.ResetClusterParameterGroup(request);
             #elif CORECLR

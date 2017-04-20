@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetCSVHeaderRequest request)
+        private Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetCSVHeaderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetCSVHeader");
             #if DESKTOP
             return client.GetCSVHeader(request);
             #elif CORECLR

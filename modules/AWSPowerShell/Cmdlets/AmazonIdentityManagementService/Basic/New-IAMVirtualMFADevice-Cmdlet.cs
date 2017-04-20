@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateVirtualMFADeviceRequest request)
+        private Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateVirtualMFADeviceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "CreateVirtualMFADevice");
             #if DESKTOP
             return client.CreateVirtualMFADevice(request);
             #elif CORECLR

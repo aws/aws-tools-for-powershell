@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteTagsRequest request)
+        private Amazon.Redshift.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DeleteTags");
             #if DESKTOP
             return client.DeleteTags(request);
             #elif CORECLR

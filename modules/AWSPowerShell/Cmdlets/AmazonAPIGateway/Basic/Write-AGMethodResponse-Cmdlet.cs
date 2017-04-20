@@ -236,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.PutMethodResponseResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.PutMethodResponseRequest request)
+        private Amazon.APIGateway.Model.PutMethodResponseResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.PutMethodResponseRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "PutMethodResponse");
             #if DESKTOP
             return client.PutMethodResponse(request);
             #elif CORECLR

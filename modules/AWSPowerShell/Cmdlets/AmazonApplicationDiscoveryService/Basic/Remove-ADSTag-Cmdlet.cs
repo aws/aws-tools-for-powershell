@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteTagsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DeleteTags");
             #if DESKTOP
             return client.DeleteTags(request);
             #elif CORECLR

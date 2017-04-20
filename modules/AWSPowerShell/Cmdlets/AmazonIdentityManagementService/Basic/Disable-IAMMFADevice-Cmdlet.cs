@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeactivateMFADeviceRequest request)
+        private Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeactivateMFADeviceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeactivateMFADevice");
             #if DESKTOP
             return client.DeactivateMFADevice(request);
             #elif CORECLR

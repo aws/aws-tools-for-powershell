@@ -236,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.CreateInvalidationResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateInvalidationRequest request)
+        private Amazon.CloudFront.Model.CreateInvalidationResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateInvalidationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "CreateInvalidation");
             #if DESKTOP
             return client.CreateInvalidation(request);
             #elif CORECLR

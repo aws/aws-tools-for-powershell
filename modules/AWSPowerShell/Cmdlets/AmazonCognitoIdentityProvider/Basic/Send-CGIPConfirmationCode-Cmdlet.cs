@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeRequest request)
+        private Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ResendConfirmationCodeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ResendConfirmationCode");
             #if DESKTOP
             return client.ResendConfirmationCode(request);
             #elif CORECLR

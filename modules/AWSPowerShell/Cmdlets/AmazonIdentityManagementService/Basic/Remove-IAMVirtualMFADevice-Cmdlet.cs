@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceRequest request)
+        private Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteVirtualMFADevice");
             #if DESKTOP
             return client.DeleteVirtualMFADevice(request);
             #elif CORECLR

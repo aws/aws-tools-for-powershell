@@ -271,8 +271,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.CreateEventSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateEventSubscriptionRequest request)
+        private Amazon.RDS.Model.CreateEventSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateEventSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "CreateEventSubscription");
             #if DESKTOP
             return client.CreateEventSubscription(request);
             #elif CORECLR

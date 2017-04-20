@@ -224,8 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.DescribeFolderContentsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeFolderContentsRequest request)
+        private Amazon.WorkDocs.Model.DescribeFolderContentsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeFolderContentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DescribeFolderContents");
             #if DESKTOP
             return client.DescribeFolderContents(request);
             #elif CORECLR

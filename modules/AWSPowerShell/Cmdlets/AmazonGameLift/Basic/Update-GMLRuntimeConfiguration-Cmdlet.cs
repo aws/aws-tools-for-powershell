@@ -186,8 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.UpdateRuntimeConfigurationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateRuntimeConfigurationRequest request)
+        private Amazon.GameLift.Model.UpdateRuntimeConfigurationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateRuntimeConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "UpdateRuntimeConfiguration");
             #if DESKTOP
             return client.UpdateRuntimeConfiguration(request);
             #elif CORECLR

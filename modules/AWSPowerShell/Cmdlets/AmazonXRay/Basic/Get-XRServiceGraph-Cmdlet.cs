@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #region AWS Service Operation Call
         
-        private static Amazon.XRay.Model.GetServiceGraphResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.GetServiceGraphRequest request)
+        private Amazon.XRay.Model.GetServiceGraphResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.GetServiceGraphRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "GetServiceGraph");
             #if DESKTOP
             return client.GetServiceGraph(request);
             #elif CORECLR

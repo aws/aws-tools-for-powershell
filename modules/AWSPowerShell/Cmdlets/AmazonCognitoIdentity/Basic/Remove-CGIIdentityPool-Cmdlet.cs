@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentity.Model.DeleteIdentityPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.DeleteIdentityPoolRequest request)
+        private Amazon.CognitoIdentity.Model.DeleteIdentityPoolResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.DeleteIdentityPoolRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "DeleteIdentityPool");
             #if DESKTOP
             return client.DeleteIdentityPool(request);
             #elif CORECLR

@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53Domains.Model.UpdateTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.UpdateTagsForDomainRequest request)
+        private Amazon.Route53Domains.Model.UpdateTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.UpdateTagsForDomainRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "UpdateTagsForDomain");
             #if DESKTOP
             return client.UpdateTagsForDomain(request);
             #elif CORECLR

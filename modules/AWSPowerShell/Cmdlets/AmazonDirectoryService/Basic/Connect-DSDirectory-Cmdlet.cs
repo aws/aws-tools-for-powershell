@@ -306,8 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.ConnectDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ConnectDirectoryRequest request)
+        private Amazon.DirectoryService.Model.ConnectDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ConnectDirectoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ConnectDirectory");
             #if DESKTOP
             return client.ConnectDirectory(request);
             #elif CORECLR

@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.DeleteCustomActionTypeResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DeleteCustomActionTypeRequest request)
+        private Amazon.CodePipeline.Model.DeleteCustomActionTypeResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DeleteCustomActionTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "DeleteCustomActionType");
             #if DESKTOP
             return client.DeleteCustomActionType(request);
             #elif CORECLR

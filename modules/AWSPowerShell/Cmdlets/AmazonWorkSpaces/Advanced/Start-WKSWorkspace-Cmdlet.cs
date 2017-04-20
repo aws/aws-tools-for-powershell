@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.StartWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.StartWorkspacesRequest request)
+        private Amazon.WorkSpaces.Model.StartWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.StartWorkspacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "StartWorkspaces");
             #if DESKTOP
             return client.StartWorkspaces(request);
             #elif CORECLR

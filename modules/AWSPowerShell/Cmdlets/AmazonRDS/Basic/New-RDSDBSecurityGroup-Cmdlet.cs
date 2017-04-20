@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.CreateDBSecurityGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateDBSecurityGroupRequest request)
+        private Amazon.RDS.Model.CreateDBSecurityGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CreateDBSecurityGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "CreateDBSecurityGroup");
             #if DESKTOP
             return client.CreateDBSecurityGroup(request);
             #elif CORECLR

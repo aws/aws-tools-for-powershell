@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest request)
+        private Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeTerminationPolicyTypes");
             #if DESKTOP
             return client.DescribeTerminationPolicyTypes(request);
             #elif CORECLR

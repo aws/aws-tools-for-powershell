@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.RejectAssignmentResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.RejectAssignmentRequest request)
+        private Amazon.MTurk.Model.RejectAssignmentResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.RejectAssignmentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "RejectAssignment");
             #if DESKTOP
             return client.RejectAssignment(request);
             #elif CORECLR

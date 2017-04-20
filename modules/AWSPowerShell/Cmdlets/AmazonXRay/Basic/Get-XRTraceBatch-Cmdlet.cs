@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #region AWS Service Operation Call
         
-        private static Amazon.XRay.Model.BatchGetTracesResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.BatchGetTracesRequest request)
+        private Amazon.XRay.Model.BatchGetTracesResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.BatchGetTracesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "BatchGetTraces");
             #if DESKTOP
             return client.BatchGetTraces(request);
             #elif CORECLR

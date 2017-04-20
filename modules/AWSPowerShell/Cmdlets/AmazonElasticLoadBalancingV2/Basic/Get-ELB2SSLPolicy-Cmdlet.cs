@@ -207,8 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeSSLPolicies");
             #if DESKTOP
             return client.DescribeSSLPolicies(request);
             #elif CORECLR

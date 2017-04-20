@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteBandwidthRateLimitResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteBandwidthRateLimitRequest request)
+        private Amazon.StorageGateway.Model.DeleteBandwidthRateLimitResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteBandwidthRateLimitRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteBandwidthRateLimit");
             #if DESKTOP
             return client.DeleteBandwidthRateLimit(request);
             #elif CORECLR

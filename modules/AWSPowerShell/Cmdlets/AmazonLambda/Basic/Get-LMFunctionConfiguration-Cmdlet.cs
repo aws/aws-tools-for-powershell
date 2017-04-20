@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.GetFunctionConfigurationResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetFunctionConfigurationRequest request)
+        private Amazon.Lambda.Model.GetFunctionConfigurationResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetFunctionConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetFunctionConfiguration");
             #if DESKTOP
             return client.GetFunctionConfiguration(request);
             #elif CORECLR

@@ -251,8 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatch.Model.DescribeAlarmsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmsRequest request)
+        private Amazon.CloudWatch.Model.DescribeAlarmsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.DescribeAlarmsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "DescribeAlarms");
             #if DESKTOP
             return client.DescribeAlarms(request);
             #elif CORECLR

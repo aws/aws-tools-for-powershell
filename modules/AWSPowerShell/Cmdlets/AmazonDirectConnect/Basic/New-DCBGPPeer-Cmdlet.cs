@@ -264,8 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.CreateBGPPeerResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreateBGPPeerRequest request)
+        private Amazon.DirectConnect.Model.CreateBGPPeerResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreateBGPPeerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "CreateBGPPeer");
             #if DESKTOP
             return client.CreateBGPPeer(request);
             #elif CORECLR

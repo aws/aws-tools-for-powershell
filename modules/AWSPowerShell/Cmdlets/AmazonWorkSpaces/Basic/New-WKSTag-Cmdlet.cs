@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.CreateTagsRequest request)
+        private Amazon.WorkSpaces.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.CreateTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "CreateTags");
             #if DESKTOP
             return client.CreateTags(request);
             #elif CORECLR

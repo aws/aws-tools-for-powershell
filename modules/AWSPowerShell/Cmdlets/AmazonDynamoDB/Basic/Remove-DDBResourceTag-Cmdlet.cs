@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private static Amazon.DynamoDBv2.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UntagResourceRequest request)
+        private Amazon.DynamoDBv2.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UntagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "UntagResource");
             #if DESKTOP
             return client.UntagResource(request);
             #elif CORECLR

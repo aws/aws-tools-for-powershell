@@ -226,8 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.ListDiscoveredResourcesResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.ListDiscoveredResourcesRequest request)
+        private Amazon.ConfigService.Model.ListDiscoveredResourcesResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.ListDiscoveredResourcesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "ListDiscoveredResources");
             #if DESKTOP
             return client.ListDiscoveredResources(request);
             #elif CORECLR

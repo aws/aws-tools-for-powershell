@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private static Amazon.DynamoDBv2.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeLimitsRequest request)
+        private Amazon.DynamoDBv2.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeLimits");
             #if DESKTOP
             return client.DescribeLimits(request);
             #elif CORECLR

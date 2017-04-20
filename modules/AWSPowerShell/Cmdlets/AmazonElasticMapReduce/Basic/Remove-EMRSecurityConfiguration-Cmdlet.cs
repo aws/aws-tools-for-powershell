@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.DeleteSecurityConfigurationResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DeleteSecurityConfigurationRequest request)
+        private Amazon.ElasticMapReduce.Model.DeleteSecurityConfigurationResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.DeleteSecurityConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "DeleteSecurityConfiguration");
             #if DESKTOP
             return client.DeleteSecurityConfiguration(request);
             #elif CORECLR

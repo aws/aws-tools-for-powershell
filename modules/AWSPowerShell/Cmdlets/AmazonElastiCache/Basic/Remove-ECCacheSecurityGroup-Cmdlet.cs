@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.DeleteCacheSecurityGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteCacheSecurityGroupRequest request)
+        private Amazon.ElastiCache.Model.DeleteCacheSecurityGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteCacheSecurityGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DeleteCacheSecurityGroup");
             #if DESKTOP
             return client.DeleteCacheSecurityGroup(request);
             #elif CORECLR

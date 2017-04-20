@@ -126,8 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutRequest request)
+        private Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CheckIfPhoneNumberIsOptedOutRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "CheckIfPhoneNumberIsOptedOut");
             #if DESKTOP
             return client.CheckIfPhoneNumberIsOptedOut(request);
             #elif CORECLR

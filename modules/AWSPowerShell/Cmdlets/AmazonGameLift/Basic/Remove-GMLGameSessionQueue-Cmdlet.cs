@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DeleteGameSessionQueueResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteGameSessionQueueRequest request)
+        private Amazon.GameLift.Model.DeleteGameSessionQueueResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteGameSessionQueueRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteGameSessionQueue");
             #if DESKTOP
             return client.DeleteGameSessionQueue(request);
             #elif CORECLR

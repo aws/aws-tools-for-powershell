@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DownloadDefaultKeyPairRequest request)
+        private Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DownloadDefaultKeyPairRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "DownloadDefaultKeyPair");
             #if DESKTOP
             return client.DownloadDefaultKeyPair(request);
             #elif CORECLR

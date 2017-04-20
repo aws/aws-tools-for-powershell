@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.DeletePlatformApplicationRequest request)
+        private Amazon.SimpleNotificationService.Model.DeletePlatformApplicationResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.DeletePlatformApplicationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "DeletePlatformApplication");
             #if DESKTOP
             return client.DeletePlatformApplication(request);
             #elif CORECLR

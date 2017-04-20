@@ -183,8 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AuthorizeSecurityGroupEgressRequest request)
+        private Amazon.EC2.Model.AuthorizeSecurityGroupEgressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AuthorizeSecurityGroupEgressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AuthorizeSecurityGroupEgress");
             #if DESKTOP
             return client.AuthorizeSecurityGroupEgress(request);
             #elif CORECLR

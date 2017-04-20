@@ -256,8 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private static Amazon.Rekognition.Model.DetectModerationLabelsResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DetectModerationLabelsRequest request)
+        private Amazon.Rekognition.Model.DetectModerationLabelsResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DetectModerationLabelsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DetectModerationLabels");
             #if DESKTOP
             return client.DetectModerationLabels(request);
             #elif CORECLR

@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.AssociateNodeResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.AssociateNodeRequest request)
+        private Amazon.OpsWorksCM.Model.AssociateNodeResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.AssociateNodeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "AssociateNode");
             #if DESKTOP
             return client.AssociateNode(request);
             #elif CORECLR

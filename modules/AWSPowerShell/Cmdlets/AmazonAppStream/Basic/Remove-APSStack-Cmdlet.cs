@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.DeleteStackResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DeleteStackRequest request)
+        private Amazon.AppStream.Model.DeleteStackResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DeleteStackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DeleteStack");
             #if DESKTOP
             return client.DeleteStack(request);
             #elif CORECLR

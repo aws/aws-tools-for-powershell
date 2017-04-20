@@ -255,8 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.ListHandshakesForOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListHandshakesForOrganizationRequest request)
+        private Amazon.Organizations.Model.ListHandshakesForOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListHandshakesForOrganizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "ListHandshakesForOrganization");
             #if DESKTOP
             return client.ListHandshakesForOrganization(request);
             #elif CORECLR

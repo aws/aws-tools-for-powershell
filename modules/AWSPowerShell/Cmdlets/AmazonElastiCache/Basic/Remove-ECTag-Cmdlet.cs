@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.ElastiCache.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RemoveTagsFromResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "RemoveTagsFromResource");
             #if DESKTOP
             return client.RemoveTagsFromResource(request);
             #elif CORECLR

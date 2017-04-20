@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.ReportTaskProgressResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ReportTaskProgressRequest request)
+        private Amazon.DataPipeline.Model.ReportTaskProgressResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ReportTaskProgressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "ReportTaskProgress");
             #if DESKTOP
             return client.ReportTaskProgress(request);
             #elif CORECLR

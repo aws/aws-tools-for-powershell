@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.DisableStageTransitionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DisableStageTransitionRequest request)
+        private Amazon.CodePipeline.Model.DisableStageTransitionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.DisableStageTransitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "DisableStageTransition");
             #if DESKTOP
             return client.DisableStageTransition(request);
             #elif CORECLR

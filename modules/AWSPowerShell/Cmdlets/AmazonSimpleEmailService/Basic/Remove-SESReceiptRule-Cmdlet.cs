@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.DeleteReceiptRuleResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteReceiptRuleRequest request)
+        private Amazon.SimpleEmail.Model.DeleteReceiptRuleResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteReceiptRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteReceiptRule");
             #if DESKTOP
             return client.DeleteReceiptRule(request);
             #elif CORECLR

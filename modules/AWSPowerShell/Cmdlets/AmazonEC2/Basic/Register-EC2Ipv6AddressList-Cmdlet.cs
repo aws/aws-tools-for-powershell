@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AssignIpv6AddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignIpv6AddressesRequest request)
+        private Amazon.EC2.Model.AssignIpv6AddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssignIpv6AddressesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssignIpv6Addresses");
             #if DESKTOP
             return client.AssignIpv6Addresses(request);
             #elif CORECLR

@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetAuthorizersResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetAuthorizersRequest request)
+        private Amazon.APIGateway.Model.GetAuthorizersResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetAuthorizersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetAuthorizers");
             #if DESKTOP
             return client.GetAuthorizers(request);
             #elif CORECLR

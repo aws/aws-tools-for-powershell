@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest request)
+        private Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "ReorderReceiptRuleSet");
             #if DESKTOP
             return client.ReorderReceiptRuleSet(request);
             #elif CORECLR

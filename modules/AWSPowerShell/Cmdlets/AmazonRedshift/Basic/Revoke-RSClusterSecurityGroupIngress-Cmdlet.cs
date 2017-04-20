@@ -190,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.RevokeClusterSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RevokeClusterSecurityGroupIngressRequest request)
+        private Amazon.Redshift.Model.RevokeClusterSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RevokeClusterSecurityGroupIngressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RevokeClusterSecurityGroupIngress");
             #if DESKTOP
             return client.RevokeClusterSecurityGroupIngress(request);
             #elif CORECLR

@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.ListThingPrincipalsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListThingPrincipalsRequest request)
+        private Amazon.IoT.Model.ListThingPrincipalsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListThingPrincipalsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListThingPrincipals");
             #if DESKTOP
             return client.ListThingPrincipals(request);
             #elif CORECLR

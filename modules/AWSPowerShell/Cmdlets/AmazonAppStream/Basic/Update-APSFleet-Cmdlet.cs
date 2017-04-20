@@ -313,8 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.UpdateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.UpdateFleetRequest request)
+        private Amazon.AppStream.Model.UpdateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.UpdateFleetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "UpdateFleet");
             #if DESKTOP
             return client.UpdateFleet(request);
             #elif CORECLR

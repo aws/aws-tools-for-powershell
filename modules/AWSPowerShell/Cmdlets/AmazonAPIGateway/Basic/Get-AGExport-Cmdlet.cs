@@ -194,8 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetExportResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetExportRequest request)
+        private Amazon.APIGateway.Model.GetExportResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetExportRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetExport");
             #if DESKTOP
             return client.GetExport(request);
             #elif CORECLR

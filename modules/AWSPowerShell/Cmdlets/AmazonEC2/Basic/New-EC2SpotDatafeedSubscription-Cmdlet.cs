@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSpotDatafeedSubscriptionRequest request)
+        private Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateSpotDatafeedSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateSpotDatafeedSubscription");
             #if DESKTOP
             return client.CreateSpotDatafeedSubscription(request);
             #elif CORECLR

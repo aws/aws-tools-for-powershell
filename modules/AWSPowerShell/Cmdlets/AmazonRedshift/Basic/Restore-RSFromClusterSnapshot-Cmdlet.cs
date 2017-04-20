@@ -508,8 +508,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.RestoreFromClusterSnapshotResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RestoreFromClusterSnapshotRequest request)
+        private Amazon.Redshift.Model.RestoreFromClusterSnapshotResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RestoreFromClusterSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RestoreFromClusterSnapshot");
             #if DESKTOP
             return client.RestoreFromClusterSnapshot(request);
             #elif CORECLR

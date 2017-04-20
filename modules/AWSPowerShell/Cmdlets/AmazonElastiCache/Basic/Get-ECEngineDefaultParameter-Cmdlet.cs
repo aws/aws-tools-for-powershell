@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.DescribeEngineDefaultParametersResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeEngineDefaultParametersRequest request)
+        private Amazon.ElastiCache.Model.DescribeEngineDefaultParametersResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeEngineDefaultParametersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DescribeEngineDefaultParameters");
             #if DESKTOP
             return client.DescribeEngineDefaultParameters(request);
             #elif CORECLR

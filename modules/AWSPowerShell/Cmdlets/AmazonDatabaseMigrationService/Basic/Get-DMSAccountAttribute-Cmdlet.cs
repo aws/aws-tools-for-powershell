@@ -111,8 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeAccountAttributes");
             #if DESKTOP
             return client.DescribeAccountAttributes(request);
             #elif CORECLR

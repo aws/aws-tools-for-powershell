@@ -325,8 +325,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeTagsRequest request)
+        private Amazon.Redshift.Model.DescribeTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeTags");
             #if DESKTOP
             return client.DescribeTags(request);
             #elif CORECLR

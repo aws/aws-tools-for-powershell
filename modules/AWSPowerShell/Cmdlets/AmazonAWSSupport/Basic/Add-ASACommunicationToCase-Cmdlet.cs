@@ -195,8 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.AddCommunicationToCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddCommunicationToCaseRequest request)
+        private Amazon.AWSSupport.Model.AddCommunicationToCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddCommunicationToCaseRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "AddCommunicationToCase");
             #if DESKTOP
             return client.AddCommunicationToCase(request);
             #elif CORECLR

@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.DescribePipelinesResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.DescribePipelinesRequest request)
+        private Amazon.DataPipeline.Model.DescribePipelinesResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.DescribePipelinesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "DescribePipelines");
             #if DESKTOP
             return client.DescribePipelines(request);
             #elif CORECLR

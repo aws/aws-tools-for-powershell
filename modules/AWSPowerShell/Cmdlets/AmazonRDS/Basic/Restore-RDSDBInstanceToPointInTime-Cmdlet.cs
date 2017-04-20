@@ -515,8 +515,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RestoreDBInstanceToPointInTimeResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RestoreDBInstanceToPointInTimeRequest request)
+        private Amazon.RDS.Model.RestoreDBInstanceToPointInTimeResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RestoreDBInstanceToPointInTimeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RestoreDBInstanceToPointInTime");
             #if DESKTOP
             return client.RestoreDBInstanceToPointInTime(request);
             #elif CORECLR

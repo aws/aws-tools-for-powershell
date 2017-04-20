@@ -453,8 +453,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.CreateServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.CreateServerRequest request)
+        private Amazon.OpsWorksCM.Model.CreateServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.CreateServerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "CreateServer");
             #if DESKTOP
             return client.CreateServer(request);
             #elif CORECLR

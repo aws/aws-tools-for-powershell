@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesRequest request)
+        private Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "RemoveTagsFromOnPremisesInstances");
             #if DESKTOP
             return client.RemoveTagsFromOnPremisesInstances(request);
             #elif CORECLR

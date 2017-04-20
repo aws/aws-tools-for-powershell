@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.BatchGetImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchGetImageRequest request)
+        private Amazon.ECR.Model.BatchGetImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchGetImageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchGetImage");
             #if DESKTOP
             return client.BatchGetImage(request);
             #elif CORECLR

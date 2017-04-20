@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.RemoveTagsRequest request)
+        private Amazon.CloudTrail.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.RemoveTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "RemoveTags");
             #if DESKTOP
             return client.RemoveTags(request);
             #elif CORECLR

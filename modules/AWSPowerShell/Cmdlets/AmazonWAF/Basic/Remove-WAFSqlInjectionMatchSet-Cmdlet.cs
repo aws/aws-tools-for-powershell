@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteSqlInjectionMatchSetRequest request)
+        private Amazon.WAF.Model.DeleteSqlInjectionMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteSqlInjectionMatchSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "DeleteSqlInjectionMatchSet");
             #if DESKTOP
             return client.DeleteSqlInjectionMatchSet(request);
             #elif CORECLR

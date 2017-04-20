@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.DeletePolicyVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeletePolicyVersionRequest request)
+        private Amazon.IoT.Model.DeletePolicyVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeletePolicyVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeletePolicyVersion");
             #if DESKTOP
             return client.DeletePolicyVersion(request);
             #elif CORECLR

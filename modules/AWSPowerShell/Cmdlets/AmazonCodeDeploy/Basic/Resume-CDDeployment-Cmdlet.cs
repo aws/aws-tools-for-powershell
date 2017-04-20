@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.ContinueDeploymentResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.ContinueDeploymentRequest request)
+        private Amazon.CodeDeploy.Model.ContinueDeploymentResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.ContinueDeploymentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "ContinueDeployment");
             #if DESKTOP
             return client.ContinueDeployment(request);
             #elif CORECLR

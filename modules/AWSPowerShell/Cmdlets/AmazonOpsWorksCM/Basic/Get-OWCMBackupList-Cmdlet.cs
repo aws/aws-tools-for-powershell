@@ -233,8 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.DescribeBackupsResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeBackupsRequest request)
+        private Amazon.OpsWorksCM.Model.DescribeBackupsResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeBackupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DescribeBackups");
             #if DESKTOP
             return client.DescribeBackups(request);
             #elif CORECLR

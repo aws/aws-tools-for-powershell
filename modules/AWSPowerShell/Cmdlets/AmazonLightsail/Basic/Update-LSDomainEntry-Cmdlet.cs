@@ -256,8 +256,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.UpdateDomainEntryResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.UpdateDomainEntryRequest request)
+        private Amazon.Lightsail.Model.UpdateDomainEntryResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.UpdateDomainEntryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "UpdateDomainEntry");
             #if DESKTOP
             return client.UpdateDomainEntry(request);
             #elif CORECLR

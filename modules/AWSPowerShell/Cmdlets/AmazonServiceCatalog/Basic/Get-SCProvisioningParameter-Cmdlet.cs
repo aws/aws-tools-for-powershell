@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
+        private Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisioningParametersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProvisioningParameters");
             #if DESKTOP
             return client.DescribeProvisioningParameters(request);
             #elif CORECLR

@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.StopAssessmentRunResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.StopAssessmentRunRequest request)
+        private Amazon.Inspector.Model.StopAssessmentRunResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.StopAssessmentRunRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "StopAssessmentRun");
             #if DESKTOP
             return client.StopAssessmentRun(request);
             #elif CORECLR

@@ -208,8 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.DetachPolicyResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DetachPolicyRequest request)
+        private Amazon.CloudDirectory.Model.DetachPolicyResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DetachPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "DetachPolicy");
             #if DESKTOP
             return client.DetachPolicy(request);
             #elif CORECLR

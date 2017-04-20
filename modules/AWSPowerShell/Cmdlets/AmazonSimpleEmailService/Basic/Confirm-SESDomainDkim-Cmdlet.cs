@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.VerifyDomainDkimResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyDomainDkimRequest request)
+        private Amazon.SimpleEmail.Model.VerifyDomainDkimResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyDomainDkimRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "VerifyDomainDkim");
             #if DESKTOP
             return client.VerifyDomainDkim(request);
             #elif CORECLR

@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionRequest request)
+        private Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DeleteApplicationVersion");
             #if DESKTOP
             return client.DeleteApplicationVersion(request);
             #elif CORECLR

@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointRequest request)
+        private Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "RetrieveTapeRecoveryPoint");
             #if DESKTOP
             return client.RetrieveTapeRecoveryPoint(request);
             #elif CORECLR

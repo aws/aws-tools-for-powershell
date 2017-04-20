@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteScalingPolicyRequest request)
+        private Amazon.GameLift.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteScalingPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteScalingPolicy");
             #if DESKTOP
             return client.DeleteScalingPolicy(request);
             #elif CORECLR

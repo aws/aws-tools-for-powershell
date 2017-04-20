@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.StepFunctions.Model.SendTaskFailureResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.SendTaskFailureRequest request)
+        private Amazon.StepFunctions.Model.SendTaskFailureResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.SendTaskFailureRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "SendTaskFailure");
             #if DESKTOP
             return client.SendTaskFailure(request);
             #elif CORECLR

@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeLoggingStatusResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeLoggingStatusRequest request)
+        private Amazon.Redshift.Model.DescribeLoggingStatusResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeLoggingStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeLoggingStatus");
             #if DESKTOP
             return client.DescribeLoggingStatus(request);
             #elif CORECLR

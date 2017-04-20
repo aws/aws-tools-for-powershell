@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AssociateSubnetCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateSubnetCidrBlockRequest request)
+        private Amazon.EC2.Model.AssociateSubnetCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateSubnetCidrBlockRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateSubnetCidrBlock");
             #if DESKTOP
             return client.AssociateSubnetCidrBlock(request);
             #elif CORECLR

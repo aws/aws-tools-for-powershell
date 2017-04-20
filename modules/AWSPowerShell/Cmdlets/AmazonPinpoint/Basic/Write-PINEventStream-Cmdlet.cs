@@ -211,8 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.PutEventStreamResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.PutEventStreamRequest request)
+        private Amazon.Pinpoint.Model.PutEventStreamResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.PutEventStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "PutEventStream");
             #if DESKTOP
             return client.PutEventStream(request);
             #elif CORECLR

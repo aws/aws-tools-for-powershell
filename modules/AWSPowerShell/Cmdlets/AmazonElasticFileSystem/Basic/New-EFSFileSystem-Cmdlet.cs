@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticFileSystem.Model.CreateFileSystemResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.CreateFileSystemRequest request)
+        private Amazon.ElasticFileSystem.Model.CreateFileSystemResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.CreateFileSystemRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic File System", "CreateFileSystem");
             #if DESKTOP
             return client.CreateFileSystem(request);
             #elif CORECLR

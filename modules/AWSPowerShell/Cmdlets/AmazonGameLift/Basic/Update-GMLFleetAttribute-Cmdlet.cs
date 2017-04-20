@@ -240,8 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.UpdateFleetAttributesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateFleetAttributesRequest request)
+        private Amazon.GameLift.Model.UpdateFleetAttributesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateFleetAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "UpdateFleetAttributes");
             #if DESKTOP
             return client.UpdateFleetAttributes(request);
             #elif CORECLR

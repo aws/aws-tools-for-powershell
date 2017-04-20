@@ -368,8 +368,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.DescribeDataSourcesResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DescribeDataSourcesRequest request)
+        private Amazon.MachineLearning.Model.DescribeDataSourcesResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DescribeDataSourcesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "DescribeDataSources");
             #if DESKTOP
             return client.DescribeDataSources(request);
             #elif CORECLR

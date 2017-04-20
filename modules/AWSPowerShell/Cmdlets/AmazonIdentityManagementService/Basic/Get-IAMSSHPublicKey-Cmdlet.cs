@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetSSHPublicKeyRequest request)
+        private Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetSSHPublicKeyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetSSHPublicKey");
             #if DESKTOP
             return client.GetSSHPublicKey(request);
             #elif CORECLR

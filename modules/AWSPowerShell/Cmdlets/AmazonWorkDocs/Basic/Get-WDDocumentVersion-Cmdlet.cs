@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.GetDocumentVersionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetDocumentVersionRequest request)
+        private Amazon.WorkDocs.Model.GetDocumentVersionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetDocumentVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetDocumentVersion");
             #if DESKTOP
             return client.GetDocumentVersion(request);
             #elif CORECLR

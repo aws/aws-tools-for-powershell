@@ -111,8 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.GetSendStatisticsResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.GetSendStatisticsRequest request)
+        private Amazon.SimpleEmail.Model.GetSendStatisticsResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.GetSendStatisticsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "GetSendStatistics");
             #if DESKTOP
             return client.GetSendStatistics(request);
             #elif CORECLR

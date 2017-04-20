@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.UpdateEndpointsBatchResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateEndpointsBatchRequest request)
+        private Amazon.Pinpoint.Model.UpdateEndpointsBatchResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateEndpointsBatchRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateEndpointsBatch");
             #if DESKTOP
             return client.UpdateEndpointsBatch(request);
             #elif CORECLR

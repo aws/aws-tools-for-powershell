@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteChapCredentialsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteChapCredentialsRequest request)
+        private Amazon.StorageGateway.Model.DeleteChapCredentialsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteChapCredentialsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteChapCredentials");
             #if DESKTOP
             return client.DeleteChapCredentials(request);
             #elif CORECLR

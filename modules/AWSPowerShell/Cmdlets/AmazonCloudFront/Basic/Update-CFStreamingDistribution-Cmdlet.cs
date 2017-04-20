@@ -567,8 +567,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.UpdateStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateStreamingDistributionRequest request)
+        private Amazon.CloudFront.Model.UpdateStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateStreamingDistributionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "UpdateStreamingDistribution");
             #if DESKTOP
             return client.UpdateStreamingDistribution(request);
             #elif CORECLR

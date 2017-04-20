@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.GetKeyRotationStatusResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GetKeyRotationStatusRequest request)
+        private Amazon.KeyManagementService.Model.GetKeyRotationStatusResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GetKeyRotationStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GetKeyRotationStatus");
             #if DESKTOP
             return client.GetKeyRotationStatus(request);
             #elif CORECLR

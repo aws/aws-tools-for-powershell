@@ -306,8 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeClusterSecurityGroupsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterSecurityGroupsRequest request)
+        private Amazon.Redshift.Model.DescribeClusterSecurityGroupsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClusterSecurityGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeClusterSecurityGroups");
             #if DESKTOP
             return client.DescribeClusterSecurityGroups(request);
             #elif CORECLR

@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.StartSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.StartSchemaExtensionRequest request)
+        private Amazon.DirectoryService.Model.StartSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.StartSchemaExtensionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "StartSchemaExtension");
             #if DESKTOP
             return client.StartSchemaExtension(request);
             #elif CORECLR

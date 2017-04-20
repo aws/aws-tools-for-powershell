@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.DeleteJobQueueResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteJobQueueRequest request)
+        private Amazon.Batch.Model.DeleteJobQueueResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteJobQueueRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteJobQueue");
             #if DESKTOP
             return client.DeleteJobQueue(request);
             #elif CORECLR

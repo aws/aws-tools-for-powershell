@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.GetThirdPartyJobDetailsResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.GetThirdPartyJobDetailsRequest request)
+        private Amazon.CodePipeline.Model.GetThirdPartyJobDetailsResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.GetThirdPartyJobDetailsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "GetThirdPartyJobDetails");
             #if DESKTOP
             return client.GetThirdPartyJobDetails(request);
             #elif CORECLR

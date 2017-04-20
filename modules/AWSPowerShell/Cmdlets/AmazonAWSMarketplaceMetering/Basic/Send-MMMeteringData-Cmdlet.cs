@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest request)
+        private Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.MeterUsageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Metering", "MeterUsage");
             #if DESKTOP
             return client.MeterUsage(request);
             #elif CORECLR

@@ -127,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.DeleteOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DeleteOrganizationRequest request)
+        private Amazon.Organizations.Model.DeleteOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DeleteOrganizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DeleteOrganization");
             #if DESKTOP
             return client.DeleteOrganization(request);
             #elif CORECLR

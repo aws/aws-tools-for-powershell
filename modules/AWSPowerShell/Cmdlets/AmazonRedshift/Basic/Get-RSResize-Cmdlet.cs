@@ -127,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeResizeResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeResizeRequest request)
+        private Amazon.Redshift.Model.DescribeResizeResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeResizeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeResize");
             #if DESKTOP
             return client.DescribeResize(request);
             #elif CORECLR

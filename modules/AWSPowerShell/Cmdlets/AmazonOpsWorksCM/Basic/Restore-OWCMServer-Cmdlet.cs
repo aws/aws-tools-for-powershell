@@ -209,8 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.RestoreServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.RestoreServerRequest request)
+        private Amazon.OpsWorksCM.Model.RestoreServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.RestoreServerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "RestoreServer");
             #if DESKTOP
             return client.RestoreServer(request);
             #elif CORECLR

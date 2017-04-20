@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.RotateEncryptionKeyResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RotateEncryptionKeyRequest request)
+        private Amazon.Redshift.Model.RotateEncryptionKeyResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RotateEncryptionKeyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RotateEncryptionKey");
             #if DESKTOP
             return client.RotateEncryptionKey(request);
             #elif CORECLR

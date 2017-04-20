@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequest request)
+        private Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "CreateAssociationBatch");
             #if DESKTOP
             return client.CreateAssociationBatch(request);
             #elif CORECLR

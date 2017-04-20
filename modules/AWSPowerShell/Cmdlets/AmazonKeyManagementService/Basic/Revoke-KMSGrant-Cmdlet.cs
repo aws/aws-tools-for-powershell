@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.RevokeGrantResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.RevokeGrantRequest request)
+        private Amazon.KeyManagementService.Model.RevokeGrantResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.RevokeGrantRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "RevokeGrant");
             #if DESKTOP
             return client.RevokeGrant(request);
             #elif CORECLR

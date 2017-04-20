@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.UntagResourceRequest request)
+        private Amazon.DirectConnect.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.UntagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "UntagResource");
             #if DESKTOP
             return client.UntagResource(request);
             #elif CORECLR

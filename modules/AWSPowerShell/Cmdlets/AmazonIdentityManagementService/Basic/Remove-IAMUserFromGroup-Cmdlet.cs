@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.RemoveUserFromGroupResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.RemoveUserFromGroupRequest request)
+        private Amazon.IdentityManagement.Model.RemoveUserFromGroupResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.RemoveUserFromGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "RemoveUserFromGroup");
             #if DESKTOP
             return client.RemoveUserFromGroup(request);
             #elif CORECLR

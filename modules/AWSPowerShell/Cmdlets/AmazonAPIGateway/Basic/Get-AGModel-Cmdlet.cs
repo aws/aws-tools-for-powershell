@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetModelResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetModelRequest request)
+        private Amazon.APIGateway.Model.GetModelResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetModelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetModel");
             #if DESKTOP
             return client.GetModel(request);
             #elif CORECLR

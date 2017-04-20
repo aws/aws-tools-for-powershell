@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.CSD
 
         #region AWS Service Operation Call
 
-        private static Amazon.CloudSearchDomain.Model.UploadDocumentsResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.UploadDocumentsRequest request)
+        private Amazon.CloudSearchDomain.Model.UploadDocumentsResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.UploadDocumentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearchDomain", "UploadDocuments");
 #if DESKTOP
             return client.UploadDocuments(request);
 #elif CORECLR

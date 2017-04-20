@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodRequest request)
+        private Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DecreaseStreamRetentionPeriod");
             #if DESKTOP
             return client.DecreaseStreamRetentionPeriod(request);
             #elif CORECLR

@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.GetACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetACLRequest request)
+        private Amazon.S3.Model.GetACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetACLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetACL");
             #if DESKTOP
             return client.GetACL(request);
             #elif CORECLR

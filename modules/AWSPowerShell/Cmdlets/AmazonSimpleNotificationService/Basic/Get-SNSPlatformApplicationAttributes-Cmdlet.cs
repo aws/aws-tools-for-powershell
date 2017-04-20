@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.GetPlatformApplicationAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetPlatformApplicationAttributesRequest request)
+        private Amazon.SimpleNotificationService.Model.GetPlatformApplicationAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetPlatformApplicationAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "GetPlatformApplicationAttributes");
             #if DESKTOP
             return client.GetPlatformApplicationAttributes(request);
             #elif CORECLR

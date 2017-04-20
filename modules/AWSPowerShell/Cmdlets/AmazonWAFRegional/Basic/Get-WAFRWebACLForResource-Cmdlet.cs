@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.GetWebACLForResourceResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetWebACLForResourceRequest request)
+        private Amazon.WAFRegional.Model.GetWebACLForResourceResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetWebACLForResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "GetWebACLForResource");
             #if DESKTOP
             return client.GetWebACLForResource(request);
             #elif CORECLR

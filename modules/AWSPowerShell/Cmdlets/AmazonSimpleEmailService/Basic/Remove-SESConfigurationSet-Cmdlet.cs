@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.DeleteConfigurationSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteConfigurationSetRequest request)
+        private Amazon.SimpleEmail.Model.DeleteConfigurationSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.DeleteConfigurationSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "DeleteConfigurationSet");
             #if DESKTOP
             return client.DeleteConfigurationSet(request);
             #elif CORECLR

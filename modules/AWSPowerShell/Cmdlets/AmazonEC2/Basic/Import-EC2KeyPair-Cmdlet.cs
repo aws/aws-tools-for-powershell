@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ImportKeyPairResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportKeyPairRequest request)
+        private Amazon.EC2.Model.ImportKeyPairResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportKeyPairRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ImportKeyPair");
             #if DESKTOP
             return client.ImportKeyPair(request);
             #elif CORECLR

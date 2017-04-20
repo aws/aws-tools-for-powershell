@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.PurchaseReservedNodeOfferingRequest request)
+        private Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.PurchaseReservedNodeOfferingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "PurchaseReservedNodeOffering");
             #if DESKTOP
             return client.PurchaseReservedNodeOffering(request);
             #elif CORECLR

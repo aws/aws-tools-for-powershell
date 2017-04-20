@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DeregisterEcsClusterResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterEcsClusterRequest request)
+        private Amazon.OpsWorks.Model.DeregisterEcsClusterResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DeregisterEcsClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DeregisterEcsCluster");
             #if DESKTOP
             return client.DeregisterEcsCluster(request);
             #elif CORECLR

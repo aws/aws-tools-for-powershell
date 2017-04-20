@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53Domains.Model.GetOperationDetailResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.GetOperationDetailRequest request)
+        private Amazon.Route53Domains.Model.GetOperationDetailResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.GetOperationDetailRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "GetOperationDetail");
             #if DESKTOP
             return client.GetOperationDetail(request);
             #elif CORECLR

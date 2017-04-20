@@ -477,8 +477,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region AWS Service Operation Call
 
-        private static Amazon.EC2.Model.ImportVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportVolumeRequest request)
+        private Amazon.EC2.Model.ImportVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportVolumeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "ImportVolume");
 #if DESKTOP
             return client.ImportVolume(request);
 #elif CORECLR

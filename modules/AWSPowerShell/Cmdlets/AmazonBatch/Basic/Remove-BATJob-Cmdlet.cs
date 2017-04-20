@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.TerminateJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.TerminateJobRequest request)
+        private Amazon.Batch.Model.TerminateJobResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.TerminateJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "TerminateJob");
             #if DESKTOP
             return client.TerminateJob(request);
             #elif CORECLR

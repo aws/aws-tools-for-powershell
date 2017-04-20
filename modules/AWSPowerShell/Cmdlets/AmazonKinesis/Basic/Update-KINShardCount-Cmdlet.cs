@@ -189,8 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.UpdateShardCountResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.UpdateShardCountRequest request)
+        private Amazon.Kinesis.Model.UpdateShardCountResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.UpdateShardCountRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "UpdateShardCount");
             #if DESKTOP
             return client.UpdateShardCount(request);
             #elif CORECLR

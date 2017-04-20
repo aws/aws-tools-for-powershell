@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DeleteEventSubscriptionResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteEventSubscriptionRequest request)
+        private Amazon.Redshift.Model.DeleteEventSubscriptionResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteEventSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DeleteEventSubscription");
             #if DESKTOP
             return client.DeleteEventSubscription(request);
             #elif CORECLR

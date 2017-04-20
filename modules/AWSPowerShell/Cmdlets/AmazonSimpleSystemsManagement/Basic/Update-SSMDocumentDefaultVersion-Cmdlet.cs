@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionRequest request)
+        private Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateDocumentDefaultVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "UpdateDocumentDefaultVersion");
             #if DESKTOP
             return client.UpdateDocumentDefaultVersion(request);
             #elif CORECLR

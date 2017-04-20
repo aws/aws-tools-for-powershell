@@ -246,8 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.AddFacetToObjectResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.AddFacetToObjectRequest request)
+        private Amazon.CloudDirectory.Model.AddFacetToObjectResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.AddFacetToObjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "AddFacetToObject");
             #if DESKTOP
             return client.AddFacetToObject(request);
             #elif CORECLR

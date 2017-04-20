@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.DeleteInstanceSnapshotResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteInstanceSnapshotRequest request)
+        private Amazon.Lightsail.Model.DeleteInstanceSnapshotResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteInstanceSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "DeleteInstanceSnapshot");
             #if DESKTOP
             return client.DeleteInstanceSnapshot(request);
             #elif CORECLR

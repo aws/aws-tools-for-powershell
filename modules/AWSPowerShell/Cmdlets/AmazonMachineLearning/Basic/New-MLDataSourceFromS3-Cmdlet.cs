@@ -340,8 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.CreateDataSourceFromS3Response CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromS3Request request)
+        private Amazon.MachineLearning.Model.CreateDataSourceFromS3Response CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromS3Request request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "CreateDataSourceFromS3");
             #if DESKTOP
             return client.CreateDataSourceFromS3(request);
             #elif CORECLR

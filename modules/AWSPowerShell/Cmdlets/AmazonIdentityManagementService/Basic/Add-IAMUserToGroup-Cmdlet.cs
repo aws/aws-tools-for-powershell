@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.AddUserToGroupResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AddUserToGroupRequest request)
+        private Amazon.IdentityManagement.Model.AddUserToGroupResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.AddUserToGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "AddUserToGroup");
             #if DESKTOP
             return client.AddUserToGroup(request);
             #elif CORECLR

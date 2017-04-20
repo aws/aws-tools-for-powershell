@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CertificateManager.Model.DescribeCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.DescribeCertificateRequest request)
+        private Amazon.CertificateManager.Model.DescribeCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.DescribeCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "DescribeCertificate");
             #if DESKTOP
             return client.DescribeCertificate(request);
             #elif CORECLR

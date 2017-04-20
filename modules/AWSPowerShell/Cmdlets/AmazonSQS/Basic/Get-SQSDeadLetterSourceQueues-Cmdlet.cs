@@ -125,8 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest request)
+        private Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ListDeadLetterSourceQueues");
             #if DESKTOP
             return client.ListDeadLetterSourceQueues(request);
             #elif CORECLR

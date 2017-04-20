@@ -109,8 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DescribeLimitsRequest request)
+        private Amazon.Kinesis.Model.DescribeLimitsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DescribeLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DescribeLimits");
             #if DESKTOP
             return client.DescribeLimits(request);
             #elif CORECLR

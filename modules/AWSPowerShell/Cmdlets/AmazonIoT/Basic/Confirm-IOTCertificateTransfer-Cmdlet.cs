@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.AcceptCertificateTransferResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.AcceptCertificateTransferRequest request)
+        private Amazon.IoT.Model.AcceptCertificateTransferResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.AcceptCertificateTransferRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "AcceptCertificateTransfer");
             #if DESKTOP
             return client.AcceptCertificateTransfer(request);
             #elif CORECLR

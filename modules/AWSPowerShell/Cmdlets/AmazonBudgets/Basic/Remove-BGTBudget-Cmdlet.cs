@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Budgets.Model.DeleteBudgetResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteBudgetRequest request)
+        private Amazon.Budgets.Model.DeleteBudgetResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteBudgetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DeleteBudget");
             #if DESKTOP
             return client.DeleteBudget(request);
             #elif CORECLR

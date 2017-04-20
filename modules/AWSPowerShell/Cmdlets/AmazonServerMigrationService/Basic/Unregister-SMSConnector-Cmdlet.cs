@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServerMigrationService.Model.DisassociateConnectorResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.DisassociateConnectorRequest request)
+        private Amazon.ServerMigrationService.Model.DisassociateConnectorResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.DisassociateConnectorRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Server Migration Service", "DisassociateConnector");
             #if DESKTOP
             return client.DisassociateConnector(request);
             #elif CORECLR

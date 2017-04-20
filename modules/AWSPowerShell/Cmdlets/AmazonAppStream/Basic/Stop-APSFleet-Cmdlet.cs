@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.StopFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.StopFleetRequest request)
+        private Amazon.AppStream.Model.StopFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.StopFleetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "StopFleet");
             #if DESKTOP
             return client.StopFleet(request);
             #elif CORECLR

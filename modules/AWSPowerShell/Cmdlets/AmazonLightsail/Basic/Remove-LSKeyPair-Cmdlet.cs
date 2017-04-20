@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.DeleteKeyPairResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteKeyPairRequest request)
+        private Amazon.Lightsail.Model.DeleteKeyPairResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteKeyPairRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "DeleteKeyPair");
             #if DESKTOP
             return client.DeleteKeyPair(request);
             #elif CORECLR

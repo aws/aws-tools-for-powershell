@@ -198,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.ImportDocumentationPartsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.ImportDocumentationPartsRequest request)
+        private Amazon.APIGateway.Model.ImportDocumentationPartsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.ImportDocumentationPartsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "ImportDocumentationParts");
             #if DESKTOP
             return client.ImportDocumentationParts(request);
             #elif CORECLR

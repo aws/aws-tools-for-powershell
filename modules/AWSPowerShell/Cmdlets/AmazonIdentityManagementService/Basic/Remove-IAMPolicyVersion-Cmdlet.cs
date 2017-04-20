@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeletePolicyVersionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeletePolicyVersionRequest request)
+        private Amazon.IdentityManagement.Model.DeletePolicyVersionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeletePolicyVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeletePolicyVersion");
             #if DESKTOP
             return client.DeletePolicyVersion(request);
             #elif CORECLR

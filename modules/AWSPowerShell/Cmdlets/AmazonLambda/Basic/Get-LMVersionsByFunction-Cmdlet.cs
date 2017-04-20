@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.ListVersionsByFunctionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListVersionsByFunctionRequest request)
+        private Amazon.Lambda.Model.ListVersionsByFunctionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListVersionsByFunctionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListVersionsByFunction");
             #if DESKTOP
             return client.ListVersionsByFunction(request);
             #elif CORECLR

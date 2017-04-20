@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetRegionsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetRegionsRequest request)
+        private Amazon.Lightsail.Model.GetRegionsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetRegionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetRegions");
             #if DESKTOP
             return client.GetRegions(request);
             #elif CORECLR

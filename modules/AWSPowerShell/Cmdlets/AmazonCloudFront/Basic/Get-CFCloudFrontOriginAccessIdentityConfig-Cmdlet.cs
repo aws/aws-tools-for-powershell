@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityConfigResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityConfigRequest request)
+        private Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityConfigResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.GetCloudFrontOriginAccessIdentityConfigRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "GetCloudFrontOriginAccessIdentityConfig");
             #if DESKTOP
             return client.GetCloudFrontOriginAccessIdentityConfig(request);
             #elif CORECLR

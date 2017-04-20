@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsRequest request)
+        private Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeConfigurationOptions");
             #if DESKTOP
             return client.DescribeConfigurationOptions(request);
             #elif CORECLR

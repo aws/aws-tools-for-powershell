@@ -264,8 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetRequest request)
+        private Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Commerce Analytics", "GenerateDataSet");
             #if DESKTOP
             return client.GenerateDataSet(request);
             #elif CORECLR

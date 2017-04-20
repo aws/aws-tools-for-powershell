@@ -181,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.StartConfigRulesEvaluationRequest request)
+        private Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.StartConfigRulesEvaluationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "StartConfigRulesEvaluation");
             #if DESKTOP
             return client.StartConfigRulesEvaluation(request);
             #elif CORECLR

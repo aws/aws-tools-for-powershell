@@ -221,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.LookupEventsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.LookupEventsRequest request)
+        private Amazon.CloudTrail.Model.LookupEventsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.LookupEventsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "LookupEvents");
             #if DESKTOP
             return client.LookupEvents(request);
             #elif CORECLR

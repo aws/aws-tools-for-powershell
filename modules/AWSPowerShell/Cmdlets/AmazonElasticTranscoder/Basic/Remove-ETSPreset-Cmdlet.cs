@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticTranscoder.Model.DeletePresetResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.DeletePresetRequest request)
+        private Amazon.ElasticTranscoder.Model.DeletePresetResponse CallAWSServiceOperation(IAmazonElasticTranscoder client, Amazon.ElasticTranscoder.Model.DeletePresetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Transcoder", "DeletePreset");
             #if DESKTOP
             return client.DeletePreset(request);
             #elif CORECLR

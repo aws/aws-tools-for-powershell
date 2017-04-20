@@ -197,8 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.InviteAccountToOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.InviteAccountToOrganizationRequest request)
+        private Amazon.Organizations.Model.InviteAccountToOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.InviteAccountToOrganizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "InviteAccountToOrganization");
             #if DESKTOP
             return client.InviteAccountToOrganization(request);
             #elif CORECLR

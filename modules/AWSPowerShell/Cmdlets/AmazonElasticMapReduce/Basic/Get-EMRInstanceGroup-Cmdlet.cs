@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.ListInstanceGroupsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListInstanceGroupsRequest request)
+        private Amazon.ElasticMapReduce.Model.ListInstanceGroupsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListInstanceGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "ListInstanceGroups");
             #if DESKTOP
             return client.ListInstanceGroups(request);
             #elif CORECLR

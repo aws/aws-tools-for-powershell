@@ -245,8 +245,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CopyImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopyImageRequest request)
+        private Amazon.EC2.Model.CopyImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopyImageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CopyImage");
             #if DESKTOP
             return client.CopyImage(request);
             #elif CORECLR

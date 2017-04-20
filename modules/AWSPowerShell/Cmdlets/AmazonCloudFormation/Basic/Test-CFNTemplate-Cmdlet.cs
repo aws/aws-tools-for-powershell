@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.ValidateTemplateResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ValidateTemplateRequest request)
+        private Amazon.CloudFormation.Model.ValidateTemplateResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ValidateTemplateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ValidateTemplate");
             #if DESKTOP
             return client.ValidateTemplate(request);
             #elif CORECLR

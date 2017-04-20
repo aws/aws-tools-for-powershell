@@ -126,8 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeRequest request)
+        private Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "GetComplianceSummaryByResourceType");
             #if DESKTOP
             return client.GetComplianceSummaryByResourceType(request);
             #elif CORECLR

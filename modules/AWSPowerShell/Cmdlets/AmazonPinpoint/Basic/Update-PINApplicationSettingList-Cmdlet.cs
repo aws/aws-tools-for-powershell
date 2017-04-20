@@ -266,8 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.UpdateApplicationSettingsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateApplicationSettingsRequest request)
+        private Amazon.Pinpoint.Model.UpdateApplicationSettingsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateApplicationSettingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateApplicationSettings");
             #if DESKTOP
             return client.UpdateApplicationSettings(request);
             #elif CORECLR

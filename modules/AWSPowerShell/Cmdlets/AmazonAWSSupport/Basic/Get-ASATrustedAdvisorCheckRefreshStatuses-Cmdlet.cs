@@ -131,8 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesRequest request)
+        private Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "DescribeTrustedAdvisorCheckRefreshStatuses");
             #if DESKTOP
             return client.DescribeTrustedAdvisorCheckRefreshStatuses(request);
             #elif CORECLR

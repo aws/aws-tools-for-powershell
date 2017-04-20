@@ -500,8 +500,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftRequest request)
+        private Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "CreateDataSourceFromRedshift");
             #if DESKTOP
             return client.CreateDataSourceFromRedshift(request);
             #elif CORECLR

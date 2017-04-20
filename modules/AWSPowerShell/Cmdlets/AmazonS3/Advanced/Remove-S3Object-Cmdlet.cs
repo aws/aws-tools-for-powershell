@@ -356,8 +356,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.DeleteObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectRequest request)
+        private Amazon.S3.Model.DeleteObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "DeleteObject");
 #if DESKTOP
             return client.DeleteObject(request);
 #elif CORECLR
@@ -369,8 +370,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #endif
         }
 
-        private static Amazon.S3.Model.DeleteObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectsRequest request)
+        private Amazon.S3.Model.DeleteObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "DeleteObject");
 #if DESKTOP
             return client.DeleteObjects(request);
 #elif CORECLR

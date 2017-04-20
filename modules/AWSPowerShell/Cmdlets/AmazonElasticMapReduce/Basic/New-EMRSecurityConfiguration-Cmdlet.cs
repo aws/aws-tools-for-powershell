@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationRequest request)
+        private Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.CreateSecurityConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "CreateSecurityConfiguration");
             #if DESKTOP
             return client.CreateSecurityConfiguration(request);
             #elif CORECLR

@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.RegisterCrossAccountAccessRoleRequest request)
+        private Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.RegisterCrossAccountAccessRoleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "RegisterCrossAccountAccessRole");
             #if DESKTOP
             return client.RegisterCrossAccountAccessRole(request);
             #elif CORECLR

@@ -138,8 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53Domains.Model.EnableDomainTransferLockResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.EnableDomainTransferLockRequest request)
+        private Amazon.Route53Domains.Model.EnableDomainTransferLockResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.EnableDomainTransferLockRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "EnableDomainTransferLock");
             #if DESKTOP
             return client.EnableDomainTransferLock(request);
             #elif CORECLR

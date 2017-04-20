@@ -193,8 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeEcsClustersResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeEcsClustersRequest request)
+        private Amazon.OpsWorks.Model.DescribeEcsClustersResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeEcsClustersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeEcsClusters");
             #if DESKTOP
             return client.DescribeEcsClusters(request);
             #elif CORECLR

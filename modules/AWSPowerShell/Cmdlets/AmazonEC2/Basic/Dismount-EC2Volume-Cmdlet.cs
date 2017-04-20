@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DetachVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVolumeRequest request)
+        private Amazon.EC2.Model.DetachVolumeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVolumeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachVolume");
             #if DESKTOP
             return client.DetachVolume(request);
             #elif CORECLR

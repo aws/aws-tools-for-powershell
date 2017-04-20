@@ -227,8 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateFlowLogsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFlowLogsRequest request)
+        private Amazon.EC2.Model.CreateFlowLogsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFlowLogsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateFlowLogs");
             #if DESKTOP
             return client.CreateFlowLogs(request);
             #elif CORECLR

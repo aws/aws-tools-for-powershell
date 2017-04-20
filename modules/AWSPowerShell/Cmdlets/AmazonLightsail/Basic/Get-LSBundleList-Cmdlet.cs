@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetBundlesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetBundlesRequest request)
+        private Amazon.Lightsail.Model.GetBundlesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetBundlesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetBundles");
             #if DESKTOP
             return client.GetBundles(request);
             #elif CORECLR

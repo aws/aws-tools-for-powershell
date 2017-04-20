@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.PromoteReadReplicaDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.PromoteReadReplicaDBClusterRequest request)
+        private Amazon.RDS.Model.PromoteReadReplicaDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.PromoteReadReplicaDBClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "PromoteReadReplicaDBCluster");
             #if DESKTOP
             return client.PromoteReadReplicaDBCluster(request);
             #elif CORECLR

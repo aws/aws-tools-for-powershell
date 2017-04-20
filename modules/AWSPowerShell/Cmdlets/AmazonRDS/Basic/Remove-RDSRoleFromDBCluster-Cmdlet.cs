@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RemoveRoleFromDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveRoleFromDBClusterRequest request)
+        private Amazon.RDS.Model.RemoveRoleFromDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveRoleFromDBClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RemoveRoleFromDBCluster");
             #if DESKTOP
             return client.RemoveRoleFromDBCluster(request);
             #elif CORECLR

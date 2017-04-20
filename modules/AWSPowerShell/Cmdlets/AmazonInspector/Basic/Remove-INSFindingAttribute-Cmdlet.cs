@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.RemoveAttributesFromFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.RemoveAttributesFromFindingsRequest request)
+        private Amazon.Inspector.Model.RemoveAttributesFromFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.RemoveAttributesFromFindingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "RemoveAttributesFromFindings");
             #if DESKTOP
             return client.RemoveAttributesFromFindings(request);
             #elif CORECLR

@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.EnableDirectoryResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.EnableDirectoryRequest request)
+        private Amazon.CloudDirectory.Model.EnableDirectoryResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.EnableDirectoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "EnableDirectory");
             #if DESKTOP
             return client.EnableDirectory(request);
             #elif CORECLR

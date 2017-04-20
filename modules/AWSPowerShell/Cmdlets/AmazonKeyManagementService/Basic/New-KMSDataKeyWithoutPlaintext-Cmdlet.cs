@@ -231,8 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextRequest request)
+        private Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GenerateDataKeyWithoutPlaintext");
             #if DESKTOP
             return client.GenerateDataKeyWithoutPlaintext(request);
             #elif CORECLR

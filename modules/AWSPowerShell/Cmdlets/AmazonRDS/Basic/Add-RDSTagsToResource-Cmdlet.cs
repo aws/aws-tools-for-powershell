@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddTagsToResourceRequest request)
+        private Amazon.RDS.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddTagsToResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "AddTagsToResource");
             #if DESKTOP
             return client.AddTagsToResource(request);
             #elif CORECLR

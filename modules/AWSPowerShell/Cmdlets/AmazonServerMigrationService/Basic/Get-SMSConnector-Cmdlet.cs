@@ -184,8 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServerMigrationService.Model.GetConnectorsResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.GetConnectorsRequest request)
+        private Amazon.ServerMigrationService.Model.GetConnectorsResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.GetConnectorsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Server Migration Service", "GetConnectors");
             #if DESKTOP
             return client.GetConnectors(request);
             #elif CORECLR

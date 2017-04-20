@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyRequest request)
+        private Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.RemoveAutoScalingPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "RemoveAutoScalingPolicy");
             #if DESKTOP
             return client.RemoveAutoScalingPolicy(request);
             #elif CORECLR

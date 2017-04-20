@@ -237,8 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.DescribeReplicationSubnetGroupsResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeReplicationSubnetGroupsRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeReplicationSubnetGroupsResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeReplicationSubnetGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeReplicationSubnetGroups");
             #if DESKTOP
             return client.DescribeReplicationSubnetGroups(request);
             #elif CORECLR

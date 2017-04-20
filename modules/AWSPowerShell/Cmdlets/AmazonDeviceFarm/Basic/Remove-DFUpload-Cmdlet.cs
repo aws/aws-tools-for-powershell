@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.DeleteUploadResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteUploadRequest request)
+        private Amazon.DeviceFarm.Model.DeleteUploadResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteUploadRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "DeleteUpload");
             #if DESKTOP
             return client.DeleteUpload(request);
             #elif CORECLR

@@ -249,8 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CopySnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopySnapshotRequest request)
+        private Amazon.EC2.Model.CopySnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CopySnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CopySnapshot");
             #if DESKTOP
             return client.CopySnapshot(request);
             #elif CORECLR

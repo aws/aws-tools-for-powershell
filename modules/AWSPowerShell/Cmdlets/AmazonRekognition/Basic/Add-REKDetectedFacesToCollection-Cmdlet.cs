@@ -326,8 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private static Amazon.Rekognition.Model.IndexFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.IndexFacesRequest request)
+        private Amazon.Rekognition.Model.IndexFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.IndexFacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "IndexFaces");
             #if DESKTOP
             return client.IndexFaces(request);
             #elif CORECLR

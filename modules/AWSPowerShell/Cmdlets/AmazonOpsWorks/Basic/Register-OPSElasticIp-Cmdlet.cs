@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.RegisterElasticIpResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterElasticIpRequest request)
+        private Amazon.OpsWorks.Model.RegisterElasticIpResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterElasticIpRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "RegisterElasticIp");
             #if DESKTOP
             return client.RegisterElasticIp(request);
             #elif CORECLR

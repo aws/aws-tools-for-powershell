@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.EnableAllFeaturesResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnableAllFeaturesRequest request)
+        private Amazon.Organizations.Model.EnableAllFeaturesResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.EnableAllFeaturesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "EnableAllFeatures");
             #if DESKTOP
             return client.EnableAllFeatures(request);
             #elif CORECLR

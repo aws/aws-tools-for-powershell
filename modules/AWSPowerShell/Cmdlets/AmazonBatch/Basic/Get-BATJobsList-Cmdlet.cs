@@ -226,8 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.ListJobsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.ListJobsRequest request)
+        private Amazon.Batch.Model.ListJobsResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.ListJobsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "ListJobs");
             #if DESKTOP
             return client.ListJobs(request);
             #elif CORECLR

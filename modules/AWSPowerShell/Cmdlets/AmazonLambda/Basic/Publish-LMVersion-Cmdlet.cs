@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.PublishVersionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.PublishVersionRequest request)
+        private Amazon.Lambda.Model.PublishVersionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.PublishVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "PublishVersion");
             #if DESKTOP
             return client.PublishVersion(request);
             #elif CORECLR

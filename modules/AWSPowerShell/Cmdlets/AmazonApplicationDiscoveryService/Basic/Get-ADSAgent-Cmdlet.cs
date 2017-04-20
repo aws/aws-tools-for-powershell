@@ -259,8 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.DescribeAgentsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeAgentsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.DescribeAgentsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DescribeAgentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DescribeAgents");
             #if DESKTOP
             return client.DescribeAgents(request);
             #elif CORECLR

@@ -198,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateIntegrationResponseResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateIntegrationResponseRequest request)
+        private Amazon.APIGateway.Model.UpdateIntegrationResponseResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateIntegrationResponseRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "UpdateIntegrationResponse");
             #if DESKTOP
             return client.UpdateIntegrationResponse(request);
             #elif CORECLR

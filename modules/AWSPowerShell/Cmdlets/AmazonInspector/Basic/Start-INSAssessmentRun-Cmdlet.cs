@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.StartAssessmentRunResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.StartAssessmentRunRequest request)
+        private Amazon.Inspector.Model.StartAssessmentRunResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.StartAssessmentRunRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "StartAssessmentRun");
             #if DESKTOP
             return client.StartAssessmentRun(request);
             #elif CORECLR

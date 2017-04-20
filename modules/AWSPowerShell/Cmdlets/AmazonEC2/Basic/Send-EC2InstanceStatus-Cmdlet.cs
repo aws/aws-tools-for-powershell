@@ -243,8 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ReportInstanceStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReportInstanceStatusRequest request)
+        private Amazon.EC2.Model.ReportInstanceStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReportInstanceStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReportInstanceStatus");
             #if DESKTOP
             return client.ReportInstanceStatus(request);
             #elif CORECLR

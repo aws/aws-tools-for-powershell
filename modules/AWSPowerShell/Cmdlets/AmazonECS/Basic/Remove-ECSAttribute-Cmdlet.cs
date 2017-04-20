@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.DeleteAttributesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteAttributesRequest request)
+        private Amazon.ECS.Model.DeleteAttributesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "DeleteAttributes");
             #if DESKTOP
             return client.DeleteAttributes(request);
             #elif CORECLR

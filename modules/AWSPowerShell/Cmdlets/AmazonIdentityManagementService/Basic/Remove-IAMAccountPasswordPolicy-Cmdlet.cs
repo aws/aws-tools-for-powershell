@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteAccountPasswordPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteAccountPasswordPolicyRequest request)
+        private Amazon.IdentityManagement.Model.DeleteAccountPasswordPolicyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteAccountPasswordPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteAccountPasswordPolicy");
             #if DESKTOP
             return client.DeleteAccountPasswordPolicy(request);
             #elif CORECLR

@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.StopTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.StopTaskRequest request)
+        private Amazon.ECS.Model.StopTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.StopTaskRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "StopTask");
             #if DESKTOP
             return client.StopTask(request);
             #elif CORECLR

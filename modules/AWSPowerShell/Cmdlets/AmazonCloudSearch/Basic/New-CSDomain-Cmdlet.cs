@@ -137,8 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.CreateDomainResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.CreateDomainRequest request)
+        private Amazon.CloudSearch.Model.CreateDomainResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.CreateDomainRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "CreateDomain");
             #if DESKTOP
             return client.CreateDomain(request);
             #elif CORECLR

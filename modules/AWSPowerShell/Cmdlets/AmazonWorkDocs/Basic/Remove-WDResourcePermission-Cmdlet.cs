@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.RemoveResourcePermissionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.RemoveResourcePermissionRequest request)
+        private Amazon.WorkDocs.Model.RemoveResourcePermissionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.RemoveResourcePermissionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "RemoveResourcePermission");
             #if DESKTOP
             return client.RemoveResourcePermission(request);
             #elif CORECLR

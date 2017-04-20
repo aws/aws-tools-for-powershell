@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.DeleteReplicationJobRequest request)
+        private Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.DeleteReplicationJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Server Migration Service", "DeleteReplicationJob");
             #if DESKTOP
             return client.DeleteReplicationJob(request);
             #elif CORECLR

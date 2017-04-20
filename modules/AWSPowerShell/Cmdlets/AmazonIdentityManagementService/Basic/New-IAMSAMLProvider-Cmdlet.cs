@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.CreateSAMLProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateSAMLProviderRequest request)
+        private Amazon.IdentityManagement.Model.CreateSAMLProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateSAMLProviderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "CreateSAMLProvider");
             #if DESKTOP
             return client.CreateSAMLProvider(request);
             #elif CORECLR

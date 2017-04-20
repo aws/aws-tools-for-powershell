@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.StartDataCollectionByAgentIdsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "StartDataCollectionByAgentIds");
             #if DESKTOP
             return client.StartDataCollectionByAgentIds(request);
             #elif CORECLR

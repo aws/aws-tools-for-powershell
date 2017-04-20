@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.UpdateGatewaySoftwareNowResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateGatewaySoftwareNowRequest request)
+        private Amazon.StorageGateway.Model.UpdateGatewaySoftwareNowResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateGatewaySoftwareNowRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "UpdateGatewaySoftwareNow");
             #if DESKTOP
             return client.UpdateGatewaySoftwareNow(request);
             #elif CORECLR

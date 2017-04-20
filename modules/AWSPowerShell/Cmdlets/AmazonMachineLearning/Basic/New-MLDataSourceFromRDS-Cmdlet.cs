@@ -579,8 +579,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.CreateDataSourceFromRDSResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromRDSRequest request)
+        private Amazon.MachineLearning.Model.CreateDataSourceFromRDSResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateDataSourceFromRDSRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "CreateDataSourceFromRDS");
             #if DESKTOP
             return client.CreateDataSourceFromRDS(request);
             #elif CORECLR

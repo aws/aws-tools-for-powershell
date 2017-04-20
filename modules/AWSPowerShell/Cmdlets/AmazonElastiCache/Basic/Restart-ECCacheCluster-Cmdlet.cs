@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.RebootCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RebootCacheClusterRequest request)
+        private Amazon.ElastiCache.Model.RebootCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RebootCacheClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "RebootCacheCluster");
             #if DESKTOP
             return client.RebootCacheCluster(request);
             #elif CORECLR

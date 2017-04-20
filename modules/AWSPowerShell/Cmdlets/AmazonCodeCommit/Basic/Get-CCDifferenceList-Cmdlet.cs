@@ -258,8 +258,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.GetDifferencesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetDifferencesRequest request)
+        private Amazon.CodeCommit.Model.GetDifferencesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetDifferencesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "GetDifferences");
             #if DESKTOP
             return client.GetDifferences(request);
             #elif CORECLR

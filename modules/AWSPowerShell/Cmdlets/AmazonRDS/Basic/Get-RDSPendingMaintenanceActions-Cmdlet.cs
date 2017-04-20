@@ -228,8 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribePendingMaintenanceActionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribePendingMaintenanceActionsRequest request)
+        private Amazon.RDS.Model.DescribePendingMaintenanceActionsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribePendingMaintenanceActionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribePendingMaintenanceActions");
             #if DESKTOP
             return client.DescribePendingMaintenanceActions(request);
             #elif CORECLR

@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.ListAvailableZonesResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListAvailableZonesRequest request)
+        private Amazon.CloudHSM.Model.ListAvailableZonesResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListAvailableZonesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "ListAvailableZones");
             #if DESKTOP
             return client.ListAvailableZones(request);
             #elif CORECLR

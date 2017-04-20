@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DisassociateVpcCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateVpcCidrBlockRequest request)
+        private Amazon.EC2.Model.DisassociateVpcCidrBlockResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateVpcCidrBlockRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateVpcCidrBlock");
             #if DESKTOP
             return client.DisassociateVpcCidrBlock(request);
             #elif CORECLR

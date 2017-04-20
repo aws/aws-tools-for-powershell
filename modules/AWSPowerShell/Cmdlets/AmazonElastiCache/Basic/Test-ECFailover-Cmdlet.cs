@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.TestFailoverResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.TestFailoverRequest request)
+        private Amazon.ElastiCache.Model.TestFailoverResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.TestFailoverRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "TestFailover");
             #if DESKTOP
             return client.TestFailover(request);
             #elif CORECLR

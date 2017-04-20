@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.ListAttachedIndicesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListAttachedIndicesRequest request)
+        private Amazon.CloudDirectory.Model.ListAttachedIndicesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListAttachedIndicesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListAttachedIndices");
             #if DESKTOP
             return client.ListAttachedIndices(request);
             #elif CORECLR

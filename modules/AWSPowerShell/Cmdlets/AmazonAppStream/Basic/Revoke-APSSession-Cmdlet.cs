@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.ExpireSessionResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ExpireSessionRequest request)
+        private Amazon.AppStream.Model.ExpireSessionResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ExpireSessionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "ExpireSession");
             #if DESKTOP
             return client.ExpireSession(request);
             #elif CORECLR

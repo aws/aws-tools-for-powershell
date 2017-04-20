@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.ListBuildsForProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.ListBuildsForProjectRequest request)
+        private Amazon.CodeBuild.Model.ListBuildsForProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.ListBuildsForProjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "ListBuildsForProject");
             #if DESKTOP
             return client.ListBuildsForProject(request);
             #elif CORECLR

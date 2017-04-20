@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CancelSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CancelSchemaExtensionRequest request)
+        private Amazon.DirectoryService.Model.CancelSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CancelSchemaExtensionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CancelSchemaExtension");
             #if DESKTOP
             return client.CancelSchemaExtension(request);
             #elif CORECLR

@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.GetDirectoryLimitsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.GetDirectoryLimitsRequest request)
+        private Amazon.DirectoryService.Model.GetDirectoryLimitsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.GetDirectoryLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "GetDirectoryLimits");
             #if DESKTOP
             return client.GetDirectoryLimits(request);
             #elif CORECLR

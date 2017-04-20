@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.DeleteDocumentationPartResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteDocumentationPartRequest request)
+        private Amazon.APIGateway.Model.DeleteDocumentationPartResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteDocumentationPartRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "DeleteDocumentationPart");
             #if DESKTOP
             return client.DeleteDocumentationPart(request);
             #elif CORECLR

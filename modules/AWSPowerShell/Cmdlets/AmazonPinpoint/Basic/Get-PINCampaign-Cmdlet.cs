@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetCampaignResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetCampaignRequest request)
+        private Amazon.Pinpoint.Model.GetCampaignResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetCampaignRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetCampaign");
             #if DESKTOP
             return client.GetCampaign(request);
             #elif CORECLR

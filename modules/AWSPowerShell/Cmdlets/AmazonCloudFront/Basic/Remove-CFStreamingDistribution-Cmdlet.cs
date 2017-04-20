@@ -199,8 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFront.Model.DeleteStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteStreamingDistributionRequest request)
+        private Amazon.CloudFront.Model.DeleteStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteStreamingDistributionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteStreamingDistribution");
             #if DESKTOP
             return client.DeleteStreamingDistribution(request);
             #elif CORECLR

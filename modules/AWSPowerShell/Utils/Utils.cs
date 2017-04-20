@@ -130,5 +130,41 @@ namespace Amazon.PowerShell.Utils
                 return QueryOSPlatform().Equals(WindowsPlatform, StringComparison.OrdinalIgnoreCase);
             }
         }
+
+        /// <summary>
+        /// Outputs a verbose mode message stating the url or region we are about to call
+        /// for a given service operation.
+        /// </summary>
+        /// <param name="cmdlet"></param>
+        /// <param name="clientConfig"></param>
+        /// <param name="serviceName"></param>
+        /// <param name="operationName"></param>
+        public static void WriteVerboseEndpointMessage(Cmdlet cmdlet, IClientConfig clientConfig, string serviceName, string operationName)
+        {
+            WriteVerboseEndpointMessage(cmdlet, clientConfig, string.Format("{0} operation '{1}'", serviceName, operationName));
+        }
+
+        /// <summary>
+        /// Outputs a verbose mode message stating the url or region we are about to call for a pre-formatted operation
+        /// message.
+        /// </summary>
+        /// <param name="cmdlet"></param>
+        /// <param name="clientConfig"></param>
+        /// <param name="operationMessage"></param>
+        public static void WriteVerboseEndpointMessage(Cmdlet cmdlet, IClientConfig clientConfig, string operationMessage)
+        {
+            var serviceUrl = clientConfig.ServiceURL;
+            if (!string.IsNullOrEmpty(serviceUrl))
+            {
+                cmdlet.WriteVerbose(string.Format("Invoking {0} on endpoint '{1}'", operationMessage, serviceUrl));
+            }
+            else
+            {
+                var serviceRegion = clientConfig.RegionEndpoint;
+                cmdlet.WriteVerbose(serviceRegion != null
+                    ? string.Format("Invoking {0} in region '{1}'", operationMessage, serviceRegion.SystemName)
+                    : string.Format("Invoking {0} against undetermined endpoint or region.", operationMessage));
+            }
+        }
     }
 }

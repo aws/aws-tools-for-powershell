@@ -251,8 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.ImportKeyMaterialResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ImportKeyMaterialRequest request)
+        private Amazon.KeyManagementService.Model.ImportKeyMaterialResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ImportKeyMaterialRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "ImportKeyMaterial");
 #if DESKTOP
             return client.ImportKeyMaterial(request);
 #elif CORECLR

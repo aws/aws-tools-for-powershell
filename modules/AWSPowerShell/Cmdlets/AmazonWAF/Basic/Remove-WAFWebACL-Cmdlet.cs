@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.DeleteWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteWebACLRequest request)
+        private Amazon.WAF.Model.DeleteWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteWebACLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "DeleteWebACL");
             #if DESKTOP
             return client.DeleteWebACL(request);
             #elif CORECLR

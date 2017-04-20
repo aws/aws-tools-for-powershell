@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DisassociateElasticIpResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DisassociateElasticIpRequest request)
+        private Amazon.OpsWorks.Model.DisassociateElasticIpResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DisassociateElasticIpRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DisassociateElasticIp");
             #if DESKTOP
             return client.DisassociateElasticIp(request);
             #elif CORECLR

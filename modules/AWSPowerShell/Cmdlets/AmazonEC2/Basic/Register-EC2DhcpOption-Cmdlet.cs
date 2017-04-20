@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AssociateDhcpOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateDhcpOptionsRequest request)
+        private Amazon.EC2.Model.AssociateDhcpOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateDhcpOptionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateDhcpOptions");
             #if DESKTOP
             return client.AssociateDhcpOptions(request);
             #elif CORECLR

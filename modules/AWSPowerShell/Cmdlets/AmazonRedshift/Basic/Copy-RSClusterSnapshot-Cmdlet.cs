@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.CopyClusterSnapshotResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CopyClusterSnapshotRequest request)
+        private Amazon.Redshift.Model.CopyClusterSnapshotResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CopyClusterSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "CopyClusterSnapshot");
             #if DESKTOP
             return client.CopyClusterSnapshot(request);
             #elif CORECLR

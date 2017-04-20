@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportRequest request)
+        private Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "EnableVpcClassicLinkDnsSupport");
             #if DESKTOP
             return client.EnableVpcClassicLinkDnsSupport(request);
             #elif CORECLR

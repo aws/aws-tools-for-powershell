@@ -249,8 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateMicrosoftADResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateMicrosoftADRequest request)
+        private Amazon.DirectoryService.Model.CreateMicrosoftADResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateMicrosoftADRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CreateMicrosoftAD");
             #if DESKTOP
             return client.CreateMicrosoftAD(request);
             #elif CORECLR

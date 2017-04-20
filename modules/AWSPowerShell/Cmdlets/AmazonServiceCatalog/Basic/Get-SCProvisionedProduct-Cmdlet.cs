@@ -253,8 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest request)
+        private Amazon.ServiceCatalog.Model.ScanProvisionedProductsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ScanProvisionedProductsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ScanProvisionedProducts");
             #if DESKTOP
             return client.ScanProvisionedProducts(request);
             #elif CORECLR

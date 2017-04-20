@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.StopBuildResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.StopBuildRequest request)
+        private Amazon.CodeBuild.Model.StopBuildResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.StopBuildRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "StopBuild");
             #if DESKTOP
             return client.StopBuild(request);
             #elif CORECLR

@@ -764,8 +764,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.RequestSpotInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RequestSpotInstancesRequest request)
+        private Amazon.EC2.Model.RequestSpotInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RequestSpotInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RequestSpotInstances");
             #if DESKTOP
             return client.RequestSpotInstances(request);
             #elif CORECLR

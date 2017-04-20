@@ -294,8 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.CreateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateFleetRequest request)
+        private Amazon.AppStream.Model.CreateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateFleetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "CreateFleet");
             #if DESKTOP
             return client.CreateFleet(request);
             #elif CORECLR

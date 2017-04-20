@@ -335,8 +335,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.DefineAnalysisSchemeResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DefineAnalysisSchemeRequest request)
+        private Amazon.CloudSearch.Model.DefineAnalysisSchemeResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DefineAnalysisSchemeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "DefineAnalysisScheme");
             #if DESKTOP
             return client.DefineAnalysisScheme(request);
             #elif CORECLR

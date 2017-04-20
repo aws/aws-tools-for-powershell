@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.FlushStageCacheResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.FlushStageCacheRequest request)
+        private Amazon.APIGateway.Model.FlushStageCacheResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.FlushStageCacheRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "FlushStageCache");
             #if DESKTOP
             return client.FlushStageCache(request);
             #elif CORECLR

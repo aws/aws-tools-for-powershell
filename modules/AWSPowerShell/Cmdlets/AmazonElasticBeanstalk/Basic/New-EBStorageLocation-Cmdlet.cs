@@ -124,8 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.CreateStorageLocationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CreateStorageLocationRequest request)
+        private Amazon.ElasticBeanstalk.Model.CreateStorageLocationResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CreateStorageLocationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "CreateStorageLocation");
             #if DESKTOP
             return client.CreateStorageLocation(request);
             #elif CORECLR

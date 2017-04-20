@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.DeleteReplicationGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteReplicationGroupRequest request)
+        private Amazon.ElastiCache.Model.DeleteReplicationGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DeleteReplicationGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DeleteReplicationGroup");
             #if DESKTOP
             return client.DeleteReplicationGroup(request);
             #elif CORECLR

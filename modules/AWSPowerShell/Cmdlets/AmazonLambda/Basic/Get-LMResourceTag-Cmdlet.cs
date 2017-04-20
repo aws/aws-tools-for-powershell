@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.ListTagsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListTagsRequest request)
+        private Amazon.Lambda.Model.ListTagsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListTags");
             #if DESKTOP
             return client.ListTags(request);
             #elif CORECLR

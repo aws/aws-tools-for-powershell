@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminDeleteUserAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminDeleteUserAttributes");
             #if DESKTOP
             return client.AdminDeleteUserAttributes(request);
             #elif CORECLR

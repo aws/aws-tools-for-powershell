@@ -383,8 +383,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSHealth.Model.DescribeAffectedEntitiesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeAffectedEntitiesRequest request)
+        private Amazon.AWSHealth.Model.DescribeAffectedEntitiesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeAffectedEntitiesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeAffectedEntities");
             #if DESKTOP
             return client.DescribeAffectedEntities(request);
             #elif CORECLR

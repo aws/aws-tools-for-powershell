@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.UntagResourceRequest request)
+        private Amazon.KeyManagementService.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.UntagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "UntagResource");
             #if DESKTOP
             return client.UntagResource(request);
             #elif CORECLR

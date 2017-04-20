@@ -354,8 +354,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SecurityToken.Model.AssumeRoleResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRoleRequest request)
+        private Amazon.SecurityToken.Model.AssumeRoleResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRoleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "AssumeRole");
             #if DESKTOP
             return client.AssumeRole(request);
             #elif CORECLR

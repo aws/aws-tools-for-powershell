@@ -235,8 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.PutThirdPartyJobFailureResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutThirdPartyJobFailureResultRequest request)
+        private Amazon.CodePipeline.Model.PutThirdPartyJobFailureResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutThirdPartyJobFailureResultRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "PutThirdPartyJobFailureResult");
             #if DESKTOP
             return client.PutThirdPartyJobFailureResult(request);
             #elif CORECLR

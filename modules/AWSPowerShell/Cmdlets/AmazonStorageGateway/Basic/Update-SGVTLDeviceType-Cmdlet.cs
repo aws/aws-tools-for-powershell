@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateVTLDeviceTypeRequest request)
+        private Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateVTLDeviceTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "UpdateVTLDeviceType");
             #if DESKTOP
             return client.UpdateVTLDeviceType(request);
             #elif CORECLR

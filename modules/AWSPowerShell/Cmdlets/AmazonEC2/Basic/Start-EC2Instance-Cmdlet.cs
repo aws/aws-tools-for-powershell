@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.StartInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StartInstancesRequest request)
+        private Amazon.EC2.Model.StartInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.StartInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "StartInstances");
             #if DESKTOP
             return client.StartInstances(request);
             #elif CORECLR

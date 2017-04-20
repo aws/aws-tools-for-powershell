@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "DeleteApplications");
             #if DESKTOP
             return client.DeleteApplications(request);
             #elif CORECLR

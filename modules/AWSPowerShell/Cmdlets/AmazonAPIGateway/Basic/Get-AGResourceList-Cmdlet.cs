@@ -223,8 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetResourcesResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetResourcesRequest request)
+        private Amazon.APIGateway.Model.GetResourcesResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetResourcesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetResources");
             #if DESKTOP
             return client.GetResources(request);
             #elif CORECLR

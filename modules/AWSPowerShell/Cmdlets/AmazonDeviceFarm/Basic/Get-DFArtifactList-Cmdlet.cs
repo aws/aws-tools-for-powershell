@@ -188,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.ListArtifactsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListArtifactsRequest request)
+        private Amazon.DeviceFarm.Model.ListArtifactsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListArtifactsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "ListArtifacts");
             #if DESKTOP
             return client.ListArtifacts(request);
             #elif CORECLR

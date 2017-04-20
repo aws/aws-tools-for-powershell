@@ -376,8 +376,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisAnalytics.Model.AddApplicationOutputResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.AddApplicationOutputRequest request)
+        private Amazon.KinesisAnalytics.Model.AddApplicationOutputResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.AddApplicationOutputRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "AddApplicationOutput");
             #if DESKTOP
             return client.AddApplicationOutput(request);
             #elif CORECLR

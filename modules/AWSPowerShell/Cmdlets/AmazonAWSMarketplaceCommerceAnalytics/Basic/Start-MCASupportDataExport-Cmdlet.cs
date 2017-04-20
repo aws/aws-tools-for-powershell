@@ -246,8 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportRequest request)
+        private Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse CallAWSServiceOperation(IAmazonAWSMarketplaceCommerceAnalytics client, Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Commerce Analytics", "StartSupportDataExport");
             #if DESKTOP
             return client.StartSupportDataExport(request);
             #elif CORECLR

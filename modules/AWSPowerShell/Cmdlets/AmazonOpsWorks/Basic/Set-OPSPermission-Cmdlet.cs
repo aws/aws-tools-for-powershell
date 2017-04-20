@@ -217,8 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.SetPermissionResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.SetPermissionRequest request)
+        private Amazon.OpsWorks.Model.SetPermissionResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.SetPermissionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "SetPermission");
             #if DESKTOP
             return client.SetPermission(request);
             #elif CORECLR

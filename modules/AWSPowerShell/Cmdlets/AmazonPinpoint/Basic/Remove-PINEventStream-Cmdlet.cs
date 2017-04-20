@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.DeleteEventStreamResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteEventStreamRequest request)
+        private Amazon.Pinpoint.Model.DeleteEventStreamResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteEventStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteEventStream");
             #if DESKTOP
             return client.DeleteEventStream(request);
             #elif CORECLR

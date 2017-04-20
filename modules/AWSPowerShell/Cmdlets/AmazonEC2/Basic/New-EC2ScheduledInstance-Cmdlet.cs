@@ -591,8 +591,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.RunScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunScheduledInstancesRequest request)
+        private Amazon.EC2.Model.RunScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RunScheduledInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RunScheduledInstances");
             #if DESKTOP
             return client.RunScheduledInstances(request);
             #elif CORECLR

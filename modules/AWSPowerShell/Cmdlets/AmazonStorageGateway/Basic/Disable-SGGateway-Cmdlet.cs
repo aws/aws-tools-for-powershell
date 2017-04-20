@@ -142,8 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DisableGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DisableGatewayRequest request)
+        private Amazon.StorageGateway.Model.DisableGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DisableGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DisableGateway");
             #if DESKTOP
             return client.DisableGateway(request);
             #elif CORECLR

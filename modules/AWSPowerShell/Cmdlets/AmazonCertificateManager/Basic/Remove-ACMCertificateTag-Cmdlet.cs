@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CertificateManager.Model.RemoveTagsFromCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.RemoveTagsFromCertificateRequest request)
+        private Amazon.CertificateManager.Model.RemoveTagsFromCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.RemoveTagsFromCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "RemoveTagsFromCertificate");
             #if DESKTOP
             return client.RemoveTagsFromCertificate(request);
             #elif CORECLR

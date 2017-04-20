@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyLoadBalancerAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyLoadBalancerAttributes");
             #if DESKTOP
             return client.ModifyLoadBalancerAttributes(request);
             #elif CORECLR

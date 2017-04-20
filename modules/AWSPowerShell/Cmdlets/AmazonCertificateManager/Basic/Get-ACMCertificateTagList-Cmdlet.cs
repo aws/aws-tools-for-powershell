@@ -123,8 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CertificateManager.Model.ListTagsForCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ListTagsForCertificateRequest request)
+        private Amazon.CertificateManager.Model.ListTagsForCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.ListTagsForCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "ListTagsForCertificate");
             #if DESKTOP
             return client.ListTagsForCertificate(request);
             #elif CORECLR

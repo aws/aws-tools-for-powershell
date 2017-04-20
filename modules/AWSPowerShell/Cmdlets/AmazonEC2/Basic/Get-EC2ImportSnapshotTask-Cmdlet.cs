@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeImportSnapshotTasksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImportSnapshotTasksRequest request)
+        private Amazon.EC2.Model.DescribeImportSnapshotTasksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImportSnapshotTasksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeImportSnapshotTasks");
             #if DESKTOP
             return client.DescribeImportSnapshotTasks(request);
             #elif CORECLR

@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ShutdownGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ShutdownGatewayRequest request)
+        private Amazon.StorageGateway.Model.ShutdownGatewayResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ShutdownGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ShutdownGateway");
             #if DESKTOP
             return client.ShutdownGateway(request);
             #elif CORECLR

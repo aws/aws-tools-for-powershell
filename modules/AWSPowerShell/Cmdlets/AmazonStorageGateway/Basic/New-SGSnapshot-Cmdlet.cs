@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateSnapshotRequest request)
+        private Amazon.StorageGateway.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CreateSnapshot");
             #if DESKTOP
             return client.CreateSnapshot(request);
             #elif CORECLR

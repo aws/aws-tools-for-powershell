@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListTagsForResourceRequest request)
+        private Amazon.CloudDirectory.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListTagsForResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListTagsForResource");
             #if DESKTOP
             return client.ListTagsForResource(request);
             #elif CORECLR

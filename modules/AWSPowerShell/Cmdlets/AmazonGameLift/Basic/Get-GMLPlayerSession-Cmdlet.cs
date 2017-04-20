@@ -264,8 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DescribePlayerSessionsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribePlayerSessionsRequest request)
+        private Amazon.GameLift.Model.DescribePlayerSessionsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribePlayerSessionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribePlayerSessions");
             #if DESKTOP
             return client.DescribePlayerSessions(request);
             #elif CORECLR

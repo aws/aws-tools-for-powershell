@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.DeleteDeploymentGroupResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.DeleteDeploymentGroupRequest request)
+        private Amazon.CodeDeploy.Model.DeleteDeploymentGroupResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.DeleteDeploymentGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "DeleteDeploymentGroup");
             #if DESKTOP
             return client.DeleteDeploymentGroup(request);
             #elif CORECLR

@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.DeprecateThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeprecateThingTypeRequest request)
+        private Amazon.IoT.Model.DeprecateThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeprecateThingTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeprecateThingType");
             #if DESKTOP
             return client.DeprecateThingType(request);
             #elif CORECLR

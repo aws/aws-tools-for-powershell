@@ -130,8 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeLoadBasedAutoScalingResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeLoadBasedAutoScalingRequest request)
+        private Amazon.OpsWorks.Model.DescribeLoadBasedAutoScalingResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeLoadBasedAutoScalingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeLoadBasedAutoScaling");
             #if DESKTOP
             return client.DescribeLoadBasedAutoScaling(request);
             #elif CORECLR

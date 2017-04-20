@@ -277,8 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.DescribeSnapshotsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeSnapshotsRequest request)
+        private Amazon.ElastiCache.Model.DescribeSnapshotsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeSnapshotsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DescribeSnapshots");
             #if DESKTOP
             return client.DescribeSnapshots(request);
             #elif CORECLR

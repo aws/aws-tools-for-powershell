@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ChangePasswordResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ChangePasswordRequest request)
+        private Amazon.IdentityManagement.Model.ChangePasswordResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ChangePasswordRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ChangePassword");
             #if DESKTOP
             return client.ChangePassword(request);
             #elif CORECLR

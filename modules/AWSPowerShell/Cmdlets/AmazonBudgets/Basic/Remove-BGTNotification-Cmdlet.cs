@@ -235,8 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Budgets.Model.DeleteNotificationResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteNotificationRequest request)
+        private Amazon.Budgets.Model.DeleteNotificationResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteNotificationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DeleteNotification");
             #if DESKTOP
             return client.DeleteNotification(request);
             #elif CORECLR

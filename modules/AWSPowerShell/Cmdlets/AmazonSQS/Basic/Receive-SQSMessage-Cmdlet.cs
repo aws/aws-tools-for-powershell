@@ -323,8 +323,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.ReceiveMessageResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ReceiveMessageRequest request)
+        private Amazon.SQS.Model.ReceiveMessageResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ReceiveMessageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ReceiveMessage");
             #if DESKTOP
             return client.ReceiveMessage(request);
             #elif CORECLR

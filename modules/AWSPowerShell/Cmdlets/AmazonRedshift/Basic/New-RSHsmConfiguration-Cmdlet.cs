@@ -239,8 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.CreateHsmConfigurationResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateHsmConfigurationRequest request)
+        private Amazon.Redshift.Model.CreateHsmConfigurationResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateHsmConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "CreateHsmConfiguration");
             #if DESKTOP
             return client.CreateHsmConfiguration(request);
             #elif CORECLR

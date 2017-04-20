@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.GetParametersForImportResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GetParametersForImportRequest request)
+        private Amazon.KeyManagementService.Model.GetParametersForImportResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GetParametersForImportRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GetParametersForImport");
             #if DESKTOP
             return client.GetParametersForImport(request);
             #elif CORECLR

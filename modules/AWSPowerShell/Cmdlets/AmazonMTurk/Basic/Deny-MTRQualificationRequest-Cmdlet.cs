@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.RejectQualificationRequestResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.RejectQualificationRequestRequest request)
+        private Amazon.MTurk.Model.RejectQualificationRequestResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.RejectQualificationRequestRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "RejectQualificationRequest");
             #if DESKTOP
             return client.RejectQualificationRequest(request);
             #elif CORECLR

@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.UpdateRepositoryDescriptionResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryDescriptionRequest request)
+        private Amazon.CodeCommit.Model.UpdateRepositoryDescriptionResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryDescriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "UpdateRepositoryDescription");
             #if DESKTOP
             return client.UpdateRepositoryDescription(request);
             #elif CORECLR

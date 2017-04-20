@@ -426,8 +426,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
 
         #region AWS Service Operation Call
 
-        private static Amazon.Route53.Model.UpdateHealthCheckResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateHealthCheckRequest request)
+        private Amazon.Route53.Model.UpdateHealthCheckResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateHealthCheckRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route 53", "UpdateHealthCheck");
 #if DESKTOP
             return client.UpdateHealthCheck(request);
 #elif CORECLR

@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServerMigrationService.Model.DeleteServerCatalogResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.DeleteServerCatalogRequest request)
+        private Amazon.ServerMigrationService.Model.DeleteServerCatalogResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.DeleteServerCatalogRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Server Migration Service", "DeleteServerCatalog");
             #if DESKTOP
             return client.DeleteServerCatalog(request);
             #elif CORECLR

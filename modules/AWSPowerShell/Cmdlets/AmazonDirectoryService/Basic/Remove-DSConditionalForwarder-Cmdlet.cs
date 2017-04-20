@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteConditionalForwarderRequest request)
+        private Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DeleteConditionalForwarderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DeleteConditionalForwarder");
             #if DESKTOP
             return client.DeleteConditionalForwarder(request);
             #elif CORECLR

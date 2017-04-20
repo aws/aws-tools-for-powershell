@@ -286,8 +286,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListCommandInvocations");
             #if DESKTOP
             return client.ListCommandInvocations(request);
             #elif CORECLR

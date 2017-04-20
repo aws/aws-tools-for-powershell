@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.DeleteByteMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteByteMatchSetRequest request)
+        private Amazon.WAF.Model.DeleteByteMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteByteMatchSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "DeleteByteMatchSet");
             #if DESKTOP
             return client.DeleteByteMatchSet(request);
             #elif CORECLR

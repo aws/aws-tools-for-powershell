@@ -126,8 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.DescribeCreateAccountStatusResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DescribeCreateAccountStatusRequest request)
+        private Amazon.Organizations.Model.DescribeCreateAccountStatusResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DescribeCreateAccountStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DescribeCreateAccountStatus");
             #if DESKTOP
             return client.DescribeCreateAccountStatus(request);
             #elif CORECLR

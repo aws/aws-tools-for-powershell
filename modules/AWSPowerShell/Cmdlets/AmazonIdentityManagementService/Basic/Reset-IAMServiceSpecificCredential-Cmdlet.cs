@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialRequest request)
+        private Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ResetServiceSpecificCredentialRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ResetServiceSpecificCredential");
             #if DESKTOP
             return client.ResetServiceSpecificCredential(request);
             #elif CORECLR

@@ -551,8 +551,9 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSHealth.Model.DescribeEventAggregatesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEventAggregatesRequest request)
+        private Amazon.AWSHealth.Model.DescribeEventAggregatesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeEventAggregatesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeEventAggregates");
             #if DESKTOP
             return client.DescribeEventAggregates(request);
             #elif CORECLR

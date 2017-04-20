@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.GetInstanceAccessResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetInstanceAccessRequest request)
+        private Amazon.GameLift.Model.GetInstanceAccessResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetInstanceAccessRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "GetInstanceAccess");
             #if DESKTOP
             return client.GetInstanceAccess(request);
             #elif CORECLR

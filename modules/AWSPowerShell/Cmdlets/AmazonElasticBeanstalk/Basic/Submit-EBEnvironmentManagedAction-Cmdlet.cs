@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionRequest request)
+        private Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "ApplyEnvironmentManagedAction");
             #if DESKTOP
             return client.ApplyEnvironmentManagedAction(request);
             #elif CORECLR

@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetPolicyRequest request)
+        private Amazon.Lambda.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetPolicy");
             #if DESKTOP
             return client.GetPolicy(request);
             #elif CORECLR

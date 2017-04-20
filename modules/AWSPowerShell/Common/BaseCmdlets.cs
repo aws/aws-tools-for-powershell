@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Common
 
 #endregion
 
-#region Processing helpers
+        #region Processing helpers
 
         public IEnumerable SafeEnumerable(object value)
         {
@@ -394,7 +394,7 @@ namespace Amazon.PowerShell.Common
             }
         }
 
-#endregion
+        #endregion
 
         /// <summary>
         /// Safely emit a diagnostic message indicating where the credentials we are about to use

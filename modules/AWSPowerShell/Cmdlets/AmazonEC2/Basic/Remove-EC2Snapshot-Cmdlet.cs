@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSnapshotRequest request)
+        private Amazon.EC2.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSnapshot");
             #if DESKTOP
             return client.DeleteSnapshot(request);
             #elif CORECLR

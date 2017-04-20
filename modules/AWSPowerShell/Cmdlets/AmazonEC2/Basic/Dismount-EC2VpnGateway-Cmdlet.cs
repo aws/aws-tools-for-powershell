@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DetachVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVpnGatewayRequest request)
+        private Amazon.EC2.Model.DetachVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachVpnGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachVpnGateway");
             #if DESKTOP
             return client.DetachVpnGateway(request);
             #elif CORECLR

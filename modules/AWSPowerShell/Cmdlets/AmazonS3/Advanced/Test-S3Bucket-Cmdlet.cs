@@ -81,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var client = Client ?? CreateClient(context.Credentials, context.Region))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3");
+
 #if DESKTOP
                 var exists = AmazonS3Util.DoesS3BucketExist(client, cmdletContext.BucketName);
 #elif CORECLR

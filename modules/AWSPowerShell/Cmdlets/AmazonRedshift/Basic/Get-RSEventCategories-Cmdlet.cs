@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeEventCategoriesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeEventCategoriesRequest request)
+        private Amazon.Redshift.Model.DescribeEventCategoriesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeEventCategoriesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeEventCategories");
             #if DESKTOP
             return client.DescribeEventCategories(request);
             #elif CORECLR

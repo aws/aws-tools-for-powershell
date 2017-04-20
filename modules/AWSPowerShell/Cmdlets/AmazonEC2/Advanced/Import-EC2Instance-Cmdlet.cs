@@ -617,8 +617,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region AWS Service Operation Call
 
-        private static Amazon.EC2.Model.ImportInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportInstanceRequest request)
+        private Amazon.EC2.Model.ImportInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ImportInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "ImportInstance");
 #if DESKTOP
             return client.ImportInstance(request);
 #elif CORECLR

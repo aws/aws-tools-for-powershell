@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteNotificationSubscriptionRequest request)
+        private Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteNotificationSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DeleteNotificationSubscription");
             #if DESKTOP
             return client.DeleteNotificationSubscription(request);
             #elif CORECLR

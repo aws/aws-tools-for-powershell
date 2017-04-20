@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.ListBranchesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.ListBranchesRequest request)
+        private Amazon.CodeCommit.Model.ListBranchesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.ListBranchesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "ListBranches");
             #if DESKTOP
             return client.ListBranches(request);
             #elif CORECLR

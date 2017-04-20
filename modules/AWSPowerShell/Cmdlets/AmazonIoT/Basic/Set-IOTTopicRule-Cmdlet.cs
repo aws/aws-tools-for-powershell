@@ -267,8 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.ReplaceTopicRuleResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ReplaceTopicRuleRequest request)
+        private Amazon.IoT.Model.ReplaceTopicRuleResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ReplaceTopicRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ReplaceTopicRule");
             #if DESKTOP
             return client.ReplaceTopicRule(request);
             #elif CORECLR

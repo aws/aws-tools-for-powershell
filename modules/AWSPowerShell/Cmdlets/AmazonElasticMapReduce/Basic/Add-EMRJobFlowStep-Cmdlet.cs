@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.AddJobFlowStepsRequest request)
+        private Amazon.ElasticMapReduce.Model.AddJobFlowStepsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.AddJobFlowStepsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "AddJobFlowSteps");
             #if DESKTOP
             return client.AddJobFlowSteps(request);
             #elif CORECLR

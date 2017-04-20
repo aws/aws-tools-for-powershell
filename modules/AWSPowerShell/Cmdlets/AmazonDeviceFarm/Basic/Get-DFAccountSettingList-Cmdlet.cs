@@ -104,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.GetAccountSettingsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetAccountSettingsRequest request)
+        private Amazon.DeviceFarm.Model.GetAccountSettingsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetAccountSettingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "GetAccountSettings");
             #if DESKTOP
             return client.GetAccountSettings(request);
             #elif CORECLR

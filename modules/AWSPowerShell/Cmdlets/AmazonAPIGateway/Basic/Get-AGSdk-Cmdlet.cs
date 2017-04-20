@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetSdkResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetSdkRequest request)
+        private Amazon.APIGateway.Model.GetSdkResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetSdkRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetSdk");
             #if DESKTOP
             return client.GetSdk(request);
             #elif CORECLR

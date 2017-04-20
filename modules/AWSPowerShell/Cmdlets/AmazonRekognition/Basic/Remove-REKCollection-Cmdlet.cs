@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private static Amazon.Rekognition.Model.DeleteCollectionResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteCollectionRequest request)
+        private Amazon.Rekognition.Model.DeleteCollectionResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteCollectionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DeleteCollection");
             #if DESKTOP
             return client.DeleteCollection(request);
             #elif CORECLR

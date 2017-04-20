@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.MoveAccountResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.MoveAccountRequest request)
+        private Amazon.Organizations.Model.MoveAccountResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.MoveAccountRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "MoveAccount");
             #if DESKTOP
             return client.MoveAccount(request);
             #elif CORECLR

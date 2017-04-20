@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.InitiateLayerUploadResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.InitiateLayerUploadRequest request)
+        private Amazon.ECR.Model.InitiateLayerUploadResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.InitiateLayerUploadRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "InitiateLayerUpload");
             #if DESKTOP
             return client.InitiateLayerUpload(request);
             #elif CORECLR

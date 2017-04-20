@@ -251,8 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheEngineVersionsRequest request)
+        private Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheEngineVersionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DescribeCacheEngineVersions");
             #if DESKTOP
             return client.DescribeCacheEngineVersions(request);
             #elif CORECLR

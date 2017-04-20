@@ -221,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.ListIPSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListIPSetsRequest request)
+        private Amazon.WAFRegional.Model.ListIPSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListIPSetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "ListIPSets");
             #if DESKTOP
             return client.ListIPSets(request);
             #elif CORECLR

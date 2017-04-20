@@ -140,8 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #region AWS Service Operation Call
         
-        private static Amazon.XRay.Model.PutTraceSegmentsResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.PutTraceSegmentsRequest request)
+        private Amazon.XRay.Model.PutTraceSegmentsResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.PutTraceSegmentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "PutTraceSegments");
             #if DESKTOP
             return client.PutTraceSegments(request);
             #elif CORECLR

@@ -287,8 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Budgets.Model.DeleteSubscriberResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteSubscriberRequest request)
+        private Amazon.Budgets.Model.DeleteSubscriberResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteSubscriberRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DeleteSubscriber");
             #if DESKTOP
             return client.DeleteSubscriber(request);
             #elif CORECLR

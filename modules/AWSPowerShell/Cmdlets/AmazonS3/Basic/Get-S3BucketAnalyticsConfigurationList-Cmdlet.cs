@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.ListBucketAnalyticsConfigurationsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketAnalyticsConfigurationsRequest request)
+        private Amazon.S3.Model.ListBucketAnalyticsConfigurationsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketAnalyticsConfigurationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "ListBucketAnalyticsConfigurations");
             #if DESKTOP
             return client.ListBucketAnalyticsConfigurations(request);
             #elif CORECLR

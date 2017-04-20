@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Batch.Model.DeregisterJobDefinitionResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeregisterJobDefinitionRequest request)
+        private Amazon.Batch.Model.DeregisterJobDefinitionResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeregisterJobDefinitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeregisterJobDefinition");
             #if DESKTOP
             return client.DeregisterJobDefinition(request);
             #elif CORECLR

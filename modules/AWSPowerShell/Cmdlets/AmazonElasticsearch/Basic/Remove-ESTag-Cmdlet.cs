@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #region AWS Service Operation Call
         
-        private static Amazon.Elasticsearch.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.RemoveTagsRequest request)
+        private Amazon.Elasticsearch.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.RemoveTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "RemoveTags");
             #if DESKTOP
             return client.RemoveTags(request);
             #elif CORECLR

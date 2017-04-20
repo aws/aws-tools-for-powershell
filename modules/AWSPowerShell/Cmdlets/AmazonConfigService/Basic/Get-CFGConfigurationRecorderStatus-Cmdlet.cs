@@ -130,8 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusRequest request)
+        private Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DescribeConfigurationRecorderStatus");
             #if DESKTOP
             return client.DescribeConfigurationRecorderStatus(request);
             #elif CORECLR

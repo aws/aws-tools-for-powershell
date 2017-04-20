@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AssociateRouteTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateRouteTableRequest request)
+        private Amazon.EC2.Model.AssociateRouteTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateRouteTableRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateRouteTable");
             #if DESKTOP
             return client.AssociateRouteTable(request);
             #elif CORECLR

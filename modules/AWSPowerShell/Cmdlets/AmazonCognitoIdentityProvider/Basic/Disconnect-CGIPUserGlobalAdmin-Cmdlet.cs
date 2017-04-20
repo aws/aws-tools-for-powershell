@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminUserGlobalSignOutRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminUserGlobalSignOut");
             #if DESKTOP
             return client.AdminUserGlobalSignOut(request);
             #elif CORECLR

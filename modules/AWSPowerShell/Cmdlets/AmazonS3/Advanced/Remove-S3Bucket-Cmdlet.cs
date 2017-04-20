@@ -163,10 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
 #endregion
 
-#region AWS Service Operation Call
+        #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.DeleteBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketRequest request)
+        private Amazon.S3.Model.DeleteBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "DeleteBucket");
 #if DESKTOP
             return client.DeleteBucket(request);
 #elif CORECLR
@@ -178,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #endif
         }
 
-#endregion
+        #endregion
 
         internal class CmdletContext : ExecutorContext
         {

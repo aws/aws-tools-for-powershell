@@ -199,8 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         #region AWS Service Operation Call
         
-        private static Amazon.ImportExport.Model.CreateJobResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.CreateJobRequest request)
+        private Amazon.ImportExport.Model.CreateJobResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.CreateJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export", "CreateJob");
             #if DESKTOP
             return client.CreateJob(request);
             #elif CORECLR

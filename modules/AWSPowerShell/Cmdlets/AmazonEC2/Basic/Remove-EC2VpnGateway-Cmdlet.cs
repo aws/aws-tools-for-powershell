@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpnGatewayRequest request)
+        private Amazon.EC2.Model.DeleteVpnGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpnGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteVpnGateway");
             #if DESKTOP
             return client.DeleteVpnGateway(request);
             #elif CORECLR

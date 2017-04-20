@@ -311,8 +311,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         
         #region AWS Service Operation Call
         
-        private static Amazon.Shield.Model.ListAttacksResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.ListAttacksRequest request)
+        private Amazon.Shield.Model.ListAttacksResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.ListAttacksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Shield", "ListAttacks");
             #if DESKTOP
             return client.ListAttacks(request);
             #elif CORECLR

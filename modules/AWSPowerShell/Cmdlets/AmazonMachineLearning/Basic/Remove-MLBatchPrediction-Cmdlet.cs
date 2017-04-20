@@ -143,8 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.DeleteBatchPredictionResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteBatchPredictionRequest request)
+        private Amazon.MachineLearning.Model.DeleteBatchPredictionResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteBatchPredictionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "DeleteBatchPrediction");
             #if DESKTOP
             return client.DeleteBatchPrediction(request);
             #elif CORECLR

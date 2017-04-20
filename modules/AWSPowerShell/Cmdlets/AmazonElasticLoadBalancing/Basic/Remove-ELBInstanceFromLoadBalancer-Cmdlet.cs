@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerRequest request)
+        private Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DeregisterInstancesFromLoadBalancerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DeregisterInstancesFromLoadBalancer");
             #if DESKTOP
             return client.DeregisterInstancesFromLoadBalancer(request);
             #elif CORECLR

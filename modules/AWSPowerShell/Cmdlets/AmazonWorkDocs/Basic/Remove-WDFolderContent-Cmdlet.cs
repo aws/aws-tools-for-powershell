@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.DeleteFolderContentsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteFolderContentsRequest request)
+        private Amazon.WorkDocs.Model.DeleteFolderContentsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteFolderContentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DeleteFolderContents");
             #if DESKTOP
             return client.DeleteFolderContents(request);
             #elif CORECLR

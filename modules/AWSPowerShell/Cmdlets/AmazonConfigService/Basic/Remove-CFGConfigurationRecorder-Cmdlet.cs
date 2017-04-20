@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteConfigurationRecorderRequest request)
+        private Amazon.ConfigService.Model.DeleteConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteConfigurationRecorderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteConfigurationRecorder");
             #if DESKTOP
             return client.DeleteConfigurationRecorder(request);
             #elif CORECLR

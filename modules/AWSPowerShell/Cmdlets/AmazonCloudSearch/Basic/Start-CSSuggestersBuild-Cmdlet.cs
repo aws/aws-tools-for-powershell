@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.BuildSuggestersResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.BuildSuggestersRequest request)
+        private Amazon.CloudSearch.Model.BuildSuggestersResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.BuildSuggestersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "BuildSuggesters");
             #if DESKTOP
             return client.BuildSuggesters(request);
             #elif CORECLR

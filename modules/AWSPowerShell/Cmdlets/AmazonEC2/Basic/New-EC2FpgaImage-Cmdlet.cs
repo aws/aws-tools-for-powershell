@@ -277,8 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateFpgaImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFpgaImageRequest request)
+        private Amazon.EC2.Model.CreateFpgaImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateFpgaImageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateFpgaImage");
             #if DESKTOP
             return client.CreateFpgaImage(request);
             #elif CORECLR

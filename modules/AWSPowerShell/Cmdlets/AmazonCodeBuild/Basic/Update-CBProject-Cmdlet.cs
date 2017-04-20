@@ -638,8 +638,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.UpdateProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.UpdateProjectRequest request)
+        private Amazon.CodeBuild.Model.UpdateProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.UpdateProjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "UpdateProject");
             #if DESKTOP
             return client.UpdateProject(request);
             #elif CORECLR

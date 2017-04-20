@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DeleteBuildResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteBuildRequest request)
+        private Amazon.GameLift.Model.DeleteBuildResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteBuildRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteBuild");
             #if DESKTOP
             return client.DeleteBuild(request);
             #elif CORECLR

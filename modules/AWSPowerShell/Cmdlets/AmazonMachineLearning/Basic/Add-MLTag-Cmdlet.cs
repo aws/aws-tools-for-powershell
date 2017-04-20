@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.AddTagsResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.AddTagsRequest request)
+        private Amazon.MachineLearning.Model.AddTagsResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.AddTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "AddTags");
             #if DESKTOP
             return client.AddTags(request);
             #elif CORECLR

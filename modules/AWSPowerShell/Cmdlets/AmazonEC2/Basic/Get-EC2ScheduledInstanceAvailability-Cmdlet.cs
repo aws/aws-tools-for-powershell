@@ -434,8 +434,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeScheduledInstanceAvailabilityResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeScheduledInstanceAvailabilityRequest request)
+        private Amazon.EC2.Model.DescribeScheduledInstanceAvailabilityResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeScheduledInstanceAvailabilityRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeScheduledInstanceAvailability");
             #if DESKTOP
             return client.DescribeScheduledInstanceAvailability(request);
             #elif CORECLR

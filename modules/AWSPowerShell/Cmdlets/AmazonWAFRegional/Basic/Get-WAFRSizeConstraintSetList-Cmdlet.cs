@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.ListSizeConstraintSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListSizeConstraintSetsRequest request)
+        private Amazon.WAFRegional.Model.ListSizeConstraintSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListSizeConstraintSetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "ListSizeConstraintSets");
             #if DESKTOP
             return client.ListSizeConstraintSets(request);
             #elif CORECLR

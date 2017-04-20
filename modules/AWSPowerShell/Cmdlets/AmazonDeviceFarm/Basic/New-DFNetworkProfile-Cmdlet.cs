@@ -315,8 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.CreateNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateNetworkProfileRequest request)
+        private Amazon.DeviceFarm.Model.CreateNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.CreateNetworkProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "CreateNetworkProfile");
             #if DESKTOP
             return client.CreateNetworkProfile(request);
             #elif CORECLR

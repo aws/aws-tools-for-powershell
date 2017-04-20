@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.ApplySecurityGroupsToLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.ApplySecurityGroupsToLoadBalancerRequest request)
+        private Amazon.ElasticLoadBalancing.Model.ApplySecurityGroupsToLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.ApplySecurityGroupsToLoadBalancerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "ApplySecurityGroupsToLoadBalancer");
             #if DESKTOP
             return client.ApplySecurityGroupsToLoadBalancer(request);
             #elif CORECLR

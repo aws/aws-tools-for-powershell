@@ -224,8 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListServerCertificatesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListServerCertificatesRequest request)
+        private Amazon.IdentityManagement.Model.ListServerCertificatesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListServerCertificatesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListServerCertificates");
             #if DESKTOP
             return client.ListServerCertificates(request);
             #elif CORECLR

@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.GetDocumentPathResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetDocumentPathRequest request)
+        private Amazon.WorkDocs.Model.GetDocumentPathResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetDocumentPathRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetDocumentPath");
             #if DESKTOP
             return client.GetDocumentPath(request);
             #elif CORECLR

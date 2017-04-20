@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.CompleteLayerUploadResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CompleteLayerUploadRequest request)
+        private Amazon.ECR.Model.CompleteLayerUploadResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CompleteLayerUploadRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "CompleteLayerUpload");
             #if DESKTOP
             return client.CompleteLayerUpload(request);
             #elif CORECLR

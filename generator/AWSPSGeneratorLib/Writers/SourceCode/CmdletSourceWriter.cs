@@ -249,11 +249,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("#region AWS Service Operation Call");
             writer.WriteLine();
 
-            writer.WriteLine("private static {0} CallAWSServiceOperation({1} client, {2} request)",
+            writer.WriteLine("private {0} CallAWSServiceOperation({1} client, {2} request)",
                              MethodAnalysis.ResponseType,
                              MethodAnalysis.CurrentModel.ServiceClientInterface,
                              MethodAnalysis.RequestType);
             writer.OpenRegion();
+
+            writer.WriteLine("Utils.Common.WriteVerboseEndpointMessage(this, client.Config, \"{0}\", \"{1}\");", 
+                             MethodAnalysis.CurrentModel.ServiceName,
+                             MethodAnalysis.CurrentOperation.MethodName);
 
             writer.WriteLine("#if DESKTOP");
 

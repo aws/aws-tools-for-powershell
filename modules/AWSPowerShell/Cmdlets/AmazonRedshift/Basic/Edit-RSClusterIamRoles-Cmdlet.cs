@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.ModifyClusterIamRolesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ModifyClusterIamRolesRequest request)
+        private Amazon.Redshift.Model.ModifyClusterIamRolesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ModifyClusterIamRolesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "ModifyClusterIamRoles");
             #if DESKTOP
             return client.ModifyClusterIamRoles(request);
             #elif CORECLR

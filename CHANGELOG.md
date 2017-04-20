@@ -1,3 +1,5 @@
+  * All service API cmdlets
+    - Cmdlets that invoke APIs on AWS services can now display a message stating the API and service endpoint or region the call is being dispatched to when the -Verbose switch is used. This can be used to help diagnose endpoint resolution failures.
   * Amazon EC2
     - Added a new cmdlet, New-EC2FpgaImage (CreateFpgaImage API), to support creating an Amazon FPGA Image (AFI) from a specified design checkpoint (DCP). 
   * AWS Rekognition
@@ -5,7 +7,7 @@
   * AWS Identity and Access Management
     - Updated the New-IAMRole cmdlet with a new parameter, -Description, and added a new cmdlet Update-IAMRoleDescription (UpdateRoleDescription API) to support specifying a user-provided description for the role.
     - Added cmdlet New-IAMServiceLinkedRole (CreateServiceLinkedRole API). This cmdlet enables creation of a new role type, Service Linked Role, which works like a normal role but must be managed via services' control.
-  * AWS Lambda
+  * Amazon Lambda
     - Added new cmdlets to support the new service feature using tags to group and filter Lambda functions. The new cmdlets are Add-LMResourceTag (TagResource API), Get-LMResourceTag (ListTags API) and Remove-LMResourceTag (UntagResource API).
     - Added a new parameter, -TracingConfig_Mode, to the Update-LMFunctionConfiguration cmdlet to support integration with CloudDebugger service to enable customers to enable tracing for the Lambda functions and send trace information to the CloudDebugger service.
   * Amazon API Gateway

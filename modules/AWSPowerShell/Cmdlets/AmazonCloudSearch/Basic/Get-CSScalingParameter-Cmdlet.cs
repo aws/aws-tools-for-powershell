@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.DescribeScalingParametersResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeScalingParametersRequest request)
+        private Amazon.CloudSearch.Model.DescribeScalingParametersResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeScalingParametersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "DescribeScalingParameters");
             #if DESKTOP
             return client.DescribeScalingParameters(request);
             #elif CORECLR

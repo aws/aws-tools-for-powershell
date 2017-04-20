@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.CloudHSM.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.RemoveTagsFromResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "RemoveTagsFromResource");
             #if DESKTOP
             return client.RemoveTagsFromResource(request);
             #elif CORECLR

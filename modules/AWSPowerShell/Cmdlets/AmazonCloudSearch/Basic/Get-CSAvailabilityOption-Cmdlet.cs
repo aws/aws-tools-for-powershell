@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeAvailabilityOptionsRequest request)
+        private Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DescribeAvailabilityOptionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "DescribeAvailabilityOptions");
             #if DESKTOP
             return client.DescribeAvailabilityOptions(request);
             #elif CORECLR

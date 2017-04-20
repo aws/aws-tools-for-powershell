@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.RegisterEventTopicResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RegisterEventTopicRequest request)
+        private Amazon.DirectoryService.Model.RegisterEventTopicResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.RegisterEventTopicRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "RegisterEventTopic");
             #if DESKTOP
             return client.RegisterEventTopic(request);
             #elif CORECLR

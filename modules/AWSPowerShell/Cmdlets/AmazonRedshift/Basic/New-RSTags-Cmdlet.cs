@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateTagsRequest request)
+        private Amazon.Redshift.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "CreateTags");
             #if DESKTOP
             return client.CreateTags(request);
             #elif CORECLR

@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.DisassociateWebACLResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.DisassociateWebACLRequest request)
+        private Amazon.WAFRegional.Model.DisassociateWebACLResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.DisassociateWebACLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "DisassociateWebACL");
             #if DESKTOP
             return client.DisassociateWebACL(request);
             #elif CORECLR

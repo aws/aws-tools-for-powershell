@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.GetSnapshotLimitsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.GetSnapshotLimitsRequest request)
+        private Amazon.DirectoryService.Model.GetSnapshotLimitsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.GetSnapshotLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "GetSnapshotLimits");
             #if DESKTOP
             return client.GetSnapshotLimits(request);
             #elif CORECLR

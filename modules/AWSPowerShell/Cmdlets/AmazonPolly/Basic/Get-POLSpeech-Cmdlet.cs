@@ -232,8 +232,9 @@ namespace Amazon.PowerShell.Cmdlets.POL
         
         #region AWS Service Operation Call
         
-        private static Amazon.Polly.Model.SynthesizeSpeechResponse CallAWSServiceOperation(IAmazonPolly client, Amazon.Polly.Model.SynthesizeSpeechRequest request)
+        private Amazon.Polly.Model.SynthesizeSpeechResponse CallAWSServiceOperation(IAmazonPolly client, Amazon.Polly.Model.SynthesizeSpeechRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Polly", "SynthesizeSpeech");
             #if DESKTOP
             return client.SynthesizeSpeech(request);
             #elif CORECLR

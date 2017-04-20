@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.PurchaseScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseScheduledInstancesRequest request)
+        private Amazon.EC2.Model.PurchaseScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseScheduledInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "PurchaseScheduledInstances");
             #if DESKTOP
             return client.PurchaseScheduledInstances(request);
             #elif CORECLR

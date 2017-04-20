@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ResetCacheResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ResetCacheRequest request)
+        private Amazon.StorageGateway.Model.ResetCacheResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ResetCacheRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ResetCache");
             #if DESKTOP
             return client.ResetCache(request);
             #elif CORECLR

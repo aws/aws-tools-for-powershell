@@ -207,8 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.PollForTaskResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.PollForTaskRequest request)
+        private Amazon.DataPipeline.Model.PollForTaskResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.PollForTaskRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "PollForTask");
             #if DESKTOP
             return client.PollForTask(request);
             #elif CORECLR

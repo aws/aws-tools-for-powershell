@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateEgressOnlyInternetGatewayRequest request)
+        private Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateEgressOnlyInternetGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateEgressOnlyInternetGateway");
             #if DESKTOP
             return client.CreateEgressOnlyInternetGateway(request);
             #elif CORECLR

@@ -221,8 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.CreateReceiptFilterResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CreateReceiptFilterRequest request)
+        private Amazon.SimpleEmail.Model.CreateReceiptFilterResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CreateReceiptFilterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateReceiptFilter");
             #if DESKTOP
             return client.CreateReceiptFilter(request);
             #elif CORECLR

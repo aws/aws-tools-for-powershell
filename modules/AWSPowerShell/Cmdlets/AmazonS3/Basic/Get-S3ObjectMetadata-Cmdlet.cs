@@ -322,8 +322,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.GetObjectMetadataResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectMetadataRequest request)
+        private Amazon.S3.Model.GetObjectMetadataResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetObjectMetadataRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetObjectMetadata");
             #if DESKTOP
             return client.GetObjectMetadata(request);
             #elif CORECLR

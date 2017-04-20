@@ -270,8 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeDBLogFilesResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBLogFilesRequest request)
+        private Amazon.RDS.Model.DescribeDBLogFilesResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBLogFilesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeDBLogFiles");
             #if DESKTOP
             return client.DescribeDBLogFiles(request);
             #elif CORECLR

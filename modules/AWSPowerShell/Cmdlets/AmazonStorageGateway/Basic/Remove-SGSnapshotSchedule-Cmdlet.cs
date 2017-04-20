@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DeleteSnapshotScheduleResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteSnapshotScheduleRequest request)
+        private Amazon.StorageGateway.Model.DeleteSnapshotScheduleResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteSnapshotScheduleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteSnapshotSchedule");
             #if DESKTOP
             return client.DeleteSnapshotSchedule(request);
             #elif CORECLR

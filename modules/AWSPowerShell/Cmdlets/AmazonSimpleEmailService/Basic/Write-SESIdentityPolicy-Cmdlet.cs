@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.PutIdentityPolicyResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.PutIdentityPolicyRequest request)
+        private Amazon.SimpleEmail.Model.PutIdentityPolicyResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.PutIdentityPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "PutIdentityPolicy");
             #if DESKTOP
             return client.PutIdentityPolicy(request);
             #elif CORECLR

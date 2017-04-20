@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListSSHPublicKeysResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListSSHPublicKeysRequest request)
+        private Amazon.IdentityManagement.Model.ListSSHPublicKeysResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListSSHPublicKeysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListSSHPublicKeys");
             #if DESKTOP
             return client.ListSSHPublicKeys(request);
             #elif CORECLR

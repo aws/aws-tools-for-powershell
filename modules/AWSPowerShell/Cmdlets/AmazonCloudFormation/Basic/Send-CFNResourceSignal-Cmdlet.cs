@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.SignalResourceResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.SignalResourceRequest request)
+        private Amazon.CloudFormation.Model.SignalResourceResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.SignalResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "SignalResource");
             #if DESKTOP
             return client.SignalResource(request);
             #elif CORECLR

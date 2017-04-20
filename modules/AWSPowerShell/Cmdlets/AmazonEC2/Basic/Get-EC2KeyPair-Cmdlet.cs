@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeKeyPairsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeKeyPairsRequest request)
+        private Amazon.EC2.Model.DescribeKeyPairsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeKeyPairsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeKeyPairs");
             #if DESKTOP
             return client.DescribeKeyPairs(request);
             #elif CORECLR

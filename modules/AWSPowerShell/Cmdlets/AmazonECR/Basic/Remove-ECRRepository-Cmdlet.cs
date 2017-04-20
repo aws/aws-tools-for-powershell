@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.DeleteRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DeleteRepositoryRequest request)
+        private Amazon.ECR.Model.DeleteRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DeleteRepositoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DeleteRepository");
             #if DESKTOP
             return client.DeleteRepository(request);
             #elif CORECLR

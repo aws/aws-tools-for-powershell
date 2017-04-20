@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListProvisioningArtifactsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListProvisioningArtifactsRequest request)
+        private Amazon.ServiceCatalog.Model.ListProvisioningArtifactsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListProvisioningArtifactsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListProvisioningArtifacts");
             #if DESKTOP
             return client.ListProvisioningArtifacts(request);
             #elif CORECLR

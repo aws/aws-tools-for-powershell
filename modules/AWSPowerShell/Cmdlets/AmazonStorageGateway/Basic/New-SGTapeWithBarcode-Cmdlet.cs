@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateTapeWithBarcodeRequest request)
+        private Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateTapeWithBarcodeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CreateTapeWithBarcode");
             #if DESKTOP
             return client.CreateTapeWithBarcode(request);
             #elif CORECLR

@@ -203,8 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.PreviewAgentsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.PreviewAgentsRequest request)
+        private Amazon.Inspector.Model.PreviewAgentsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.PreviewAgentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "PreviewAgents");
             #if DESKTOP
             return client.PreviewAgents(request);
             #elif CORECLR

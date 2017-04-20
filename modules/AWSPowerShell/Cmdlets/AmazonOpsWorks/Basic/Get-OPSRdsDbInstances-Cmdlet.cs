@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeRdsDbInstancesRequest request)
+        private Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeRdsDbInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeRdsDbInstances");
             #if DESKTOP
             return client.DescribeRdsDbInstances(request);
             #elif CORECLR

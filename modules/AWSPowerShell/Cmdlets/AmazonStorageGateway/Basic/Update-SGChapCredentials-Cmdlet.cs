@@ -188,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.UpdateChapCredentialsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateChapCredentialsRequest request)
+        private Amazon.StorageGateway.Model.UpdateChapCredentialsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateChapCredentialsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "UpdateChapCredentials");
             #if DESKTOP
             return client.UpdateChapCredentials(request);
             #elif CORECLR

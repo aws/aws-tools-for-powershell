@@ -208,8 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.UpdateTrafficPolicyInstanceResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateTrafficPolicyInstanceRequest request)
+        private Amazon.Route53.Model.UpdateTrafficPolicyInstanceResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.UpdateTrafficPolicyInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "UpdateTrafficPolicyInstance");
             #if DESKTOP
             return client.UpdateTrafficPolicyInstance(request);
             #elif CORECLR

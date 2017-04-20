@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.UpdateBatchPredictionResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.UpdateBatchPredictionRequest request)
+        private Amazon.MachineLearning.Model.UpdateBatchPredictionResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.UpdateBatchPredictionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "UpdateBatchPrediction");
             #if DESKTOP
             return client.UpdateBatchPrediction(request);
             #elif CORECLR

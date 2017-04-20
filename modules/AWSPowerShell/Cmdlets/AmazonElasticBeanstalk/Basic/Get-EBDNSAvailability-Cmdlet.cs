@@ -117,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityRequest request)
+        private Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "CheckDNSAvailability");
             #if DESKTOP
             return client.CheckDNSAvailability(request);
             #elif CORECLR

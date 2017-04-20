@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.CreateTrafficPolicyVersionResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateTrafficPolicyVersionRequest request)
+        private Amazon.Route53.Model.CreateTrafficPolicyVersionResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateTrafficPolicyVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "CreateTrafficPolicyVersion");
             #if DESKTOP
             return client.CreateTrafficPolicyVersion(request);
             #elif CORECLR

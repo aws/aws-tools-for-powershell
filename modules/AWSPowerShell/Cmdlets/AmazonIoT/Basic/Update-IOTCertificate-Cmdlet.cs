@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.UpdateCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateCertificateRequest request)
+        private Amazon.IoT.Model.UpdateCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateCertificate");
             #if DESKTOP
             return client.UpdateCertificate(request);
             #elif CORECLR

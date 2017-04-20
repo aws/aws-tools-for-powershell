@@ -243,8 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesRequest request)
+        private Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListAttachedGroupPolicies");
             #if DESKTOP
             return client.ListAttachedGroupPolicies(request);
             #elif CORECLR

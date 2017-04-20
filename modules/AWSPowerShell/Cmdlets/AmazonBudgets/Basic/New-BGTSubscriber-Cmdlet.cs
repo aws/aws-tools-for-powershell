@@ -287,8 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Budgets.Model.CreateSubscriberResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.CreateSubscriberRequest request)
+        private Amazon.Budgets.Model.CreateSubscriberResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.CreateSubscriberRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "CreateSubscriber");
             #if DESKTOP
             return client.CreateSubscriber(request);
             #elif CORECLR

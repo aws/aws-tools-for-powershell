@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsRequest request)
+        private Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.AttachLoadBalancerToSubnetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "AttachLoadBalancerToSubnets");
             #if DESKTOP
             return client.AttachLoadBalancerToSubnets(request);
             #elif CORECLR

@@ -198,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Budgets.Model.DescribeBudgetsResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DescribeBudgetsRequest request)
+        private Amazon.Budgets.Model.DescribeBudgetsResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DescribeBudgetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DescribeBudgets");
             #if DESKTOP
             return client.DescribeBudgets(request);
             #elif CORECLR

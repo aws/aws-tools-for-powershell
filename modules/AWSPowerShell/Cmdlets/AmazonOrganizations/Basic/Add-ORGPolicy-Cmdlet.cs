@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.AttachPolicyResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.AttachPolicyRequest request)
+        private Amazon.Organizations.Model.AttachPolicyResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.AttachPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "AttachPolicy");
             #if DESKTOP
             return client.AttachPolicy(request);
             #elif CORECLR

@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.AssociateHostedConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateHostedConnectionRequest request)
+        private Amazon.DirectConnect.Model.AssociateHostedConnectionResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateHostedConnectionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "AssociateHostedConnection");
             #if DESKTOP
             return client.AssociateHostedConnection(request);
             #elif CORECLR

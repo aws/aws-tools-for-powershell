@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.RevokeSecurityGroupEgressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RevokeSecurityGroupEgressRequest request)
+        private Amazon.EC2.Model.RevokeSecurityGroupEgressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RevokeSecurityGroupEgressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RevokeSecurityGroupEgress");
             #if DESKTOP
             return client.RevokeSecurityGroupEgress(request);
             #elif CORECLR

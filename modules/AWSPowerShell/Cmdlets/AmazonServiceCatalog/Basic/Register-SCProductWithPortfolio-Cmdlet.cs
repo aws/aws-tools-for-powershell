@@ -190,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioRequest request)
+        private Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "AssociateProductWithPortfolio");
             #if DESKTOP
             return client.AssociateProductWithPortfolio(request);
             #elif CORECLR

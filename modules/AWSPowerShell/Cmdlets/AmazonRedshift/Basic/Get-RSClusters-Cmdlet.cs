@@ -301,8 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeClustersResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClustersRequest request)
+        private Amazon.Redshift.Model.DescribeClustersResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeClustersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeClusters");
             #if DESKTOP
             return client.DescribeClusters(request);
             #elif CORECLR

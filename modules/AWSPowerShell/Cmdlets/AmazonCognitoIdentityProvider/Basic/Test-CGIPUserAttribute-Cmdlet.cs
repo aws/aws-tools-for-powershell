@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeRequest request)
+        private Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "VerifyUserAttribute");
             #if DESKTOP
             return client.VerifyUserAttribute(request);
             #elif CORECLR

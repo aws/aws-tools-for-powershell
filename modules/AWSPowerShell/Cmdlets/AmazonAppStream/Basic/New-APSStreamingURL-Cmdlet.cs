@@ -210,8 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.CreateStreamingURLResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateStreamingURLRequest request)
+        private Amazon.AppStream.Model.CreateStreamingURLResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateStreamingURLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "CreateStreamingURL");
             #if DESKTOP
             return client.CreateStreamingURL(request);
             #elif CORECLR

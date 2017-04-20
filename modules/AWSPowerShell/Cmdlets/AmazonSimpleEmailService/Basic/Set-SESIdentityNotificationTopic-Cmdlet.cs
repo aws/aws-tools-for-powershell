@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.SetIdentityNotificationTopicResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityNotificationTopicRequest request)
+        private Amazon.SimpleEmail.Model.SetIdentityNotificationTopicResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityNotificationTopicRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "SetIdentityNotificationTopic");
             #if DESKTOP
             return client.SetIdentityNotificationTopic(request);
             #elif CORECLR

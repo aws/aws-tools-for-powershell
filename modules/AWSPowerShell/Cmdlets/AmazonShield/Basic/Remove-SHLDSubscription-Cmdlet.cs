@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         
         #region AWS Service Operation Call
         
-        private static Amazon.Shield.Model.DeleteSubscriptionResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.DeleteSubscriptionRequest request)
+        private Amazon.Shield.Model.DeleteSubscriptionResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.DeleteSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Shield", "DeleteSubscription");
             #if DESKTOP
             return client.DeleteSubscription(request);
             #elif CORECLR

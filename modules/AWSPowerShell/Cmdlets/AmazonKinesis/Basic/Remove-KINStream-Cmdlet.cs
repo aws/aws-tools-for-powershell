@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.DeleteStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DeleteStreamRequest request)
+        private Amazon.Kinesis.Model.DeleteStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DeleteStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DeleteStream");
             #if DESKTOP
             return client.DeleteStream(request);
             #elif CORECLR

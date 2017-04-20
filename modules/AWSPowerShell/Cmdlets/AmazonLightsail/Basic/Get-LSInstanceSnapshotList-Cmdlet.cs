@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetInstanceSnapshotsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstanceSnapshotsRequest request)
+        private Amazon.Lightsail.Model.GetInstanceSnapshotsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstanceSnapshotsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetInstanceSnapshots");
             #if DESKTOP
             return client.GetInstanceSnapshots(request);
             #elif CORECLR

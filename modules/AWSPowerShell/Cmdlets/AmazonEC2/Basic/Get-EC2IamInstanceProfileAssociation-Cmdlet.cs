@@ -223,8 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsRequest request)
+        private Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeIamInstanceProfileAssociationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeIamInstanceProfileAssociations");
             #if DESKTOP
             return client.DescribeIamInstanceProfileAssociations(request);
             #elif CORECLR

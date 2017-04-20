@@ -128,8 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ListLocalDisksResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListLocalDisksRequest request)
+        private Amazon.StorageGateway.Model.ListLocalDisksResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListLocalDisksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ListLocalDisks");
             #if DESKTOP
             return client.ListLocalDisks(request);
             #elif CORECLR

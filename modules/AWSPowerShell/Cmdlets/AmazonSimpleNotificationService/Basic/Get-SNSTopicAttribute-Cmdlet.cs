@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.GetTopicAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetTopicAttributesRequest request)
+        private Amazon.SimpleNotificationService.Model.GetTopicAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetTopicAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "GetTopicAttributes");
             #if DESKTOP
             return client.GetTopicAttributes(request);
             #elif CORECLR

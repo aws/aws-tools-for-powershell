@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DeleteEvaluationResultsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteEvaluationResultsRequest request)
+        private Amazon.ConfigService.Model.DeleteEvaluationResultsResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteEvaluationResultsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteEvaluationResults");
             #if DESKTOP
             return client.DeleteEvaluationResults(request);
             #elif CORECLR

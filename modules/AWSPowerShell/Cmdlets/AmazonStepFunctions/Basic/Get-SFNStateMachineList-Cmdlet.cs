@@ -191,8 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.StepFunctions.Model.ListStateMachinesResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.ListStateMachinesRequest request)
+        private Amazon.StepFunctions.Model.ListStateMachinesResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.ListStateMachinesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "ListStateMachines");
             #if DESKTOP
             return client.ListStateMachines(request);
             #elif CORECLR

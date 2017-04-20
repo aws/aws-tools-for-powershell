@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.DeleteExpressionResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteExpressionRequest request)
+        private Amazon.CloudSearch.Model.DeleteExpressionResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.DeleteExpressionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "DeleteExpression");
             #if DESKTOP
             return client.DeleteExpression(request);
             #elif CORECLR

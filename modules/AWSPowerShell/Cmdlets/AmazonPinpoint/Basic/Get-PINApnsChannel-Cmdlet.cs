@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetApnsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetApnsChannelRequest request)
+        private Amazon.Pinpoint.Model.GetApnsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetApnsChannelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetApnsChannel");
             #if DESKTOP
             return client.GetApnsChannel(request);
             #elif CORECLR

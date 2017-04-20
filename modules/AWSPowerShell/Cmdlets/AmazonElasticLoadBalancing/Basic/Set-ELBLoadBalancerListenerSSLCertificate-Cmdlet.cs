@@ -184,8 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateRequest request)
+        private Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "SetLoadBalancerListenerSSLCertificate");
             #if DESKTOP
             return client.SetLoadBalancerListenerSSLCertificate(request);
             #elif CORECLR

@@ -316,8 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.UpdateNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.UpdateNetworkProfileRequest request)
+        private Amazon.DeviceFarm.Model.UpdateNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.UpdateNetworkProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "UpdateNetworkProfile");
             #if DESKTOP
             return client.UpdateNetworkProfile(request);
             #elif CORECLR

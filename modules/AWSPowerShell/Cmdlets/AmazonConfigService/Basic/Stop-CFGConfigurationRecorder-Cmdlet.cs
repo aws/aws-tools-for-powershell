@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.StopConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.StopConfigurationRecorderRequest request)
+        private Amazon.ConfigService.Model.StopConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.StopConfigurationRecorderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "StopConfigurationRecorder");
             #if DESKTOP
             return client.StopConfigurationRecorder(request);
             #elif CORECLR

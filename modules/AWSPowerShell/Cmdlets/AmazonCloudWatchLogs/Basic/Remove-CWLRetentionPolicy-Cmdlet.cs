@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.DeleteRetentionPolicyResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DeleteRetentionPolicyRequest request)
+        private Amazon.CloudWatchLogs.Model.DeleteRetentionPolicyResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DeleteRetentionPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DeleteRetentionPolicy");
             #if DESKTOP
             return client.DeleteRetentionPolicy(request);
             #elif CORECLR

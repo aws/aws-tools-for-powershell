@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.StopLoggingResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.StopLoggingRequest request)
+        private Amazon.CloudTrail.Model.StopLoggingResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.StopLoggingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "StopLogging");
             #if DESKTOP
             return client.StopLogging(request);
             #elif CORECLR

@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.RemoveTagsFromStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.RemoveTagsFromStreamRequest request)
+        private Amazon.Kinesis.Model.RemoveTagsFromStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.RemoveTagsFromStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "RemoveTagsFromStream");
             #if DESKTOP
             return client.RemoveTagsFromStream(request);
             #elif CORECLR

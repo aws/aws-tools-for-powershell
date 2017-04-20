@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.DeleteClusterResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteClusterRequest request)
+        private Amazon.ECS.Model.DeleteClusterResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "DeleteCluster");
             #if DESKTOP
             return client.DeleteCluster(request);
             #elif CORECLR

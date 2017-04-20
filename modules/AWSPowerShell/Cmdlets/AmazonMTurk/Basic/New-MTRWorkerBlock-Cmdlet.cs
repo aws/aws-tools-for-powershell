@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.CreateWorkerBlockResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.CreateWorkerBlockRequest request)
+        private Amazon.MTurk.Model.CreateWorkerBlockResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.CreateWorkerBlockRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "CreateWorkerBlock");
             #if DESKTOP
             return client.CreateWorkerBlock(request);
             #elif CORECLR

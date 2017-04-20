@@ -408,8 +408,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #region AWS Service Operation Call
         
-        private static Amazon.Snowball.Model.CreateAddressResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CreateAddressRequest request)
+        private Amazon.Snowball.Model.CreateAddressResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CreateAddressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export Snowball", "CreateAddress");
             #if DESKTOP
             return client.CreateAddress(request);
             #elif CORECLR

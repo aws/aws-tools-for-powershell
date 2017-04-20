@@ -203,8 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAutoScalingGroupsRequest request)
+        private Amazon.AutoScaling.Model.DescribeAutoScalingGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAutoScalingGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeAutoScalingGroups");
             #if DESKTOP
             return client.DescribeAutoScalingGroups(request);
             #elif CORECLR

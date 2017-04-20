@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetIpAddressType");
             #if DESKTOP
             return client.SetIpAddressType(request);
             #elif CORECLR

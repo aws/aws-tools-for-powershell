@@ -257,8 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeInstanceInformation");
             #if DESKTOP
             return client.DescribeInstanceInformation(request);
             #elif CORECLR

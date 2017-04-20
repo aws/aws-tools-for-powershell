@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         #region AWS Service Operation Call
         
-        private static Amazon.ImportExport.Model.GetStatusResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.GetStatusRequest request)
+        private Amazon.ImportExport.Model.GetStatusResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.GetStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export", "GetStatus");
             #if DESKTOP
             return client.GetStatus(request);
             #elif CORECLR

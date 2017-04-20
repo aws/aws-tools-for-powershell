@@ -233,8 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeAvailablePatches");
             #if DESKTOP
             return client.DescribeAvailablePatches(request);
             #elif CORECLR

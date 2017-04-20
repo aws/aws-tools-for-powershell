@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityDkimEnabledRequest request)
+        private Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityDkimEnabledRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "SetIdentityDkimEnabled");
             #if DESKTOP
             return client.SetIdentityDkimEnabled(request);
             #elif CORECLR

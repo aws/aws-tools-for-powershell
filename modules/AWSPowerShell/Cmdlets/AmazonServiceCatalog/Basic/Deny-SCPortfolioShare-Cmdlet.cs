@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.RejectPortfolioShareRequest request)
+        private Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.RejectPortfolioShareRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "RejectPortfolioShare");
             #if DESKTOP
             return client.RejectPortfolioShare(request);
             #elif CORECLR

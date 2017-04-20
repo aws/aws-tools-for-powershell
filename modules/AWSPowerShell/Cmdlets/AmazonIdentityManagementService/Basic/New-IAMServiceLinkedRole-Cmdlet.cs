@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.CreateServiceLinkedRoleResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateServiceLinkedRoleRequest request)
+        private Amazon.IdentityManagement.Model.CreateServiceLinkedRoleResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.CreateServiceLinkedRoleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "CreateServiceLinkedRole");
             #if DESKTOP
             return client.CreateServiceLinkedRole(request);
             #elif CORECLR

@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusRequest request)
+        private Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateDeviceStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateDeviceStatus");
             #if DESKTOP
             return client.UpdateDeviceStatus(request);
             #elif CORECLR

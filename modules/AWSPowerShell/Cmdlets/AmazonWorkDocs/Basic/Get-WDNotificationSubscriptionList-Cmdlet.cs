@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.DescribeNotificationSubscriptionsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeNotificationSubscriptionsRequest request)
+        private Amazon.WorkDocs.Model.DescribeNotificationSubscriptionsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeNotificationSubscriptionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DescribeNotificationSubscriptions");
             #if DESKTOP
             return client.DescribeNotificationSubscriptions(request);
             #elif CORECLR

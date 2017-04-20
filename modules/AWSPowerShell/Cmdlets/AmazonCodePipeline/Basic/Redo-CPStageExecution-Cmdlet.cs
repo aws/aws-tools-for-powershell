@@ -181,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.RetryStageExecutionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.RetryStageExecutionRequest request)
+        private Amazon.CodePipeline.Model.RetryStageExecutionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.RetryStageExecutionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "RetryStageExecution");
             #if DESKTOP
             return client.RetryStageExecution(request);
             #elif CORECLR

@@ -219,8 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.CreateWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateWebACLRequest request)
+        private Amazon.WAF.Model.CreateWebACLResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateWebACLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "CreateWebACL");
             #if DESKTOP
             return client.CreateWebACL(request);
             #elif CORECLR

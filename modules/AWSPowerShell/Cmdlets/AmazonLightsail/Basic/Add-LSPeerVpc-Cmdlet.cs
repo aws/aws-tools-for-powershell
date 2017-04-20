@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.PeerVpcResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.PeerVpcRequest request)
+        private Amazon.Lightsail.Model.PeerVpcResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.PeerVpcRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "PeerVpc");
             #if DESKTOP
             return client.PeerVpc(request);
             #elif CORECLR

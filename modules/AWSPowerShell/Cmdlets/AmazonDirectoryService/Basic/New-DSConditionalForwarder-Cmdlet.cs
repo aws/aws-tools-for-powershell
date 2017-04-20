@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateConditionalForwarderRequest request)
+        private Amazon.DirectoryService.Model.CreateConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateConditionalForwarderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CreateConditionalForwarder");
             #if DESKTOP
             return client.CreateConditionalForwarder(request);
             #elif CORECLR

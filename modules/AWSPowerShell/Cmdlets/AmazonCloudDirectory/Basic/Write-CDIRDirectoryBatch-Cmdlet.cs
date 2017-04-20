@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.BatchWriteResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.BatchWriteRequest request)
+        private Amazon.CloudDirectory.Model.BatchWriteResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.BatchWriteRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "BatchWrite");
             #if DESKTOP
             return client.BatchWrite(request);
             #elif CORECLR

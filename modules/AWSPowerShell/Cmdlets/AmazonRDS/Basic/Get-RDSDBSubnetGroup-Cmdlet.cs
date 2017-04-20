@@ -229,8 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeDBSubnetGroupsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBSubnetGroupsRequest request)
+        private Amazon.RDS.Model.DescribeDBSubnetGroupsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeDBSubnetGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeDBSubnetGroups");
             #if DESKTOP
             return client.DescribeDBSubnetGroups(request);
             #elif CORECLR

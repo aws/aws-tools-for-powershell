@@ -226,8 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DescribeTrustsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeTrustsRequest request)
+        private Amazon.DirectoryService.Model.DescribeTrustsResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeTrustsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeTrusts");
             #if DESKTOP
             return client.DescribeTrusts(request);
             #elif CORECLR

@@ -227,8 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DescribeVTLDevicesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeVTLDevicesRequest request)
+        private Amazon.StorageGateway.Model.DescribeVTLDevicesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeVTLDevicesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DescribeVTLDevices");
             #if DESKTOP
             return client.DescribeVTLDevices(request);
             #elif CORECLR

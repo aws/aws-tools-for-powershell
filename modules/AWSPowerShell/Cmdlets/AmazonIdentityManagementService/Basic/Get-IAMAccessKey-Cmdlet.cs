@@ -224,8 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListAccessKeysResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListAccessKeysRequest request)
+        private Amazon.IdentityManagement.Model.ListAccessKeysResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListAccessKeysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListAccessKeys");
             #if DESKTOP
             return client.ListAccessKeys(request);
             #elif CORECLR

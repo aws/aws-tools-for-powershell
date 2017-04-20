@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerRequest request)
+        private Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "EnableAvailabilityZonesForLoadBalancer");
             #if DESKTOP
             return client.EnableAvailabilityZonesForLoadBalancer(request);
             #elif CORECLR

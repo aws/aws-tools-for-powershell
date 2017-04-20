@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeEffectiveInstanceAssociations");
             #if DESKTOP
             return client.DescribeEffectiveInstanceAssociations(request);
             #elif CORECLR

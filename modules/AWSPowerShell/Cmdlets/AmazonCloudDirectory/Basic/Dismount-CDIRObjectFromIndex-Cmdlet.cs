@@ -196,8 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.DetachFromIndexResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DetachFromIndexRequest request)
+        private Amazon.CloudDirectory.Model.DetachFromIndexResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DetachFromIndexRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "DetachFromIndex");
             #if DESKTOP
             return client.DetachFromIndex(request);
             #elif CORECLR

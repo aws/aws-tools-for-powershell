@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.AuthorizeSnapshotAccessResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.AuthorizeSnapshotAccessRequest request)
+        private Amazon.Redshift.Model.AuthorizeSnapshotAccessResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.AuthorizeSnapshotAccessRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "AuthorizeSnapshotAccess");
             #if DESKTOP
             return client.AuthorizeSnapshotAccess(request);
             #elif CORECLR

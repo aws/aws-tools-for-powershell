@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.DeleteGcmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteGcmChannelRequest request)
+        private Amazon.Pinpoint.Model.DeleteGcmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteGcmChannelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteGcmChannel");
             #if DESKTOP
             return client.DeleteGcmChannel(request);
             #elif CORECLR

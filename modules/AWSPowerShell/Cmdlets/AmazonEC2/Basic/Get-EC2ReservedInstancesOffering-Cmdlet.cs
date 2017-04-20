@@ -420,8 +420,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeReservedInstancesOfferingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeReservedInstancesOfferingsRequest request)
+        private Amazon.EC2.Model.DescribeReservedInstancesOfferingsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeReservedInstancesOfferingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeReservedInstancesOfferings");
             #if DESKTOP
             return client.DescribeReservedInstancesOfferings(request);
             #elif CORECLR

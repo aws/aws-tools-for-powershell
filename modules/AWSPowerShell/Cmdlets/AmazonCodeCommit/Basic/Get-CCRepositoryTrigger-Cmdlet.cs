@@ -117,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.GetRepositoryTriggersResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetRepositoryTriggersRequest request)
+        private Amazon.CodeCommit.Model.GetRepositoryTriggersResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.GetRepositoryTriggersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "GetRepositoryTriggers");
             #if DESKTOP
             return client.GetRepositoryTriggers(request);
             #elif CORECLR

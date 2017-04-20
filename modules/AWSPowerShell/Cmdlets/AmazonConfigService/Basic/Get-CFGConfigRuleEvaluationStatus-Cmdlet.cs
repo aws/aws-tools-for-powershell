@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusRequest request)
+        private Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DescribeConfigRuleEvaluationStatus");
             #if DESKTOP
             return client.DescribeConfigRuleEvaluationStatus(request);
             #elif CORECLR

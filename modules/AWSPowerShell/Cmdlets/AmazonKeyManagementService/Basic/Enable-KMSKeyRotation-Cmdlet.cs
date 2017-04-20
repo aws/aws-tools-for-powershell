@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.EnableKeyRotationResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.EnableKeyRotationRequest request)
+        private Amazon.KeyManagementService.Model.EnableKeyRotationResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.EnableKeyRotationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "EnableKeyRotation");
             #if DESKTOP
             return client.EnableKeyRotation(request);
             #elif CORECLR

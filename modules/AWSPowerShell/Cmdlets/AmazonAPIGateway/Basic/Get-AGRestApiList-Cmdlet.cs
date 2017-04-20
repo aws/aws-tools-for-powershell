@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetRestApisResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetRestApisRequest request)
+        private Amazon.APIGateway.Model.GetRestApisResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetRestApisRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetRestApis");
             #if DESKTOP
             return client.GetRestApis(request);
             #elif CORECLR

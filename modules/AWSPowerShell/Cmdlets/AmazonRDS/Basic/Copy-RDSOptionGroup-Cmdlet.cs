@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.CopyOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CopyOptionGroupRequest request)
+        private Amazon.RDS.Model.CopyOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.CopyOptionGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "CopyOptionGroup");
             #if DESKTOP
             return client.CopyOptionGroup(request);
             #elif CORECLR

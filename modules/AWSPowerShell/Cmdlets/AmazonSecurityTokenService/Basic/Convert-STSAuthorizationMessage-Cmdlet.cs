@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.DecodeAuthorizationMessageRequest request)
+        private Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.DecodeAuthorizationMessageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "DecodeAuthorizationMessage");
             #if DESKTOP
             return client.DecodeAuthorizationMessage(request);
             #elif CORECLR

@@ -359,8 +359,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.SetTimeBasedAutoScalingRequest request)
+        private Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.SetTimeBasedAutoScalingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "SetTimeBasedAutoScaling");
             #if DESKTOP
             return client.SetTimeBasedAutoScaling(request);
             #elif CORECLR

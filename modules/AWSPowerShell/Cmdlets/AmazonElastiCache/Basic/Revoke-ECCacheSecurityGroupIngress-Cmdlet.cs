@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressRequest request)
+        private Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "RevokeCacheSecurityGroupIngress");
             #if DESKTOP
             return client.RevokeCacheSecurityGroupIngress(request);
             #elif CORECLR

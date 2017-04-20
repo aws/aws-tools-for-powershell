@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.GetTelemetryMetadataResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.GetTelemetryMetadataRequest request)
+        private Amazon.Inspector.Model.GetTelemetryMetadataResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.GetTelemetryMetadataRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "GetTelemetryMetadata");
             #if DESKTOP
             return client.GetTelemetryMetadata(request);
             #elif CORECLR

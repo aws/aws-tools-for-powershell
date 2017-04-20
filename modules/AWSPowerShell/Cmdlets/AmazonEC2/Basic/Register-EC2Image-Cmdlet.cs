@@ -344,8 +344,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.RegisterImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RegisterImageRequest request)
+        private Amazon.EC2.Model.RegisterImageResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RegisterImageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RegisterImage");
             #if DESKTOP
             return client.RegisterImage(request);
             #elif CORECLR

@@ -304,8 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListRecordHistoryResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListRecordHistoryRequest request)
+        private Amazon.ServiceCatalog.Model.ListRecordHistoryResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListRecordHistoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListRecordHistory");
             #if DESKTOP
             return client.ListRecordHistory(request);
             #elif CORECLR

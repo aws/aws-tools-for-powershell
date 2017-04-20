@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ConfirmProductInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ConfirmProductInstanceRequest request)
+        private Amazon.EC2.Model.ConfirmProductInstanceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ConfirmProductInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ConfirmProductInstance");
             #if DESKTOP
             return client.ConfirmProductInstance(request);
             #elif CORECLR

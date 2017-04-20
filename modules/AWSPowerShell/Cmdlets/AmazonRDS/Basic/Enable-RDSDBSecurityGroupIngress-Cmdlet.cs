@@ -216,8 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressRequest request)
+        private Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "AuthorizeDBSecurityGroupIngress");
             #if DESKTOP
             return client.AuthorizeDBSecurityGroupIngress(request);
             #elif CORECLR

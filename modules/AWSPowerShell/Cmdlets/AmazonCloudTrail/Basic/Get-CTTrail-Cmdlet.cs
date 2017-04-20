@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.DescribeTrailsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DescribeTrailsRequest request)
+        private Amazon.CloudTrail.Model.DescribeTrailsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DescribeTrailsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "DescribeTrails");
             #if DESKTOP
             return client.DescribeTrails(request);
             #elif CORECLR

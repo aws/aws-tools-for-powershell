@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.GetRuleResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetRuleRequest request)
+        private Amazon.WAF.Model.GetRuleResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "GetRule");
             #if DESKTOP
             return client.GetRule(request);
             #elif CORECLR

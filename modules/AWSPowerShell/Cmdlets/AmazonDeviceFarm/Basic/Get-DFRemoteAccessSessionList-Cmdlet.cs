@@ -173,8 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.ListRemoteAccessSessionsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListRemoteAccessSessionsRequest request)
+        private Amazon.DeviceFarm.Model.ListRemoteAccessSessionsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListRemoteAccessSessionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "ListRemoteAccessSessions");
             #if DESKTOP
             return client.ListRemoteAccessSessions(request);
             #elif CORECLR

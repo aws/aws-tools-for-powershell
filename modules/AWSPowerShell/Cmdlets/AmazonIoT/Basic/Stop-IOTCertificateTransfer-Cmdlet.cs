@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.CancelCertificateTransferResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CancelCertificateTransferRequest request)
+        private Amazon.IoT.Model.CancelCertificateTransferResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CancelCertificateTransferRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "CancelCertificateTransfer");
             #if DESKTOP
             return client.CancelCertificateTransfer(request);
             #elif CORECLR

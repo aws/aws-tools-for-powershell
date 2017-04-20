@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.UpdateRepositoryNameResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryNameRequest request)
+        private Amazon.CodeCommit.Model.UpdateRepositoryNameResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.UpdateRepositoryNameRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "UpdateRepositoryName");
             #if DESKTOP
             return client.UpdateRepositoryName(request);
             #elif CORECLR

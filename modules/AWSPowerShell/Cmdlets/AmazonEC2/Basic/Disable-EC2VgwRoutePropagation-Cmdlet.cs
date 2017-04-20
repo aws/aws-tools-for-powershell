@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DisableVgwRoutePropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableVgwRoutePropagationRequest request)
+        private Amazon.EC2.Model.DisableVgwRoutePropagationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableVgwRoutePropagationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisableVgwRoutePropagation");
             #if DESKTOP
             return client.DisableVgwRoutePropagation(request);
             #elif CORECLR

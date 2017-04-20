@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.DeleteSubscriptionFilterResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DeleteSubscriptionFilterRequest request)
+        private Amazon.CloudWatchLogs.Model.DeleteSubscriptionFilterResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DeleteSubscriptionFilterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DeleteSubscriptionFilter");
             #if DESKTOP
             return client.DeleteSubscriptionFilter(request);
             #elif CORECLR

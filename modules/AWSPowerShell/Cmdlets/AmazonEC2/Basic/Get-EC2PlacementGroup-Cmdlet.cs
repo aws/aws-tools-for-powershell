@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribePlacementGroupsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePlacementGroupsRequest request)
+        private Amazon.EC2.Model.DescribePlacementGroupsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePlacementGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribePlacementGroups");
             #if DESKTOP
             return client.DescribePlacementGroups(request);
             #elif CORECLR

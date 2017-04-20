@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.DescribeEC2InstanceLimitsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeEC2InstanceLimitsRequest request)
+        private Amazon.GameLift.Model.DescribeEC2InstanceLimitsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeEC2InstanceLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeEC2InstanceLimits");
             #if DESKTOP
             return client.DescribeEC2InstanceLimits(request);
             #elif CORECLR

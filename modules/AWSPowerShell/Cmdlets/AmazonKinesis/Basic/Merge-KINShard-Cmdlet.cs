@@ -212,8 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.MergeShardsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.MergeShardsRequest request)
+        private Amazon.Kinesis.Model.MergeShardsResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.MergeShardsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "MergeShards");
             #if DESKTOP
             return client.MergeShards(request);
             #elif CORECLR

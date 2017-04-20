@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.CSD
 
         #region AWS Service Operation Call
 
-        private static Amazon.CloudSearchDomain.Model.SuggestResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.SuggestRequest request)
+        private Amazon.CloudSearchDomain.Model.SuggestResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.SuggestRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearchDomain", "Suggest");
 #if DESKTOP
             return client.Suggest(request);
 #elif CORECLR

@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.ImportCertificateResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ImportCertificateRequest request)
+        private Amazon.DatabaseMigrationService.Model.ImportCertificateResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ImportCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "ImportCertificate");
             #if DESKTOP
             return client.ImportCertificate(request);
             #elif CORECLR

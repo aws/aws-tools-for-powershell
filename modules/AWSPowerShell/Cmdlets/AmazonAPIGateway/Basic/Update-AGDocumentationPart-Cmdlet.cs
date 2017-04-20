@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.UpdateDocumentationPartResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateDocumentationPartRequest request)
+        private Amazon.APIGateway.Model.UpdateDocumentationPartResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UpdateDocumentationPartRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "UpdateDocumentationPart");
             #if DESKTOP
             return client.UpdateDocumentationPart(request);
             #elif CORECLR

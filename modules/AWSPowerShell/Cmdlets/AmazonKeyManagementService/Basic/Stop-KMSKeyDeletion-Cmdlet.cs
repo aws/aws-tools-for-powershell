@@ -142,8 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.CancelKeyDeletionResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.CancelKeyDeletionRequest request)
+        private Amazon.KeyManagementService.Model.CancelKeyDeletionResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.CancelKeyDeletionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "CancelKeyDeletion");
             #if DESKTOP
             return client.CancelKeyDeletion(request);
             #elif CORECLR

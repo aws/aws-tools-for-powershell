@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.DeleteProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.DeleteProjectRequest request)
+        private Amazon.CodeBuild.Model.DeleteProjectResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.DeleteProjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "DeleteProject");
             #if DESKTOP
             return client.DeleteProject(request);
             #elif CORECLR

@@ -420,8 +420,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.PutBucketAnalyticsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketAnalyticsConfigurationRequest request)
+        private Amazon.S3.Model.PutBucketAnalyticsConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketAnalyticsConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketAnalyticsConfiguration");
             #if DESKTOP
             return client.PutBucketAnalyticsConfiguration(request);
             #elif CORECLR

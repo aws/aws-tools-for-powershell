@@ -301,8 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.PutACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutACLRequest request)
+        private Amazon.S3.Model.PutACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutACLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutACL");
 #if DESKTOP
             return client.PutACL(request);
 #elif CORECLR

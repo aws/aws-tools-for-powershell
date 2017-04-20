@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodRequest request)
+        private Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "ModifySnapshotCopyRetentionPeriod");
             #if DESKTOP
             return client.ModifySnapshotCopyRetentionPeriod(request);
             #elif CORECLR

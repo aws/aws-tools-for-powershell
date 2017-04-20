@@ -298,8 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.CreateCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.CreateCaseRequest request)
+        private Amazon.AWSSupport.Model.CreateCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.CreateCaseRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "CreateCase");
             #if DESKTOP
             return client.CreateCase(request);
             #elif CORECLR

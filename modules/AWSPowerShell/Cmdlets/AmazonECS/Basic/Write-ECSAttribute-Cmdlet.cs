@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.PutAttributesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.PutAttributesRequest request)
+        private Amazon.ECS.Model.PutAttributesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.PutAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "PutAttributes");
             #if DESKTOP
             return client.PutAttributes(request);
             #elif CORECLR

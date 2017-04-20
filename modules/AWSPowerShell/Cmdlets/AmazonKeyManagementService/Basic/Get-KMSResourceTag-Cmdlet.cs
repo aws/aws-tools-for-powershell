@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.ListResourceTagsResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListResourceTagsRequest request)
+        private Amazon.KeyManagementService.Model.ListResourceTagsResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ListResourceTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "ListResourceTags");
             #if DESKTOP
             return client.ListResourceTags(request);
             #elif CORECLR

@@ -218,8 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListMFADevicesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListMFADevicesRequest request)
+        private Amazon.IdentityManagement.Model.ListMFADevicesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListMFADevicesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListMFADevices");
             #if DESKTOP
             return client.ListMFADevices(request);
             #elif CORECLR

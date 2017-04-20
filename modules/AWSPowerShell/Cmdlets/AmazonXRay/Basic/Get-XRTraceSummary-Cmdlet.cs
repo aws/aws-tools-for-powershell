@@ -183,8 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #region AWS Service Operation Call
         
-        private static Amazon.XRay.Model.GetTraceSummariesResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.GetTraceSummariesRequest request)
+        private Amazon.XRay.Model.GetTraceSummariesResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.GetTraceSummariesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "GetTraceSummaries");
             #if DESKTOP
             return client.GetTraceSummaries(request);
             #elif CORECLR

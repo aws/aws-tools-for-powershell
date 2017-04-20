@@ -194,8 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #region AWS Service Operation Call
         
-        private static Amazon.XRay.Model.PutTelemetryRecordsResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.PutTelemetryRecordsRequest request)
+        private Amazon.XRay.Model.PutTelemetryRecordsResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.PutTelemetryRecordsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "PutTelemetryRecords");
             #if DESKTOP
             return client.PutTelemetryRecords(request);
             #elif CORECLR

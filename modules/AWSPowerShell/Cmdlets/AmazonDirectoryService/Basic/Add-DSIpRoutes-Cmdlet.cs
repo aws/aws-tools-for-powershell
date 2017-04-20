@@ -196,8 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.AddIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.AddIpRoutesRequest request)
+        private Amazon.DirectoryService.Model.AddIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.AddIpRoutesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "AddIpRoutes");
             #if DESKTOP
             return client.AddIpRoutes(request);
             #elif CORECLR

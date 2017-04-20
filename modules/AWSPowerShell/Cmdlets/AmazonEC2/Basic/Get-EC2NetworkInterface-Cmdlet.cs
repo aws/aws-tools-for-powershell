@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeNetworkInterfacesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkInterfacesRequest request)
+        private Amazon.EC2.Model.DescribeNetworkInterfacesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNetworkInterfacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNetworkInterfaces");
             #if DESKTOP
             return client.DescribeNetworkInterfaces(request);
             #elif CORECLR

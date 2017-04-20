@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.ListRulesPackagesResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListRulesPackagesRequest request)
+        private Amazon.Inspector.Model.ListRulesPackagesResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.ListRulesPackagesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "ListRulesPackages");
             #if DESKTOP
             return client.ListRulesPackages(request);
             #elif CORECLR

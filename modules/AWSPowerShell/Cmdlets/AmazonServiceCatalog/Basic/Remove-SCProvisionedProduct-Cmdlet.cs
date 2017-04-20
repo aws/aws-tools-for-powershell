@@ -213,8 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.TerminateProvisionedProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.TerminateProvisionedProductRequest request)
+        private Amazon.ServiceCatalog.Model.TerminateProvisionedProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.TerminateProvisionedProductRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "TerminateProvisionedProduct");
             #if DESKTOP
             return client.TerminateProvisionedProduct(request);
             #elif CORECLR

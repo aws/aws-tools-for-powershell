@@ -236,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.TestInvokeAuthorizerResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.TestInvokeAuthorizerRequest request)
+        private Amazon.APIGateway.Model.TestInvokeAuthorizerResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.TestInvokeAuthorizerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "TestInvokeAuthorizer");
             #if DESKTOP
             return client.TestInvokeAuthorizer(request);
             #elif CORECLR

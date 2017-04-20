@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminUpdateUserAttributesResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminUpdateUserAttributesRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminUpdateUserAttributesResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminUpdateUserAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminUpdateUserAttributes");
             #if DESKTOP
             return client.AdminUpdateUserAttributes(request);
             #elif CORECLR

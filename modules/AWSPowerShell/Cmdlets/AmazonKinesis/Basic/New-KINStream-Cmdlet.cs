@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.CreateStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.CreateStreamRequest request)
+        private Amazon.Kinesis.Model.CreateStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.CreateStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "CreateStream");
             #if DESKTOP
             return client.CreateStream(request);
             #elif CORECLR

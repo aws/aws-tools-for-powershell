@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ListTagsForResourceRequest request)
+        private Amazon.DatabaseMigrationService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.ListTagsForResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "ListTagsForResource");
             #if DESKTOP
             return client.ListTagsForResource(request);
             #elif CORECLR

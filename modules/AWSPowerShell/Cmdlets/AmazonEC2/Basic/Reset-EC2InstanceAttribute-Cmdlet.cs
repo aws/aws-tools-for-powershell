@@ -173,8 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ResetInstanceAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetInstanceAttributeRequest request)
+        private Amazon.EC2.Model.ResetInstanceAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ResetInstanceAttributeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ResetInstanceAttribute");
             #if DESKTOP
             return client.ResetInstanceAttribute(request);
             #elif CORECLR

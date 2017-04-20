@@ -199,8 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.ListPortfoliosResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListPortfoliosRequest request)
+        private Amazon.ServiceCatalog.Model.ListPortfoliosResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListPortfoliosRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListPortfolios");
             #if DESKTOP
             return client.ListPortfolios(request);
             #elif CORECLR

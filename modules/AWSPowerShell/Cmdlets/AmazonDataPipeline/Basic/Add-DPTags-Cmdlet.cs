@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.AddTagsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.AddTagsRequest request)
+        private Amazon.DataPipeline.Model.AddTagsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.AddTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "AddTags");
             #if DESKTOP
             return client.AddTags(request);
             #elif CORECLR

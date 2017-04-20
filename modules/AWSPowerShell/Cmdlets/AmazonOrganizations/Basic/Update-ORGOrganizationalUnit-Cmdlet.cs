@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.UpdateOrganizationalUnitResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.UpdateOrganizationalUnitRequest request)
+        private Amazon.Organizations.Model.UpdateOrganizationalUnitResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.UpdateOrganizationalUnitRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "UpdateOrganizationalUnit");
             #if DESKTOP
             return client.UpdateOrganizationalUnit(request);
             #elif CORECLR

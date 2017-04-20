@@ -122,8 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServerMigrationService.Model.ImportServerCatalogResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.ImportServerCatalogRequest request)
+        private Amazon.ServerMigrationService.Model.ImportServerCatalogResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.ImportServerCatalogRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Server Migration Service", "ImportServerCatalog");
             #if DESKTOP
             return client.ImportServerCatalog(request);
             #elif CORECLR

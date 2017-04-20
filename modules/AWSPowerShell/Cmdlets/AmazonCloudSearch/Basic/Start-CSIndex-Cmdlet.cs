@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudSearch.Model.IndexDocumentsResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.IndexDocumentsRequest request)
+        private Amazon.CloudSearch.Model.IndexDocumentsResponse CallAWSServiceOperation(IAmazonCloudSearch client, Amazon.CloudSearch.Model.IndexDocumentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearch", "IndexDocuments");
             #if DESKTOP
             return client.IndexDocuments(request);
             #elif CORECLR

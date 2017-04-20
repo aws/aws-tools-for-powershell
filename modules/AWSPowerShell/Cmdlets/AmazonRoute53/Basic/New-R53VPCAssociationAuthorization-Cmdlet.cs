@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateVPCAssociationAuthorizationRequest request)
+        private Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.CreateVPCAssociationAuthorizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "CreateVPCAssociationAuthorization");
             #if DESKTOP
             return client.CreateVPCAssociationAuthorization(request);
             #elif CORECLR

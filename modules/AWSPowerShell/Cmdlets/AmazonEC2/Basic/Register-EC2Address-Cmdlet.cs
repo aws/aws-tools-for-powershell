@@ -244,8 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AssociateAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateAddressRequest request)
+        private Amazon.EC2.Model.AssociateAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateAddressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AssociateAddress");
             #if DESKTOP
             return client.AssociateAddress(request);
             #elif CORECLR

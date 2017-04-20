@@ -184,8 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.DetachPolicyResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DetachPolicyRequest request)
+        private Amazon.Organizations.Model.DetachPolicyResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DetachPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DetachPolicy");
             #if DESKTOP
             return client.DetachPolicy(request);
             #elif CORECLR

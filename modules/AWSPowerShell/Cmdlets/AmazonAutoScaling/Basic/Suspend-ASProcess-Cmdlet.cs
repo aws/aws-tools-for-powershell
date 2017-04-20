@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.SuspendProcessesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SuspendProcessesRequest request)
+        private Amazon.AutoScaling.Model.SuspendProcessesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.SuspendProcessesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "SuspendProcesses");
             #if DESKTOP
             return client.SuspendProcesses(request);
             #elif CORECLR

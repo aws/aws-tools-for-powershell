@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.ListAssociatedStacksResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ListAssociatedStacksRequest request)
+        private Amazon.AppStream.Model.ListAssociatedStacksResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ListAssociatedStacksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "ListAssociatedStacks");
             #if DESKTOP
             return client.ListAssociatedStacks(request);
             #elif CORECLR

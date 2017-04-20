@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointRequest request)
+        private Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CreateSnapshotFromVolumeRecoveryPoint");
             #if DESKTOP
             return client.CreateSnapshotFromVolumeRecoveryPoint(request);
             #elif CORECLR

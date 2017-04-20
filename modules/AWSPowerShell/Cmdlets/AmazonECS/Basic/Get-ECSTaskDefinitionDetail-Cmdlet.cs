@@ -127,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.DescribeTaskDefinitionResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DescribeTaskDefinitionRequest request)
+        private Amazon.ECS.Model.DescribeTaskDefinitionResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DescribeTaskDefinitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "DescribeTaskDefinition");
             #if DESKTOP
             return client.DescribeTaskDefinition(request);
             #elif CORECLR

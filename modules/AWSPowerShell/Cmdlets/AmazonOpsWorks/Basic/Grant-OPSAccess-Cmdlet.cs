@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.GrantAccessResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.GrantAccessRequest request)
+        private Amazon.OpsWorks.Model.GrantAccessResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.GrantAccessRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "GrantAccess");
             #if DESKTOP
             return client.GrantAccess(request);
             #elif CORECLR

@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerListenersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerListenersRequest request)
+        private Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerListenersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerListenersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DeleteLoadBalancerListeners");
             #if DESKTOP
             return client.DeleteLoadBalancerListeners(request);
             #elif CORECLR

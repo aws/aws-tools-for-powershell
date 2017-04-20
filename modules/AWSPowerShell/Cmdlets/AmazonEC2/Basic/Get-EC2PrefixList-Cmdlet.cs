@@ -226,8 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribePrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePrefixListsRequest request)
+        private Amazon.EC2.Model.DescribePrefixListsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribePrefixListsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribePrefixLists");
             #if DESKTOP
             return client.DescribePrefixLists(request);
             #elif CORECLR

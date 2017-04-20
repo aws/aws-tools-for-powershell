@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.AcknowledgeThirdPartyJobResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.AcknowledgeThirdPartyJobRequest request)
+        private Amazon.CodePipeline.Model.AcknowledgeThirdPartyJobResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.AcknowledgeThirdPartyJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "AcknowledgeThirdPartyJob");
             #if DESKTOP
             return client.AcknowledgeThirdPartyJob(request);
             #elif CORECLR

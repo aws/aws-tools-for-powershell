@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Inspector.Model.UnsubscribeFromEventResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.UnsubscribeFromEventRequest request)
+        private Amazon.Inspector.Model.UnsubscribeFromEventResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.UnsubscribeFromEventRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "UnsubscribeFromEvent");
             #if DESKTOP
             return client.UnsubscribeFromEvent(request);
             #elif CORECLR

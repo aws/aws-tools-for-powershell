@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest request)
+        private Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.ListRuleNamesByTargetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Events", "ListRuleNamesByTarget");
             #if DESKTOP
             return client.ListRuleNamesByTarget(request);
             #elif CORECLR

@@ -296,8 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 
         #region AWS Service Operation Call
 
-        private static Amazon.DynamoDBv2.Model.CreateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.CreateTableRequest request)
+        private Amazon.DynamoDBv2.Model.CreateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.CreateTableRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "CreateTable");
 #if DESKTOP
             return client.CreateTable(request);
 #elif CORECLR

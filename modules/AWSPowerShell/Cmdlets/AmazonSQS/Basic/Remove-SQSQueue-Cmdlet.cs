@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.DeleteQueueResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.DeleteQueueRequest request)
+        private Amazon.SQS.Model.DeleteQueueResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.DeleteQueueRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "DeleteQueue");
             #if DESKTOP
             return client.DeleteQueue(request);
             #elif CORECLR

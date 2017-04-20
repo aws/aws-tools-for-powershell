@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DescribeEngineDefaultParametersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeEngineDefaultParametersRequest request)
+        private Amazon.RDS.Model.DescribeEngineDefaultParametersResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeEngineDefaultParametersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeEngineDefaultParameters");
             #if DESKTOP
             return client.DescribeEngineDefaultParameters(request);
             #elif CORECLR

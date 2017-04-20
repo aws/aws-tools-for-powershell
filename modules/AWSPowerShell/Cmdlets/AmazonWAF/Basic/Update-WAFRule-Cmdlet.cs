@@ -205,8 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.UpdateRuleResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateRuleRequest request)
+        private Amazon.WAF.Model.UpdateRuleResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateRuleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "UpdateRule");
             #if DESKTOP
             return client.UpdateRule(request);
             #elif CORECLR

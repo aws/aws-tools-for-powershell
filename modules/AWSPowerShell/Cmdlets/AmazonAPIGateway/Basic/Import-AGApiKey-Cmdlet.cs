@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.ImportApiKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.ImportApiKeysRequest request)
+        private Amazon.APIGateway.Model.ImportApiKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.ImportApiKeysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "ImportApiKeys");
             #if DESKTOP
             return client.ImportApiKeys(request);
             #elif CORECLR

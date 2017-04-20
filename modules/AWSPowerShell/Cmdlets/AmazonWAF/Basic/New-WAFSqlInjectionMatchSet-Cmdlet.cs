@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.CreateSqlInjectionMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateSqlInjectionMatchSetRequest request)
+        private Amazon.WAF.Model.CreateSqlInjectionMatchSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.CreateSqlInjectionMatchSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "CreateSqlInjectionMatchSet");
             #if DESKTOP
             return client.CreateSqlInjectionMatchSet(request);
             #elif CORECLR

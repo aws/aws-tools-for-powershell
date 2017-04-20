@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.DeleteWorkerBlockResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DeleteWorkerBlockRequest request)
+        private Amazon.MTurk.Model.DeleteWorkerBlockResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DeleteWorkerBlockRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "DeleteWorkerBlock");
             #if DESKTOP
             return client.DeleteWorkerBlock(request);
             #elif CORECLR

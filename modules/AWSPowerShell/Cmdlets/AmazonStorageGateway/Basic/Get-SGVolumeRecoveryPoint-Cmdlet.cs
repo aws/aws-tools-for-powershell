@@ -126,8 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ListVolumeRecoveryPointsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListVolumeRecoveryPointsRequest request)
+        private Amazon.StorageGateway.Model.ListVolumeRecoveryPointsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListVolumeRecoveryPointsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ListVolumeRecoveryPoints");
             #if DESKTOP
             return client.ListVolumeRecoveryPoints(request);
             #elif CORECLR

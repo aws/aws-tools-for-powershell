@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeNatGatewaysResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNatGatewaysRequest request)
+        private Amazon.EC2.Model.DescribeNatGatewaysResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeNatGatewaysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeNatGateways");
             #if DESKTOP
             return client.DescribeNatGateways(request);
             #elif CORECLR

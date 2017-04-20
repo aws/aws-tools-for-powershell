@@ -220,8 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.ContinueUpdateRollbackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ContinueUpdateRollbackRequest request)
+        private Amazon.CloudFormation.Model.ContinueUpdateRollbackResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ContinueUpdateRollbackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ContinueUpdateRollback");
             #if DESKTOP
             return client.ContinueUpdateRollback(request);
             #elif CORECLR

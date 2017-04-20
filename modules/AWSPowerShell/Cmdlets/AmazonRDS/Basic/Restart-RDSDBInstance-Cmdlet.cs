@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RebootDBInstanceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RebootDBInstanceRequest request)
+        private Amazon.RDS.Model.RebootDBInstanceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RebootDBInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RebootDBInstance");
             #if DESKTOP
             return client.RebootDBInstance(request);
             #elif CORECLR

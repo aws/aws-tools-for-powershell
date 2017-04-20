@@ -143,8 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsRequest request)
+        private Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListServiceSpecificCredentialsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListServiceSpecificCredentials");
             #if DESKTOP
             return client.ListServiceSpecificCredentials(request);
             #elif CORECLR

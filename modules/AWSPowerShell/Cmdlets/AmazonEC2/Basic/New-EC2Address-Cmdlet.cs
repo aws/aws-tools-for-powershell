@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AllocateAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AllocateAddressRequest request)
+        private Amazon.EC2.Model.AllocateAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AllocateAddressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AllocateAddress");
             #if DESKTOP
             return client.AllocateAddress(request);
             #elif CORECLR

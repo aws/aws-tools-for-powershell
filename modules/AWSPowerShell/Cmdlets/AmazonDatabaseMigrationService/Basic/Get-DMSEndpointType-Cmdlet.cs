@@ -237,8 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DatabaseMigrationService.Model.DescribeEndpointTypesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeEndpointTypesRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeEndpointTypesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeEndpointTypesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeEndpointTypes");
             #if DESKTOP
             return client.DescribeEndpointTypes(request);
             #elif CORECLR

@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.CreateStackResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateStackRequest request)
+        private Amazon.AppStream.Model.CreateStackResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateStackRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "CreateStack");
             #if DESKTOP
             return client.CreateStack(request);
             #elif CORECLR

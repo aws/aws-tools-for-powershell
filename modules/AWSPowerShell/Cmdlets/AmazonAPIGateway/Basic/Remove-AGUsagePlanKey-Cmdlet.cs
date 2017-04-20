@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.DeleteUsagePlanKeyResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteUsagePlanKeyRequest request)
+        private Amazon.APIGateway.Model.DeleteUsagePlanKeyResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.DeleteUsagePlanKeyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "DeleteUsagePlanKey");
             #if DESKTOP
             return client.DeleteUsagePlanKey(request);
             #elif CORECLR

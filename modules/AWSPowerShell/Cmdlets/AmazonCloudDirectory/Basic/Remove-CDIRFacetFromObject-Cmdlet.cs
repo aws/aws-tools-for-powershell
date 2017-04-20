@@ -227,8 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.RemoveFacetFromObjectResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.RemoveFacetFromObjectRequest request)
+        private Amazon.CloudDirectory.Model.RemoveFacetFromObjectResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.RemoveFacetFromObjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "RemoveFacetFromObject");
             #if DESKTOP
             return client.RemoveFacetFromObject(request);
             #elif CORECLR

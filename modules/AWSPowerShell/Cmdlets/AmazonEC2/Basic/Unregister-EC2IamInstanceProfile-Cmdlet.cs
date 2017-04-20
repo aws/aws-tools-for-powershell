@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DisassociateIamInstanceProfileResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateIamInstanceProfileRequest request)
+        private Amazon.EC2.Model.DisassociateIamInstanceProfileResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateIamInstanceProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateIamInstanceProfile");
             #if DESKTOP
             return client.DisassociateIamInstanceProfile(request);
             #elif CORECLR

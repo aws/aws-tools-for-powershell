@@ -338,8 +338,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationRequest request)
+        private Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CreateConfigurationSetEventDestinationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateConfigurationSetEventDestination");
             #if DESKTOP
             return client.CreateConfigurationSetEventDestination(request);
             #elif CORECLR

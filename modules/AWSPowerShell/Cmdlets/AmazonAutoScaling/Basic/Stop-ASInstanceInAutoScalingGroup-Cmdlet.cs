@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupRequest request)
+        private Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "TerminateInstanceInAutoScalingGroup");
             #if DESKTOP
             return client.TerminateInstanceInAutoScalingGroup(request);
             #elif CORECLR

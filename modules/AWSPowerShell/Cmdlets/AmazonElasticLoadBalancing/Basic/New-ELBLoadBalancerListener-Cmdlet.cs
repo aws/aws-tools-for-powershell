@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersRequest request)
+        private Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "CreateLoadBalancerListeners");
             #if DESKTOP
             return client.CreateLoadBalancerListeners(request);
             #elif CORECLR

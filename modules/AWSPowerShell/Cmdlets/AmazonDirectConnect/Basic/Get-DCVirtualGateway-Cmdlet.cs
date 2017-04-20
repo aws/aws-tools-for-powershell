@@ -111,8 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeVirtualGatewaysRequest request)
+        private Amazon.DirectConnect.Model.DescribeVirtualGatewaysResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DescribeVirtualGatewaysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "DescribeVirtualGateways");
             #if DESKTOP
             return client.DescribeVirtualGateways(request);
             #elif CORECLR

@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private static Amazon.Rekognition.Model.DeleteFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteFacesRequest request)
+        private Amazon.Rekognition.Model.DeleteFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteFacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DeleteFaces");
             #if DESKTOP
             return client.DeleteFaces(request);
             #elif CORECLR

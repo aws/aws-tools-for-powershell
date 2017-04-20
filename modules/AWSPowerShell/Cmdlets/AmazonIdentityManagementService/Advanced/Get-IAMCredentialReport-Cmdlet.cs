@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 
         #region AWS Service Operation Call
 
-        private static Amazon.IdentityManagement.Model.GetCredentialReportResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetCredentialReportRequest request)
+        private Amazon.IdentityManagement.Model.GetCredentialReportResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetCredentialReportRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetCredentialReport");
 #if DESKTOP
             return client.GetCredentialReport(request);
 #elif CORECLR

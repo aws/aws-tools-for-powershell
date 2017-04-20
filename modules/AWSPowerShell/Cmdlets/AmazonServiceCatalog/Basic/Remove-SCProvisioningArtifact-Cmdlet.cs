@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactRequest request)
+        private Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DeleteProvisioningArtifact");
             #if DESKTOP
             return client.DeleteProvisioningArtifact(request);
             #elif CORECLR

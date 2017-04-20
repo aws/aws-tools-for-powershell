@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.DeleteBucketTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketTaggingRequest request)
+        private Amazon.S3.Model.DeleteBucketTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketTaggingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketTagging");
             #if DESKTOP
             return client.DeleteBucketTagging(request);
             #elif CORECLR

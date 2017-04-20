@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeletePlacementGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeletePlacementGroupRequest request)
+        private Amazon.EC2.Model.DeletePlacementGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeletePlacementGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeletePlacementGroup");
             #if DESKTOP
             return client.DeletePlacementGroup(request);
             #elif CORECLR

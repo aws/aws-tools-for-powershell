@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.GetFileUploadURLResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetFileUploadURLRequest request)
+        private Amazon.MTurk.Model.GetFileUploadURLResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetFileUploadURLRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "GetFileUploadURL");
             #if DESKTOP
             return client.GetFileUploadURL(request);
             #elif CORECLR

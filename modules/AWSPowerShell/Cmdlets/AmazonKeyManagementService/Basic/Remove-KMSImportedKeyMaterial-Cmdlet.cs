@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialRequest request)
+        private Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "DeleteImportedKeyMaterial");
             #if DESKTOP
             return client.DeleteImportedKeyMaterial(request);
             #elif CORECLR

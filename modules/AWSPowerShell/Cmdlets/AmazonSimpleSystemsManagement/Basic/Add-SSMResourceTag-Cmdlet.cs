@@ -201,8 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.AddTagsToResourceRequest request)
+        private Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.AddTagsToResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "AddTagsToResource");
             #if DESKTOP
             return client.AddTagsToResource(request);
             #elif CORECLR

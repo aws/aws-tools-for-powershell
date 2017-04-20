@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminResetUserPassword");
             #if DESKTOP
             return client.AdminResetUserPassword(request);
             #elif CORECLR

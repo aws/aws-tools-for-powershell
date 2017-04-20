@@ -317,8 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.CreateDeploymentResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CreateDeploymentRequest request)
+        private Amazon.OpsWorks.Model.CreateDeploymentResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.CreateDeploymentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "CreateDeployment");
             #if DESKTOP
             return client.CreateDeployment(request);
             #elif CORECLR

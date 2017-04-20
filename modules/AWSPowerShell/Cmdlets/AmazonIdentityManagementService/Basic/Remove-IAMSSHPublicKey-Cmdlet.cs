@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteSSHPublicKeyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteSSHPublicKeyRequest request)
+        private Amazon.IdentityManagement.Model.DeleteSSHPublicKeyResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteSSHPublicKeyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteSSHPublicKey");
             #if DESKTOP
             return client.DeleteSSHPublicKey(request);
             #elif CORECLR

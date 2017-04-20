@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.RestoreAddressToClassicResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RestoreAddressToClassicRequest request)
+        private Amazon.EC2.Model.RestoreAddressToClassicResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.RestoreAddressToClassicRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "RestoreAddressToClassic");
             #if DESKTOP
             return client.RestoreAddressToClassic(request);
             #elif CORECLR

@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.RDS.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveTagsFromResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RemoveTagsFromResource");
             #if DESKTOP
             return client.RemoveTagsFromResource(request);
             #elif CORECLR

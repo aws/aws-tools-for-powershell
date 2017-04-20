@@ -109,8 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeAccountAttributesRequest request)
+        private Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DescribeAccountAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DescribeAccountAttributes");
             #if DESKTOP
             return client.DescribeAccountAttributes(request);
             #elif CORECLR

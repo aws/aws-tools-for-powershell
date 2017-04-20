@@ -104,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.GetHealthCheckCountResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetHealthCheckCountRequest request)
+        private Amazon.Route53.Model.GetHealthCheckCountResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.GetHealthCheckCountRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "GetHealthCheckCount");
             #if DESKTOP
             return client.GetHealthCheckCount(request);
             #elif CORECLR

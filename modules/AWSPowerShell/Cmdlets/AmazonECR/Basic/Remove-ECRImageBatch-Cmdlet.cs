@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.BatchDeleteImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchDeleteImageRequest request)
+        private Amazon.ECR.Model.BatchDeleteImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchDeleteImageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchDeleteImage");
             #if DESKTOP
             return client.BatchDeleteImage(request);
             #elif CORECLR

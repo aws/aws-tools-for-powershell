@@ -210,8 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.ListServicesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListServicesRequest request)
+        private Amazon.ECS.Model.ListServicesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListServicesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "ListServices");
             #if DESKTOP
             return client.ListServices(request);
             #elif CORECLR

@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.DescribeSessionsResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DescribeSessionsRequest request)
+        private Amazon.AppStream.Model.DescribeSessionsResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DescribeSessionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DescribeSessions");
             #if DESKTOP
             return client.DescribeSessions(request);
             #elif CORECLR

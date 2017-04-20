@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.PutRetentionPolicyResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutRetentionPolicyRequest request)
+        private Amazon.CloudWatchLogs.Model.PutRetentionPolicyResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutRetentionPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "PutRetentionPolicy");
             #if DESKTOP
             return client.PutRetentionPolicy(request);
             #elif CORECLR

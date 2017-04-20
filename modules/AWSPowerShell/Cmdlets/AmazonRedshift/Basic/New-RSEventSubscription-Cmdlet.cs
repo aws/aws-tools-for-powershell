@@ -285,8 +285,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.CreateEventSubscriptionResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateEventSubscriptionRequest request)
+        private Amazon.Redshift.Model.CreateEventSubscriptionResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.CreateEventSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "CreateEventSubscription");
             #if DESKTOP
             return client.CreateEventSubscription(request);
             #elif CORECLR

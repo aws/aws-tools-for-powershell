@@ -247,8 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParameterHistoryRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetParameterHistoryResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParameterHistoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetParameterHistory");
             #if DESKTOP
             return client.GetParameterHistory(request);
             #elif CORECLR

@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.GetRegistrationCodeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetRegistrationCodeRequest request)
+        private Amazon.IoT.Model.GetRegistrationCodeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetRegistrationCodeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "GetRegistrationCode");
             #if DESKTOP
             return client.GetRegistrationCode(request);
             #elif CORECLR

@@ -190,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.ModifyOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyOptionGroupRequest request)
+        private Amazon.RDS.Model.ModifyOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyOptionGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "ModifyOptionGroup");
             #if DESKTOP
             return client.ModifyOptionGroup(request);
             #elif CORECLR

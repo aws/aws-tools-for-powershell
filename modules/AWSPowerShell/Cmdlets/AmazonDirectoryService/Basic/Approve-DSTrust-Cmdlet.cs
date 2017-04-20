@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.VerifyTrustResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.VerifyTrustRequest request)
+        private Amazon.DirectoryService.Model.VerifyTrustResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.VerifyTrustRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "VerifyTrust");
             #if DESKTOP
             return client.VerifyTrust(request);
             #elif CORECLR

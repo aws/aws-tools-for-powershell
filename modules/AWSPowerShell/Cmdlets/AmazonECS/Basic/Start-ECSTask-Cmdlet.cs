@@ -274,8 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.StartTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.StartTaskRequest request)
+        private Amazon.ECS.Model.StartTaskResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.StartTaskRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "StartTask");
             #if DESKTOP
             return client.StartTask(request);
             #elif CORECLR

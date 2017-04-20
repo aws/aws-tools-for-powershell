@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorksCM.Model.UpdateServerEngineAttributesResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.UpdateServerEngineAttributesRequest request)
+        private Amazon.OpsWorksCM.Model.UpdateServerEngineAttributesResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.UpdateServerEngineAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "UpdateServerEngineAttributes");
             #if DESKTOP
             return client.UpdateServerEngineAttributes(request);
             #elif CORECLR

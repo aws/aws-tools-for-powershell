@@ -225,8 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.GetSampledRequestsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetSampledRequestsRequest request)
+        private Amazon.WAFRegional.Model.GetSampledRequestsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetSampledRequestsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "GetSampledRequests");
             #if DESKTOP
             return client.GetSampledRequests(request);
             #elif CORECLR

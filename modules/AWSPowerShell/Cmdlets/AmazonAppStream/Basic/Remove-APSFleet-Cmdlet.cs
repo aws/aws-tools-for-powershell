@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.DeleteFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DeleteFleetRequest request)
+        private Amazon.AppStream.Model.DeleteFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DeleteFleetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DeleteFleet");
             #if DESKTOP
             return client.DeleteFleet(request);
             #elif CORECLR

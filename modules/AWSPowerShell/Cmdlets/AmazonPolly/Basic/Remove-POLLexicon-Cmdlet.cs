@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.POL
         
         #region AWS Service Operation Call
         
-        private static Amazon.Polly.Model.DeleteLexiconResponse CallAWSServiceOperation(IAmazonPolly client, Amazon.Polly.Model.DeleteLexiconRequest request)
+        private Amazon.Polly.Model.DeleteLexiconResponse CallAWSServiceOperation(IAmazonPolly client, Amazon.Polly.Model.DeleteLexiconRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Polly", "DeleteLexicon");
             #if DESKTOP
             return client.DeleteLexicon(request);
             #elif CORECLR

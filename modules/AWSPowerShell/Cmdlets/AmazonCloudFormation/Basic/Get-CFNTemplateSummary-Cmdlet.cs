@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudFormation.Model.GetTemplateSummaryResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.GetTemplateSummaryRequest request)
+        private Amazon.CloudFormation.Model.GetTemplateSummaryResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.GetTemplateSummaryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "GetTemplateSummary");
             #if DESKTOP
             return client.GetTemplateSummary(request);
             #elif CORECLR

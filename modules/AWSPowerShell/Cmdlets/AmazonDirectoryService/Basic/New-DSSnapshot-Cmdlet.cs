@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateSnapshotRequest request)
+        private Amazon.DirectoryService.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CreateSnapshot");
             #if DESKTOP
             return client.CreateSnapshot(request);
             #elif CORECLR

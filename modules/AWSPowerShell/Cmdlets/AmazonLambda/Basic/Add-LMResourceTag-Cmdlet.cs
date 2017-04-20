@@ -170,8 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.TagResourceResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.TagResourceRequest request)
+        private Amazon.Lambda.Model.TagResourceResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.TagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "TagResource");
             #if DESKTOP
             return client.TagResource(request);
             #elif CORECLR

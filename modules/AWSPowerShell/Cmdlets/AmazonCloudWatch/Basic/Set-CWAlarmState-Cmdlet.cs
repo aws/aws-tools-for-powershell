@@ -198,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatch.Model.SetAlarmStateResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.SetAlarmStateRequest request)
+        private Amazon.CloudWatch.Model.SetAlarmStateResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.SetAlarmStateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "SetAlarmState");
             #if DESKTOP
             return client.SetAlarmState(request);
             #elif CORECLR

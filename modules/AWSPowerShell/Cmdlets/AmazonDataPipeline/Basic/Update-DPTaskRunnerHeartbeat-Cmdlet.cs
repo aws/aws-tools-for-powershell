@@ -174,8 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatRequest request)
+        private Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "ReportTaskRunnerHeartbeat");
             #if DESKTOP
             return client.ReportTaskRunnerHeartbeat(request);
             #elif CORECLR

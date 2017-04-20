@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CancelRetrievalResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CancelRetrievalRequest request)
+        private Amazon.StorageGateway.Model.CancelRetrievalResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CancelRetrievalRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CancelRetrieval");
             #if DESKTOP
             return client.CancelRetrieval(request);
             #elif CORECLR

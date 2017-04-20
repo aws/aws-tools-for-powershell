@@ -178,8 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTagsRequest request)
+        private Amazon.EC2.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteTags");
             #if DESKTOP
             return client.DeleteTags(request);
             #elif CORECLR

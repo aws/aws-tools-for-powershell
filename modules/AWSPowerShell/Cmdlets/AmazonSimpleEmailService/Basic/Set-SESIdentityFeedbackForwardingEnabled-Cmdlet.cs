@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledRequest request)
+        private Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "SetIdentityFeedbackForwardingEnabled");
             #if DESKTOP
             return client.SetIdentityFeedbackForwardingEnabled(request);
             #elif CORECLR

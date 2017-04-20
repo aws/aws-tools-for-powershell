@@ -206,8 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ListFileSharesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListFileSharesRequest request)
+        private Amazon.StorageGateway.Model.ListFileSharesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListFileSharesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ListFileShares");
             #if DESKTOP
             return client.ListFileShares(request);
             #elif CORECLR

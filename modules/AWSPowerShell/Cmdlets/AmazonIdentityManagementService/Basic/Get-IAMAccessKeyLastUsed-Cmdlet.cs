@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetAccessKeyLastUsedRequest request)
+        private Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.GetAccessKeyLastUsedRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "GetAccessKeyLastUsed");
             #if DESKTOP
             return client.GetAccessKeyLastUsed(request);
             #elif CORECLR

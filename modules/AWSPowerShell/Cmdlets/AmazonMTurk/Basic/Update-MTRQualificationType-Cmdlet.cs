@@ -307,8 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.UpdateQualificationTypeResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.UpdateQualificationTypeRequest request)
+        private Amazon.MTurk.Model.UpdateQualificationTypeResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.UpdateQualificationTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "UpdateQualificationType");
             #if DESKTOP
             return client.UpdateQualificationType(request);
             #elif CORECLR

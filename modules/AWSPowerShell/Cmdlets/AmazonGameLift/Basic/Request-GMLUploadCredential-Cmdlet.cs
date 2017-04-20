@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private static Amazon.GameLift.Model.RequestUploadCredentialsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.RequestUploadCredentialsRequest request)
+        private Amazon.GameLift.Model.RequestUploadCredentialsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.RequestUploadCredentialsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "RequestUploadCredentials");
             #if DESKTOP
             return client.RequestUploadCredentials(request);
             #elif CORECLR

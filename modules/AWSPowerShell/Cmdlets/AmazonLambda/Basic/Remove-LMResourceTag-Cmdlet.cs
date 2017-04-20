@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.UntagResourceRequest request)
+        private Amazon.Lambda.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.UntagResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "UntagResource");
             #if DESKTOP
             return client.UntagResource(request);
             #elif CORECLR

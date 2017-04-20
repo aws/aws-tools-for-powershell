@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSpotFleetRequestHistoryRequest request)
+        private Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeSpotFleetRequestHistoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeSpotFleetRequestHistory");
             #if DESKTOP
             return client.DescribeSpotFleetRequestHistory(request);
             #elif CORECLR

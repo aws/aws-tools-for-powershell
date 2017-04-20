@@ -215,8 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.DisassociateVPCFromHostedZoneRequest request)
+        private Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.DisassociateVPCFromHostedZoneRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "DisassociateVPCFromHostedZone");
             #if DESKTOP
             return client.DisassociateVPCFromHostedZone(request);
             #elif CORECLR

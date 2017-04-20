@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
 
         #region AWS Service Operation Call
 
-        private static Amazon.CloudWatch.Model.ListMetricsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.ListMetricsRequest request)
+        private Amazon.CloudWatch.Model.ListMetricsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.ListMetricsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "ListMetrics");
 #if DESKTOP
             return client.ListMetrics(request);
 #elif CORECLR

@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminSetUserSettingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminSetUserSettings");
             #if DESKTOP
             return client.AdminSetUserSettings(request);
             #elif CORECLR

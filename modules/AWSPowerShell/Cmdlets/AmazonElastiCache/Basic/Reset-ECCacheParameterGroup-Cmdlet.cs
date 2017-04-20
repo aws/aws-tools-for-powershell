@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.ResetCacheParameterGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ResetCacheParameterGroupRequest request)
+        private Amazon.ElastiCache.Model.ResetCacheParameterGroupResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.ResetCacheParameterGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "ResetCacheParameterGroup");
             #if DESKTOP
             return client.ResetCacheParameterGroup(request);
             #elif CORECLR

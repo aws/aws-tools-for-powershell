@@ -237,8 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkDocs.Model.InitiateDocumentVersionUploadResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.InitiateDocumentVersionUploadRequest request)
+        private Amazon.WorkDocs.Model.InitiateDocumentVersionUploadResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.InitiateDocumentVersionUploadRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "InitiateDocumentVersionUpload");
             #if DESKTOP
             return client.InitiateDocumentVersionUpload(request);
             #elif CORECLR

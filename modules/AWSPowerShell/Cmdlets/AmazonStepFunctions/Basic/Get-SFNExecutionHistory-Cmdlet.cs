@@ -224,8 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.StepFunctions.Model.GetExecutionHistoryResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.GetExecutionHistoryRequest request)
+        private Amazon.StepFunctions.Model.GetExecutionHistoryResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.GetExecutionHistoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "GetExecutionHistory");
             #if DESKTOP
             return client.GetExecutionHistory(request);
             #elif CORECLR

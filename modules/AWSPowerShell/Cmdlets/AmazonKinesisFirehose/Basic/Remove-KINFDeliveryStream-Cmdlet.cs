@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.DeleteDeliveryStreamRequest request)
+        private Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.DeleteDeliveryStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "DeleteDeliveryStream");
             #if DESKTOP
             return client.DeleteDeliveryStream(request);
             #elif CORECLR

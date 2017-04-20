@@ -198,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListTagsForResourceRequest request)
+        private Amazon.DirectoryService.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListTagsForResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ListTagsForResource");
             #if DESKTOP
             return client.ListTagsForResource(request);
             #elif CORECLR

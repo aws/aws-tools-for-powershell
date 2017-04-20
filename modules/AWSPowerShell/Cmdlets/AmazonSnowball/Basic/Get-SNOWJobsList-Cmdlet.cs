@@ -189,8 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #region AWS Service Operation Call
         
-        private static Amazon.Snowball.Model.ListJobsResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.ListJobsRequest request)
+        private Amazon.Snowball.Model.ListJobsResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.ListJobsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export Snowball", "ListJobs");
             #if DESKTOP
             return client.ListJobs(request);
             #elif CORECLR

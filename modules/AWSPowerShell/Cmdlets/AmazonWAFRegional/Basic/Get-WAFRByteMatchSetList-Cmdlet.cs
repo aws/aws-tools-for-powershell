@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAFRegional.Model.ListByteMatchSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListByteMatchSetsRequest request)
+        private Amazon.WAFRegional.Model.ListByteMatchSetsResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListByteMatchSetsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "ListByteMatchSets");
             #if DESKTOP
             return client.ListByteMatchSets(request);
             #elif CORECLR

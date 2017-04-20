@@ -165,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.ListPublicKeysResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListPublicKeysRequest request)
+        private Amazon.CloudTrail.Model.ListPublicKeysResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListPublicKeysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "ListPublicKeys");
             #if DESKTOP
             return client.ListPublicKeys(request);
             #elif CORECLR

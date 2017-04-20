@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.DeleteNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteNetworkProfileRequest request)
+        private Amazon.DeviceFarm.Model.DeleteNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteNetworkProfileRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "DeleteNetworkProfile");
             #if DESKTOP
             return client.DeleteNetworkProfile(request);
             #elif CORECLR

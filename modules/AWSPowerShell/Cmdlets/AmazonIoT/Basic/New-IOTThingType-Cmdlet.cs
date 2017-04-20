@@ -188,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.CreateThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateThingTypeRequest request)
+        private Amazon.IoT.Model.CreateThingTypeResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateThingTypeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "CreateThingType");
             #if DESKTOP
             return client.CreateThingType(request);
             #elif CORECLR

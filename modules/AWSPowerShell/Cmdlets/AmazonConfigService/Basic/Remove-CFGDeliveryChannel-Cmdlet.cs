@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DeleteDeliveryChannelResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteDeliveryChannelRequest request)
+        private Amazon.ConfigService.Model.DeleteDeliveryChannelResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeleteDeliveryChannelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeleteDeliveryChannel");
             #if DESKTOP
             return client.DeleteDeliveryChannel(request);
             #elif CORECLR

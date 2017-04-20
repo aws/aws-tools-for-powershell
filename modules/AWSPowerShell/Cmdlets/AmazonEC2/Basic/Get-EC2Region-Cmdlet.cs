@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeRegionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeRegionsRequest request)
+        private Amazon.EC2.Model.DescribeRegionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeRegionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeRegions");
             #if DESKTOP
             return client.DescribeRegions(request);
             #elif CORECLR

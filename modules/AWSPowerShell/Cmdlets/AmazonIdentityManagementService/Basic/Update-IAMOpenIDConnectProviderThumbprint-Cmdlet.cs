@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintRequest request)
+        private Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "UpdateOpenIDConnectProviderThumbprint");
             #if DESKTOP
             return client.UpdateOpenIDConnectProviderThumbprint(request);
             #elif CORECLR

@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceNetworkAclAssociationRequest request)
+        private Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceNetworkAclAssociationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceNetworkAclAssociation");
             #if DESKTOP
             return client.ReplaceNetworkAclAssociation(request);
             #elif CORECLR

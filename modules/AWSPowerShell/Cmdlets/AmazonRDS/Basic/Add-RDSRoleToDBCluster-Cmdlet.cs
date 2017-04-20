@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.AddRoleToDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddRoleToDBClusterRequest request)
+        private Amazon.RDS.Model.AddRoleToDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddRoleToDBClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "AddRoleToDBCluster");
             #if DESKTOP
             return client.AddRoleToDBCluster(request);
             #elif CORECLR

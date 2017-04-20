@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DisassociateRouteTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateRouteTableRequest request)
+        private Amazon.EC2.Model.DisassociateRouteTableResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisassociateRouteTableRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DisassociateRouteTable");
             #if DESKTOP
             return client.DisassociateRouteTable(request);
             #elif CORECLR

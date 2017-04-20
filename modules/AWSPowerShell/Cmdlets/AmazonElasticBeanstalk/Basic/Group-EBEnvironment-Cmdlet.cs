@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsRequest request)
+        private Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "ComposeEnvironments");
             #if DESKTOP
             return client.ComposeEnvironments(request);
             #elif CORECLR

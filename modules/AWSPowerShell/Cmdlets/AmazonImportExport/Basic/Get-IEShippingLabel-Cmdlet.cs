@@ -288,8 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         #region AWS Service Operation Call
         
-        private static Amazon.ImportExport.Model.GetShippingLabelResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.GetShippingLabelRequest request)
+        private Amazon.ImportExport.Model.GetShippingLabelResponse CallAWSServiceOperation(IAmazonImportExport client, Amazon.ImportExport.Model.GetShippingLabelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export", "GetShippingLabel");
             #if DESKTOP
             return client.GetShippingLabel(request);
             #elif CORECLR

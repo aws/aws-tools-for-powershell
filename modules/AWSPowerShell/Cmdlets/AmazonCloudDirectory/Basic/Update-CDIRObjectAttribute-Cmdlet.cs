@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateObjectAttributesRequest request)
+        private Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateObjectAttributesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpdateObjectAttributes");
             #if DESKTOP
             return client.UpdateObjectAttributes(request);
             #elif CORECLR

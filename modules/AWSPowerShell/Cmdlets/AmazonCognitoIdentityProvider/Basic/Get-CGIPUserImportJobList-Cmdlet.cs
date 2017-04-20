@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.ListUserImportJobsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListUserImportJobsRequest request)
+        private Amazon.CognitoIdentityProvider.Model.ListUserImportJobsResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListUserImportJobsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ListUserImportJobs");
             #if DESKTOP
             return client.ListUserImportJobs(request);
             #elif CORECLR

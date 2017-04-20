@@ -749,8 +749,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.CreateSegmentResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.CreateSegmentRequest request)
+        private Amazon.Pinpoint.Model.CreateSegmentResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.CreateSegmentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "CreateSegment");
             #if DESKTOP
             return client.CreateSegment(request);
             #elif CORECLR

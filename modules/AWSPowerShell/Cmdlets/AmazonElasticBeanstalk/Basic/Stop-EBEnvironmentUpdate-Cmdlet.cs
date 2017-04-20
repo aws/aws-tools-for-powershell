@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateRequest request)
+        private Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "AbortEnvironmentUpdate");
             #if DESKTOP
             return client.AbortEnvironmentUpdate(request);
             #elif CORECLR

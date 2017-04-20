@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteNatGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteNatGatewayRequest request)
+        private Amazon.EC2.Model.DeleteNatGatewayResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteNatGatewayRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteNatGateway");
             #if DESKTOP
             return client.DeleteNatGateway(request);
             #elif CORECLR

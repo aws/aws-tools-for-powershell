@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DeleteOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteOptionGroupRequest request)
+        private Amazon.RDS.Model.DeleteOptionGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteOptionGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteOptionGroup");
             #if DESKTOP
             return client.DeleteOptionGroup(request);
             #elif CORECLR

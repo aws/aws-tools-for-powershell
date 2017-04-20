@@ -198,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
         #region AWS Service Operation Call
 
-        private static Amazon.Lambda.Model.InvokeResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.InvokeRequest request)
+        private Amazon.Lambda.Model.InvokeResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.InvokeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "Invoke");
 #if DESKTOP
             return client.Invoke(request);
 #elif CORECLR

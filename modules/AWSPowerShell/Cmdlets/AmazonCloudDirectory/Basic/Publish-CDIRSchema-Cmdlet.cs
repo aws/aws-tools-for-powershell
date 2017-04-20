@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudDirectory.Model.PublishSchemaResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.PublishSchemaRequest request)
+        private Amazon.CloudDirectory.Model.PublishSchemaResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.PublishSchemaRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "PublishSchema");
             #if DESKTOP
             return client.PublishSchema(request);
             #elif CORECLR

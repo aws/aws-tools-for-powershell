@@ -219,8 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.SendBonusResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.SendBonusRequest request)
+        private Amazon.MTurk.Model.SendBonusResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.SendBonusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "SendBonus");
             #if DESKTOP
             return client.SendBonus(request);
             #elif CORECLR

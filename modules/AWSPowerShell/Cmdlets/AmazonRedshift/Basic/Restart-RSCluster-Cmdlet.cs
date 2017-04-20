@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.RebootClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RebootClusterRequest request)
+        private Amazon.Redshift.Model.RebootClusterResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RebootClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RebootCluster");
             #if DESKTOP
             return client.RebootCluster(request);
             #elif CORECLR

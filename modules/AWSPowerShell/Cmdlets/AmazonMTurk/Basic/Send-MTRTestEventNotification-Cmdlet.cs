@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.SendTestEventNotificationResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.SendTestEventNotificationRequest request)
+        private Amazon.MTurk.Model.SendTestEventNotificationResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.SendTestEventNotificationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "SendTestEventNotification");
             #if DESKTOP
             return client.SendTestEventNotification(request);
             #elif CORECLR

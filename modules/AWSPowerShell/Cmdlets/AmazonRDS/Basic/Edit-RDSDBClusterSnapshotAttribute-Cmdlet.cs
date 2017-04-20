@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.ModifyDBClusterSnapshotAttributeResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBClusterSnapshotAttributeRequest request)
+        private Amazon.RDS.Model.ModifyDBClusterSnapshotAttributeResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBClusterSnapshotAttributeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "ModifyDBClusterSnapshotAttribute");
             #if DESKTOP
             return client.ModifyDBClusterSnapshotAttribute(request);
             #elif CORECLR

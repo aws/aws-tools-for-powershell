@@ -119,8 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionRequest request)
+        private Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DeleteSpotDatafeedSubscription");
             #if DESKTOP
             return client.DeleteSpotDatafeedSubscription(request);
             #elif CORECLR

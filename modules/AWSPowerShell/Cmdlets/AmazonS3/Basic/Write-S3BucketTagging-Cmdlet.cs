@@ -185,8 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.PutBucketTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketTaggingRequest request)
+        private Amazon.S3.Model.PutBucketTaggingResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketTaggingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketTagging");
             #if DESKTOP
             return client.PutBucketTagging(request);
             #elif CORECLR

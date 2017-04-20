@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.RemoveTagsRequest request)
+        private Amazon.DataPipeline.Model.RemoveTagsResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.RemoveTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "RemoveTags");
             #if DESKTOP
             return client.RemoveTags(request);
             #elif CORECLR

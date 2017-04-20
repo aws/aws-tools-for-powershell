@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #region AWS Service Operation Call
         
-        private static Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ValidatePipelineDefinitionRequest request)
+        private Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.ValidatePipelineDefinitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "ValidatePipelineDefinition");
             #if DESKTOP
             return client.ValidatePipelineDefinition(request);
             #elif CORECLR

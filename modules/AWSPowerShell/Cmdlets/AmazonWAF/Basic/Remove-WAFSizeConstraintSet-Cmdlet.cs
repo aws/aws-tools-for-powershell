@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.DeleteSizeConstraintSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteSizeConstraintSetRequest request)
+        private Amazon.WAF.Model.DeleteSizeConstraintSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteSizeConstraintSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "DeleteSizeConstraintSet");
             #if DESKTOP
             return client.DeleteSizeConstraintSet(request);
             #elif CORECLR

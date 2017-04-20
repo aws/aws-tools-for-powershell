@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #region AWS Service Operation Call
         
-        private static Amazon.ConfigService.Model.DeliverConfigSnapshotResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeliverConfigSnapshotRequest request)
+        private Amazon.ConfigService.Model.DeliverConfigSnapshotResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.DeliverConfigSnapshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeliverConfigSnapshot");
             #if DESKTOP
             return client.DeliverConfigSnapshot(request);
             #elif CORECLR

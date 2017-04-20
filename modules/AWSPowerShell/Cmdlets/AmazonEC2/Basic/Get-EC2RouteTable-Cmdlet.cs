@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeRouteTablesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeRouteTablesRequest request)
+        private Amazon.EC2.Model.DescribeRouteTablesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeRouteTablesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeRouteTables");
             #if DESKTOP
             return client.DescribeRouteTables(request);
             #elif CORECLR

@@ -131,8 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.LeaveOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.LeaveOrganizationRequest request)
+        private Amazon.Organizations.Model.LeaveOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.LeaveOrganizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "LeaveOrganization");
             #if DESKTOP
             return client.LeaveOrganization(request);
             #elif CORECLR

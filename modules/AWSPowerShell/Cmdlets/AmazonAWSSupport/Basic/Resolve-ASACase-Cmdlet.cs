@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.ResolveCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.ResolveCaseRequest request)
+        private Amazon.AWSSupport.Model.ResolveCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.ResolveCaseRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "ResolveCase");
             #if DESKTOP
             return client.ResolveCase(request);
             #elif CORECLR

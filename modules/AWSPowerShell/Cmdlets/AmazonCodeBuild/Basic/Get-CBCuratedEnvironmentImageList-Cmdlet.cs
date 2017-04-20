@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesRequest request)
+        private Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "ListCuratedEnvironmentImages");
             #if DESKTOP
             return client.ListCuratedEnvironmentImages(request);
             #elif CORECLR

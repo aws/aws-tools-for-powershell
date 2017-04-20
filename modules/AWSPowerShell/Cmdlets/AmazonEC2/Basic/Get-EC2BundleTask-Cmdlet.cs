@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DescribeBundleTasksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeBundleTasksRequest request)
+        private Amazon.EC2.Model.DescribeBundleTasksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeBundleTasksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DescribeBundleTasks");
             #if DESKTOP
             return client.DescribeBundleTasks(request);
             #elif CORECLR

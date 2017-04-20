@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private static Amazon.IoT.Model.DetachThingPrincipalResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DetachThingPrincipalRequest request)
+        private Amazon.IoT.Model.DetachThingPrincipalResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DetachThingPrincipalRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DetachThingPrincipal");
             #if DESKTOP
             return client.DetachThingPrincipal(request);
             #elif CORECLR

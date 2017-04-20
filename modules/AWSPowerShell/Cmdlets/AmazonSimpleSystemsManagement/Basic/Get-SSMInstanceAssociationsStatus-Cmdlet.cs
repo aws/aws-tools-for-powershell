@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeInstanceAssociationsStatusResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstanceAssociationsStatusRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeInstanceAssociationsStatusResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeInstanceAssociationsStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeInstanceAssociationsStatus");
             #if DESKTOP
             return client.DescribeInstanceAssociationsStatus(request);
             #elif CORECLR

@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddSourceIdentifierToSubscriptionRequest request)
+        private Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.AddSourceIdentifierToSubscriptionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "AddSourceIdentifierToSubscription");
             #if DESKTOP
             return client.AddSourceIdentifierToSubscription(request);
             #elif CORECLR

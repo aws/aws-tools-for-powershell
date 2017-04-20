@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeEffectivePatchesForPatchBaseline");
             #if DESKTOP
             return client.DescribeEffectivePatchesForPatchBaseline(request);
             #elif CORECLR

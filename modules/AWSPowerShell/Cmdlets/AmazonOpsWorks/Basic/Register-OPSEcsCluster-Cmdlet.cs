@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.RegisterEcsClusterResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterEcsClusterRequest request)
+        private Amazon.OpsWorks.Model.RegisterEcsClusterResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.RegisterEcsClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "RegisterEcsCluster");
             #if DESKTOP
             return client.RegisterEcsCluster(request);
             #elif CORECLR

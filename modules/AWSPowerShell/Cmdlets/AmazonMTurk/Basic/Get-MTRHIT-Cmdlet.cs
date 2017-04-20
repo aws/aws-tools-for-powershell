@@ -118,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.GetHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetHITRequest request)
+        private Amazon.MTurk.Model.GetHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetHITRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "GetHIT");
             #if DESKTOP
             return client.GetHIT(request);
             #elif CORECLR

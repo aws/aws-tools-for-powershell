@@ -217,8 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.ExecutePolicyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.ExecutePolicyRequest request)
+        private Amazon.AutoScaling.Model.ExecutePolicyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.ExecutePolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "ExecutePolicy");
             #if DESKTOP
             return client.ExecutePolicy(request);
             #elif CORECLR

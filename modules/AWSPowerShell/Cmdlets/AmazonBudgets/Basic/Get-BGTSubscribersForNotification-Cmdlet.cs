@@ -288,8 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.Budgets.Model.DescribeSubscribersForNotificationResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DescribeSubscribersForNotificationRequest request)
+        private Amazon.Budgets.Model.DescribeSubscribersForNotificationResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DescribeSubscribersForNotificationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DescribeSubscribersForNotification");
             #if DESKTOP
             return client.DescribeSubscribersForNotification(request);
             #elif CORECLR

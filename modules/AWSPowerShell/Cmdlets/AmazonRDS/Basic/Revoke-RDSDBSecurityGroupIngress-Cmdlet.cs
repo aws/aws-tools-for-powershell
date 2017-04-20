@@ -208,8 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RevokeDBSecurityGroupIngressRequest request)
+        private Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RevokeDBSecurityGroupIngressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RevokeDBSecurityGroupIngress");
             #if DESKTOP
             return client.RevokeDBSecurityGroupIngress(request);
             #elif CORECLR

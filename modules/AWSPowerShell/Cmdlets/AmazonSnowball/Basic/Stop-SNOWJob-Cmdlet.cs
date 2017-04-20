@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #region AWS Service Operation Call
         
-        private static Amazon.Snowball.Model.CancelJobResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CancelJobRequest request)
+        private Amazon.Snowball.Model.CancelJobResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.CancelJobRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export Snowball", "CancelJob");
             #if DESKTOP
             return client.CancelJob(request);
             #elif CORECLR

@@ -108,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.DescribeOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DescribeOrganizationRequest request)
+        private Amazon.Organizations.Model.DescribeOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DescribeOrganizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DescribeOrganization");
             #if DESKTOP
             return client.DescribeOrganization(request);
             #elif CORECLR

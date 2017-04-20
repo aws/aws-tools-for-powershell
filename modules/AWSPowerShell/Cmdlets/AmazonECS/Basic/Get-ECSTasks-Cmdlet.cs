@@ -308,8 +308,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECS.Model.ListTasksResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListTasksRequest request)
+        private Amazon.ECS.Model.ListTasksResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListTasksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "ListTasks");
             #if DESKTOP
             return client.ListTasks(request);
             #elif CORECLR

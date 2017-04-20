@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderRequest request)
+        private Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteOpenIDConnectProvider");
             #if DESKTOP
             return client.DeleteOpenIDConnectProvider(request);
             #elif CORECLR

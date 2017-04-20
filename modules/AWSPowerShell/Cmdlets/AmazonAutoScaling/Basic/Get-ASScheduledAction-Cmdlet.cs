@@ -257,8 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DescribeScheduledActionsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeScheduledActionsRequest request)
+        private Amazon.AutoScaling.Model.DescribeScheduledActionsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeScheduledActionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeScheduledActions");
             #if DESKTOP
             return client.DescribeScheduledActions(request);
             #elif CORECLR

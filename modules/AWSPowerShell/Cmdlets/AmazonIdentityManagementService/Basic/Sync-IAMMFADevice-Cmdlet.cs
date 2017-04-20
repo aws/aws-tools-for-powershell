@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ResyncMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ResyncMFADeviceRequest request)
+        private Amazon.IdentityManagement.Model.ResyncMFADeviceResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ResyncMFADeviceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ResyncMFADevice");
             #if DESKTOP
             return client.ResyncMFADevice(request);
             #elif CORECLR

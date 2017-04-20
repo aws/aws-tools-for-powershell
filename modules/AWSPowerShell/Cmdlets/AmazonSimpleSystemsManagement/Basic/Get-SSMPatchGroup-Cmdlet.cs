@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribePatchGroups");
             #if DESKTOP
             return client.DescribePatchGroups(request);
             #elif CORECLR

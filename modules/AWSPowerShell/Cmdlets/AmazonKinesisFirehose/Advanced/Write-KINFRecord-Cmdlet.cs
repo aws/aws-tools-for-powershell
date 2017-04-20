@@ -265,8 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
 
         #region AWS Service Operation Call
 
-        private static Amazon.KinesisFirehose.Model.PutRecordResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.PutRecordRequest request)
+        private Amazon.KinesisFirehose.Model.PutRecordResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.PutRecordRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "PutRecord");
 #if DESKTOP
             return client.PutRecord(request);
 #elif CORECLR

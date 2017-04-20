@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectRequest request)
+        private Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "AllocateConnectionOnInterconnect");
             #if DESKTOP
             return client.AllocateConnectionOnInterconnect(request);
             #elif CORECLR

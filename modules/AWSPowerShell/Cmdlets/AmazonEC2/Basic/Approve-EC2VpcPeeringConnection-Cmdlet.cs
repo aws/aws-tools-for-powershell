@@ -137,8 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptVpcPeeringConnectionRequest request)
+        private Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptVpcPeeringConnectionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "AcceptVpcPeeringConnection");
             #if DESKTOP
             return client.AcceptVpcPeeringConnection(request);
             #elif CORECLR

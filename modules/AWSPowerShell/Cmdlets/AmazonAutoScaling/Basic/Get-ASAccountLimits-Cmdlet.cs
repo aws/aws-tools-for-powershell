@@ -108,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAccountLimitsRequest request)
+        private Amazon.AutoScaling.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAccountLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeAccountLimits");
             #if DESKTOP
             return client.DescribeAccountLimits(request);
             #elif CORECLR

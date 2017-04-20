@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudTrail.Model.DeleteTrailResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DeleteTrailRequest request)
+        private Amazon.CloudTrail.Model.DeleteTrailResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DeleteTrailRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "DeleteTrail");
             #if DESKTOP
             return client.DeleteTrail(request);
             #elif CORECLR

@@ -176,8 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ReleaseAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReleaseAddressRequest request)
+        private Amazon.EC2.Model.ReleaseAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReleaseAddressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReleaseAddress");
             #if DESKTOP
             return client.ReleaseAddress(request);
             #elif CORECLR

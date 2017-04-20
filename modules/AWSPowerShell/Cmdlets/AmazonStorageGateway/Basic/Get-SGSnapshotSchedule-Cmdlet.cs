@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeSnapshotScheduleRequest request)
+        private Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeSnapshotScheduleRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DescribeSnapshotSchedule");
             #if DESKTOP
             return client.DescribeSnapshotSchedule(request);
             #elif CORECLR

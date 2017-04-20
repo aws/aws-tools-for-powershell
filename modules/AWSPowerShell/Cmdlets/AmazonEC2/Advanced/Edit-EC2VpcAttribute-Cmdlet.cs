@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         #region AWS Service Operation Call
 
-        private static Amazon.EC2.Model.ModifyVpcAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcAttributeRequest request)
+        private Amazon.EC2.Model.ModifyVpcAttributeResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyVpcAttributeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "ModifyVpcAttribute");
 #if DESKTOP
             return client.ModifyVpcAttribute(request);
 #elif CORECLR

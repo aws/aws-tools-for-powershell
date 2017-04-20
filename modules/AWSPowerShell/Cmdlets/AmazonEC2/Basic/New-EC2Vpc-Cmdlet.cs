@@ -191,8 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpcRequest request)
+        private Amazon.EC2.Model.CreateVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateVpcRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateVpc");
             #if DESKTOP
             return client.CreateVpc(request);
             #elif CORECLR

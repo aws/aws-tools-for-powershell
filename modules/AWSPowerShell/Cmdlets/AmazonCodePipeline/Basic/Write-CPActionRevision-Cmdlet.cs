@@ -238,8 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.PutActionRevisionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutActionRevisionRequest request)
+        private Amazon.CodePipeline.Model.PutActionRevisionResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutActionRevisionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "PutActionRevision");
             #if DESKTOP
             return client.PutActionRevision(request);
             #elif CORECLR

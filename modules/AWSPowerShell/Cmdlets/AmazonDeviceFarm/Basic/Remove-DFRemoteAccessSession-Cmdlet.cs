@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionRequest request)
+        private Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "DeleteRemoteAccessSession");
             #if DESKTOP
             return client.DeleteRemoteAccessSession(request);
             #elif CORECLR

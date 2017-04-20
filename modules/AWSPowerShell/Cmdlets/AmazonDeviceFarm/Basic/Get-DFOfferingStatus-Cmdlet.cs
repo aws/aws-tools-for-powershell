@@ -125,8 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.GetOfferingStatusResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetOfferingStatusRequest request)
+        private Amazon.DeviceFarm.Model.GetOfferingStatusResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.GetOfferingStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "GetOfferingStatus");
             #if DESKTOP
             return client.GetOfferingStatus(request);
             #elif CORECLR

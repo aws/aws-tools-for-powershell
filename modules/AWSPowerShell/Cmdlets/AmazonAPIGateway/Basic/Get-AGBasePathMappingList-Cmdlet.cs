@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetBasePathMappingsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetBasePathMappingsRequest request)
+        private Amazon.APIGateway.Model.GetBasePathMappingsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetBasePathMappingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetBasePathMappings");
             #if DESKTOP
             return client.GetBasePathMappings(request);
             #elif CORECLR

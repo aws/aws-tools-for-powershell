@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.DetachClassicLinkVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachClassicLinkVpcRequest request)
+        private Amazon.EC2.Model.DetachClassicLinkVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DetachClassicLinkVpcRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "DetachClassicLinkVpc");
             #if DESKTOP
             return client.DetachClassicLinkVpc(request);
             #elif CORECLR

@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GenerateClientCertificateResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GenerateClientCertificateRequest request)
+        private Amazon.APIGateway.Model.GenerateClientCertificateResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GenerateClientCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GenerateClientCertificate");
             #if DESKTOP
             return client.GenerateClientCertificate(request);
             #elif CORECLR

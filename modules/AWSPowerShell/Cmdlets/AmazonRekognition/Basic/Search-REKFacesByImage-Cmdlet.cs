@@ -312,8 +312,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private static Amazon.Rekognition.Model.SearchFacesByImageResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.SearchFacesByImageRequest request)
+        private Amazon.Rekognition.Model.SearchFacesByImageResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.SearchFacesByImageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "SearchFacesByImage");
             #if DESKTOP
             return client.SearchFacesByImage(request);
             #elif CORECLR

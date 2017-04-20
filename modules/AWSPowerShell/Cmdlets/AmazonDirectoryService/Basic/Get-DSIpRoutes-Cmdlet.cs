@@ -200,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.ListIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListIpRoutesRequest request)
+        private Amazon.DirectoryService.Model.ListIpRoutesResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ListIpRoutesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ListIpRoutes");
             #if DESKTOP
             return client.ListIpRoutes(request);
             #elif CORECLR

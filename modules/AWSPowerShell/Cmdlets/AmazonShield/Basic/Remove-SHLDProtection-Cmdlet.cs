@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         
         #region AWS Service Operation Call
         
-        private static Amazon.Shield.Model.DeleteProtectionResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.DeleteProtectionRequest request)
+        private Amazon.Shield.Model.DeleteProtectionResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.DeleteProtectionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Shield", "DeleteProtection");
             #if DESKTOP
             return client.DeleteProtection(request);
             #elif CORECLR

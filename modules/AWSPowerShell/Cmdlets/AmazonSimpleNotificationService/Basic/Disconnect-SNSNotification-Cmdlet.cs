@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleNotificationService.Model.UnsubscribeResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.UnsubscribeRequest request)
+        private Amazon.SimpleNotificationService.Model.UnsubscribeResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.UnsubscribeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service", "Unsubscribe");
             #if DESKTOP
             return client.Unsubscribe(request);
             #elif CORECLR

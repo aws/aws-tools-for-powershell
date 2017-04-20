@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private static Amazon.StepFunctions.Model.DeleteStateMachineResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DeleteStateMachineRequest request)
+        private Amazon.StepFunctions.Model.DeleteStateMachineResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DeleteStateMachineRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "DeleteStateMachine");
             #if DESKTOP
             return client.DeleteStateMachine(request);
             #elif CORECLR

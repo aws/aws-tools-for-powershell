@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.StopRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.StopRemoteAccessSessionRequest request)
+        private Amazon.DeviceFarm.Model.StopRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.StopRemoteAccessSessionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "StopRemoteAccessSession");
             #if DESKTOP
             return client.StopRemoteAccessSession(request);
             #elif CORECLR

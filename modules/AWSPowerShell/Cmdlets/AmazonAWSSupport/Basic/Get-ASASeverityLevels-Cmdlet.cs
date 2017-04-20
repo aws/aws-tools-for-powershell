@@ -122,8 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeSeverityLevelsRequest request)
+        private Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.DescribeSeverityLevelsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "DescribeSeverityLevels");
             #if DESKTOP
             return client.DescribeSeverityLevels(request);
             #elif CORECLR

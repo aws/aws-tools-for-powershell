@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.RebootInstanceResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.RebootInstanceRequest request)
+        private Amazon.Lightsail.Model.RebootInstanceResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.RebootInstanceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "RebootInstance");
             #if DESKTOP
             return client.RebootInstance(request);
             #elif CORECLR

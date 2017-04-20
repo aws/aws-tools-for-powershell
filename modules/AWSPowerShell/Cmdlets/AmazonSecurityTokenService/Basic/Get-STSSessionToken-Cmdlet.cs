@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SecurityToken.Model.GetSessionTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetSessionTokenRequest request)
+        private Amazon.SecurityToken.Model.GetSessionTokenResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.GetSessionTokenRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "GetSessionToken");
             #if DESKTOP
             return client.GetSessionToken(request);
             #elif CORECLR

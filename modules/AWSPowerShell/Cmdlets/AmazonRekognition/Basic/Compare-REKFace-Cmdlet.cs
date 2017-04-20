@@ -394,8 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private static Amazon.Rekognition.Model.CompareFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.CompareFacesRequest request)
+        private Amazon.Rekognition.Model.CompareFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.CompareFacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "CompareFaces");
             #if DESKTOP
             return client.CompareFaces(request);
             #elif CORECLR

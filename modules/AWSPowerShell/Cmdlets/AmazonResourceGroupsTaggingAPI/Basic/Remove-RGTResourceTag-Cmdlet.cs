@@ -171,8 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.ResourceGroupsTaggingAPI.Model.UntagResourcesResponse CallAWSServiceOperation(IAmazonResourceGroupsTaggingAPI client, Amazon.ResourceGroupsTaggingAPI.Model.UntagResourcesRequest request)
+        private Amazon.ResourceGroupsTaggingAPI.Model.UntagResourcesResponse CallAWSServiceOperation(IAmazonResourceGroupsTaggingAPI client, Amazon.ResourceGroupsTaggingAPI.Model.UntagResourcesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups Tagging API", "UntagResources");
             #if DESKTOP
             return client.UntagResources(request);
             #elif CORECLR

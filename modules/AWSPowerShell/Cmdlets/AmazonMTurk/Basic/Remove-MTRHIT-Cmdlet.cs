@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.DeleteHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DeleteHITRequest request)
+        private Amazon.MTurk.Model.DeleteHITResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DeleteHITRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "DeleteHIT");
             #if DESKTOP
             return client.DeleteHIT(request);
             #elif CORECLR

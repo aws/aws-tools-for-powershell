@@ -260,8 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.DescribeRepositoriesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeRepositoriesRequest request)
+        private Amazon.ECR.Model.DescribeRepositoriesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeRepositoriesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribeRepositories");
             #if DESKTOP
             return client.DescribeRepositories(request);
             #elif CORECLR

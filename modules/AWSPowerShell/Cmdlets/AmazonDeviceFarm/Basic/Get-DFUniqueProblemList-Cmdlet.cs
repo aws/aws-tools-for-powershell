@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #region AWS Service Operation Call
         
-        private static Amazon.DeviceFarm.Model.ListUniqueProblemsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListUniqueProblemsRequest request)
+        private Amazon.DeviceFarm.Model.ListUniqueProblemsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListUniqueProblemsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "ListUniqueProblems");
             #if DESKTOP
             return client.ListUniqueProblems(request);
             #elif CORECLR

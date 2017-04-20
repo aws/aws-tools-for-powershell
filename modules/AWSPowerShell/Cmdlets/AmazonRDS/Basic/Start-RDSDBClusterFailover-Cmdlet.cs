@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.FailoverDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.FailoverDBClusterRequest request)
+        private Amazon.RDS.Model.FailoverDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.FailoverDBClusterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "FailoverDBCluster");
             #if DESKTOP
             return client.FailoverDBCluster(request);
             #elif CORECLR

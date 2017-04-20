@@ -181,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.EnableSsoResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.EnableSsoRequest request)
+        private Amazon.DirectoryService.Model.EnableSsoResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.EnableSsoRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "EnableSso");
             #if DESKTOP
             return client.EnableSso(request);
             #elif CORECLR

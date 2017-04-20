@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private static Amazon.DynamoDBv2.Model.ListTagsOfResourceResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.ListTagsOfResourceRequest request)
+        private Amazon.DynamoDBv2.Model.ListTagsOfResourceResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.ListTagsOfResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "ListTagsOfResource");
             #if DESKTOP
             return client.ListTagsOfResource(request);
             #elif CORECLR

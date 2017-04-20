@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.DeleteReportDefinitionRequest request)
+        private Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.DeleteReportDefinitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "DeleteReportDefinition");
             #if DESKTOP
             return client.DeleteReportDefinition(request);
             #elif CORECLR

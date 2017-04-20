@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticMapReduce.Model.ListBootstrapActionsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListBootstrapActionsRequest request)
+        private Amazon.ElasticMapReduce.Model.ListBootstrapActionsResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.ListBootstrapActionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "ListBootstrapActions");
             #if DESKTOP
             return client.ListBootstrapActions(request);
             #elif CORECLR

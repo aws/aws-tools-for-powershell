@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTagsRequest request)
+        private Amazon.EC2.Model.CreateTagsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateTagsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreateTags");
             #if DESKTOP
             return client.CreateTags(request);
             #elif CORECLR

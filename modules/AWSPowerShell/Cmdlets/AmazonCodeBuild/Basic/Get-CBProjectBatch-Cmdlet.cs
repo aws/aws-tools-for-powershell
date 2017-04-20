@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeBuild.Model.BatchGetProjectsResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.BatchGetProjectsRequest request)
+        private Amazon.CodeBuild.Model.BatchGetProjectsResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.BatchGetProjectsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "BatchGetProjects");
             #if DESKTOP
             return client.BatchGetProjects(request);
             #elif CORECLR

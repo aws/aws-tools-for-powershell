@@ -255,8 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeTableRestoreStatusResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeTableRestoreStatusRequest request)
+        private Amazon.Redshift.Model.DescribeTableRestoreStatusResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeTableRestoreStatusRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeTableRestoreStatus");
             #if DESKTOP
             return client.DescribeTableRestoreStatus(request);
             #elif CORECLR

@@ -135,8 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.GenerateRandomResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateRandomRequest request)
+        private Amazon.KeyManagementService.Model.GenerateRandomResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.GenerateRandomRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GenerateRandom");
             #if DESKTOP
             return client.GenerateRandom(request);
             #elif CORECLR

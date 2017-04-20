@@ -181,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectoryService.Model.DisableSsoResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DisableSsoRequest request)
+        private Amazon.DirectoryService.Model.DisableSsoResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DisableSsoRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DisableSso");
             #if DESKTOP
             return client.DisableSso(request);
             #elif CORECLR

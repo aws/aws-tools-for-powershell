@@ -184,8 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.PutBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketRequest request)
+        private Amazon.S3.Model.PutBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutBucket");
 #if DESKTOP
             return client.PutBucket(request);
 #elif CORECLR

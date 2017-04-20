@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudHSM.Model.GetConfigResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.GetConfigRequest request)
+        private Amazon.CloudHSM.Model.GetConfigResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.GetConfigRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "GetConfig");
             #if DESKTOP
             return client.GetConfig(request);
             #elif CORECLR

@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private static Amazon.WorkSpaces.Model.RebuildWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.RebuildWorkspacesRequest request)
+        private Amazon.WorkSpaces.Model.RebuildWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.RebuildWorkspacesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "RebuildWorkspaces");
             #if DESKTOP
             return client.RebuildWorkspaces(request);
             #elif CORECLR

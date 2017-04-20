@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeRaidArraysResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeRaidArraysRequest request)
+        private Amazon.OpsWorks.Model.DescribeRaidArraysResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeRaidArraysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeRaidArrays");
             #if DESKTOP
             return client.DescribeRaidArrays(request);
             #elif CORECLR

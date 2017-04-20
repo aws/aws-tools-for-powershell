@@ -177,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthRequest request)
+        private Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeInstancesHealth");
             #if DESKTOP
             return client.DescribeInstancesHealth(request);
             #elif CORECLR

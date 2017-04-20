@@ -164,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ChangeMessageVisibilityBatchRequest request)
+        private Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ChangeMessageVisibilityBatchRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ChangeMessageVisibilityBatch");
             #if DESKTOP
             return client.ChangeMessageVisibilityBatch(request);
             #elif CORECLR

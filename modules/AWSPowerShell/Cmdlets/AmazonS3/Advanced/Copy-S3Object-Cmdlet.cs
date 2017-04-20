@@ -576,6 +576,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             CmdletOutput output;
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3", "GetObject");
+
                 var runner = new ProgressRunner(this);
                 var tracker = new ReadS3ObjectCmdlet.DownloadFileProgressTracker(runner, handler => request.WriteObjectProgressEvent += handler, cmdletContext.SourceKey);
 
@@ -589,8 +591,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region AWS Service Operation Call
 
-        private static Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
+        private Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "CopyObject");
 #if DESKTOP
             return client.CopyObject(request);
 #elif CORECLR

@@ -120,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListVolumeInitiatorsRequest request)
+        private Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListVolumeInitiatorsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ListVolumeInitiators");
             #if DESKTOP
             return client.ListVolumeInitiators(request);
             #elif CORECLR

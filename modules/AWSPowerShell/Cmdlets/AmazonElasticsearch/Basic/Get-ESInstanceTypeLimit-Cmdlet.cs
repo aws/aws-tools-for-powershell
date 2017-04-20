@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #region AWS Service Operation Call
         
-        private static Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsRequest request)
+        private Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DescribeElasticsearchInstanceTypeLimitsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DescribeElasticsearchInstanceTypeLimits");
             #if DESKTOP
             return client.DescribeElasticsearchInstanceTypeLimits(request);
             #elif CORECLR

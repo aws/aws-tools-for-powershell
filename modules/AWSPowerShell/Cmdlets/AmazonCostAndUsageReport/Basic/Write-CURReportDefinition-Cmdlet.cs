@@ -329,8 +329,9 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #region AWS Service Operation Call
         
-        private static Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.PutReportDefinitionRequest request)
+        private Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.PutReportDefinitionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "PutReportDefinition");
             #if DESKTOP
             return client.PutReportDefinition(request);
             #elif CORECLR

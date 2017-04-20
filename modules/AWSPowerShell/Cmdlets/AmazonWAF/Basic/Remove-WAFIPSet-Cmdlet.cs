@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #region AWS Service Operation Call
         
-        private static Amazon.WAF.Model.DeleteIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteIPSetRequest request)
+        private Amazon.WAF.Model.DeleteIPSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.DeleteIPSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "DeleteIPSet");
             #if DESKTOP
             return client.DeleteIPSet(request);
             #elif CORECLR

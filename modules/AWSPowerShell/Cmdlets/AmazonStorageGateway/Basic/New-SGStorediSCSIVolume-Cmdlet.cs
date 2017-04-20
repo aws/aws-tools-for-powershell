@@ -234,8 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateStorediSCSIVolumeRequest request)
+        private Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateStorediSCSIVolumeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CreateStorediSCSIVolume");
             #if DESKTOP
             return client.CreateStorediSCSIVolume(request);
             #elif CORECLR

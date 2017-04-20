@@ -230,8 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.GetShardIteratorResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetShardIteratorRequest request)
+        private Amazon.Kinesis.Model.GetShardIteratorResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.GetShardIteratorRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "GetShardIterator");
             #if DESKTOP
             return client.GetShardIterator(request);
             #elif CORECLR

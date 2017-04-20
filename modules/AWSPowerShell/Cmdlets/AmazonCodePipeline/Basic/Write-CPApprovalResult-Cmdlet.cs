@@ -235,8 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodePipeline.Model.PutApprovalResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutApprovalResultRequest request)
+        private Amazon.CodePipeline.Model.PutApprovalResultResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.PutApprovalResultRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "PutApprovalResult");
             #if DESKTOP
             return client.PutApprovalResult(request);
             #elif CORECLR

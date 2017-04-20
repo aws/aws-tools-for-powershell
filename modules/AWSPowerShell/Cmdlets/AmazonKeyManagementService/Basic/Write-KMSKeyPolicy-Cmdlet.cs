@@ -210,8 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.KeyManagementService.Model.PutKeyPolicyResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.PutKeyPolicyRequest request)
+        private Amazon.KeyManagementService.Model.PutKeyPolicyResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.PutKeyPolicyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "PutKeyPolicy");
             #if DESKTOP
             return client.PutKeyPolicy(request);
             #elif CORECLR

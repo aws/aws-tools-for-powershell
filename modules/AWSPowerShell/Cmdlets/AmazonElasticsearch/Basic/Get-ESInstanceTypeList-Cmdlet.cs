@@ -218,8 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #region AWS Service Operation Call
         
-        private static Amazon.Elasticsearch.Model.ListElasticsearchInstanceTypesResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.ListElasticsearchInstanceTypesRequest request)
+        private Amazon.Elasticsearch.Model.ListElasticsearchInstanceTypesResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.ListElasticsearchInstanceTypesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "ListElasticsearchInstanceTypes");
             #if DESKTOP
             return client.ListElasticsearchInstanceTypes(request);
             #elif CORECLR

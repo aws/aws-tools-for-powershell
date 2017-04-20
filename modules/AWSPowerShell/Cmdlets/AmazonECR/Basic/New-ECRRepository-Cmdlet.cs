@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CreateRepositoryRequest request)
+        private Amazon.ECR.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CreateRepositoryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "CreateRepository");
             #if DESKTOP
             return client.CreateRepository(request);
             #elif CORECLR

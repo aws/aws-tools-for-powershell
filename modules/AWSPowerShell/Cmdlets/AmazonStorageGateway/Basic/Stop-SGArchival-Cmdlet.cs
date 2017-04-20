@@ -150,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CancelArchivalResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CancelArchivalRequest request)
+        private Amazon.StorageGateway.Model.CancelArchivalResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CancelArchivalRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CancelArchival");
             #if DESKTOP
             return client.CancelArchival(request);
             #elif CORECLR

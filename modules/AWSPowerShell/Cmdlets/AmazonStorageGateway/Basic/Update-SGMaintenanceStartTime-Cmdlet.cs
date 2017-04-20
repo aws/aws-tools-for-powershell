@@ -187,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeRequest request)
+        private Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "UpdateMaintenanceStartTime");
             #if DESKTOP
             return client.UpdateMaintenanceStartTime(request);
             #elif CORECLR

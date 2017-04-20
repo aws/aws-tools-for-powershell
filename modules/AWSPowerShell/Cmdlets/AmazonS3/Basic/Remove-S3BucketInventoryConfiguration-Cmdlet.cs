@@ -181,8 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketInventoryConfigurationRequest request)
+        private Amazon.S3.Model.DeleteBucketInventoryConfigurationResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketInventoryConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketInventoryConfiguration");
             #if DESKTOP
             return client.DeleteBucketInventoryConfiguration(request);
             #elif CORECLR

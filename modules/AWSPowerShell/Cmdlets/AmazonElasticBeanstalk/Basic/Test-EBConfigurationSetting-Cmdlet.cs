@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsRequest request)
+        private Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.ValidateConfigurationSettingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "ValidateConfigurationSettings");
             #if DESKTOP
             return client.ValidateConfigurationSettings(request);
             #elif CORECLR

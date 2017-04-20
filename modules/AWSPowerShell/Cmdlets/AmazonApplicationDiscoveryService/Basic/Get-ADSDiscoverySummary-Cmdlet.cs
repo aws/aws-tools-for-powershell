@@ -102,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryRequest request)
+        private Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse CallAWSServiceOperation(IAmazonApplicationDiscoveryService client, Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Discovery Service", "GetDiscoverySummary");
             #if DESKTOP
             return client.GetDiscoverySummary(request);
             #elif CORECLR

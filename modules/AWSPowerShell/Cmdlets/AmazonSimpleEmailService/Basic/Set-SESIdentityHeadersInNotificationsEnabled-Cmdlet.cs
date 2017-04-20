@@ -192,8 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledRequest request)
+        private Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.SetIdentityHeadersInNotificationsEnabledRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "SetIdentityHeadersInNotificationsEnabled");
             #if DESKTOP
             return client.SetIdentityHeadersInNotificationsEnabled(request);
             #elif CORECLR

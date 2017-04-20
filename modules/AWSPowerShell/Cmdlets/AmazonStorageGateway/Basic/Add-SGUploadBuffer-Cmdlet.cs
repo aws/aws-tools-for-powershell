@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.AddUploadBufferResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.AddUploadBufferRequest request)
+        private Amazon.StorageGateway.Model.AddUploadBufferResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.AddUploadBufferRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "AddUploadBuffer");
             #if DESKTOP
             return client.AddUploadBuffer(request);
             #elif CORECLR

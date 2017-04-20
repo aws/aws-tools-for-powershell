@@ -136,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateRealtimeEndpointRequest request)
+        private Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.CreateRealtimeEndpointRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "CreateRealtimeEndpoint");
             #if DESKTOP
             return client.CreateRealtimeEndpoint(request);
             #elif CORECLR

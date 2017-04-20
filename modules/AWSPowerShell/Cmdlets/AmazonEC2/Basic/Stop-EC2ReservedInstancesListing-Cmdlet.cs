@@ -140,8 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CancelReservedInstancesListingResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelReservedInstancesListingRequest request)
+        private Amazon.EC2.Model.CancelReservedInstancesListingResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelReservedInstancesListingRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelReservedInstancesListing");
             #if DESKTOP
             return client.CancelReservedInstancesListing(request);
             #elif CORECLR

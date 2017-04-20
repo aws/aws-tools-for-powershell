@@ -141,8 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthRequest request)
+        private Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeInstanceHealth");
             #if DESKTOP
             return client.DescribeInstanceHealth(request);
             #elif CORECLR

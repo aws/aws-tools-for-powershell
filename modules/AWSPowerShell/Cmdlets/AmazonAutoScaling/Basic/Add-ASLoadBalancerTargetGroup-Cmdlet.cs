@@ -172,8 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsRequest request)
+        private Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "AttachLoadBalancerTargetGroups");
             #if DESKTOP
             return client.AttachLoadBalancerTargetGroups(request);
             #elif CORECLR

@@ -244,8 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateCachediSCSIVolumeRequest request)
+        private Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CreateCachediSCSIVolumeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CreateCachediSCSIVolume");
             #if DESKTOP
             return client.CreateCachediSCSIVolume(request);
             #elif CORECLR

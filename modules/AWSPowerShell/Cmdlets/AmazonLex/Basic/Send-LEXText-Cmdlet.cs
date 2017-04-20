@@ -259,8 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lex.Model.PostTextResponse CallAWSServiceOperation(IAmazonLex client, Amazon.Lex.Model.PostTextRequest request)
+        private Amazon.Lex.Model.PostTextResponse CallAWSServiceOperation(IAmazonLex client, Amazon.Lex.Model.PostTextRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex", "PostText");
             #if DESKTOP
             return client.PostText(request);
             #elif CORECLR

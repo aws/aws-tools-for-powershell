@@ -144,8 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.GetQualificationScoreResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetQualificationScoreRequest request)
+        private Amazon.MTurk.Model.GetQualificationScoreResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetQualificationScoreRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "GetQualificationScore");
             #if DESKTOP
             return client.GetQualificationScore(request);
             #elif CORECLR

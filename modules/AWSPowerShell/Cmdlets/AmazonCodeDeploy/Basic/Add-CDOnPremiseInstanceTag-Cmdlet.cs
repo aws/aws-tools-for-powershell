@@ -158,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesRequest request)
+        private Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse CallAWSServiceOperation(IAmazonCodeDeploy client, Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "AddTagsToOnPremisesInstances");
             #if DESKTOP
             return client.AddTagsToOnPremisesInstances(request);
             #elif CORECLR

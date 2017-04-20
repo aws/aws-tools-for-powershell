@@ -152,8 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServerMigrationService.Model.StartOnDemandReplicationRunResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.StartOnDemandReplicationRunRequest request)
+        private Amazon.ServerMigrationService.Model.StartOnDemandReplicationRunResponse CallAWSServiceOperation(IAmazonServerMigrationService client, Amazon.ServerMigrationService.Model.StartOnDemandReplicationRunRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Server Migration Service", "StartOnDemandReplicationRun");
             #if DESKTOP
             return client.StartOnDemandReplicationRun(request);
             #elif CORECLR

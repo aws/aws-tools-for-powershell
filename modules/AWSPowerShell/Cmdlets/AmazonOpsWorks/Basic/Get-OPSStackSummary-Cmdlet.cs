@@ -126,8 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private static Amazon.OpsWorks.Model.DescribeStackSummaryResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeStackSummaryRequest request)
+        private Amazon.OpsWorks.Model.DescribeStackSummaryResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeStackSummaryRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeStackSummary");
             #if DESKTOP
             return client.DescribeStackSummary(request);
             #elif CORECLR

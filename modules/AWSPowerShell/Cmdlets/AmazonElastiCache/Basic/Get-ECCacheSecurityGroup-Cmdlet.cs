@@ -204,8 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElastiCache.Model.DescribeCacheSecurityGroupsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheSecurityGroupsRequest request)
+        private Amazon.ElastiCache.Model.DescribeCacheSecurityGroupsResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.DescribeCacheSecurityGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DescribeCacheSecurityGroups");
             #if DESKTOP
             return client.DescribeCacheSecurityGroups(request);
             #elif CORECLR

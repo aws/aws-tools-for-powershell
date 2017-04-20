@@ -222,8 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.ListInstanceProfilesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListInstanceProfilesRequest request)
+        private Amazon.IdentityManagement.Model.ListInstanceProfilesResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.ListInstanceProfilesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "ListInstanceProfiles");
             #if DESKTOP
             return client.ListInstanceProfiles(request);
             #elif CORECLR

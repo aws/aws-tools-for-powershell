@@ -251,8 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTasksRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeMaintenanceWindowExecutionTasks");
             #if DESKTOP
             return client.DescribeMaintenanceWindowExecutionTasks(request);
             #elif CORECLR

@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private static Amazon.SQS.Model.RemovePermissionResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.RemovePermissionRequest request)
+        private Amazon.SQS.Model.RemovePermissionResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.RemovePermissionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "RemovePermission");
             #if DESKTOP
             return client.RemovePermission(request);
             #elif CORECLR

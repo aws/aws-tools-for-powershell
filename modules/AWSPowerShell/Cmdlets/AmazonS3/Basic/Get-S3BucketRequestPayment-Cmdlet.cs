@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private static Amazon.S3.Model.GetBucketRequestPaymentResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketRequestPaymentRequest request)
+        private Amazon.S3.Model.GetBucketRequestPaymentResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketRequestPaymentRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketRequestPayment");
             #if DESKTOP
             return client.GetBucketRequestPayment(request);
             #elif CORECLR

@@ -161,8 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private static Amazon.Organizations.Model.RemoveAccountFromOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.RemoveAccountFromOrganizationRequest request)
+        private Amazon.Organizations.Model.RemoveAccountFromOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.RemoveAccountFromOrganizationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "RemoveAccountFromOrganization");
             #if DESKTOP
             return client.RemoveAccountFromOrganization(request);
             #elif CORECLR

@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private static Amazon.ECR.Model.GetDownloadUrlForLayerResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetDownloadUrlForLayerRequest request)
+        private Amazon.ECR.Model.GetDownloadUrlForLayerResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.GetDownloadUrlForLayerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetDownloadUrlForLayer");
             #if DESKTOP
             return client.GetDownloadUrlForLayer(request);
             #elif CORECLR

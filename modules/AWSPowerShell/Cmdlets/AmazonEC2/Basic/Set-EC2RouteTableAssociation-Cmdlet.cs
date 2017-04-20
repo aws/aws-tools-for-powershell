@@ -159,8 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.ReplaceRouteTableAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceRouteTableAssociationRequest request)
+        private Amazon.EC2.Model.ReplaceRouteTableAssociationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReplaceRouteTableAssociationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReplaceRouteTableAssociation");
             #if DESKTOP
             return client.ReplaceRouteTableAssociation(request);
             #elif CORECLR

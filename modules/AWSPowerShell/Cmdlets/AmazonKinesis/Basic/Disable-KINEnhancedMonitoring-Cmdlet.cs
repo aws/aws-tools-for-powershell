@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DisableEnhancedMonitoringRequest request)
+        private Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.DisableEnhancedMonitoringRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "DisableEnhancedMonitoring");
             #if DESKTOP
             return client.DisableEnhancedMonitoring(request);
             #elif CORECLR

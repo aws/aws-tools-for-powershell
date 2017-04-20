@@ -129,8 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #region AWS Service Operation Call
         
-        private static Amazon.CodeCommit.Model.BatchGetRepositoriesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.BatchGetRepositoriesRequest request)
+        private Amazon.CodeCommit.Model.BatchGetRepositoriesResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.BatchGetRepositoriesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "BatchGetRepositories");
             #if DESKTOP
             return client.BatchGetRepositories(request);
             #elif CORECLR

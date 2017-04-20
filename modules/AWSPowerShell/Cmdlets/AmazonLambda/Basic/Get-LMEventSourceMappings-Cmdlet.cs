@@ -193,8 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.ListEventSourceMappingsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListEventSourceMappingsRequest request)
+        private Amazon.Lambda.Model.ListEventSourceMappingsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListEventSourceMappingsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListEventSourceMappings");
             #if DESKTOP
             return client.ListEventSourceMappings(request);
             #elif CORECLR

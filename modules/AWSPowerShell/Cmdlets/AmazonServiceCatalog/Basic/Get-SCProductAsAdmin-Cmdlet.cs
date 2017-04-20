@@ -132,8 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private static Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProductAsAdminRequest request)
+        private Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProductAsAdminRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProductAsAdmin");
             #if DESKTOP
             return client.DescribeProductAsAdmin(request);
             #elif CORECLR

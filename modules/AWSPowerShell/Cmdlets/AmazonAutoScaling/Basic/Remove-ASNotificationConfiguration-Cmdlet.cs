@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DeleteNotificationConfigurationResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteNotificationConfigurationRequest request)
+        private Amazon.AutoScaling.Model.DeleteNotificationConfigurationResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteNotificationConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DeleteNotificationConfiguration");
             #if DESKTOP
             return client.DeleteNotificationConfiguration(request);
             #elif CORECLR

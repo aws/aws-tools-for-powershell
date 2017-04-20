@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private static Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeRequest request)
+        private Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminRespondToAuthChallenge");
             #if DESKTOP
             return client.AdminRespondToAuthChallenge(request);
             #elif CORECLR

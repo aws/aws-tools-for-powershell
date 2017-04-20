@@ -166,8 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.DeleteBGPPeerResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DeleteBGPPeerRequest request)
+        private Amazon.DirectConnect.Model.DeleteBGPPeerResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.DeleteBGPPeerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "DeleteBGPPeer");
             #if DESKTOP
             return client.DeleteBGPPeer(request);
             #elif CORECLR

@@ -149,8 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #region AWS Service Operation Call
         
-        private static Amazon.IdentityManagement.Model.DeleteAccountAliasResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteAccountAliasRequest request)
+        private Amazon.IdentityManagement.Model.DeleteAccountAliasResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.DeleteAccountAliasRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "DeleteAccountAlias");
             #if DESKTOP
             return client.DeleteAccountAlias(request);
             #elif CORECLR

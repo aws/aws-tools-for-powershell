@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private static Amazon.SimpleEmail.Model.VerifyEmailAddressResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyEmailAddressRequest request)
+        private Amazon.SimpleEmail.Model.VerifyEmailAddressResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.VerifyEmailAddressRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "VerifyEmailAddress");
             #if DESKTOP
             return client.VerifyEmailAddress(request);
             #elif CORECLR

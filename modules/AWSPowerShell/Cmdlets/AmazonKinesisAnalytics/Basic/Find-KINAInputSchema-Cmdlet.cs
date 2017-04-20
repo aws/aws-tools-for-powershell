@@ -182,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DiscoverInputSchemaRequest request)
+        private Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DiscoverInputSchemaRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DiscoverInputSchema");
             #if DESKTOP
             return client.DiscoverInputSchema(request);
             #elif CORECLR

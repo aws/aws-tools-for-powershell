@@ -142,8 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.GetAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAliasRequest request)
+        private Amazon.Lambda.Model.GetAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAliasRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetAlias");
             #if DESKTOP
             return client.GetAlias(request);
             #elif CORECLR

@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetActiveNamesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetActiveNamesRequest request)
+        private Amazon.Lightsail.Model.GetActiveNamesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetActiveNamesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetActiveNames");
             #if DESKTOP
             return client.GetActiveNames(request);
             #elif CORECLR

@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.GetSegmentVersionResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetSegmentVersionRequest request)
+        private Amazon.Pinpoint.Model.GetSegmentVersionResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetSegmentVersionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetSegmentVersion");
             #if DESKTOP
             return client.GetSegmentVersion(request);
             #elif CORECLR

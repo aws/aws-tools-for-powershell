@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lightsail.Model.GetStaticIpsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetStaticIpsRequest request)
+        private Amazon.Lightsail.Model.GetStaticIpsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetStaticIpsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetStaticIps");
             #if DESKTOP
             return client.GetStaticIps(request);
             #elif CORECLR

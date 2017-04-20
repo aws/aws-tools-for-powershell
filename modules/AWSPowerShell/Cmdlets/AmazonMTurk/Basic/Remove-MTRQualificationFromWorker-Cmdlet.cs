@@ -183,8 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #region AWS Service Operation Call
         
-        private static Amazon.MTurk.Model.DisassociateQualificationFromWorkerResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DisassociateQualificationFromWorkerRequest request)
+        private Amazon.MTurk.Model.DisassociateQualificationFromWorkerResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.DisassociateQualificationFromWorkerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "DisassociateQualificationFromWorker");
             #if DESKTOP
             return client.DisassociateQualificationFromWorker(request);
             #elif CORECLR

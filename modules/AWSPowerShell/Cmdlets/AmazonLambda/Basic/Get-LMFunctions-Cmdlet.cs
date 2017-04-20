@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.ListFunctionsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListFunctionsRequest request)
+        private Amazon.Lambda.Model.ListFunctionsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListFunctionsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListFunctions");
             #if DESKTOP
             return client.ListFunctions(request);
             #elif CORECLR

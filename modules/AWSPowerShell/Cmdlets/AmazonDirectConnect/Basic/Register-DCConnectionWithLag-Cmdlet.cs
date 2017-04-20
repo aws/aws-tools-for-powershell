@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private static Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateConnectionWithLagRequest request)
+        private Amazon.DirectConnect.Model.AssociateConnectionWithLagResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateConnectionWithLagRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "AssociateConnectionWithLag");
             #if DESKTOP
             return client.AssociateConnectionWithLag(request);
             #elif CORECLR

@@ -117,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.ResolveCustomerRequest request)
+        private Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse CallAWSServiceOperation(IAmazonAWSMarketplaceMetering client, Amazon.AWSMarketplaceMetering.Model.ResolveCustomerRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Metering", "ResolveCustomer");
             #if DESKTOP
             return client.ResolveCustomer(request);
             #elif CORECLR

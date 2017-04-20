@@ -145,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteSnapshotCopyGrantRequest request)
+        private Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DeleteSnapshotCopyGrantRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DeleteSnapshotCopyGrant");
             #if DESKTOP
             return client.DeleteSnapshotCopyGrant(request);
             #elif CORECLR

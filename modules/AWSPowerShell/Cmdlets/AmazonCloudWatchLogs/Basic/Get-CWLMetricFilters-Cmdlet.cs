@@ -202,8 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.DescribeMetricFiltersResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeMetricFiltersRequest request)
+        private Amazon.CloudWatchLogs.Model.DescribeMetricFiltersResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeMetricFiltersRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DescribeMetricFilters");
             #if DESKTOP
             return client.DescribeMetricFilters(request);
             #elif CORECLR

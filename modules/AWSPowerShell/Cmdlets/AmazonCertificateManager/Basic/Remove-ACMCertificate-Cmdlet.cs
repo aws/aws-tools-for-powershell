@@ -155,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #region AWS Service Operation Call
         
-        private static Amazon.CertificateManager.Model.DeleteCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.DeleteCertificateRequest request)
+        private Amazon.CertificateManager.Model.DeleteCertificateResponse CallAWSServiceOperation(IAmazonCertificateManager client, Amazon.CertificateManager.Model.DeleteCertificateRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager", "DeleteCertificate");
             #if DESKTOP
             return client.DeleteCertificate(request);
             #elif CORECLR

@@ -151,8 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteLaunchConfigurationRequest request)
+        private Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteLaunchConfigurationRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DeleteLaunchConfiguration");
             #if DESKTOP
             return client.DeleteLaunchConfiguration(request);
             #elif CORECLR

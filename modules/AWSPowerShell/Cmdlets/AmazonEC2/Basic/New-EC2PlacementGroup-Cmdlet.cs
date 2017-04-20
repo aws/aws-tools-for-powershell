@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CreatePlacementGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreatePlacementGroupRequest request)
+        private Amazon.EC2.Model.CreatePlacementGroupResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreatePlacementGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CreatePlacementGroup");
             #if DESKTOP
             return client.CreatePlacementGroup(request);
             #elif CORECLR

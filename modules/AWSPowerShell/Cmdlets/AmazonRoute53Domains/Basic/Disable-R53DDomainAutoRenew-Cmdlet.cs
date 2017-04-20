@@ -146,8 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private static Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.DisableDomainAutoRenewRequest request)
+        private Amazon.Route53Domains.Model.DisableDomainAutoRenewResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.DisableDomainAutoRenewRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "DisableDomainAutoRenew");
             #if DESKTOP
             return client.DisableDomainAutoRenew(request);
             #elif CORECLR

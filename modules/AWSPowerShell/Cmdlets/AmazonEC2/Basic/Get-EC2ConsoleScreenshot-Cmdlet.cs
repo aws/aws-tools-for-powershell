@@ -139,8 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.GetConsoleScreenshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetConsoleScreenshotRequest request)
+        private Amazon.EC2.Model.GetConsoleScreenshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetConsoleScreenshotRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "GetConsoleScreenshot");
             #if DESKTOP
             return client.GetConsoleScreenshot(request);
             #elif CORECLR

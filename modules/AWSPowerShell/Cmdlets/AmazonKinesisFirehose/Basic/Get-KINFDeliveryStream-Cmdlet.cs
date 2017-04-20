@@ -153,8 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #region AWS Service Operation Call
         
-        private static Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.DescribeDeliveryStreamRequest request)
+        private Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.DescribeDeliveryStreamRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "DescribeDeliveryStream");
             #if DESKTOP
             return client.DescribeDeliveryStream(request);
             #elif CORECLR

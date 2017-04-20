@@ -169,8 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private static Amazon.Lambda.Model.DeleteAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteAliasRequest request)
+        private Amazon.Lambda.Model.DeleteAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteAliasRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "DeleteAlias");
             #if DESKTOP
             return client.DeleteAlias(request);
             #elif CORECLR

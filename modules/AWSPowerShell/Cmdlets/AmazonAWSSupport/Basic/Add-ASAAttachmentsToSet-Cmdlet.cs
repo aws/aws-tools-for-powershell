@@ -168,8 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #region AWS Service Operation Call
         
-        private static Amazon.AWSSupport.Model.AddAttachmentsToSetResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddAttachmentsToSetRequest request)
+        private Amazon.AWSSupport.Model.AddAttachmentsToSetResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddAttachmentsToSetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "AddAttachmentsToSet");
             #if DESKTOP
             return client.AddAttachmentsToSet(request);
             #elif CORECLR

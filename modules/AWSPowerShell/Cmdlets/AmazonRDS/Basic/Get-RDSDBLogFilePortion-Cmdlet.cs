@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private static Amazon.RDS.Model.DownloadDBLogFilePortionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DownloadDBLogFilePortionRequest request)
+        private Amazon.RDS.Model.DownloadDBLogFilePortionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DownloadDBLogFilePortionRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DownloadDBLogFilePortion");
             #if DESKTOP
             return client.DownloadDBLogFilePortion(request);
             #elif CORECLR

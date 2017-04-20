@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #region AWS Service Operation Call
         
-        private static Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteRealtimeEndpointRequest request)
+        private Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse CallAWSServiceOperation(IAmazonMachineLearning client, Amazon.MachineLearning.Model.DeleteRealtimeEndpointRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Machine Learning", "DeleteRealtimeEndpoint");
             #if DESKTOP
             return client.DeleteRealtimeEndpoint(request);
             #elif CORECLR

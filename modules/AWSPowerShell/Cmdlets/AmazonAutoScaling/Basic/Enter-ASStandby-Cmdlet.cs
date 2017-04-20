@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.EnterStandbyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.EnterStandbyRequest request)
+        private Amazon.AutoScaling.Model.EnterStandbyResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.EnterStandbyRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "EnterStandby");
             #if DESKTOP
             return client.EnterStandby(request);
             #elif CORECLR

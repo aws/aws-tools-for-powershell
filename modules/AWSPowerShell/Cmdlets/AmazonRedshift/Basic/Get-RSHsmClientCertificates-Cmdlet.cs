@@ -301,8 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private static Amazon.Redshift.Model.DescribeHsmClientCertificatesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeHsmClientCertificatesRequest request)
+        private Amazon.Redshift.Model.DescribeHsmClientCertificatesResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.DescribeHsmClientCertificatesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribeHsmClientCertificates");
             #if DESKTOP
             return client.DescribeHsmClientCertificates(request);
             #elif CORECLR

@@ -175,8 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         
         #region AWS Service Operation Call
         
-        private static Amazon.ResourceGroupsTaggingAPI.Model.GetTagValuesResponse CallAWSServiceOperation(IAmazonResourceGroupsTaggingAPI client, Amazon.ResourceGroupsTaggingAPI.Model.GetTagValuesRequest request)
+        private Amazon.ResourceGroupsTaggingAPI.Model.GetTagValuesResponse CallAWSServiceOperation(IAmazonResourceGroupsTaggingAPI client, Amazon.ResourceGroupsTaggingAPI.Model.GetTagValuesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups Tagging API", "GetTagValues");
             #if DESKTOP
             return client.GetTagValues(request);
             #elif CORECLR

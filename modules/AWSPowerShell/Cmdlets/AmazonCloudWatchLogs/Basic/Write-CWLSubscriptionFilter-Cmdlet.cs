@@ -248,8 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private static Amazon.CloudWatchLogs.Model.PutSubscriptionFilterResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutSubscriptionFilterRequest request)
+        private Amazon.CloudWatchLogs.Model.PutSubscriptionFilterResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.PutSubscriptionFilterRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "PutSubscriptionFilter");
             #if DESKTOP
             return client.PutSubscriptionFilter(request);
             #elif CORECLR

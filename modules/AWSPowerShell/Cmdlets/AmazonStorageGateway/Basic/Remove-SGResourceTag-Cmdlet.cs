@@ -154,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.RemoveTagsFromResourceRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "RemoveTagsFromResource");
             #if DESKTOP
             return client.RemoveTagsFromResource(request);
             #elif CORECLR

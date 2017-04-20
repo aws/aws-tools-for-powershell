@@ -109,8 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #region AWS Service Operation Call
         
-        private static Amazon.Snowball.Model.GetSnowballUsageResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.GetSnowballUsageRequest request)
+        private Amazon.Snowball.Model.GetSnowballUsageResponse CallAWSServiceOperation(IAmazonSnowball client, Amazon.Snowball.Model.GetSnowballUsageRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Import/Export Snowball", "GetSnowballUsage");
             #if DESKTOP
             return client.GetSnowballUsage(request);
             #elif CORECLR

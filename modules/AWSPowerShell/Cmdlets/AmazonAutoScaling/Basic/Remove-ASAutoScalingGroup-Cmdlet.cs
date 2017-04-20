@@ -179,8 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AutoScaling.Model.DeleteAutoScalingGroupResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteAutoScalingGroupRequest request)
+        private Amazon.AutoScaling.Model.DeleteAutoScalingGroupResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DeleteAutoScalingGroupRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DeleteAutoScalingGroup");
             #if DESKTOP
             return client.DeleteAutoScalingGroup(request);
             #elif CORECLR

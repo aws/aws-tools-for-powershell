@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private static Amazon.AppStream.Model.DisassociateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DisassociateFleetRequest request)
+        private Amazon.AppStream.Model.DisassociateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DisassociateFleetRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DisassociateFleet");
             #if DESKTOP
             return client.DisassociateFleet(request);
             #elif CORECLR

@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private static Amazon.Pinpoint.Model.DeleteApnsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteApnsChannelRequest request)
+        private Amazon.Pinpoint.Model.DeleteApnsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteApnsChannelRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteApnsChannel");
             #if DESKTOP
             return client.DeleteApnsChannel(request);
             #elif CORECLR

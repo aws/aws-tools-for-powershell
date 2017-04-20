@@ -216,8 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetUsagePlanKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetUsagePlanKeysRequest request)
+        private Amazon.APIGateway.Model.GetUsagePlanKeysResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetUsagePlanKeysRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetUsagePlanKeys");
             #if DESKTOP
             return client.GetUsagePlanKeys(request);
             #elif CORECLR

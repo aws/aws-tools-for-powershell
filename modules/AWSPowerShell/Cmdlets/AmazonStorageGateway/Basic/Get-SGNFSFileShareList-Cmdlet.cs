@@ -123,8 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private static Amazon.StorageGateway.Model.DescribeNFSFileSharesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeNFSFileSharesRequest request)
+        private Amazon.StorageGateway.Model.DescribeNFSFileSharesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DescribeNFSFileSharesRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DescribeNFSFileShares");
             #if DESKTOP
             return client.DescribeNFSFileShares(request);
             #elif CORECLR

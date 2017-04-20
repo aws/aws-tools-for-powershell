@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #region AWS Service Operation Call
         
-        private static Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsRequest request)
+        private Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse CallAWSServiceOperation(IAmazonElasticFileSystem client, Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic File System", "ModifyMountTargetSecurityGroups");
             #if DESKTOP
             return client.ModifyMountTargetSecurityGroups(request);
             #elif CORECLR

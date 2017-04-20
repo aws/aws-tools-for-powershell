@@ -147,8 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private static Amazon.EC2.Model.CancelExportTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelExportTaskRequest request)
+        private Amazon.EC2.Model.CancelExportTaskResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CancelExportTaskRequest request)
         {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "CancelExportTask");
             #if DESKTOP
             return client.CancelExportTask(request);
             #elif CORECLR
