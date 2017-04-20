@@ -28,15 +28,15 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Attaches the specified managed policy to the specified IAM role.
+    /// Attaches the specified managed policy to the specified IAM role. When you attach a
+    /// managed policy to a role, the managed policy becomes part of the role's permission
+    /// (access) policy.
     /// 
-    ///  
-    /// <para>
-    /// When you attach a managed policy to a role, the managed policy becomes part of the
-    /// role's permission (access) policy. You cannot use a managed policy as the role's trust
-    /// policy. The role's trust policy is created at the same time as the role, using <a>CreateRole</a>.
-    /// You can update a role's trust policy using <a>UpdateAssumeRolePolicy</a>.
-    /// </para><para>
+    ///  <note><para>
+    /// You cannot use a managed policy as the role's trust policy. The role's trust policy
+    /// is created at the same time as the role, using <a>CreateRole</a>. You can update a
+    /// role's trust policy using <a>UpdateAssumeRolePolicy</a>.
+    /// </para></note><para>
     /// Use this API to attach a <i>managed</i> policy to a role. To embed an inline policy
     /// in a role, use <a>PutRolePolicy</a>. For more information about policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name (friendly name, not ARN) of the role to attach the policy to.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -49,7 +49,8 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateDhcpOptions" />
-	<ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName"/>
+    <ServiceOperation MethodName="CreateFpgaImage" NoPipelineParameter="true" Output="Response"/>
+	  <ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName"/>
     <ServiceOperation MethodName="CreateImage" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings"/>
     <ServiceOperation MethodName="CreateInstanceExportTask" PositionalParameters="TargetEnvironment;Description"/>
     <ServiceOperation MethodName="CreateInternetGateway"/>

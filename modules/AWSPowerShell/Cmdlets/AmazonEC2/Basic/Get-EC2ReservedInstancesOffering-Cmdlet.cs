@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The tenancy of the instances covered by the reservation. A Reserved Instance with
         /// a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant
-        /// hardware (i.e., Dedicated Instances).</para><para>Default: <code>default</code></para>
+        /// hardware (i.e., Dedicated Instances).</para><para><b>Important:</b> The <code>host</code> value cannot be used with this parameter.
+        /// Use the <code>default</code> or <code>dedicated</code> values only.</para><para>Default: <code>default</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

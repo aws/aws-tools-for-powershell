@@ -161,12 +161,14 @@
     <ServiceOperation MethodName="GetContextKeysForCustomPolicy" />
     <ServiceOperation MethodName="GetContextKeysForPrincipalPolicy" />
 
+    <ServiceOperation MethodName="UpdateRoleDescription" PipelineParameter="RoleName" />
+
     <ServiceOperation MethodName="UpdateServiceSpecificCredential" PipelineParameter="ServiceSpecificCredentialId" Output="Void" />
     <ServiceOperation MethodName="ListServiceSpecificCredentials" Verb="Get" Noun="ServiceSpecificCredentialList" />
     <ServiceOperation MethodName="ResetServiceSpecificCredential" PipelineParameter="ServiceSpecificCredentialId" />
     <ServiceOperation MethodName="DeleteServiceSpecificCredential" PipelineParameter="ServiceSpecificCredentialId" Output="Void" />
     <ServiceOperation MethodName="CreateServiceSpecificCredential" />
-
+    <ServiceOperation MethodName="CreateServiceLinkedRole" PipelineParameter="AWSServiceName" />
   </ServiceOperations>
 
   <PipelineByValueProperties>

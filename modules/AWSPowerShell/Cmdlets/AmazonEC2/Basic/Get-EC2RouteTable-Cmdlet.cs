@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><code>association.route-table-association-id</code> - The ID of an association ID
         /// for the route table.</para></li><li><para><code>association.route-table-id</code> - The ID of the route table involved in the
         /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>association.main</code> - Indicates whether the route table is the main route
-        /// table for the VPC (<code>true</code> | <code>false</code>).</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
+        /// table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not
+        /// have an association ID are not returned in the response.</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
         /// in the table.</para></li><li><para><code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in
         /// a route in the route table.</para></li><li><para><code>route.destination-prefix-list-id</code> - The ID (prefix) of the AWS service
         /// specified in a route in the table.</para></li><li><para><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet

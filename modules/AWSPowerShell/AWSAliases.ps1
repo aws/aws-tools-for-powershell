@@ -1300,6 +1300,7 @@ Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name EC2-ResetInstanceAttribute -Value Reset-EC2InstanceAttribute
 Set-Alias -Name EC2-ResetNetworkInterfaceAttribute -Value Reset-EC2NetworkInterfaceAttribute
 Set-Alias -Name EC2-ResetSnapshotAttribute -Value Reset-EC2SnapshotAttribute
 Set-Alias -Name EC2-RestoreAddressToClassic -Value Restore-EC2AddressToClassic
@@ -1314,6 +1315,8 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name Modify-EC2ReservedInstances -Value Edit-EC2ReservedInstance
+Set-Alias -Name EC2-ModifyReservedInstances -Value Edit-EC2ReservedInstance
 Set-Alias -Name Modify-EC2SnapshotAttribute -Value Edit-EC2SnapshotAttribute
 Set-Alias -Name EC2-ModifySnapshotAttribute -Value Edit-EC2SnapshotAttribute
 Set-Alias -Name Modify-EC2SpotFleetRequest -Value Edit-EC2SpotFleetRequest
@@ -1357,7 +1360,7 @@ Set-Alias -Name EC2-RequestSpotFleet -Value Request-EC2SpotFleet
 Set-Alias -Name Request-EC2SpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name EC2-RequestSpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name EC2-ResetImageAttribute -Value Reset-EC2ImageAttribute
-Set-Alias -Name EC2-ResetInstanceAttribute -Value Reset-EC2InstanceAttribute
+Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
 Set-Alias -Name EC2-DisableVpcClassicLinkDnsSupport -Value Disable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Disassociate-EC2Address -Value Unregister-EC2Address
 Set-Alias -Name EC2-DisassociateAddress -Value Unregister-EC2Address
@@ -1394,8 +1397,8 @@ Set-Alias -Name Modify-EC2InstancePlacement -Value Edit-EC2InstancePlacement
 Set-Alias -Name EC2-ModifyInstancePlacement -Value Edit-EC2InstancePlacement
 Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name EC2-ModifyNetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
-Set-Alias -Name Modify-EC2ReservedInstances -Value Edit-EC2ReservedInstance
-Set-Alias -Name EC2-ModifyReservedInstances -Value Edit-EC2ReservedInstance
+Set-Alias -Name Describe-EC2SpotFleetRequest -Value Get-EC2SpotFleetRequest
+Set-Alias -Name EC2-DescribeSpotFleetRequests -Value Get-EC2SpotFleetRequest
 Set-Alias -Name Describe-EC2SpotInstanceRequests -Value Get-EC2SpotInstanceRequest
 Set-Alias -Name EC2-DescribeSpotInstanceRequests -Value Get-EC2SpotInstanceRequest
 Set-Alias -Name Describe-EC2SpotPriceHistory -Value Get-EC2SpotPriceHistory
@@ -1443,7 +1446,8 @@ Set-Alias -Name EC2-DetachVolume -Value Dismount-EC2Volume
 Set-Alias -Name Detach-EC2VpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DetachVpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DisableVgwRoutePropagation -Value Disable-EC2VgwRoutePropagation
-Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
+Set-Alias -Name Describe-EC2InternetGateways -Value Get-EC2InternetGateway
+Set-Alias -Name EC2-DescribeInternetGateways -Value Get-EC2InternetGateway
 Set-Alias -Name Describe-EC2KeyPairs -Value Get-EC2KeyPair
 Set-Alias -Name EC2-DescribeKeyPairs -Value Get-EC2KeyPair
 Set-Alias -Name Describe-EC2MovingAddress -Value Get-EC2MovingAddress
@@ -1490,8 +1494,8 @@ Set-Alias -Name Describe-EC2SpotFleetInstance -Value Get-EC2SpotFleetInstance
 Set-Alias -Name EC2-DescribeSpotFleetInstances -Value Get-EC2SpotFleetInstance
 Set-Alias -Name Describe-EC2SpotFleetRequestHistory -Value Get-EC2SpotFleetRequestHistory
 Set-Alias -Name EC2-DescribeSpotFleetRequestHistory -Value Get-EC2SpotFleetRequestHistory
-Set-Alias -Name Describe-EC2SpotFleetRequest -Value Get-EC2SpotFleetRequest
-Set-Alias -Name EC2-DescribeSpotFleetRequests -Value Get-EC2SpotFleetRequest
+Set-Alias -Name Deregister-EC2Image -Value Unregister-EC2Image
+Set-Alias -Name EC2-DeregisterImage -Value Unregister-EC2Image
 Set-Alias -Name Describe-EC2AccountAttributes -Value Get-EC2AccountAttributes
 Set-Alias -Name EC2-DescribeAccountAttributes -Value Get-EC2AccountAttributes
 Set-Alias -Name Describe-EC2Addresses -Value Get-EC2Address
@@ -1536,8 +1540,8 @@ Set-Alias -Name Describe-EC2InstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name EC2-DescribeInstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
 Set-Alias -Name EC2-DescribeInstanceStatus -Value Get-EC2InstanceStatus
-Set-Alias -Name Describe-EC2InternetGateways -Value Get-EC2InternetGateway
-Set-Alias -Name EC2-DescribeInternetGateways -Value Get-EC2InternetGateway
+Set-Alias -Name Create-EC2VpnConnection -Value New-EC2VpnConnection
+Set-Alias -Name EC2-CreateVpnConnection -Value New-EC2VpnConnection
 Set-Alias -Name Create-EC2VpnConnectionRoute -Value New-EC2VpnConnectionRoute
 Set-Alias -Name EC2-CreateVpnConnectionRoute -Value New-EC2VpnConnectionRoute
 Set-Alias -Name Create-EC2VpnGateway -Value New-EC2VpnGateway
@@ -1592,8 +1596,6 @@ Set-Alias -Name Delete-EC2VpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
 Set-Alias -Name EC2-DeleteVpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
 Set-Alias -Name Delete-EC2VpnGateway -Value Remove-EC2VpnGateway
 Set-Alias -Name EC2-DeleteVpnGateway -Value Remove-EC2VpnGateway
-Set-Alias -Name Deregister-EC2Image -Value Unregister-EC2Image
-Set-Alias -Name EC2-DeregisterImage -Value Unregister-EC2Image
 Set-Alias -Name EC2-CopyImage -Value Copy-EC2Image
 Set-Alias -Name EC2-CopySnapshot -Value Copy-EC2Snapshot
 Set-Alias -Name Create-EC2CustomerGateway -Value New-EC2CustomerGateway
@@ -1604,6 +1606,8 @@ Set-Alias -Name Create-EC2EgressOnlyInternetGateway -Value New-EC2EgressOnlyInte
 Set-Alias -Name EC2-CreateEgressOnlyInternetGateway -Value New-EC2EgressOnlyInternetGateway
 Set-Alias -Name Create-EC2FlowLogs -Value New-EC2FlowLogs
 Set-Alias -Name EC2-CreateFlowLogs -Value New-EC2FlowLogs
+Set-Alias -Name Create-EC2FpgaImage -Value New-EC2FpgaImage
+Set-Alias -Name EC2-CreateFpgaImage -Value New-EC2FpgaImage
 Set-Alias -Name Create-EC2Image -Value New-EC2Image
 Set-Alias -Name EC2-CreateImage -Value New-EC2Image
 Set-Alias -Name Create-EC2InstanceExportTask -Value New-EC2InstanceExportTask
@@ -1646,8 +1650,6 @@ Set-Alias -Name Create-EC2VpcEndpoint -Value New-EC2VpcEndpoint
 Set-Alias -Name EC2-CreateVpcEndpoint -Value New-EC2VpcEndpoint
 Set-Alias -Name Create-EC2VpcPeeringConnection -Value New-EC2VpcPeeringConnection
 Set-Alias -Name EC2-CreateVpcPeeringConnection -Value New-EC2VpcPeeringConnection
-Set-Alias -Name Create-EC2VpnConnection -Value New-EC2VpnConnection
-Set-Alias -Name EC2-CreateVpnConnection -Value New-EC2VpnConnection
 Set-Alias -Name EC2-AcceptReservedInstancesExchangeQuote -Value Confirm-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name EC2-AcceptVpcPeeringConnection -Value Approve-EC2VpcPeeringConnection
 Set-Alias -Name Allocate-EC2Address -Value New-EC2Address
@@ -2190,9 +2192,11 @@ Set-Alias -Name HSM-ModifyHsm -Value Edit-HSMItem
 Set-Alias -Name Modify-HSMLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-ModifyLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-RemoveTagsFromResource -Value Remove-HSMResourceTag
+Set-Alias -Name IAM-UpdateAssumeRolePolicy -Value Update-IAMAssumeRolePolicy
 Set-Alias -Name IAM-UpdateGroup -Value Update-IAMGroup
 Set-Alias -Name IAM-UpdateLoginProfile -Value Update-IAMLoginProfile
 Set-Alias -Name IAM-UpdateOpenIDConnectProviderThumbprint -Value Update-IAMOpenIDConnectProviderThumbprint
+Set-Alias -Name IAM-UpdateRoleDescription -Value Update-IAMRoleDescription
 Set-Alias -Name IAM-UpdateSAMLProvider -Value Update-IAMSAMLProvider
 Set-Alias -Name IAM-UpdateServerCertificate -Value Update-IAMServerCertificate
 Set-Alias -Name IAM-UpdateServiceSpecificCredential -Value Update-IAMServiceSpecificCredential
@@ -2205,6 +2209,8 @@ Set-Alias -Name Upload-IAMSigningCertificate -Value Publish-IAMSigningCertificat
 Set-Alias -Name IAM-UploadSigningCertificate -Value Publish-IAMSigningCertificate
 Set-Alias -Name Upload-IAMSSHPublicKey -Value Publish-IAMSSHPublicKey
 Set-Alias -Name IAM-UploadSSHPublicKey -Value Publish-IAMSSHPublicKey
+Set-Alias -Name List-IAMOpenIDConnectProviders -Value Get-IAMOpenIDConnectProviders
+Set-Alias -Name IAM-ListOpenIDConnectProviders -Value Get-IAMOpenIDConnectProviders
 Set-Alias -Name List-IAMPolicies -Value Get-IAMPolicies
 Set-Alias -Name IAM-ListPolicies -Value Get-IAMPolicies
 Set-Alias -Name List-IAMPolicyVersions -Value Get-IAMPolicyVersions
@@ -2247,7 +2253,7 @@ Set-Alias -Name Simulate-IAMPrincipalPolicy -Value Test-IAMPrincipalPolicy
 Set-Alias -Name IAM-SimulatePrincipalPolicy -Value Test-IAMPrincipalPolicy
 Set-Alias -Name IAM-UpdateAccessKey -Value Update-IAMAccessKey
 Set-Alias -Name IAM-UpdateAccountPasswordPolicy -Value Update-IAMAccountPasswordPolicy
-Set-Alias -Name IAM-UpdateAssumeRolePolicy -Value Update-IAMAssumeRolePolicy
+Set-Alias -Name IAM-GetGroup -Value Get-IAMGroup
 Set-Alias -Name IAM-GetGroupPolicy -Value Get-IAMGroupPolicy
 Set-Alias -Name IAM-GetInstanceProfile -Value Get-IAMInstanceProfile
 Set-Alias -Name IAM-GetLoginProfile -Value Get-IAMLoginProfile
@@ -2285,8 +2291,8 @@ Set-Alias -Name List-IAMInstanceProfilesForRole -Value Get-IAMInstanceProfileFor
 Set-Alias -Name IAM-ListInstanceProfilesForRole -Value Get-IAMInstanceProfileForRole
 Set-Alias -Name List-IAMMFADevices -Value Get-IAMMFADevice
 Set-Alias -Name IAM-ListMFADevices -Value Get-IAMMFADevice
-Set-Alias -Name List-IAMOpenIDConnectProviders -Value Get-IAMOpenIDConnectProviders
-Set-Alias -Name IAM-ListOpenIDConnectProviders -Value Get-IAMOpenIDConnectProviders
+Set-Alias -Name Delete-IAMLoginProfile -Value Remove-IAMLoginProfile
+Set-Alias -Name IAM-DeleteLoginProfile -Value Remove-IAMLoginProfile
 Set-Alias -Name Delete-IAMOpenIDConnectProvider -Value Remove-IAMOpenIDConnectProvider
 Set-Alias -Name IAM-DeleteOpenIDConnectProvider -Value Remove-IAMOpenIDConnectProvider
 Set-Alias -Name Delete-IAMPolicy -Value Remove-IAMPolicy
@@ -2324,7 +2330,6 @@ Set-Alias -Name IAM-GetAccountPasswordPolicy -Value Get-IAMAccountPasswordPolicy
 Set-Alias -Name IAM-GetAccountSummary -Value Get-IAMAccountSummary
 Set-Alias -Name IAM-GetContextKeysForCustomPolicy -Value Get-IAMContextKeysForCustomPolicy
 Set-Alias -Name IAM-GetContextKeysForPrincipalPolicy -Value Get-IAMContextKeysForPrincipalPolicy
-Set-Alias -Name IAM-GetGroup -Value Get-IAMGroup
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider
 Set-Alias -Name IAM-AddRoleToInstanceProfile -Value Add-IAMRoleToInstanceProfile
 Set-Alias -Name IAM-AddUserToGroup -Value Add-IAMUserToGroup
@@ -2353,6 +2358,8 @@ Set-Alias -Name Create-IAMRole -Value New-IAMRole
 Set-Alias -Name IAM-CreateRole -Value New-IAMRole
 Set-Alias -Name Create-IAMSAMLProvider -Value New-IAMSAMLProvider
 Set-Alias -Name IAM-CreateSAMLProvider -Value New-IAMSAMLProvider
+Set-Alias -Name Create-IAMServiceLinkedRole -Value New-IAMServiceLinkedRole
+Set-Alias -Name IAM-CreateServiceLinkedRole -Value New-IAMServiceLinkedRole
 Set-Alias -Name Create-IAMServiceSpecificCredential -Value New-IAMServiceSpecificCredential
 Set-Alias -Name IAM-CreateServiceSpecificCredential -Value New-IAMServiceSpecificCredential
 Set-Alias -Name Create-IAMUser -Value New-IAMUser
@@ -2373,8 +2380,6 @@ Set-Alias -Name Delete-IAMGroupPolicy -Value Remove-IAMGroupPolicy
 Set-Alias -Name IAM-DeleteGroupPolicy -Value Remove-IAMGroupPolicy
 Set-Alias -Name Delete-IAMInstanceProfile -Value Remove-IAMInstanceProfile
 Set-Alias -Name IAM-DeleteInstanceProfile -Value Remove-IAMInstanceProfile
-Set-Alias -Name Delete-IAMLoginProfile -Value Remove-IAMLoginProfile
-Set-Alias -Name IAM-DeleteLoginProfile -Value Remove-IAMLoginProfile
 Set-Alias -Name Cancel-IEJob -Value Stop-IEJob
 Set-Alias -Name IE-CancelJob -Value Stop-IEJob
 Set-Alias -Name Create-IEJob -Value New-IEJob
@@ -3333,6 +3338,7 @@ Set-Alias -Name Delete-REKFace -Value Remove-REKFace
 Set-Alias -Name REK-DeleteFaces -Value Remove-REKFace
 Set-Alias -Name REK-DetectFaces -Value Find-REKFace
 Set-Alias -Name REK-DetectLabels -Value Find-REKLabel
+Set-Alias -Name REK-DetectModerationLabels -Value Find-REKModerationLabel
 Set-Alias -Name REK-IndexFaces -Value Add-REKDetectedFacesToCollection
 Set-Alias -Name REK-ListCollections -Value Get-REKCollectionIdList
 Set-Alias -Name REK-ListFaces -Value Get-REKFaceList

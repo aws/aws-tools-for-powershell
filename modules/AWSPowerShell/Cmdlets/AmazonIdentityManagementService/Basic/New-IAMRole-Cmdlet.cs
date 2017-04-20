@@ -59,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String AssumeRolePolicyDocument { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A customer-provided description of the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter Path
         /// <summary>
         /// <para>
@@ -79,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the role to create.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-. Role names
-        /// are not distinguished by case. For example, you cannot create roles named both "PRODROLE"
-        /// and "prodrole".</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para><para>Role names are not distinguished by case. For example, you cannot create roles named
+        /// both "PRODROLE" and "prodrole".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -118,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             PreExecutionContextLoad(context);
             
             context.AssumeRolePolicyDocument = this.AssumeRolePolicyDocument;
+            context.Description = this.Description;
             context.Path = this.Path;
             context.RoleName = this.RoleName;
             
@@ -139,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.AssumeRolePolicyDocument != null)
             {
                 request.AssumeRolePolicyDocument = cmdletContext.AssumeRolePolicyDocument;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.Path != null)
             {
@@ -200,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal class CmdletContext : ExecutorContext
         {
             public System.String AssumeRolePolicyDocument { get; set; }
+            public System.String Description { get; set; }
             public System.String Path { get; set; }
             public System.String RoleName { get; set; }
         }

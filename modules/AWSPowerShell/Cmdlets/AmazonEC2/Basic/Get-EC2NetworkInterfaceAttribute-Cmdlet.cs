@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The attribute of the network interface.</para>
+        /// <para>The attribute of the network interface. This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter CollectionId
         /// <summary>
         /// <para>
-        /// <para>ID of an existing collection to which you want to add the faces that are detected
+        /// <para>The ID of an existing collection to which you want to add the faces that are detected
         /// in the input images.</para>
         /// </para>
         /// </summary>
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter DetectionAttribute
         /// <summary>
         /// <para>
-        /// <para>A list of facial attributes you want to be returned. This can be the default list
-        /// of attributes or all attributes. If you don't specify a value for <code>Attributes</code>
+        /// <para>A list of facial attributes that you want to be returned. This can be the default
+        /// list of attributes or all attributes. If you don't specify a value for <code>Attributes</code>
         /// or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of
         /// facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
         /// <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>,

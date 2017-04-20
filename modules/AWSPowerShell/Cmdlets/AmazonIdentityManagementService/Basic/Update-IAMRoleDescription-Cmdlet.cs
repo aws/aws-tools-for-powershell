@@ -22,60 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.APIGateway;
-using Amazon.APIGateway.Model;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AG
+namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists information about a resource.
+    /// Modifies the description of a role.
     /// </summary>
-    [Cmdlet("Get", "AGResource")]
-    [OutputType("Amazon.APIGateway.Model.GetResourceResponse")]
-    [AWSCmdlet("Invokes the GetResource operation against Amazon API Gateway.", Operation = new[] {"GetResource"})]
-    [AWSCmdletOutput("Amazon.APIGateway.Model.GetResourceResponse",
-        "This cmdlet returns a Amazon.APIGateway.Model.GetResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "IAMRoleDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IdentityManagement.Model.Role")]
+    [AWSCmdlet("Invokes the UpdateRoleDescription operation against AWS Identity and Access Management.", Operation = new[] {"UpdateRoleDescription"})]
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role",
+        "This cmdlet returns a Role object.",
+        "The service call response (type Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAGResourceCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    public partial class UpdateIAMRoleDescriptionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter Embed
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A query parameter to retrieve the specified resources embedded in the returned <a>Resource</a>
-        /// representation in the response. This <code>embed</code> parameter value is a list
-        /// of comma-separated strings. Currently, the request supports only retrieval of the
-        /// embedded <a>Method</a> resources this way. The query parameter value must be a single-valued
-        /// list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</para>
+        /// <para>The new description that you want to apply to the specified role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String[] Embed { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter ResourceId
+        #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the <a>Resource</a> resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter RestApiId
-        /// <summary>
-        /// <para>
-        /// <para>The <a>RestApi</a> identifier for the resource.</para>
+        /// <para>The name of the role that you want to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RestApiId { get; set; }
+        public System.String RoleName { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RoleName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IAMRoleDescription (UpdateRoleDescription)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -86,12 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.Embed != null)
-            {
-                context.Embed = new List<System.String>(this.Embed);
-            }
-            context.ResourceId = this.ResourceId;
-            context.RestApiId = this.RestApiId;
+            context.Description = this.Description;
+            context.RoleName = this.RoleName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,19 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.APIGateway.Model.GetResourceRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateRoleDescriptionRequest();
             
-            if (cmdletContext.Embed != null)
+            if (cmdletContext.Description != null)
             {
-                request.Embed = cmdletContext.Embed;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.RoleName != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.RestApiId != null)
-            {
-                request.RestApiId = cmdletContext.RestApiId;
+                request.RoleName = cmdletContext.RoleName;
             }
             
             CmdletOutput output;
@@ -129,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.Role;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #region AWS Service Operation Call
         
-        private static Amazon.APIGateway.Model.GetResourceResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetResourceRequest request)
+        private static Amazon.IdentityManagement.Model.UpdateRoleDescriptionResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.UpdateRoleDescriptionRequest request)
         {
             #if DESKTOP
-            return client.GetResource(request);
+            return client.UpdateRoleDescription(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetResourceAsync(request);
+            var task = client.UpdateRoleDescriptionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -171,9 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> Embed { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String RestApiId { get; set; }
+            public System.String Description { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

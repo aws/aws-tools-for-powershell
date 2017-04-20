@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with
     /// an IPv6 CIDR block that uses a /64 prefix length. 
     /// </para><important><para>
-    /// AWS reserves both the first four and the last IP address in each subnet's CIDR block.
+    /// AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block.
     /// They're not available for use.
     /// </para></important><para>
     /// If you add more than one subnet to a VPC, they're set up in a star topology with a

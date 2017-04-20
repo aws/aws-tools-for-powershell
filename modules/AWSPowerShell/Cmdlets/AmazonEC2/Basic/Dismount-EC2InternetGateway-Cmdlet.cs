@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Detaches an Internet gateway from a VPC, disabling connectivity between the Internet
-    /// and the VPC. The VPC must not contain any running instances with Elastic IP addresses.
+    /// and the VPC. The VPC must not contain any running instances with Elastic IP addresses
+    /// or public IPv4 addresses.
     /// </summary>
     [Cmdlet("Dismount", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

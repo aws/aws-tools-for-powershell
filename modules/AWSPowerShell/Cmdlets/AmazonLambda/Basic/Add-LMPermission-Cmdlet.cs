@@ -145,11 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>This is optional; however, when granting a source permission to invoke your function,
-        /// you should specify this field with the Amazon Resource Name (ARN) as its value. This
-        /// ensures that only events generated from the specified source can invoke the function.</para><important><para>If you add a permission for the source without providing the source ARN, any AWS account
-        /// that creates a mapping to your function ARN can send events to invoke your Lambda
-        /// function from that source.</para></important>
+        /// <para>This is optional; however, when granting permission to invoke your function, you should
+        /// specify this field with the Amazon Resource Name (ARN) as its value. This ensures
+        /// that only events generated from the specified source can invoke the function.</para><important><para>If you add a permission without providing the source ARN, any AWS account that creates
+        /// a mapping to your function ARN can send events to invoke your Lambda function.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

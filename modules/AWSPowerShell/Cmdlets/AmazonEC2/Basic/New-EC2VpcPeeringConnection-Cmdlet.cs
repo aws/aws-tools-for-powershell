@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// connection. The VPC peering connection request expires after 7 days, after which it
     /// cannot be accepted or rejected.
     /// </para><para>
-    /// A <code>CreateVpcPeeringConnection</code> request between VPCs with overlapping CIDR
-    /// blocks results in the VPC peering connection having a status of <code>failed</code>.
+    /// If you try to create a VPC peering connection between VPCs that have overlapping CIDR
+    /// blocks, the VPC peering connection status goes to <code>failed</code>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -40,15 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// parameter, separated by commas. If you want your instance to receive a custom DNS
     /// hostname as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code>
     /// to a custom DNS server.
-    /// </para></li><li><para><code>domain-name</code> - If you're using AmazonProvidedDNS in "us-east-1", specify
-    /// "ec2.internal". If you're using AmazonProvidedDNS in another region, specify "region.compute.internal"
-    /// (for example, "ap-northeast-1.compute.internal"). Otherwise, specify a domain name
-    /// (for example, "MyCompany.com"). This value is used to complete unqualified DNS hostnames.
-    /// <b>Important</b>: Some Linux operating systems accept multiple domain names separated
-    /// by spaces. However, Windows and other Linux operating systems treat the value as a
-    /// single domain, which results in unexpected behavior. If your DHCP options set is associated
-    /// with a VPC that has instances with multiple operating systems, specify only one domain
-    /// name.
+    /// </para></li><li><para><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>,
+    /// specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another region,
+    /// specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>).
+    /// Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value
+    /// is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating
+    /// systems accept multiple domain names separated by spaces. However, Windows and other
+    /// Linux operating systems treat the value as a single domain, which results in unexpected
+    /// behavior. If your DHCP options set is associated with a VPC that has instances with
+    /// multiple operating systems, specify only one domain name.
     /// </para></li><li><para><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
     /// servers.
     /// </para></li><li><para><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.

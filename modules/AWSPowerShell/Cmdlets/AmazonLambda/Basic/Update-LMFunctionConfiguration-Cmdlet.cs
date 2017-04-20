@@ -115,6 +115,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32 MemorySize { get; set; }
         #endregion
         
+        #region Parameter TracingConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request
+        /// from an upstream service if it contains a tracing header with "sampled=1". If Active,
+        /// Lambda will respect any tracing header it receives from an upstream service. If no
+        /// tracing header is received, Lambda will call X-Ray for a tracing decision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Lambda.TracingMode")]
+        public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
+        #endregion
+        
         #region Parameter Role
         /// <summary>
         /// <para>
@@ -247,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.Runtime = this.Runtime;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
+            context.TracingConfig_Mode = this.TracingConfig_Mode;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupIds = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -342,6 +357,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 request.Timeout = cmdletContext.Timeout.Value;
             }
             
+             // populate TracingConfig
+            bool requestTracingConfigIsNull = true;
+            request.TracingConfig = new Amazon.Lambda.Model.TracingConfig();
+            Amazon.Lambda.TracingMode requestTracingConfig_tracingConfig_Mode = null;
+            if (cmdletContext.TracingConfig_Mode != null)
+            {
+                requestTracingConfig_tracingConfig_Mode = cmdletContext.TracingConfig_Mode;
+            }
+            if (requestTracingConfig_tracingConfig_Mode != null)
+            {
+                request.TracingConfig.Mode = requestTracingConfig_tracingConfig_Mode;
+                requestTracingConfigIsNull = false;
+            }
+             // determine if request.TracingConfig should be set to null
+            if (requestTracingConfigIsNull)
+            {
+                request.TracingConfig = null;
+            }
+            
              // populate VpcConfig
             bool requestVpcConfigIsNull = true;
             request.VpcConfig = new Amazon.Lambda.Model.VpcConfig();
@@ -431,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
             public System.Int32? Timeout { get; set; }
+            public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
             public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
             public List<System.String> VpcConfig_SubnetIds { get; set; }
         }

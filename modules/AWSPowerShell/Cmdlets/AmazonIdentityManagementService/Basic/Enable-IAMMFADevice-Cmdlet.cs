@@ -45,7 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AuthenticationCode1
         /// <summary>
         /// <para>
-        /// <para>An authentication code emitted by the device.</para><para>The format for this parameter is a string of 6 digits.</para>
+        /// <para>An authentication code emitted by the device. </para><para>The format for this parameter is a string of 6 digits.</para><important><para>Submit your request immediately after generating the authentication codes. If you
+        /// generate the codes and then wait too long to submit the request, the MFA device successfully
+        /// associates with the user but the MFA device becomes out of sync. This happens because
+        /// time-based one-time passwords (TOTP) expire after a short period of time. If this
+        /// happens, you can <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync
+        /// the device</a>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -55,7 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AuthenticationCode2
         /// <summary>
         /// <para>
-        /// <para>A subsequent authentication code emitted by the device.</para><para>The format for this parameter is a string of 6 digits.</para>
+        /// <para>A subsequent authentication code emitted by the device.</para><para>The format for this parameter is a string of 6 digits.</para><important><para>Submit your request immediately after generating the authentication codes. If you
+        /// generate the codes and then wait too long to submit the request, the MFA device successfully
+        /// associates with the user but the MFA device becomes out of sync. This happens because
+        /// time-based one-time passwords (TOTP) expire after a short period of time. If this
+        /// happens, you can <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync
+        /// the device</a>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -68,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The serial number that uniquely identifies the MFA device. For virtual MFA devices,
         /// the serial number is the device ARN.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =/:,.@-</para>
+        /// no spaces. You can also include any of the following characters: =,.@:/-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

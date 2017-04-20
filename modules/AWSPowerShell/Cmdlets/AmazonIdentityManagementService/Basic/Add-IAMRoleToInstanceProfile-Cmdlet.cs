@@ -28,7 +28,8 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Adds the specified IAM role to the specified instance profile.
+    /// Adds the specified IAM role to the specified instance profile. An instance profile
+    /// can contain only one role, and this limit cannot be increased.
     /// 
     ///  <note><para>
     /// The caller of this API must be granted the <code>PassRole</code> permission on the
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the role to add.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
         /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: =,.@-</para>
+        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

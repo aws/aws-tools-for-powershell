@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para> The audio format in which the resulting stream will be encoded. </para>
+        /// <para> The format in which the returned output will be encoded. For audio stream, this will
+        /// be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SampleRate { get; set; }
+        #endregion
+        
+        #region Parameter SpeechMarkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of speech marks returned for the input text.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SpeechMarkTypes")]
+        public System.String[] SpeechMarkType { get; set; }
         #endregion
         
         #region Parameter Text
@@ -135,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.POL
             }
             context.OutputFormat = this.OutputFormat;
             context.SampleRate = this.SampleRate;
+            if (this.SpeechMarkType != null)
+            {
+                context.SpeechMarkTypes = new List<System.String>(this.SpeechMarkType);
+            }
             context.Text = this.Text;
             context.TextType = this.TextType;
             context.VoiceId = this.VoiceId;
@@ -165,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.POL
             if (cmdletContext.SampleRate != null)
             {
                 request.SampleRate = cmdletContext.SampleRate;
+            }
+            if (cmdletContext.SpeechMarkTypes != null)
+            {
+                request.SpeechMarkTypes = cmdletContext.SpeechMarkTypes;
             }
             if (cmdletContext.Text != null)
             {
@@ -232,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
             public List<System.String> LexiconNames { get; set; }
             public Amazon.Polly.OutputFormat OutputFormat { get; set; }
             public System.String SampleRate { get; set; }
+            public List<System.String> SpeechMarkTypes { get; set; }
             public System.String Text { get; set; }
             public Amazon.Polly.TextType TextType { get; set; }
             public Amazon.Polly.VoiceId VoiceId { get; set; }

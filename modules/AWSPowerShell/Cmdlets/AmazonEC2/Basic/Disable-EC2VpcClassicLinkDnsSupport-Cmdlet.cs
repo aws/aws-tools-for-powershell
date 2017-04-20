@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
     /// public IP addresses when addressed between a linked EC2-Classic instance and instances
     /// in the VPC to which it's linked. For more information about ClassicLink, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-    /// in the Amazon Elastic Compute Cloud User Guide.
+    /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Disable", "EC2VpcClassicLinkDnsSupport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

@@ -1,5 +1,17 @@
+  * Amazon EC2
+    - Added a new cmdlet, New-EC2FpgaImage (CreateFpgaImage API), to support creating an Amazon FPGA Image (AFI) from a specified design checkpoint (DCP). 
+  * AWS Rekognition
+    - Added a new cmdlet, Find-REKModerationLabel (DetectModerationLabel API), to support detection of explicit or suggestive adult content in an image. The cmdlet a list of corresponding labels with confidence scores, as well as a taxonomy (parent-child relation) for each label.
+  * AWS Identity and Access Management
+    - Updated the New-IAMRole cmdlet with a new parameter, -Description, and added a new cmdlet Update-IAMRoleDescription (UpdateRoleDescription API) to support specifying a user-provided description for the role.
+    - Added cmdlet New-IAMServiceLinkedRole (CreateServiceLinkedRole API). This cmdlet enables creation of a new role type, Service Linked Role, which works like a normal role but must be managed via services' control.
   * AWS Lambda
     - Added new cmdlets to support the new service feature using tags to group and filter Lambda functions. The new cmdlets are Add-LMResourceTag (TagResource API), Get-LMResourceTag (ListTags API) and Remove-LMResourceTag (UntagResource API).
+    - Added a new parameter, -TracingConfig_Mode, to the Update-LMFunctionConfiguration cmdlet to support integration with CloudDebugger service to enable customers to enable tracing for the Lambda functions and send trace information to the CloudDebugger service.
+  * Amazon API Gateway
+    - Extended the Get-AGDeployment, Get-AGResource and Get-AGResourceList cmdlets with a new parameter, -Embed, to support specifying embedded resources to retrieve. 
+  * Amazon Polly
+    - Added a new parameter, -SpeechMarkType, to the Get-POLSpeech cmdlet to support defining the speech marks to be used in the returned text.
 
 ### 3.3.76.0 (2017-04-11)
   * Amazon S3

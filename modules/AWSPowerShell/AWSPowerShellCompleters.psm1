@@ -3112,6 +3112,13 @@ $LM_Completers = {
             break
         }
         
+        # Amazon.Lambda.TracingMode
+        "Update-LMFunctionConfiguration/TracingConfig_Mode"
+        {
+            $v = "Active","PassThrough"
+            break
+        }
+        
     }
     
     $v |
@@ -3124,6 +3131,7 @@ $LM_map = @{
     "LogType"=@("Invoke-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
+    "TracingConfig_Mode"=@("Update-LMFunctionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $LM_Completers $LM_map
@@ -3671,7 +3679,7 @@ $POL_Completers = {
         # Amazon.Polly.OutputFormat
         "Get-POLSpeech/OutputFormat"
         {
-            $v = "mp3","ogg_vorbis","pcm"
+            $v = "json","mp3","ogg_vorbis","pcm"
             break
         }
         

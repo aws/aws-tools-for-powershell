@@ -53,6 +53,7 @@
             <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
         </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="DetectModerationLabels" Verb="Find" Noun="ModerationLabel" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="IndexFaces" Verb="Add" Noun="DetectedFacesToCollection" Output="Response">
         <Params>
             <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />

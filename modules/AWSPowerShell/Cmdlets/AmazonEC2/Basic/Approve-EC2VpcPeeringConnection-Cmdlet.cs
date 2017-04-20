@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Accept a VPC peering connection request. To accept a request, the VPC peering connection
     /// must be in the <code>pending-acceptance</code> state, and you must be the owner of
-    /// the peer VPC. Use the <code>DescribeVpcPeeringConnections</code> request to view your
-    /// outstanding VPC peering connection requests.
+    /// the peer VPC. Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
+    /// peering connection requests.
     /// </summary>
     [Cmdlet("Approve", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcPeeringConnection")]

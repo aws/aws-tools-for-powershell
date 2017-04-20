@@ -49,6 +49,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DeploymentId { get; set; }
         #endregion
         
+        #region Parameter Embed
+        /// <summary>
+        /// <para>
+        /// <para>A query parameter to retrieve the specified embedded resources of the returned <a>Deployment</a>
+        /// resource in the response. In a REST API call, this <code>embed</code> parameter value
+        /// is a list of comma-separated strings, as in <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2</code>.
+        /// The SDK and other platform-dependent libraries might use a different format for the
+        /// list. Currently, this request supports only retrieval of the embedded API summary
+        /// this way. Hence, the parameter value must be a single-valued list containing only
+        /// the <code>"apisummary"</code> string. For example, <code>GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Embed { get; set; }
+        #endregion
+        
         #region Parameter RestApiId
         /// <summary>
         /// <para>
@@ -74,6 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             PreExecutionContextLoad(context);
             
             context.DeploymentId = this.DeploymentId;
+            if (this.Embed != null)
+            {
+                context.Embed = new List<System.String>(this.Embed);
+            }
             context.RestApiId = this.RestApiId;
             
             // allow further manipulation of loaded context prior to processing
@@ -94,6 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.DeploymentId != null)
             {
                 request.DeploymentId = cmdletContext.DeploymentId;
+            }
+            if (cmdletContext.Embed != null)
+            {
+                request.Embed = cmdletContext.Embed;
             }
             if (cmdletContext.RestApiId != null)
             {
@@ -151,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         internal class CmdletContext : ExecutorContext
         {
             public System.String DeploymentId { get; set; }
+            public List<System.String> Embed { get; set; }
             public System.String RestApiId { get; set; }
         }
         

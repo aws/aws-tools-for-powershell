@@ -41,13 +41,28 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGResourceListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter Embed
+        /// <summary>
+        /// <para>
+        /// <para>A query parameter used to retrieve the specified resources embedded in the returned
+        /// <a>Resources</a> resource in the response. This <code>embed</code> parameter value
+        /// is a list of comma-separated strings. Currently, the request supports only retrieval
+        /// of the embedded <a>Method</a> resources this way. The query parameter value must be
+        /// a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET
+        /// /restapis/{restapi_id}/resources?embed=methods</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Embed { get; set; }
+        #endregion
+        
         #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The <a>RestApi</a> identifier for the Resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
         #endregion
         
@@ -58,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// be between 1 - 500.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion
@@ -90,6 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Embed != null)
+            {
+                context.Embed = new List<System.String>(this.Embed);
+            }
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Position = this.Position;
@@ -110,6 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             
             // create request and set iteration invariants
             var request = new Amazon.APIGateway.Model.GetResourcesRequest();
+            if (cmdletContext.Embed != null)
+            {
+                request.Embed = cmdletContext.Embed;
+            }
             if (cmdletContext.RestApiId != null)
             {
                 request.RestApiId = cmdletContext.RestApiId;
@@ -217,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> Embed { get; set; }
             public int? Limit { get; set; }
             public System.String Position { get; set; }
             public System.String RestApiId { get; set; }

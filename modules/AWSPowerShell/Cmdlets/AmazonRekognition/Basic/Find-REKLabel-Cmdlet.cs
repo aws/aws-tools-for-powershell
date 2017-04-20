@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Specifies the minimum confidence level for the labels to return. Amazon Rekognition
-        /// doesn't return any labels with confidence lower than this specified value.</para><para>If <code>minConfidence</code> is not specified, the operation returns labels with
+        /// doesn't return any labels with confidence lower than this specified value.</para><para>If <code>MinConfidence</code> is not specified, the operation returns labels with
         /// a confidence values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
