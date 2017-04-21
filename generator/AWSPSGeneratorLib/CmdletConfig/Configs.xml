@@ -23,6 +23,7 @@
     <Path>CodeCommit.xml</Path>
     <Path>CodeDeploy.xml</Path>
     <Path>CodePipeline.xml</Path>
+    <Path>CodeStar.xml</Path>
     <Path>CognitoIdentity.xml</Path>
     <Path>CognitoIdentityProvider.xml</Path>
     <Path>ConfigService.xml</Path>

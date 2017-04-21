@@ -1,5 +1,9 @@
   * All service API cmdlets
     - Cmdlets that invoke APIs on AWS services can now display a message stating the API and service endpoint or region the call is being dispatched to when the -Verbose switch is used. This can be used to help diagnose endpoint resolution failures.
+  * AWS CodeStar
+    - Added support for the new AWS CodeStar service. Cmdlets for the service have the noun prefix CST and can be listed with the command Get-AWSCmdletName -Service CST.
+  * Amazon Lex Model Builder Service
+    - Added support for the new Amazon Lex Model Builder Service. Cmdlets for the service have the noun prefix LMB and can be listed with the command Get-AWSCmdletName -Service LMB.
   * Amazon EC2
     - Added a new cmdlet, New-EC2FpgaImage (CreateFpgaImage API), to support creating an Amazon FPGA Image (AFI) from a specified design checkpoint (DCP). 
   * AWS Rekognition

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>LMB</ServiceNounPrefix>
+  <ServiceName>Amazon Lex Model Building Service</ServiceName>
+  <ServiceNamespace>Amazon.LexModelBuildingService</ServiceNamespace>
+  <ServiceClientInterface>IAmazonLexModelBuildingService</ServiceClientInterface>
+  <ServiceClient>AmazonLexModelBuildingServiceClient</ServiceClient>
+
+  <PipelineParameter>Name</PipelineParameter>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateBotVersion" Output="Response" />
+    <ServiceOperation MethodName="CreateIntentVersion" Output="Response" />
+    <ServiceOperation MethodName="CreateSlotTypeVersion" Output="Response"/>
+    <ServiceOperation MethodName="DeleteBot" Output="Void" />
+    <ServiceOperation MethodName="DeleteBotAlias" Output="Void" />
+    <ServiceOperation MethodName="DeleteBotChannelAssociation" Output="Void" />
+    <ServiceOperation MethodName="DeleteIntent" Output="Void" />
+    <ServiceOperation MethodName="DeleteSlotType" Output="Void" />
+    <ServiceOperation MethodName="DeleteUtterances" Noun="Utterance" PipelineParameter="UserId" Output="Void" />
+    <ServiceOperation MethodName="GetBot" PipelineParameter="VersionOrAlias" Output="Response" />
+    <ServiceOperation MethodName="GetBotAlias" Output="Response" />
+    <ServiceOperation MethodName="GetBotAliases" Noun="BotAliasList" PipelineParameter="BotName" />
+    <ServiceOperation MethodName="GetBotChannelAssociation" Output="Response" />
+    <ServiceOperation MethodName="GetBotChannelAssociations" Noun="BotChannelAssociationList" PipelineParameter="BotName" />
+    <ServiceOperation MethodName="GetBots" Noun="BotList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetBotVersions" Noun="BotVersionList" />
+    <ServiceOperation MethodName="GetBuiltinIntent" Output="Response" />
+    <ServiceOperation MethodName="GetBuiltinIntents" Noun="BuiltinIntentList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetBuiltinSlotTypes" Noun="BuiltinSlotType" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetIntent" Output="Response" />
+    <ServiceOperation MethodName="GetIntents" Noun="IntentList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetIntentVersions" Noun="IntentVersion" />
+    <ServiceOperation MethodName="GetSlotType" Output="Response" />
+    <ServiceOperation MethodName="GetSlotTypes" Noun="SlotTypeList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetSlotTypeVersions" Noun="SlotTypeVersionList" />
+    <ServiceOperation MethodName="GetUtterancesView" PipelineParameter="BotName" />
+    <ServiceOperation MethodName="PutBot" Output="Response" />
+    <ServiceOperation MethodName="PutBotAlias" Output="Response" />
+    <ServiceOperation MethodName="PutIntent" Output="Response" />
+    <ServiceOperation MethodName="PutSlotType" Output="Response" />
+  </ServiceOperations>
+  
+</ConfigModel>

@@ -30,6 +30,7 @@
 		"AWSSDK.CodeCommit": "3.3.1.5",
 		"AWSSDK.CodeDeploy": "3.3.3.5",
 		"AWSSDK.CodePipeline": "3.3.0.14",
+		"AWSSDK.CodeStar": "3.3.0",
 		"AWSSDK.CognitoIdentity": "3.3.2.5",
 		"AWSSDK.CognitoIdentityProvider": "3.3.2.9",
 		"AWSSDK.ConfigService": "3.3.6.6",

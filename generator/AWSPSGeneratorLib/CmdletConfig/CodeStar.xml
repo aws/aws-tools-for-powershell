@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CST</ServiceNounPrefix>
+  <ServiceName>AWS CodeStar</ServiceName>
+  <ServiceNamespace>Amazon.CodeStar</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCodeStar</ServiceClientInterface>
+  <ServiceClient>AmazonCodeStarClient</ServiceClient>
+
+  <PipelineParameter />
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+  
+  <ServiceOperations>
+      <ServiceOperation MethodName="AssociateTeamMember" Verb="Add" PipelineParameter="UserArn" />
+      <ServiceOperation MethodName="CreateProject" NoPipelineParameter="true" Output="Response" ShouldProcessTarget="Name" />
+      <ServiceOperation MethodName="CreateUserProfile" PipelineParameter="UserArn" Output="Response" />
+      <ServiceOperation MethodName="DeleteProject" PipelineParameter="Id" Output="Response" />
+      <ServiceOperation MethodName="DeleteUserProfile" />
+      <ServiceOperation MethodName="DescribeProject" Output="Response" />
+      <ServiceOperation MethodName="DescribeUserProfile" Output="Response" />
+      <ServiceOperation MethodName="DisassociateTeamMember" Verb="Remove" PipelineParameter="UserArn" Output="Void" />
+      <ServiceOperation MethodName="ListProjects" Noun="ProjectList" />
+      <ServiceOperation MethodName="ListResources" Noun="ResourceList" />
+      <ServiceOperation MethodName="ListTeamMembers" Noun="TeamMemberList" />
+      <ServiceOperation MethodName="ListUserProfiles" Noun="UserProfileList" />
+      <ServiceOperation MethodName="UpdateProject" PipelineParameter="Id" Output="Void" />
+      <ServiceOperation MethodName="UpdateTeamMember" PipelineParameter="UserArn" Output="Response" />
+      <ServiceOperation MethodName="UpdateUserProfile" PipelineParameter="UserArn" Output="Response" />
+  </ServiceOperations>
+  
+</ConfigModel>
