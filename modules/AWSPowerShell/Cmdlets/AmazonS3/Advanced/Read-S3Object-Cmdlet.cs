@@ -310,7 +310,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
 
             CmdletOutput output;
-
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");
@@ -341,7 +340,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
 
             CmdletOutput output;
-
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");

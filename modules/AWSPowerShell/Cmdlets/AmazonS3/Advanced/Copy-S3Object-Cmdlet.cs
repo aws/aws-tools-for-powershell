@@ -534,6 +534,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // issue call
             using (var client = Client ?? CreateClient(context.Credentials, context.Region))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "CopyObject");
+
                 CmdletOutput output;
                 try
                 {
@@ -593,7 +595,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "CopyObject");
 #if DESKTOP
             return client.CopyObject(request);
 #elif CORECLR

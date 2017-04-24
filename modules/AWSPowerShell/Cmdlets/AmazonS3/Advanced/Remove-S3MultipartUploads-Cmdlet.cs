@@ -125,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
+
             CmdletOutput output = new CmdletOutput();
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 abort multi-part upload APIs");
-
                 try
                 {
                     tu.AbortMultipartUploads(cmdletContext.BucketName, cmdletContext.InitiatedDate);

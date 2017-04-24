@@ -508,6 +508,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             using (var client = CreateClient(context.Credentials, context.Region))
             {
+                Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutObject");
+
                 var runner = new ProgressRunner(this);
                 var tracker = new UploadTextProgressTracker(runner, handler => request.StreamTransferProgress += handler, cmdletContext.Key);
 
@@ -560,8 +562,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
             CmdletOutput output;
-
-            using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region),transferUtilityConfig))
+            using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region), transferUtilityConfig))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object upload APIs");
 
@@ -605,7 +606,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             AmazonS3Helper.SetExtraRequestFields(request, cmdletContext);
 
             CmdletOutput output;
-
             using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object upload APIs");
@@ -628,7 +628,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutObject");
 #if DESKTOP
             return client.PutObject(request);
 #elif CORECLR
