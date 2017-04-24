@@ -157,10 +157,10 @@
       <HintPath>..\..\packages\AWSSDK.S3.3.3.5.12\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
-      <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.12\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.13\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.3.5.5\lib\net35\AWSSDK.Route53.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53.3.3.5.6\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.2.1\lib\net35\AWSSDK.Redshift.dll</HintPath>
@@ -187,7 +187,7 @@
       <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.1.9\lib\net35\AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.2.5\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.2.6\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>..\..\packages\AWSSDK.IoT.3.3.1.11\lib\net35\AWSSDK.IoT.dll</HintPath>
@@ -244,10 +244,10 @@
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.1.11\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectConnect">
-      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.4.2\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DirectConnect.3.3.4.3\lib\net35\AWSSDK.DirectConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DeviceFarm">
-      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.1.4\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DeviceFarm.3.3.2\lib\net35\AWSSDK.DeviceFarm.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataPipeline">
       <HintPath>..\..\packages\AWSSDK.DataPipeline.3.3.0.12\lib\net35\AWSSDK.DataPipeline.dll</HintPath>

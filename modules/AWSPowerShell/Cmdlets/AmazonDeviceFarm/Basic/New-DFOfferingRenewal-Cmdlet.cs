@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>The ID of a request to renew an offering.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String OfferingId { get; set; }
         #endregion
         

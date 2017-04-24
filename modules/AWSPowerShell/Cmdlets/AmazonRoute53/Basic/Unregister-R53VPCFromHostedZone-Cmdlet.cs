@@ -32,12 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  <note><para>
     /// You can't disassociate the last VPC from a private hosted zone.
-    /// </para></note><para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted zone
-    /// ID</i>/disassociatevpc</code> resource. The request body must include a document with
-    /// a <code>DisassociateVPCFromHostedZoneRequest</code> element. The response includes
-    /// a <code>DisassociateVPCFromHostedZoneResponse</code> element.
-    /// </para><important><para>
+    /// </para></note><important><para>
     /// You can't disassociate a VPC from a private hosted zone when only one VPC is associated
     /// with the hosted zone. You also can't convert a private hosted zone into a public hosted
     /// zone.
@@ -86,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// <para>The region in which you created the VPC that you want to associate with the specified
-        /// Amazon Route 53 hosted zone.</para>
+        /// <para>(Private hosted zones only) The region in which you created an Amazon VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

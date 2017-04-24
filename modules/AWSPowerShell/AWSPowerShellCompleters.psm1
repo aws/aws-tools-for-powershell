@@ -1675,6 +1675,7 @@ $DF_Completers = {
         
         # Amazon.DeviceFarm.TestType
         {
+            ($_ -eq "Get-DFDevicePoolCompatibility/Test_Type") -Or
             ($_ -eq "Submit-DFTestRun/Test_Type") -Or
             ($_ -eq "Get-DFDevicePoolCompatibility/TestType")
         }
@@ -1699,7 +1700,7 @@ $DF_Completers = {
 
 $DF_map = @{
     "Configuration_BillingMethod"=@("New-DFRemoteAccessSession","Submit-DFTestRun")
-    "Test_Type"=@("Submit-DFTestRun")
+    "Test_Type"=@("Get-DFDevicePoolCompatibility","Submit-DFTestRun")
     "TestType"=@("Get-DFDevicePoolCompatibility")
     "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
 }

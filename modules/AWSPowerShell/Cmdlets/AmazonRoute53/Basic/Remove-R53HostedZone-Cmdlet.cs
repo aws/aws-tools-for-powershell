@@ -28,17 +28,36 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deletes a hosted zone. Send a <code>DELETE</code> request to the <code>/<i>Amazon
-    /// Route 53 API version</i>/hostedzone/<i>hosted zone ID</i></code> resource.
+    /// Deletes a hosted zone.
     /// 
     ///  <important><para>
-    /// Delete a hosted zone only if there are no resource record sets other than the default
-    /// SOA record and NS resource record sets. If the hosted zone contains other resource
-    /// record sets, delete them before deleting the hosted zone. If you try to delete a hosted
-    /// zone that contains other resource record sets, Amazon Route 53 denies your request
-    /// with a <code>HostedZoneNotEmpty</code> error. For information about deleting records
-    /// from your hosted zone, see <a>ChangeResourceRecordSets</a>.
-    /// </para></important>
+    /// If the name servers for the hosted zone are associated with a domain and if you want
+    /// to make the domain unavailable on the Internet, we recommend that you delete the name
+    /// servers from the domain to prevent future DNS queries from possibly being misrouted.
+    /// If the domain is registered with Amazon Route 53, see <code>UpdateDomainNameservers</code>.
+    /// If the domain is registered with another registrar, use the method provided by the
+    /// registrar to delete name servers for the domain.
+    /// </para><para>
+    /// Some domain registries don't allow you to remove all of the name servers for a domain.
+    /// If the registry for your domain requires one or more name servers, we recommend that
+    /// you delete the hosted zone only if you transfer DNS service to another service provider,
+    /// and you replace the name servers for the domain with name servers from the new provider.
+    /// </para></important><para>
+    /// You can delete a hosted zone only if it contains only the default SOA record and NS
+    /// resource record sets. If the hosted zone contains other resource record sets, you
+    /// must delete them before you can delete the hosted zone. If you try to delete a hosted
+    /// zone that contains other resource record sets, the request fails, and Amazon Route
+    /// 53 returns a <code>HostedZoneNotEmpty</code> error. For information about deleting
+    /// records from your hosted zone, see <a>ChangeResourceRecordSets</a>.
+    /// </para><para>
+    /// To verify that the hosted zone has been deleted, do one of the following:
+    /// </para><ul><li><para>
+    /// Use the <code>GetHostedZone</code> action to request information about the hosted
+    /// zone.
+    /// </para></li><li><para>
+    /// Use the <code>ListHostedZones</code> action to get a list of the hosted zones associated
+    /// with the current AWS account.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]

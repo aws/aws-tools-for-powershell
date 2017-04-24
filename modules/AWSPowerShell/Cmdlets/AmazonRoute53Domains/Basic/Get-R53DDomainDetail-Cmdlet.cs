@@ -28,8 +28,9 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation returns detailed information about the domain. The domain's contact
-    /// information is also returned as part of the output.
+    /// This operation returns detailed information about a specified domain that is associated
+    /// with the current AWS account. Contact information for the domain is also returned
+    /// as part of the output.
     /// </summary>
     [Cmdlet("Get", "R53DDomainDetail")]
     [OutputType("Amazon.Route53Domains.Model.GetDomainDetailResponse")]
@@ -43,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para><para>Required: Yes</para>
+        /// <para>The name of the domain that you want to get detailed information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

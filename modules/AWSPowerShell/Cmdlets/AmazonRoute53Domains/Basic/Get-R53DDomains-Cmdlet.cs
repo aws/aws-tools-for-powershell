@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// that you specified for <code>MaxItems</code>, you can use <code>Marker</code> to return
         /// additional domains. Get the value of <code>NextPageMarker</code> from the previous
         /// response, and submit another request that includes the value of <code>NextPageMarker</code>
-        /// in the <code>Marker</code> element.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The marker must match the value specified in the previous request. </para><para>Required: No</para>
+        /// in the <code>Marker</code> element.</para><para>Constraints: The marker must match the value specified in the previous request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Number of domains to be returned.</para><para>Type: Integer</para><para>Default: 20</para><para>Constraints: A numeral between 1 and 100.</para><para>Required: No</para>
+        /// <para>Number of domains to be returned.</para><para>Default: 20</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,10 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Gets information about a specified health check. Send a <code>GET</code> request to
-    /// the <code>/2013-04-01/healthcheck/<i>health check ID</i></code> resource. For more
-    /// information about using the console to perform this operation, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Amazon
-    /// Route 53 Health Checks and DNS Failover</a> in the Amazon Route 53 Developer Guide.
+    /// Gets information about a specified health check.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheck")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]

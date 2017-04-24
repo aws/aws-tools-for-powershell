@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The name of the domain for which you want Amazon Route 53 to resend a confirmation
-        /// email to the registrant contact.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
+        /// email to the registrant contact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

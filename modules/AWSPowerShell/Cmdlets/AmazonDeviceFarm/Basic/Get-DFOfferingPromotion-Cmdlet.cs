@@ -22,50 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Domains;
-using Amazon.Route53Domains.Model;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53D
+namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// This operation returns the operation IDs of operations that are not yet complete.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of offering promotions. Each offering promotion record contains the
+    /// ID and description of the promotion. The API returns a <code>NotEligible</code> error
+    /// if the caller is not permitted to invoke the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>
+    /// if you believe that you should be able to invoke this operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "R53DOperations")]
-    [OutputType("Amazon.Route53Domains.Model.OperationSummary")]
-    [AWSCmdlet("Invokes the ListOperations operation against Amazon Route 53 Domains.", Operation = new[] {"ListOperations"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.Model.OperationSummary",
-        "This cmdlet returns a collection of OperationSummary objects.",
-        "The service call response (type Amazon.Route53Domains.Model.ListOperationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageMarker (type System.String)"
+    [Cmdlet("Get", "DFOfferingPromotion")]
+    [OutputType("Amazon.DeviceFarm.Model.OfferingPromotion")]
+    [AWSCmdlet("Invokes the ListOfferingPromotions operation against AWS Device Farm.", Operation = new[] {"ListOfferingPromotions"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.OfferingPromotion",
+        "This cmdlet returns a collection of OfferingPromotion objects.",
+        "The service call response (type Amazon.DeviceFarm.Model.ListOfferingPromotionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetR53DOperationsCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class GetDFOfferingPromotionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
-        #region Parameter Marker
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For an initial request for a list of operations, omit this element. If the number
-        /// of operations that are not yet complete is greater than the value that you specified
-        /// for <code>MaxItems</code>, you can use <code>Marker</code> to return additional operations.
-        /// Get the value of <code>NextPageMarker</code> from the previous response, and submit
-        /// another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code>
-        /// element.</para>
+        /// <para>An identifier that was returned from the previous call to this operation, which can
+        /// be used to return the next set of items in the list.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("NextToken")]
-        public System.String Marker { get; set; }
-        #endregion
-        
-        #region Parameter MaxItem
-        /// <summary>
-        /// <para>
-        /// <para>Number of domains to be returned.</para><para>Default: 20</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public System.Int32 MaxItem { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -81,9 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Marker = this.Marker;
-            if (ParameterWasBound("MaxItem"))
-                context.MaxItems = this.MaxItem;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,19 +87,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Route53Domains.Model.ListOperationsRequest();
+            var request = new Amazon.DeviceFarm.Model.ListOfferingPromotionsRequest();
             
-            if (cmdletContext.MaxItems != null)
-            {
-                request.MaxItems = cmdletContext.MaxItems.Value;
-            }
             
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
             bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
-                _nextMarker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.NextToken;
                 _userControllingPaging = true;
             }
             
@@ -119,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 do
                 {
-                    request.Marker = _nextMarker;
+                    request.NextToken = _nextMarker;
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -130,9 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Operations;
+                        object pipelineOutput = response.OfferingPromotions;
                         notes = new Dictionary<string, object>();
-                        notes["NextPageMarker"] = response.NextPageMarker;
+                        notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
@@ -141,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Operations.Count;
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                            int _receivedThisCall = response.OfferingPromotions.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
-                        _nextMarker = response.NextPageMarker;
+                        _nextMarker = response.NextToken;
                     }
                     catch (Exception e)
                     {
@@ -176,14 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Domains.Model.ListOperationsResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ListOperationsRequest request)
+        private Amazon.DeviceFarm.Model.ListOfferingPromotionsResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.ListOfferingPromotionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "ListOperations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "ListOfferingPromotions");
             #if DESKTOP
-            return client.ListOperations(request);
+            return client.ListOfferingPromotions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListOperationsAsync(request);
+            var task = client.ListOfferingPromotionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -194,8 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Marker { get; set; }
-            public System.Int32? MaxItems { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

@@ -30,16 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// <summary>
     /// The GetDomainSuggestions operation returns a list of suggested domain names given
     /// a string, which can either be a domain name or simply a word or phrase (without spaces).
-    /// 
-    ///  
-    /// <para>
-    ///  Parameters: <ul><li>DomainName (string): The basis for your domain suggestion search,
-    /// a string with (or without) top-level domain specified.</li><li>SuggestionCount (int):
-    /// The number of domain suggestions to be returned, maximum 50, minimum 1.</li><li>OnlyAvailable
-    /// (bool): If true, availability check will be performed on suggestion results, and only
-    /// available domains will be returned. If false, suggestions will be returned without
-    /// checking whether the domain is actually available, and caller will have to call checkDomainAvailability
-    /// for each suggestion to determine availability for registration.</li></ul></para>
     /// </summary>
     [Cmdlet("Get", "R53DDomainSuggestion")]
     [OutputType("Amazon.Route53Domains.Model.DomainSuggestion")]
@@ -54,7 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A domain name that you want to use as the basis for a list of possible domain names.
+        /// The domain name must contain a top-level domain (TLD), such as .com, that Amazon Route
+        /// 53 supports. For a list of TLDs, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,7 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter OnlyAvailable
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>If <code>OnlyAvailable</code> is <code>true</code>, Amazon Route 53 returns only domain
+        /// names that are available. If <code>OnlyAvailable</code> is <code>false</code>, Amazon
+        /// Route 53 returns domain names without checking whether they're available to be registered.
+        /// To determine whether the domain is available, you can call <code>checkDomainAvailability</code>
+        /// for each suggestion.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter SuggestionCount
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The number of suggested domain names that you want Amazon Route 53 to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

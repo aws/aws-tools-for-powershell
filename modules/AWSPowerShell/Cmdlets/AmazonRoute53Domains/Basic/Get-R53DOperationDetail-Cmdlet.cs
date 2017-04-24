@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The identifier for the operation for which you want to get the status. Amazon Route
-        /// 53 returned the identifier in the response to the original request.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
+        /// 53 returned the identifier in the response to the original request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

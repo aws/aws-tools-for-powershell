@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the domain that you want to enable automatic renewal for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

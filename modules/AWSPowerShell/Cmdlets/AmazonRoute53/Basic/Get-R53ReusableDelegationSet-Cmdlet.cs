@@ -28,8 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves the reusable delegation set. Send a <code>GET</code> request to the <code>/2013-04-01/delegationset/<i>delegation
-    /// set ID</i></code> resource.
+    /// Retrieves information about a specified reusable delegation set, including the four
+    /// name servers that are assigned to the delegation set.
     /// </summary>
     [Cmdlet("Get", "R53ReusableDelegationSet")]
     [OutputType("Amazon.Route53.Model.DelegationSet")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the reusable delegation set for which you want to get a list of the name
-        /// server.</para>
+        /// <para>The ID of the reusable delegation set that you want to get a list of name servers
+        /// for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,10 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// If you want to learn why a health check is currently failing or why it failed most
-    /// recently (if at all), you can get the failure reason for the most recent failure.
-    /// Send a <code>GET</code> request to the <code>/<i>Amazon Route 53 API version</i>/healthcheck/<i>health
-    /// check ID</i>/lastfailurereason</code> resource.
+    /// Gets the reason that a specified health check failed most recently.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckLastFailureReason")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]

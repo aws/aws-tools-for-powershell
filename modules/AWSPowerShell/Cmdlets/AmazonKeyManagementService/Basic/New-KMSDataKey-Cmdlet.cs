@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key from memory.
     /// </para></li></ol><para>
     /// To return only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>.
-    /// To return an arbitrary unpredictable byte string, use <a>GenerateRandom</a>.
+    /// To return a random byte string that is cryptographically secure, use <a>GenerateRandom</a>.
     /// </para><para>
     /// If you use the optional <code>EncryptionContext</code> field, you must store at least
     /// enough information to be able to reconstruct the full encryption context when you

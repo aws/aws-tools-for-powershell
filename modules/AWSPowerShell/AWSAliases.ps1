@@ -1130,6 +1130,8 @@ Set-Alias -Name List-DFJobList -Value Get-DFJobList
 Set-Alias -Name DF-ListJobs -Value Get-DFJobList
 Set-Alias -Name List-DFNetworkProfileList -Value Get-DFNetworkProfileList
 Set-Alias -Name DF-ListNetworkProfiles -Value Get-DFNetworkProfileList
+Set-Alias -Name List-DFOfferingPromotion -Value Get-DFOfferingPromotion
+Set-Alias -Name DF-ListOfferingPromotions -Value Get-DFOfferingPromotion
 Set-Alias -Name List-DFOffering -Value Get-DFOffering
 Set-Alias -Name DF-ListOfferings -Value Get-DFOffering
 Set-Alias -Name List-DFOfferingTransaction -Value Get-DFOfferingTransaction

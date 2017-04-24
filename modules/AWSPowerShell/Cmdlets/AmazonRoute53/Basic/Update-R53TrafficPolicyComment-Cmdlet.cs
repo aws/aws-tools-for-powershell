@@ -29,14 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Updates the comment for a specified traffic policy version.
-    /// 
-    ///  
-    /// <para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/trafficpolicy/</code> resource.
-    /// </para><para>
-    /// The request body must include a document with an <code>UpdateTrafficPolicyCommentRequest</code>
-    /// element.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "R53TrafficPolicyComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.TrafficPolicy")]
@@ -61,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The value of <code>Id</code> for the traffic policy for which you want to update the
-        /// comment.</para>
+        /// <para>The value of <code>Id</code> for the traffic policy that you want to update the comment
+        /// for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -72,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The value of <code>Version</code> for the traffic policy for which you want to update
-        /// the comment.</para>
+        /// <para>The value of <code>Version</code> for the traffic policy that you want to update the
+        /// comment for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

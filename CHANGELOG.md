@@ -1,3 +1,4 @@
+### 3.3.81.0 (2017-04-24)
   * All service API cmdlets
     - Cmdlets that invoke APIs on AWS services can now display a message stating the API and service endpoint or region the call is being dispatched to when the -Verbose switch is used. This can be used to help diagnose endpoint resolution failures.
   * AWS CodeStar
@@ -18,6 +19,8 @@
     - Extended the Get-AGDeployment, Get-AGResource and Get-AGResourceList cmdlets with a new parameter, -Embed, to support specifying embedded resources to retrieve. 
   * Amazon Polly
     - Added a new parameter, -SpeechMarkType, to the Get-POLSpeech cmdlet to support defining the speech marks to be used in the returned text.
+  * AWS DeviceFarm
+    - Added support for the new service feature for deals and promotions with a new cmdlet, Get-DFOfferingPromotion (ListOfferingPromotions API).
 
 ### 3.3.76.0 (2017-04-11)
   * Amazon S3

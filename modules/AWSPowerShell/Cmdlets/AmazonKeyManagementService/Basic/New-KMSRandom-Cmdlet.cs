@@ -28,7 +28,13 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Generates an unpredictable byte string.
+    /// Returns a random byte string that is cryptographically secure.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS
+    /// Key Management Service Cryptographic Details</a> whitepaper.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KMSRandom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.IO.MemoryStream")]

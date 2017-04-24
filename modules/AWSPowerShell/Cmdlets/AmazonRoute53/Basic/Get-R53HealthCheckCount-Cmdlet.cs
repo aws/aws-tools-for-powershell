@@ -28,8 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a count of all your health checks, send a <code>GET</code> request to
-    /// the <code>/2013-04-01/healthcheckcount</code> resource.
+    /// Retrieves the number of health checks that are associated with the current AWS account.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckCount")]
     [OutputType("System.Int64")]

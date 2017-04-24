@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// <summary>
     /// This operation replaces the current set of name servers for the domain with the specified
     /// set of name servers. If you use Amazon Route 53 as your DNS service, specify the four
-    /// name servers in the delegation set for the hosted zone for the domain. 
+    /// name servers in the delegation set for the hosted zone for the domain.
     /// 
     ///  
     /// <para>
@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para><para>Required: Yes</para>
+        /// <para>The name of the domain that you want to change name servers for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter Nameserver
         /// <summary>
         /// <para>
-        /// <para>A list of new name servers for the domain.</para><para>Type: Complex</para><para>Children: <code>Name</code>, <code>GlueIps</code></para><para>Required: Yes</para>
+        /// <para>A list of new name servers for the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

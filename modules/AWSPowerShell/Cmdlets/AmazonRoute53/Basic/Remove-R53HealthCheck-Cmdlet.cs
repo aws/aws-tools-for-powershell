@@ -28,8 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deletes a health check. Send a <code>DELETE</code> request to the <code>/2013-04-01/healthcheck/<i>health
-    /// check ID</i></code> resource.
+    /// Deletes a health check.
     /// 
     ///  <important><para>
     /// Amazon Route 53 does not prevent you from deleting a health check even if the health
@@ -37,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// check and you don't update the associated resource record sets, the future status
     /// of the health check can't be predicted and may change. This will affect the routing
     /// of DNS queries for your DNS failover configuration. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html">Replacing
-    /// and Deleting Health Checks</a> in the Amazon Route 53 Developer Guide.
+    /// and Deleting Health Checks</a> in the <i>Amazon Route 53 Developer Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

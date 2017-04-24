@@ -51,6 +51,7 @@
     <ServiceOperation MethodName="ListJobs" Noun="JobList"/>
     <ServiceOperation MethodName="ListNetworkProfiles" Noun="NetworkProfileList"/>
     <ServiceOperation MethodName="ListOfferings" Noun="Offering"/>
+    <ServiceOperation MethodName="ListOfferingPromotions" Noun="OfferingPromotion" />
     <ServiceOperation MethodName="ListOfferingTransactions" Noun="OfferingTransaction"/>
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
     <ServiceOperation MethodName="ListRemoteAccessSessions"
@@ -61,8 +62,18 @@
     <ServiceOperation MethodName="ListTests" Noun="TestList"/>
     <ServiceOperation MethodName="ListUniqueProblems" Noun="UniqueProblemList"/>
     <ServiceOperation MethodName="ListUploads" Noun="UploadList"/>
-    <ServiceOperation MethodName="PurchaseOffering" Noun="OfferingPurchase" Verb="New" PipelineParameter="OfferingIdentifier" ShouldProcessTarget="OfferingIdentifier"/>
-    <ServiceOperation MethodName="RenewOffering" Noun="OfferingRenewal" Verb="New" PipelineParameter="OfferingIdentifier" ShouldProcessTarget="OfferingIdentifier"/>
+    <ServiceOperation MethodName="PurchaseOffering" 
+                      Noun="OfferingPurchase" 
+                      Verb="New" 
+                      PipelineParameter="OfferingId" 
+                      ShouldProcessTarget="OfferingId"
+                      />
+    <ServiceOperation MethodName="RenewOffering" 
+                      Noun="OfferingRenewal" 
+                      Verb="New" 
+                      PipelineParameter="OfferingId"
+                      houldProcessTarget="OfferingId"
+                      />
     <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />    
     <ServiceOperation MethodName="StopRemoteAccessSession" />
     <ServiceOperation MethodName="StopRun" ShouldProcessTarget="Arn"/>

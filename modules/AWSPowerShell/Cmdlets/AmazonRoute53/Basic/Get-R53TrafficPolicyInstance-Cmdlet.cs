@@ -30,11 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Gets information about a specified traffic policy instance.
     /// 
-    ///  
-    /// <para>
-    /// Send a <code>GET</code> request to the <code>/<i>Amazon Route 53 API version</i>/trafficpolicyinstance</code>
-    /// resource.
-    /// </para><note><para>
+    ///  <note><para>
     /// After you submit a <code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code>
     /// request, there's a brief delay while Amazon Route 53 creates the resource record sets
     /// that are specified in the traffic policy definition. For more information, see the

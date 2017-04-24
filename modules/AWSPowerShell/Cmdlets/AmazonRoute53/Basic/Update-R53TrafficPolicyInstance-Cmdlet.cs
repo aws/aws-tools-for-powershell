@@ -33,17 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/trafficpolicyinstance/<i>traffic
-    /// policy ID</i></code> resource. The request body must include a document with an <code>UpdateTrafficPolicyInstanceRequest</code>
-    /// element.
-    /// </para><para>
     /// When you update a traffic policy instance, Amazon Route 53 continues to respond to
     /// DNS queries for the root resource record set name (such as example.com) while it replaces
     /// one group of resource record sets with another. Amazon Route 53 performs the following
     /// operations:
     /// </para><ol><li><para>
     /// Amazon Route 53 creates a new group of resource record sets based on the specified
-    /// traffic policy. This is true regardless of how substantial the differences are between
+    /// traffic policy. This is true regardless of how significant the differences are between
     /// the existing resource record sets and the new resource record sets. 
     /// </para></li><li><para>
     /// When all of the new resource record sets have been created, Amazon Route 53 starts

@@ -49,11 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain for which you want to delete one or more tags.</para><para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Hyphens are allowed only when they're surrounded
-        /// by letters, numbers, or other hyphens. You can't specify a hyphen at the beginning
-        /// or end of a label. To specify an Internationalized Domain Name, you must convert the
-        /// name to Punycode.</para><para>Required: Yes</para>
+        /// <para>The domain for which you want to delete one or more tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter TagsToDelete
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to delete.</para><para>Type: A list that contains the keys of the tags that you want to delete.</para><para>Default: None</para><para>Required: No</para>
-        /// '&gt;
+        /// <para>A list of tag keys to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves a count of all your hosted zones. Send a <code>GET</code> request to the
-    /// <code>/2013-04-01/hostedzonecount</code> resource.
+    /// Retrieves the number of hosted zones that are associated with the current AWS account.
     /// </summary>
     [Cmdlet("Get", "R53HostedZoneCount")]
     [OutputType("System.Int64")]

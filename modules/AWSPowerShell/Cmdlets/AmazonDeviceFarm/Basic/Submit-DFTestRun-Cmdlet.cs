@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class SubmitDFTestRunCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        #region Parameter ExecutionConfiguration_AccountsCleanup
+        /// <summary>
+        /// <para>
+        /// <para>True if account cleanup is enabled at the beginning of the test; otherwise, false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ExecutionConfiguration_AccountsCleanup { get; set; }
+        #endregion
+        
         #region Parameter AppArn
         /// <summary>
         /// <para>
@@ -48,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionConfiguration_AppPackagesCleanup
+        /// <summary>
+        /// <para>
+        /// <para>True if app package cleanup is enabled at the beginning of the test; otherwise, false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ExecutionConfiguration_AppPackagesCleanup { get; set; }
         #endregion
         
         #region Parameter Configuration_AuxiliaryApp
@@ -203,7 +223,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Test_Parameter
         /// <summary>
         /// <para>
-        /// <para>The test's parameters, such as test framework parameters and fixture settings.</para>
+        /// <para>The test's parameters, such as the following test framework parameters and fixture
+        /// settings:</para><para>For Calabash tests:</para><ul><li><para>profile: A cucumber profile, for example, "my_profile_name".</para></li><li><para>tags: You can limit execution to features or scenarios that have (or don't have) certain
+        /// tags, for example, "@smoke" or "@smoke,~@wip".</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are "1.4.16", "1.6.3",
+        /// "latest", and "default".</para><ul><li><para>“latest” will run the latest Appium version supported by Device Farm (1.6.3).</para></li><li><para>For “default”, Device Farm will choose a compatible version of Appium for the device.
+        /// The current behavior is to run 1.4.16 on Android devices and iOS 9 and earlier, 1.6.3
+        /// for iOS 10 and later.</para></li><li><para>This behavior is subject to change.</para></li></ul></li></ul><para>For Fuzz tests (Android only):</para><ul><li><para>event_count: The number of events, between 1 and 10000, that the UI fuzz test should
+        /// perform.</para></li><li><para>throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between
+        /// events.</para></li><li><para>seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between
+        /// tests ensures identical event sequences.</para></li></ul><para>For Explorer tests:</para><ul><li><para>username: A username to use if the Explorer encounters a login form. If not supplied,
+        /// no username will be inserted.</para></li><li><para>password: A password to use if the Explorer encounters a login form. If not supplied,
+        /// no password will be inserted.</para></li></ul><para>For Instrumentation:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: "com.android.abc.Test1"</para></li><li><para>Running a single test: "com.android.abc.Test1#smoke"</para></li><li><para>Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2"</para></li></ul></li></ul><para>For XCTest and XCTestUI:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test class: "LoginTests"</para></li><li><para>Running a multiple test classes: "LoginTests,SmokeTests"</para></li><li><para>Running a single test: "LoginTests/testValid"</para></li><li><para>Running multiple tests: "LoginTests/testValid,LoginTests/testInvalid"</para></li></ul></li></ul><para>For UIAutomator:</para><ul><li><para>filter: A test filter string. Examples:</para><ul><li><para>Running a single test case: "com.android.abc.Test1"</para></li><li><para>Running a single test: "com.android.abc.Test1#smoke"</para></li><li><para>Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2"</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -305,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (ParameterWasBound("Radios_Wifi"))
                 context.Configuration_Radios_Wifi = this.Radios_Wifi;
             context.DevicePoolArn = this.DevicePoolArn;
+            if (ParameterWasBound("ExecutionConfiguration_AccountsCleanup"))
+                context.ExecutionConfiguration_AccountsCleanup = this.ExecutionConfiguration_AccountsCleanup;
+            if (ParameterWasBound("ExecutionConfiguration_AppPackagesCleanup"))
+                context.ExecutionConfiguration_AppPackagesCleanup = this.ExecutionConfiguration_AppPackagesCleanup;
             if (ParameterWasBound("ExecutionConfiguration_JobTimeoutMinute"))
                 context.ExecutionConfiguration_JobTimeoutMinutes = this.ExecutionConfiguration_JobTimeoutMinute;
             context.Name = this.Name;
@@ -497,6 +531,26 @@ namespace Amazon.PowerShell.Cmdlets.DF
              // populate ExecutionConfiguration
             bool requestExecutionConfigurationIsNull = true;
             request.ExecutionConfiguration = new Amazon.DeviceFarm.Model.ExecutionConfiguration();
+            System.Boolean? requestExecutionConfiguration_executionConfiguration_AccountsCleanup = null;
+            if (cmdletContext.ExecutionConfiguration_AccountsCleanup != null)
+            {
+                requestExecutionConfiguration_executionConfiguration_AccountsCleanup = cmdletContext.ExecutionConfiguration_AccountsCleanup.Value;
+            }
+            if (requestExecutionConfiguration_executionConfiguration_AccountsCleanup != null)
+            {
+                request.ExecutionConfiguration.AccountsCleanup = requestExecutionConfiguration_executionConfiguration_AccountsCleanup.Value;
+                requestExecutionConfigurationIsNull = false;
+            }
+            System.Boolean? requestExecutionConfiguration_executionConfiguration_AppPackagesCleanup = null;
+            if (cmdletContext.ExecutionConfiguration_AppPackagesCleanup != null)
+            {
+                requestExecutionConfiguration_executionConfiguration_AppPackagesCleanup = cmdletContext.ExecutionConfiguration_AppPackagesCleanup.Value;
+            }
+            if (requestExecutionConfiguration_executionConfiguration_AppPackagesCleanup != null)
+            {
+                request.ExecutionConfiguration.AppPackagesCleanup = requestExecutionConfiguration_executionConfiguration_AppPackagesCleanup.Value;
+                requestExecutionConfigurationIsNull = false;
+            }
             System.Int32? requestExecutionConfiguration_executionConfiguration_JobTimeoutMinute = null;
             if (cmdletContext.ExecutionConfiguration_JobTimeoutMinutes != null)
             {
@@ -634,6 +688,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? Configuration_Radios_Nfc { get; set; }
             public System.Boolean? Configuration_Radios_Wifi { get; set; }
             public System.String DevicePoolArn { get; set; }
+            public System.Boolean? ExecutionConfiguration_AccountsCleanup { get; set; }
+            public System.Boolean? ExecutionConfiguration_AppPackagesCleanup { get; set; }
             public System.Int32? ExecutionConfiguration_JobTimeoutMinutes { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }

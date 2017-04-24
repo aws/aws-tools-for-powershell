@@ -32,18 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// To create a new health check, send a <code>POST</code> request to the <code>/2013-04-01/healthcheck</code>
-    /// resource. The request body must include a document with a <code>CreateHealthCheckRequest</code>
-    /// element. The response returns the <code>CreateHealthCheckResponse</code> element,
-    /// containing the health check ID specified when adding health check to a resource record
-    /// set. For information about adding health checks to resource record sets, see <a>ResourceRecordSet$HealthCheckId</a>
+    /// For information about adding health checks to resource record sets, see <a>ResourceRecordSet$HealthCheckId</a>
     /// in <a>ChangeResourceRecordSets</a>. 
-    /// </para><para>
+    /// </para><para><b>ELB Load Balancers</b></para><para>
     /// If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer,
     /// do not create Amazon Route 53 health checks for the EC2 instances. When you register
     /// an EC2 instance with a load balancer, you configure settings for an ELB health check,
     /// which performs a similar function to an Amazon Route 53 health check.
-    /// </para><para>
+    /// </para><para><b>Private Hosted Zones</b></para><para>
     /// You can associate health checks with failover resource record sets in a private hosted
     /// zone. Note the following:
     /// </para><ul><li><para>
@@ -75,9 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter CallerReference
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request and that allows failed <code>CreateHealthCheck</code>
-        /// requests to be retried without the risk of executing the operation twice. You must
-        /// use a unique <code>CallerReference</code> string every time you create a health check.</para>
+        /// <para>A unique string that identifies the request and that allows you to retry a failed
+        /// <code>CreateHealthCheck</code> request without the risk of creating two identical
+        /// health checks:</para><ul><li><para>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code>
+        /// and settings as a previous request, and if the health check doesn't exist, Amazon
+        /// Route 53 creates the health check. If the health check does exist, Amazon Route 53
+        /// returns the settings for the existing health check.</para></li><li><para>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code>
+        /// as a deleted health check, regardless of the settings, Amazon Route 53 returns a <code>HealthCheckAlreadyExists</code>
+        /// error.</para></li><li><para>If you send a <code>CreateHealthCheck</code> request with the same <code>CallerReference</code>
+        /// as an existing health check but with different settings, Amazon Route 53 returns a
+        /// <code>HealthCheckAlreadyExists</code> error.</para></li><li><para>If you send a <code>CreateHealthCheck</code> request with a unique <code>CallerReference</code>
+        /// but settings identical to an existing health check, Amazon Route 53 creates the health
+        /// check.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -199,9 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>When CloudWatch has insufficient data about the metric to determine the alarm state,
-        /// the status that you want Amazon Route 53 to assign to the health check:</para><ul><li><para><code>Healthy</code>: Amazon Route 53 considers the health check to be healthy.</para></li><li><para><code>Unhealthy</code>: Amazon Route 53 considers the health check to be unhealthy.</para></li><li><para><code>LastKnownStatus</code>: Amazon Route 53uses the status of the health check
-        /// from the last time CloudWatch had sufficient data to determine the alarm state. For
-        /// new health checks that have no last known status, the default status for the health
+        /// the status that you want Amazon Route 53 to assign to the health check:</para><ul><li><para><code>Healthy</code>: Amazon Route 53 considers the health check to be healthy.</para></li><li><para><code>Unhealthy</code>: Amazon Route 53 considers the health check to be unhealthy.</para></li><li><para><code>LastKnownStatus</code>: Amazon Route 53 uses the status of the health check
+        /// from the last time that CloudWatch had sufficient data to determine the alarm state.
+        /// For new health checks that have no last known status, the default status for the health
         /// check is healthy.</para></li></ul>
         /// </para>
         /// </summary>
@@ -274,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The port on the endpoint on which you want Amazon Route 53 to perform health checks.
-        /// Specify a value for Port only when you specify a value for <code>IPAddress</code>.</para>
+        /// Specify a value for <code>Port</code> only when you specify a value for <code>IPAddress</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -374,8 +379,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <code>Healthy</code>, <code>Unhealthy</code>, or <code>LastKnownStatus</code>. </para></li><li><para><b>CALCULATED</b>: For health checks that monitor the status of other health checks,
         /// Amazon Route 53 adds up the number of health checks that Amazon Route 53 health checkers
         /// consider to be healthy and compares that number with the value of <code>HealthThreshold</code>.
-        /// </para></li></ul><para>For more information about how Amazon Route 53 determines whether an endpoint is healthy,
-        /// see the introduction to this topic.</para>
+        /// </para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route
+        /// 53 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

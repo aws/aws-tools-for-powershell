@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// Returns the current status of a change batch request. The status is one of the following
     /// values:
     /// 
-    ///  <ul><li><para><code>PENDING</code> indicates that the changes in this request have not replicated
+    ///  <ul><li><para><code>PENDING</code> indicates that the changes in this request have not propagated
     /// to all Amazon Route 53 DNS servers. This is the initial status of all change batch
     /// requests.
-    /// </para></li><li><para><code>INSYNC</code> indicates that the changes have replicated to all Amazon Route
+    /// </para></li><li><para><code>INSYNC</code> indicates that the changes have propagated to all Amazon Route
     /// 53 DNS servers. 
     /// </para></li></ul>
     /// </summary>
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The ID of the change batch request. The value that you specify here is the value that
-        /// <code>ChangeResourceRecordSets</code> returned in the Id element when you submitted
-        /// the request.</para>
+        /// <code>ChangeResourceRecordSets</code> returned in the <code>Id</code> element when
+        /// you submitted the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter EDNS0ClientSubnetIP
         /// <summary>
         /// <para>
-        /// <para>If the resolver that you specified for resolverip supports EDNS0, specify the IP address
-        /// of a client in the applicable location.</para>
+        /// <para>If the resolver that you specified for resolverip supports EDNS0, specify the IPv4
+        /// or IPv6 address of a client in the applicable location, for example, <code>192.0.2.44</code>
+        /// or <code>2001:db8:85a3::8a2e:370:7334</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// specify the number of bits of the IP address that you want the checking tool to include
         /// in the DNS query. For example, if you specify <code>192.0.2.44</code> for <code>edns0clientsubnetip</code>
         /// and <code>24</code> for <code>edns0clientsubnetmask</code>, the checking tool will
-        /// simulate a request from 192.0.2.0/24. The default value is 24 bits.</para>
+        /// simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses
+        /// and 64 bits for IPv6 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>If you want to simulate a request from a specific DNS resolver, specify the IP address
         /// for that resolver. If you omit this value, <code>TestDnsAnswer</code> uses the IP
-        /// address of a DNS resolver in the AWS US East region.</para>
+        /// address of a DNS resolver in the AWS US East (N. Virginia) Region (<code>us-east-1</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

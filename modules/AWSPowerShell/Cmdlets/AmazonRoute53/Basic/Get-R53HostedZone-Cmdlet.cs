@@ -28,9 +28,8 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves the delegation set for a hosted zone, including the four name servers assigned
-    /// to the hosted zone. Send a <code>GET</code> request to the <code>/<i>Amazon Route
-    /// 53 API version</i>/hostedzone/<i>hosted zone ID</i></code> resource.
+    /// Gets information about a specified hosted zone including the four name servers assigned
+    /// to the hosted zone.
     /// </summary>
     [Cmdlet("Get", "R53HostedZone")]
     [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]
@@ -44,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone for which you want to get a list of the name servers in
-        /// the delegation set.</para>
+        /// <para>The ID of the hosted zone that you want to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

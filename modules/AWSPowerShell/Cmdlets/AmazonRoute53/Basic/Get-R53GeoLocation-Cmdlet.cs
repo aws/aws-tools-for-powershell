@@ -28,9 +28,20 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves a single geo location. Send a <code>GET</code> request to the <code>/2013-04-01/geolocation</code>
-    /// resource with one of these options: continentcode | countrycode | countrycode and
-    /// subdivisioncode.
+    /// Gets information about whether a specified geographic location is supported for Amazon
+    /// Route 53 geolocation resource record sets.
+    /// 
+    ///  
+    /// <para>
+    /// Use the following syntax to determine whether a continent is supported for geolocation:
+    /// </para><para><code>GET /2013-04-01/geolocation?ContinentCode=<i>two-letter abbreviation for a
+    /// continent</i></code></para><para>
+    /// Use the following syntax to determine whether a country is supported for geolocation:
+    /// </para><para><code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i></code></para><para>
+    /// Use the following syntax to determine whether a subdivision of a country is supported
+    /// for geolocation:
+    /// </para><para><code>GET /2013-04-01/geolocation?CountryCode=<i>two-character country code</i>&amp;SubdivisionCode=<i>subdivision
+    /// code</i></code></para>
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
     [OutputType("Amazon.Route53.Model.GeoLocationDetails")]

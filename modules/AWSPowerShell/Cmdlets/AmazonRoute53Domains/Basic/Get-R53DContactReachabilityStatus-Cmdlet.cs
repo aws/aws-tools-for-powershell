@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The name of the domain for which you want to know whether the registrant contact has
-        /// confirmed that the email address is valid.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
+        /// confirmed that the email address is valid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

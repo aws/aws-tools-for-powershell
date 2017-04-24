@@ -39,12 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// If you want to associate multiple VPCs that you created by using one account with
     /// a hosted zone that you created by using a different account, you must submit one authorization
     /// request for each VPC.
-    /// </para></note><para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted zone
-    /// ID</i>/authorizevpcassociation</code> resource. The request body must include a document
-    /// with a <code>CreateVPCAssociationAuthorizationRequest</code> element. The response
-    /// contains information about the authorization.
-    /// </para>
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "R53VPCAssociationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse")]
@@ -78,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// <para>The region in which you created the VPC that you want to associate with the specified
-        /// Amazon Route 53 hosted zone.</para>
+        /// <para>(Private hosted zones only) The region in which you created an Amazon VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

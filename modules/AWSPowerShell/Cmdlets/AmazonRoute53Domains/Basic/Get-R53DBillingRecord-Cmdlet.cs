@@ -28,8 +28,8 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation returns all the domain-related billing records for the current AWS
-    /// account for a specified period<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns all the domain-related billing records for the current AWS account for a specified
+    /// period<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53DBillingRecord")]
     [OutputType("Amazon.Route53Domains.Model.BillingRecord")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The end date and time for the time period for which you want a list of billing records.
-        /// Specify the date in Unix time format.</para><para>Type: Double</para><para>Default: None</para><para>Required: Yes</para>
+        /// Specify the date in Unix time format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The beginning date and time for the time period for which you want a list of billing
-        /// records. Specify the date in Unix time format.</para><para>Type: Double</para><para>Default: None</para><para>Required: Yes</para>
+        /// records. Specify the date in Unix time format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// can use <code>Marker</code> to return additional billing records. Get the value of
         /// <code>NextPageMarker</code> from the previous response, and submit another request
         /// that includes the value of <code>NextPageMarker</code> in the <code>Marker</code>
-        /// element. </para><para>Type: String</para><para>Default: None</para><para>Constraints: The marker must match the value of <code>NextPageMarker</code> that was
-        /// returned in the previous response.</para><para>Required: No</para>
+        /// element. </para><para>Constraints: The marker must match the value of <code>NextPageMarker</code> that was
+        /// returned in the previous response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The number of billing records to be returned.</para><para>Type: Integer</para><para>Default: 20</para><para>Constraints: A value between 1 and 100.</para><para>Required: No</para>
+        /// <para>The number of billing records to be returned.</para><para>Default: 20</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

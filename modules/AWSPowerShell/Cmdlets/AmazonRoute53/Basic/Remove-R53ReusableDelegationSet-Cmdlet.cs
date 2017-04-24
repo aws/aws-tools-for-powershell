@@ -28,14 +28,14 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Deletes a reusable delegation set. Send a <code>DELETE</code> request to the <code>/2013-04-01/delegationset/<i>delegation
-    /// set ID</i></code> resource.
+    /// Deletes a reusable delegation set.
     /// 
     ///  <important><para>
-    ///  You can delete a reusable delegation set only if there are no associated hosted zones.
+    /// You can delete a reusable delegation set only if it isn't associated with any hosted
+    /// zones.
     /// </para></important><para>
     /// To verify that the reusable delegation set is not associated with any hosted zones,
-    /// run the <a>GetReusableDelegationSet</a> action and specify the ID of the reusable
+    /// submit a <a>GetReusableDelegationSet</a> request and specify the ID of the reusable
     /// delegation set that you want to delete.
     /// </para>
     /// </summary>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the reusable delegation set you want to delete.</para>
+        /// <para>The ID of the reusable delegation set that you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

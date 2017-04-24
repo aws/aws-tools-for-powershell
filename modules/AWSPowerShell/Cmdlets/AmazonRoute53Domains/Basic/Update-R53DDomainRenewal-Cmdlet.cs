@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// We recommend that you renew your domain several weeks before the expiration date.
     /// Some TLD registries delete domains before the expiration date if you haven't renewed
     /// far enough in advance. For more information about renewing domain registration, see
-    /// <a href="http://docs.aws.amazon.com/console/route53/domain-renew">Renewing Registration
-    /// for a Domain</a> in the Amazon Route 53 documentation.
+    /// <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">Renewing
+    /// Registration for a Domain</a> in the Amazon Route 53 Developer Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "R53DDomainRenewal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The year when the registration for the domain is set to expire. This value must match
-        /// the current expiration date for the domain.</para><para>Type: Integer</para><para>Default: None</para><para>Valid values: Integer</para><para>Required: Yes</para>
+        /// the current expiration date for the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the domain that you want to renew.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -76,8 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>The number of years that you want to renew the domain for. The maximum number of years
         /// depends on the top-level domain. For the range of valid values for your domain, see
-        /// <a href="http://docs.aws.amazon.com/console/route53/domain-tld-list">Domains that
-        /// You Can Register with Amazon Route 53</a> in the Amazon Route 53 documentation.</para><para>Type: Integer</para><para>Default: 1</para><para>Valid values: Integer from 1 to 10</para><para>Required: No</para>
+        /// <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i>.</para><para>Default: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

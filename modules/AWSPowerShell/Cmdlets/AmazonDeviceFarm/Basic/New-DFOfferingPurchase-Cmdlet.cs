@@ -50,8 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>The ID of the offering.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String OfferingId { get; set; }
+        #endregion
+        
+        #region Parameter OfferingPromotionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the offering promotion to be applied to the purchase.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OfferingPromotionId { get; set; }
         #endregion
         
         #region Parameter Quantity
@@ -94,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             PreExecutionContextLoad(context);
             
             context.OfferingId = this.OfferingId;
+            context.OfferingPromotionId = this.OfferingPromotionId;
             if (ParameterWasBound("Quantity"))
                 context.Quantity = this.Quantity;
             
@@ -115,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.OfferingId != null)
             {
                 request.OfferingId = cmdletContext.OfferingId;
+            }
+            if (cmdletContext.OfferingPromotionId != null)
+            {
+                request.OfferingPromotionId = cmdletContext.OfferingPromotionId;
             }
             if (cmdletContext.Quantity != null)
             {
@@ -173,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         internal class CmdletContext : ExecutorContext
         {
             public System.String OfferingId { get; set; }
+            public System.String OfferingPromotionId { get; set; }
             public System.Int32? Quantity { get; set; }
         }
         

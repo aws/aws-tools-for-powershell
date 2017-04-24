@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>A complex type that contains a list of the tags that you want to add to the specified
-        /// health check or hosted zone and/or the tags for which you want to edit the <code>Value</code>
-        /// element.</para><para>You can add a maximum of 10 tags to a health check or a hosted zone.</para>
+        /// health check or hosted zone and/or the tags that you want to edit <code>Value</code>
+        /// for.</para><para>You can add a maximum of 10 tags to a health check or a hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

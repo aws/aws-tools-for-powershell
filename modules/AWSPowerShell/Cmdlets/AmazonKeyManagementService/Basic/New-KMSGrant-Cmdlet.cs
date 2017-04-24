@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Constraints_EncryptionContextEqual
         /// <summary>
         /// <para>
-        /// <para>Contains a list of key-value pairs that must be present in the encryption context
-        /// of a subsequent operation permitted by the grant. When a subsequent operation permitted
-        /// by the grant includes an encryption context that matches this list, the grant allows
-        /// the operation. Otherwise, the operation is not allowed.</para>
+        /// <para>A list of key-value pairs that must be present in the encryption context of certain
+        /// subsequent operations that the grant allows. When certain subsequent operations allowed
+        /// by the grant include encryption context that matches this list, the grant allows the
+        /// operation. Otherwise, the grant does not allow the operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,11 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Constraints_EncryptionContextSubset
         /// <summary>
         /// <para>
-        /// <para>Contains a list of key-value pairs, a subset of which must be present in the encryption
-        /// context of a subsequent operation permitted by the grant. When a subsequent operation
-        /// permitted by the grant includes an encryption context that matches this list or is
-        /// a subset of this list, the grant allows the operation. Otherwise, the operation is
-        /// not allowed.</para>
+        /// <para>A list of key-value pairs, all of which must be present in the encryption context
+        /// of certain subsequent operations that the grant allows. When certain subsequent operations
+        /// allowed by the grant include encryption context that matches this list or is a superset
+        /// of this list, the grant allows the operation. Otherwise, the grant does not allow
+        /// the operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

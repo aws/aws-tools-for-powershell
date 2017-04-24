@@ -28,13 +28,13 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Create, change, update, or delete authoritative DNS information on all Amazon Route
-    /// 53 servers. Send a <code>POST</code> request to: 
+    /// Creates, changes, or deletes a resource record set, which contains authoritative DNS
+    /// information for a specified domain name or subdomain name. For example, you can use
+    /// <code>ChangeResourceRecordSets</code> to create a resource record set that routes
+    /// traffic for test.example.com to a web server that has an IP address of 192.0.2.44.
     /// 
     ///  
-    /// <para><code>/2013-04-01/hostedzone/<i>Amazon Route 53 hosted Zone ID</i>/rrset</code> resource.
-    /// 
-    /// </para><para><b>Change Batches and Transactional Changes</b></para><para>
+    /// <para><b>Change Batches and Transactional Changes</b></para><para>
     /// The request body must include a document with a <code>ChangeResourceRecordSetsRequest</code>
     /// element. The request body contains a list of change items, known as a change batch.
     /// Change batches are considered transactional changes. When using the Amazon Route 53

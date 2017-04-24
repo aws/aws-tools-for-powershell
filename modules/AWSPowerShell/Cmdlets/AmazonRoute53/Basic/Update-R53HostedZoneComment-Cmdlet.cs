@@ -28,8 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Updates the hosted zone comment. Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted
-    /// zone ID</i></code> resource.
+    /// Updates the comment for a specified hosted zone.
     /// </summary>
     [Cmdlet("Update", "R53HostedZoneComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.HostedZone")]
@@ -56,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID for the hosted zone for which you want to update the comment.</para>
+        /// <para>The ID for the hosted zone that you want to update the comment for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

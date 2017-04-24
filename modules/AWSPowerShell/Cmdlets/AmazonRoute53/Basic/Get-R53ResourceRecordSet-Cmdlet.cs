@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone that contains the resource record sets that you want to
-        /// get.</para>
+        /// list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartRecordName
         /// <summary>
         /// <para>
-        /// <para>The first name in the lexicographic ordering of domain names that you want the <code>ListResourceRecordSets</code>
-        /// request to list.</para>
+        /// <para>The first name in the lexicographic ordering of resource record sets that you want
+        /// to list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

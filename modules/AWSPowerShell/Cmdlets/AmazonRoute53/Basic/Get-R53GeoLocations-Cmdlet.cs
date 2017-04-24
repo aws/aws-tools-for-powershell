@@ -28,17 +28,14 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Retrieves a list of supported geo locations. Send a <code>GET</code> request to the
-    /// <code>/2013-04-01/geolocations</code> resource. The response to this request includes
-    /// a <code>GeoLocationDetailsList</code> element for each location that Amazon Route
-    /// 53 supports.
+    /// Retrieves a list of supported geo locations.
     /// 
     ///  
     /// <para>
     /// Countries are listed first, and continents are listed last. If Amazon Route 53 supports
     /// subdivisions for a country (for example, states or provinces), the subdivisions for
     /// that country are listed in alphabetical order immediately after the corresponding
-    /// country. 
+    /// country.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "R53GeoLocations")]

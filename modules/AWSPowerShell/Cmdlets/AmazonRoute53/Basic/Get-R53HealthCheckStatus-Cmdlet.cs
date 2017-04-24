@@ -28,9 +28,7 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Gets status of a specified health check. Send a <code>GET</code> request to the <code>/2013-04-01/healthcheck/<i>health
-    /// check ID</i>/status</code> resource. You can use this call to get a health check's
-    /// current status.
+    /// Gets status of a specified health check.
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckStatus")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]
@@ -45,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HealthCheckId
         /// <summary>
         /// <para>
-        /// <para>The ID for the health check for which you want the current status. When you created
+        /// <para>The ID for the health check that you want the current status for. When you created
         /// the health check, <code>CreateHealthCheck</code> returned the ID in the response,
         /// in the <code>HealthCheckId</code> element.</para><note><para>If you want to check the status of a calculated health check, you must use the Amazon
         /// Route 53 console or the CloudWatch console. You can't use <code>GetHealthCheckStatus</code>

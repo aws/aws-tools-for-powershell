@@ -30,12 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Gets the number of traffic policy instances that are associated with the current AWS
     /// account.
-    /// 
-    ///  
-    /// <para>
-    /// To get the number of traffic policy instances, send a <code>GET</code> request to
-    /// the <code>/2013-04-01/trafficpolicyinstancecount</code> resource.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstanceCount")]
     [OutputType("System.Int32")]

@@ -33,13 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  <important><para>
     /// To perform the association, the VPC and the private hosted zone must already exist.
     /// You can't convert a public hosted zone into a private hosted zone.
-    /// </para></important><para>
-    /// Send a <code>POST</code> request to the <code>/2013-04-01/hostedzone/<i>hosted zone
-    /// ID</i>/associatevpc</code> resource. The request body must include a document with
-    /// an <code>AssociateVPCWithHostedZoneRequest</code> element. The response contains a
-    /// <code>ChangeInfo</code> data type that you can use to track the progress of the request.
-    /// 
-    /// </para><note><para>
+    /// </para></important><note><para>
     /// If you want to associate a VPC that was created by using one AWS account with a private
     /// hosted zone that was created by using a different account, the AWS account that created
     /// the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
@@ -91,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
-        /// <para>The region in which you created the VPC that you want to associate with the specified
-        /// Amazon Route 53 hosted zone.</para>
+        /// <para>(Private hosted zones only) The region in which you created an Amazon VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
