@@ -3138,6 +3138,61 @@ $LM_map = @{
 _awsArgumentCompleterRegistration $LM_Completers $LM_map
 
 
+# Argument completions for service Amazon Lex Model Building Service
+$LMB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LexModelBuildingService.FulfillmentActivityType
+        "Write-LMBIntent/FulfillmentActivity_Type"
+        {
+            $v = "CodeHook","ReturnIntent"
+            break
+        }
+        
+        # Amazon.LexModelBuildingService.Locale
+        {
+            ($_ -eq "Get-LMBBuiltinIntentList/Locale") -Or
+            ($_ -eq "Get-LMBBuiltinSlotType/Locale") -Or
+            ($_ -eq "Write-LMBBot/Locale")
+        }
+        {
+            $v = "en-US"
+            break
+        }
+        
+        # Amazon.LexModelBuildingService.ProcessBehavior
+        "Write-LMBBot/ProcessBehavior"
+        {
+            $v = "BUILD","SAVE"
+            break
+        }
+        
+        # Amazon.LexModelBuildingService.StatusType
+        "Get-LMBUtterancesView/StatusType"
+        {
+            $v = "Detected","Missed"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LMB_map = @{
+    "FulfillmentActivity_Type"=@("Write-LMBIntent")
+    "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
+    "ProcessBehavior"=@("Write-LMBBot")
+    "StatusType"=@("Get-LMBUtterancesView")
+}
+
+_awsArgumentCompleterRegistration $LMB_Completers $LMB_map
+
+
 # Argument completions for service Amazon Lightsail
 $LS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

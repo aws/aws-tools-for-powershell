@@ -64,6 +64,7 @@
 		"AWSSDK.KinesisFirehose": "3.3.1.7",
 		"AWSSDK.Lambda": "3.3.5",
 		"AWSSDK.Lex": "3.3.1.1",
+		"AWSSDK.LexModelBuildingService": "3.3.0",
 		"AWSSDK.Lightsail": "3.3.0.11",
 		"AWSSDK.MachineLearning": "3.3.0.12",
 		"AWSSDK.MTurk": "3.3.0.5",

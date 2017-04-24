@@ -11,6 +11,11 @@
 
   <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
 
+  <TypesNotToFlatten>
+    <Type>Amazon.LexModelBuildingService.Model.Statement</Type>
+    <Type>Amazon.LexModelBuildingService.Model.Slot</Type>
+  </TypesNotToFlatten>
+
   <ServiceOperations>
     <ServiceOperation MethodName="CreateBotVersion" Output="Response" />
     <ServiceOperation MethodName="CreateIntentVersion" Output="Response" />
@@ -37,7 +42,7 @@
     <ServiceOperation MethodName="GetSlotType" Output="Response" />
     <ServiceOperation MethodName="GetSlotTypes" Noun="SlotTypeList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="GetSlotTypeVersions" Noun="SlotTypeVersionList" />
-    <ServiceOperation MethodName="GetUtterancesView" PipelineParameter="BotName" />
+    <ServiceOperation MethodName="GetUtterancesView" PipelineParameter="BotName" Output="Response" />
     <ServiceOperation MethodName="PutBot" Output="Response" />
     <ServiceOperation MethodName="PutBotAlias" Output="Response" />
     <ServiceOperation MethodName="PutIntent" Output="Response" />

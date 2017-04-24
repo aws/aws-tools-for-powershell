@@ -111,6 +111,7 @@ RequiredAssemblies = @(
   "AWSSDK.KinesisFirehose.dll",
   "AWSSDK.Lambda.dll",
   "AWSSDK.Lex.dll",
+  "AWSSDK.LexModelBuildingService.dll",
   "AWSSDK.Lightsail.dll",
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.MTurk.dll",
