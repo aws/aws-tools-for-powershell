@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Detach a fleet from a stack.
+    /// Disassociates a fleet from a stack.
     /// </summary>
     [Cmdlet("Unregister", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FleetName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet to detach.</para>
+        /// <para>The name of the fleet to disassociate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the stack with which the fleet is associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

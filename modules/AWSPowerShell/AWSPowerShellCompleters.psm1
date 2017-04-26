@@ -324,6 +324,33 @@ $ADS_map = @{
 _awsArgumentCompleterRegistration $ADS_Completers $ADS_map
 
 
+# Argument completions for service AWS AppStream
+$APS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AppStream.AuthenticationType
+        "Get-APSSessionList/AuthenticationType"
+        {
+            $v = "API","SAML"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$APS_map = @{
+    "AuthenticationType"=@("Get-APSSessionList")
+}
+
+_awsArgumentCompleterRegistration $APS_Completers $APS_map
+
+
 # Argument completions for service AWS Batch
 $BAT_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

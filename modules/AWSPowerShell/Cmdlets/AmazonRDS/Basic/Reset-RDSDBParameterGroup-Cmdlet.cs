@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Modifies the parameters of a DB parameter group to the engine/system default value.
-    /// To reset specific parameters submit a list of the following: <code>ParameterName</code>
+    /// To reset specific parameters, provide a list of the following: <code>ParameterName</code>
     /// and <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
     /// <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters.
     /// When resetting the entire group, dynamic parameters are updated immediately and static
@@ -59,9 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>An array of parameter names, values, and the apply method for the parameter update.
-        /// At least one parameter name, value, and apply method must be supplied; subsequent
-        /// arguments are optional. A maximum of 20 parameters can be modified in a single request.</para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
+        /// <para>To reset the entire DB parameter group, specify the <code>DBParameterGroup</code>
+        /// name and <code>ResetAllParameters</code> parameters. To reset specific parameters,
+        /// provide a list of the following: <code>ParameterName</code> and <code>ApplyMethod</code>.
+        /// A maximum of 20 parameters can be modified in a single request.</para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
         /// value for both dynamic and static parameters, and changes are applied when DB instance
         /// reboots.</para><para><b>MariaDB</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
         /// value for both dynamic and static parameters, and changes are applied when DB instance

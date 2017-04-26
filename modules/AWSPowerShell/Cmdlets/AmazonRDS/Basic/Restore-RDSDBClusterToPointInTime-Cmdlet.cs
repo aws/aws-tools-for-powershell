@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter EnableIAMDatabaseAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that is true to enable mapping of AWS Identity and Access Management
+        /// (IAM) accounts to database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -194,6 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
+                context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
@@ -234,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableIAMDatabaseAuthentication != null)
+            {
+                request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -321,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }

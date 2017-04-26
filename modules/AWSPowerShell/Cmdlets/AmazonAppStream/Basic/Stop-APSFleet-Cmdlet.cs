@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deactivates a fleet.
+    /// Stops a fleet.
     /// </summary>
     [Cmdlet("Stop", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet to deactivate.</para>
+        /// <para>The name of the fleet to stop.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

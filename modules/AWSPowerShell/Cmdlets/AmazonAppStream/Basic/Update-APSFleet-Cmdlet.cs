@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
     /// Updates an existing fleet. All the attributes except the fleet name can be updated
-    /// in the INACTIVE state. Only ComputeResourceCapacity and imageName can be updated in
-    /// any other state.
+    /// in the <b>STOPPED</b> state. When a fleet is in the <b>RUNNING</b> state, only <code>DisplayName</code>
+    /// and <code>ComputeCapacity</code> can be updated. A fleet cannot be updated in a status
+    /// of <b>STARTING</b> or <b>STOPPING</b>.
     /// </summary>
     [Cmdlet("Update", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Fleet")]
@@ -45,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DeleteVpcConfig
         /// <summary>
         /// <para>
-        /// <para>Delete Vpc Config, if the parameter is set and the fleet has Vpc Config, it can be
-        /// deleted.</para>
+        /// <para>Delete the VPC association for the specified fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The description displayed to end users on the AppStream 2.0 portal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisconnectTimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>The time after disconnection when a session is considered to have ended. </para>
+        /// <para>The time after disconnection when a session is considered to have ended. When the
+        /// user reconnects after a disconnection, the user is connected to the same instance
+        /// within this time interval.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,11 +90,21 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name displayed to end users on the AppStream 2.0 portal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter EnableDefaultInternetAccess
+        /// <summary>
+        /// <para>
+        /// <para>Enable/Disable default Internet access from fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableDefaultInternetAccess { get; set; }
         #endregion
         
         #region Parameter ImageName
@@ -108,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type of compute resources for the fleet.</para>
+        /// <para>The instance type of compute resources for the fleet. Fleet instances are launched
+        /// from this instance type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The list of subnets in which the fleet is launched.</para>
+        /// <para>The list of subnets to which a network interface is established from the fleet instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -184,6 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (ParameterWasBound("DisconnectTimeoutInSecond"))
                 context.DisconnectTimeoutInSeconds = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
+            if (ParameterWasBound("EnableDefaultInternetAccess"))
+                context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
             if (ParameterWasBound("MaxUserDurationInSecond"))
@@ -243,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
+            }
+            if (cmdletContext.EnableDefaultInternetAccess != null)
+            {
+                request.EnableDefaultInternetAccess = cmdletContext.EnableDefaultInternetAccess.Value;
             }
             if (cmdletContext.ImageName != null)
             {
@@ -336,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Description { get; set; }
             public System.Int32? DisconnectTimeoutInSeconds { get; set; }
             public System.String DisplayName { get; set; }
+            public System.Boolean? EnableDefaultInternetAccess { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? MaxUserDurationInSeconds { get; set; }

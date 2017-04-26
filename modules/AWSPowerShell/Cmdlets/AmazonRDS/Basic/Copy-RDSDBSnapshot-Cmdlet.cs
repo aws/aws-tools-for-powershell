@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// To copy a DB snapshot from a shared manual DB snapshot, <code>SourceDBSnapshotIdentifier</code>
     /// must be the Amazon Resource Name (ARN) of the shared DB snapshot.
     /// </para><para>
-    /// You can copy an encrypted DB snapshot from another AWS Region. In that case, the region
+    /// You can copy an encrypted DB snapshot from another AWS region. In that case, the region
     /// where you call the <code>CopyDBSnapshot</code> action is the destination region for
     /// the encrypted DB snapshot to be copied to. To copy an encrypted DB snapshot from another
     /// region, you must provide the following values:
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// URL. 
     /// </para></li></ul><para>
     /// For more information on copying encrypted snapshots from one region to another, see
-    /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Encrypted.CrossRegion">
-    /// Copying an Encrypted DB Snapshot to Another Region</a> in the Amazon RDS User Guide.
+    /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">
+    /// Copying a DB Snapshot</a> in the Amazon RDS User Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// and the action contained in the presigned URL.</para></li><li><para><code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted
         /// snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format
         /// for the source region. For example, if you are copying an encrypted DB snapshot from
-        /// the us-west-2 region, then your <code>SourceDBSnapshotIdentifier</code> would look
-        /// like Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
+        /// the us-west-2 region, then your <code>SourceDBSnapshotIdentifier</code> looks like
+        /// the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
         /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
         /// <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html"> Signature
         /// Version 4 Signing Process</a>.</para>
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB snapshot.</para><para>You cannot copy an encrypted, shared DB snapshot from one AWS region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same region as the copy, specify a valid DB snapshot
         /// identifier.</para></li><li><para>If the source snapshot is in a different region than the copy, specify a valid DB
         /// snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
-        /// Copying a DB Snapshot</a>.</para></li></ul><para>Example: <code>rds:mydb-2012-04-02-00-01</code></para><para>Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code></para>
+        /// Copying a DB Snapshot or DB Cluster Snapshot</a>.</para></li></ul><para>Example: <code>rds:mydb-2012-04-02-00-01</code></para><para>Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

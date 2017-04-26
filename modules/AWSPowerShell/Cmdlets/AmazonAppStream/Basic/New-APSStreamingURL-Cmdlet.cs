@@ -28,8 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Gives a URL to start a AppStream stream for a user. The URL is valid only for 1 minute
-    /// from the time that it is generated.
+    /// Creates a URL to start an AppStream 2.0 streaming session for a user. By default,
+    /// the URL is valid only for 1 minute from the time that it is generated.
     /// </summary>
     [Cmdlet("New", "APSStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>ID of the application that must be launched after the session starts.</para>
+        /// <para>The ID of the application that must be launched after the session starts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SessionContext
         /// <summary>
         /// <para>
-        /// <para>The sessionContext of the AppStream stream.</para>
+        /// <para>The sessionContext of the streaming URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>A unique user ID for which the URL is generated.</para>
+        /// <para>A unique user ID for whom the URL is generated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Validity
         /// <summary>
         /// <para>
-        /// <para>The validity duration of the URL in seconds.</para>
+        /// <para>The validity duration of the URL in seconds. After this duration, the URL returned
+        /// by this operation becomes invalid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

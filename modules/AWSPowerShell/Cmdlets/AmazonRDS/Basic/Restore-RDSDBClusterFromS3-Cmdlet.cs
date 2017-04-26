@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon
     /// RDS must be authorized to access the Amazon S3 bucket and the data must be created
-    /// using the Percona XtraBackup utility as described in <a href="AmazonRDS/latest/UserGuide/Aurora.Migrate.MySQL.html#Aurora.Migrate.MySQL.S3">Migrating
+    /// using the Percona XtraBackup utility as described in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Migrate.MySQL.html#Aurora.Migrate.MySQL.S3">Migrating
     /// Data from MySQL by Using an Amazon S3 Bucket</a>.
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter EnableIAMDatabaseAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that is true to enable mapping of AWS Identity and Access Management
+        /// (IAM) accounts to database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
         #region Parameter Engine
@@ -352,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
+                context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
@@ -420,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableIAMDatabaseAuthentication != null)
+            {
+                request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
             if (cmdletContext.Engine != null)
             {
@@ -548,6 +565,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }

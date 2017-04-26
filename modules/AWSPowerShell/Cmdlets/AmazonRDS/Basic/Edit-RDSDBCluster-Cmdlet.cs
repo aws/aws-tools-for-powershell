@@ -92,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterParameterGroupName { get; set; }
         #endregion
         
+        #region Parameter EnableIAMDatabaseAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that is true to enable mapping of AWS Identity and Access Management
+        /// (IAM) accounts to database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -170,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A lst of VPC security groups that the DB cluster will belong to.</para>
+        /// <para>A list of VPC security groups that the DB cluster will belong to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -213,6 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
+            if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
+                context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NewDBClusterIdentifier = this.NewDBClusterIdentifier;
             context.OptionGroupName = this.OptionGroupName;
@@ -255,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
                 request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
+            if (cmdletContext.EnableIAMDatabaseAuthentication != null)
+            {
+                request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -340,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
+            public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NewDBClusterIdentifier { get; set; }
             public System.String OptionGroupName { get; set; }

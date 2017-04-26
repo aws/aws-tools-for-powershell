@@ -28,10 +28,9 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the stack. If a stack name is provided, this operation describes that environment.
-    /// If name is not provided, this operation describes all the stacks for the AWS account.
-    /// This operation returns a paginated list of results; use the <code>nextToken</code>
-    /// to get the next page.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// If stack names are not provided, this operation describes the specified stacks; otherwise,
+    /// all stacks in the account are described. Pass the <code>nextToken</code> value in
+    /// a subsequent call to this operation to retrieve the next set of items.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSStackList")]
     [OutputType("Amazon.AppStream.Model.Stack")]
@@ -58,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The next token to iterate the list. If a name is specified in the request or the request
-        /// is for the first page, this value should be null.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.
+        /// If this value is null, it retrieves the first page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

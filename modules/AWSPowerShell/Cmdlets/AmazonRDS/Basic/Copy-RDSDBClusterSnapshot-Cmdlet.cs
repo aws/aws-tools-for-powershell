@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTag
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>True to copy all tags from the source DB cluster snapshot to the target DB cluster
+        /// snapshot; otherwise false. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -155,7 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>You cannot copy an encrypted, shared DB cluster snapshot from one AWS region to another.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same region as the copy, specify a valid DB snapshot
+        /// identifier.</para></li><li><para>If the source snapshot is in a different region than the copy, specify a valid DB
+        /// cluster snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
+        /// Copying a DB Snapshot or DB Cluster Snapshot</a>.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

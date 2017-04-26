@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description displayed to end users on the AppStream portal.</para>
+        /// <para>The description displayed to end users on the AppStream 2.0 portal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The name displayed to end users on the AppStream portal.</para>
+        /// <para>The name displayed to end users on the AppStream 2.0 portal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The unique name for this stack.</para>
+        /// <para>The unique identifier for this stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
     /// Deletes the stack. After this operation completes, the environment can no longer be
-    /// activated, and the alias reservation is released.
+    /// activated, and any reservations made for the stack are released.
     /// </summary>
     [Cmdlet("Remove", "APSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

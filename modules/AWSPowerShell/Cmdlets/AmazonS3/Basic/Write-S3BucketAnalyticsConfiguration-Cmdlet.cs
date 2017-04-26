@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter DataExport_OutputSchemaVersion
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.StorageClassAnalysisDataExport.OutputSchemaVersion
+        /// The version of the output schema to use when exporting data. Must be V_1.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

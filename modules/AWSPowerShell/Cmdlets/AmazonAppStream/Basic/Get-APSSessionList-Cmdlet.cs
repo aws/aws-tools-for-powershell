@@ -28,9 +28,11 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the streaming sessions for a stack and fleet. If a user ID is provided,
-    /// this operation returns streaming sessions for only that user. This operation returns
-    /// a paginated list of results; use the <code>nextToken</code> to get the next page.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the streaming sessions for a stack and a fleet. If a user ID is provided,
+    /// this operation returns streaming sessions for only that user. Pass this value for
+    /// the <code>nextToken</code> parameter in a subsequent call to this operation to retrieve
+    /// the next set of items. If an authentication type is not provided, the operation defaults
+    /// to users authenticated using a streaming url.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSSessionList")]
     [OutputType("Amazon.AppStream.Model.Session")]
@@ -42,6 +44,20 @@ namespace Amazon.PowerShell.Cmdlets.APS
     )]
     public partial class GetAPSSessionListCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication method of the user. It can be <code>API</code> for a user authenticated
+        /// using a streaming url or <code>SAML</code> for a SAML federated user. If an authentication
+        /// type is not provided, the operation defaults to users authenticated using a streaming
+        /// url.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AppStream.AuthenticationType")]
+        public Amazon.AppStream.AuthenticationType AuthenticationType { get; set; }
+        #endregion
         
         #region Parameter FleetName
         /// <summary>
@@ -88,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The next token to iterate the list. If the request is for the first page, this value
-        /// should be null.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.
+        /// If this value is null, it retrieves the first page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -112,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationType = this.AuthenticationType;
             context.FleetName = this.FleetName;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
@@ -135,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request and set iteration invariants
             var request = new Amazon.AppStream.Model.DescribeSessionsRequest();
             
+            if (cmdletContext.AuthenticationType != null)
+            {
+                request.AuthenticationType = cmdletContext.AuthenticationType;
+            }
             if (cmdletContext.FleetName != null)
             {
                 request.FleetName = cmdletContext.FleetName;
@@ -240,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.AppStream.AuthenticationType AuthenticationType { get; set; }
             public System.String FleetName { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }

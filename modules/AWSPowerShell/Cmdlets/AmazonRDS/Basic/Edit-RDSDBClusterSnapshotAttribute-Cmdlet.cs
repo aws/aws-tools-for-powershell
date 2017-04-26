@@ -39,13 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// cluster snapshot. Use the value <code>all</code> to make the manual DB cluster snapshot
     /// public, which means that it can be copied or restored by all AWS accounts. Do not
     /// add the <code>all</code> value for any manual DB cluster snapshots that contain private
-    /// information that you don't want available to all AWS accounts.
+    /// information that you don't want available to all AWS accounts. If a manual DB cluster
+    /// snapshot is encrypted, it can be shared, but only by specifying a list of authorized
+    /// AWS account IDs for the <code>ValuesToAdd</code> parameter. You can't use <code>all</code>
+    /// as a value for that parameter in this case.
     /// </para><para>
     /// To view which AWS accounts have access to copy or restore a manual DB cluster snapshot,
     /// or whether a manual DB cluster snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a>
     /// API action.
-    /// </para><para>
-    /// If a manual DB cluster snapshot is encrypted, it cannot be shared.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBClusterSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -31,8 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Creates a DB instance for a DB instance running MySQL, MariaDB, or PostgreSQL that
     /// acts as a Read Replica of a source DB instance.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// Amazon Aurora does not support this action. You must call the <code>CreateDBInstance</code>
+    /// action to create a DB instance for an Aurora DB cluster.
+    /// </para></note><para>
     /// All Read Replica DB instances are created as Single-AZ deployments with backups disabled.
     /// All other DB instance attributes (including DB security groups and DB parameter groups)
     /// are inherited from the source DB instance, except as specified below.
@@ -172,6 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
+        
+        #region Parameter EnableIAMDatabaseAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts; otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora 5.6 or higher.</para></li></ul><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
         #region Parameter Iops
@@ -391,6 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
+                context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
@@ -452,6 +467,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.EnableIAMDatabaseAuthentication != null)
+            {
+                request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
             if (cmdletContext.Iops != null)
             {
@@ -556,6 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Int32? MonitoringInterval { get; set; }

@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Attach a fleet to a Stack.
+    /// Associate a fleet to a stack.
     /// </summary>
     [Cmdlet("Register", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FleetName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet to attach.</para>
+        /// <para>The name of the fleet to associate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name of the stack to which the fleet is attached.</para>
+        /// <para>The name of the stack to which the fleet is associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

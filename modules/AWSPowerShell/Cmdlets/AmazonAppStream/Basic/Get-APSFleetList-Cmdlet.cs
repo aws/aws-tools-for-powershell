@@ -28,10 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the fleets. If a fleet name is provided, this operation describes that environment.
-    /// If name is not provided, this operation describes all the fleets for the AWS account.
-    /// This operation returns a paginated list of results; use the <code>nextToken</code>
-    /// to get the next page.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// If fleet names are provided, this operation describes the specified fleets; otherwise,
+    /// all the fleets in the account are described.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSFleetList")]
     [OutputType("Amazon.AppStream.Model.Fleet")]
@@ -58,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The next token to iterate the list. If a name is specified in the request or the request
-        /// is for the first page, this value should be null.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.
+        /// If this value is null, it retrieves the first page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

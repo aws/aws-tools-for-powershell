@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para>The amount of storage (in gigabytes) to be initially allocated for the database instance.</para><para>Type: Integer</para><para><b>MySQL</b></para><para>Constraints: Must be an integer from 5 to 6144.</para><para><b>MariaDB</b></para><para>Constraints: Must be an integer from 5 to 6144.</para><para><b>PostgreSQL</b></para><para>Constraints: Must be an integer from 5 to 6144.</para><para><b>Oracle</b></para><para>Constraints: Must be an integer from 10 to 6144.</para><para><b>SQL Server</b></para><para>Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise
+        /// <para>The amount of storage (in gigabytes) to be initially allocated for the database instance.</para><para>Type: Integer</para><para><b>Amazon Aurora</b></para><para>Not applicable. Aurora cluster volumes automatically grow as the amount of data in
+        /// your database increases, though you are only charged for the space that you use in
+        /// an Aurora cluster volume.</para><para><b>MySQL</b></para><para>Constraints: Must be an integer from 5 to 6144.</para><para><b>MariaDB</b></para><para>Constraints: Must be an integer from 5 to 6144.</para><para><b>PostgreSQL</b></para><para>Constraints: Must be an integer from 5 to 6144.</para><para><b>Oracle</b></para><para>Constraints: Must be an integer from 10 to 6144.</para><para><b>SQL Server</b></para><para>Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise
         /// Edition) or from 20 to 4096 (Express Edition and Web Edition)</para>
         /// </para>
         /// </summary>
@@ -213,6 +215,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DomainIAMRoleName { get; set; }
         #endregion
         
+        #region Parameter EnableIAMDatabaseAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts; otherwise false. </para><para> You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
@@ -251,60 +264,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// us-west-2):</b><code> 5.6.23</code></para></li><li><para><b>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-southeast-1, ap-southeast-2,
         /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22</code></para></li><li><para><b>Version 5.5 (available in all AWS regions):</b><code> 5.5.46</code></para></li><li><para><b>Version 5.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
         /// eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code>
-        /// 5.1.73a | 5.1.73b</code></para></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><para><b>Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></para></li><li><para><b>Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 12.1.0.1.v3
-        /// | 12.1.0.1.v4 | 12.1.0.1.v5</code></para></li><li><para><b>Version 12.1 (available in all AWS regions):</b><code> 12.1.0.2.v1</code></para></li><li><para><b>Version 12.1 (available in all AWS regions except us-gov-west-1):</b><code> 12.1.0.2.v2
-        /// | 12.1.0.2.v3 | 12.1.0.2.v4</code></para></li><li><para><b>Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code>
-        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></para></li><li><para><b>Version 11.2 (available in all AWS regions except ap-south-1, ap-northeast-2):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3</code></para></li><li><para><b>Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 11.2.0.3.v4</code></para></li><li><para><b>Version 11.2 (available in all AWS regions):</b><code> 11.2.0.4.v1 | 11.2.0.4.v3
-        /// | 11.2.0.4.v4</code></para></li><li><para><b>Version 11.2 (available in all AWS regions except us-gov-west-1):</b><code> 11.2.0.4.v5
-        /// | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8</code></para></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><para><b>Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></para></li><li><para><b>Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 12.1.0.1.v3
-        /// | 12.1.0.1.v4 | 12.1.0.1.v5</code></para></li><li><para><b>Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code>
-        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></para></li><li><para><b>Version 11.2 (available in all AWS regions except ap-south-1, ap-northeast-2):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3</code></para></li><li><para><b>Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 11.2.0.3.v4</code></para></li><li><para><b>Version 11.2 (available in all AWS regions):</b><code> 11.2.0.4.v1 | 11.2.0.4.v3
-        /// | 11.2.0.4.v4</code></para></li><li><para><b>Version 11.2 (available in all AWS regions except us-gov-west-1):</b><code> 11.2.0.4.v5
-        /// | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8</code></para></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><para><b>Version 12.1 (available in all AWS regions except ap-south-1, ap-northeast-2):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></para></li><li><para><b>Version 12.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 12.1.0.1.v3
-        /// | 12.1.0.1.v4 | 12.1.0.1.v5</code></para></li><li><para><b>Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code>
-        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></para></li><li><para><b>Version 11.2 (available in all AWS regions except ap-south-1, ap-northeast-2):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3</code></para></li><li><para><b>Version 11.2 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 11.2.0.3.v4</code></para></li><li><para><b>Version 11.2 (available in all AWS regions):</b><code> 11.2.0.4.v1 | 11.2.0.4.v3
-        /// | 11.2.0.4.v4</code></para></li><li><para><b>Version 11.2 (available in all AWS regions except us-gov-west-1):</b><code> 11.2.0.4.v5
-        /// | 11.2.0.4.v6 | 11.2.0.4.v7 | 11.2.0.4.v8</code></para></li></ul><para><b>Oracle Database Standard Edition Two (oracle-se2)</b></para><ul><li><para><b>Version 12.1 (available in all AWS regions except us-gov-west-1):</b><code> 12.1.0.2.v2
-        /// | 12.1.0.2.v3 | 12.1.0.2.v4</code></para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.6:</b><code> 9.6.1</code></para></li><li><para><b>Version 9.5:</b><code>9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4:</b><code> 9.4.9 | 9.4.7 | 9.4.5 | 9.4.4 | 9.4.1</code></para></li><li><para><b>Version 9.3:</b><code> 9.3.14 | 9.3.12 | 9.3.10 | 9.3.9 | 9.3.6 | 9.3.5 | 9.3.3
-        /// | 9.3.2 | 9.3.1</code></para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS
+        /// 5.1.73a | 5.1.73b</code></para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v7</code> (supported for EE in all AWS regions, and SE2 in all AWS
+        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v5</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v4</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v3</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v2</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v1</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li></ul><ul><li><para><code>12.1.0.1.v6</code> (supported for EE, SE1, and SE, in all AWS regions except
-        /// ap-south-1, ap-northeast-2)</para></li><li><para><code>12.1.0.1.v5</code> (supported for EE, SE1, and SE, in all AWS regions except
-        /// ap-south-1, ap-northeast-2)</para></li><li><para><code>12.1.0.1.v4</code> (supported for EE, SE1, and SE, in all AWS regions except
-        /// ap-south-1, ap-northeast-2)</para></li><li><para><code>12.1.0.1.v3</code> (supported for EE, SE1, and SE, in all AWS regions except
-        /// ap-south-1, ap-northeast-2)</para></li><li><para><code>12.1.0.1.v2</code> (supported for EE, SE1, and SE, in all AWS regions except
-        /// ap-south-1, ap-northeast-2)</para></li><li><para><code>12.1.0.1.v1</code> (supported for EE, SE1, and SE, in all AWS regions except
-        /// ap-south-1, ap-northeast-2)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.5 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
-        /// us-west-2):</b><code> 9.5.4</code></para></li><li><para><b>Version 9.5 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-east-2,
-        /// us-west-1, us-west-2):</b><code> 9.5.2</code></para></li><li><para><b>Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1,
-        /// us-west-2):</b><code> 9.4.9</code></para></li><li><para><b>Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-east-2,
-        /// us-west-1, us-west-2):</b><code> 9.4.7</code></para></li><li><para><b>Version 9.4 (available in all AWS regions):</b><code> 9.4.5</code></para></li><li><para><b>Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-southeast-1,
-        /// ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
-        /// us-west-2):</b><code> 9.4.4</code></para></li><li><para><b>Version 9.4 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-southeast-1,
-        /// ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-east-2, us-gov-west-1,
-        /// us-west-1, us-west-2):</b><code> 9.4.1</code></para></li><li><para><b>Version 9.3 (available in these AWS regions: ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code> 9.3.10 | 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9</code></para></li><li><para><b>Version 9.3 (available in these AWS regions: ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code>
-        /// 9.3.1 | 9.3.2</code></para></li><li><para><b>Version 9.3 (available in these AWS regions: ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2):</b><code> 9.3.12
-        /// | 9.3.14</code></para></li></ul>
+        /// regions except us-gov-west-1)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.6:</b><code> 9.6.1</code></para></li><li><para><b>Version 9.5:</b><code>9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4:</b><code> 9.4.9 | 9.4.7 | 9.4.5 | 9.4.4 | 9.4.1</code></para></li><li><para><b>Version 9.3:</b><code> 9.3.14 | 9.3.12 | 9.3.10 | 9.3.9 | 9.3.6 | 9.3.5 | 9.3.3
+        /// | 9.3.2 | 9.3.1</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,7 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name of master user for the client DB instance.</para><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para>Type: String</para><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 30 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>SQL Server</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 128 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 63 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name for the master database user.</para><para><b>Amazon Aurora</b></para><para>Not applicable. You specify the name for the master database user when you create
+        /// your DB cluster. </para><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Microsoft SQL Server</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 128 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 30 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 63 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -366,7 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master database user. Can be any printable ASCII character except
-        /// "/", """, or "@".</para><para>Type: String</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>Amazon Aurora</b></para><para>Constraints: Must contain from 8 to 41 characters.</para>
+        /// "/", """, or "@".</para><para><b>Amazon Aurora</b></para><para>Not applicable. You specify the password for the master database user when you create
+        /// your DB cluster. </para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -391,8 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
         /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
-        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
-        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting
+        /// Up and Enabling Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
         /// a <code>MonitoringRoleArn</code> value.</para>
         /// </para>
         /// </summary>
@@ -442,8 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html">DB
         /// Instance Backups</a>. </para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region.
-        /// To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Times should be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow">
+        /// Adjusting the Preferred DB Instance Maintenance Window</a>. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Times should be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -621,6 +591,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
+            if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
+                context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
@@ -732,6 +704,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DomainIAMRoleName != null)
             {
                 request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
+            }
+            if (cmdletContext.EnableIAMDatabaseAuthentication != null)
+            {
+                request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
             if (cmdletContext.Engine != null)
             {
@@ -892,6 +868,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBSubnetGroupName { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
+            public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }

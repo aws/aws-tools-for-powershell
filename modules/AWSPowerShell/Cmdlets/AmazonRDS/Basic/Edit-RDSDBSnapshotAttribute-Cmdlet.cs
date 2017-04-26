@@ -39,13 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// snapshot. Uses the value <code>all</code> to make the manual DB snapshot public, which
     /// means it can be copied or restored by all AWS accounts. Do not add the <code>all</code>
     /// value for any manual DB snapshots that contain private information that you don't
-    /// want available to all AWS accounts.
+    /// want available to all AWS accounts. If the manual DB snapshot is encrypted, it can
+    /// be shared, but only by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
+    /// parameter. You can't use <code>all</code> as a value for that parameter in this case.
     /// </para><para>
     /// To view which AWS accounts have access to copy or restore a manual DB snapshot, or
     /// whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a>
     /// API action.
-    /// </para><para>
-    /// If the manual DB snapshot is encrypted, it cannot be shared.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBSnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

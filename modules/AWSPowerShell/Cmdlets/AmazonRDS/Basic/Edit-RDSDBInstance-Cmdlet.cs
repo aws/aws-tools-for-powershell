@@ -263,6 +263,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DomainIAMRoleName { get; set; }
         #endregion
         
+        #region Parameter EnableIAMDatabaseAuthentication
+        /// <summary>
+        /// <para>
+        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts; otherwise false.</para><para> You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -564,6 +575,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
+            if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
+                context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
@@ -664,6 +677,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DomainIAMRoleName != null)
             {
                 request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
+            }
+            if (cmdletContext.EnableIAMDatabaseAuthentication != null)
+            {
+                request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -800,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBSubnetGroupName { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
+            public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }

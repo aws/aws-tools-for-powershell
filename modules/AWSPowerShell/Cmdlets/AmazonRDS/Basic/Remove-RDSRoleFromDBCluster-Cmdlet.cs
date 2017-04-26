@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster to disassociate the IAM role rom.</para>
+        /// <para>The name of the DB cluster to disassociate the IAM role from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisconnectTimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>The time after disconnection when a session is considered to have ended.</para>
+        /// <para>The time after disconnection when a session is considered to have ended. If a user
+        /// who got disconnected reconnects within this timeout interval, the user is connected
+        /// back to his/her previous session. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,10 +84,20 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter EnableDefaultInternetAccess
+        /// <summary>
+        /// <para>
+        /// <para>Enable/Disable default Internet access from fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableDefaultInternetAccess { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The image name to use.</para>
+        /// <para>Unique name of the image used by the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type of compute resources for the fleet.</para>
+        /// <para>The instance type of compute resources for the fleet. Fleet instances are launched
+        /// from this instance type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter MaxUserDurationInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time during which a streaming session can run.</para>
+        /// <para>The maximum time up to which a streaming session can run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet.</para>
+        /// <para>A unique identifier for the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -126,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The list of subnets in which the fleet is launched.</para>
+        /// <para>The list of subnets to which a network interface is established from the fleet instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,6 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (ParameterWasBound("DisconnectTimeoutInSecond"))
                 context.DisconnectTimeoutInSeconds = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
+            if (ParameterWasBound("EnableDefaultInternetAccess"))
+                context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
             if (ParameterWasBound("MaxUserDurationInSecond"))
@@ -224,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
+            }
+            if (cmdletContext.EnableDefaultInternetAccess != null)
+            {
+                request.EnableDefaultInternetAccess = cmdletContext.EnableDefaultInternetAccess.Value;
             }
             if (cmdletContext.ImageName != null)
             {
@@ -316,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Description { get; set; }
             public System.Int32? DisconnectTimeoutInSeconds { get; set; }
             public System.String DisplayName { get; set; }
+            public System.Boolean? EnableDefaultInternetAccess { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? MaxUserDurationInSeconds { get; set; }

@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Lists all stacks attached to the specified resource.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists all stacks to which the specified fleet is associated.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSAssociatedStackList")]
     [OutputType("System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FleetName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet whose attached stacks are listed.</para>
+        /// <para>The name of the fleet whose associated stacks are listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The page token to use to retrieve the next page of results for this operation. If
-        /// this value is null, it retrieves the first page.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.
+        /// If this value is null, it retrieves the first page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
