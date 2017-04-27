@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>The name of the stream to put the data record into.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true, Mandatory = true)]
         public System.String StreamName { get; set; }
         #endregion
         

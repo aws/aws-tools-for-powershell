@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The name of the delivery stream.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Mandatory = true)]
         public System.String DeliveryStreamName { get; set; }
         #endregion
 
@@ -211,18 +211,21 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 // populate Record
                 if (cmdletContext.Blob == null)
                 {
-                    byte[] content;
-
-                    if (!string.IsNullOrEmpty(cmdletContext.Text))
-                        content = Encoding.UTF8.GetBytes(cmdletContext.Text);
-                    else
-                        content = File.ReadAllBytes(cmdletContext.FilePath);
+                    var content = !string.IsNullOrEmpty(cmdletContext.Text) 
+                        ? Encoding.UTF8.GetBytes(cmdletContext.Text) 
+                        : File.ReadAllBytes(cmdletContext.FilePath);
 
                     var ms = new MemoryStream(content);
-                    request.Record.Data = ms;
+                    request.Record = new Record
+                    {
+                        Data = ms
+                    };
                 }
                 else
-                    request.Record.Data = cmdletContext.Blob;
+                    request.Record = new Record
+                    {
+                        Data = cmdletContext.Blob
+                    };
 
                 var client = Client ?? CreateClient(context.Credentials, context.Region);
                 CmdletOutput output;
