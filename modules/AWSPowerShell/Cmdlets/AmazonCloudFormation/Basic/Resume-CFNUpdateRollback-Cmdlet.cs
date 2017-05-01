@@ -55,6 +55,20 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class ResumeCFNUpdateRollbackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify
+        /// this token if you plan to retry requests so that AWS CloudFormation knows that you're
+        /// not attempting to continue the rollback to a stack with the same name. You might retry
+        /// <code>ContinueUpdateRollback</code> requests to ensure that AWS CloudFormation successfully
+        /// received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
         #region Parameter ResourcesToSkip
         /// <summary>
         /// <para>
@@ -74,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// become unrecoverable. </para></important><para>Specify the minimum number of resources required to successfully roll back your stack.
         /// For example, a failed resource update might cause dependent resources to fail. In
         /// this case, it might not be necessary to skip the dependent resources. </para><para>To specify resources in a nested stack, use the following format: <code>NestedStackName.ResourceLogicalID</code>.
-        /// You can specify a nested stack resource (the logical ID of an <code>AWS::CloudFormation::Stack</code>
-        /// resource) only if it's in one of the following states: <code>DELETE_IN_PROGRESS</code>,
-        /// <code>DELETE_COMPLETE</code>, or <code>DELETE_FAILED</code>. </para>
+        /// If the <code>ResourceLogicalID</code> is a stack resource (<code>Type: AWS::CloudFormation::Stack</code>),
+        /// it must be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>,
+        /// or <code>DELETE_FAILED</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClientRequestToken = this.ClientRequestToken;
             if (this.ResourcesToSkip != null)
             {
                 context.ResourcesToSkip = new List<System.String>(this.ResourcesToSkip);
@@ -172,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.ContinueUpdateRollbackRequest();
             
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
             if (cmdletContext.ResourcesToSkip != null)
             {
                 request.ResourcesToSkip = cmdletContext.ResourcesToSkip;
@@ -238,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ClientRequestToken { get; set; }
             public List<System.String> ResourcesToSkip { get; set; }
             public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }

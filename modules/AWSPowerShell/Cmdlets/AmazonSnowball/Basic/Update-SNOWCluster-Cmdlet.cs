@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ForwardingAddressId
+        /// <summary>
+        /// <para>
+        /// <para>The updated ID for the forwarding address for a cluster. This field is not supported
+        /// in most regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ForwardingAddressId { get; set; }
+        #endregion
+        
         #region Parameter Notification_JobStatesToNotify
         /// <summary>
         /// <para>
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.AddressId = this.AddressId;
             context.ClusterId = this.ClusterId;
             context.Description = this.Description;
+            context.ForwardingAddressId = this.ForwardingAddressId;
             if (this.Notification_JobStatesToNotify != null)
             {
                 context.Notification_JobStatesToNotify = new List<System.String>(this.Notification_JobStatesToNotify);
@@ -237,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ForwardingAddressId != null)
+            {
+                request.ForwardingAddressId = cmdletContext.ForwardingAddressId;
             }
             
              // populate Notification
@@ -371,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String AddressId { get; set; }
             public System.String ClusterId { get; set; }
             public System.String Description { get; set; }
+            public System.String ForwardingAddressId { get; set; }
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }

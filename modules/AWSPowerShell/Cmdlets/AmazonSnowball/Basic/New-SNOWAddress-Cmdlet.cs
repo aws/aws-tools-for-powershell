@@ -28,14 +28,10 @@ using Amazon.Snowball.Model;
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
-    /// Creates an address for a Snowball to be shipped to. 
-    /// 
-    ///  
-    /// <para>
-    /// Addresses are validated at the time of creation. The address you provide must be located
-    /// within the serviceable area of your region. If the address is invalid or unsupported,
-    /// then an exception is thrown.
-    /// </para>
+    /// Creates an address for a Snowball to be shipped to. In most regions, addresses are
+    /// validated at the time of creation. The address you provide must be located within
+    /// the serviceable area of your region. If the address is invalid or unsupported, then
+    /// an exception is thrown.
     /// </summary>
     [Cmdlet("New", "SNOWAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -87,10 +83,21 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Address_Country { get; set; }
         #endregion
         
+        #region Parameter Address_IsRestricted
+        /// <summary>
+        /// <para>
+        /// <para>If the address you are creating is a primary address, then set this option to true.
+        /// This field is not supported in most regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Address_IsRestricted { get; set; }
+        #endregion
+        
         #region Parameter Address_Landmark
         /// <summary>
         /// <para>
-        /// <para>The landmark identifying the address that the appliance will be shipped to.</para>
+        /// <para>This field is no longer used and the value is ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter Address_PrefectureOrDistrict
         /// <summary>
         /// <para>
-        /// <para>The prefecture or district that the appliance will be shipped to.</para>
+        /// <para>This field is no longer used and the value is ignored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -210,6 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.Address_City = this.Address_City;
             context.Address_Company = this.Address_Company;
             context.Address_Country = this.Address_Country;
+            if (ParameterWasBound("Address_IsRestricted"))
+                context.Address_IsRestricted = this.Address_IsRestricted;
             context.Address_Landmark = this.Address_Landmark;
             context.Address_Name = this.Address_Name;
             context.Address_PhoneNumber = this.Address_PhoneNumber;
@@ -277,6 +286,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (requestAddress_address_Country != null)
             {
                 request.Address.Country = requestAddress_address_Country;
+                requestAddressIsNull = false;
+            }
+            System.Boolean? requestAddress_address_IsRestricted = null;
+            if (cmdletContext.Address_IsRestricted != null)
+            {
+                requestAddress_address_IsRestricted = cmdletContext.Address_IsRestricted.Value;
+            }
+            if (requestAddress_address_IsRestricted != null)
+            {
+                request.Address.IsRestricted = requestAddress_address_IsRestricted.Value;
                 requestAddressIsNull = false;
             }
             System.String requestAddress_address_Landmark = null;
@@ -430,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String Address_City { get; set; }
             public System.String Address_Company { get; set; }
             public System.String Address_Country { get; set; }
+            public System.Boolean? Address_IsRestricted { get; set; }
             public System.String Address_Landmark { get; set; }
             public System.String Address_Name { get; set; }
             public System.String Address_PhoneNumber { get; set; }

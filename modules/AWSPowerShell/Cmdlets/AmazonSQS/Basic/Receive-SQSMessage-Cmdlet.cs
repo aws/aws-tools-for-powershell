@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para><ul><li><para>
     /// The message body.
     /// </para></li><li><para>
-    /// An MD5 digest of the message body. For information on MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
+    /// An MD5 digest of the message body. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
     /// </para></li><li><para>
     /// The <code>MessageId</code> you received when you sent the message to the queue.
     /// </para></li><li><para>

@@ -1,3 +1,15 @@
+### 3.3.83.0 (2017-05-01)
+  * Amazon Kinesis Firehose
+    - Fixed bug in handling of the -Text and -FilePath parameters that could cause a null reference exception.
+  * AWS AppStream
+    - Updated cmdlets to support the new 'Default Internet Access' service feature. This feature enables Internet access from AppStream 2.0 instances - image builders and fleet instances. Admins can enable this feature when creating an image builder or while creating/updating a fleet with the new -EnableDefaultInternetAccess parameter on the New-APSFleet and Update-APSFleet cmdlets.
+  * Amazon Relational Database Service
+    - Added the parameter -EnableIAMDatabaseAuthentication to the New-RDSDBCluster, Edit-RDSDBCluster, New-RDSDBInstance, Edit-RDSDBInstance, New-RDSDBInstanceReadReplica, Restore-RDSDBClusterFromS3, Restore-RDSDBClusterFromSnapshot, Restore-RDSDBClusterToPointInTime, Restore-RDSDBInstanceFromDBSnapshot and Restore-RDSDBInstanceToPointInTime cmdlets to enable authentication to your MySQL or Amazon Aurora DB instance using IAM authentication.
+  * AWS CloudFormation
+    - Added a new parameter, -ClientRequestToken, to the New-CFNStack, Remove-CFNStack, Resume-CFNUpdateRollback, Start-CFNChangeSet, Stop-CFNUpdateStack and Update-CFNStack cmdlets to enable supplying a customer-provided idempotency token to allow safely retrying operations.
+  * AWS Import/Export Snowball
+    - Added new parameter -ForwardingAddressId to the New-SNOWCluster, Update-SNOWCluster, New-SNOWJob and Update-SNOWJob cmdlets. The New-SNOWAddress cmdlet was updated with a new parameter -Address_IsRestricted to enable you to mark the primary address.
+
 ### 3.3.81.0 (2017-04-24)
   * All service API cmdlets
     - Cmdlets that invoke APIs on AWS services can now display a message stating the API and service endpoint or region the call is being dispatched to when the -Verbose switch is used. This can be used to help diagnose endpoint resolution failures.

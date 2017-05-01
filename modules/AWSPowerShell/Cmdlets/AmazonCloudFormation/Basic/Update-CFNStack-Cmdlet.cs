@@ -81,6 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] Capability { get; set; }
         #endregion
         
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>UpdateStack</code> request. Specify this token
+        /// if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+        /// to update a stack with the same name. You might retry <code>UpdateStack</code> requests
+        /// to ensure that AWS CloudFormation successfully received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
         #region Parameter NotificationARNs
         /// <summary>
         /// <para>
@@ -224,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. (For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.)</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
-        /// parameter, but not both.</para>
+        /// Anatomy</a> in the AWS CloudFormation User Guide.)</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
+        /// <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,8 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template that
         /// is located in an Amazon S3 bucket. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
-        /// parameter, but not both.</para>
+        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
+        /// <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -248,7 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter UsePreviousTemplate
         /// <summary>
         /// <para>
-        /// <para>Reuse the existing template that is associated with the stack that you are updating.</para>
+        /// <para>Reuse the existing template that is associated with the stack that you are updating.</para><para>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code>,
+        /// <code>TemplateURL</code>, or set the <code>UsePreviousTemplate</code> to <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -288,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Capabilities = new List<System.String>(this.Capability);
             }
+            context.ClientRequestToken = this.ClientRequestToken;
             if (this.NotificationARNs != null)
             {
                 context.NotificationARNs = new List<System.String>(this.NotificationARNs);
@@ -333,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Capabilities != null)
             {
                 request.Capabilities = cmdletContext.Capabilities;
+            }
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
             if (cmdletContext.NotificationARNs != null)
             {
@@ -439,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> Capabilities { get; set; }
+            public System.String ClientRequestToken { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public List<System.String> ResourceTypes { get; set; }

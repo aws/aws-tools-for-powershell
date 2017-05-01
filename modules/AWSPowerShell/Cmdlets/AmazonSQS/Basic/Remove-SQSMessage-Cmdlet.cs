@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// receipt handle for the message when you use the <code>DeleteMessage</code> action,
     /// the request succeeds, but the message might not be deleted.
     /// </para><para>
-    /// For standard queues, it is possible to receive a message even after you deleting it.
+    /// For standard queues, it is possible to receive a message even after you delete it.
     /// This might happen on rare occasions if one of the servers storing a copy of the message
     /// is unavailable when you send the request to delete the message. The copy remains on
     /// the server and might be returned to you on a subsequent receive request. You should

@@ -71,6 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String[] Capability { get; set; }
         #endregion
         
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>CreateStack</code> request. Specify this token
+        /// if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+        /// to create a stack with the same name. You might retry <code>CreateStack</code> requests
+        /// to ensure that AWS CloudFormation successfully received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
         #region Parameter DisableRollback
         /// <summary>
         /// <para>
@@ -87,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The Simple Notification Service (SNS) topic ARNs to publish stack related events.
-        /// You can find your SNS topic ARNs using the <a href="https://console.aws.amazon.com/sns">SNS
-        /// console</a> or your Command Line Interface (CLI).</para>
+        /// You can find your SNS topic ARNs using the SNS console or your Command Line Interface
+        /// (CLI).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -281,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Capabilities = new List<System.String>(this.Capability);
             }
+            context.ClientRequestToken = this.ClientRequestToken;
             if (ParameterWasBound("DisableRollback"))
                 context.DisableRollback = this.DisableRollback;
             if (this.NotificationARNs != null)
@@ -327,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Capabilities != null)
             {
                 request.Capabilities = cmdletContext.Capabilities;
+            }
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
             if (cmdletContext.DisableRollback != null)
             {
@@ -433,6 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> Capabilities { get; set; }
+            public System.String ClientRequestToken { get; set; }
             public System.Boolean? DisableRollback { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public Amazon.CloudFormation.OnFailure OnFailure { get; set; }

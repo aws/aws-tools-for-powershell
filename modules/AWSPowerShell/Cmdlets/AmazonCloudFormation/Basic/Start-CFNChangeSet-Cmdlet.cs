@@ -63,6 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ChangeSetName { get; set; }
         #endregion
         
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>ExecuteChangeSet</code> request. Specify this token
+        /// if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+        /// to execute a change set to update a stack with the same name. You might retry <code>ExecuteChangeSet</code>
+        /// requests to ensure that AWS CloudFormation successfully received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -113,6 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             PreExecutionContextLoad(context);
             
             context.ChangeSetName = this.ChangeSetName;
+            context.ClientRequestToken = this.ClientRequestToken;
             context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
@@ -133,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ChangeSetName != null)
             {
                 request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
             if (cmdletContext.StackName != null)
             {
@@ -193,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal class CmdletContext : ExecutorContext
         {
             public System.String ChangeSetName { get; set; }
+            public System.String ClientRequestToken { get; set; }
             public System.String StackName { get; set; }
         }
         

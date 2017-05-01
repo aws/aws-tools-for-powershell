@@ -31,11 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Delivers a message to the specified queue.
     /// 
     ///  <important><para>
-    /// The following list shows the characters (in Unicode) that are allowed in your message,
-    /// according to the W3C XML specification:
-    /// </para><ul><li><para><code>#x9</code></para></li><li><para><code>#xA</code></para></li><li><para><code>#xD</code></para></li><li><para><code>#x20</code> to <code>#xD7FF</code></para></li><li><para><code>#xE000</code> to <code>#xFFFD</code></para></li><li><para><code>#x10000</code> to <code>#x10FFFF</code></para></li></ul><para>
-    /// For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
-    /// If you send any characters that aren't included in this list, your request is rejected.
+    /// A message can include only XML, JSON, and unformatted text. The following Unicode
+    /// characters are allowed:
+    /// </para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code>
+    /// | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></para><para>
+    /// Any characters not included in this list will be rejected. For more information, see
+    /// the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Send", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter DelayInSeconds
         /// <summary>
         /// <para>
-        /// <para> The number of seconds to delay a specific message. Valid values: 0 to 900. Maximum:
-        /// 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available
-        /// for processing after the delay period is finished. If you don't specify a value, the
-        /// default value for the queue applies. </para><note><para>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message.
+        /// <para> The length of time, in seconds, for which to delay a specific message. Valid values:
+        /// 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code>
+        /// value become available for processing after the delay period is finished. If you don't
+        /// specify a value, the default value for the queue applies. </para><note><para>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message.
         /// You can set this parameter only on a queue level.</para></note>
         /// </para>
         /// </summary>
@@ -78,9 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter MessageBody
         /// <summary>
         /// <para>
-        /// <para>The message to send. The maximum string size is 256 KB.</para><important><para>The following list shows the characters (in Unicode) that are allowed in your message,
-        /// according to the W3C XML specification:</para><ul><li><para><code>#x9</code></para></li><li><para><code>#xA</code></para></li><li><para><code>#xD</code></para></li><li><para><code>#x20</code> to <code>#xD7FF</code></para></li><li><para><code>#xE000</code> to <code>#xFFFD</code></para></li><li><para><code>#x10000</code> to <code>#x10FFFF</code></para></li></ul><para>For more information, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.
-        /// If you send any characters that aren't included in this list, your request is rejected.</para></important>
+        /// <para>The message to send. The maximum string size is 256 KB.</para><important><para>A message can include only XML, JSON, and unformatted text. The following Unicode
+        /// characters are allowed:</para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code>
+        /// | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></para><para>Any characters not included in this list will be rejected. For more information, see
+        /// the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -101,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <code>ContentBasedDeduplication</code> set, the action fails with an error.</para></li><li><para>If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
         /// overrides the generated one.</para></li></ul></li><li><para>When <code>ContentBasedDeduplication</code> is in effect, messages with identical
         /// content sent within the deduplication interval are treated as duplicates and only
-        /// one copy of the message is delivered.</para></li><li><para>You can also use <code>ContentBasedDeduplication</code> for messages with identical
-        /// content to be treated as duplicates.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
+        /// one copy of the message is delivered.</para></li><li><para>If you send one message with <code>ContentBasedDeduplication</code> enabled and then
         /// another message with a <code>MessageDeduplicationId</code> that is the same as the
         /// one generated for the first <code>MessageDeduplicationId</code>, the two messages
         /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul><note><para>The <code>MessageDeduplicationId</code> is available to the recipient of the message
@@ -132,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// values. For each <code>MessageGroupId</code>, the messages are sorted by time sent.
         /// The caller can't specify a <code>MessageGroupId</code>.</para></li></ul><para>The length of <code>MessageGroupId</code> is 128 characters. Valid values are alphanumeric
         /// characters and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</code>.</para><para>For best practices of using <code>MessageGroupId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property">Using
-        /// the MessageGroupId Property</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
+        /// the MessageGroupId Property</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><important><para><code>MessageGroupId</code> is required for FIFO queues. You can't use it for Standard
+        /// queues.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

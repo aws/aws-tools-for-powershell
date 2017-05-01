@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
     /// Returns information about a specific job including shipping information, job status,
-    /// and other important metadata. .
+    /// and other important metadata.
     /// </summary>
     [Cmdlet("Get", "SNOWJob")]
     [OutputType("Amazon.Snowball.Model.DescribeJobResponse")]

@@ -28,7 +28,7 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Deletes up to ten messages from the specified queue. This is a batch version of <code><a>DeleteMessage</a></code>. The result of the action on each message is reported
+    /// Deletes up to ten messages from the specified queue. This is a batch version of <code><a>DeleteMessage</a>.</code> The result of the action on each message is reported
     /// individually in the response.
     /// 
     ///  <important><para>

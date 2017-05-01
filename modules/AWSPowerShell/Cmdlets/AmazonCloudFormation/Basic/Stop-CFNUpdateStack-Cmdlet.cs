@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public partial class StopCFNUpdateStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>CancelUpdateStack</code> request. Specify this
+        /// token if you plan to retry requests so that AWS CloudFormation knows that you're not
+        /// attempting to cancel an update on a stack with the same name. You might retry <code>CancelUpdateStack</code>
+        /// requests to ensure that AWS CloudFormation successfully received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -93,6 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClientRequestToken = this.ClientRequestToken;
             context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
@@ -110,6 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request
             var request = new Amazon.CloudFormation.Model.CancelUpdateStackRequest();
             
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
@@ -168,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ClientRequestToken { get; set; }
             public System.String StackName { get; set; }
         }
         

@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ForwardingAddressId
+        /// <summary>
+        /// <para>
+        /// <para>The forwarding address ID for a cluster. This field is not supported in most regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ForwardingAddressId { get; set; }
+        #endregion
+        
         #region Parameter Notification_JobStatesToNotify
         /// <summary>
         /// <para>
@@ -215,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             
             context.AddressId = this.AddressId;
             context.Description = this.Description;
+            context.ForwardingAddressId = this.ForwardingAddressId;
             context.JobType = this.JobType;
             context.KmsKeyARN = this.KmsKeyARN;
             if (this.Notification_JobStatesToNotify != null)
@@ -258,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ForwardingAddressId != null)
+            {
+                request.ForwardingAddressId = cmdletContext.ForwardingAddressId;
             }
             if (cmdletContext.JobType != null)
             {
@@ -401,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         {
             public System.String AddressId { get; set; }
             public System.String Description { get; set; }
+            public System.String ForwardingAddressId { get; set; }
             public Amazon.Snowball.JobType JobType { get; set; }
             public System.String KmsKeyARN { get; set; }
             public List<System.String> Notification_JobStatesToNotify { get; set; }

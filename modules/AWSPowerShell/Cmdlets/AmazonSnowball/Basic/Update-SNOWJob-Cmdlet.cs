@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ForwardingAddressId
+        /// <summary>
+        /// <para>
+        /// <para>The updated ID for the forwarding address for a job. This field is not supported in
+        /// most regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ForwardingAddressId { get; set; }
+        #endregion
+        
         #region Parameter JobId
         /// <summary>
         /// <para>
@@ -108,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The new role Amazon Resource Name (ARN) that you want to associate with this job.
-        /// To create a role ARN, use the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
-        /// AWS Identity and Access Management (IAM) API action.</para>
+        /// To create a role ARN, use the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>AWS
+        /// Identity and Access Management (IAM) API action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -204,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             
             context.AddressId = this.AddressId;
             context.Description = this.Description;
+            context.ForwardingAddressId = this.ForwardingAddressId;
             context.JobId = this.JobId;
             if (this.Notification_JobStatesToNotify != null)
             {
@@ -246,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ForwardingAddressId != null)
+            {
+                request.ForwardingAddressId = cmdletContext.ForwardingAddressId;
             }
             if (cmdletContext.JobId != null)
             {
@@ -387,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         {
             public System.String AddressId { get; set; }
             public System.String Description { get; set; }
+            public System.String ForwardingAddressId { get; set; }
             public System.String JobId { get; set; }
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
