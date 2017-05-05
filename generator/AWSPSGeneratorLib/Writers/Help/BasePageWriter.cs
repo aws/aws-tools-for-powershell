@@ -20,6 +20,8 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         protected string OutputFolder { get; private set; }
 
+        protected string RelativePathToRoot { get; private set; }
+
         private const string FeedbackSection =
             "<!-- BEGIN-FEEDBACK-SECTION --><span class=\"feedback\">{0}</span><!-- END-FEEDBACK-SECTION -->";
 
@@ -42,6 +44,8 @@ namespace AWSPowerShellGenerator.Writers.Help
         public void Write()
         {
             var filename = Path.Combine(OutputFolder, "items", GenerateFilename());
+            RelativePathToRoot = ComputeRelativeRootPath(OutputFolder, filename);
+
             var directory = new FileInfo(filename).Directory.FullName;
 
             if (!Directory.Exists(directory))
@@ -55,10 +59,10 @@ namespace AWSPowerShellGenerator.Writers.Help
                 writer.WriteLine("<html>");
                     writer.WriteLine("<head>");
                         writer.WriteLine("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>");
-                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/style.css\"/>");
-                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/syntaxhighlighter/shCore.css\">");
-                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/syntaxhighlighter/shThemeDefault.css\">");
-                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/psstyle.css\"/>");
+                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/style.css\"/>", RelativePathToRoot);
+                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/syntaxhighlighter/shCore.css\">", RelativePathToRoot);
+                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/syntaxhighlighter/shThemeDefault.css\">", RelativePathToRoot);
+                        writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/psstyle.css\"/>", RelativePathToRoot);
 
                         // every page needs a title, meta description and canonical url to satisfy indexing
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
@@ -147,7 +151,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                                 writer.WriteLine("<option value=\"code\">Sample Code &amp; Libraries</option>");
                             writer.WriteLine("</select>");
                             writer.WriteLine("<input type=\"text\" name=\"searchQuery\" id=\"sq\">");
-                            writer.WriteLine("<input type=\"image\" alt=\"Go\" src=\"../resources/search-button.png\" id=\"sb\">");
+                            writer.WriteLine("<input type=\"image\" alt=\"Go\" src=\"{0}/resources/search-button.png\" id=\"sb\">", RelativePathToRoot);
                         writer.WriteLine("</div>");
                         writer.WriteLine("<input id=\"this_doc_product\" type=\"hidden\" value=\"AWS Tools for Windows PowerShell\" name=\"this_doc_product\">");
                         writer.WriteLine("<input id=\"this_doc_guide\" type=\"hidden\" value=\"Command Reference\" name=\"this_doc_guide\">");
@@ -196,10 +200,10 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         protected virtual void WriteScriptFiles(TextWriter writer)
         {
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/jquery.min.js\"></script>");
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/jquery.min.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<script type=\"text/javascript\">jQuery.noConflict();</script>");
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/parseuri.js\"></script>");
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/pagescript.js\"></script>");
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/parseuri.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/pagescript.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<!-- BEGIN-SECTION -->");
             writer.WriteLine("<script type=\"text/javascript\">");
             writer.WriteLine("jQuery(function ($) {");
@@ -215,10 +219,10 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("</script>");
             writer.WriteLine("<!-- END-SECTION -->");
 
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/syntaxhighlighter/shCore.js\"></script>");
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/syntaxhighlighter/shBrushCSharp.js\"></script>");
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/syntaxhighlighter/shBrushPlain.js\"></script>");
-            writer.WriteLine("<script type=\"text/javascript\" src=\"../resources/syntaxhighlighter/shBrushXml.js\"></script>");
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shCore.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushCSharp.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushPlain.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushXml.js\"></script>", RelativePathToRoot);
 
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.SiteCatalyst.snippet"))
             using (var reader = new StreamReader(stream))
@@ -280,6 +284,24 @@ namespace AWSPowerShellGenerator.Writers.Help
         {
                 writer.WriteLine("</div>");
             writer.WriteLine("</div>");
+        }
+
+        // computes the relative distance from root of a filename and returns a ../ sequence
+        // that can step back far enough to get to root
+        private static string ComputeRelativeRootPath(string rootFolder, string filename)
+        {
+            var relativePath = new StringBuilder();
+
+            var filepath = Path.GetDirectoryName(filename);
+            while (!filepath.Equals(rootFolder, StringComparison.OrdinalIgnoreCase))
+            {
+                if (relativePath.Length > 0)
+                    relativePath.Append("/");
+                relativePath.Append("..");
+                filepath = Path.GetDirectoryName(filepath);
+            }
+
+            return relativePath.ToString();
         }
     }
 }
