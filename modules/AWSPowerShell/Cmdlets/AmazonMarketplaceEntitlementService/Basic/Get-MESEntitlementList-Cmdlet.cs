@@ -22,75 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECS;
-using Amazon.ECS.Model;
+using Amazon.MarketplaceEntitlementService;
+using Amazon.MarketplaceEntitlementService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECS
+namespace Amazon.PowerShell.Cmdlets.MES
 {
     /// <summary>
-    /// Returns a list of container instances in a specified cluster. You can filter the results
-    /// of a <code>ListContainerInstances</code> operation with cluster query language statements
-    /// inside the <code>filter</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-    /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// GetEntitlements retrieves entitlement values for a given product. The results can
+    /// be filtered based on customer identifier or product dimensions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "ECSContainerInstances")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListContainerInstances operation against Amazon EC2 Container Service.", Operation = new[] {"ListContainerInstances"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.ECS.Model.ListContainerInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "MESEntitlementList")]
+    [OutputType("Amazon.MarketplaceEntitlementService.Model.Entitlement")]
+    [AWSCmdlet("Invokes the GetEntitlements operation against AWS Marketplace Entitlement Service.", Operation = new[] {"GetEntitlements"})]
+    [AWSCmdletOutput("Amazon.MarketplaceEntitlementService.Model.Entitlement",
+        "This cmdlet returns a collection of Entitlement objects.",
+        "The service call response (type Amazon.MarketplaceEntitlementService.Model.GetEntitlementsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetECSContainerInstancesCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class GetMESEntitlementListCmdlet : AmazonMarketplaceEntitlementServiceClientCmdlet, IExecutor
     {
-        
-        #region Parameter Cluster
-        /// <summary>
-        /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container
-        /// instances to list. If you do not specify a cluster, the default cluster is assumed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Cluster { get; set; }
-        #endregion
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>You can filter the results of a <code>ListContainerInstances</code> operation with
-        /// cluster query language statements. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-        /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.</para>
+        /// <para>Filter is used to return entitlements for a specific customer or for a specific dimension.
+        /// Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i>
+        /// for each value in the value list, and then <i>intersected</i> for each filter key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Filter { get; set; }
+        public System.Collections.Hashtable Filter { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter ProductCode
         /// <summary>
         /// <para>
-        /// <para>Filters the container instances by status. For example, if you specify the <code>DRAINING</code>
-        /// status, the results include only container instances that have been set to <code>DRAINING</code>
-        /// using <a>UpdateContainerInstancesState</a>. If you do not specify this parameter,
-        /// the default is to include container instances set to <code>ACTIVE</code> and <code>DRAINING</code>.</para>
+        /// <para>Product code is used to uniquely identify a product in AWS Marketplace. The product
+        /// code will be provided by AWS Marketplace when the product listing is created.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ECS.ContainerInstanceStatus")]
-        public Amazon.ECS.ContainerInstanceStatus Status { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ProductCode { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of container instance results returned by <code>ListContainerInstances</code>
-        /// in paginated output. When this parameter is used, <code>ListContainerInstances</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListContainerInstances</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>ListContainerInstances</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of items to retrieve from the GetEntitlements operation. For pagination,
+        /// use the NextToken field in subsequent calls to GetEntitlements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,12 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListContainerInstances</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
-        /// the next items in a list and not for other programmatic purposes.</para></note>
+        /// <para>For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -129,12 +103,30 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Cluster = this.Cluster;
-            context.Filter = this.Filter;
+            if (this.Filter != null)
+            {
+                context.Filter = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Filter.Keys)
+                {
+                    object hashValue = this.Filter[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Filter.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.Filter.Add((String)hashKey, valueSet);
+                }
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Status = this.Status;
+            context.ProductCode = this.ProductCode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,18 +142,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ECS.Model.ListContainerInstancesRequest();
-            if (cmdletContext.Cluster != null)
-            {
-                request.Cluster = cmdletContext.Cluster;
-            }
+            var request = new Amazon.MarketplaceEntitlementService.Model.GetEntitlementsRequest();
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.ProductCode != null)
             {
-                request.Status = cmdletContext.Status;
+                request.ProductCode = cmdletContext.ProductCode;
             }
             
             // Initialize loop variants and commence piping
@@ -197,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ContainerInstanceArns;
+                        object pipelineOutput = response.Entitlements;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -206,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ContainerInstanceArns.Count;
+                        int _receivedThisCall = response.Entitlements.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -249,14 +237,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private Amazon.ECS.Model.ListContainerInstancesResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.ListContainerInstancesRequest request)
+        private Amazon.MarketplaceEntitlementService.Model.GetEntitlementsResponse CallAWSServiceOperation(IAmazonMarketplaceEntitlementService client, Amazon.MarketplaceEntitlementService.Model.GetEntitlementsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "ListContainerInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Entitlement Service", "GetEntitlements");
             #if DESKTOP
-            return client.ListContainerInstances(request);
+            return client.GetEntitlements(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListContainerInstancesAsync(request);
+            var task = client.GetEntitlementsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -267,11 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Cluster { get; set; }
-            public System.String Filter { get; set; }
+            public Dictionary<System.String, List<System.String>> Filter { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.ECS.ContainerInstanceStatus Status { get; set; }
+            public System.String ProductCode { get; set; }
         }
         
     }

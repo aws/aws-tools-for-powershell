@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster that hosts the service to describe. If you do not specify
-        /// a cluster, the default cluster is assumed.</para>
+        /// <para>The short name or full Amazon Resource Name (ARN)the cluster that hosts the service
+        /// to describe. If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

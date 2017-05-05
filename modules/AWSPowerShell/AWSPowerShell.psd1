@@ -114,6 +114,7 @@ RequiredAssemblies = @(
   "AWSSDK.LexModelBuildingService.dll",
   "AWSSDK.Lightsail.dll",
   "AWSSDK.MachineLearning.dll",
+  "AWSSDK.MarketplaceEntitlementService.dll",
   "AWSSDK.MTurk.dll",
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.OpsWorksCM.dll",

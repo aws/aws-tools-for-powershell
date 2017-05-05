@@ -97,8 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>A space-separated list of container instance IDs or full Amazon Resource Name (ARN)
-        /// entries.</para>
+        /// <para>A list of container instance IDs or full Amazon Resource Name (ARN) entries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

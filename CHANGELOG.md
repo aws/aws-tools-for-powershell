@@ -1,3 +1,7 @@
+### 3.3.84.0 (2017-05-05)
+  * AWS Marketplace Entitlement Service
+    - Added support for the new Marketplace Entitlement Service. The cmdlet noun prefix for this service is 'MES' and the cmdlets can be listed using the command 'Get-AWSCmdletName -Service MES'. Currently the service exposes one cmdlet, Get-MESEntitlement (GetEntitlements API).
+
 ### 3.3.83.0 (2017-05-01)
   * Amazon Kinesis Firehose
     - Fixed bug in handling of the -Text and -FilePath parameters that could cause a null reference exception.

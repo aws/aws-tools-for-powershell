@@ -34,10 +34,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <para>
     /// When <a>StopTask</a> is called on a task, the equivalent of <code>docker stop</code>
     /// is issued to the containers running in the task. This results in a <code>SIGTERM</code>
-    /// and a 30-second timeout, after which <code>SIGKILL</code> is sent and the containers
-    /// are forcibly stopped. If the container handles the <code>SIGTERM</code> gracefully
-    /// and exits within 30 seconds from receiving it, no <code>SIGKILL</code> is sent.
-    /// </para>
+    /// and a default 30-second timeout, after which <code>SIGKILL</code> is sent and the
+    /// containers are forcibly stopped. If the container handles the <code>SIGTERM</code>
+    /// gracefully and exits within 30 seconds from receiving it, no <code>SIGKILL</code>
+    /// is sent.
+    /// </para><note><para>
+    /// The default 30-second timeout can be configured on the Amazon ECS container agent
+    /// with the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
+    /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
+    /// ECS Container Agent Configuration</a> in the <i>Amazon EC2 Container Service Developer
+    /// Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Task")]

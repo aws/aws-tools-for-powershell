@@ -204,8 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Environment_Variable
         /// <summary>
         /// <para>
-        /// <para>The key-value pairs that represent your environment's configuration settings. The
-        /// value you specify cannot contain a ",".</para>
+        /// <para>The key-value pairs that represent your environment's configuration settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

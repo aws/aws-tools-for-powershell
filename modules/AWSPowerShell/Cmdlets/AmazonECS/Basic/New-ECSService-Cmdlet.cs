@@ -49,22 +49,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// service's tasks that must remain in the <code>RUNNING</code> state during a deployment,
     /// as a percentage of the <code>desiredCount</code> (rounded up to the nearest integer).
     /// This parameter enables you to deploy without using additional cluster capacity. For
-    /// example, if <code>desiredCount</code> is four tasks and the minimum is 50%, the scheduler
-    /// can stop two existing tasks to free up cluster capacity before starting two new tasks.
-    /// Tasks for services that do not use a load balancer are considered healthy if they
-    /// are in the <code>RUNNING</code> state. Tasks for services that use a load balancer
-    /// are considered healthy if they are in the <code>RUNNING</code> state and the container
-    /// instance they are hosted on is reported as healthy by the load balancer. The default
-    /// value is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
+    /// example, if your service has a <code>desiredCount</code> of four tasks and a <code>minimumHealthyPercent</code>
+    /// of 50%, the scheduler can stop two existing tasks to free up cluster capacity before
+    /// starting two new tasks. Tasks for services that <i>do not</i> use a load balancer
+    /// are considered healthy if they are in the <code>RUNNING</code> state. Tasks for services
+    /// that <i>do</i> use a load balancer are considered healthy if they are in the <code>RUNNING</code>
+    /// state and the container instance they are hosted on is reported as healthy by the
+    /// load balancer. The default value for <code>minimumHealthyPercent</code> is 50% in
+    /// the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
     /// </para><para>
     /// The <code>maximumPercent</code> parameter represents an upper limit on the number
     /// of your service's tasks that are allowed in the <code>RUNNING</code> or <code>PENDING</code>
     /// state during a deployment, as a percentage of the <code>desiredCount</code> (rounded
     /// down to the nearest integer). This parameter enables you to define the deployment
-    /// batch size. For example, if <code>desiredCount</code> is four tasks and the maximum
-    /// is 200%, the scheduler can start four new tasks before stopping the four older tasks
-    /// (provided that the cluster resources required to do this are available). The default
-    /// value is 200%.
+    /// batch size. For example, if your service has a <code>desiredCount</code> of four tasks
+    /// and a <code>maximumPercent</code> value of 200%, the scheduler can start four new
+    /// tasks before stopping the four older tasks (provided that the cluster resources required
+    /// to do this are available). The default value for <code>maximumPercent</code> is 200%.
     /// </para><para>
     /// When the service scheduler launches new tasks, it determines task placement in your
     /// cluster using the following logic:
@@ -74,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// instance attributes).
     /// </para></li><li><para>
     /// By default, the service scheduler attempts to balance tasks across Availability Zones
-    /// in this manner (although you can choose a different placement strategy):
+    /// in this manner (although you can choose a different placement strategy) with the <code>placementStrategy</code>
+    /// parameter):
     /// </para><ul><li><para>
     /// Sort the valid container instances by the fewest number of running tasks for this
     /// service in the same Availability Zone as the instance. For example, if zone A has

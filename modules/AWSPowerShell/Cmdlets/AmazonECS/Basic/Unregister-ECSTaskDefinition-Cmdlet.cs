@@ -40,7 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// new services, and you cannot update an existing service to reference an <code>INACTIVE</code>
     /// task definition (although there may be up to a 10 minute window following deregistration
     /// where these restrictions have not yet taken effect).
-    /// </para>
+    /// </para><note><para>
+    /// At this time, <code>INACTIVE</code> task definitions remain discoverable in your account
+    /// indefinitely; however, this behavior is subject to change in the future, so you should
+    /// not rely on <code>INACTIVE</code> task definitions persisting beyond the life cycle
+    /// of any associated tasks and services.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Unregister", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.TaskDefinition")]

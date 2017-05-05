@@ -2786,6 +2786,7 @@ Set-Alias -Name LS-GetInstances -Value Get-LSInstanceList
 Set-Alias -Name LS-GetInstanceSnapshot -Value Get-LSInstanceSnapshot
 Set-Alias -Name LS-GetInstanceSnapshots -Value Get-LSInstanceSnapshotList
 Set-Alias -Name LS-GetInstanceState -Value Get-LSInstanceState
+Set-Alias -Name MES-GetEntitlements -Value Get-MESEntitlementList
 Set-Alias -Name MM-BatchMeterUsage -Value Send-MMMeteringDataBatch
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
 Set-Alias -Name MM-ResolveCustomer -Value Get-MMCustomerMetadata

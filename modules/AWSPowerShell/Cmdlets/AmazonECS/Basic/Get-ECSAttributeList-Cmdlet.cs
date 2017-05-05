@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Lists the attributes for Amazon ECS resources within a specified target type and cluster.
-    /// When you specify a target type and cluster, <code>LisAttributes</code> returns a list
-    /// of attribute objects, one for each attribute on each resource. You can filter the
-    /// list of results to a single attribute name to only return results that have that name.
-    /// You can also filter the results by attribute name and value, for example, to see which
-    /// container instances in a cluster are running a Linux AMI (<code>ecs.os-type=linux</code>).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// When you specify a target type and cluster, <code>ListAttributes</code> returns a
+    /// list of attribute objects, one for each attribute on each resource. You can filter
+    /// the list of results to a single attribute name to only return results that have that
+    /// name. You can also filter the results by attribute name and value, for example, to
+    /// see which container instances in a cluster are running a Linux AMI (<code>ecs.os-type=linux</code>).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSAttributeList")]
     [OutputType("Amazon.ECS.Model.Attribute")]
