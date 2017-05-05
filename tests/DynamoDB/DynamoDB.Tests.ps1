@@ -18,7 +18,7 @@ Describe -Tag "Smoke" "DynamoDB" {
             if ($tables) {
                 $tables.Count | Should BeGreaterThan 0
 
-                $tablename = ($tables | select -first 1 ).TableName
+                $tablename = $tables | select -first 1 
                 $table = $tablename | Get-DDBTable
                 $table | Should Not Be $null
                 $table.TableName | Should Be $tablename
