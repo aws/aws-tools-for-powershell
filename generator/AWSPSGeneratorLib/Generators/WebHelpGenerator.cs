@@ -478,19 +478,22 @@ namespace AWSPowerShellGenerator.Generators
 
         private void WriteRelatedLinks(CmdletPageWriter writer, string serviceAbbreviation, string cmdletName)
         {
-            // putting common credential and region parameters into a related link is the simplest
-            // approach, but only do it for service cmdlets
-            if (serviceAbbreviation.Equals("Common", StringComparison.Ordinal))
-                return;
-
             var sb = new StringBuilder();
 
-            XmlDocument document;
-            if (LinksCache.TryGetValue(serviceAbbreviation, out document))
+            // putting common credential and region parameters into a related link is the simplest
+            // approach, but only do it for service cmdlets
+            if (!serviceAbbreviation.Equals("Common", StringComparison.Ordinal))
             {
-                ConstructLinks(sb, document, "*");
-                ConstructLinks(sb, document, cmdletName);
+                XmlDocument document;
+                if (LinksCache.TryGetValue(serviceAbbreviation, out document))
+                {
+                    ConstructLinks(sb, document, "*");
+                    ConstructLinks(sb, document, cmdletName);
+                }
             }
+
+            // Add link for User Guide to all cmdlets
+            AppendLink(sb, "AWS Tools for PowerShell User Guide", "http://docs.aws.amazon.com/powershell/latest/userguide/");
 
             writer.AddPageElement(CmdletPageWriter.RelatedLinksElementKey, sb.ToString());
         }
@@ -510,12 +513,16 @@ namespace AWSPowerShellGenerator.Generators
                     {
                         Logger.LogError("Malformed link {0}, skipping" + link.OuterXml.ToString());
                     }
-
-                    sb.Append("<div class=\"relatedLink\">");
-                    sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", displayname, link.InnerText);
-                    sb.Append("</div>");
+                    AppendLink(sb, displayname, link.InnerText);
                 }
             }
+        }
+
+        private void AppendLink(StringBuilder sb, string linkText, string linkAddress)
+        {
+            sb.Append("<div class=\"relatedLink\">");
+            sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", linkText, linkAddress);
+            sb.Append("</div>");
         }
 
         /// <summary>
