@@ -10,6 +10,8 @@
   <PositionalParameters>LoadBalancerName</PositionalParameters>
   <PipelineParameter>LoadBalancerName</PipelineParameter>
 
+  <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize"/>
+
   <NounMappings>
     <Map From="LoadBalancerToSubnets" To="LoadBalancerToSubnet" />
     <Map From="LoadBalancerFromSubnets" To="LoadBalancerFromSubnet" />
@@ -56,6 +58,7 @@
     <ServiceOperation MethodName="DeleteLoadBalancerListeners" Output="Void" ShouldProcessTarget="LoadBalancerPorts" PositionalParameters="LoadBalancerPorts"/>
     <ServiceOperation MethodName="DeleteLoadBalancerPolicy" Output="Void" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="DeregisterInstancesFromLoadBalancer" ShouldProcessTarget="Instances" PositionalParameters="Instances"/>
+    <ServiceOperation MethodName="DescribeAccountLimits" Noun="AccountLimit" />
     <ServiceOperation MethodName="DescribeInstanceHealth" PositionalParameters="Instances"/>
     <ServiceOperation MethodName="DescribeLoadBalancerAttributes" />
     <ServiceOperation MethodName="DescribeLoadBalancerPolicies" PositionalParameters="PolicyNames"/>

@@ -22,42 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticLoadBalancing;
-using Amazon.ElasticLoadBalancing.Model;
+using Amazon.ElasticLoadBalancingV2;
+using Amazon.ElasticLoadBalancingV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ELB
+namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the specified the load balancers. If no load balancers are specified, the
-    /// call describes all of your load balancers.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the current Elastic Load Balancing resource limits for your AWS account.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
+    /// for Your Application Load Balancer</a> in the <i>Application Load Balancer Guide</i>.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "ELBLoadBalancer")]
-    [OutputType("Amazon.ElasticLoadBalancing.Model.LoadBalancerDescription")]
-    [AWSCmdlet("Invokes the DescribeLoadBalancers operation against Elastic Load Balancing.", Operation = new[] {"DescribeLoadBalancers"})]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.LoadBalancerDescription",
-        "This cmdlet returns a collection of LoadBalancerDescription objects.",
-        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "ELB2AccountLimit")]
+    [OutputType("Amazon.ElasticLoadBalancingV2.Model.Limit")]
+    [AWSCmdlet("Invokes the DescribeAccountLimits operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeAccountLimits"})]
+    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Limit",
+        "This cmdlet returns a collection of Limit objects.",
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
-    public partial class GetELBLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    public partial class GetELB2AccountLimitCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
-        
-        #region Parameter LoadBalancerName
-        /// <summary>
-        /// <para>
-        /// <para>The names of the load balancers.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("LoadBalancerNames")]
-        public System.String[] LoadBalancerName { get; set; }
-        #endregion
         
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with this call (a number from 1 to 400). The
-        /// default is 400.</para>
+        /// <para>The maximum number of results to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,10 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.LoadBalancerName != null)
-            {
-                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
-            }
             context.Marker = this.Marker;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
@@ -112,11 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersRequest();
-            if (cmdletContext.LoadBalancerNames != null)
-            {
-                request.LoadBalancerNames = cmdletContext.LoadBalancerNames;
-            }
+            var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsRequest();
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -151,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.LoadBalancerDescriptions;
+                        object pipelineOutput = response.Limits;
                         notes = new Dictionary<string, object>();
                         notes["NextMarker"] = response.NextMarker;
                         output = new CmdletOutput
@@ -160,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.LoadBalancerDescriptions.Count;
+                        int _receivedThisCall = response.Limits.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -203,14 +188,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersResponse CallAWSServiceOperation(IAmazonElasticLoadBalancing client, Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeLoadBalancers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeAccountLimits");
             #if DESKTOP
-            return client.DescribeLoadBalancers(request);
+            return client.DescribeAccountLimits(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeLoadBalancersAsync(request);
+            var task = client.DescribeAccountLimitsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -221,7 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> LoadBalancerNames { get; set; }
             public System.String Marker { get; set; }
             public int? PageSize { get; set; }
         }

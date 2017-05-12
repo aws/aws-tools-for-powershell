@@ -1927,6 +1927,8 @@ Set-Alias -Name Delete-ELBLoadBalancerPolicy -Value Remove-ELBLoadBalancerPolicy
 Set-Alias -Name ELB-DeleteLoadBalancerPolicy -Value Remove-ELBLoadBalancerPolicy
 Set-Alias -Name Deregister-ELBInstancesFromLoadBalancer -Value Remove-ELBInstanceFromLoadBalancer
 Set-Alias -Name ELB-DeregisterInstancesFromLoadBalancer -Value Remove-ELBInstanceFromLoadBalancer
+Set-Alias -Name Describe-ELBAccountLimit -Value Get-ELBAccountLimit
+Set-Alias -Name ELB-DescribeAccountLimits -Value Get-ELBAccountLimit
 Set-Alias -Name Describe-ELBInstanceHealth -Value Get-ELBInstanceHealth
 Set-Alias -Name ELB-DescribeInstanceHealth -Value Get-ELBInstanceHealth
 Set-Alias -Name Describe-ELBLoadBalancerAttributes -Value Get-ELBLoadBalancerAttribute
@@ -1976,6 +1978,8 @@ Set-Alias -Name Delete-ELB2TargetGroup -Value Remove-ELB2TargetGroup
 Set-Alias -Name ELB2-DeleteTargetGroup -Value Remove-ELB2TargetGroup
 Set-Alias -Name Deregister-ELB2Targets -Value Unregister-ELB2Target
 Set-Alias -Name ELB2-DeregisterTargets -Value Unregister-ELB2Target
+Set-Alias -Name Describe-ELB2AccountLimit -Value Get-ELB2AccountLimit
+Set-Alias -Name ELB2-DescribeAccountLimits -Value Get-ELB2AccountLimit
 Set-Alias -Name Describe-ELB2Listeners -Value Get-ELB2Listener
 Set-Alias -Name ELB2-DescribeListeners -Value Get-ELB2Listener
 Set-Alias -Name Describe-ELB2LoadBalancerAttribute -Value Get-ELB2LoadBalancerAttribute
