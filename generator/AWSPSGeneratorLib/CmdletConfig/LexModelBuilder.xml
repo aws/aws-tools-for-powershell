@@ -23,8 +23,11 @@
     <ServiceOperation MethodName="DeleteBot" Output="Void" />
     <ServiceOperation MethodName="DeleteBotAlias" Output="Void" />
     <ServiceOperation MethodName="DeleteBotChannelAssociation" Output="Void" />
+    <ServiceOperation MethodName="DeleteBotVersion" PipelineParameter="Version" Output="Void" />
     <ServiceOperation MethodName="DeleteIntent" Output="Void" />
+    <ServiceOperation MethodName="DeleteIntentVersion" Output="Void" />
     <ServiceOperation MethodName="DeleteSlotType" Output="Void" />
+    <ServiceOperation MethodName="DeleteSlotTypeVersion" PipelineParameter="Version" Output="Void" />
     <ServiceOperation MethodName="DeleteUtterances" Noun="Utterance" PipelineParameter="UserId" Output="Void" />
     <ServiceOperation MethodName="GetBot" PipelineParameter="VersionOrAlias" Output="Response" />
     <ServiceOperation MethodName="GetBotAlias" Output="Response" />

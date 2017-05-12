@@ -2720,10 +2720,16 @@ Set-Alias -Name Delete-LMBBotAlias -Value Remove-LMBBotAlias
 Set-Alias -Name LMB-DeleteBotAlias -Value Remove-LMBBotAlias
 Set-Alias -Name Delete-LMBBotChannelAssociation -Value Remove-LMBBotChannelAssociation
 Set-Alias -Name LMB-DeleteBotChannelAssociation -Value Remove-LMBBotChannelAssociation
+Set-Alias -Name Delete-LMBBotVersion -Value Remove-LMBBotVersion
+Set-Alias -Name LMB-DeleteBotVersion -Value Remove-LMBBotVersion
 Set-Alias -Name Delete-LMBIntent -Value Remove-LMBIntent
 Set-Alias -Name LMB-DeleteIntent -Value Remove-LMBIntent
+Set-Alias -Name Delete-LMBIntentVersion -Value Remove-LMBIntentVersion
+Set-Alias -Name LMB-DeleteIntentVersion -Value Remove-LMBIntentVersion
 Set-Alias -Name Delete-LMBSlotType -Value Remove-LMBSlotType
 Set-Alias -Name LMB-DeleteSlotType -Value Remove-LMBSlotType
+Set-Alias -Name Delete-LMBSlotTypeVersion -Value Remove-LMBSlotTypeVersion
+Set-Alias -Name LMB-DeleteSlotTypeVersion -Value Remove-LMBSlotTypeVersion
 Set-Alias -Name Delete-LMBUtterance -Value Remove-LMBUtterance
 Set-Alias -Name LMB-DeleteUtterances -Value Remove-LMBUtterance
 Set-Alias -Name LMB-GetBot -Value Get-LMBBot
