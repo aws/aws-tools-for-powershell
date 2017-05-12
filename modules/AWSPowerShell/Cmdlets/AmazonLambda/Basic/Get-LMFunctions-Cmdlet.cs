@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// If you are using versioning feature, the response returns list of $LATEST versions
     /// of your functions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
     /// Lambda Function Versioning and Aliases</a>. 
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMFunctions")]
     [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// operation. If present, indicates where to continue the listing. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public System.Int32 MaxItem { get; set; }
+        public int MaxItem { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -104,42 +105,84 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.Lambda.Model.ListFunctionsRequest();
             
-            if (cmdletContext.Marker != null)
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
-                request.Marker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.Marker;
             }
-            if (cmdletContext.MaxItems != null)
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
             {
-                request.MaxItems = cmdletContext.MaxItems.Value;
+                _emitLimit = cmdletContext.MaxItems;
             }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _continueIteration = true;
             
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Functions;
-                notes = new Dictionary<string, object>();
-                notes["NextMarker"] = response.NextMarker;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Functions;
+                        notes = new Dictionary<string, object>();
+                        notes["NextMarker"] = response.NextMarker;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.Functions.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -170,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public System.String Marker { get; set; }
-            public System.Int32? MaxItems { get; set; }
+            public int? MaxItems { get; set; }
         }
         
     }

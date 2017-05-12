@@ -14,6 +14,8 @@
     <Map From="Upload" To="Publish" />
   </VerbMappings>
 
+  <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
+
   <ServiceOperations>
     <ServiceOperation MethodName="AddPermission" />
     <ServiceOperation MethodName="CreateAlias" Output="Response" />
