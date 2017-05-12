@@ -1,3 +1,16 @@
+### 3.3.86.0 (2017-05-12)
+  * AWS Lambda
+    - Added support for automatic pagination of all available results on service APIs that supported paging. Updated cmdlets are Get-LMAliasList, Get-LMEventSourceMappings, Get-LMFunctions and Get-LMVersionsByFunction.
+  * Elastic Load Balancing
+    - Added a new cmdlet, Get-ELBAccountLimit (DescribeAccountLimits API), enabling customers to describe their account limits, such as load balancer limit, target group limit etc.
+  * Elastic Load Balancing v2
+    - Added a new cmdlet, Get-ELB2AccountLimit (DescribeAccountLimits API), enabling customers to describe their account limits, such as load balancer limit, target group limit etc.
+  * Amazon Lex Model Builder Service
+    - Added support for new APIs with three new cmdlets: Remove-LMBBotVersion (DeleteBotVersion API), Remove-LMBIntentVersion (DeleteIntentVersion API) and Remove-LMBSlitTypeVersion (DeleteSlotTypeVersion API).
+    - *Breaking Change*:  The -Version parameter has been removed from the Remove-LMBBot, Remove-LMBIntent and Remove-LMBSlotType cmdlets in favor of the specific cmdlets to delete versions. 
+  * Amazon Cognito Identity Provider
+    - Added support for the new group support APIs with new cmdlets Add-CGIPUserToGroupAdmin (AdminAddUserToGroup API), Get-CGIPGroup (GetGroup API), Get-CGIPGroupList (ListGroups API), Get-CGIPGroupsForuserAdmin (AdminListGroupsForUser API), Get-CGIPUsersInGroup (ListUsersInGroup API), New-CGIPGroup (CreateGroup API), Remove-CGIPGroup (DeleteGroup API), Remove-CGIPuserFromGroup (AdminRemoveUserFromGroup API) and Update-CGIPGroup (UpdateGroup API).
+     
 ### 3.3.84.0 (2017-05-05)
   * AWS Marketplace Entitlement Service
     - Added support for the new Marketplace Entitlement Service. The cmdlet noun prefix for this service is 'MES' and the cmdlets can be listed using the command 'Get-AWSCmdletName -Service MES'. Currently the service exposes one cmdlet, Get-MESEntitlement (GetEntitlements API).
