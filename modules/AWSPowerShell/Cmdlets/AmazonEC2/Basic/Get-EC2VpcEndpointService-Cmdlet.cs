@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// that you can specify in a subsequent call to get the next set of results.</para><para>Constraint: If the value is greater than 1000, we return only 1000 items.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

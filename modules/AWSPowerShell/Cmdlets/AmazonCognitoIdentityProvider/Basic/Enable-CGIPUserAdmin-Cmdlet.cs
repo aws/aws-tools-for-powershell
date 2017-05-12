@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Enables the specified user as an administrator. Works on any user.
+    /// 
+    ///  
+    /// <para>
+    /// Requires developer credentials.
+    /// </para>
     /// </summary>
     [Cmdlet("Enable", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

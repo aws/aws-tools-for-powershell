@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Confirms user registration as an admin without using a confirmation code. Works on
     /// any user.
+    /// 
+    ///  
+    /// <para>
+    /// Requires developer credentials.
+    /// </para>
     /// </summary>
     [Cmdlet("Confirm", "CGIPUserRegistrationAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

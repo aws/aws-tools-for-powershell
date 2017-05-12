@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>The ID of the project for which you want to list team members.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ProjectId { get; set; }
         #endregion
         
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>The maximum number of team members you want returned in a response.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

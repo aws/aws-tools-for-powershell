@@ -28,10 +28,8 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Deletes an intent. If you specify a version in the request, the API deletes only the
-    /// specified version of the intent. If you don't specify a version in the request, the
-    /// API deletes all of the versions of the intent, including the <code>$LATEST</code>
-    /// version. 
+    /// Deletes all versions of the intent, including the <code>$LATEST</code> version. To
+    /// delete a specific version of the intent, use the operation.
     /// 
     ///  
     /// <para>
@@ -67,16 +65,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Version
-        /// <summary>
-        /// <para>
-        /// <para>The version of the intent.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Version { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -118,7 +106,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             PreExecutionContextLoad(context);
             
             context.Name = this.Name;
-            context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -138,10 +125,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Version != null)
-            {
-                request.Version = cmdletContext.Version;
             }
             
             CmdletOutput output;
@@ -198,7 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         internal class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
-            public System.String Version { get; set; }
         }
         
     }

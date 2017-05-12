@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Updates the device status as an administrator.
+    /// 
+    ///  
+    /// <para>
+    /// Requires developer credentials.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "CGIPDeviceStatusAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

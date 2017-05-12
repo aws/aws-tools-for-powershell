@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReplicationJobId { get; set; }
         #endregion
         
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public System.Int32 MaxResult { get; set; }
         #endregion

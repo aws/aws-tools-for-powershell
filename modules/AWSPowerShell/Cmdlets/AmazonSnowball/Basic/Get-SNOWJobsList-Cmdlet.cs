@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>The number of <code>JobListEntry</code> objects to return.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

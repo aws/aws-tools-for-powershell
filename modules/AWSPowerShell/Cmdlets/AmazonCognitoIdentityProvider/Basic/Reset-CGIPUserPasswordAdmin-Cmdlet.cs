@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// selected and a verified phone number exists for the user, or if email verification
     /// is selected and a verified email exists for the user, calling this API will also result
     /// in sending a message to the end user with the code to change their password.
+    /// </para><para>
+    /// Requires developer credentials.
     /// </para>
     /// </summary>
     [Cmdlet("Reset", "CGIPUserPasswordAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

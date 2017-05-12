@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>The name of the server for which you want to view events.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ServerName { get; set; }
         #endregion
         
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// to the <code>NextToken</code> request parameter to get the next set of results. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

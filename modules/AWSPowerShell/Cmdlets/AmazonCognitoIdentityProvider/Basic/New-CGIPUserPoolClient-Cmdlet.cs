@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RefreshTokenValidity
         /// <summary>
         /// <para>
-        /// <para>Refreshes the token validity.</para>
+        /// <para>The validity of the refresh token, in days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Sets all the user settings for a specified user name. Works on any user.
+    /// 
+    ///  
+    /// <para>
+    /// Requires developer credentials.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "CGIPUserSettingAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

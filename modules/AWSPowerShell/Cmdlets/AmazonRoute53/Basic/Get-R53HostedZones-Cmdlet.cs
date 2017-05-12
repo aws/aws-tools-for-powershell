@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// delegation set. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DelegationSetId { get; set; }
         #endregion
         
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// there are no more hosted zones to get.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion

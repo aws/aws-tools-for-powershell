@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <summary>
     /// Returns information about the association between an Amazon Lex bot and a messaging
     /// platform.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions for the <code>lex:GetBotChannelAssociation</code>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBBotChannelAssociation")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetBotChannelAssociationResponse")]

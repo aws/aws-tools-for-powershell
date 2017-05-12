@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The user pool ID for the user pool that the users are being imported into.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserPoolId { get; set; }
         #endregion
         
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The maximum number of import jobs you want the request to return.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

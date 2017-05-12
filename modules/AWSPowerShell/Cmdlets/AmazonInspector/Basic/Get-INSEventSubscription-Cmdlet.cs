@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>The ARN of the assessment template for which you want to list the existing event subscriptions.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ResourceArn { get; set; }
         #endregion
         
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// response. The default value is 10. The maximum value is 500.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

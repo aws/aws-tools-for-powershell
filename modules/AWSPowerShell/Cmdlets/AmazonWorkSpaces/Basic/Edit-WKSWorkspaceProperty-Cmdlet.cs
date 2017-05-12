@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Modifies the WorkSpace properties, including the RunningMode and AutoStop time.
+    /// Modifies the WorkSpace properties, including the running mode and AutoStop time.
     /// </summary>
     [Cmdlet("Edit", "WKSWorkspaceProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

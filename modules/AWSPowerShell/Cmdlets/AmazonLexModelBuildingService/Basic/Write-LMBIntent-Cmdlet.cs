@@ -71,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </para><para>
     /// For more information, see <a>how-it-works</a>.
     /// </para><para>
-    /// This operation requires permissions for the <code>lex:PutIntent</code> action. For
-    /// more information, see <a>auth-and-access-control</a>.
+    /// This operation requires permissions for the <code>lex:PutIntent</code> action.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "LMBIntent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

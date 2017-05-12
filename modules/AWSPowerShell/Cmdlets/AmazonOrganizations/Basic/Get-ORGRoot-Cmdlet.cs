@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

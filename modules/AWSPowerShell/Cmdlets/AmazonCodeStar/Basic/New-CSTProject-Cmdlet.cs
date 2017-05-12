@@ -28,7 +28,7 @@ using Amazon.CodeStar.Model;
 namespace Amazon.PowerShell.Cmdlets.CST
 {
     /// <summary>
-    /// Creates a project in AWS CodeStar with minimal structure and no resources.
+    /// Reserved for future use. To create a project, use the AWS CodeStar console.
     /// </summary>
     [Cmdlet("New", "CSTProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeStar.Model.CreateProjectResponse")]
@@ -42,9 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A user- or system-generated token that identifies the entity that requested project
-        /// creation. This token can be used to repeat the request. It can also be used to identify
-        /// which user or system made the request in DescribeProject and ListProjects.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Optional. The description for the project.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,10 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID for the AWS CodeStar project. Project IDs must be unique within an AWS account.
-        /// Project IDs cannot exceed 15 characters and cannot contain capital letters and other
-        /// restricted symbols. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/limits.html">Limits</a>
-        /// in the AWS CodeStar User Guide.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,11 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The friendly name for the project. This friendly name serves as the basis for the
-        /// names for resources associated with the project, such as a repository name in AWS
-        /// CodeCommit. The name is limited to 100 characters and cannot contain certain restricted
-        /// symbols. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/limits.html">Limits</a>
-        /// in the AWS CodeStar User Guide.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

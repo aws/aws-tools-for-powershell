@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// from the load balancer.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
-    /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
+    /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ELBInstanceFromLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

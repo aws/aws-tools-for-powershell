@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <para>The ID of the QualificationType.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String QualificationTypeId { get; set; }
         #endregion
         
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <para> The maximum number of results to return in a single call. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

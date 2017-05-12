@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// sticky until a new application cookie is issued.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled
-    /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
+    /// Session Stickiness</a> in the <i>Classic Load Balancer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELBAppCookieStickinessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

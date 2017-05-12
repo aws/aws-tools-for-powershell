@@ -374,12 +374,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The user account expiration limit, in days, after which the account is no longer usable.
         /// To reset the account after that time limit, you must call AdminCreateUser again, specifying
-        /// "RESEND" for the MessageAction parameter.</para>
+        /// "RESEND" for the MessageAction parameter. The default value for this paameter is 7.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AdminCreateUserConfig_UnusedAccountValidityDays")]
         public System.Int32 AdminCreateUserConfig_UnusedAccountValidityDay { get; set; }
+        #endregion
+        
+        #region Parameter UserPoolTag
+        /// <summary>
+        /// <para>
+        /// <para>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding
+        /// Cost Allocation Tags to Your User Pool</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UserPoolTags")]
+        public System.Collections.Hashtable UserPoolTag { get; set; }
         #endregion
         
         #region Parameter LambdaConfig_VerifyAuthChallengeResponse
@@ -472,6 +484,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
             context.SmsVerificationMessage = this.SmsVerificationMessage;
+            if (this.UserPoolTag != null)
+            {
+                context.UserPoolTags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.UserPoolTag.Keys)
+                {
+                    context.UserPoolTags.Add((String)hashKey, (String)(this.UserPoolTag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -848,6 +868,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.SmsVerificationMessage = cmdletContext.SmsVerificationMessage;
             }
+            if (cmdletContext.UserPoolTags != null)
+            {
+                request.UserPoolTags = cmdletContext.UserPoolTags;
+            }
             
             CmdletOutput output;
             
@@ -933,6 +957,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String SmsConfiguration_ExternalId { get; set; }
             public System.String SmsConfiguration_SnsCallerArn { get; set; }
             public System.String SmsVerificationMessage { get; set; }
+            public Dictionary<System.String, System.String> UserPoolTags { get; set; }
         }
         
     }

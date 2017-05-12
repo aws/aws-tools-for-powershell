@@ -48,11 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// That also means that you cannot delete an organization that contains an account that
     /// is created with this operation.
     /// </para></important><note><para>
-    /// When you create a member account with this operation, the account is created with
-    /// the <b>IAM User and Role Access to Billing Information</b> switch enabled. This allows
-    /// IAM users and roles that are granted appropriate permissions to view billing information.
-    /// If this is disabled, then only the account root user can access billing information.
-    /// For information about how to disable this for an account, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
+    /// When you create a member account with this operation, you can choose whether to create
+    /// the account with the <b>IAM User and Role Access to Billing Information</b> switch
+    /// enabled. If you enable it, IAM users and roles that have appropriate permissions can
+    /// view billing information for the account. If you disable this, then only the account
+    /// root user can access billing information. For information about how to disable this
+    /// for an account, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
     /// Access to Your Billing Information and Tools</a>.
     /// </para></note><para>
     /// This operation can be called only from the organization's master account.
@@ -97,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// then only the root user of the new account can access account billing information.
         /// For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
         /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-        /// Management User Guide</i>.</para>
+        /// Management User Guide</i>.</para><para>If you do not specify this parameter, the value defaults to ALLOW, and IAM users and
+        /// roles with the required permissions can access billing information for the new account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

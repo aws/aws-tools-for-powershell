@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// value that you can use to get another batch of <code>SizeConstraintSet</code> objects.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion

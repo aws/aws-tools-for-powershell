@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The names of the policies.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Names")]
         public System.String[] Name { get; set; }
         #endregion
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// call.)</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion

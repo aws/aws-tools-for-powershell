@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The name of the Amazon Redshift event notification subscription to be described.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubscriptionName { get; set; }
         #endregion
         
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion

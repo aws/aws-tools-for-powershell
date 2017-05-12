@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// second "-" dash and from 8 to 32 additional lower-case letters or digits.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ParentId { get; set; }
         #endregion
         
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

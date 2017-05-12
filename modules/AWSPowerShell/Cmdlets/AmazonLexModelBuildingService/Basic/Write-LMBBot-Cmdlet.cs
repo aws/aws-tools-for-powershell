@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Creates an Amazon Lex conversational bot or replaces an existing bot. When you create
-    /// or update an intent you only required to specify a name. You can use this to add intents
+    /// or update a bot you only required to specify a name. You can use this to add intents
     /// later, or to remove intents from an existing bot. When you create a bot with a name
     /// only, the bot is created or updated but Amazon Lex returns the <code /> response <code>FAILED</code>.
     /// You can build the bot after you add one or more intents. For more information about

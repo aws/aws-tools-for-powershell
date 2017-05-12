@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <summary>
     /// Returns information about an Amazon Lex bot alias. For more information about aliases,
     /// see <a>versioning-aliases</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions for the <code>lex:GetBotAlias</code> action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBBotAlias")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetBotAliasResponse")]

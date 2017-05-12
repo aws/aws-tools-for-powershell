@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>The number of configuration sets to return.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
         #endregion

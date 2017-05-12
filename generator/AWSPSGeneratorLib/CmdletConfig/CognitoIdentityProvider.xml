@@ -22,11 +22,12 @@
 
   <MetadataProperties>
     <Property>PaginationToken</Property>
+    <Property>NextToken</Property>
   </MetadataProperties>
 
   <ServiceOperations>
 
-    <ServiceOperation MethodName="AddCustomAttributes" Output="Void" Noun="CustomAttribute"/>
+    <ServiceOperation MethodName="AdminAddUserToGroup" Verb="Add" Noun="UserToGroupAdmin" PipelineParameter="Username" Output="Void" ShouldProcessTarget="GroupName"/>
     <ServiceOperation MethodName="AdminConfirmSignUp" Output="Void" ShouldProcessTarget="UserName" Verb="Confirm" Noun="UserRegistrationAdmin"/>
     <ServiceOperation MethodName="AdminCreateUser" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Create"/>
     <ServiceOperation MethodName="AdminDeleteUser" Output="Void" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Remove"/>
@@ -37,13 +38,41 @@
     <ServiceOperation MethodName="AdminResetUserPassword" Output="Void" Verb="Reset" Noun="UserPasswordAdmin"/>
     <ServiceOperation MethodName="AdminSetUserSettings" Output="Void" Verb="Set" Noun="UserSettingAdmin"/>
     <ServiceOperation MethodName="AdminUpdateUserAttributes" Output="Void" Verb="Update" Noun="UserAttributeAdmin"/>
+    <ServiceOperation MethodName="AdminUpdateDeviceStatus" Verb="Edit" Noun="DeviceStatusAdmin" PipelineParameter="DeviceKey" Output="Void" />
+    <ServiceOperation MethodName="AdminForgetDevice" Verb="Stop" Noun="DeviceTrackingAdmin" PipelineParameter="DeviceKey" Output="Void"/>
+    <ServiceOperation MethodName="AdminGetDevice" Verb="Get" Noun="DeviceAdmin" PipelineParameter="DeviceKey" />
+    <ServiceOperation MethodName="AdminInitiateAuth" Verb="Start" Noun="AuthAdmin" PipelineParameter="ClientId" Output="Response" />
+    <ServiceOperation MethodName="AdminListDevices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username">
+      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
+    </ServiceOperation>
+    <ServiceOperation MethodName="AdminListGroupsForUser" Verb="Get" Noun="GroupsForUserAdmin" PipelineParameter="Username">
+      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
+    </ServiceOperation>
+    <ServiceOperation MethodName="AdminUserGlobalSignOut" Verb="Disconnect" Noun="UserGlobalAdmin" PipelineParameter="Username" Output="Void" />
+    <ServiceOperation MethodName="AdminRespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponseAdmin" PipelineParameter="ClientId" Output="Response" />
+    <ServiceOperation MethodName="AdminRemoveUserFromGroup" Verb="Remove" Noun="UserFromGroupAdmin" PipelineParameter="Username" Output="Void" ShouldProcessTarget="Username" />
+
+    <ServiceOperation MethodName="AddCustomAttributes" Output="Void" Noun="CustomAttribute"/>
+    <ServiceOperation MethodName="CreateGroup" PipelineParameter="GroupName" />
     <ServiceOperation MethodName="CreateUserPool" ShouldProcessTarget="PoolName"/>
     <ServiceOperation MethodName="CreateUserPoolClient" />
+
+    <ServiceOperation MethodName="DeleteGroup" PipelineParameter="GroupName" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPool" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPoolClient" Output="Void" PipelineParameter="ClientId"/>
     <ServiceOperation MethodName="DescribeUserPool" />
     <ServiceOperation MethodName="DescribeUserPoolClient" />
+
+    <ServiceOperation MethodName="GetGroup" PipelineParameter="GroupName"/>
+
+    <ServiceOperation MethodName="ListGroups" Verb="Get" Noun="GroupList">
+      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
+    </ServiceOperation>
+
     <ServiceOperation MethodName="ListUserPoolClients" Verb="Get" Noun="UserPoolClientList"/>
+    <ServiceOperation MethodName="ListUsersInGroup" Verb="Get" PipelineParameter="GroupName">
+      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
+    </ServiceOperation>
     
     <!-- see opening paragraphs of http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html 
          as to why I chose 'stop-devicetracking' as a name for ForgetDevice. The pipeline parameters for these cmdlets have
@@ -57,25 +86,18 @@
       <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
     </ServiceOperation>
     <ServiceOperation MethodName="UpdateDeviceStatus" Verb="Edit" Noun="DeviceStatus" PipelineParameter="DeviceKey" Output="Void" />
-    <ServiceOperation MethodName="AdminUpdateDeviceStatus" Verb="Edit" Noun="DeviceStatusAdmin" PipelineParameter="DeviceKey" Output="Void" />
-    <ServiceOperation MethodName="AdminForgetDevice" Verb="Stop" Noun="DeviceTrackingAdmin" PipelineParameter="DeviceKey" Output="Void"/>
-    <ServiceOperation MethodName="AdminGetDevice" Verb="Get" Noun="DeviceAdmin" PipelineParameter="DeviceKey" />
-    <ServiceOperation MethodName="AdminInitiateAuth" Verb="Start" Noun="AuthAdmin" PipelineParameter="ClientId" Output="Response" />
-    <ServiceOperation MethodName="AdminListDevices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username">
-      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
-    </ServiceOperation>
     <ServiceOperation MethodName="ConfirmDevice" Verb="Approve" Noun="Device" PipelineParameter="DeviceKey" />
     <ServiceOperation MethodName="GlobalSignOut" Verb="Disconnect" Noun="DeviceGlobal" Output="Void"/>
-    <ServiceOperation MethodName="AdminUserGlobalSignOut" Verb="Disconnect" Noun="UserGlobalAdmin" PipelineParameter="Username" Output="Void" />
 
     <ServiceOperation MethodName="RespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponse" PipelineParameter="ClientId" Output="Response" />
-    <ServiceOperation MethodName="AdminRespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponseAdmin" PipelineParameter="ClientId" Output="Response" />
 
     <ServiceOperation MethodName="ListUsers" Verb="Get" Noun="UserList">
       <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
     </ServiceOperation>
     
     <ServiceOperation MethodName="ListUserPools" Verb="Get" Noun="UserPoolList"/>
+
+    <ServiceOperation MethodName="UpdateGroup" PipelineParameter="GroupName" />
     <ServiceOperation MethodName="UpdateUserPool" Output="Void"/>
     <ServiceOperation MethodName="UpdateUserPoolClient" />
 

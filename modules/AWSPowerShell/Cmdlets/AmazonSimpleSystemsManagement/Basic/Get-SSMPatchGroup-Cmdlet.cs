@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of patch groups to return (per page).</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

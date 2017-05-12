@@ -32,10 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    /// When you create or update a bot using the operation, configure your bot to store user
-    /// utterances by setting <code>privacySetting</code> to <code>STORE_UTTERANCES</code>.
-    /// Use <code>DeleteUtterances</code> to remove the stored utterances for a specific user
-    /// .
+    /// Amazon Lex stores the utterances that users send to your bot unless the <code>childDirected</code>
+    /// field in the bot is set to <code>true</code>. Utterances are stored for 15 days for
+    /// use with the operation, and then stored indefinately for use in improving the ability
+    /// of your bot to respond to user input.
+    /// </para><para>
+    /// Use the <code>DeleteStoredUtterances</code> operation to manually delete stored utterances
+    /// for a specific user.
     /// </para><para>
     /// This operation requires permissions for the <code>lex:DeleteUtterances</code> action.
     /// </para>

@@ -28,7 +28,13 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Returns a list of all of the channels associated with the specified bot.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of all of the channels associated with the specified bot. 
+    /// 
+    ///  
+    /// <para>
+    /// The <code>GetBotChannelAssociations</code> operation requires permissions for the
+    /// <code>lex:GetBotChannelAssociations</code> action.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMBBotChannelAssociationList")]
     [OutputType("Amazon.LexModelBuildingService.Model.BotChannelAssociation")]

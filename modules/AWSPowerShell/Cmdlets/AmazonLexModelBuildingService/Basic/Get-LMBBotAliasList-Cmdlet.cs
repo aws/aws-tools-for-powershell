@@ -28,7 +28,12 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Returns a list of aliases for a specified Amazon Lex bot.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of aliases for a specified Amazon Lex bot.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions for the <code>lex:GetBotAliases</code> action.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMBBotAliasList")]
     [OutputType("Amazon.LexModelBuildingService.Model.BotAliasMetadata")]

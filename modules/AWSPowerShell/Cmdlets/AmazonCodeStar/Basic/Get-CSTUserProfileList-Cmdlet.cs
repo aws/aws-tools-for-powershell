@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>The maximum number of results to return in a response.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

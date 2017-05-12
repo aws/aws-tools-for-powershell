@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Updates the specified user's attributes, including developer attributes, as an administrator.
     /// Works on any user.
+    /// 
+    ///  
+    /// <para>
+    /// Requires developer credentials.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "CGIPUserAttributeAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

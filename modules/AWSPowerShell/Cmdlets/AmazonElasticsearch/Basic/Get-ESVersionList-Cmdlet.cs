@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// than 10 else it wont be honored. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

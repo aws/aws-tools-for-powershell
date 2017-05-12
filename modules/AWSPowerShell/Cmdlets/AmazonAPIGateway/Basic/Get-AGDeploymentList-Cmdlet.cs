@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// resources to get information about.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
         #endregion
         
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// be between 1 - 500.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// build. </para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [AWSConstantClassSource("Amazon.GameLift.BuildStatus")]
         public Amazon.GameLift.BuildStatus Status { get; set; }
         #endregion
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion

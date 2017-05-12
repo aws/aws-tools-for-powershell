@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <para>The ID of the organization.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String OrganizationId { get; set; }
         #endregion
         
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion

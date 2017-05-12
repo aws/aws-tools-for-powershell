@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// element.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>Number of domains to be returned.</para><para>Default: 20</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public System.Int32 MaxItem { get; set; }
         #endregion

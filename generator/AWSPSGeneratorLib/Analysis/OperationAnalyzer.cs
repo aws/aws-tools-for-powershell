@@ -955,25 +955,31 @@ namespace AWSPowerShellGenerator.Analysis
                 return;
             }
 
-            var parameter = AnalyzedParameters.First();
+            // find the first parameter that is not in the iteration set and attempt to use it.
+            var autoselectedParameter = AutoIterateSettings != null 
+                ? AnalyzedParameters.FirstOrDefault(p => !AutoIterateSettings.IsIterationParameter(p.AnalyzedName)) 
+                : AnalyzedParameters.First();
 
-            // we could validate that it matches the single parameter; only really interested in
-            // unnecessary attribution on service operation elements at this time
-            if (!string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
+            if (autoselectedParameter != null)
             {
-                if (CurrentOperation.PipelineParameter.Equals(parameter.AnalyzedName, StringComparison.Ordinal))
-                    Logger.LogError("Redundant pipeline parameter configuration for {0}:{1}, can be auto-assigned from single parameter", 
-                                    CurrentModel.ServiceNounPrefix, CurrentOperation.MethodName);
+                if (!string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
+                {
+                    // this is a 'note' entry only as improvements in autoselection mean we can end up
+                    // flagging lots of older configs where we had to be specific as errors
+                    if (CurrentOperation.PipelineParameter.Equals(autoselectedParameter.AnalyzedName, StringComparison.Ordinal))
+                        Logger.Log("Possibly redundant pipeline parameter configuration for {0}:{1}, can be auto-assigned from inspection",
+                            CurrentModel.ServiceNounPrefix, CurrentOperation.MethodName);
 
-                return;
+                    return;
+                }
+
+                // if the parameter already matches the declaration at operation or service level, we can skip
+                if (!string.IsNullOrEmpty(declaredPipelineParam)
+                        && autoselectedParameter.AnalyzedName.Equals(declaredPipelineParam, StringComparison.Ordinal))
+                    return;
+
+                CurrentOperation.PipelineParameter = autoselectedParameter.AnalyzedName;
             }
-
-            // if the parameter matches the declaration at operation or service level, we're good
-            if (!string.IsNullOrEmpty(declaredPipelineParam)
-                    && parameter.AnalyzedName.Equals(declaredPipelineParam, StringComparison.Ordinal))
-                return;
-
-            CurrentOperation.PipelineParameter = parameter.AnalyzedName;
         }
 
         /// <summary>

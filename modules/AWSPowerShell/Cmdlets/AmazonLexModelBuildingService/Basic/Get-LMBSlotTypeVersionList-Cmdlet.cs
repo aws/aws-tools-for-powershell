@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </para><para>
     /// The <code>GetSlotTypeVersions</code> operation always returns at least one version,
     /// the <code>$LATEST</code> version.
+    /// </para><para>
+    /// This operation requires permissions for the <code>lex:GetSlotTypeVersions</code> action.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMBSlotTypeVersionList")]
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>The name of the slot type for which versions should be returned.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// 10.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

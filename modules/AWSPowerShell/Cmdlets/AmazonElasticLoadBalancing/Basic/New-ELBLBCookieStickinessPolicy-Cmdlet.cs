@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// time, which is specified in the policy configuration.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
-    /// Session Stickiness</a> in the <i>Classic Load Balancers Guide</i>.
+    /// Session Stickiness</a> in the <i>Classic Load Balancer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELBLBCookieStickinessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// Gets the specified user by user name in a user pool as an administrator. Works on
     /// any user.
+    /// 
+    ///  
+    /// <para>
+    /// Requires developer credentials.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CGIPUserAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AdminGetUserResponse")]

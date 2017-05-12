@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The user pool ID for the user pool where you want to list user pool clients.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserPoolId { get; set; }
         #endregion
         
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// pool clients.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

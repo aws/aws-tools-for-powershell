@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// associated with the load balancer, <code>AddTags</code> updates its value.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
-    /// Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
+    /// Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELBTags", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

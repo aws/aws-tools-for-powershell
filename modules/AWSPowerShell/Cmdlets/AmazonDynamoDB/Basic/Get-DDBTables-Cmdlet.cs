@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// the next page of results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String ExclusiveStartTableName { get; set; }
         #endregion

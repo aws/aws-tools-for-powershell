@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// tapes you want to describe.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] TapeARNs { get; set; }
         #endregion
         
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>Specifies that the number of virtual tapes descried be limited to the specified number.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion

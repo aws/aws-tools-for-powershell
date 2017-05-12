@@ -28,9 +28,8 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Deletes a slot type. If you specify a version in the request, the API deletes the
-    /// specific version. If you don't specify a version in the request, the API deletes all
-    /// versions of the slot type, including the <code>$LATEST</code> version. 
+    /// Deletes all versions of the slot type, including the <code>$LATEST</code> version.
+    /// To delete a specific version of the slot type, use the operation.
     /// 
     ///  
     /// <para>
@@ -38,11 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// slot type that is referred to in one or more intents, you must remove those references
     /// first. 
     /// </para><note><para>
-    ///  If you get the <code>SlotTypeInUse</code> exception, the exception provides an example
-    /// reference that shows the intent where the slot type is referenced. To remove the reference
-    /// to the slot type, either update the intent or delete it. If you get the same exception
-    /// when you attempt to delete the intent again, repeat until the intent has no references
-    /// and the <code>DeleteSlotType</code> call is successful. 
+    ///  If you get the <code>ResourceInUseException</code> exception, the exception provides
+    /// an example reference that shows the intent where the slot type is referenced. To remove
+    /// the reference to the slot type, either update the intent or delete it. If you get
+    /// the same exception when you attempt to delete the slot type again, repeat until the
+    /// slot type has no references and the <code>DeleteSlotType</code> call is successful.
+    /// 
     /// </para></note><para>
     /// This operation requires permission for the <code>lex:DeleteSlotType</code> action.
     /// </para>
@@ -65,16 +65,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Version
-        /// <summary>
-        /// <para>
-        /// <para>The version of the slot type.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Version { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -116,7 +106,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             PreExecutionContextLoad(context);
             
             context.Name = this.Name;
-            context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,10 +125,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Version != null)
-            {
-                request.Version = cmdletContext.Version;
             }
             
             CmdletOutput output;
@@ -196,7 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         internal class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
-            public System.String Version { get; set; }
         }
         
     }

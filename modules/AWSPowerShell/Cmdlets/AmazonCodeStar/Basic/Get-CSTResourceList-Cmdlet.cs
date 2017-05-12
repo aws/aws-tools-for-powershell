@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>The ID of the project.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ProjectId { get; set; }
         #endregion
         
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>he maximum amount of data that can be contained in a single set of results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

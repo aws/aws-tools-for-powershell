@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// leave this parameter empty.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Names")]
         public System.String[] Name { get; set; }
         #endregion
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
         #endregion

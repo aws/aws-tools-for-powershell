@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>The maximum amount of data that can be contained in a single set of results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion

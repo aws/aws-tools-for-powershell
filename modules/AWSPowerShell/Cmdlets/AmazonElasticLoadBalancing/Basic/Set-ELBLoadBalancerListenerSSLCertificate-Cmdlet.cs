@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// For more information about updating your SSL certificate, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html">Replace
-    /// the SSL Certificate for Your Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
+    /// the SSL Certificate for Your Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBLoadBalancerListenerSSLCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
