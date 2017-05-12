@@ -186,16 +186,50 @@ namespace AWSPowerShellGenerator.Generators
 
         /// <summary>
         /// Contains the legacy aliases we encounter on service operations, to be
-        ///  emitted into the AWSPowerShellLegacyAliases.psm1 nested module.
+        /// emitted into the AWSPowerShellLegacyAliases.psm1 nested module.
+        /// Outer key is the service name.
+        /// In the inner dictionary, key is the alias and value is the true cmdlet
+        /// name it maps to.
         /// </summary>
-        private Dictionary<string, string> LegacyAliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private readonly Dictionary<string, Dictionary<string, string>> _legacyAliases
+            = new Dictionary<string, Dictionary<string, string>>(StringComparer.OrdinalIgnoreCase);
 
-        public void AddLegacyAlias(string legacyName, string currentName)
+        public void AddLegacyAlias(string serviceName, string cmdletName, string aliasName)
         {
-            if (LegacyAliases.ContainsKey(legacyName))
-                throw new ArgumentException(string.Format("Legacy alias '{0}' has been added already, mapped to '{1}'", legacyName, currentName));
+            Dictionary<string, string> aliases;
+            if (_legacyAliases.ContainsKey(serviceName))
+                aliases = _legacyAliases[serviceName];
+            else
+            {
+                aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+                _legacyAliases.Add(serviceName, aliases);
+            }
 
-            LegacyAliases.Add(legacyName, currentName);
+            if (aliases.ContainsKey(aliasName))
+                throw new ArgumentException(string.Format("Legacy alias '{0}' has been added already, mapped to '{1}' for service {2}", aliasName, cmdletName, serviceName));
+
+            aliases.Add(aliasName, cmdletName);
+        }
+
+        /// <summary>
+        /// Returns just the names of the legacy aliases, sorted, for use in the
+        /// ExportedAliases property in the manifest
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetLegacyAliasNames()
+        {
+            var ret = new List<string>();
+
+            ret.AddRange(_legacyShellConfigurationAliases.Keys);
+
+            foreach (var serviceName in _legacyAliases.Keys)
+            {
+                var serviceAliases = _legacyAliases[serviceName];
+                ret.AddRange(serviceAliases.Keys);
+            }
+
+            ret.Sort();
+            return ret;
         }
 
         /// <summary>
@@ -203,30 +237,38 @@ namespace AWSPowerShellGenerator.Generators
         /// aliases into the current shell when our main module loads.
         /// </summary>
         /// <returns></returns>
-        public string GetLegacyAliasesContent()
+        public string GetLegacyAliasesFileContent()
         {
             var sb = new StringBuilder();
 
-            var aliases = GetLegacyAliases();
-            foreach (var alias in aliases)
+            sb.AppendLine("# Shell Configuration");
+            var shellAliases = _legacyShellConfigurationAliases.Keys.ToList();
+            shellAliases.Sort();
+            foreach (var sa in shellAliases)
             {
-                sb.AppendLine(string.Format("Set-Alias -Name {0} -Value {1}", alias, LegacyAliases[alias]));
+                sb.AppendLine(string.Format("Set-Alias -Name {0} -Value {1}", sa, _legacyShellConfigurationAliases[sa]));
+            }
+
+            var serviceNames = _legacyAliases.Keys.ToList();
+            serviceNames.Sort();
+
+            foreach (var serviceName in serviceNames)
+            {
+                sb.AppendLine();
+
+                sb.AppendLine(string.Format("# {0}", serviceName));
+
+                var serviceAliases = _legacyAliases[serviceName];
+                var serviceAliasNames = serviceAliases.Keys.ToList();
+                serviceAliasNames.Sort();
+
+                foreach (var aliasName in serviceAliasNames)
+                {
+                    sb.AppendLine(string.Format("Set-Alias -Name {0} -Value {1}", aliasName, serviceAliases[aliasName]));
+                }
             }
 
             return sb.ToString();
-        }
-
-        /// <summary>
-        /// Returns the legacy aliases as a list, suitable for use in patching the
-        /// AliasesToExport member of the module manifest.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<string> GetLegacyAliases()
-        {
-            var aliases = LegacyAliases.Keys.ToList();
-            aliases.Sort();
-
-            return aliases;
         }
 
         /// <summary>
@@ -271,6 +313,19 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         private string CmdletsOutputPath { get; set; }
 
+        // new names and legacy aliases for the shell config cmdlets that we shipped
+        // with plural names in earlier versions
+        private readonly Dictionary<string, string> _legacyShellConfigurationAliases 
+            = new Dictionary<string, string>
+        {
+            { "Set-AWSCredentials",     "Set-AWSCredential"                     },
+            { "New-AWSCredentials",     "New-AWSCredential"                     },
+            { "Clear-AWSCredentials",   "Clear-AWSCredential"                   },
+            { "Get-AWSCredentials",     "Get-AWSCredential"                     },
+            { "Initialize-AWSDefaults", "Initialize-AWSDefaultConfiguration"    },
+            { "Clear-AWSDefaults",      "Clear-AWSDefaultConfiguration"         }
+        };
+
         #endregion
 
         #region Public methods
@@ -298,32 +353,36 @@ namespace AWSPowerShellGenerator.Generators
                     // static helpers
                     CurrentModel = configModel;
 
-                    Logger.Log("===========================================================");
-                    Logger.Log("Generating for client: {0}", CurrentModel.ServiceClientInterface);
+                    Logger.Log("=======================================================");
+                    Logger.Log("Processing service: {0}", CurrentModel.ServiceName);
 
                     GenerateClientAndCmdlets(CurrentModel);
+                    GenerateArgumentCompleters(CurrentModel);
+                    ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
 
                     if (!Options.BreakOnOutputMismatchError)
                     {
-                        Console.WriteLine("Processed client {0} ({1})", CurrentModel.ServiceClientInterface, CurrentModel.ServiceNounPrefix);
-                        Console.WriteLine("    Single-property result operations: {0}", string.Join(", ", CurrentModel.SinglePropertyResultOperations));
-                        Console.WriteLine("    Multi-property result operations: {0}", string.Join(", ", CurrentModel.MultiPropertyResultOperations));
-                        Console.WriteLine("    Empty result operations: {0}", string.Join(", ", CurrentModel.EmptyResultOperations));
+                        Console.WriteLine("Completed processing for {0}", CurrentModel.ServiceName);
+                        if (!CurrentModel.SkipCmdletGeneration)
+                        {
+                            Console.WriteLine("    Cmdlets generated for prefix: {0}", CurrentModel.ServiceNounPrefix);
+                            Console.WriteLine("    Single-property result operations: {0}", string.Join(", ", CurrentModel.SinglePropertyResultOperations));
+                            Console.WriteLine("    Multi-property result operations: {0}", string.Join(", ", CurrentModel.MultiPropertyResultOperations));
+                            Console.WriteLine("    Empty result operations: {0}", string.Join(", ", CurrentModel.EmptyResultOperations));
+                        }
+                        Console.WriteLine();
                     }
-
-                    var completionFunctions = GenerateArgumentCompleterScriptFunctions(CurrentModel);
-                    if (!string.IsNullOrEmpty(completionFunctions))
-                        AddArgumentCompletionScript(CurrentModel.ServiceName, completionFunctions);
                 }
                 else
                 {
                     Logger.Log("Skipping generation of service: {0}, client {1}", configModel.ServiceNounPrefix, configModel.ServiceClientInterface);
                 }
+
                 Logger.Log(new string('<', 20));
                 Logger.Log();
             }
 
-            SourceArtifacts.UpdateReferencesAndExports(OutputFolder, GetLegacyAliases());
+            SourceArtifacts.UpdateReferencesAndExports(OutputFolder, GetLegacyAliasNames());
 
             Console.WriteLine("...updating script completers module");
             var argumentCompleterScriptModuleFile = Path.Combine(OutputFolder, ArgumentCompleterScriptModuleFilename);
@@ -331,7 +390,7 @@ namespace AWSPowerShellGenerator.Generators
 
             Console.WriteLine("...updating legacy aliases module");
             var legacyAliasesScriptModuleFile = Path.Combine(OutputFolder, LegacyAliasesScriptModuleFilename);
-            SourceArtifacts.WriteLegacyAliasesFile(legacyAliasesScriptModuleFile, GetLegacyAliasesContent());
+            SourceArtifacts.WriteLegacyAliasesFile(legacyAliasesScriptModuleFile, GetLegacyAliasesFileContent());
 
             Console.WriteLine("...updating service_operation -> cmdlet name aliases file");
             var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
@@ -348,7 +407,8 @@ namespace AWSPowerShellGenerator.Generators
         private void GenerateClientAndCmdlets(ConfigModel configModel)
         {
             // infer sdk service assembly name from the namespace and load the artifacts into the store
-            // and in-progress properties
+            // and in-progress properties. We do this even if the config requests we skip cmdlet
+            // generation, as we want the assembly loaded so we can emit argument completers.
             var svcNamespaceParts = configModel.ServiceNamespace.Split('.');
             var svcAssemblyBasename = string.Concat("AWSSDK.", svcNamespaceParts[1]);
 
@@ -357,6 +417,14 @@ namespace AWSPowerShellGenerator.Generators
             SourceArtifacts.Load(svcAssemblyBasename, out svcAssembly, out svcNdoc);
             CurrentServiceAssembly = svcAssembly;
             CurrentServiceNDoc = svcNdoc;
+
+            if (configModel.SkipCmdletGeneration)
+            {
+                Logger.Log("...skipping cmdlet generation, ExcludeCmdletGeneration set true for service");
+                return;
+            }
+
+            Logger.Log("...generating cmdlets against interface '{0}'", CurrentModel.ServiceClientInterface);
 
             var clientInterfaceTypeName = string.Format("{0}.{1}", configModel.ServiceNamespace, configModel.ServiceClientInterface);
             var clientInterfaceType = CurrentServiceAssembly.GetType(clientInterfaceTypeName);
@@ -411,7 +479,8 @@ namespace AWSPowerShellGenerator.Generators
                     Logger.LogError(configModel.ServiceName + ": no SDK client method found for ServiceOperation " + so.MethodName);
             }
 
-            // fuse the manually-declared custom aliases with the automatic set
+            // fuse the manually-declared custom aliases with the automatic set to go into awsaliases.ps1 
+            // note that this file is deprecated and likely to get yanked as no-one uses it
             foreach (var cmdletKey in configModel.CustomAliases.Keys)
             {
                 AliasStore.Instance.AddAliases(cmdletKey, configModel.CustomAliases[cmdletKey]);
@@ -419,10 +488,47 @@ namespace AWSPowerShellGenerator.Generators
 
             var outputRoot = Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder);
             CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder), outputRoot);
+        }
+
+        public void GenerateArgumentCompleters(ConfigModel configModel)
+        {
+            Logger.Log("...generating argument completers");
+
+            var outputRoot = Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder);
 
             // if the service contains any hand-maintained cmdlets, scan them to update the
             // argument completers for any use of ConstantClass-derived types 
             ScanAdvancedCmdlets(outputRoot);
+
+            // emit argument completion scripts for constantclass-derived fake enums
+            var completionFunctions = GenerateArgumentCompleterScriptFunctions(configModel);
+            if (!string.IsNullOrEmpty(completionFunctions))
+                AddArgumentCompletionScript(configModel.ServiceName, completionFunctions);
+        }
+
+        /// <summary>
+        /// Add any legacy aliases for hand-maintained non-generatable cmdlets if so declared into
+        /// collection that eventually ends up in AWSPowerShellLegacyAliases.psm1
+        /// </summary>
+        /// <param name="configModel"></param>
+        public void ProcessLegacyAliasesForCustomCmdlets(ConfigModel configModel)
+        {
+            Logger.Log("...checking for legacy aliases for custom cmdlets");
+
+            var legacyAliases = configModel.LegacyAliases;
+            if (legacyAliases != null)
+            {
+                foreach (var cmdletName in legacyAliases.Keys)
+                {
+                    var aliases = legacyAliases[cmdletName];
+                    // there really should only be one alias, but if we screw up the name of
+                    // a cmdlet enough times there is a use case for multiple entries :-)
+                    foreach (var alias in aliases)
+                    {
+                        AddLegacyAlias(configModel.ServiceName, cmdletName, alias);
+                    }
+                }
+            }
         }
 
         /// <summary>

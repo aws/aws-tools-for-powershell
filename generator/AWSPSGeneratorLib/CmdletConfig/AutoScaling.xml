@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>AS</ServiceNounPrefix>
   <ServiceName>Auto Scaling</ServiceName>
   <ServiceClientInterface>IAmazonAutoScaling</ServiceClientInterface>
@@ -12,12 +13,13 @@
     <Map From="Terminate" To="Stop" />
     <Map From="Record" To="Write" />
   </VerbMappings>
-
+  
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" />
-
+  
   <PositionalParameters>AutoScalingGroupName</PositionalParameters>
+  
   <PipelineParameter>AutoScalingGroupName</PipelineParameter>
-
+  
   <NounMappings>
     <Map From="AdjustmentTypes" To="AdjustmentType" />
     <Map From="AutoScalingGroups" To="AutoScalingGroup" />
@@ -34,16 +36,16 @@
     <Map From="Tags" To="Tag" />
     <Map From="TerminationPolicyTypes" To="TerminationPolicyType" />
   </NounMappings>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AttachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
     <ServiceOperation MethodName="AttachLoadBalancerTargetGroups" Output="Void" Noun="LoadBalancerTargetGroup" />
-    <ServiceOperation MethodName="AttachInstances" Output="Void" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName">
+    <ServiceOperation MethodName="AttachInstances" Output="Void" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName" Verb="Mount" Noun="Instance" LegacyAlias="Add-ASInstances">
       <PassThru>
         <Expression>cmdletContext.InstanceIds</Expression>
         <Documentation>Returns the ids of the EC2 instances that were attached</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
     <ServiceOperation MethodName="CompleteLifecycleAction" Output="Void"/>
     <ServiceOperation MethodName="CreateAutoScalingGroup" Output="Void" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize"/>
     <ServiceOperation MethodName="CreateLaunchConfiguration" Output="Void" PipelineParameter="LaunchConfigurationName" PositionalParameters="ImageId;KeyName;SecurityGroups"/>
@@ -60,19 +62,20 @@
     <ServiceOperation MethodName="DeleteNotificationConfiguration" Output="Void" ShouldProcessTarget="TopicARN" PositionalParameters="TopicARN"/>
     <ServiceOperation MethodName="DeletePolicy" Output="Void" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName">
       <Params>
-        <Param Name="PolicyName" Alias="PolicyARN" /> <!-- for compat with v1.1 releases -->
+        <Param Name="PolicyName" Alias="PolicyARN" />
+        <!-- for compat with v1.1 releases -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="DeleteScheduledAction" Output="Void" ShouldProcessTarget="ScheduledActionName" PositionalParameters="ScheduledActionName"/>
     <ServiceOperation MethodName="DeleteTags" Output="Void" ShouldProcessTarget="Tags"/>
-    <ServiceOperation MethodName="DescribeAccountLimits" Output="Response"/>
+    <ServiceOperation MethodName="DescribeAccountLimits" Output="Response" Noun="AccountLimit" LegacyAlias="Get-ASAccountLimits" />
     <ServiceOperation MethodName="DescribeAdjustmentTypes"/>
     <ServiceOperation MethodName="DescribeAutoScalingGroups" />
     <ServiceOperation MethodName="DescribeAutoScalingInstances" />
     <ServiceOperation MethodName="DescribeAutoScalingNotificationTypes"/>
     <ServiceOperation MethodName="DescribeLaunchConfigurations" />
-    <ServiceOperation MethodName="DescribeLifecycleHooks" PositionalParameters="LifecycleHookNames"/>
-    <ServiceOperation MethodName="DescribeLifecycleHookTypes"/>
+    <ServiceOperation MethodName="DescribeLifecycleHooks" PositionalParameters="LifecycleHookNames" Noun="LifecycleHook" LegacyAlias="Get-ASLifecycleHooks" />
+    <ServiceOperation MethodName="DescribeLifecycleHookTypes" Noun="LifecycleHookType" LegacyAlias="Get-ASLifecycleHookTypes" />
     <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" Noun="LoadBalancerTargetGroup" />
     <ServiceOperation MethodName="DescribeMetricCollectionTypes" Output="Response"/>
     <ServiceOperation MethodName="DescribeNotificationConfigurations" />
@@ -84,7 +87,7 @@
     <ServiceOperation MethodName="DescribeTerminationPolicyTypes"/>
     <ServiceOperation MethodName="DetachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
     <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Output="Void" Noun="LoadBalancerTargetGroup" />
-    <ServiceOperation MethodName="DetachInstances" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName"/>
+    <ServiceOperation MethodName="DetachInstances" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName" Noun="Instance" LegacyAlias="Dismount-ASInstances" />
     <ServiceOperation MethodName="DisableMetricsCollection" Output="Void" PositionalParameters="Metrics"/>
     <ServiceOperation MethodName="EnterStandby" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName;ShouldDecrementDesiredCapacity"/>
     <ServiceOperation MethodName="EnableMetricsCollection" Output="Void" PositionalParameters="Metrics;Granularity"/>
@@ -102,9 +105,8 @@
     <ServiceOperation MethodName="SuspendProcesses" Output="Void" PositionalParameters="ScalingProcesses"/>
     <ServiceOperation MethodName="TerminateInstanceInAutoScalingGroup" PipelineParameter="InstanceId" PositionalParameters="ShouldDecrementDesiredCapacity"/>
     <ServiceOperation MethodName="UpdateAutoScalingGroup" Output="Void" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity"/>
-
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>AutoScalingGroupName</Property>
     <Property>LaunchConfigurationName</Property>
@@ -114,5 +116,4 @@
     <Property>PolicyName</Property>
     <Property>ScheduledActionName</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

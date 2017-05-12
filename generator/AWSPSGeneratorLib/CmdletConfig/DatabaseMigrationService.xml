@@ -1,85 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>DMS</ServiceNounPrefix>
-  <ServiceName>AWS Database Migration Service</ServiceName>
-  <ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
-  <ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.DatabaseMigrationService</ServiceNamespace>
+<ConfigModel 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ServiceNounPrefix>DMS</ServiceNounPrefix>
+	<ServiceName>AWS Database Migration Service</ServiceName>
+	<ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
+	<ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
+	<ServiceNamespace>Amazon.DatabaseMigrationService</ServiceNamespace>
 
-  <AdditionalNamespaces />
-
-  <NounMappings>
-	<Map From="Certificates" To="Certificate" />
-  </NounMappings>
-
-  <PipelineParameter>EndpointArn</PipelineParameter>
-  
-  <AutoIterate EmitLimit="MaxRecords"
-               Start="Marker"
-               Next="Marker" 
-			   Exclusions="DescribeTableStatistics"
-               ServicePageSize="100" />
-
-  <PipelineByValueProperties>
-	<Property>EndpointArn</Property>
-	<Property>EndpointIdentifier</Property>
-	<Property>ReplicationInstanceArn</Property>
-	<Property>ReplicationInstanceIdentifier</Property>
-	<Property>DatabaseName</Property>
-	<Property>KmsKeyId</Property>
-	<Property>EngineName</Property>
-	<Property>ReplicationSubnetGroupIdentifier</Property>
-	<Property>ReplicationSubnetGroupName</Property>
-	<Property>ReplicationTaskArn</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-
-	  <ServiceOperation MethodName="AddTagsToResource" 
-                      Verb="Set" 
-                      Noun="ResourceTag" 
-                      Output="Void" 
-                      PipelineParameter="ResourceArn" />
-	  <ServiceOperation MethodName="CreateEndpoint" PipelineParameter="EndpointIdentifier" ShouldProcessTarget="EndpointIdentifier"/>
-	  <ServiceOperation MethodName="CreateReplicationInstance"
-                      ShouldProcessTarget="ReplicationInstanceIdentifier"
-                      PipelineParameter="ReplicationInstanceIdentifier" />
-	  <ServiceOperation MethodName="CreateReplicationSubnetGroup" 
-                      PipelineParameter="ReplicationSubnetGroupIdentifier" />
-	  <ServiceOperation MethodName="CreateReplicationTask" 
-                      PipelineParameter="ReplicationInstanceArn" />
-	  <ServiceOperation MethodName="DeleteCertificate" />
-	  <ServiceOperation MethodName="DeleteEndpoint" />
-	  <ServiceOperation MethodName="DeleteReplicationInstance" />
-	  <ServiceOperation MethodName="DeleteReplicationSubnetGroup" Output="Void" />
-	  <ServiceOperation MethodName="DeleteReplicationTask" />
-	  <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute" />
-	  <ServiceOperation MethodName="DescribeCertificates" />
-	  <ServiceOperation MethodName="DescribeConnections" 
-                      Noun="Connection" 
-                      NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeEndpoints" Noun="Endpoint" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeEndpointTypes" Noun="EndpointType" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeOrderableReplicationInstances" Noun="OrderableReplicationInstance" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeRefreshSchemasStatus" />
-	  <ServiceOperation MethodName="DescribeReplicationInstances" Noun="ReplicationInstance" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeReplicationSubnetGroups" Noun="ReplicationSubnetGroup" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeReplicationTasks" Noun="ReplicationTask" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeSchemas" Noun="Schema" />
-	  <ServiceOperation MethodName="DescribeTableStatistics" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" Output="Response"/>
-	  <ServiceOperation MethodName="ImportCertificate" PipelineParameter="CertificatePem" />
-	  <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" />
-	  <ServiceOperation MethodName="ModifyEndpoint" />
-	  <ServiceOperation MethodName="ModifyReplicationInstance" PipelineParameter="ReplicationInstanceArn"/>
-	  <ServiceOperation MethodName="ModifyReplicationSubnetGroup" PipelineParameter="ReplicationSubnetGroupIdentifier"/>
-	  <ServiceOperation MethodName="ModifyReplicationTask" PipelineParameter="ReplicationTaskArn"/>
-	  <ServiceOperation MethodName="RefreshSchemas" Verb="Invoke" Noun="SchemaRefresh" />
-	  <ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceArn" />
-	  <ServiceOperation MethodName="StartReplicationTask" PipelineParameter="ReplicationTaskArn" />
-	  <ServiceOperation MethodName="StopReplicationTask" />
-	  <ServiceOperation MethodName="TestConnection" PipelineParameter="ReplicationInstanceArn" />
-
-  </ServiceOperations>
-
+	<NounMappings>
+		<Map From="Certificates" To="Certificate" />
+	</NounMappings>
+	
+	<PipelineParameter>EndpointArn</PipelineParameter>
+	
+	<AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker" Exclusions="DescribeTableStatistics" ServicePageSize="100" />
+	
+	<PipelineByValueProperties>
+		<Property>EndpointArn</Property>
+		<Property>EndpointIdentifier</Property>
+		<Property>ReplicationInstanceArn</Property>
+		<Property>ReplicationInstanceIdentifier</Property>
+		<Property>DatabaseName</Property>
+		<Property>KmsKeyId</Property>
+		<Property>EngineName</Property>
+		<Property>ReplicationSubnetGroupIdentifier</Property>
+		<Property>ReplicationSubnetGroupName</Property>
+		<Property>ReplicationTaskArn</Property>
+	</PipelineByValueProperties>
+	
+	<ServiceOperations>
+		<ServiceOperation MethodName="AddTagsToResource" Verb="Set" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceArn" />
+		<ServiceOperation MethodName="CreateEndpoint" PipelineParameter="EndpointIdentifier" ShouldProcessTarget="EndpointIdentifier"/>
+		<ServiceOperation MethodName="CreateReplicationInstance" ShouldProcessTarget="ReplicationInstanceIdentifier" PipelineParameter="ReplicationInstanceIdentifier" />
+		<ServiceOperation MethodName="CreateReplicationSubnetGroup" PipelineParameter="ReplicationSubnetGroupIdentifier" />
+		<ServiceOperation MethodName="CreateReplicationTask" PipelineParameter="ReplicationInstanceArn" />
+		<ServiceOperation MethodName="DeleteCertificate" />
+		<ServiceOperation MethodName="DeleteEndpoint" />
+		<ServiceOperation MethodName="DeleteReplicationInstance" />
+		<ServiceOperation MethodName="DeleteReplicationSubnetGroup" Output="Void" />
+		<ServiceOperation MethodName="DeleteReplicationTask" />
+		<ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute" />
+		<ServiceOperation MethodName="DescribeCertificates" />
+		<ServiceOperation MethodName="DescribeConnections" Noun="Connection" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeEndpoints" Noun="Endpoint" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeEndpointTypes" Noun="EndpointType" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeOrderableReplicationInstances" Noun="OrderableReplicationInstance" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeRefreshSchemasStatus" />
+		<ServiceOperation MethodName="DescribeReplicationInstances" Noun="ReplicationInstance" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeReplicationSubnetGroups" Noun="ReplicationSubnetGroup" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeReplicationTasks" Noun="ReplicationTask" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="DescribeSchemas" Noun="Schema" />
+		<ServiceOperation MethodName="DescribeTableStatistics" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" Output="Response"/>
+		<ServiceOperation MethodName="ImportCertificate" PipelineParameter="CertificatePem" />
+		<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" />
+		<ServiceOperation MethodName="ModifyEndpoint" />
+		<ServiceOperation MethodName="ModifyReplicationInstance" PipelineParameter="ReplicationInstanceArn"/>
+		<ServiceOperation MethodName="ModifyReplicationSubnetGroup" PipelineParameter="ReplicationSubnetGroupIdentifier"/>
+		<ServiceOperation MethodName="ModifyReplicationTask" PipelineParameter="ReplicationTaskArn"/>
+		<ServiceOperation MethodName="RefreshSchemas" Verb="Invoke" Noun="SchemaRefresh" />
+		<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceArn" />
+		<ServiceOperation MethodName="StartReplicationTask" PipelineParameter="ReplicationTaskArn" />
+		<ServiceOperation MethodName="StopReplicationTask" />
+		<ServiceOperation MethodName="TestConnection" PipelineParameter="ReplicationInstanceArn" />
+	</ServiceOperations>
 </ConfigModel>

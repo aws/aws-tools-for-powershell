@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EC</ServiceNounPrefix>
   <ServiceName>Amazon ElastiCache</ServiceName>
   <ServiceClientInterface>IAmazonElastiCache</ServiceClientInterface>
@@ -24,100 +25,67 @@
     <Map From="Purchase" To="Request" />
     <Map From="Reboot" To="Restart" />
   </VerbMappings>
-
+  
   <CustomAliases>
     <AliasSet Cmdlet="Approve-ECCacheSecurityGroupIngress">Authorize-ECCacheSecurityGroupIngress</AliasSet>
     <AliasSet Cmdlet="Request-ECReservedCacheNodesOffering">Purchase-ECReservedCacheNodesOffering</AliasSet>
     <AliasSet Cmdlet="Restart-ECCacheCluster">Reboot-ECCacheCluster</AliasSet>
   </CustomAliases>
-
+  
   <AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker" Exclusions="DescribeCacheParameters" />
-
+  
   <PositionalParameters>CacheClusterId</PositionalParameters>
+  
   <PipelineParameter>CacheClusterId</PipelineParameter>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="Tag" PositionalParameters="ResourceName;Tags" />
-    <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" 
-                      PipelineParameter="CacheSecurityGroupName" 
-                      PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
-    <ServiceOperation MethodName="CopySnapshot"
-					  PipelineParameter="SourceSnapshotName"
-					  PositionalParameters="TargetSnapshotName"/>
+    <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" PipelineParameter="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
+    <ServiceOperation MethodName="CopySnapshot" PipelineParameter="SourceSnapshotName" PositionalParameters="TargetSnapshotName"/>
     <ServiceOperation MethodName="CreateCacheCluster">
       <Params>
         <Param Name="PreferredAvailabilityZones" NewName="PreferredAvailabilityZoneSet" />
-        <Param Name="Groups" Alias="GroupId" />  <!-- maintain compat with v1 sdk name -->
+        <Param Name="Groups" Alias="GroupId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="CreateCacheParameterGroup" 
-                      PipelineParameter="CacheParameterGroupName" 
-                      PositionalParameters="CacheParameterGroupFamily;Description"/>
-    <ServiceOperation MethodName="CreateCacheSecurityGroup" 
-                      PipelineParameter="CacheSecurityGroupName" 
-                      PositionalParameters="Description"/>
-    <ServiceOperation MethodName="CreateCacheSubnetGroup" 
-                      PipelineParameter="CacheSubnetGroupName" 
-                      PositionalParameters="CacheSubnetGroupDescription;SubnetIds"/>
-    <ServiceOperation MethodName="CreateReplicationGroup"
-                      PipelineParameter="PrimaryClusterId"
-                      PositionalParameters="ReplicationGroupId,ReplicationGroupDescription" />
+    <ServiceOperation MethodName="CreateCacheParameterGroup" PipelineParameter="CacheParameterGroupName" PositionalParameters="CacheParameterGroupFamily;Description"/>
+    <ServiceOperation MethodName="CreateCacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" PositionalParameters="Description"/>
+    <ServiceOperation MethodName="CreateCacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds"/>
+    <ServiceOperation MethodName="CreateReplicationGroup" PipelineParameter="PrimaryClusterId" PositionalParameters="ReplicationGroupId,ReplicationGroupDescription" />
     <ServiceOperation MethodName="CreateSnapshot" PositionalParameters="SnapshotName" />
     <ServiceOperation MethodName="DeleteCacheCluster" ShouldProcessTarget="CacheClusterId"/>
     <ServiceOperation MethodName="DeleteCacheParameterGroup" Output="Void" />
     <ServiceOperation MethodName="DeleteCacheSecurityGroup" Output="Void" />
     <ServiceOperation MethodName="DeleteCacheSubnetGroup" Output="Void" />
-    <ServiceOperation MethodName="DeleteReplicationGroup"  ShouldProcessTarget="ReplicationGroupId"
-                      PipelineParameter="ReplicationGroupId" />
+    <ServiceOperation MethodName="DeleteReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" />
     <ServiceOperation MethodName="DeleteSnapshot"/>
     <ServiceOperation MethodName="DescribeCacheClusters"/>
-    <ServiceOperation MethodName="DescribeCacheEngineVersions" 
-                      PipelineParameter="Engine" 
-                      PositionalParameters="EngineVersion;CacheParameterGroupFamily"/>
+    <ServiceOperation MethodName="DescribeCacheEngineVersions" PipelineParameter="Engine" PositionalParameters="EngineVersion;CacheParameterGroupFamily" Noun="CacheEngineVersion" LegacyAlias="Get-ECCacheEngineVersions" />
     <ServiceOperation MethodName="DescribeCacheParameterGroups" />
-    <ServiceOperation MethodName="DescribeCacheParameters" Output="Response" 
-                      PipelineParameter="CacheParameterGroupName" 
-                      PositionalParameters="Source"/>
+    <ServiceOperation MethodName="DescribeCacheParameters" Output="Response" PipelineParameter="CacheParameterGroupName" PositionalParameters="Source"/>
     <ServiceOperation MethodName="DescribeCacheSecurityGroups" />
-    <ServiceOperation MethodName="DescribeCacheSubnetGroups" />
+    <ServiceOperation MethodName="DescribeCacheSubnetGroups" Noun="CacheSubnetGroup" LegacyAlias="Get-ECCacheSubnetGroups" />
     <ServiceOperation MethodName="DescribeEngineDefaultParameters" />
-    <ServiceOperation MethodName="DescribeEvents" 
-                      PipelineParameter="SourceIdentifier" 
-                      PositionalParameters="SourceType"/>
-    <ServiceOperation MethodName="DescribeReplicationGroups"
-                      PipelineParameter="ReplicationGroupId" />
-    <ServiceOperation MethodName="DescribeReservedCacheNodes" 
-                      PipelineParameter="ReservedCacheNodeId" 
-                      PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType"/>
-    <ServiceOperation MethodName="DescribeSnapshots" PositionalParameters="SnapshotName"/>
-    <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" 
-                      PipelineParameter="ReservedCacheNodesOfferingId" 
-                      PositionalParameters="CacheNodeType"/>
+    <ServiceOperation MethodName="DescribeEvents" PipelineParameter="SourceIdentifier" PositionalParameters="SourceType"/>
+    <ServiceOperation MethodName="DescribeReplicationGroups" PipelineParameter="ReplicationGroupId" Noun="ReplicationGroup" LegacyAlias="Get-ECReplicationGroups" />
+    <ServiceOperation MethodName="DescribeReservedCacheNodes" PipelineParameter="ReservedCacheNodeId" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType"/>
+    <ServiceOperation MethodName="DescribeSnapshots" PositionalParameters="SnapshotName" Noun="Snapshot" LegacyAlias="Get-ECSnapshots" />
+    <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" PipelineParameter="ReservedCacheNodesOfferingId" PositionalParameters="CacheNodeType"/>
     <ServiceOperation MethodName="ListAllowedNodeTypeModifications" Verb="Get" Noun="AllowedNodeTypeModification"/>
     <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="Tag" PositionalParameters="ResourceName" />
     <ServiceOperation MethodName="ModifyCacheCluster" PositionalParameters="NumCacheNodes"/>
-    <ServiceOperation MethodName="ModifyCacheParameterGroup" 
-                      PipelineParameter="CacheParameterGroupName" 
-                      PositionalParameters="ParameterNameValues"/>
-    <ServiceOperation MethodName="ModifyCacheSubnetGroup" 
-                      PipelineParameter="CacheSubnetGroupName" 
-                      PositionalParameters="CacheSubnetGroupDescription;SubnetIds"/>
-    <ServiceOperation MethodName="ModifyReplicationGroup"
-                      PipelineParameter="ReplicationGroupId" />
-    <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" 
-                      PipelineParameter="ReservedCacheNodesOfferingId" 
-                      PositionalParameters="ReservedCacheNodeId;CacheNodeCount"/>
+    <ServiceOperation MethodName="ModifyCacheParameterGroup" PipelineParameter="CacheParameterGroupName" PositionalParameters="ParameterNameValues"/>
+    <ServiceOperation MethodName="ModifyCacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds"/>
+    <ServiceOperation MethodName="ModifyReplicationGroup" PipelineParameter="ReplicationGroupId" />
+    <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" PipelineParameter="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount"/>
     <ServiceOperation MethodName="RebootCacheCluster" PositionalParameters="CacheNodeIdsToReboot"/>
     <ServiceOperation MethodName="RemoveTagsFromResource" Noun="Tag" PositionalParameters="ResourceName;Tags" />
-    <ServiceOperation MethodName="ResetCacheParameterGroup" 
-                      PipelineParameter="CacheParameterGroupName" 
-                      />
-    <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" 
-                      PipelineParameter="CacheSecurityGroupName" 
-                      PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
+    <ServiceOperation MethodName="ResetCacheParameterGroup" PipelineParameter="CacheParameterGroupName" />
+    <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" PipelineParameter="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
     <ServiceOperation MethodName="TestFailover" PipelineParameter="NodeGroupId" />
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>CacheSecurityGroupName</Property>
     <Property>EC2SecurityGroupName</Property>
@@ -132,7 +100,6 @@
     <Property>ReservedCacheNodesOfferingId</Property>
     <Property>ReplicationGroupId</Property>
     <Property>ReservedCacheNodeId</Property>
-	<Property>SnapshotName</Property>
+    <Property>SnapshotName</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

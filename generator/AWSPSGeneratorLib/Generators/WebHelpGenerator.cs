@@ -62,12 +62,20 @@ namespace AWSPowerShellGenerator.Generators
 
         private const string CommonParametersSnippetMarker = "{COMMON_PARAM_SNIPPET}";
 
+        private const string LegacyAliasesSnippetMarker = "{LEGACY_ALIASES_SNIPPET}";
+
         /// <summary>
         /// Holds the base class type we derive cmdlets from, which indicates the cmdlet
         /// supports common credential and region parameters
         /// </summary>
         private Type ServiceCmdletBaseClass { get; set; }
 
+        /// <summary>
+        /// As we process each cmdlet we build a collection organized by service detailing any backwards
+        /// compatibility aliases that we'll output into a set of tables into the pstoolsref_legacyaliases.html
+        /// page. In the tuples, T1 is the alias name, T2 is the actual cmdlet name.
+        /// </summary>
+        private Dictionary<string, List<Tuple<string, string>>>  _legacyAliasesByService = new Dictionary<string, List<Tuple<string, string>>>();
 
         protected override void GenerateHelper()
         {
@@ -157,12 +165,14 @@ namespace AWSPowerShellGenerator.Generators
 
                             cmdletPageWriter.Write();
 
-                            var legacyAlias = ExtractLegacyAlias(AWSCmdletAttribute);
+                            var legacyAlias = InspectForLegacyAliasAttribution(owningService, cmdletName);
                             tocWriter.AddServiceCmdlet(owningService, cmdletName, cmdletPageWriter.GetTOCID(), synopsis, legacyAlias);
                         }
                     }
 
                     tocWriter.Write();
+
+                    WriteLegacyAliasesPage();
                 }
             }
             finally                               
@@ -569,6 +579,34 @@ namespace AWSPowerShellGenerator.Generators
             return null;
         }
 
+        /// <summary>
+        /// Inspects the cmdlet to see if it has a backwards compatibility 'legacy' alias
+        /// and if so, adds it to the collection to be emitted into the pstoolsref-legacyaliases.html
+        /// page.
+        /// </summary>
+        /// <param name="serviceName"></param>
+        /// <param name="cmdletName"></param>
+        /// <returns>The legacy alias, if one exists</returns>
+        private string InspectForLegacyAliasAttribution(string serviceName, string cmdletName)
+        {
+            var legacyAlias = ExtractLegacyAlias(AWSCmdletAttribute);
+            if (!string.IsNullOrEmpty(legacyAlias))
+            {
+                List<Tuple<string, string>> aliases;
+                if (_legacyAliasesByService.ContainsKey(serviceName))
+                    aliases = _legacyAliasesByService[serviceName];
+                else
+                {
+                    aliases = new List<Tuple<string, string>>();
+                    _legacyAliasesByService.Add(serviceName, aliases);
+                }
+
+                aliases.Add(new Tuple<string, string>(legacyAlias, cmdletName));
+            }
+
+            return legacyAlias;
+        }
+
         // copied from the sdk help generator - we should share this one day, or generate both
         // docs from one tool
         private static string ShrinkSdkLongFilepath(string name)
@@ -688,6 +726,69 @@ namespace AWSPowerShellGenerator.Generators
 
             var awsCmdletAttributeType = awsCmdletAttribute.GetType();
             return awsCmdletAttributeType.GetProperty("LegacyAlias").GetValue(awsCmdletAttribute, null) as string;
+        }
+
+        /// <summary>
+        /// Injects the detected legacy aliases into the pstoolsref-legacyaliases.html template
+        /// page and copies it to the output folder.
+        /// </summary>
+        private void WriteLegacyAliasesPage()
+        {
+            var templateFilename = "pstoolsref-legacyaliases.html";
+
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates." + templateFilename))
+            using (var reader = new StreamReader(stream))
+            {
+                var templateBody = reader.ReadToEnd();
+
+                var aliasTables = new StringBuilder();
+
+                if (_legacyAliasesByService.ContainsKey(TOCWriter.ShellConfigurationTOCName))
+                {
+                    var aliases = _legacyAliasesByService[TOCWriter.ShellConfigurationTOCName];
+                    WriteLegacyAliasesForService(aliasTables, TOCWriter.ShellConfigurationTOCName, aliases);
+                }
+
+                var services = _legacyAliasesByService.Keys.ToList();
+                services.Sort();
+                foreach (var service in services)
+                {
+                    if (service.Equals(TOCWriter.ShellConfigurationTOCName, StringComparison.Ordinal))
+                        continue;
+
+                    var aliases = _legacyAliasesByService[service];
+                    WriteLegacyAliasesForService(aliasTables, service, aliases);
+                }   
+                                         
+                var finalBody = templateBody.Replace(LegacyAliasesSnippetMarker, aliasTables.ToString());
+
+                var filename = Path.Combine(OutputFolder, "items", templateFilename);
+                using (var writer = new StreamWriter(filename))
+                {
+                    writer.Write(finalBody);
+                }
+            }
+        }
+
+        private void WriteLegacyAliasesForService(StringBuilder aliasTables, string serviceName, IEnumerable<Tuple<string, string>> aliases)
+        {
+            aliasTables.AppendFormat("<h3>{0}</h3>", serviceName);
+            aliasTables.AppendLine("<table class=\"aliases\">");
+            aliasTables.AppendLine("<thead><tr><td>Alias</td><td>Cmdlet</td></tr></thead>");
+            aliasTables.AppendLine("<tbody>");
+
+            foreach (var a in aliases)
+            {
+                var alias = a.Item1;
+                var cmdlet = a.Item2;
+
+                var cmdletLink = string.Format("<a href=\"./{0}.html\" target=\"contentpane\">{0}</a>", cmdlet);
+                aliasTables.AppendFormat("<tr><td>{0}</td><td>{1}</td></tr>", alias, cmdletLink);
+                aliasTables.AppendLine();
+            }
+
+            aliasTables.AppendLine("</tbody>");
+            aliasTables.AppendLine("</table>");
         }
 
     }

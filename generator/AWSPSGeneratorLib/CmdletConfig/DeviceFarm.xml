@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>DF</ServiceNounPrefix>
   <ServiceName>AWS Device Farm</ServiceName>
   <ServiceClientInterface>IAmazonDeviceFarm</ServiceClientInterface>
@@ -9,10 +9,8 @@
   <ServiceNamespace>Amazon.DeviceFarm</ServiceNamespace>
 
   <AutoIterate Start="NextToken" Next="NextToken" Exclusions="GetOfferingStatus"/>
-
+  
   <PipelineParameter>Arn</PipelineParameter>
-
-  <NounMappings />
   
   <VerbMappings>
     <Map From="List" To="Get" />
@@ -54,32 +52,20 @@
     <ServiceOperation MethodName="ListOfferingPromotions" Noun="OfferingPromotion" />
     <ServiceOperation MethodName="ListOfferingTransactions" Noun="OfferingTransaction"/>
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
-    <ServiceOperation MethodName="ListRemoteAccessSessions"
-                      Noun="RemoteAccessSessionList"	/>
+    <ServiceOperation MethodName="ListRemoteAccessSessions" Noun="RemoteAccessSessionList" />
     <ServiceOperation MethodName="ListRuns" Noun="RunList"/>
     <ServiceOperation MethodName="ListSamples" Noun="SampleList"/>
     <ServiceOperation MethodName="ListSuites" Noun="SuiteList"/>
     <ServiceOperation MethodName="ListTests" Noun="TestList"/>
     <ServiceOperation MethodName="ListUniqueProblems" Noun="UniqueProblemList"/>
     <ServiceOperation MethodName="ListUploads" Noun="UploadList"/>
-    <ServiceOperation MethodName="PurchaseOffering" 
-                      Noun="OfferingPurchase" 
-                      Verb="New" 
-                      PipelineParameter="OfferingId" 
-                      ShouldProcessTarget="OfferingId"
-                      />
-    <ServiceOperation MethodName="RenewOffering" 
-                      Noun="OfferingRenewal" 
-                      Verb="New" 
-                      PipelineParameter="OfferingId"
-                      houldProcessTarget="OfferingId"
-                      />
-    <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />    
+    <ServiceOperation MethodName="PurchaseOffering" Noun="OfferingPurchase" Verb="New" PipelineParameter="OfferingId" ShouldProcessTarget="OfferingId" />
+    <ServiceOperation MethodName="RenewOffering" Noun="OfferingRenewal" Verb="New" PipelineParameter="OfferingId" houldProcessTarget="OfferingId" />
+    <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />
     <ServiceOperation MethodName="StopRemoteAccessSession" />
     <ServiceOperation MethodName="StopRun" ShouldProcessTarget="Arn"/>
     <ServiceOperation MethodName="UpdateDevicePool"/>
     <ServiceOperation MethodName="UpdateNetworkProfile"/>
     <ServiceOperation MethodName="UpdateProject"/>
   </ServiceOperations>
-  
 </ConfigModel>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SC</ServiceNounPrefix>
   <ServiceName>AWS Service Catalog</ServiceName>
   <ServiceClientInterface>IAmazonServiceCatalog</ServiceClientInterface>
@@ -8,16 +9,16 @@
   <ServiceNamespace>Amazon.ServiceCatalog</ServiceNamespace>
 
   <PipelineParameter>Id</PipelineParameter>
-
+  
   <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="NextPageToken" Exclusions="DescribeRecord;SearchProducts" />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="DescribeProduct" Output="Response" />
     <ServiceOperation MethodName="DescribeProductView" Output="Response">
       <Params>
         <Param Name="Id" Alias="ProductId" />
       </Params>
-	</ServiceOperation>
+    </ServiceOperation>
     <ServiceOperation MethodName="DescribeProvisioningParameters" PipelineParameter="ProductId" Noun="ProvisioningParameter" Output="Response" />
     <ServiceOperation MethodName="DescribeRecord" Output="Response" />
     <ServiceOperation MethodName="ListLaunchPaths" Noun="LaunchPath" PipelineParameter="ProductId" />
@@ -27,9 +28,8 @@
     <ServiceOperation MethodName="SearchProducts" Verb="Find" Noun="Product" Output="Response" />
     <ServiceOperation MethodName="TerminateProvisionedProduct" Verb="Remove" PipelineParameter="ProvisionedProductId" />
     <ServiceOperation MethodName="UpdateProvisionedProduct" PipelineParameter="ProvisionedProductId" />
-    
     <ServiceOperation MethodName="ListPrincipalsForPortfolio" Verb="Get" PipelineParameter="PortfolioId" />
-    <ServiceOperation MethodName="ListProvisioningArtifacts" Verb="Get" Noun="ProvisioningArtifactList"  PipelineParameter="ProductId" />
+    <ServiceOperation MethodName="ListProvisioningArtifacts" Verb="Get" Noun="ProvisioningArtifactList" PipelineParameter="ProductId" />
     <ServiceOperation MethodName="RejectPortfolioShare" Verb="Deny" PipelineParameter="PortfolioId" Output="Void" />
     <ServiceOperation MethodName="SearchProductsAsAdmin" PipelineParameter="PortfolioId" />
     <ServiceOperation MethodName="UpdateConstraint" Output="Response" />
@@ -60,15 +60,11 @@
     <ServiceOperation MethodName="ListPortfolioAccess" Verb="Get" Noun="PortfolioAccessList" PipelineParameter="PortfolioId" />
     <ServiceOperation MethodName="ListPortfolios" Verb="Get" Noun="PortfolioList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="ListPortfoliosForProduct" Verb="Get" Noun="ProductPortfoliosList" PipelineParameter="ProductId" />
-    
   </ServiceOperations>
 
   <VerbMappings>
-	<Map From="List" To="Get" />
+    <Map From="List" To="Get" />
     <Map From="Associate" To="Register" />
     <Map From="Disassociate" To="Unregister" />
   </VerbMappings>
-  
-  <PipelineByValueProperties />
-  
 </ConfigModel>

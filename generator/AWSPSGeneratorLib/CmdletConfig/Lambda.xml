@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>LM</ServiceNounPrefix>
   <ServiceName>Amazon Lambda</ServiceName>
   <ServiceClientInterface>IAmazonLambda</ServiceClientInterface>
@@ -9,23 +10,23 @@
 
   <PipelineParameter>FunctionName</PipelineParameter>
   
-    <VerbMappings>
+  <VerbMappings>
     <Map From="List" To="Get" />
     <Map From="Upload" To="Publish" />
   </VerbMappings>
-
+  
   <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AddPermission" />
     <ServiceOperation MethodName="CreateAlias" Output="Response" />
     <ServiceOperation MethodName="CreateEventSourceMapping" Output="Response" PositionalParameters="EventSource;Role"/>
     <ServiceOperation MethodName="CreateFunction" Exclude="true"/>
-    <ServiceOperation MethodName="DeleteAlias" Output="Void"  />
+    <ServiceOperation MethodName="DeleteAlias" Output="Void" />
     <ServiceOperation MethodName="DeleteFunction" Output="Void" />
     <ServiceOperation MethodName="DeleteEventSourceMapping" Output="Response" />
     <ServiceOperation MethodName="GetAccountSettings" Verb="Get" Noun="AccountSetting" Output="Response"/>
-    <ServiceOperation MethodName="GetAlias" Output="Response"  />
+    <ServiceOperation MethodName="GetAlias" Output="Response" />
     <ServiceOperation MethodName="GetEventSourceMapping" Output="Response" />
     <ServiceOperation MethodName="GetFunction" Output="Response" />
     <ServiceOperation MethodName="GetFunctionConfiguration" Output="Response" />
@@ -33,35 +34,22 @@
     <ServiceOperation MethodName="Invoke" Exclude="true"/>
     <ServiceOperation MethodName="InvokeAsync" Exclude="true"/>
     <ServiceOperation MethodName="ListAliases" Noun="AliasList" />
-    <ServiceOperation MethodName="ListEventSourceMappings" />
-    <ServiceOperation MethodName="ListFunctions" />
+    <ServiceOperation MethodName="ListEventSourceMappings" Noun="EventSourceMappingList" LegacyAlias="Get-LMEventSourceMappings" />
+    <ServiceOperation MethodName="ListFunctions" Noun="FunctionList" LegacyAlias="Get-LMFunctions" />
     <ServiceOperation MethodName="ListTags" Noun="ResourceTag" />
-    <ServiceOperation MethodName="ListVersionsByFunction"  />
-    <ServiceOperation MethodName="PublishVersion" Output="Response"  />
+    <ServiceOperation MethodName="ListVersionsByFunction" />
+    <ServiceOperation MethodName="PublishVersion" Output="Response" />
     <ServiceOperation MethodName="RemovePermission" Output="Void" />
-    <ServiceOperation MethodName="TagResource" 
-                      Verb="Add" 
-                      Noun="ResourceTag" 
-                      PipelineParameter="Resource" 
-                      Output="Void" 
-                      />
-    <ServiceOperation MethodName="UntagResource" 
-                      Verb="Remove" 
-                      Noun="ResourceTag" 
-                      PipelineParameter="TagKeys" 
-                      ShouldProcessTarget="Resource" 
-                      Output="Void" 
-                      />
-    <ServiceOperation MethodName="UpdateAlias" Output="Response"  />
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="Resource" Output="Void" />
+    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="TagKeys" ShouldProcessTarget="Resource" Output="Void" />
+    <ServiceOperation MethodName="UpdateAlias" Output="Response" />
     <ServiceOperation MethodName="UpdateFunctionCode" Exclude="true" />
     <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" />
     <ServiceOperation MethodName="UpdateEventSourceMapping" Output="Response" />
-
   </ServiceOperations>
   
   <PipelineByValueProperties>
     <Property>FunctionName</Property>
-	  <Property>UUID</Property>
+    <Property>UUID</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Get", "CSServiceAccessPolicy")]
     [OutputType("Amazon.CloudSearch.Model.AccessPoliciesStatus")]
-    [AWSCmdlet("Invokes the DescribeServiceAccessPolicies operation against Amazon CloudSearch.", Operation = new[] {"DescribeServiceAccessPolicies"})]
+    [AWSCmdlet("Invokes the DescribeServiceAccessPolicies operation against Amazon CloudSearch.", Operation = new[] {"DescribeServiceAccessPolicies"}, LegacyAlias="Get-CSServiceAccessPolicies")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AccessPoliciesStatus",
         "This cmdlet returns a AccessPoliciesStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

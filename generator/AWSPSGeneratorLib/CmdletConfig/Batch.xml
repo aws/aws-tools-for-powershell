@@ -1,28 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>BAT</ServiceNounPrefix>
   <ServiceName>AWS Batch</ServiceName>
   <ServiceClientInterface>IAmazonBatch</ServiceClientInterface>
   <ServiceClient>AmazonBatchClient</ServiceClient>
   <ServiceNamespace>Amazon.Batch</ServiceNamespace>
 
-  <AutoIterate EmitLimit="MaxResults"
-               Start="NextToken"
-               Next="NextToken" 
-			         />
-
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+  
   <PipelineByValueProperties>
     <Property>ComputeEnvironment</Property>
     <Property>JobQueueArn</Property>
     <Property>JobQueueName</Property>
     <Property>JobId</Property>
   </PipelineByValueProperties>
-
+  
   <PipelineParameter>JobId</PipelineParameter>
-
-  <MetadataProperties />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CancelJob" Output="Void" />
     <ServiceOperation MethodName="CreateComputeEnvironment" NoPipelineParameter="true" Output="Response" ShouldProcessTarget="ComputeEnvironmentName" />
@@ -41,5 +37,4 @@
     <ServiceOperation MethodName="UpdateComputeEnvironment" PipelineParameter="ComputeEnvironment" Output="Response" />
     <ServiceOperation MethodName="UpdateJobQueue" PipelineParameter="JobQueue" Output="Response" />
   </ServiceOperations>
-
 </ConfigModel>

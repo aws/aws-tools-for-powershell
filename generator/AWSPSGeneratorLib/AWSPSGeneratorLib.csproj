@@ -105,11 +105,17 @@
     <None Include="CmdletConfig\AWSSupport.xml" />
     <None Include="CmdletConfig\Beanstalk.xml" />
     <None Include="CmdletConfig\CertificateManager.xml" />
-    <None Include="CmdletConfig\CloudFormation.xml" />
+    <None Include="CmdletConfig\CloudFormation.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\CloudFront.xml" />
     <None Include="CmdletConfig\CloudSearch.xml" />
-    <None Include="CmdletConfig\CloudSearchDomain.xml" />
-    <None Include="CmdletConfig\CloudTrail.xml" />
+    <None Include="CmdletConfig\CloudSearchDomain.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\CloudTrail.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\CloudWatch.xml" />
     <None Include="CmdletConfig\CloudWatchEvents.xml" />
     <None Include="CmdletConfig\CloudWatchLogs.xml" />
@@ -125,7 +131,9 @@
     </None>
     <None Include="CmdletConfig\ConfigService.xml" />
     <None Include="CmdletConfig\DatabaseMigrationService.xml" />
-    <None Include="CmdletConfig\DataPipeline.xml" />
+    <None Include="CmdletConfig\DataPipeline.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\DeviceFarm.xml" />
     <None Include="CmdletConfig\DirectConnect.xml" />
     <None Include="CmdletConfig\DirectoryService.xml" />
@@ -136,9 +144,15 @@
     <None Include="CmdletConfig\ECS.xml" />
     <None Include="CmdletConfig\EFS.xml" />
     <None Include="CmdletConfig\ElastiCache.xml" />
-    <None Include="CmdletConfig\ELB.xml" />
-    <None Include="CmdletConfig\EMR.xml" />
-    <None Include="CmdletConfig\ES.xml" />
+    <None Include="CmdletConfig\ELB.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\EMR.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\ES.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\ETS.xml" />
     <None Include="CmdletConfig\GML.xml" />
     <None Include="CmdletConfig\HSM.xml" />
@@ -146,13 +160,17 @@
     <None Include="CmdletConfig\ImportExport.xml" />
     <None Include="CmdletConfig\Inspector.xml" />
     <None Include="CmdletConfig\IoT.xml" />
-    <None Include="CmdletConfig\Kinesis.xml" />
+    <None Include="CmdletConfig\Kinesis.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\KinesisFirehose.xml" />
     <None Include="CmdletConfig\KMS.xml" />
     <None Include="CmdletConfig\Lambda.xml" />
     <None Include="CmdletConfig\MarketplaceMetering.xml" />
     <None Include="CmdletConfig\MCA.xml" />
-    <None Include="CmdletConfig\ML.xml" />
+    <None Include="CmdletConfig\ML.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\OpsWorks.xml" />
     <None Include="CmdletConfig\RDS.xml">
       <SubType>Designer</SubType>
@@ -191,6 +209,7 @@
     <Content Include="HelpMaterials\WebHelp\StaticContent\Index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\pstoolsref-legacyaliases.html" />
     <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\pstoolsref-commonparams.html" />
     <Content Include="HelpMaterials\WebHelp\StaticContent\items\pstoolsref-welcome.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

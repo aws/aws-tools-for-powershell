@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>LS</ServiceNounPrefix>
   <ServiceName>Amazon Lightsail</ServiceName>
   <ServiceClientInterface>IAmazonLightsail</ServiceClientInterface>
@@ -8,9 +9,7 @@
   <ServiceNamespace>Amazon.Lightsail</ServiceNamespace>
 
   <AutoIterate Start="PageToken" Next="NextPageToken" />
-
-  <PipelineParameter></PipelineParameter>
-
+  
   <PipelineByValueProperties>
     <Property>BlueprintId</Property>
     <Property>BundleId</Property>
@@ -25,7 +24,7 @@
     <Property>StaticIpName</Property>
     <Property>ResourceName</Property>
   </PipelineByValueProperties>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AllocateStaticIp" Verb="New" />
     <ServiceOperation MethodName="AttachStaticIp" Verb="Mount" PipelineParameter="StaticIpName" />
@@ -76,5 +75,4 @@
     <ServiceOperation MethodName="UnpeerVpc" Verb="Remove" Noun="PeerVpc" AnonymousShouldProcssTarget="true" />
     <ServiceOperation MethodName="UpdateDomainEntry" PipelineParameter="DomainName" />
   </ServiceOperations>
-
 </ConfigModel>

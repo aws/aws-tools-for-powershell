@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EMR</ServiceNounPrefix>
   <ServiceName>Amazon Elastic MapReduce</ServiceName>
   <ServiceClientInterface>IAmazonElasticMapReduce</ServiceClientInterface>
@@ -11,38 +12,38 @@
     <Map From="InstanceGroups" To="InstanceGroup" />
     <Map From="JobFlowSteps" To="JobFlowStep" />
     <Map From="JobFlows" To="JobFlow" />
-    <Map From="Tags" To="Tag" />
   </NounMappings>
-
+  
   <VerbMappings>
     <Map From="Run" To="Start" />
     <Map From="Terminate" To="Stop" />
     <Map From="List" To="Get" />
   </VerbMappings>
-
+  
   <AutoIterate Start="Marker" Next="Marker" />
-
+  
   <PositionalParameters>JobFlowId</PositionalParameters>
+  
   <PipelineParameter>JobFlowId</PipelineParameter>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AddInstanceFleet" Output="Response" PipelineParameter="ClusterId" />
     <ServiceOperation MethodName="AddInstanceGroups" Output="Response" PositionalParameters="InstanceGroups"/>
-    <ServiceOperation MethodName="AddJobFlowSteps" PositionalParameters="Steps"/>    
-    <ServiceOperation MethodName="CancelSteps" PipelineParameter="ClusterId"/>
+    <ServiceOperation MethodName="AddJobFlowSteps" PositionalParameters="Steps"/>
+    <ServiceOperation MethodName="CancelSteps" PipelineParameter="ClusterId" Noun="Step" LegacyAlias="Stop-EMRSteps"/>
     <ServiceOperation MethodName="CreateSecurityConfiguration" PipelineParameter="SecurityConfiguration" Output="Response" />
     <ServiceOperation MethodName="DeleteSecurityConfiguration" Output="Void" />
     <ServiceOperation MethodName="DescribeCluster" />
     <ServiceOperation MethodName="DescribeJobFlows" PipelineParameter="JobFlowIds"/>
     <ServiceOperation MethodName="DescribeSecurityConfiguration" Output="Response" />
     <ServiceOperation MethodName="DescribeStep" PipelineParameter="StepId" PositionalParameters="ClusterId"/>
-    <ServiceOperation MethodName="ListBootstrapActions" />
-    <ServiceOperation MethodName="ListClusters" Noun="Clusters" />
-    <ServiceOperation MethodName="ListInstanceFleets" Noun="InstanceFleets" />
-    <ServiceOperation MethodName="ListInstanceGroups" Noun="InstanceGroups" />
-    <ServiceOperation MethodName="ListInstances" Noun="Instances" PipelineParameter="InstanceGroupId" PositionalParameters="ClusterId;InstanceGroupTypes" />
+    <ServiceOperation MethodName="ListBootstrapActions" Noun="BootstrapActionList" LegacyAlias="Get-EMRBootstrapActions" />
+    <ServiceOperation MethodName="ListClusters" Noun="ClusterList" LegacyAlias="Get-EMRClusters" />
+    <ServiceOperation MethodName="ListInstanceFleets" Noun="InstanceFleetList" LegacyAlias="Get-EMRInstanceFleets" />
+    <ServiceOperation MethodName="ListInstanceGroups" Noun="InstanceGroupList" LegacyAlias="Get-EMRInstanceGroups" />
+    <ServiceOperation MethodName="ListInstances" Noun="InstanceList" PipelineParameter="InstanceGroupId" PositionalParameters="ClusterId;InstanceGroupTypes" LegacyAlias="Get-EMRInstances" />
     <ServiceOperation MethodName="ListSecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" />
-    <ServiceOperation MethodName="ListSteps" Noun="Steps" PipelineParameter="ClusterId"/>
+    <ServiceOperation MethodName="ListSteps" Noun="StepList" PipelineParameter="ClusterId" LegacyAlias="Get-EMRSteps" />
     <ServiceOperation MethodName="ModifyInstanceFleet" Output="Void" PipelineParameter="ClusterId" />
     <ServiceOperation MethodName="ModifyInstanceGroups" Output="Void" />
     <ServiceOperation MethodName="PutAutoScalingPolicy" PipelineParameter="ClusterId" Output="Response"/>
@@ -56,22 +57,22 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="SetTerminationProtection" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="TerminationProtected"/>
-    <ServiceOperation MethodName="SetVisibleToAllUsers" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="VisibleToAllUsers"/>
+    <ServiceOperation MethodName="SetVisibleToAllUsers" Output="Void" PipelineParameter="JobFlowIds" PositionalParameters="VisibleToAllUsers" Noun="VisibleToAllUser" LegacyAlias="Set-EMRVisibleToAllUsers" />
     <ServiceOperation MethodName="TerminateJobFlows" Output="Void" />
-    <ServiceOperation MethodName="AddTags" Output="Void" PipelineParameter="ResourceId" PositionalParameters="Tags">
+    <ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-EMRTag" Output="Void" PipelineParameter="ResourceId" PositionalParameters="Tags">
       <PassThru>
         <Expression>cmdletContext.Tags</Expression>
         <Documentation>Returns the collection of Tag objects that were added</Documentation>
       </PassThru>
     </ServiceOperation>
-    <ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="TagKeys"  PipelineParameter="ResourceId" PositionalParameters="TagKeys">
+    <ServiceOperation MethodName="RemoveTags" Noun="ResourceTag" LegacyAlias="Remove-EMRTag" Output="Void" ShouldProcessTarget="TagKeys" PipelineParameter="ResourceId" PositionalParameters="TagKeys">
       <PassThru>
         <Expression>cmdletContext.TagKeys</Expression>
         <Documentation>Returns the collection of Tag keys that were removed</Documentation>
       </PassThru>
     </ServiceOperation>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>JobFlowId</Property>
     <Property>ClusterId</Property>
@@ -79,5 +80,4 @@
     <Property>ResourceId</Property>
     <Property>StepId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

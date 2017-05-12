@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBApplication")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationDescription")]
-    [AWSCmdlet("Invokes the DescribeApplications operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplications"})]
+    [AWSCmdlet("Invokes the DescribeApplications operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplications"}, LegacyAlias="Get-EBApplications")]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription",
         "This cmdlet returns a collection of ApplicationDescription objects.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -64,15 +64,18 @@ namespace Amazon.PowerShell.Common
     /// When the cmdlet exits the active credentials can be accessed in the shell via a variable named $StoredAWSCredentials. 
     /// The active region can be found in the variable $StoredAWSRegion.
     /// </para>
+    /// <para>
+    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>Initialize-AWSDefaults</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Initialize", "AWSDefaults", DefaultParameterSetName = InitializeDefaultsCmdletParameters.InstanceProfileSet)]
+    [Cmdlet("Initialize", "AWSDefaultConfiguration", DefaultParameterSetName = InitializeDefaultConfigurationCmdletParameters.InstanceProfileSet)]
     [AWSCmdlet("Creates or updates the credential profile named 'default' using supplied keys, existing credentials or profile,"
-                + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
+                + " or EC2 metadata. The profile and a default region is then set active in the current shell.", LegacyAlias = "Initialize-AWSDefaults")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
-    public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
+    public class InitializeDefaultConfigurationCmdlet : PSCmdlet, IDynamicParameters
     {
-        private InitializeDefaultsCmdletParameters Parameters { get; set; }
+        private InitializeDefaultConfigurationCmdletParameters Parameters { get; set; }
 
         public const string CredentialsPrompt = "Please choose one of the following stored credentials to use";
         public const string RegionPrompt = "Please choose one of the following regions to use or specify one by system name";
@@ -82,7 +85,7 @@ namespace Amazon.PowerShell.Common
 
         const string CredentialsSourceMsg = "Credentials loaded from {0}.";
 
-        internal class InitializeDefaultsCmdletParameters : AWSCredentialsArgumentsFull, IAWSCommonArgumentsFull
+        internal class InitializeDefaultConfigurationCmdletParameters : AWSCredentialsArgumentsFull, IAWSCommonArgumentsFull
         {
             public const string InstanceProfileSet = "InstanceProfile";
             public const string RegionOnlySet = "RegionOnly";
@@ -138,7 +141,8 @@ namespace Amazon.PowerShell.Common
             public override string ProfileLocation { get; set; }
             #endregion
 
-            public InitializeDefaultsCmdletParameters(SessionState sessionState) : base(sessionState)
+            public InitializeDefaultConfigurationCmdletParameters(SessionState sessionState)
+                : base(sessionState)
             {
             }
         }
@@ -339,7 +343,7 @@ namespace Amazon.PowerShell.Common
 
         public object GetDynamicParameters()
         {
-            Parameters = new InitializeDefaultsCmdletParameters(this.SessionState);
+            Parameters = new InitializeDefaultConfigurationCmdletParameters(this.SessionState);
             return Parameters;
         }
 
@@ -347,13 +351,23 @@ namespace Amazon.PowerShell.Common
     }
 
     /// <summary>
-    /// Clears the persisted credentials associated with the credential profile names 'default' and 'AWS PS Default', plus any credentials and region data currently set in the session's shell variables. To clear the stored default credentials only, use the -SkipShell parameter. To affect the current shell only, use the -SkipProfileStore parameter.
+    /// <para>
+    /// Clears the persisted credentials associated with the credential profile names 'default' and 'AWS PS Default', plus any 
+    /// credentials and region data currently set in the session's shell variables. To clear the stored default credentials only, 
+    /// use the -SkipShell parameter. To affect the current shell only, use the -SkipProfileStore parameter.
+    /// </para>
+    /// <para>
+    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>Clear-AWSDefaults</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Clear", "AWSDefaults")]
+    [Cmdlet("Clear", "AWSDefaultConfiguration")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
-    [AWSCmdlet("Clears the persisted credentials associated with the credential profile names 'default' and 'AWS PS Default', plus any credentials and region data currently set in the session's shell variables. To clear the stored default credentials only, use the -SkipShell parameter. To affect the current shell only, use the -SkipProfileStore parameter.")]
-    public class ClearDefaultsCmdlet : PSCmdlet
+    [AWSCmdlet("Clears the persisted credentials associated with the credential profile names 'default' and 'AWS PS Default', "
+                  + "plus any credentials and region data currently set in the session's shell variables. To clear the stored "
+                  + "default credentials only, use the -SkipShell parameter. To affect the current shell only, use the -SkipProfileStore parameter.",
+                  LegacyAlias = "Clear-AWSDefaults")]
+    public class ClearDefaultConfigurationCmdlet : PSCmdlet
     {
         #region Parameter SkipShell
         /// <summary>

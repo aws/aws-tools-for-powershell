@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>PS C:\> Add-ASInstances -InstanceId i-93633f9b -AutoScalingGroupName my-asg</code>
-  	<description>This example attaches the specified instance to the specified Auto Scaling group. Auto Scaling automatically increases the desired capacity of the Auto Scaling group.</description>
-  </example>
-</examples>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CWL</ServiceNounPrefix>
   <ServiceName>Amazon CloudWatch Logs</ServiceName>
   <ServiceClientInterface>IAmazonCloudWatchLogs</ServiceClientInterface>
@@ -10,9 +11,9 @@
   <MetadataProperties>
     <Property>RejectedLogEventsInfo</Property>
   </MetadataProperties>
-
+  
   <AutoIterate EmitLimit="Limit" Start="NextToken" />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateLogGroup" Output="Void" PositionalParameters="LogGroupName" PipelineParameter="LogGroupName" />
     <ServiceOperation MethodName="CreateLogStream" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="LogStreamName" ShouldProcessTarget="LogStreamName"/>
@@ -21,56 +22,37 @@
     <ServiceOperation MethodName="DeleteLogStream" Output="Void" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
     <ServiceOperation MethodName="DeleteMetricFilter" Output="Void" PipelineParameter="FilterName" PositionalParameters="LogGroupName" />
     <ServiceOperation MethodName="DeleteRetentionPolicy" Output="Void" />
-
-    <ServiceOperation MethodName="DeleteSubscriptionFilter"
-      Output="Void"
-      PipelineParameter="FilterName"
-      PositionalParameters="LogGroupName"/>
-
+    <ServiceOperation MethodName="DeleteSubscriptionFilter" Output="Void" PipelineParameter="FilterName" PositionalParameters="LogGroupName"/>
     <ServiceOperation MethodName="DescribeDestinations" Noun="Destination"/>
-    <ServiceOperation MethodName="DescribeLogGroups" PipelineParameter="LogGroupNamePrefix"/>
-    <ServiceOperation MethodName="DescribeLogStreams" PipelineParameter="LogGroupName"/>
-    <ServiceOperation MethodName="DescribeMetricFilters" PipelineParameter="LogGroupName"/>
-    <ServiceOperation MethodName="DescribeSubscriptionFilters" PipelineParameter="LogGroupName" />
+    <ServiceOperation MethodName="DescribeLogGroups" PipelineParameter="LogGroupNamePrefix" Noun="LogGroup" LegacyAlias="Get-CWLLogGroups" />
+    <ServiceOperation MethodName="DescribeLogStreams" PipelineParameter="LogGroupName" Noun="LogStream" LegacyAlias="Get-CWLLogStreams" />
+    <ServiceOperation MethodName="DescribeMetricFilters" PipelineParameter="LogGroupName" Noun="MetricFilter" LegacyAlias="Get-CWLMetricFilters" />
+    <ServiceOperation MethodName="DescribeSubscriptionFilters" PipelineParameter="LogGroupName" Noun="SubscriptionFilter" LegacyAlias="Get-CWLSubscriptionFilters" />
     <ServiceOperation MethodName="FilterLogEvents" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" Output="Response" />
-
-    <ServiceOperation MethodName="PutDestinationPolicy"
-      Output="Void"
-      ShouldProcessTarget="DestinationName"
-      PipelineParameter="DestinationName" />
-
-    <ServiceOperation MethodName="GetLogEvents" Output="Response" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
+    <ServiceOperation MethodName="PutDestinationPolicy" Output="Void" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" />
+    <ServiceOperation MethodName="GetLogEvents" Output="Response" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" Noun="LogEvent" LegacyAlias="Get-CWLLogEvents" />
     <ServiceOperation MethodName="PutDestination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName"/>
-    <ServiceOperation MethodName="PutLogEvents" PipelineParameter="SequenceToken" PositionalParameters="LogGroupName;LogStreamName" ShouldProcessTarget="LogStreamName" />
+    <ServiceOperation MethodName="PutLogEvents" PipelineParameter="SequenceToken" PositionalParameters="LogGroupName;LogStreamName" ShouldProcessTarget="LogStreamName" Noun="LogEvent" LegacyAlias="Write-CWLLogEvents" />
     <ServiceOperation MethodName="PutMetricFilter" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="FilterName;FilterPattern"/>
     <ServiceOperation MethodName="PutRetentionPolicy" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="RetentionInDays">
       <Params>
         <Param Name="RetentionInDays" AutoRename="false" />
       </Params>
     </ServiceOperation>
-
-    <ServiceOperation MethodName="PutSubscriptionFilter"
-      Output="Void"
-      PipelineParameter="LogGroupName"
-      PositionalParameters="FilterName;FilterPattern" />
-
+    <ServiceOperation MethodName="PutSubscriptionFilter" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="FilterName;FilterPattern" />
     <ServiceOperation MethodName="TestMetricFilter" PipelineParameter="FilterPattern" PositionalParameters="LogEventMessages"/>
-
     <ServiceOperation MethodName="CancelExportTask" Output="Void"/>
     <ServiceOperation MethodName="CreateExportTask" PipelineParameter="LogGroupName"/>
-    <ServiceOperation MethodName="DescribeExportTasks" PipelineParameter="TaskId"/>
-    
+    <ServiceOperation MethodName="DescribeExportTasks" PipelineParameter="TaskId" Noun="ExportTask" LegacyAlias="Get-CWLExportTasks" />
     <ServiceOperation MethodName="ListTagsLogGroup" Verb="Get" Noun="LogGroupTag" />
     <ServiceOperation MethodName="TagLogGroup" Verb="Add" Noun="LogGroupTag" Output="Void" PipelineParameter="LogGroupName" />
     <ServiceOperation MethodName="UntagLogGroup" Verb="Remove" Noun="LogGroupTag" PipelineParameter="LogGroupName" Output="Void" />
-    
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>LogGroupName</Property>
     <Property>LogStreamName</Property>
     <Property>FilterName</Property>
     <Property>SequenceToken</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CD</ServiceNounPrefix>
   <ServiceName>AWS CodeDeploy</ServiceName>
   <ServiceNamespace>Amazon.CodeDeploy</ServiceNamespace>
@@ -8,27 +9,27 @@
   <ServiceClient>AmazonCodeDeployClient</ServiceClient>
 
   <PipelineParameter>ApplicationName</PipelineParameter>
-
+  
   <AutoIterate Start="NextToken" Next="NextToken" Exclusions="ListDeploymentGroups" />
-
+  
   <VerbMappings>
     <Map From="Deregister" To="Unregister" />
   </VerbMappings>
   
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetApplicationRevisions" Output="Response" Verb="Get" Noun="ApplicationRevisionBatch"/>
-    <ServiceOperation MethodName="BatchGetApplications" Verb="Get" Noun="Applications"/>
+    <ServiceOperation MethodName="BatchGetApplications" Verb="Get" Noun="ApplicationBatch" LegacyAlias="Get-CDApplications" />
     <ServiceOperation MethodName="BatchGetDeploymentInstances" Output="Response" Verb="Get" Noun="DeploymentInstanceBatch" PipelineParameter="DeploymentId"/>
     <ServiceOperation MethodName="BatchGetDeploymentGroups" Output="Response" Verb="Get" Noun="DeploymentGroupBatch" />
-    <ServiceOperation MethodName="BatchGetDeployments"  Verb="Get" Noun="Deployments"/>
+    <ServiceOperation MethodName="BatchGetDeployments" Verb="Get" Noun="DeploymentBatch" LegacyAlias="Get-CDDeployments" />
     <ServiceOperation MethodName="ContinueDeployment" Verb="Resume" Output="Void"/>
     <ServiceOperation MethodName="CreateApplication" />
     <ServiceOperation MethodName="CreateDeployment"/>
     <ServiceOperation MethodName="CreateDeploymentConfig" />
     <ServiceOperation MethodName="CreateDeploymentGroup" />
-    <ServiceOperation MethodName="DeleteApplication"      Output="Void" />
+    <ServiceOperation MethodName="DeleteApplication" Output="Void" />
     <ServiceOperation MethodName="DeleteDeploymentConfig" Output="Void" />
-    <ServiceOperation MethodName="DeleteDeploymentGroup"  ShouldProcessTarget="DeploymentGroupName" />
+    <ServiceOperation MethodName="DeleteDeploymentGroup" ShouldProcessTarget="DeploymentGroupName" />
     <ServiceOperation MethodName="GetApplication" />
     <ServiceOperation MethodName="GetApplicationRevision" Output="Response" />
     <ServiceOperation MethodName="GetDeployment" />
@@ -36,50 +37,23 @@
     <ServiceOperation MethodName="GetDeploymentGroup" />
     <ServiceOperation MethodName="GetDeploymentInstance" />
     <ServiceOperation MethodName="ListApplicationRevisions" Verb="Get" Noun="ApplicationRevisionList"/>
-    <ServiceOperation MethodName="ListApplications"         Verb="Get" Noun="ApplicationList" />
-    <ServiceOperation MethodName="ListDeploymentConfigs"    Verb="Get" Noun="DeploymentConfigList"/>
-    <ServiceOperation MethodName="ListDeploymentGroups"     Verb="Get" Noun="DeploymentGroupList" Output="Response"/>
-    <ServiceOperation MethodName="ListDeploymentInstances"  Verb="Get" Noun="DeploymentInstanceList"/>
-    <ServiceOperation MethodName="ListDeployments"          Verb="Get" Noun="DeploymentList"/>
+    <ServiceOperation MethodName="ListApplications" Verb="Get" Noun="ApplicationList" />
+    <ServiceOperation MethodName="ListDeploymentConfigs" Verb="Get" Noun="DeploymentConfigList"/>
+    <ServiceOperation MethodName="ListDeploymentGroups" Verb="Get" Noun="DeploymentGroupList" Output="Response"/>
+    <ServiceOperation MethodName="ListDeploymentInstances" Verb="Get" Noun="DeploymentInstanceList"/>
+    <ServiceOperation MethodName="ListDeployments" Verb="Get" Noun="DeploymentList"/>
     <ServiceOperation MethodName="RegisterApplicationRevision" Output="Void"/>
     <ServiceOperation MethodName="SkipWaitTimeForInstanceTermination" Output="Void"/>
     <ServiceOperation MethodName="StopDeployment" Output="Response" />
     <ServiceOperation MethodName="UpdateApplication" Output="Void" />
     <ServiceOperation MethodName="UpdateDeploymentGroup" />
-
     <!-- On Premises operations -->
-    
-    <ServiceOperation 
-      MethodName="AddTagsToOnPremisesInstances" 
-      Verb="Add" 
-      Noun="OnPremiseInstanceTag"
-      Output="Void" />
-    <ServiceOperation 
-      MethodName="BatchGetOnPremisesInstances"  
-      Verb="Get" 
-      Noun="OnPremiseInstanceBatch"/>
-    <ServiceOperation 
-      MethodName="DeregisterOnPremisesInstance"            
-      Noun="OnPremiseInstance"
-      Output="Void" />
-    <ServiceOperation 
-      MethodName="GetOnPremisesInstance"                   
-      Noun="OnPremiseInstance" />
-    <ServiceOperation 
-      MethodName="ListOnPremisesInstances"      
-      Verb="Get" 
-      Noun="OnPremiseInstanceList"/>
-    <ServiceOperation 
-      MethodName="RegisterOnPremisesInstance"              
-      Noun="OnPremiseInstance"
-      Output="Void"
-      ShouldProcessTarget="InstanceName" />
-    <ServiceOperation 
-      MethodName="RemoveTagsFromOnPremisesInstances"       
-      Noun="OnPremiseInstanceTag" 
-      Output="Void"
-      ShouldProcessTarget="InstanceNames"/>
-    
+    <ServiceOperation MethodName="AddTagsToOnPremisesInstances" Verb="Add" Noun="OnPremiseInstanceTag" Output="Void" />
+    <ServiceOperation MethodName="BatchGetOnPremisesInstances" Verb="Get" Noun="OnPremiseInstanceBatch"/>
+    <ServiceOperation MethodName="DeregisterOnPremisesInstance" Noun="OnPremiseInstance" Output="Void" />
+    <ServiceOperation MethodName="GetOnPremisesInstance" Noun="OnPremiseInstance" />
+    <ServiceOperation MethodName="ListOnPremisesInstances" Verb="Get" Noun="OnPremiseInstanceList"/>
+    <ServiceOperation MethodName="RegisterOnPremisesInstance" Noun="OnPremiseInstance" Output="Void" ShouldProcessTarget="InstanceName" />
+    <ServiceOperation MethodName="RemoveTagsFromOnPremisesInstances" Noun="OnPremiseInstanceTag" Output="Void" ShouldProcessTarget="InstanceNames"/>
   </ServiceOperations>
-  
 </ConfigModel>

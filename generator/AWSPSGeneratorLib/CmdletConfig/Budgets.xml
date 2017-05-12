@@ -1,26 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>BGT</ServiceNounPrefix>
   <ServiceName>AWS Budgets</ServiceName>
   <ServiceClientInterface>IAmazonBudgets</ServiceClientInterface>
   <ServiceClient>AmazonBudgetsClient</ServiceClient>
   <ServiceNamespace>Amazon.Budgets</ServiceNamespace>
 
-  <AutoIterate EmitLimit="MaxResults"
-               Start="NextToken"
-               Next="NextToken" 
-			         />
-
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+  
   <PipelineByValueProperties>
     <Property>BudgetName</Property>
     <Property>AccountId</Property>
   </PipelineByValueProperties>
-
+  
   <PipelineParameter>BudgetName</PipelineParameter>
-
-  <MetadataProperties />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateBudget" Output="Void" PipelineParameter="AccountId" />
     <ServiceOperation MethodName="CreateNotification" Output="Void" />
@@ -36,5 +32,4 @@
     <ServiceOperation MethodName="UpdateNotification" Output="Void" />
     <ServiceOperation MethodName="UpdateSubscriber" Output="Void" />
   </ServiceOperations>
-
 </ConfigModel>

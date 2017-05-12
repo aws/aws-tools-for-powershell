@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ORG</ServiceNounPrefix>
   <ServiceName>AWS Organizations</ServiceName>
   <ServiceClientInterface>IAmazonOrganizations</ServiceClientInterface>
   <ServiceClient>AmazonOrganizationsClient</ServiceClient>
   <ServiceNamespace>Amazon.Organizations</ServiceNamespace>
 
-  <CustomAliases>
-  </CustomAliases>
-
-  <VerbMappings>
-  </VerbMappings>
-
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AcceptHandshake" Verb="Confirm"/>
     <ServiceOperation MethodName="AttachPolicy" Output="Void" PipelineParameter="PolicyId"/>
@@ -35,7 +30,7 @@
     <ServiceOperation MethodName="DescribePolicy"/>
     <ServiceOperation MethodName="DetachPolicy" Output="Void" PipelineParameter="PolicyId"/>
     <ServiceOperation MethodName="DisablePolicyType" PipelineParameter="PolicyType"/>
-    <ServiceOperation MethodName="EnableAllFeatures"/>
+    <ServiceOperation MethodName="EnableAllFeatures" Noun="AllFeature" LegacyAlias="Enable-ORGAllFeatures"/>
     <ServiceOperation MethodName="EnablePolicyType" PipelineParameter="PolicyType"/>
     <ServiceOperation MethodName="InviteAccountToOrganization" Verb="Create" Noun="AccountInvitation" PipelineParameter="Target"/>
     <ServiceOperation MethodName="LeaveOrganization" Verb="Remove" Noun="OrganizationAssociation" Output="Void"/>
@@ -56,8 +51,4 @@
     <ServiceOperation MethodName="UpdateOrganizationalUnit" PipelineParameter="Name"/>
     <ServiceOperation MethodName="UpdatePolicy" PipelineParameter="Name"/>
   </ServiceOperations>
-
-  <PipelineByValueProperties>
-  </PipelineByValueProperties>
-
 </ConfigModel>

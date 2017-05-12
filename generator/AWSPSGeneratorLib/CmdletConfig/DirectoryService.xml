@@ -1,125 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>DS</ServiceNounPrefix>
-  <ServiceName>AWS Directory Service</ServiceName>
-  <ServiceClientInterface>IAmazonDirectoryService</ServiceClientInterface>
-  <ServiceClient>AmazonDirectoryServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.DirectoryService</ServiceNamespace>
+<ConfigModel 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ServiceNounPrefix>DS</ServiceNounPrefix>
+	<ServiceName>AWS Directory Service</ServiceName>
+	<ServiceClientInterface>IAmazonDirectoryService</ServiceClientInterface>
+	<ServiceClient>AmazonDirectoryServiceClient</ServiceClient>
+	<ServiceNamespace>Amazon.DirectoryService</ServiceNamespace>
 
-  <AdditionalNamespaces />
-
-  <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" />
-
-  <ServiceOperations>
-
-	<ServiceOperation MethodName="AddIpRoutes" Output="Void" PipelineParameter="DirectoryId"/>
-
-	<ServiceOperation MethodName="ConnectDirectory"
-		PositionalParameters="Name;Password"
-		ShouldProcessTarget="Name"
-		PipelineParameter="Name"/>
-
-	<ServiceOperation MethodName="CreateAlias"
-		PipelineParameter="DirectoryId"
-		Output="Response"
-		ShouldProcessTarget="DirectoryId"/>
-
-	<ServiceOperation MethodName="CreateComputer"
-		PipelineParameter="DirectoryId" />
-    
-	<ServiceOperation MethodName="CreateConditionalForwarder" Output="Void"
-		PipelineParameter="DirectoryId" />    
-
-	<ServiceOperation MethodName="CreateDirectory"
-		PositionalParameters="Name;Password"
-		PipelineParameter="Name"
-		ShouldProcessTarget="Name" />
-
-	<ServiceOperation MethodName="CreateSnapshot"
-		PipelineParameter="DirectoryId"/>
-
-  <ServiceOperation MethodName="DeleteConditionalForwarder" Output="Void" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" />
-
-	<ServiceOperation MethodName="DeleteDirectory" />
-
-	<ServiceOperation MethodName="DeleteSnapshot" />
-
-	<ServiceOperation MethodName="DescribeConditionalForwarders"
-		Noun="ConditionalForwarder"
-		PipelineParameter="DirectoryId"/>    
-    
-	<ServiceOperation MethodName="DescribeDirectories" Noun="Directory" />
-
-	<ServiceOperation MethodName="DescribeSnapshots"
-		Noun="Snapshot"
-		PipelineParameter="DirectoryId"/>
-
-	<ServiceOperation MethodName="DisableRadius"
-		Output="Void" />
-
-	<ServiceOperation MethodName="DisableSso"
-		PipelineParameter="DirectoryId"
-		ShouldProcessTarget="DirectoryId"
-		Output="Void" />
-
-	<ServiceOperation MethodName="EnableRadius"
-		Output="Void"
-		PipelineParameter="DirectoryId" />
-
-	<ServiceOperation MethodName="EnableSso"
-		Output="Void"
-		PipelineParameter="DirectoryId" />
-
-	<ServiceOperation MethodName="GetDirectoryLimits"
-		Noun="DirectoryLimit" />
-
-	<ServiceOperation MethodName="GetSnapshotLimits"
-		Noun="SnapshotLimit"/>
-
-	<ServiceOperation MethodName="ListIpRoutes" Verb="Get" Noun="IpRoutes"/>
-
-    <ServiceOperation MethodName="StartSchemaExtension" PipelineParameter="DirectoryId"/>
-    <ServiceOperation MethodName="ListSchemaExtensions" Verb="Get" Noun="SchemaExtension"/>
-    <ServiceOperation MethodName="CancelSchemaExtension" PipelineParameter="DirectoryId" Output="Void"/>
-
-	<ServiceOperation MethodName="RemoveIpRoutes" Output="Void" PipelineParameter="DirectoryId"/>
-
-	<ServiceOperation MethodName="RestoreFromSnapshot"
-		Output="Void"
-		PositionalParameters="SnapshotId"/>
-
-	<ServiceOperation MethodName="UpdateRadius"
-		Output="Void"
-		PipelineParameter="DirectoryId" />
-
-    <!-- Managed Directory Operations -->
-
-    <ServiceOperation MethodName="CreateMicrosoftAD"
-        PipelineParameter="Name" />
-
-    <ServiceOperation MethodName="CreateTrust"
-        PipelineParameter="DirectoryId" />
-
-    <ServiceOperation MethodName="DeleteTrust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" />
-
-    <ServiceOperation MethodName="DescribeTrusts"
-        PipelineParameter="DirectoryId"
-        Noun="Trust" Verb="Get" />
-
-    <ServiceOperation MethodName="UpdateConditionalForwarder" Output="Void" PipelineParameter="DirectoryId"/>
-
-    <ServiceOperation MethodName="VerifyTrust"
-        Verb="Approve" />
-
-    <ServiceOperation MethodName="DeregisterEventTopic" Verb="Unregister" PipelineParameter="DirectoryId" Output="Void"/>
-    <ServiceOperation MethodName="DescribeEventTopics" Noun="EventTopic" PipelineParameter="TopicName" />
-    <ServiceOperation MethodName="RegisterEventTopic" PipelineParameter="TopicName" Output="Void" />
-
-	<ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
-	<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
-	<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
+	<AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" />
 	
-  </ServiceOperations>
-
+	<ServiceOperations>
+		<ServiceOperation MethodName="AddIpRoutes" Output="Void" PipelineParameter="DirectoryId" Noun="IpRoute" LegacyAlias="Add-DSIpRoutes" />
+		<ServiceOperation MethodName="ConnectDirectory" PositionalParameters="Name;Password" ShouldProcessTarget="Name" PipelineParameter="Name"/>
+		<ServiceOperation MethodName="CreateAlias" PipelineParameter="DirectoryId" Output="Response" ShouldProcessTarget="DirectoryId"/>
+		<ServiceOperation MethodName="CreateComputer" PipelineParameter="DirectoryId" />
+		<ServiceOperation MethodName="CreateConditionalForwarder" Output="Void" PipelineParameter="DirectoryId" />
+		<ServiceOperation MethodName="CreateDirectory" PositionalParameters="Name;Password" PipelineParameter="Name" ShouldProcessTarget="Name" />
+		<ServiceOperation MethodName="CreateSnapshot" PipelineParameter="DirectoryId"/>
+		<ServiceOperation MethodName="DeleteConditionalForwarder" Output="Void" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" />
+		<ServiceOperation MethodName="DeleteDirectory" />
+		<ServiceOperation MethodName="DeleteSnapshot" />
+		<ServiceOperation MethodName="DescribeConditionalForwarders" Noun="ConditionalForwarder" PipelineParameter="DirectoryId"/>
+		<ServiceOperation MethodName="DescribeDirectories" Noun="Directory" />
+		<ServiceOperation MethodName="DescribeSnapshots" Noun="Snapshot" PipelineParameter="DirectoryId"/>
+		<ServiceOperation MethodName="DisableRadius" Output="Void" />
+		<ServiceOperation MethodName="DisableSso" PipelineParameter="DirectoryId" ShouldProcessTarget="DirectoryId" Output="Void" />
+		<ServiceOperation MethodName="EnableRadius" Output="Void" PipelineParameter="DirectoryId" />
+		<ServiceOperation MethodName="EnableSso" Output="Void" PipelineParameter="DirectoryId" />
+		<ServiceOperation MethodName="GetDirectoryLimits" Noun="DirectoryLimit" />
+		<ServiceOperation MethodName="GetSnapshotLimits" Noun="SnapshotLimit"/>
+		<ServiceOperation MethodName="ListIpRoutes" Verb="Get" Noun="IpRouteList" LegacyAlias="Get-DSIpRoutes" />
+		<ServiceOperation MethodName="StartSchemaExtension" PipelineParameter="DirectoryId"/>
+		<ServiceOperation MethodName="ListSchemaExtensions" Verb="Get" Noun="SchemaExtension"/>
+		<ServiceOperation MethodName="CancelSchemaExtension" PipelineParameter="DirectoryId" Output="Void"/>
+		<ServiceOperation MethodName="RemoveIpRoutes" Output="Void" PipelineParameter="DirectoryId" Noun="IpRoute" LegacyAlias="Remove-DSIpRoutes" />
+		<ServiceOperation MethodName="RestoreFromSnapshot" Output="Void" PositionalParameters="SnapshotId"/>
+		<ServiceOperation MethodName="UpdateRadius" Output="Void" PipelineParameter="DirectoryId" />
+		<!-- Managed Directory Operations -->
+		<ServiceOperation MethodName="CreateMicrosoftAD" PipelineParameter="Name" />
+		<ServiceOperation MethodName="CreateTrust" PipelineParameter="DirectoryId" />
+		<ServiceOperation MethodName="DeleteTrust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" />
+		<ServiceOperation MethodName="DescribeTrusts" PipelineParameter="DirectoryId" Noun="Trust" Verb="Get" />
+		<ServiceOperation MethodName="UpdateConditionalForwarder" Output="Void" PipelineParameter="DirectoryId"/>
+		<ServiceOperation MethodName="VerifyTrust" Verb="Approve" />
+		<ServiceOperation MethodName="DeregisterEventTopic" Verb="Unregister" PipelineParameter="DirectoryId" Output="Void"/>
+		<ServiceOperation MethodName="DescribeEventTopics" Noun="EventTopic" PipelineParameter="TopicName" />
+		<ServiceOperation MethodName="RegisterEventTopic" PipelineParameter="TopicName" Output="Void" />
+		<ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
+		<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
+		<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
+	</ServiceOperations>
 </ConfigModel>

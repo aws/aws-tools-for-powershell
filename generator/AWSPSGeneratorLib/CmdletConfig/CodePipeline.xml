@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CP</ServiceNounPrefix>
   <ServiceName>AWS CodePipeline</ServiceName>
   <ServiceNamespace>Amazon.CodePipeline</ServiceNamespace>
@@ -16,15 +17,15 @@
     <ServiceOperation MethodName="DeletePipeline" ShouldProcessTarget="Name" Output="Void"/>
     <ServiceOperation MethodName="DisableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName" />
     <ServiceOperation MethodName="EnableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName"/>
-    <ServiceOperation MethodName="GetJobDetails" />
+    <ServiceOperation MethodName="GetJobDetails" Noun="JobDetail" LegacyAlias="Get-CPJobDetails" />
     <ServiceOperation MethodName="GetPipeline" PipelineParameter="Name" />
     <ServiceOperation MethodName="GetPipelineExecution" PipelineParameter="PipelineName" />
     <ServiceOperation MethodName="GetPipelineState" Output="Response" />
-    <ServiceOperation MethodName="GetThirdPartyJobDetails" PipelineParameter="JobId"/>
+    <ServiceOperation MethodName="GetThirdPartyJobDetails" PipelineParameter="JobId" Noun="ThirdPartyJobDetail" LegacyAlias="Get-CPThirdPartyJobDetails" />
     <ServiceOperation MethodName="ListActionTypes" Verb="Get" Noun="ActionType" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="ListPipelines" Verb="Get" Noun="PipelineList" />
-    <ServiceOperation MethodName="PollForJobs" Verb="Get" Noun="ActionableJobs" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="PollForThirdPartyJobs" Verb="Get" Noun="ActionableThirdPartyJobs" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="PollForJobs" Verb="Get" Noun="ActionableJobList" NoPipelineParameter="true" LegacyAlias="Get-CPActionableJobs" />
+    <ServiceOperation MethodName="PollForThirdPartyJobs" Verb="Get" Noun="ActionableThirdPartyJobList" NoPipelineParameter="true" LegacyAlias="Get-CPActionableThirdPartyJobs" />
     <ServiceOperation MethodName="PutActionRevision" Output="Response" PipelineParameter="PipelineName" ShouldProcessTarget="ActionName"/>
     <ServiceOperation MethodName="PutApprovalResult" PipelineParameter="PipelineName" ShouldProcessTarget="ActionName"/>
     <ServiceOperation MethodName="PutJobFailureResult" Output="Void" PipelineParameter="JobId"/>
@@ -35,9 +36,8 @@
     <ServiceOperation MethodName="RetryStageExecution" Verb="Redo" PipelineParameter="PipelineName"/>
     <ServiceOperation MethodName="UpdatePipeline"/>
   </ServiceOperations>
-
+  
   <TypesNotToFlatten>
     <Type>Amazon.CodePipeline.Model.PipelineDeclaration</Type>
   </TypesNotToFlatten>
-
 </ConfigModel>

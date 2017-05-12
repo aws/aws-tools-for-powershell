@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> Get-WKSWorkspace
+
+BundleId                    : wsb-1a2b3c4d
+ComputerName                :
+DirectoryId                 : d-1a2b3c4d
+ErrorCode                   :
+ErrorMessage                :
+IpAddress                   :
+RootVolumeEncryptionEnabled : False
+State                       : PENDING
+SubnetId                    :
+UserName                    : myuser
+UserVolumeEncryptionEnabled : False
+VolumeEncryptionKey         :
+WorkspaceId                 : ws-1a2b3c4d
+WorkspaceProperties         : Amazon.WorkSpaces.Model.WorkspaceProperties
+        </code>
+        <description>Retrieves details of all your WorkSpaces to the pipeline.</description>
+    </example>
+</examples>

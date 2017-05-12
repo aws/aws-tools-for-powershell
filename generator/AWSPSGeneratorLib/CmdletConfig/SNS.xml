@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SNS</ServiceNounPrefix>
   <ServiceName>Amazon Simple Notification Service</ServiceName>
   <ServiceClientInterface>IAmazonSimpleNotificationService</ServiceClientInterface>
@@ -18,16 +19,17 @@
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
-
+  
   <AutoIterate Start="NextToken" Next="NextToken" />
-
+  
   <PositionalParameters>TopicArn</PositionalParameters>
+  
   <PipelineParameter>TopicArn</PipelineParameter>
-
+  
   <PipelineByValueProperties>
     <Property>NextToken</Property>
   </PipelineByValueProperties>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AddPermission" Output="Void" PositionalParameters="Label;AWSAccountId;ActionName">
       <Params>
@@ -35,7 +37,7 @@
         <Param Name="AWSAccountId" Alias="AWSAccountIds" />
         <Param Name="ActionName" Alias="ActionNames" />
       </Params>
-	</ServiceOperation>
+    </ServiceOperation>
     <ServiceOperation MethodName="AuthorizeS3ToPublish" Exclude="true"/>
     <ServiceOperation MethodName="CheckIfPhoneNumberIsOptedOut" Verb="Test"/>
     <ServiceOperation MethodName="ConfirmSubscription" PositionalParameters="Token;AuthenticateOnUnsubscribe"/>
@@ -45,38 +47,37 @@
     <ServiceOperation MethodName="DeleteEndpoint" Output="Void" ShouldProcessTarget="EndpointArn" />
     <ServiceOperation MethodName="DeletePlatformApplication" Output="Void" ShouldProcessTarget="PlatformApplicationArn" />
     <ServiceOperation MethodName="DeleteTopic" Output="Void" ShouldProcessTarget="TopicArn"/>
-    <ServiceOperation MethodName="GetEndpointAttributes"  />
-    <ServiceOperation MethodName="GetPlatformApplicationAttributes" />
-    <ServiceOperation MethodName="GetSMSAttributes"  />
+    <ServiceOperation MethodName="GetEndpointAttributes" Noun="EndpointAttribute" LegacyAlias="Get-SNSEndpointAttributes" />
+    <ServiceOperation MethodName="GetPlatformApplicationAttributes" Noun="PlatformApplicationAttribute" LegacyAlias="Get-SNSPlatformApplicationAttributes" />
+    <ServiceOperation MethodName="GetSMSAttributes" Noun="SMSAttribute" LegacyAlias="Get-SNSSMSAttributes"/>
     <ServiceOperation MethodName="GetSubscriptionAttributes" />
     <ServiceOperation MethodName="GetTopicAttributes"/>
     <ServiceOperation MethodName="ListEndpointsByPlatformApplication" PipelineParameter="PlatformApplicationArn"/>
     <ServiceOperation MethodName="ListPhoneNumbersOptedOut"/>
-    <ServiceOperation MethodName="ListPlatformApplications"/>
+    <ServiceOperation MethodName="ListPlatformApplications" Noun="PlatformApplicationList" LegacyAlias="Get-SNSPlatformApplications"/>
     <ServiceOperation MethodName="ListSubscriptions"/>
     <ServiceOperation MethodName="ListSubscriptionsByTopic"/>
     <ServiceOperation MethodName="ListTopics"/>
     <ServiceOperation MethodName="OptInPhoneNumber" Verb="Enable" Noun="PhoneNumber" Output="Void"/>
     <ServiceOperation MethodName="Publish" Verb="Publish" Noun="Message" PositionalParameters="Message;MessageStructure;Subject"/>
-    <ServiceOperation MethodName="RemovePermission" Output="Void" ShouldProcessTarget="Label" PositionalParameters="Label"/> <!-- do we need shouldprocess here? -->
-    <ServiceOperation MethodName="SetEndpointAttributes" Output="Void" PipelineParameter="EndpointArn" PositionalParameters="Attributes"/>
-    <ServiceOperation MethodName="SetPlatformApplicationAttributes" Output="Void" PipelineParameter="PlatformApplicationArn" PositionalParameters="Attributes"/>
-    <ServiceOperation MethodName="SetSMSAttributes" Output="Void" PositionalParameters="Attributes"/>
+    <ServiceOperation MethodName="RemovePermission" Output="Void" ShouldProcessTarget="Label" PositionalParameters="Label"/>
+    <!-- do we need shouldprocess here? -->
+    <ServiceOperation MethodName="SetEndpointAttributes" Output="Void" PipelineParameter="EndpointArn" PositionalParameters="Attributes" Noun="EndpointAttribute" LegacyAlias="Set-SNSEndpointAttributes" />
+    <ServiceOperation MethodName="SetPlatformApplicationAttributes" Output="Void" PipelineParameter="PlatformApplicationArn" PositionalParameters="Attributes" Noun="PlatformApplicationAttribute" LegacyAlias="Set-SNSPlatformApplicationAttributes"/>
+    <ServiceOperation MethodName="SetSMSAttributes" Output="Void" PositionalParameters="Attributes" Noun="SMSAttribute" LegacyAlias="Set-SNSSMSAttributes"/>
     <ServiceOperation MethodName="SetSubscriptionAttributes" Output="Void" PipelineParameter="SubscriptionArn" PositionalParameters="AttributeName;AttributeValue"/>
     <ServiceOperation MethodName="SetTopicAttributes" Output="Void" PositionalParameters="AttributeName;AttributeValue"/>
     <ServiceOperation MethodName="Subscribe" Verb="Connect" Noun="Notification" PositionalParameters="Protocol;Endpoint"/>
     <ServiceOperation MethodName="Unsubscribe" Verb="Disconnect" Noun="Notification" Output="Void" />
-
     <ServiceOperation MethodName="SubscribeQueue" Exclude="true" />
     <ServiceOperation MethodName="SubscribeQueueToTopics" Exclude="true" />
     <ServiceOperation MethodName="FindTopic" Exclude="true" />
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>TopicArn</Property>
     <Property>SubscriptionArn</Property>
     <Property>PlatformApplicationArn</Property>
     <Property>EndpointArn</Property>
   </PipelineByValueProperties>>
-  
 </ConfigModel>

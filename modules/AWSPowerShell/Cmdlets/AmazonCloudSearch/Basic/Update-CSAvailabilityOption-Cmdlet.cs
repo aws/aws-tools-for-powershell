@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Update", "CSAvailabilityOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearch.Model.AvailabilityOptionsStatus")]
-    [AWSCmdlet("Invokes the UpdateAvailabilityOptions operation against Amazon CloudSearch.", Operation = new[] {"UpdateAvailabilityOptions"})]
+    [AWSCmdlet("Invokes the UpdateAvailabilityOptions operation against Amazon CloudSearch.", Operation = new[] {"UpdateAvailabilityOptions"}, LegacyAlias="Update-CSAvailabilityOptions")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AvailabilityOptionsStatus",
         "This cmdlet returns a AvailabilityOptionsStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.UpdateAvailabilityOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

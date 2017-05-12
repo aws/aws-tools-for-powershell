@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ML</ServiceNounPrefix>
   <ServiceName>Amazon Machine Learning</ServiceName>
   <ServiceNamespace>Amazon.MachineLearning</ServiceNamespace>
   <ServiceClientInterface>IAmazonMachineLearning</ServiceClientInterface>
   <ServiceClient>AmazonMachineLearningClient</ServiceClient>
 
-  <AutoIterate EmitLimit="Limit" 
-               Start="NextToken" 
-               Next="NextToken" 
-               ServicePageSize="100"/>
-
+  <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="100"/>
+  
   <PipelineParameter>MLModelId</PipelineParameter>
-       
+  
   <NounMappings>
-   <Map From="Tags" To="Tag" />
+    <Map From="Tags" To="Tag" />
   </NounMappings>
   
   <ServiceOperations>
@@ -27,8 +24,8 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateDataSourceFromRDS" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName" />
-    <ServiceOperation MethodName="CreateDataSourceFromRedshift" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName"  />
-    <ServiceOperation MethodName="CreateDataSourceFromS3" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName"  />
+    <ServiceOperation MethodName="CreateDataSourceFromRedshift" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName" />
+    <ServiceOperation MethodName="CreateDataSourceFromS3" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName" />
     <ServiceOperation MethodName="CreateEvaluation">
       <Params>
         <Param Name="EvaluationName" Alias="Name" />
@@ -60,10 +57,10 @@
         <Param Name="MLModelId" Alias="ModelId" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="DescribeBatchPredictions" />
-    <ServiceOperation MethodName="DescribeDataSources" />
-    <ServiceOperation MethodName="DescribeEvaluations" />
-    <ServiceOperation MethodName="DescribeMLModels" Noun="Models" />
+    <ServiceOperation MethodName="DescribeBatchPredictions" Noun="BatchPredictionList" LegacyAlias="Get-MLBatchPredictions" />
+    <ServiceOperation MethodName="DescribeDataSources" Noun="DataSourceList" LegacyAlias="Get-MLDataSources" />
+    <ServiceOperation MethodName="DescribeEvaluations" Noun="EvaluationList" LegacyAlias="Get-MLEvaluations" />
+    <ServiceOperation MethodName="DescribeMLModels" Noun="ModelList" LegacyAlias="Get-MLModels" />
     <ServiceOperation MethodName="GetBatchPrediction" Output="Response" />
     <ServiceOperation MethodName="GetDataSource" Output="Response">
       <Params>
@@ -76,7 +73,7 @@
         <Param Name="MLModelId" Alias="ModelId" />
         <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false" />
       </Params>
-    </ServiceOperation>      
+    </ServiceOperation>
     <ServiceOperation MethodName="Predict" Verb="Get" Noun="Prediction">
       <Params>
         <Param Name="MLModelId" Alias="ModelId" />
@@ -102,11 +99,8 @@
         <Param Name="MLModelId" Alias="ModelId" />
       </Params>
     </ServiceOperation>
-	
-	<ServiceOperation MethodName="AddTags" PipelineParameter="ResourceId" Output="Response" />
-	<ServiceOperation MethodName="DescribeTags" PipelineParameter="ResourceId" Output="Response" />
-	<ServiceOperation MethodName="DeleteTags" PipelineParameter="ResourceId" Output="Response" />
-	
+    <ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-MLTag" PipelineParameter="ResourceId" Output="Response" />
+    <ServiceOperation MethodName="DescribeTags" Noun="ResourceTag" LegacyAlias="Get-MLTag" PipelineParameter="ResourceId" Output="Response" />
+    <ServiceOperation MethodName="DeleteTags" Noun="ResourceTag" LegacyAlias="Remove-MLTag" PipelineParameter="ResourceId" Output="Response" />
   </ServiceOperations>
-  
 </ConfigModel>

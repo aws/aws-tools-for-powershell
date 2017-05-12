@@ -893,6 +893,41 @@ $CS_map = @{
 _awsArgumentCompleterRegistration $CS_Completers $CS_map
 
 
+# Argument completions for service Amazon CloudSearchDomain
+$CSD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudSearchDomain.ContentType
+        "Write-CSDDocument/ContentType"
+        {
+            $v = "application/json","application/xml"
+            break
+        }
+        
+        # Amazon.CloudSearchDomain.QueryParser
+        "Search-CSDDocument/QueryParser"
+        {
+            $v = "dismax","lucene","simple","structured"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CSD_map = @{
+    "ContentType"=@("Write-CSDDocument")
+    "QueryParser"=@("Search-CSDDocument")
+}
+
+_awsArgumentCompleterRegistration $CSD_Completers $CSD_map
+
+
 # Argument completions for service Amazon CloudWatch
 $CW_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -916,7 +951,7 @@ $CW_Completers = {
         # Amazon.CloudWatch.StandardUnit
         {
             ($_ -eq "Get-CWAlarmForMetric/Unit") -Or
-            ($_ -eq "Get-CWMetricStatistics/Unit") -Or
+            ($_ -eq "Get-CWMetricStatistic/Unit") -Or
             ($_ -eq "Write-CWMetricAlarm/Unit")
         }
         {
@@ -956,7 +991,7 @@ $CW_map = @{
     "HistoryItemType"=@("Get-CWAlarmHistory")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
     "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
-    "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistics","Write-CWMetricAlarm")
+    "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
 }
 
 _awsArgumentCompleterRegistration $CW_Completers $CW_map
@@ -1003,14 +1038,14 @@ $CWL_Completers = {
         }
         
         # Amazon.CloudWatchLogs.ExportTaskStatusCode
-        "Get-CWLExportTasks/StatusCode"
+        "Get-CWLExportTask/StatusCode"
         {
             $v = "CANCELLED","COMPLETED","FAILED","PENDING","PENDING_CANCEL","RUNNING"
             break
         }
         
         # Amazon.CloudWatchLogs.OrderBy
-        "Get-CWLLogStreams/OrderBy"
+        "Get-CWLLogStream/OrderBy"
         {
             $v = "LastEventTime","LogStreamName"
             break
@@ -1025,8 +1060,8 @@ $CWL_Completers = {
 
 $CWL_map = @{
     "Distribution"=@("Write-CWLSubscriptionFilter")
-    "OrderBy"=@("Get-CWLLogStreams")
-    "StatusCode"=@("Get-CWLExportTasks")
+    "OrderBy"=@("Get-CWLLogStream")
+    "StatusCode"=@("Get-CWLExportTask")
 }
 
 _awsArgumentCompleterRegistration $CWL_Completers $CWL_map
@@ -1343,8 +1378,8 @@ $CP_Completers = {
     {
         # Amazon.CodePipeline.ActionCategory
         {
-            ($_ -eq "Get-CPActionableJobs/ActionTypeId_Category") -Or
-            ($_ -eq "Get-CPActionableThirdPartyJobs/ActionTypeId_Category") -Or
+            ($_ -eq "Get-CPActionableJobList/ActionTypeId_Category") -Or
+            ($_ -eq "Get-CPActionableThirdPartyJobList/ActionTypeId_Category") -Or
             ($_ -eq "New-CPCustomActionType/Category") -Or
             ($_ -eq "Remove-CPCustomActionType/Category")
         }
@@ -1356,8 +1391,8 @@ $CP_Completers = {
         # Amazon.CodePipeline.ActionOwner
         {
             ($_ -eq "Get-CPActionType/ActionOwnerFilter") -Or
-            ($_ -eq "Get-CPActionableJobs/ActionTypeId_Owner") -Or
-            ($_ -eq "Get-CPActionableThirdPartyJobs/ActionTypeId_Owner")
+            ($_ -eq "Get-CPActionableJobList/ActionTypeId_Owner") -Or
+            ($_ -eq "Get-CPActionableThirdPartyJobList/ActionTypeId_Owner")
         }
         {
             $v = "AWS","Custom","ThirdParty"
@@ -1407,8 +1442,8 @@ $CP_Completers = {
 
 $CP_map = @{
     "ActionOwnerFilter"=@("Get-CPActionType")
-    "ActionTypeId_Category"=@("Get-CPActionableJobs","Get-CPActionableThirdPartyJobs")
-    "ActionTypeId_Owner"=@("Get-CPActionableJobs","Get-CPActionableThirdPartyJobs")
+    "ActionTypeId_Category"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
+    "ActionTypeId_Owner"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "Category"=@("New-CPCustomActionType","Remove-CPCustomActionType")
     "FailureDetails_Type"=@("Write-CPJobFailureResult","Write-CPThirdPartyJobFailureResult")
     "Result_Status"=@("Write-CPApprovalResult")
@@ -1962,8 +1997,8 @@ $EC2_Completers = {
         
         # Amazon.EC2.AutoPlacement
         {
-            ($_ -eq "Edit-EC2Hosts/AutoPlacement") -Or
-            ($_ -eq "New-EC2Hosts/AutoPlacement")
+            ($_ -eq "Edit-EC2Host/AutoPlacement") -Or
+            ($_ -eq "New-EC2Host/AutoPlacement")
         }
         {
             $v = "off","on"
@@ -2033,7 +2068,7 @@ $EC2_Completers = {
         }
         
         # Amazon.EC2.FlowLogsResourceType
-        "New-EC2FlowLogs/ResourceType"
+        "New-EC2FlowLog/ResourceType"
         {
             $v = "NetworkInterface","Subnet","VPC"
             break
@@ -2198,7 +2233,7 @@ $EC2_Completers = {
         }
         
         # Amazon.EC2.TrafficType
-        "New-EC2FlowLogs/TrafficType"
+        "New-EC2FlowLog/TrafficType"
         {
             $v = "ACCEPT","ALL","REJECT"
             break
@@ -2239,7 +2274,7 @@ $EC2_map = @{
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Architecture"=@("Register-EC2Image")
     "Attribute"=@("Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
-    "AutoPlacement"=@("Edit-EC2Hosts","New-EC2Hosts")
+    "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
     "CurrencyCode"=@("New-EC2HostReservation")
     "Domain"=@("New-EC2Address")
     "EventType"=@("Get-EC2SpotFleetRequestHistory")
@@ -2256,7 +2291,7 @@ $EC2_map = @{
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OperationType"=@("Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
-    "ResourceType"=@("New-EC2FlowLogs")
+    "ResourceType"=@("New-EC2FlowLog")
     "RuleAction"=@("New-EC2NetworkAclEntry","Set-EC2NetworkAclEntry")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
@@ -2265,7 +2300,7 @@ $EC2_map = @{
     "Strategy"=@("New-EC2PlacementGroup")
     "TargetEnvironment"=@("New-EC2InstanceExportTask")
     "Tenancy"=@("Edit-EC2InstancePlacement","New-EC2Instance")
-    "TrafficType"=@("New-EC2FlowLogs")
+    "TrafficType"=@("New-EC2FlowLog")
     "Type"=@("New-EC2CustomerGateway","New-EC2VpnGateway","Request-EC2SpotInstance")
     "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
 }
@@ -2311,7 +2346,7 @@ $ECS_Completers = {
     {
         # Amazon.ECS.ContainerInstanceStatus
         {
-            ($_ -eq "Get-ECSContainerInstances/Status") -Or
+            ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
             ($_ -eq "Update-ECSContainerInstancesState/Status")
         }
         {
@@ -2320,7 +2355,7 @@ $ECS_Completers = {
         }
         
         # Amazon.ECS.DesiredStatus
-        "Get-ECSTasks/DesiredStatus"
+        "Get-ECSTaskList/DesiredStatus"
         {
             $v = "PENDING","RUNNING","STOPPED"
             break
@@ -2334,7 +2369,7 @@ $ECS_Completers = {
         }
         
         # Amazon.ECS.SortOrder
-        "Get-ECSTaskDefinitions/Sort"
+        "Get-ECSTaskDefinitionList/Sort"
         {
             $v = "ASC","DESC"
             break
@@ -2348,14 +2383,14 @@ $ECS_Completers = {
         }
         
         # Amazon.ECS.TaskDefinitionFamilyStatus
-        "Get-ECSTaskDefinitionFamilies/Status"
+        "Get-ECSTaskDefinitionFamilyList/Status"
         {
             $v = "ACTIVE","ALL","INACTIVE"
             break
         }
         
         # Amazon.ECS.TaskDefinitionStatus
-        "Get-ECSTaskDefinitions/Status"
+        "Get-ECSTaskDefinitionList/Status"
         {
             $v = "ACTIVE","INACTIVE"
             break
@@ -2369,10 +2404,10 @@ $ECS_Completers = {
 }
 
 $ECS_map = @{
-    "DesiredStatus"=@("Get-ECSTasks")
+    "DesiredStatus"=@("Get-ECSTaskList")
     "NetworkMode"=@("Register-ECSTaskDefinition")
-    "Sort"=@("Get-ECSTaskDefinitions")
-    "Status"=@("Get-ECSContainerInstances","Get-ECSTaskDefinitionFamilies","Get-ECSTaskDefinitions","Update-ECSContainerInstancesState")
+    "Sort"=@("Get-ECSTaskDefinitionList")
+    "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "TargetType"=@("Get-ECSAttributeList")
 }
 
@@ -2506,7 +2541,7 @@ $EMR_Completers = {
         # Amazon.ElasticMapReduce.InstanceFleetType
         {
             ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_InstanceFleetType") -Or
-            ($_ -eq "Get-EMRInstances/InstanceFleetType")
+            ($_ -eq "Get-EMRInstanceList/InstanceFleetType")
         }
         {
             $v = "CORE","MASTER","TASK"
@@ -2537,7 +2572,7 @@ $EMR_Completers = {
 $EMR_map = @{
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
-    "InstanceFleetType"=@("Get-EMRInstances")
+    "InstanceFleetType"=@("Get-EMRInstanceList")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
 }
 
@@ -2792,7 +2827,7 @@ $IAM_Completers = {
         }
         
         # Amazon.IdentityManagement.PolicyScopeType
-        "Get-IAMPolicies/Scope"
+        "Get-IAMPolicyList/Scope"
         {
             $v = "All","AWS","Local"
             break
@@ -2821,7 +2856,7 @@ $IAM_map = @{
     "AssignmentStatus"=@("Get-IAMVirtualMFADevice")
     "Encoding"=@("Get-IAMSSHPublicKey")
     "EntityFilter"=@("Get-IAMEntitiesForPolicy")
-    "Scope"=@("Get-IAMPolicies")
+    "Scope"=@("Get-IAMPolicyList")
     "Status"=@("Update-IAMAccessKey","Update-IAMServiceSpecificCredential","Update-IAMSigningCertificate","Update-IAMSSHPublicKey")
 }
 
@@ -2946,7 +2981,7 @@ $IOT_Completers = {
         }
         
         # Amazon.IoT.LogLevel
-        "Set-IOTLoggingOptions/LoggingOptionsPayload_LogLevel"
+        "Set-IOTLoggingOption/LoggingOptionsPayload_LogLevel"
         {
             $v = "DEBUG","DISABLED","ERROR","INFO","WARN"
             break
@@ -2960,7 +2995,7 @@ $IOT_Completers = {
 }
 
 $IOT_map = @{
-    "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOptions")
+    "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOption")
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "Status"=@("Register-IOTCertificate")
@@ -3366,28 +3401,28 @@ $ML_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.MachineLearning.BatchPredictionFilterVariable
-        "Get-MLBatchPredictions/FilterVariable"
+        "Get-MLBatchPredictionList/FilterVariable"
         {
             $v = "CreatedAt","DataSourceId","DataURI","IAMUser","LastUpdatedAt","MLModelId","Name","Status"
             break
         }
         
         # Amazon.MachineLearning.DataSourceFilterVariable
-        "Get-MLDataSources/FilterVariable"
+        "Get-MLDataSourceList/FilterVariable"
         {
             $v = "CreatedAt","DataLocationS3","IAMUser","LastUpdatedAt","Name","Status"
             break
         }
         
         # Amazon.MachineLearning.EvaluationFilterVariable
-        "Get-MLEvaluations/FilterVariable"
+        "Get-MLEvaluationList/FilterVariable"
         {
             $v = "CreatedAt","DataSourceId","DataURI","IAMUser","LastUpdatedAt","MLModelId","Name","Status"
             break
         }
         
         # Amazon.MachineLearning.MLModelFilterVariable
-        "Get-MLModels/FilterVariable"
+        "Get-MLModelList/FilterVariable"
         {
             $v = "Algorithm","CreatedAt","IAMUser","LastUpdatedAt","MLModelType","Name","RealtimeEndpointStatus","Status","TrainingDataSourceId","TrainingDataURI"
             break
@@ -3402,10 +3437,10 @@ $ML_Completers = {
         
         # Amazon.MachineLearning.SortOrder
         {
-            ($_ -eq "Get-MLBatchPredictions/SortOrder") -Or
-            ($_ -eq "Get-MLDataSources/SortOrder") -Or
-            ($_ -eq "Get-MLEvaluations/SortOrder") -Or
-            ($_ -eq "Get-MLModels/SortOrder")
+            ($_ -eq "Get-MLBatchPredictionList/SortOrder") -Or
+            ($_ -eq "Get-MLDataSourceList/SortOrder") -Or
+            ($_ -eq "Get-MLEvaluationList/SortOrder") -Or
+            ($_ -eq "Get-MLModelList/SortOrder")
         }
         {
             $v = "asc","dsc"
@@ -3414,9 +3449,9 @@ $ML_Completers = {
         
         # Amazon.MachineLearning.TaggableResourceType
         {
-            ($_ -eq "Add-MLTag/ResourceType") -Or
-            ($_ -eq "Get-MLTag/ResourceType") -Or
-            ($_ -eq "Remove-MLTag/ResourceType")
+            ($_ -eq "Add-MLResourceTag/ResourceType") -Or
+            ($_ -eq "Get-MLResourceTag/ResourceType") -Or
+            ($_ -eq "Remove-MLResourceTag/ResourceType")
         }
         {
             $v = "BatchPrediction","DataSource","Evaluation","MLModel"
@@ -3431,10 +3466,10 @@ $ML_Completers = {
 }
 
 $ML_map = @{
-    "FilterVariable"=@("Get-MLBatchPredictions","Get-MLDataSources","Get-MLEvaluations","Get-MLModels")
+    "FilterVariable"=@("Get-MLBatchPredictionList","Get-MLDataSourceList","Get-MLEvaluationList","Get-MLModelList")
     "MLModelType"=@("New-MLModel")
-    "ResourceType"=@("Add-MLTag","Get-MLTag","Remove-MLTag")
-    "SortOrder"=@("Get-MLBatchPredictions","Get-MLDataSources","Get-MLEvaluations","Get-MLModels")
+    "ResourceType"=@("Add-MLResourceTag","Get-MLResourceTag","Remove-MLResourceTag")
+    "SortOrder"=@("Get-MLBatchPredictionList","Get-MLDataSourceList","Get-MLEvaluationList","Get-MLModelList")
 }
 
 _awsArgumentCompleterRegistration $ML_Completers $ML_map
@@ -3882,7 +3917,7 @@ $RS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Redshift.SourceType
-        "Get-RSEvents/SourceType"
+        "Get-RSEvent/SourceType"
         {
             $v = "cluster","cluster-parameter-group","cluster-security-group","cluster-snapshot"
             break
@@ -3896,7 +3931,7 @@ $RS_Completers = {
 }
 
 $RS_map = @{
-    "SourceType"=@("Get-RSEvents")
+    "SourceType"=@("Get-RSEvent")
 }
 
 _awsArgumentCompleterRegistration $RS_Completers $RS_map
@@ -3939,7 +3974,7 @@ $R53_Completers = {
         {
             ($_ -eq "Test-R53DNSAnswer/RecordType") -Or
             ($_ -eq "Get-R53ResourceRecordSet/StartRecordType") -Or
-            ($_ -eq "Get-R53TrafficPolicyInstances/TrafficPolicyInstanceTypeMarker") -Or
+            ($_ -eq "Get-R53TrafficPolicyInstanceList/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByHostedZone/TrafficPolicyInstanceTypeMarker") -Or
             ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
         }
@@ -3952,7 +3987,7 @@ $R53_Completers = {
         {
             ($_ -eq "Edit-R53TagsForResource/ResourceType") -Or
             ($_ -eq "Get-R53TagsForResource/ResourceType") -Or
-            ($_ -eq "Get-R53TagsForResources/ResourceType")
+            ($_ -eq "Get-R53TagsForResourceList/ResourceType")
         }
         {
             $v = "healthcheck","hostedzone"
@@ -3986,9 +4021,9 @@ $R53_map = @{
     "HealthCheckConfig_Type"=@("New-R53HealthCheck")
     "InsufficientDataHealthStatus"=@("Update-R53HealthCheck")
     "RecordType"=@("Test-R53DNSAnswer")
-    "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResources")
+    "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")
     "StartRecordType"=@("Get-R53ResourceRecordSet")
-    "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstances","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
+    "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstanceList","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
     "VPC_VPCRegion"=@("New-R53HostedZone","New-R53VPCAssociationAuthorization","Register-R53VPCWithHostedZone","Remove-R53VPCAssociationAuthorization","Unregister-R53VPCFromHostedZone")
 }
 

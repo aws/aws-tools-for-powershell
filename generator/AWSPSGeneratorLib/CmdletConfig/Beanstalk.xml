@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EB</ServiceNounPrefix>
   <ServiceName>AWS Elastic Beanstalk</ServiceName>
   <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
@@ -8,8 +9,9 @@
   <ServiceNamespace>Amazon.ElasticBeanstalk</ServiceNamespace>
 
   <PositionalParameters>ApplicationName</PositionalParameters>
+ 
   <PipelineParameter>ApplicationName</PipelineParameter>
-
+ 
   <NounMappings>
     <Map From="Applications" To="Application" />
     <Map From="ApplicationVersions" To="ApplicationVersion" />
@@ -21,7 +23,7 @@
     <Map From="Events" To="Event" />
     <Map From="EnvironmentCNAMEs" To="EnvironmentCNAME" />
   </NounMappings>
-
+ 
   <VerbMappings>
     <Map From="List" To="Get" />
     <Map From="Terminate" To="Stop" />
@@ -30,13 +32,13 @@
     <Map From="Swap" To="Set" />
     <Map From="Validate" To="Test" />
   </VerbMappings>
-
+ 
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" ServicePageSize="1000" />
-
+ 
   <MetadataProperties>
     <Property>RefreshedAt</Property>
   </MetadataProperties>
-
+ 
   <PipelineByValueProperties>
     <Property>NextToken</Property>
     <Property>ApplicationName</Property>
@@ -46,8 +48,8 @@
     <Property>EnvironmentName</Property>
     <Property>TemplateName</Property>
   </PipelineByValueProperties>
-
-  <ServiceOperations>    
+ 
+  <ServiceOperations>
     <ServiceOperation MethodName="AbortEnvironmentUpdate" Verb="Stop" Output="Void" ShouldProcessTarget="EnvironmentName"/>
     <ServiceOperation MethodName="ApplyEnvironmentManagedAction" Verb="Submit" Output="Response" ShouldProcessTarget="EnvironmentName"/>
     <ServiceOperation MethodName="CheckDNSAvailability" Output="Response" />
@@ -69,19 +71,19 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="DeletePlatformVersion" ShouldProcessTarget="PlatformArn"/>
-    <ServiceOperation MethodName="DescribeApplications" />
-    <ServiceOperation MethodName="DescribeApplicationVersions" PositionalParameters="VersionLabels"/>
-    <ServiceOperation MethodName="DescribeConfigurationOptions" Output="Response"/>
-    <ServiceOperation MethodName="DescribeConfigurationSettings" />
+    <ServiceOperation MethodName="DescribeApplications" Noun="Application" LegacyAlias="Get-EBApplications"/>
+    <ServiceOperation MethodName="DescribeApplicationVersions" PositionalParameters="VersionLabels" Noun="ApplicationVersion" LegacyAlias="Get-EBApplicationVersions"/>
+    <ServiceOperation MethodName="DescribeConfigurationOptions" Output="Response" Noun="ConfigurationOption" LegacyAlias="Get-EBConfigurationOptions"/>
+    <ServiceOperation MethodName="DescribeConfigurationSettings" Noun="ConfigurationSetting" LegacyAlias="Get-EBConfigurationSettings"/>
     <ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
-    <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName"/>
+    <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName" Noun="EnvironmentResource" LegacyAlias="Get-EBEnvironmentResources"/>
     <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" />
     <ServiceOperation MethodName="DescribeEnvironmentManagedActions" Noun="EnvironmentManagedAction" />
     <ServiceOperation MethodName="DescribeEnvironments" PositionalParameters="EnvironmentIds;VersionLabel"/>
     <ServiceOperation MethodName="DescribeEvents"/>
     <ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
     <ServiceOperation MethodName="DescribePlatformVersion" Noun="PlatformVersionDetail"/>
-    <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response"/>
+    <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response" Noun="AvailableSolutionStackList" LegacyAlias="Get-EBAvailableSolutionStack" />
     <ServiceOperation MethodName="ListPlatformVersions" Noun="PlatformVersion"/>
     <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
       <PassThru>
@@ -105,17 +107,13 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="RetrieveEnvironmentInfo" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;InfoType"/>
-    <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Output="Void" PipelineParameter="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName"/>
+    <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Output="Void" PipelineParameter="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName" Noun="EnvironmentCNAME" LegacyAlias="Set-EBEnvironmentCNAMEs"/>
     <ServiceOperation MethodName="TerminateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;TerminateResources"/>
     <ServiceOperation MethodName="UpdateApplication" PositionalParameters="Description"/>
-
     <ServiceOperation MethodName="UpdateApplicationResourceLifecycle" Output="Response" />
-    
     <ServiceOperation MethodName="UpdateApplicationVersion" PositionalParameters="VersionLabel;Description"/>
     <ServiceOperation MethodName="UpdateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove"/>
     <ServiceOperation MethodName="UpdateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description"/>
-    <ServiceOperation MethodName="ValidateConfigurationSettings" PositionalParameters="OptionSettings"/>
-
+    <ServiceOperation MethodName="ValidateConfigurationSettings" PositionalParameters="OptionSettings" Noun="ConfigurationSetting" LegacyAlias="Test-EBConfigurationSettings"/>
   </ServiceOperations>
-
 </ConfigModel>

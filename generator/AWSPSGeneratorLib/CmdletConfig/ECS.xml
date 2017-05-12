@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ECS</ServiceNounPrefix>
   <ServiceName>Amazon EC2 Container Service</ServiceName>
   <ServiceClientInterface>IAmazonECS</ServiceClientInterface>
@@ -21,27 +22,23 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="DeregisterTaskDefinition"/>
-    
     <ServiceOperation MethodName="DescribeClusters" Noun="ClusterDetail" Output="Response"/>
     <ServiceOperation MethodName="DescribeServices" Noun="Service" Output="Response"/>
     <ServiceOperation MethodName="DescribeContainerInstances" Noun="ContainerInstanceDetail" Output="Response"/>
     <ServiceOperation MethodName="DescribeTaskDefinition" Noun="TaskDefinitionDetail"/>
     <ServiceOperation MethodName="DescribeTasks" Noun="TaskDetail" Output="Response" />
-
     <ServiceOperation MethodName="ListAttributes" Noun="AttributeList"/>
-    <ServiceOperation MethodName="ListClusters"/>
+    <ServiceOperation MethodName="ListClusters" Noun="ClusterList" LegacyAlias="Get-ECSClusters" />
     <ServiceOperation MethodName="ListServices" Noun="ClusterService"/>
-    <ServiceOperation MethodName="ListContainerInstances"/>
-    <ServiceOperation MethodName="ListTaskDefinitions"/>
-    <ServiceOperation MethodName="ListTaskDefinitionFamilies"/>
-    <ServiceOperation MethodName="ListTasks"/>
-    <ServiceOperation MethodName="PutAttributes" Noun="Attribute"/>    
+    <ServiceOperation MethodName="ListContainerInstances" Noun="ContainerInstanceList" LegacyAlias="Get-ECSContainerInstances" />
+    <ServiceOperation MethodName="ListTaskDefinitions" Noun="TaskDefinitionList" LegacyAlias="Get-ECSTaskDefinitions" />
+    <ServiceOperation MethodName="ListTaskDefinitionFamilies" Noun="TaskDefinitionFamilyList" LegacyAlias="Get-ECSTaskDefinitionFamilies" />
+    <ServiceOperation MethodName="ListTasks" Noun="TaskList" LegacyAlias="Get-ECSTasks" />
+    <ServiceOperation MethodName="PutAttributes" Noun="Attribute"/>
     <ServiceOperation MethodName="RegisterTaskDefinition" ShouldProcessTarget="Family"/>
-    
     <ServiceOperation MethodName="RunTask" Output="Response" ShouldProcessTarget="Cluster" />
     <ServiceOperation MethodName="StartTask" Output="Response" ShouldProcessTarget="Cluster" />
     <ServiceOperation MethodName="StopTask"/>
-
     <ServiceOperation MethodName="UpdateContainerAgent" />
     <ServiceOperation MethodName="UpdateContainerInstancesState" Output="Response"/>
     <ServiceOperation MethodName="UpdateService" ShouldProcessTarget="Service"/>
@@ -53,5 +50,5 @@
     <Map From="Run" To="New" />
   </VerbMappings>
   
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />  
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
 </ConfigModel>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>S3</ServiceNounPrefix>
   <ServiceName>Amazon Simple Storage Service</ServiceName>
   <ServiceClientInterface>IAmazonS3</ServiceClientInterface>
@@ -8,7 +9,7 @@
   <ServiceNamespace>Amazon.S3</ServiceNamespace>
 
   <DefaultRegion>us-east-1</DefaultRegion>
-
+  
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
@@ -16,14 +17,22 @@
   <NounMappings>
     <Map From="Versions" To="Version" />
   </NounMappings>
-
+  
+  <!-- deprecated aliasing that goes into awsaliases.ps1 -->
   <CustomAliases>
     <AliasSet Cmdlet="Get-S3Bucket">List-S3Buckets</AliasSet>
     <AliasSet Cmdlet="Get-S3Object">List-S3Objects</AliasSet>
     <AliasSet Cmdlet="Read-S3Object">Get-S3Content</AliasSet>
     <AliasSet Cmdlet="Write-S3BucketVersioning">Set-S3BucketVersioning</AliasSet>
   </CustomAliases>
-
+  
+  <!-- legacy aliases to original plural-noun named hand-maintained cmdlets, 
+       to be injected into the AWSPowerShellLegacyAliases.psm1 file
+  -->
+  <LegacyAliases>
+    <AliasSet Cmdlet="Remove-S3MultipartUpload">Remove-S3MultipartUploads</AliasSet>
+  </LegacyAliases>
+  
   <MetadataProperties>
     <Property>Name</Property>
     <Property>Prefix</Property>
@@ -33,14 +42,14 @@
     <Property>CommonPrefixes</Property>
     <Property>IsTruncated</Property>
   </MetadataProperties>
-
+  
   <PipelineByValueProperties>
     <Property>BucketName</Property>
     <Property>Key</Property>
     <Property>KeyPrefix</Property>
-	<Property>VersionId</Property>
+    <Property>VersionId</Property>
   </PipelineByValueProperties>
-
+  
   <ParamEmitters>
     <ParamEmitter ParamType="Amazon.S3.Model.S3StorageClass" EmitterType="Generators.ParamEmitters.AmazonS3.S3StorageClassParamEmitter" />
     <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
@@ -48,12 +57,13 @@
     <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.AccelerateParamEmitter" Excludes="ListBuckets;PutBucket;DeleteBucket"/>
     <ParamEmitter EmitterType="Generators.ParamEmitters.AmazonS3.DualstackParamEmitter"/>
   </ParamEmitters>
-
+  
   <ExcludeProperties>
     <Property>InputStream</Property>
   </ExcludeProperties>
-
+  
   <PositionalParameters>BucketName</PositionalParameters>
+  
   <PipelineParameter>BucketName</PipelineParameter>
   
   <ServiceOperations>
@@ -74,12 +84,9 @@
     <ServiceOperation MethodName="DeleteObject" Exclude="true"/>
     <ServiceOperation MethodName="DeleteObjects" Exclude="true"/>
     <ServiceOperation MethodName="DeleteObjectTagging" Noun="ObjectTagSet" PipelineParameter="Key" ShouldProcessTarget="Key" />
-
     <!-- replaced with single PutBucketLogging operation
-    <ServiceOperation MethodName="DisableBucketLogging" Output="Response"/>
-    <ServiceOperation MethodName="EnableBucketLogging" Output="Response"/>
+    <ServiceOperation MethodName="DisableBucketLogging" Output="Response"/><ServiceOperation MethodName="EnableBucketLogging" Output="Response"/>
     -->
-    
     <ServiceOperation MethodName="GetACL" PositionalParameters="Key;VersionId"/>
     <ServiceOperation MethodName="GetBucketAccelerateConfiguration" />
     <ServiceOperation MethodName="GetBucketAnalyticsConfiguration"/>
@@ -96,11 +103,9 @@
     <ServiceOperation MethodName="GetBucketWebsite"/>
     <ServiceOperation MethodName="GetCORSConfiguration"/>
     <ServiceOperation MethodName="GetLifecycleConfiguration"/>
-    
     <!-- replaced with GetBucketNotification
     <ServiceOperation MethodName="GetNotificationConfiguration"/>
     -->
-    
     <ServiceOperation MethodName="GetObject" Exclude="true"/>
     <ServiceOperation MethodName="GetObjectMetadata" Output="Response" PositionalParameters="Key"/>
     <ServiceOperation MethodName="GetObjectTagging" Noun="ObjectTagSet" PipelineParameter="Key" />
@@ -129,7 +134,8 @@
     <ServiceOperation MethodName="PutBucketRequestPayment" Output="Void" PositionalParameters="RequestPaymentConfiguration"/>
     <ServiceOperation MethodName="PutBucketTagging" Output="Void" PositionalParameters="TagSet">
       <Params>
-        <Param Name="TagSet" Alias="TagSets" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="TagSet" Alias="TagSets" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
       <PassThru>
         <Expression>cmdletContext.TagSet</Expression>
@@ -147,16 +153,12 @@
         <Param Name="Days" NewName="CopyLifetimeInDays" />
       </Params>
     </ServiceOperation>
-
     <!-- replaced with PutBucketVersioning
     <ServiceOperation MethodName="SetBucketVersioning" Output="Response"/>
     -->
-    
     <!-- replaced with PutBucketNotification
     <ServiceOperation MethodName="SetNotificationConfiguration" Output="Response"/>
     -->
-    
     <ServiceOperation MethodName="UploadPart" Exclude="true"/>
   </ServiceOperations>
-
 </ConfigModel>

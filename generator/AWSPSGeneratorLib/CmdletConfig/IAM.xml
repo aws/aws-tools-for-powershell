@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>IAM</ServiceNounPrefix>
   <ServiceName>AWS Identity and Access Management</ServiceName>
   <ServiceClientInterface>IAmazonIdentityManagementService</ServiceClientInterface>
@@ -16,7 +17,7 @@
     <Map From="SigningCertificates" To="SigningCertificate" />
     <Map From="VirtualMFADevices" To="VirtualMFADevice" />
   </NounMappings>
-
+  
   <VerbMappings>
     <Map From="Change" To="Edit" />
     <Map From="List" To="Get" />
@@ -28,12 +29,13 @@
   </VerbMappings>
   
   <DefaultRegion>us-east-1</DefaultRegion>
-
+  
   <AutoIterate EmitLimit="MaxItems" Start="Marker" Next="Marker" TruncatedFlag="IsTruncated" Exclusions="GetGroup;GetAccountAuthorizationDetails;ListEntitiesForPolicy" />
-
+  
   <PositionalParameters>UserName</PositionalParameters>
+  
   <PipelineParameter>UserName</PipelineParameter>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AddClientIDToOpenIDConnectProvider" Output="Void"/>
     <ServiceOperation MethodName="AddRoleToInstanceProfile" Output="Void" PipelineParameter="InstanceProfileName" PositionalParameters="RoleName"/>
@@ -63,15 +65,12 @@
     <ServiceOperation MethodName="DeleteLoginProfile" Output="Void"/>
     <ServiceOperation MethodName="DeleteOpenIDConnectProvider" Output="Void" PositionalParameters="OpenIDConnectProviderArn"/>
     <ServiceOperation MethodName="DeletePolicy" Output="Void" PositionalParameters="PolicyArn" ShouldProcessTarget="PolicyArn"/>
-    <ServiceOperation MethodName="DeletePolicyVersion" Output="Void" PositionalParameters="PolicyArn,VersionId" 
-        ShouldProcessTarget="VersionId" />
+    <ServiceOperation MethodName="DeletePolicyVersion" Output="Void" PositionalParameters="PolicyArn,VersionId" ShouldProcessTarget="VersionId" />
     <ServiceOperation MethodName="DeleteRole" Output="Void" />
     <ServiceOperation MethodName="DeleteRolePolicy" Output="Void" ShouldProcessTarget="PolicyName" PipelineParameter="RoleName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="DeleteServerCertificate" Output="Void" />
     <ServiceOperation MethodName="DeleteSigningCertificate" Output="Void" ShouldProcessTarget="CertificateId" PositionalParameters="CertificateId"/>
-    
     <ServiceOperation MethodName="DeleteSSHPublicKey" PipelineParameter="SSHPublicKeyId" Output="Void" />
-    
     <ServiceOperation MethodName="DeleteUser" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPolicy" Output="Void" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="DeleteVirtualMFADevice" Output="Void" />
@@ -79,7 +78,7 @@
     <ServiceOperation MethodName="DetachRolePolicy" Verb="Unregister" Output="Void" PipelineParameter="RoleName" PositionalParameters="PolicyArn" />
     <ServiceOperation MethodName="DetachUserPolicy" Verb="Unregister" Output="Void" PositionalParameters="PolicyArn" />
     <ServiceOperation MethodName="EnableMFADevice" Output="Void" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2"/>
-    <ServiceOperation MethodName="GetAccountAuthorizationDetails" Output="Response"/>
+    <ServiceOperation MethodName="GetAccountAuthorizationDetails" Output="Response" Noun="AccountAuthorizationDetail" LegacyAlias="Get-IAMAccountAuthorizationDetails" />
     <ServiceOperation MethodName="GetAccessKeyLastUsed" Output="Response"/>
     <ServiceOperation MethodName="GetAccountPasswordPolicy"/>
     <ServiceOperation MethodName="GetAccountSummary"/>
@@ -93,43 +92,40 @@
     <ServiceOperation MethodName="GetRole" />
     <ServiceOperation MethodName="GetRolePolicy" Output="Response" PipelineParameter="RoleName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="GetServerCertificate" />
-    
     <ServiceOperation MethodName="GetSSHPublicKey" PipelineParameter="SSHPublicKeyId" />
-    
     <ServiceOperation MethodName="GetUser"/>
     <ServiceOperation MethodName="GetUserPolicy" Output="Response" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="ListAccessKeys"/>
     <ServiceOperation MethodName="ListAccountAliases"/>
-    <ServiceOperation MethodName="ListAttachedGroupPolicies" PositionalParameters="GroupName"/>
-    <ServiceOperation MethodName="ListAttachedRolePolicies" PositionalParameters="RoleName"/>
-    <ServiceOperation MethodName="ListAttachedUserPolicies" PositionalParameters="UserName"/>
+    <ServiceOperation MethodName="ListAttachedGroupPolicies" PositionalParameters="GroupName" Noun="AttachedGroupPolicyList" LegacyAlias="Get-IAMAttachedGroupPolicies"/>
+    <ServiceOperation MethodName="ListAttachedRolePolicies" PositionalParameters="RoleName" Noun="AttachedRolePolicyList" LegacyAlias="Get-IAMAttachedRolePolicies" />
+    <ServiceOperation MethodName="ListAttachedUserPolicies" PositionalParameters="UserName" Noun="AttachedUserPolicyList" LegacyAlias="Get-IAMAttachedUserPolicies" />
     <ServiceOperation MethodName="ListEntitiesForPolicy" Output="Response" PositionalParameters="PolicyArn" />
-    <ServiceOperation MethodName="ListGroupPolicies" />
-    <ServiceOperation MethodName="ListGroups" PipelineParameter="PathPrefix"/>
+    <ServiceOperation MethodName="ListGroupPolicies" Noun="GroupPolicyList" LegacyAlias="Get-IAMGroupPolicies" />
+    <ServiceOperation MethodName="ListGroups" PipelineParameter="PathPrefix" Noun="GroupList" LegacyAlias="Get-IAMGroups" />
     <ServiceOperation MethodName="ListGroupsForUser"/>
-    <ServiceOperation MethodName="ListInstanceProfiles" PipelineParameter="PathPrefix"/>
+    <ServiceOperation MethodName="ListInstanceProfiles" PipelineParameter="PathPrefix" Noun="InstanceProfileList" LegacyAlias="Get-IAMInstanceProfiles" />
     <ServiceOperation MethodName="ListInstanceProfilesForRole" PipelineParameter="RoleName"/>
     <ServiceOperation MethodName="ListMFADevices"/>
-    <ServiceOperation MethodName="ListOpenIDConnectProviders"/>
-    <ServiceOperation MethodName="ListPolicies"/>
-    <ServiceOperation MethodName="ListPolicyVersions"/>
-    <ServiceOperation MethodName="ListRolePolicies" PipelineParameter="RoleName"/>
-    <ServiceOperation MethodName="ListRoles" PipelineParameter="PathPrefix"/>
-    <ServiceOperation MethodName="ListServerCertificates" PipelineParameter="PathPrefix"/>
+    <ServiceOperation MethodName="ListOpenIDConnectProviders" Noun="OpenIDConnectProviderList" LegacyAlias="Get-IAMOpenIDConnectProviders" />
+    <ServiceOperation MethodName="ListPolicies" Noun="PolicyList" LegacyAlias="Get-IAMPolicies"/>
+    <ServiceOperation MethodName="ListPolicyVersions" Noun="PolicyVersionList" LegacyAlias="Get-IAMPolicyVersions"/>
+    <ServiceOperation MethodName="ListRolePolicies" PipelineParameter="RoleName" Noun="RolePolicyList" LegacyAlias="Get-IAMRolePolicies"/>
+    <ServiceOperation MethodName="ListRoles" PipelineParameter="PathPrefix" Noun="RoleList" LegacyAlias="Get-IAMRoles"/>
+    <ServiceOperation MethodName="ListServerCertificates" PipelineParameter="PathPrefix" Noun="ServerCertificateList" LegacyAlias="Get-IAMServerCertificates"/>
     <ServiceOperation MethodName="ListSigningCertificates"/>
     <ServiceOperation MethodName="ListSSHPublicKeys" Noun="SSHPublicKeyList" />
-    <ServiceOperation MethodName="ListUserPolicies"/>
-    <ServiceOperation MethodName="ListUsers" PipelineParameter="PathPrefix"/>
+    <ServiceOperation MethodName="ListUserPolicies" Noun="UserPolicyList" LegacyAlias="Get-IAMUserPolicies"/>
+    <ServiceOperation MethodName="ListUsers" PipelineParameter="PathPrefix" Noun="UserList" LegacyAlias="Get-IAMUsers"/>
     <ServiceOperation MethodName="ListVirtualMFADevices" />
     <ServiceOperation MethodName="PutGroupPolicy" Output="Void" PipelineParameter="GroupName" PositionalParameters="PolicyName;PolicyDocument"/>
     <ServiceOperation MethodName="PutRolePolicy" Output="Void" PipelineParameter="RoleName" PositionalParameters="PolicyName;PolicyDocument"/>
     <ServiceOperation MethodName="PutUserPolicy" Output="Void" PositionalParameters="PolicyName;PolicyDocument"/>
     <!-- do we need shouldprocess on this? -->
-    <ServiceOperation MethodName="RemoveRoleFromInstanceProfile" Output="Void" ShouldProcessTarget="RoleName" 
-                      PipelineParameter="InstanceProfileName" PositionalParameters="RoleName"/>
+    <ServiceOperation MethodName="RemoveRoleFromInstanceProfile" Output="Void" ShouldProcessTarget="RoleName" PipelineParameter="InstanceProfileName" PositionalParameters="RoleName"/>
     <!-- do we need shouldprocess on this? -->
-    <ServiceOperation MethodName="RemoveUserFromGroup" Output="Void" ShouldProcessTarget="UserName" PipelineParameter="GroupName" PositionalParameters="UserName"/> 
-    <ServiceOperation MethodName="RemoveClientIDFromOpenIDConnectProvider" ShouldProcessTarget="ClientID" Output="Void" /> 
+    <ServiceOperation MethodName="RemoveUserFromGroup" Output="Void" ShouldProcessTarget="UserName" PipelineParameter="GroupName" PositionalParameters="UserName"/>
+    <ServiceOperation MethodName="RemoveClientIDFromOpenIDConnectProvider" ShouldProcessTarget="ClientID" Output="Void" />
     <ServiceOperation MethodName="ResyncMFADevice" Output="Void" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2"/>
     <ServiceOperation MethodName="SetDefaultPolicyVersion" Output="Void" PositionalParameters="PolicyArn;VersionId" AnonymousShouldProcessTarget="true" />
     <ServiceOperation MethodName="UpdateAccessKey" Output="Void" PositionalParameters="AccessKeyId;Status"/>
@@ -138,31 +134,25 @@
     <ServiceOperation MethodName="UpdateGroup" Output="Void" PipelineParameter="GroupName" PositionalParameters="NewPath;NewGroupName"/>
     <ServiceOperation MethodName="UpdateLoginProfile" Output="Void" PositionalParameters="Password"/>
     <ServiceOperation MethodName="UpdateOpenIDConnectProviderThumbprint" Output="Void" PositionalParameters="OpenIDConnectProviderArn"/>
-    <ServiceOperation MethodName="UpdateServerCertificate" Output="Void" PipelineParameter="ServerCertificateName" 
-                      PositionalParameters="NewPath;NewServerCertificateName"/>
+    <ServiceOperation MethodName="UpdateServerCertificate" Output="Void" PipelineParameter="ServerCertificateName" PositionalParameters="NewPath;NewServerCertificateName"/>
     <ServiceOperation MethodName="UpdateSigningCertificate" Output="Void" PositionalParameters="CertificateId;Status"/>
     <ServiceOperation MethodName="UpdateSSHPublicKey" PipelineParameter="SSHPublicKeyId" Output="Void" />
     <ServiceOperation MethodName="UpdateUser" Output="Void" PositionalParameters="NewPath;NewUserName"/>
     <ServiceOperation MethodName="UploadServerCertificate" PipelineParameter="Path" PositionalParameters="ServerCertificateName;CertificateBody;PrivateKey;CertificateChain"/>
     <ServiceOperation MethodName="UploadSigningCertificate" PositionalParameters="CertificateBody"/>
     <ServiceOperation MethodName="UploadSSHPublicKey" PipelineParameter="SSHPublicKeyBody" />
-  
-    <ServiceOperation MethodName="ListSAMLProviders" />
+    <ServiceOperation MethodName="ListSAMLProviders" Noun="SAMLProviderList" LegacyAlias="Get-IAMSAMLProviders"/>
     <ServiceOperation MethodName="UpdateSAMLProvider" ShouldProcessTarget="SAMLProviderArn" />
     <ServiceOperation MethodName="CreateSAMLProvider" />
     <ServiceOperation MethodName="DeleteSAMLProvider" Output="Void" ShouldProcessTarget="SAMLProviderArn" />
     <ServiceOperation MethodName="GetSAMLProvider" Output="Response" ShouldProcessTarget="SAMLProviderArn" />
-
     <ServiceOperation MethodName="GenerateCredentialReport" Verb="Request" Output="Response" />
     <ServiceOperation MethodName="GetCredentialReport" Exclude="true" />
-
     <ServiceOperation MethodName="SimulateCustomPolicy" />
     <ServiceOperation MethodName="SimulatePrincipalPolicy" />
     <ServiceOperation MethodName="GetContextKeysForCustomPolicy" />
     <ServiceOperation MethodName="GetContextKeysForPrincipalPolicy" />
-
     <ServiceOperation MethodName="UpdateRoleDescription" PipelineParameter="RoleName" />
-
     <ServiceOperation MethodName="UpdateServiceSpecificCredential" PipelineParameter="ServiceSpecificCredentialId" Output="Void" />
     <ServiceOperation MethodName="ListServiceSpecificCredentials" Verb="Get" Noun="ServiceSpecificCredentialList" />
     <ServiceOperation MethodName="ResetServiceSpecificCredential" PipelineParameter="ServiceSpecificCredentialId" />
@@ -170,7 +160,7 @@
     <ServiceOperation MethodName="CreateServiceSpecificCredential" />
     <ServiceOperation MethodName="CreateServiceLinkedRole" PipelineParameter="AWSServiceName" />
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>InstanceProfileName</Property>
     <Property>RoleName</Property>
@@ -183,5 +173,4 @@
     <Property>PolicyArn</Property>
     <Property>ServiceSpecificCredentialId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

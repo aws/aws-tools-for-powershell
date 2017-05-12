@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ELB</ServiceNounPrefix>
   <ServiceName>Elastic Load Balancing</ServiceName>
   <ServiceClientInterface>IAmazonElasticLoadBalancing</ServiceClientInterface>
@@ -8,10 +9,11 @@
   <ServiceNamespace>Amazon.ElasticLoadBalancing</ServiceNamespace>
 
   <PositionalParameters>LoadBalancerName</PositionalParameters>
+  
   <PipelineParameter>LoadBalancerName</PipelineParameter>
-
+  
   <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize"/>
-
+  
   <NounMappings>
     <Map From="LoadBalancerToSubnets" To="LoadBalancerToSubnet" />
     <Map From="LoadBalancerFromSubnets" To="LoadBalancerFromSubnet" />
@@ -35,7 +37,7 @@
   </VerbMappings>
   
   <ServiceOperations>
-    <ServiceOperation MethodName="AddTags" Output="Void" PipelineParameter="LoadBalancerNames" PositionalParameters="Tags">
+    <ServiceOperation MethodName="AddTags" Output="Void" PipelineParameter="LoadBalancerNames" PositionalParameters="Tags" Noun="ResourceTag" LegacyAlias="Add-ELBTags">
       <PassThru>
         <Expression>cmdletContext.Tags</Expression>
         <Documentation>Returns the collection of Tag objects that were added</Documentation>
@@ -64,28 +66,25 @@
     <ServiceOperation MethodName="DescribeLoadBalancerPolicies" PositionalParameters="PolicyNames"/>
     <ServiceOperation MethodName="DescribeLoadBalancerPolicyTypes" />
     <ServiceOperation MethodName="DescribeLoadBalancers" PipelineParameter="LoadBalancerNames"/>
-    <ServiceOperation MethodName="DescribeTags" />
+    <ServiceOperation MethodName="DescribeTags" Noun="ResourceTag" LegacyAlias="Get-ELBTags" />
     <ServiceOperation MethodName="DetachLoadBalancerFromSubnets" PositionalParameters="Subnets"/>
     <ServiceOperation MethodName="DisableAvailabilityZonesForLoadBalancer" PositionalParameters="AvailabilityZones"/>
     <ServiceOperation MethodName="EnableAvailabilityZonesForLoadBalancer" PositionalParameters="AvailabilityZones"/>
     <ServiceOperation MethodName="ModifyLoadBalancerAttributes" Output="Response" PositionalParameters="LoadBalancerAttributes" />
     <ServiceOperation MethodName="RegisterInstancesWithLoadBalancer" PositionalParameters="Instances"/>
-    <ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="Tags"  PipelineParameter="LoadBalancerNames" PositionalParameters="Tags">
+    <ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="Tags" PipelineParameter="LoadBalancerNames" PositionalParameters="Tags" Noun="ResourceTag" LegacyAlias="Remove-ELBTags">
       <PassThru>
         <Expression>cmdletContext.Tags</Expression>
         <Documentation>Returns the collection of tag keys that were removed</Documentation>
       </PassThru>
     </ServiceOperation>
-    
-
     <ServiceOperation MethodName="SetLoadBalancerListenerSSLCertificate" Output="Void" PositionalParameters="LoadBalancerPort;SSLCertificateId"/>
     <ServiceOperation MethodName="SetLoadBalancerPoliciesForBackendServer" Output="Void" PositionalParameters="InstancePort;PolicyNames"/>
     <ServiceOperation MethodName="SetLoadBalancerPoliciesOfListener" Output="Void" PositionalParameters="LoadBalancerPort;PolicyNames"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>LoadBalancerName</Property>
     <Property>PolicyName</Property>
   </PipelineByValueProperties>
-  
 </ConfigModel>

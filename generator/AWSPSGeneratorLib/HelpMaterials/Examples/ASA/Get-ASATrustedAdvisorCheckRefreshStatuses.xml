@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-ASATrustedAdvisorCheckRefreshStatuses -CheckId @("checkid1", "checkid2")</code>
-    <description>Returns the current status of refresh requests for the specified checks. Request-ASATrustedAdvisorCheckRefresh can be used to request that the status information of the checks be refreshed.</description>
-  </example>
-</examples>

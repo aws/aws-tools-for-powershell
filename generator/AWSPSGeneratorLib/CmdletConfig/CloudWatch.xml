@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CW</ServiceNounPrefix>
   <ServiceName>Amazon CloudWatch</ServiceName>
   <ServiceClientInterface>IAmazonCloudWatch</ServiceClientInterface>
@@ -12,19 +13,27 @@
     <Map From="Alarms" To="Alarm" />
     <Map From="AlarmsForMetric" To="AlarmForMetric" />
   </NounMappings>
-
+  
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
-
+  
   <!-- this works for most paging calls, but ListMetrics has no MaxRecords
        member, so that one is done manually
   -->
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" />
-
+  
   <PositionalParameters>AlarmNames</PositionalParameters>
+  
   <PipelineParameter>AlarmNames</PipelineParameter>
-
+  
+  <!-- legacy aliases to original plural-noun named hand-maintained cmdlets, 
+       to be injected into the AWSPowerShellLegacyAliases.psm1 file
+  -->
+  <LegacyAliases>
+    <AliasSet Cmdlet="Get-CWMetricList">Get-CWMetrics</AliasSet>
+  </LegacyAliases>
+  
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteAlarms" Output="Void"/>
     <ServiceOperation MethodName="DescribeAlarmHistory" PipelineParameter="AlarmName" PositionalParameters="HistoryItemType;StartDate;EndDate"/>
@@ -32,17 +41,16 @@
     <ServiceOperation MethodName="DescribeAlarmsForMetric" PipelineParameter="MetricName" PositionalParameters="Namespace;Statistic"/>
     <ServiceOperation MethodName="DisableAlarmActions" Output="Void"/>
     <ServiceOperation MethodName="EnableAlarmActions" Output="Void"/>
-    <ServiceOperation MethodName="GetMetricStatistics" Output="Response" PipelineParameter="Namespace" PositionalParameters="MetricName;Dimensions;StartDate;EndDate"/>
+    <ServiceOperation MethodName="GetMetricStatistics" Output="Response" PipelineParameter="Namespace" PositionalParameters="MetricName;Dimensions;StartDate;EndDate" Noun="MetricStatistic" LegacyAlias="Get-CWMetricStatistics" />
     <ServiceOperation MethodName="ListMetrics" Exclude="true"/>
     <ServiceOperation MethodName="PutMetricAlarm" Output="Void" PipelineParameter="AlarmName" PositionalParameters="AlarmDescription"/>
     <ServiceOperation MethodName="PutMetricData" Output="Void" PipelineParameter="Namespace" PositionalParameters="MetricData"/>
     <ServiceOperation MethodName="SetAlarmState" Output="Void" PipelineParameter="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>AlarmName</Property>
     <Property>MetricName</Property>
     <Property>Namespace</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

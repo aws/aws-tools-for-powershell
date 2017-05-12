@@ -1,17 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>AG</ServiceNounPrefix>
   <ServiceName>Amazon API Gateway</ServiceName>
   <ServiceClientInterface>IAmazonAPIGateway</ServiceClientInterface>
   <ServiceClient>AmazonAPIGatewayClient</ServiceClient>
   <ServiceNamespace>Amazon.APIGateway</ServiceNamespace>
 
-  <AutoIterate EmitLimit="Limit"
-               Start="Position"
-               Next="Position" 
-			   Exclusions="GetApiKeys;GetUsage" />
-
+  <AutoIterate EmitLimit="Limit" Start="Position" Next="Position" Exclusions="GetApiKeys;GetUsage" />
+  
   <PipelineByValueProperties>
     <Property>ClientCertificateId</Property>
     <Property>RestApiId</Property>
@@ -23,13 +21,13 @@
     <Property>ParentId</Property>
     <Property>AuthorizerId</Property>
   </PipelineByValueProperties>
-
+  
   <PipelineParameter>RestApiId</PipelineParameter>
-
+  
   <MetadataProperties>
     <Property>Position</Property>
   </MetadataProperties>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateApiKey" Output="Response" ShouldProcessTarget="Value" />
     <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" ShouldProcessTarget="DomainName"/>
@@ -108,68 +106,39 @@
     <ServiceOperation MethodName="UpdateResource" Output="Response" />
     <ServiceOperation MethodName="UpdateRestApi" Output="Response" />
     <ServiceOperation MethodName="UpdateStage" Output="Response" />
-    <ServiceOperation MethodName="GetApiKeys"
-                      Noun="ApiKeyList"
-					  Output="Response"
-                      />
-    <ServiceOperation MethodName="GetBasePathMappings"
-                      Noun="BasePathMappingList"
-                      />
-    <ServiceOperation MethodName="GetClientCertificates"
-                      Noun="ClientCertificateList"
-                      />
-    <ServiceOperation MethodName="GetDeployments"
-                      Noun="DeploymentList"
-                      />
-    <ServiceOperation MethodName="GetDomainNames"
-                      Noun="DomainNameList"
-                      />
-    <ServiceOperation MethodName="GetModels"
-                      Noun="ModelList"
-                      />
-    <ServiceOperation MethodName="GetResources"
-                      Noun="ResourceList"
-                      />
-    <ServiceOperation MethodName="GetRestApis"
-                      Noun="RestApiList"
-                      />
-    <ServiceOperation MethodName="GetStages"
-                      Noun="StageList"
-                      />
-
+    <ServiceOperation MethodName="GetApiKeys" Noun="ApiKeyList" Output="Response" />
+    <ServiceOperation MethodName="GetBasePathMappings" Noun="BasePathMappingList" />
+    <ServiceOperation MethodName="GetClientCertificates" Noun="ClientCertificateList" />
+    <ServiceOperation MethodName="GetDeployments" Noun="DeploymentList" />
+    <ServiceOperation MethodName="GetDomainNames" Noun="DomainNameList" />
+    <ServiceOperation MethodName="GetModels" Noun="ModelList" />
+    <ServiceOperation MethodName="GetResources" Noun="ResourceList" />
+    <ServiceOperation MethodName="GetRestApis" Noun="RestApiList" />
+    <ServiceOperation MethodName="GetStages" Noun="StageList" />
     <ServiceOperation MethodName="UpdateAuthorizer" Output="Response" />
     <ServiceOperation MethodName="GetAuthorizers" Noun="AuthorizerList" />
     <ServiceOperation MethodName="GetExport" PipelineParameter="Parameters" Output="Response" />
     <ServiceOperation MethodName="CreateAuthorizer" Output="Response" />
     <ServiceOperation MethodName="DeleteAuthorizer" ShouldProcessTarget="AuthorizerId" Output="Void" />
     <ServiceOperation MethodName="GetAuthorizer" Output="Response" />
-
     <ServiceOperation MethodName="ImportRestApi" PipelineParameter="Parameters" Output="Response" RemapMemoryStreamParameters="false" />
     <ServiceOperation MethodName="PutRestApi" PipelineParameter="Parameters" Output="Response" RemapMemoryStreamParameters="false" />
-
-	<ServiceOperation MethodName="UpdateUsage" Output="Response" PipelineParameter="KeyId" />
-	<ServiceOperation MethodName="UpdateUsagePlan" Output="Response" PipelineParameter="UsagePlanId" />
-	<ServiceOperation MethodName="GetUsage" Output="Response" PipelineParameter="UsagePlanId" />
-	<ServiceOperation MethodName="GetUsagePlan" Output="Response" />
-	<ServiceOperation MethodName="GetUsagePlanKey" Output="Response" NoPipelineParameter="true" />
-	<ServiceOperation MethodName="GetUsagePlanKeys" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" />
-	<ServiceOperation MethodName="GetUsagePlans" Noun="UsagePlanList"  />
-	<ServiceOperation MethodName="ImportApiKeys" Noun="ApiKey" 
-                    NoPipelineParameter="true" 
-                    Output="Response" 
-                    AnonymousShouldProcessTarget="true"
-                    RemapMemoryStreamParameters="false"/>
-	<ServiceOperation MethodName="CreateUsagePlan" NoPipelineParameter="true" Output="Response" />
-	<ServiceOperation MethodName="CreateUsagePlanKey" PipelineParameter="KeyId" Output="Response" />
-	<ServiceOperation MethodName="DeleteUsagePlan" Output="Void" />
-	<ServiceOperation MethodName="DeleteUsagePlanKey" PipelineParameter="UsagePlanId" Output="Void" />
-    
+    <ServiceOperation MethodName="UpdateUsage" Output="Response" PipelineParameter="KeyId" />
+    <ServiceOperation MethodName="UpdateUsagePlan" Output="Response" PipelineParameter="UsagePlanId" />
+    <ServiceOperation MethodName="GetUsage" Output="Response" PipelineParameter="UsagePlanId" />
+    <ServiceOperation MethodName="GetUsagePlan" Output="Response" />
+    <ServiceOperation MethodName="GetUsagePlanKey" Output="Response" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="GetUsagePlanKeys" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" />
+    <ServiceOperation MethodName="GetUsagePlans" Noun="UsagePlanList" />
+    <ServiceOperation MethodName="ImportApiKeys" Noun="ApiKey" NoPipelineParameter="true" Output="Response" AnonymousShouldProcessTarget="true" RemapMemoryStreamParameters="false"/>
+    <ServiceOperation MethodName="CreateUsagePlan" NoPipelineParameter="true" Output="Response" />
+    <ServiceOperation MethodName="CreateUsagePlanKey" PipelineParameter="KeyId" Output="Response" />
+    <ServiceOperation MethodName="DeleteUsagePlan" Output="Void" />
+    <ServiceOperation MethodName="DeleteUsagePlanKey" PipelineParameter="UsagePlanId" Output="Void" />
     <ServiceOperation MethodName="UpdateRequestValidator" PipelineParameter="RequestValidatorId" Output="Response" />
     <ServiceOperation MethodName="GetRequestValidator" PipelineParameter="RequestValidatorId" Output="Response" />
     <ServiceOperation MethodName="GetRequestValidators" Noun="ValidatorList" />
     <ServiceOperation MethodName="CreateRequestValidator" PipelineParameter="Name" Output="Response" />
     <ServiceOperation MethodName="DeleteRequestValidator" PipelineParameter="RequestValidatorId" Output="Void" />
-	
   </ServiceOperations>
-
 </ConfigModel>
