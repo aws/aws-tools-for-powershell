@@ -62,6 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String FleetId { get; set; }
         #endregion
         
+        #region Parameter MetricGroup
+        /// <summary>
+        /// <para>
+        /// <para>Names of metric groups to include this fleet with. A fleet metric group is used in
+        /// Amazon CloudWatch to aggregate metrics from multiple fleets. Use an existing metric
+        /// group name to add this fleet to the group, or use a new name to create a new metric
+        /// group. Currently, a fleet can only be included in one metric group at a time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MetricGroups")]
+        public System.String[] MetricGroup { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -139,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             
             context.Description = this.Description;
             context.FleetId = this.FleetId;
+            if (this.MetricGroup != null)
+            {
+                context.MetricGroups = new List<System.String>(this.MetricGroup);
+            }
             context.Name = this.Name;
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
             if (ParameterWasBound("ResourceCreationLimitPolicy_NewGameSessionsPerCreator"))
@@ -168,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.MetricGroups != null)
+            {
+                request.MetricGroups = cmdletContext.MetricGroups;
             }
             if (cmdletContext.Name != null)
             {
@@ -260,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public System.String Description { get; set; }
             public System.String FleetId { get; set; }
+            public List<System.String> MetricGroups { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }

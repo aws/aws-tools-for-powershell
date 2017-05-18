@@ -42,6 +42,7 @@
     <ServiceOperation MethodName="DescribeFindings" Noun="Finding" Output="Response" PipelineParameter="FindingArn" />
     <ServiceOperation MethodName="DescribeResourceGroups" Noun="ResourceGroup" Output="Response" />
     <ServiceOperation MethodName="DescribeRulesPackages" Noun="RulesPackage" Output="Response" PipelineParameter="RulesPackageArn" />
+    <ServiceOperation MethodName="GetAssessmentReport" PipelineParameter="AssessmentRunArn" Output="Response" />
     <ServiceOperation MethodName="GetTelemetryMetadata" />
     <ServiceOperation MethodName="ListAssessmentRunAgents" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" />
     <ServiceOperation MethodName="ListAssessmentRuns" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArn" />

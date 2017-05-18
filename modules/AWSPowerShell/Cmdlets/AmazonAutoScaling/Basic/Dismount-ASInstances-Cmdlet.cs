@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// After the instances are detached, you can manage them independently from the rest
-    /// of the Auto Scaling group.
+    /// After the instances are detached, you can manage them independent of the Auto Scaling
+    /// group.
     /// </para><para>
     /// If you do not specify the option to decrement the desired capacity, Auto Scaling launches
     /// instances to replace the ones that are detached.
     /// </para><para>
-    /// If there is a Classic load balancer attached to the Auto Scaling group, the instances
+    /// If there is a Classic Load Balancer attached to the Auto Scaling group, the instances
     /// are deregistered from the load balancer. If there are target groups attached to the
     /// Auto Scaling group, the instances are deregistered from the target groups.
     /// </para><para>

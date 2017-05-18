@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Caller-provided idempotency token.</para>
+        /// <para>User-provided idempotency token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

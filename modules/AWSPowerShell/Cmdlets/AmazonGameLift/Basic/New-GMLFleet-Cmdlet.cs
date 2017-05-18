@@ -38,12 +38,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// To create a new fleet, provide a fleet name, an EC2 instance type, and a build ID
-    /// of the game build to deploy. You can also configure the new fleet with the following
-    /// settings: (1) a runtime configuration describing what server processes to run on each
-    /// instance in the fleet (required to create fleet), (2) access permissions for inbound
-    /// traffic, (3) fleet-wide game session protection, and (4) the location of default log
-    /// files for Amazon GameLift to upload and store.
+    /// To create a new fleet, you must specify the following: (1) fleet name, (2) build ID
+    /// of an uploaded game build, (3) an EC2 instance type, and (4) a runtime configuration
+    /// that describes which server processes to run on each instance in the fleet. (Although
+    /// the runtime configuration is not a required parameter, the fleet cannot be successfully
+    /// created without it.) You can also configure the new fleet with the following settings:
+    /// fleet description, access permissions for inbound traffic, fleet-wide game session
+    /// protection, and resource creation limit. If you use Amazon CloudWatch for metrics,
+    /// you can add the new fleet to a metric group, which allows you to view aggregated metrics
+    /// for a set of fleets. Once you specify a metric group, the new fleet's metrics are
+    /// included in the metric group's data.
     /// </para><para>
     /// If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
     /// </para><ul><li><para>
@@ -138,6 +142,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
         #endregion
         
+        #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>Maximum amount of time (in seconds) that a game session can remain in status ACTIVATING.
+        /// If the game session is not active before the timeout, activation is terminated and
+        /// the game session status is changed to TERMINATED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RuntimeConfiguration_GameSessionActivationTimeoutSeconds")]
+        public System.Int32 RuntimeConfiguration_GameSessionActivationTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter LogPath
         /// <summary>
         /// <para>
@@ -151,6 +168,32 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.Parameter]
         [Alias("LogPaths")]
         public System.String[] LogPath { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously.
+        /// This setting limits the amount of instance resources that can be used for new game
+        /// activations at any one time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RuntimeConfiguration_MaxConcurrentGameSessionActivations")]
+        public System.Int32 RuntimeConfiguration_MaxConcurrentGameSessionActivation { get; set; }
+        #endregion
+        
+        #region Parameter MetricGroup
+        /// <summary>
+        /// <para>
+        /// <para>Names of metric groups to add this fleet to. Use an existing metric group name to
+        /// add this fleet to the group, or use a new name to create a new metric group. Currently,
+        /// a fleet can only be included in one metric group at a time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MetricGroups")]
+        public System.String[] MetricGroup { get; set; }
         #endregion
         
         #region Parameter Name
@@ -229,8 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_ServerProcess
         /// <summary>
         /// <para>
-        /// <para>Collection of server process configurations describing what server processes to run
-        /// on each instance in a fleet</para>
+        /// <para>Collection of server process configurations that describe which server processes to
+        /// run on each instance in a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -278,12 +321,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.LogPaths = new List<System.String>(this.LogPath);
             }
+            if (this.MetricGroup != null)
+            {
+                context.MetricGroups = new List<System.String>(this.MetricGroup);
+            }
             context.Name = this.Name;
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
             if (ParameterWasBound("ResourceCreationLimitPolicy_NewGameSessionsPerCreator"))
                 context.ResourceCreationLimitPolicy_NewGameSessionsPerCreator = this.ResourceCreationLimitPolicy_NewGameSessionsPerCreator;
             if (ParameterWasBound("ResourceCreationLimitPolicy_PolicyPeriodInMinute"))
                 context.ResourceCreationLimitPolicy_PolicyPeriodInMinutes = this.ResourceCreationLimitPolicy_PolicyPeriodInMinute;
+            if (ParameterWasBound("RuntimeConfiguration_GameSessionActivationTimeoutSecond"))
+                context.RuntimeConfiguration_GameSessionActivationTimeoutSeconds = this.RuntimeConfiguration_GameSessionActivationTimeoutSecond;
+            if (ParameterWasBound("RuntimeConfiguration_MaxConcurrentGameSessionActivation"))
+                context.RuntimeConfiguration_MaxConcurrentGameSessionActivations = this.RuntimeConfiguration_MaxConcurrentGameSessionActivation;
             if (this.RuntimeConfiguration_ServerProcess != null)
             {
                 context.RuntimeConfiguration_ServerProcesses = new List<Amazon.GameLift.Model.ServerProcess>(this.RuntimeConfiguration_ServerProcess);
@@ -326,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.LogPaths = cmdletContext.LogPaths;
             }
+            if (cmdletContext.MetricGroups != null)
+            {
+                request.MetricGroups = cmdletContext.MetricGroups;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -367,6 +422,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
              // populate RuntimeConfiguration
             bool requestRuntimeConfigurationIsNull = true;
             request.RuntimeConfiguration = new Amazon.GameLift.Model.RuntimeConfiguration();
+            System.Int32? requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond = null;
+            if (cmdletContext.RuntimeConfiguration_GameSessionActivationTimeoutSeconds != null)
+            {
+                requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond = cmdletContext.RuntimeConfiguration_GameSessionActivationTimeoutSeconds.Value;
+            }
+            if (requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond != null)
+            {
+                request.RuntimeConfiguration.GameSessionActivationTimeoutSeconds = requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond.Value;
+                requestRuntimeConfigurationIsNull = false;
+            }
+            System.Int32? requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation = null;
+            if (cmdletContext.RuntimeConfiguration_MaxConcurrentGameSessionActivations != null)
+            {
+                requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation = cmdletContext.RuntimeConfiguration_MaxConcurrentGameSessionActivations.Value;
+            }
+            if (requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation != null)
+            {
+                request.RuntimeConfiguration.MaxConcurrentGameSessionActivations = requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation.Value;
+                requestRuntimeConfigurationIsNull = false;
+            }
             List<Amazon.GameLift.Model.ServerProcess> requestRuntimeConfiguration_runtimeConfiguration_ServerProcess = null;
             if (cmdletContext.RuntimeConfiguration_ServerProcesses != null)
             {
@@ -447,10 +522,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<Amazon.GameLift.Model.IpPermission> EC2InboundPermissions { get; set; }
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
             public List<System.String> LogPaths { get; set; }
+            public List<System.String> MetricGroups { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_PolicyPeriodInMinutes { get; set; }
+            public System.Int32? RuntimeConfiguration_GameSessionActivationTimeoutSeconds { get; set; }
+            public System.Int32? RuntimeConfiguration_MaxConcurrentGameSessionActivations { get; set; }
             public List<Amazon.GameLift.Model.ServerProcess> RuntimeConfiguration_ServerProcesses { get; set; }
             public System.String ServerLaunchParameters { get; set; }
             public System.String ServerLaunchPath { get; set; }

@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be returned with each call.</para>
+        /// <para>The maximum number of items to be returned with each call. The default value is 50
+        /// and the maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

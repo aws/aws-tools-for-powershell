@@ -22,65 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.Inspector;
+using Amazon.Inspector.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.INS
 {
     /// <summary>
-    /// Removes the server or virtual machine from the list of registered servers. You can
-    /// reregister the instance again at any time. If you don't plan to use Run Command on
-    /// the server, we suggest uninstalling the SSM Agent first.
+    /// Produces an assessment report that includes detailed and comprehensive results of
+    /// a specified assessment run.
     /// </summary>
-    [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterManagedInstance operation against Amazon Simple Systems Management.", Operation = new[] {"DeregisterManagedInstance"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "INSAssessmentReport")]
+    [OutputType("Amazon.Inspector.Model.GetAssessmentReportResponse")]
+    [AWSCmdlet("Invokes the GetAssessmentReport operation against Amazon Inspector.", Operation = new[] {"GetAssessmentReport"})]
+    [AWSCmdletOutput("Amazon.Inspector.Model.GetAssessmentReportResponse",
+        "This cmdlet returns a Amazon.Inspector.Model.GetAssessmentReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UnregisterSSMManagedInstanceCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetINSAssessmentReportCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
         
-        #region Parameter InstanceId
+        #region Parameter AssessmentRunArn
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the managed instance when you registered it using the activation
-        /// process. </para>
+        /// <para>The ARN that specifies the assessment run for which you want to generate a report.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        public System.String AssessmentRunArn { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter ReportFileFormat
         /// <summary>
-        /// Returns the value passed to the InstanceId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>Specifies the file format (html or pdf) of the assessment report that you want to
+        /// generate.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [AWSConstantClassSource("Amazon.Inspector.ReportFileFormat")]
+        public Amazon.Inspector.ReportFileFormat ReportFileFormat { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter ReportType
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>Specifies the type of the assessment report that you want to generate. There are two
+        /// types of assessment reports: a finding report and a full report. For more information,
+        /// see <a href="http://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html">Assessment
+        /// Reports</a>. </para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [AWSConstantClassSource("Amazon.Inspector.ReportType")]
+        public Amazon.Inspector.ReportType ReportType { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-SSMManagedInstance (DeregisterManagedInstance)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -91,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.InstanceId = this.InstanceId;
+            context.AssessmentRunArn = this.AssessmentRunArn;
+            context.ReportFileFormat = this.ReportFileFormat;
+            context.ReportType = this.ReportType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,11 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceRequest();
+            var request = new Amazon.Inspector.Model.GetAssessmentReportRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.AssessmentRunArn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.AssessmentRunArn = cmdletContext.AssessmentRunArn;
+            }
+            if (cmdletContext.ReportFileFormat != null)
+            {
+                request.ReportFileFormat = cmdletContext.ReportFileFormat;
+            }
+            if (cmdletContext.ReportType != null)
+            {
+                request.ReportType = cmdletContext.ReportType;
             }
             
             CmdletOutput output;
@@ -121,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.InstanceId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -148,14 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceRequest request)
+        private Amazon.Inspector.Model.GetAssessmentReportResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.GetAssessmentReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DeregisterManagedInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "GetAssessmentReport");
             #if DESKTOP
-            return client.DeregisterManagedInstance(request);
+            return client.GetAssessmentReport(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeregisterManagedInstanceAsync(request);
+            var task = client.GetAssessmentReportAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -166,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
+            public System.String AssessmentRunArn { get; set; }
+            public Amazon.Inspector.ReportFileFormat ReportFileFormat { get; set; }
+            public Amazon.Inspector.ReportType ReportType { get; set; }
         }
         
     }

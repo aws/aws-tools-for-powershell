@@ -28,11 +28,11 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Attaches one or more Classic load balancers to the specified Auto Scaling group.
+    /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
-    /// To attach an Application load balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
+    /// To attach an Application Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
     /// </para><para>
     /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
     /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.

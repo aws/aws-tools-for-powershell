@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentStyle_DeploymentType
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to run a standard deployment or a blue/green deployment.</para>
+        /// <para>Indicates whether to run an in-place deployment or a blue/green deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>An array containing information about the load balancer in Elastic Load Balancing
-        /// to use in a blue/green deployment.</para>
+        /// to use in a deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Optional filters used to narrow down the scope of the returned tasks. The supported
-        /// filter keys are <code>WindowTaskId</code>, <code>TaskArn</code>, <code>Priority</code>,
-        /// and <code>TaskType</code>.</para>
+        /// filter keys are WindowTaskId, TaskArn, Priority, and TaskType.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

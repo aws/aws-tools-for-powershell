@@ -129,11 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A cron expression when the association will be applied to the target(s). Supported
-        /// expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time
-        /// of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0
-        /// 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every
-        /// Sunday at 10 a.m.</para>
+        /// <para>A cron expression when the association will be applied to the target(s).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,9 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or tags) for the association. Instances are specified
-        /// using Key=instanceids,Values=&lt;instanceid1&gt;,&lt;instanceid2&gt;. Tags are specified
-        /// using Key=&lt;tag name&gt;,Values=&lt;tag value&gt;.</para>
+        /// <para>The targets (either instances or tags) for the association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

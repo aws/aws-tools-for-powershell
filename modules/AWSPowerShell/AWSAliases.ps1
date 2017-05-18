@@ -2431,6 +2431,7 @@ Set-Alias -Name IE-GetStatus -Value Get-IEStatus
 Set-Alias -Name List-IEJobs -Value Get-IEJob
 Set-Alias -Name IE-ListJobs -Value Get-IEJob
 Set-Alias -Name IE-UpdateJob -Value Update-IEJob
+Set-Alias -Name INS-StopAssessmentRun -Value Stop-INSAssessmentRun
 Set-Alias -Name INS-SubscribeToEvent -Value Add-INSEventSubscription
 Set-Alias -Name INS-UnsubscribeFromEvent -Value Remove-INSEventSubscription
 Set-Alias -Name INS-UpdateAssessmentTarget -Value Update-INSAssessmentTarget
@@ -2461,6 +2462,7 @@ Set-Alias -Name Describe-INSResourceGroup -Value Get-INSResourceGroup
 Set-Alias -Name INS-DescribeResourceGroups -Value Get-INSResourceGroup
 Set-Alias -Name Describe-INSRulesPackage -Value Get-INSRulesPackage
 Set-Alias -Name INS-DescribeRulesPackages -Value Get-INSRulesPackage
+Set-Alias -Name INS-GetAssessmentReport -Value Get-INSAssessmentReport
 Set-Alias -Name INS-GetTelemetryMetadata -Value Get-INSTelemetryMetadata
 Set-Alias -Name List-INSAssessmentRunAgent -Value Get-INSAssessmentRunAgent
 Set-Alias -Name INS-ListAssessmentRunAgents -Value Get-INSAssessmentRunAgent
@@ -2483,7 +2485,6 @@ Set-Alias -Name INS-RegisterCrossAccountAccessRole -Value Register-INSCrossAccou
 Set-Alias -Name INS-RemoveAttributesFromFindings -Value Remove-INSFindingAttribute
 Set-Alias -Name INS-SetTagsForResource -Value Set-INSResourceTag
 Set-Alias -Name INS-StartAssessmentRun -Value Start-INSAssessmentRun
-Set-Alias -Name INS-StopAssessmentRun -Value Stop-INSAssessmentRun
 Set-Alias -Name IOT-RegisterCACertificate -Value Register-IOTCACertificate
 Set-Alias -Name IOT-RegisterCertificate -Value Register-IOTCertificate
 Set-Alias -Name IOT-RejectCertificateTransfer -Value Deny-IOTCertificateTransfer

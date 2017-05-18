@@ -1216,6 +1216,13 @@ $CD_Completers = {
             break
         }
         
+        # Amazon.CodeDeploy.FileExistsBehavior
+        "New-CDDeployment/FileExistsBehavior"
+        {
+            $v = "DISALLOW","OVERWRITE","RETAIN"
+            break
+        }
+        
         # Amazon.CodeDeploy.GreenFleetProvisioningAction
         {
             ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action") -Or
@@ -1289,6 +1296,7 @@ $CD_map = @{
     "Deployed"=@("Get-CDApplicationRevisionList")
     "DeploymentStyle_DeploymentOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyle_DeploymentType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "FileExistsBehavior"=@("New-CDDeployment")
     "MinimumHealthyHosts_Type"=@("New-CDDeploymentConfig")
     "RegistrationStatus"=@("Get-CDOnPremiseInstanceList")
     "Revision_RevisionType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
@@ -2588,7 +2596,7 @@ $GML_Completers = {
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
-            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailablePlayerSessions","CurrentPlayerSessions","IdleInstances","QueueDepth","WaitTime"
+            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailableGameSessions","AvailablePlayerSessions","CurrentPlayerSessions","IdleInstances","PercentAvailableGameSessions","PercentIdleInstances","QueueDepth","WaitTime"
             break
         }
         
@@ -2849,6 +2857,20 @@ $INS_Completers = {
             break
         }
         
+        # Amazon.Inspector.ReportFileFormat
+        "Get-INSAssessmentReport/ReportFileFormat"
+        {
+            $v = "HTML","PDF"
+            break
+        }
+        
+        # Amazon.Inspector.ReportType
+        "Get-INSAssessmentReport/ReportType"
+        {
+            $v = "FINDING","FULL"
+            break
+        }
+        
     }
     
     $v |
@@ -2859,6 +2881,8 @@ $INS_Completers = {
 $INS_map = @{
     "Event"=@("Add-INSEventSubscription","Remove-INSEventSubscription")
     "Locale"=@("Get-INSFinding","Get-INSRulesPackage")
+    "ReportFileFormat"=@("Get-INSAssessmentReport")
+    "ReportType"=@("Get-INSAssessmentReport")
 }
 
 _awsArgumentCompleterRegistration $INS_Completers $INS_map
@@ -3776,7 +3800,7 @@ $POL_Completers = {
         # Amazon.Polly.VoiceId
         "Get-POLSpeech/VoiceId"
         {
-            $v = "Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Tatyana","Vitoria"
+            $v = "Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Tatyana","Vicki","Vitoria"
             break
         }
         

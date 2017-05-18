@@ -125,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceMonitoring_Enabled
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, instance monitoring is enabled.</para>
+        /// <para>If <code>true</code>, detailed monitoring is enabled. Otherwise, basic monitoring
+        /// is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,8 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
+        /// <para>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>ImageId</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
         /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -162,8 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance to use to create the launch configuration.</para><para>The new launch configuration derives attributes from the instance, with the exception
-        /// of the block device mapping.</para><para>To create a launch configuration with a block device mapping or override any other
+        /// <para>The ID of the instance to use to create the launch configuration. The new launch configuration
+        /// derives attributes from the instance, with the exception of the block device mapping.</para><para>If you do not specify <code>InstanceId</code>, you must specify both <code>ImageId</code>
+        /// and <code>InstanceType</code>.</para><para>To create a launch configuration with a block device mapping or override any other
         /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/create-lc-with-instanceID.html">Create
         /// a Launch Configuration Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -175,9 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type of the EC2 instance. For information about available instance types,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">
-        /// Available Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i></para>
+        /// <para>The instance type of the EC2 instance.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>InstanceType</code>.</para><para>For information about available instance types, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
+        /// Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

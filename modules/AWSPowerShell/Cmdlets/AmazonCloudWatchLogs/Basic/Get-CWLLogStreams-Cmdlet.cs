@@ -85,7 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>If the value is <code>LogStreamName</code>, the results are ordered by log stream
         /// name. If the value is <code>LastEventTime</code>, the results are ordered by the event
         /// time. The default value is <code>LogStreamName</code>.</para><para>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code>
-        /// parameter.</para>
+        /// parameter.</para><para>lastEventTimestamp represents the time of the most recent log event in the log stream
+        /// in CloudWatch Logs. This number is expressed as the number of milliseconds since Jan
+        /// 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis.
+        /// It typically updates in less than an hour from ingestion, but may take longer in some
+        /// rare situations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

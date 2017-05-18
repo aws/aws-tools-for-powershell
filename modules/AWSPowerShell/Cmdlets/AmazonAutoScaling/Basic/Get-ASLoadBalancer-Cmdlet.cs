@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// Note that this operation describes only Classic load balancers. If you have Application
-    /// load balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.
+    /// Note that this operation describes only Classic Load Balancers. If you have Application
+    /// Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASLoadBalancer")]
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call.</para>
+        /// <para>The maximum number of items to return with this call. The default value is 50 and
+        /// the maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

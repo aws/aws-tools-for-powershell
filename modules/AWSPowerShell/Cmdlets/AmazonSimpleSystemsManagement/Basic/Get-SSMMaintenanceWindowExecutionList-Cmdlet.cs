@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each entry in the array is a structure containing:</para><para>Key (string, 1 ≤ length ≤ 128)</para><para>Values (array of strings 1 ≤ length ≤ 256)</para><para>The supported Keys are <code>ExecutedBefore</code> and <code>ExecutedAfter</code>
-        /// with the value being a date/time string such as 2016-11-04T05:00:00Z.</para>
+        /// <para>Each entry in the array is a structure containing:</para><para>Key (string, between 1 and 128 characters)</para><para>Values (array of strings, each string is between 1 and 256 characters)</para><para>The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time
+        /// string such as 2016-11-04T05:00:00Z.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

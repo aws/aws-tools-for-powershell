@@ -31,32 +31,45 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>).
     /// When processing a placement request, Amazon GameLift searches for available resources
     /// on the queue's destinations, scanning each until it finds resources or the placement
-    /// request times out. A game session placement request can also request player sessions.
-    /// When a new game session is successfully created, Amazon GameLift creates a player
-    /// session for each player included in the request.
+    /// request times out.
     /// 
     ///  
     /// <para>
+    /// A game session placement request can also request player sessions. When a new game
+    /// session is successfully created, Amazon GameLift creates a player session for each
+    /// player included in the request.
+    /// </para><para>
     /// When placing a game session, by default Amazon GameLift tries each fleet in the order
     /// they are listed in the queue configuration. Ideally, a queue's destinations are listed
-    /// in preference order. Alternatively, when requesting a game session with players, you
-    /// can also provide latency data for each player in relevant regions. Latency data indicates
-    /// the performance lag a player experiences when connected to a fleet in the region.
-    /// Amazon GameLift uses latency data to reorder the list of destinations to place the
-    /// game session in a region with minimal lag. If latency data is provided for multiple
-    /// players, Amazon GameLift calculates each region's average lag for all players and
-    /// reorders to get the best game play across all players. 
+    /// in preference order.
     /// </para><para>
-    /// To place a new game session request, specify the queue name and a set of game session
-    /// properties and settings. Also provide a unique ID (such as a UUID) for the placement.
-    /// You'll use this ID to track the status of the placement request. Optionally, provide
-    /// a set of IDs and player data for each player you want to join to the new game session.
-    /// To optimize game play for the players, also provide latency data for all players.
-    /// If successful, a new game session placement is created. To track the status of a placement
-    /// request, call <a>DescribeGameSessionPlacement</a> and check the request's status.
-    /// If the status is Fulfilled, a new game session has been created and a game session
-    /// ARN and region are referenced. If the placement request times out, you have the option
-    /// of resubmitting the request or retrying it with a different queue. 
+    /// Alternatively, when requesting a game session with players, you can also provide latency
+    /// data for each player in relevant regions. Latency data indicates the performance lag
+    /// a player experiences when connected to a fleet in the region. Amazon GameLift uses
+    /// latency data to reorder the list of destinations to place the game session in a region
+    /// with minimal lag. If latency data is provided for multiple players, Amazon GameLift
+    /// calculates each region's average lag for all players and reorders to get the best
+    /// game play across all players. 
+    /// </para><para>
+    /// To place a new game session request, specify the following:
+    /// </para><ul><li><para>
+    /// The queue name and a set of game session properties and settings
+    /// </para></li><li><para>
+    /// A unique ID (such as a UUID) for the placement. You use this ID to track the status
+    /// of the placement request
+    /// </para></li><li><para>
+    /// (Optional) A set of IDs and player data for each player you want to join to the new
+    /// game session
+    /// </para></li><li><para>
+    /// Latency data for all players (if you want to optimize game play for the players)
+    /// </para></li></ul><para>
+    /// If successful, a new game session placement is created.
+    /// </para><para>
+    /// To track the status of a placement request, call <a>DescribeGameSessionPlacement</a>
+    /// and check the request's status. If the status is <code>Fulfilled</code>, a new game
+    /// session has been created and a game session ARN and region are referenced. If the
+    /// placement request times out, you can resubmit the request or retry it with a different
+    /// queue. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

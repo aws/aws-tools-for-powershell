@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each element in the array is a structure containing: </para><para>Key: (string, “NAME_PREFIX” or “OWNER”)</para><para>Value: (array of strings, exactly 1 entry, 1 ≤ length ≤ 255)</para>
+        /// <para>Each element in the array is a structure containing: </para><para>Key: (string, "NAME_PREFIX" or "OWNER")</para><para>Value: (array of strings, exactly 1 entry, between 1 and 255 characters)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

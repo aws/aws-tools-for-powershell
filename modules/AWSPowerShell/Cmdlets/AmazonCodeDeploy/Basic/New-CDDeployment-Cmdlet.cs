@@ -152,6 +152,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String[] AutoRollbackConfiguration_Event { get; set; }
         #endregion
         
+        #region Parameter FileExistsBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Information about how AWS CodeDeploy handles files that already exist in a deployment
+        /// target location but weren't part of the previous successful deployment.</para><para>The fileExistsBehavior parameter takes any of the following values:</para><ul><li><para>DISALLOW: The deployment fails. This is also the default behavior if no option is
+        /// specified.</para></li><li><para>OVERWRITE: The version of the file from the application revision currently being deployed
+        /// replaces the version already on the instance.</para></li><li><para>RETAIN: The version of the file already on the instance is kept and used as part of
+        /// the new deployment.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.FileExistsBehavior")]
+        public Amazon.CodeDeploy.FileExistsBehavior FileExistsBehavior { get; set; }
+        #endregion
+        
         #region Parameter IgnoreApplicationStopFailure
         /// <summary>
         /// <para>
@@ -290,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.DeploymentConfigName = this.DeploymentConfigName;
             context.DeploymentGroupName = this.DeploymentGroupName;
             context.Description = this.Description;
+            context.FileExistsBehavior = this.FileExistsBehavior;
             if (ParameterWasBound("IgnoreApplicationStopFailure"))
                 context.IgnoreApplicationStopFailures = this.IgnoreApplicationStopFailure;
             context.Revision_GitHubLocation_CommitId = this.GitHubLocation_CommitId;
@@ -370,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.FileExistsBehavior != null)
+            {
+                request.FileExistsBehavior = cmdletContext.FileExistsBehavior;
             }
             if (cmdletContext.IgnoreApplicationStopFailures != null)
             {
@@ -585,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String DeploymentConfigName { get; set; }
             public System.String DeploymentGroupName { get; set; }
             public System.String Description { get; set; }
+            public Amazon.CodeDeploy.FileExistsBehavior FileExistsBehavior { get; set; }
             public System.Boolean? IgnoreApplicationStopFailures { get; set; }
             public System.String Revision_GitHubLocation_CommitId { get; set; }
             public System.String Revision_GitHubLocation_Repository { get; set; }

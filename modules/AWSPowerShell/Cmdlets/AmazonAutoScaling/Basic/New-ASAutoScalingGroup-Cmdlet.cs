@@ -89,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The number of EC2 instances that should be running in the group. This number must
         /// be greater than or equal to the minimum size of the group and less than or equal to
-        /// the maximum size of the group.</para>
+        /// the maximum size of the group. If you do not specify a desired capacity, the default
+        /// is the minimum size of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>One or more Classic load balancers. To specify an Application load balancer, use <code>TargetGroupARNs</code>
+        /// <para>One or more Classic Load Balancers. To specify an Application Load Balancer, use <code>TargetGroupARNs</code>
         /// instead.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html">Using
         /// a Load Balancer With an Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>

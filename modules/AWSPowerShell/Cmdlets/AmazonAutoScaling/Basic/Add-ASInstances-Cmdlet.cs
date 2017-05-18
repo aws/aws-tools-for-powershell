@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// plus the desired capacity of the group exceeds the maximum size of the group, the
     /// operation fails.
     /// </para><para>
-    /// If there is a Classic load balancer attached to your Auto Scaling group, the instances
+    /// If there is a Classic Load Balancer attached to your Auto Scaling group, the instances
     /// are also registered with the load balancer. If there are target groups attached to
     /// your Auto Scaling group, the instances are also registered with the target groups.
     /// </para><para>

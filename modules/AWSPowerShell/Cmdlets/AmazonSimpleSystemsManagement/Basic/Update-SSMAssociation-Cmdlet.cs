@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String DocumentVersion { get; set; }
         #endregion
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the association document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter S3Location_OutputS3BucketName
         /// <summary>
         /// <para>
@@ -109,15 +119,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>The cron expression used to schedule the association that you want to update. Supported
-        /// expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time
-        /// of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0
-        /// 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every
-        /// Sunday at 10 a.m.</para>
+        /// <para>The cron expression used to schedule the association that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ScheduleExpression { get; set; }
+        #endregion
+        
+        #region Parameter Target
+        /// <summary>
+        /// <para>
+        /// <para>The targets of the association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Targets")]
+        public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
         
         #region Parameter Force
@@ -151,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             context.AssociationId = this.AssociationId;
             context.DocumentVersion = this.DocumentVersion;
+            context.Name = this.Name;
             context.OutputLocation_S3Location_OutputS3BucketName = this.S3Location_OutputS3BucketName;
             context.OutputLocation_S3Location_OutputS3KeyPrefix = this.S3Location_OutputS3KeyPrefix;
             context.OutputLocation_S3Location_OutputS3Region = this.S3Location_OutputS3Region;
@@ -175,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 }
             }
             context.ScheduleExpression = this.ScheduleExpression;
+            if (this.Target != null)
+            {
+                context.Targets = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
              // populate OutputLocation
@@ -261,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ScheduleExpression = cmdletContext.ScheduleExpression;
             }
+            if (cmdletContext.Targets != null)
+            {
+                request.Targets = cmdletContext.Targets;
+            }
             
             CmdletOutput output;
             
@@ -315,11 +345,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public System.String AssociationId { get; set; }
             public System.String DocumentVersion { get; set; }
+            public System.String Name { get; set; }
             public System.String OutputLocation_S3Location_OutputS3BucketName { get; set; }
             public System.String OutputLocation_S3Location_OutputS3KeyPrefix { get; set; }
             public System.String OutputLocation_S3Location_OutputS3Region { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
             public System.String ScheduleExpression { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
         }
         
     }

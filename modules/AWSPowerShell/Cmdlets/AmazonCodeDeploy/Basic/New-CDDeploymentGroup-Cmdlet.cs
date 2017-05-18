@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// configurations provided with AWS CodeDeploy or a custom deployment configuration that
         /// you create by calling the create deployment configuration operation.</para><para>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if
         /// a configuration isn't specified for the deployment or the deployment group.</para><para>For more information about the predefined deployment configurations in AWS CodeDeploy,
-        /// see see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working
+        /// see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working
         /// with Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</para>
         /// </para>
         /// </summary>
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentStyle_DeploymentType
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to run a standard deployment or a blue/green deployment.</para>
+        /// <para>Indicates whether to run an in-place deployment or a blue/green deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -167,7 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagFilter
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 tags on which to filter.</para>
+        /// <para>The Amazon EC2 tags on which to filter. The deployment group will include EC2 instances
+        /// with any of the specified tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>An array containing information about the load balancer in Elastic Load Balancing
-        /// to use in a blue/green deployment.</para>
+        /// to use in a deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -233,7 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter OnPremisesInstanceTagFilter
         /// <summary>
         /// <para>
-        /// <para>The on-premises instance tags on which to filter.</para>
+        /// <para>The on-premises instance tags on which to filter. The deployment group will include
+        /// on-premises instances with any of the specified tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -29,16 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
-    /// that you assign to your managed instances. Tags enable you to categorize your managed
-    /// instances in different ways, for example, by purpose, owner, or environment. Each
-    /// tag consists of a key and an optional value, both of which you define. For example,
-    /// you could define a set of tags for your account's managed instances that helps you
-    /// track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin,
-    /// SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each
-    /// resource can have a maximum of 10 tags. 
+    /// that you assign to your managed instances, Maintenance Windows, or Parameter Store
+    /// parameters. Tags enable you to categorize your resources in different ways, for example,
+    /// by purpose, owner, or environment. Each tag consists of a key and an optional value,
+    /// both of which you define. For example, you could define a set of tags for your account's
+    /// managed instances that helps you track each instance's owner and stack level. For
+    /// example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production,
+    /// Pre-Production, or Test.
     /// 
     ///  
     /// <para>
+    /// Each resource can have a maximum of 10 tags. 
+    /// </para><para>
     /// We recommend that you devise a set of tag keys that meets your needs for each resource
     /// type. Using a consistent set of tag keys makes it easier for you to manage your resources.
     /// You can search and filter the resources based on the tags you add. Tags don't have

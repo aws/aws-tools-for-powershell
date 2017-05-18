@@ -67,11 +67,37 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String FleetId { get; set; }
         #endregion
         
+        #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>Maximum amount of time (in seconds) that a game session can remain in status ACTIVATING.
+        /// If the game session is not active before the timeout, activation is terminated and
+        /// the game session status is changed to TERMINATED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RuntimeConfiguration_GameSessionActivationTimeoutSeconds")]
+        public System.Int32 RuntimeConfiguration_GameSessionActivationTimeoutSecond { get; set; }
+        #endregion
+        
+        #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously.
+        /// This setting limits the amount of instance resources that can be used for new game
+        /// activations at any one time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RuntimeConfiguration_MaxConcurrentGameSessionActivations")]
+        public System.Int32 RuntimeConfiguration_MaxConcurrentGameSessionActivation { get; set; }
+        #endregion
+        
         #region Parameter RuntimeConfiguration_ServerProcess
         /// <summary>
         /// <para>
-        /// <para>Collection of server process configurations describing what server processes to run
-        /// on each instance in a fleet</para>
+        /// <para>Collection of server process configurations that describe which server processes to
+        /// run on each instance in a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             PreExecutionContextLoad(context);
             
             context.FleetId = this.FleetId;
+            if (ParameterWasBound("RuntimeConfiguration_GameSessionActivationTimeoutSecond"))
+                context.RuntimeConfiguration_GameSessionActivationTimeoutSeconds = this.RuntimeConfiguration_GameSessionActivationTimeoutSecond;
+            if (ParameterWasBound("RuntimeConfiguration_MaxConcurrentGameSessionActivation"))
+                context.RuntimeConfiguration_MaxConcurrentGameSessionActivations = this.RuntimeConfiguration_MaxConcurrentGameSessionActivation;
             if (this.RuntimeConfiguration_ServerProcess != null)
             {
                 context.RuntimeConfiguration_ServerProcesses = new List<Amazon.GameLift.Model.ServerProcess>(this.RuntimeConfiguration_ServerProcess);
@@ -137,6 +167,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
              // populate RuntimeConfiguration
             bool requestRuntimeConfigurationIsNull = true;
             request.RuntimeConfiguration = new Amazon.GameLift.Model.RuntimeConfiguration();
+            System.Int32? requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond = null;
+            if (cmdletContext.RuntimeConfiguration_GameSessionActivationTimeoutSeconds != null)
+            {
+                requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond = cmdletContext.RuntimeConfiguration_GameSessionActivationTimeoutSeconds.Value;
+            }
+            if (requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond != null)
+            {
+                request.RuntimeConfiguration.GameSessionActivationTimeoutSeconds = requestRuntimeConfiguration_runtimeConfiguration_GameSessionActivationTimeoutSecond.Value;
+                requestRuntimeConfigurationIsNull = false;
+            }
+            System.Int32? requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation = null;
+            if (cmdletContext.RuntimeConfiguration_MaxConcurrentGameSessionActivations != null)
+            {
+                requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation = cmdletContext.RuntimeConfiguration_MaxConcurrentGameSessionActivations.Value;
+            }
+            if (requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation != null)
+            {
+                request.RuntimeConfiguration.MaxConcurrentGameSessionActivations = requestRuntimeConfiguration_runtimeConfiguration_MaxConcurrentGameSessionActivation.Value;
+                requestRuntimeConfigurationIsNull = false;
+            }
             List<Amazon.GameLift.Model.ServerProcess> requestRuntimeConfiguration_runtimeConfiguration_ServerProcess = null;
             if (cmdletContext.RuntimeConfiguration_ServerProcesses != null)
             {
@@ -205,6 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal class CmdletContext : ExecutorContext
         {
             public System.String FleetId { get; set; }
+            public System.Int32? RuntimeConfiguration_GameSessionActivationTimeoutSeconds { get; set; }
+            public System.Int32? RuntimeConfiguration_MaxConcurrentGameSessionActivations { get; set; }
             public List<Amazon.GameLift.Model.ServerProcess> RuntimeConfiguration_ServerProcesses { get; set; }
         }
         

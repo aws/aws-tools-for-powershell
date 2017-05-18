@@ -45,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// An AWS Lambda function that belongs to the same account as the subscription filter,
     /// for same-account delivery.
     /// </para></li></ul><para>
-    /// There can only be one subscription filter associated with a log group.
+    /// There can only be one subscription filter associated with a log group. If you are
+    /// updating an existing filter, you must specify the correct name in <code>filterName</code>.
+    /// Otherwise, the call will fail because you cannot associate a second filter with a
+    /// log group.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,7 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterName
         /// <summary>
         /// <para>
-        /// <para>A name for the subscription filter.</para>
+        /// <para>A name for the subscription filter. If you are updating an existing filter, you must
+        /// specify the correct name in <code>filterName</code>. Otherwise, the call will fail
+        /// because you cannot associate a second filter with a log group. To find the name of
+        /// the filter currently associated with a log group, use <a>DescribeSubscriptionFilters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

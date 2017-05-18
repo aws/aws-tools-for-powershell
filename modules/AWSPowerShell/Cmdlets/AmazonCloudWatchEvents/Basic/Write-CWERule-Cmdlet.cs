@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>The event pattern.</para>
+        /// <para>The event pattern. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html">Events
+        /// and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

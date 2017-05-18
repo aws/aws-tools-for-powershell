@@ -103,7 +103,7 @@
       <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.3.3\lib\net35\AWSSDK.Rekognition.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Polly">
-      <HintPath>..\..\packages\AWSSDK.Polly.3.3.1.5\lib\net35\AWSSDK.Polly.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Polly.3.3.2\lib\net35\AWSSDK.Polly.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.0.6\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
@@ -145,7 +145,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.3.7\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.4\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.17\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -193,13 +193,13 @@
       <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.2.4\lib\net35\AWSSDK.Kinesis.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
-      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.2.11\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.2.12\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>..\..\packages\AWSSDK.IoT.3.3.1.16\lib\net35\AWSSDK.IoT.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector">
-      <HintPath>..\..\packages\AWSSDK.Inspector.3.3.0.19\lib\net35\AWSSDK.Inspector.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Inspector.3.3.1\lib\net35\AWSSDK.Inspector.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>..\..\packages\AWSSDK.ImportExport.3.3.0.17\lib\net35\AWSSDK.ImportExport.dll</HintPath>
@@ -208,7 +208,7 @@
       <HintPath>..\..\packages\AWSSDK.IdentityManagement.3.3.3.5\lib\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.GameLift">
-      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.4.6\lib\net35\AWSSDK.GameLift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.GameLift.3.3.5\lib\net35\AWSSDK.GameLift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>..\..\packages\AWSSDK.ElasticTranscoder.3.3.1.14\lib\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
@@ -277,16 +277,16 @@
       <HintPath>..\..\packages\AWSSDK.CodePipeline.3.3.0.19\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
-      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.3.10\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.4\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
       <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.1.10\lib\net35\AWSSDK.CodeCommit.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.2.12\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatchLogs.3.3.2.13\lib\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchEvents">
-      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.1.9\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.1.10\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
       <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.2.6\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
@@ -322,7 +322,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.3.7\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
-      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.18\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.19\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
       <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.2.7\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>

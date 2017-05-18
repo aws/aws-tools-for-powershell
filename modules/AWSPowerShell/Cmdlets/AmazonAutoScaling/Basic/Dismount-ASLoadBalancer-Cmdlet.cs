@@ -28,12 +28,12 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Detaches one or more Classic load balancers from the specified Auto Scaling group.
+    /// Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
-    /// Note that this operation detaches only Classic load balancers. If you have Application
-    /// load balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
+    /// Note that this operation detaches only Classic Load Balancers. If you have Application
+    /// Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
     /// </para><para>
     /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
