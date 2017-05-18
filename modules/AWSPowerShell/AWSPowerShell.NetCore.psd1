@@ -7,6 +7,8 @@
 # Script module or binary module file associated with this manifest
 ModuleToProcess = 'AWSPowerShell.NetCore.dll'
 
+CompatiblePSEditions = @('Core')
+
 # Version number of this module.
 ModuleVersion = '3.0.0.0'
 
