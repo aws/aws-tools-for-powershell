@@ -68,6 +68,7 @@
     <ServiceOperation MethodName="IsVpcPeered" Verb="Test" />
     <ServiceOperation MethodName="OpenInstancePublicPorts" Noun="InstancePublicPort" PipelineParameter="InstanceName" />
     <ServiceOperation MethodName="PeerVpc" Verb="Add" Noun="PeerVpc" />
+    <ServiceOperation MethodName="PutInstancePublicPorts" Verb="Set" Noun="InstancePublicPort" PipelineParameter="InstanceName" />
     <ServiceOperation MethodName="RebootInstance" Verb="Restart" />
     <ServiceOperation MethodName="ReleaseStaticIp" Verb="Remove" />
     <ServiceOperation MethodName="StartInstance" />

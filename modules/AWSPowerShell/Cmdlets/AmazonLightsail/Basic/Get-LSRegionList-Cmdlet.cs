@@ -28,7 +28,8 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns a list of all valid regions for Amazon Lightsail.
+    /// Returns a list of all valid regions for Amazon Lightsail. Use the <code>include availability
+    /// zones</code> parameter to also return the availability zones in a region.
     /// </summary>
     [Cmdlet("Get", "LSRegionList")]
     [OutputType("Amazon.Lightsail.Model.Region")]

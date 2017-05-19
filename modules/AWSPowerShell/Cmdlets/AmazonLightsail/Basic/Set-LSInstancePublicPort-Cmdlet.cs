@@ -28,31 +28,59 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns the port states for a specific virtual private server, or <i>instance</i>.
+    /// Sets the specified open ports for an Amazon Lightsail instance, and closes all ports
+    /// for every protocol not included in the current request.
     /// </summary>
-    [Cmdlet("Get", "LSInstancePortStateList")]
-    [OutputType("Amazon.Lightsail.Model.InstancePortState")]
-    [AWSCmdlet("Invokes the GetInstancePortStates operation against Amazon Lightsail.", Operation = new[] {"GetInstancePortStates"})]
-    [AWSCmdletOutput("Amazon.Lightsail.Model.InstancePortState",
-        "This cmdlet returns a collection of InstancePortState objects.",
-        "The service call response (type Amazon.Lightsail.Model.GetInstancePortStatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "LSInstancePublicPort", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Lightsail.Model.Operation")]
+    [AWSCmdlet("Invokes the PutInstancePublicPorts operation against Amazon Lightsail.", Operation = new[] {"PutInstancePublicPorts"})]
+    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
+        "This cmdlet returns a Operation object.",
+        "The service call response (type Amazon.Lightsail.Model.PutInstancePublicPortsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLSInstancePortStateListCmdlet : AmazonLightsailClientCmdlet, IExecutor
+    public partial class SetLSInstancePublicPortCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the instance.</para>
+        /// <para>The Lightsail instance name of the public port(s) you are setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceName { get; set; }
         #endregion
         
+        #region Parameter PortInfo
+        /// <summary>
+        /// <para>
+        /// <para>Specifies information about the public port(s).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PortInfos")]
+        public Amazon.Lightsail.Model.PortInfo[] PortInfo { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-LSInstancePublicPort (PutInstancePublicPorts)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -64,6 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             PreExecutionContextLoad(context);
             
             context.InstanceName = this.InstanceName;
+            if (this.PortInfo != null)
+            {
+                context.PortInfos = new List<Amazon.Lightsail.Model.PortInfo>(this.PortInfo);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -78,11 +110,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lightsail.Model.GetInstancePortStatesRequest();
+            var request = new Amazon.Lightsail.Model.PutInstancePublicPortsRequest();
             
             if (cmdletContext.InstanceName != null)
             {
                 request.InstanceName = cmdletContext.InstanceName;
+            }
+            if (cmdletContext.PortInfos != null)
+            {
+                request.PortInfos = cmdletContext.PortInfos;
             }
             
             CmdletOutput output;
@@ -93,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PortStates;
+                object pipelineOutput = response.Operation;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -118,14 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private Amazon.Lightsail.Model.GetInstancePortStatesResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.GetInstancePortStatesRequest request)
+        private Amazon.Lightsail.Model.PutInstancePublicPortsResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.PutInstancePublicPortsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "GetInstancePortStates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "PutInstancePublicPorts");
             #if DESKTOP
-            return client.GetInstancePortStates(request);
+            return client.PutInstancePublicPorts(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetInstancePortStatesAsync(request);
+            var task = client.PutInstancePublicPortsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -137,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         internal class CmdletContext : ExecutorContext
         {
             public System.String InstanceName { get; set; }
+            public List<Amazon.Lightsail.Model.PortInfo> PortInfos { get; set; }
         }
         
     }

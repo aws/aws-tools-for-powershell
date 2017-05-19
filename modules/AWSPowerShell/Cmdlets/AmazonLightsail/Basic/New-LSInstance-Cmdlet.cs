@@ -44,7 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The Availability Zone in which to create your instance. Use the following format:
-        /// <code>us-east-1a</code> (case sensitive).</para>
+        /// <code>us-east-1a</code> (case sensitive). You can get a list of availability zones
+        /// by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
+        /// regions</a> operation. Be sure to add the <code>include availability zones</code>
+        /// parameter to your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

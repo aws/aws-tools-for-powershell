@@ -65,7 +65,7 @@
 		"AWSSDK.Lambda": "3.3.6.2",
 		"AWSSDK.Lex": "3.3.1.6",
 		"AWSSDK.LexModelBuildingService": "3.3.1",
-		"AWSSDK.Lightsail": "3.3.0.16",
+		"AWSSDK.Lightsail": "3.3.1",
 		"AWSSDK.MachineLearning": "3.3.0.17",
 		"AWSSDK.MarketplaceEntitlementService": "3.3.0.2",
 		"AWSSDK.MTurk": "3.3.0.10",

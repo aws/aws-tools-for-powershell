@@ -2762,6 +2762,7 @@ Set-Alias -Name LS-ImportKeyPair -Value Import-LSKeyPair
 Set-Alias -Name LS-IsVpcPeered -Value Test-LSVpcPeered
 Set-Alias -Name LS-OpenInstancePublicPorts -Value Open-LSInstancePublicPort
 Set-Alias -Name LS-PeerVpc -Value Add-LSPeerVpc
+Set-Alias -Name LS-PutInstancePublicPorts -Value Set-LSInstancePublicPort
 Set-Alias -Name LS-RebootInstance -Value Restart-LSInstance
 Set-Alias -Name LS-ReleaseStaticIp -Value Remove-LSStaticIp
 Set-Alias -Name LS-StartInstance -Value Start-LSInstance
